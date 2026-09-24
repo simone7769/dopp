@@ -1,0 +1,246 @@
+/* ============================================================
+   PRODOTTO.CSS — Stili specifici della scheda prodotto (PDP)
+   per prodotto.html, prodotto1.html, prodotto2.html.
+
+   Gli stili di base (reset, header, footer, drawer) arrivano
+   dal <link> a collezione.css negli HTML — NON da @import.
+   ============================================================ */
+
+/* ============================================
+   SCHEDA PRODOTTO (PDP)
+   ============================================ */
+.pdp-wrap {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 200px 50px 90px;
+  display: grid;
+  grid-template-columns: 1.3fr 0.9fr;
+  gap: 70px;
+  align-items: start;
+}
+
+.pdp-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.pdp-gallery img,
+.pdp-gallery video {
+  width: 100%;
+  height: auto;
+  display: block;
+  background: var(--paper);
+}
+
+.pdp-info {
+  position: sticky;
+  top: 180px;
+}
+
+.pdp-collection {
+  font-family: var(--sans);
+  font-size: var(--fs-11);
+  letter-spacing: var(--tr-2);
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+}
+
+.pdp-title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(27px, 2vw, 30px);
+  line-height: 1.3;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+
+.pdp-price {
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 300;
+  letter-spacing: var(--tr-03);
+  color: var(--ink);
+  margin-bottom: 24px;
+}
+
+.pdp-desc {
+  font-family: var(--sans);
+  font-size: var(--fs-13);
+  font-weight: 300;
+  line-height: 1.75;
+  color: #4a463f;
+  max-width: 46ch;
+  margin-bottom: 18px;
+}
+
+.pdp-composition {
+  font-family: var(--sans);
+  font-size: var(--fs-11);
+  letter-spacing: var(--tr-05);
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 28px;
+}
+
+.pdp-block-label {
+  font-family: var(--sans);
+  font-size: var(--fs-11);
+  letter-spacing: var(--tr-1);
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+
+.pdp-colors {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+.pdp-colors button {
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  padding: 2px;
+  cursor: pointer;
+  background: transparent;
+}
+.pdp-colors button span {
+  display: block;
+  width: 100%; height: 100%;
+  border-radius: 50%;
+}
+.pdp-colors button.selected { border-color: var(--ink); }
+
+.pdp-sizes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.pdp-sizes button {
+  min-width: 46px;
+  height: 40px;
+  padding: 0 10px;
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: var(--fs-12);
+  cursor: pointer;
+  transition: border-color var(--t-fast) var(--ease), color var(--t-fast) var(--ease), background var(--t-fast) var(--ease);
+}
+.pdp-sizes button:hover { border-color: var(--ink); }
+.pdp-sizes button.selected { background: var(--ink); border-color: var(--ink); color: #fff; }
+.pdp-sizes button.disabled {
+  color: #c9c3b8;
+  border-color: var(--line);
+  cursor: not-allowed;
+  text-decoration: line-through;
+}
+
+.pdp-size-guide {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: var(--fs-11);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  color: var(--muted);
+  margin-bottom: 26px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+}
+.pdp-size-guide:hover { color: var(--ink); }
+
+.pdp-actions {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 34px;
+}
+.pdp-add-cart {
+  flex: 1;
+  height: 52px;
+  background: var(--ink);
+  color: #fff;
+  border: 1px solid var(--ink);
+  font-family: var(--sans);
+  font-size: var(--fs-12);
+  letter-spacing: var(--tr-2);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background var(--t-base) var(--ease), color var(--t-base) var(--ease);
+}
+.pdp-add-cart:hover { background: transparent; color: var(--ink); }
+.pdp-wish-btn {
+  width: 52px; height: 52px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border-color var(--t-fast) var(--ease);
+}
+.pdp-wish-btn:hover { border-color: var(--ink); }
+.pdp-wish-btn svg { width: 19px; height: 19px; }
+
+.pdp-accordion { border-top: 1px solid var(--line); }
+.pdp-accordion details { border-bottom: 1px solid var(--line); }
+.pdp-accordion summary {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 2px;
+  font-family: var(--sans);
+  font-size: var(--fs-12);
+  letter-spacing: var(--tr-1);
+  text-transform: uppercase;
+  color: var(--ink);
+  cursor: pointer;
+}
+.pdp-accordion summary::-webkit-details-marker { display: none; }
+.pdp-accordion summary::after {
+  content: '+';
+  font-size: 18px;
+  font-weight: 300;
+  color: var(--muted);
+}
+.pdp-accordion details[open] summary::after { content: '–'; }
+.pdp-accordion .pdp-accordion-body {
+  padding: 0 2px 20px;
+  font-family: var(--sans);
+  font-size: var(--fs-13);
+  font-weight: 300;
+  line-height: 1.8;
+  color: #4a463f;
+}
+.pdp-accordion .pdp-accordion-body ul { padding-left: 18px; }
+.pdp-accordion .pdp-accordion-body li { margin-bottom: 4px; }
+
+.pdp-related {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 20px 50px 90px;
+}
+.pdp-related h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: var(--fs-26);
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+@media (max-width: 1200px) {
+  .pdp-wrap { padding: 190px 30px 70px; gap: 50px; }
+}
+
+@media (max-width: 900px) {
+  .pdp-wrap { grid-template-columns: 1fr; padding: 150px 20px 60px; gap: 30px; }
+  .pdp-info { position: static; }
+  .pdp-related { padding: 10px 20px 60px; }
+}
+
