@@ -6,13 +6,10 @@
 <title>Doppelgänger — Boutique Online</title>
 <link rel="icon" type="image/svg+xml" href="images/logo_page.svg">
 
-<!-- Sfondo scuro provvisorio (uguale all'hero) finché i CSS non sono caricati: niente bagliore chiaro -->
-<style id="boot-bg">html { background: #1f1f1f; }</style>
-
 <!-- I tuoi CSS per primi -->
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/home.css">
-<script>/* parte solo dopo che i CSS qui sopra sono caricati: il body non viene disegnato senza stile */ var bootBg = document.getElementById("boot-bg"); if (bootBg) bootBg.remove();</script>
+<script>/* parte solo dopo che i CSS qui sopra sono caricati: il body non viene disegnato senza stile */ document.documentElement.setAttribute("data-css", "ready");</script>
 
 <!-- Google Fonts non bloccante -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
