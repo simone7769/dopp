@@ -1036,7 +1036,7 @@ header.menu-open .topbar-message {
   margin-top: auto;
   position: sticky;
   bottom: 0;
-  background: #fff;
+  background: #faf8f5;      /* ← era #fff */
   padding: 18px 0 16px;
   border-top: 1px solid var(--line);
   display: flex;
@@ -1053,7 +1053,7 @@ header.menu-open .topbar-message {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  background: #fff;
+  background: #faf8f5;      /* ← era #fff */
   border-top: none;
 }
 .cart-express { text-align: center; font-size: 0.78rem; color: #555; margin: 2px 0; }
@@ -1305,7 +1305,7 @@ header.menu-open .topbar-message {
   flex-shrink: 0;
   padding: 16px 26px max(26px, env(safe-area-inset-bottom));
   border-top: 1px solid var(--line);
-  background: #fff;
+  background: #faf8f5;      /* ← era #fff */
 }
 .stores-btn { display: block; text-align: center; text-decoration: none; }
 
@@ -1865,3 +1865,23 @@ footer {
   overflow: visible;
 }
 .touch-device .mobile-menu { padding-top: 105px; }
+
+
+/* ============================================================
+   UNIFORMAZIONE PANNELLI → crema caldo #faf8f5
+   Sovrascrive i precedenti #fff di cart-total, cart-footer,
+   stores-footer e campi input.
+   ============================================================ */
+.cart-total,
+.cart-footer,
+.stores-footer {
+  background: #faf8f5;
+}
+
+.select-wrapper select,
+.login-field input,
+.contact-field input,
+.contact-field textarea {
+  background: #faf8f5;
+  border-color: #d8d3c8;   /* bordo più visibile sul crema */
+}
