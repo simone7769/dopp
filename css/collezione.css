@@ -1,28 +1,55 @@
-/* ============================================================
-   COLLEZIONE.CSS — Stili esclusivi di ai-2026.html e delle
-   pagine prodotto per la parte "collezione" / griglia prodotti.
-   ============================================================ */
-
 /* ============================================
    HERO / TITOLO COLLEZIONE
    ============================================ */
 .hero {
   position: relative;
-  padding: 200px 50px 20px;
+  z-index: 1;
+  min-height: auto;
+  display: block;
+  padding: 60px 50px 20px;
   text-align: center;
-  background-color: var(--paper);
+  background-color: #fcfcfb;
+  color: #2b2b2b;
 }
-.hero-content {
-  max-width: 1000px;
+/* Il contenitore compensa l'header fixed UNA VOLTA SOLA */
+.page {
+  padding-top: var(--header-h, 170px);
+}
+
+.hero-inner {
   margin: 0 auto;
+  max-width: 900px;
 }
-.hero-content h1 {
+
+.hero h1 {
   font-family: var(--serif);
-  font-size: var(--fs-26);
   font-weight: 400;
+  font-size: var(--fs-12);
   letter-spacing: var(--tr-3);
-  line-height: 1.2;
+  text-transform: uppercase;
+  line-height: 1.5;
   color: var(--ink);
+  opacity: 1;
+  margin: 0;
+}
+.hero h1 .hero-line-main,
+.hero h1 .hero-line-sub {
+  font-weight: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+.hero h1 .hero-line-main::after {
+  content: " ";
+}
+@media (max-width: 1100px) {
+  .hero {
+    padding: 40px 30px 15px;
+    min-height: auto;
+  }
+  .hero h1 {
+    white-space: normal;
+    font-size: var(--fs-11);
+  }
 }
 
 /* ============================================
@@ -33,6 +60,7 @@
   max-width: 1600px;
   margin: 0 auto;
   padding: 20px 50px 90px;
+  padding-top: 20px;   /* ← aggiunto: stacco dall'hero */
 }
 .filtri-bar {
   display: flex;
@@ -41,7 +69,7 @@
   gap: 10px;
   padding-bottom: 24px;
   font-family: var(--sans);
-  font-size: var(--fs-12);
+  font-size: 14px;
   letter-spacing: var(--tr-1);
   text-transform: uppercase;
   color: var(--ink);
@@ -162,7 +190,7 @@
   border: 1px solid var(--ink);
   color: var(--ink);
   font-family: var(--sans);
-  font-size: var(--fs-11);
+  font-size: 13px;
   font-weight: 400;
   letter-spacing: var(--tr-2);
   text-transform: uppercase;
@@ -203,7 +231,6 @@ header.scrolled .topbar {
    RESPONSIVE
    ============================================ */
 @media (max-width: 1200px) {
-  .hero { padding: 140px 30px 0; }
   .products-wrap { padding: 40px 30px 70px; }
   .products-grid { gap: 32px 20px; }
 }
@@ -213,9 +240,6 @@ header.scrolled .topbar {
 }
 
 @media (max-width: 900px) {
-  .hero { padding: 130px 20px 0; }
-  .hero-content h1 { font-size: var(--fs-22); }
-
   .products-wrap { padding: 30px 16px 60px; }
   .products-grid { grid-template-columns: repeat(2, 1fr); gap: 24px 14px; }
   .product-card .wish { width: 34px; height: 34px; top: 12px; right: 12px; }
@@ -247,7 +271,6 @@ header .nav-center a {
 
 header .nav-center a.active {
   color: var(--gold);
-  border-bottom-color: var(--gold);
 }
 
 header .nav-icon-link {
@@ -261,3 +284,6 @@ header .topbar-message {
 header .topbar {
   border-bottom: 1px solid var(--gold);
 }
+
+
+

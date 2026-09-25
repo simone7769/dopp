@@ -1,6 +1,6 @@
 /* ============================================================
    BASE.CSS — Foglio di stile condiviso da tutte le pagine
-   Contiene: reset, variabili, header, megamenu, ricerca, drawer,
+   Contiene: reset, variabili, header, megamenu, drawer,
    footer, bottoni comuni.
    NON contiene: sezioni esclusive di una singola pagina.
    ============================================================ */
@@ -50,6 +50,7 @@
 
   --topbar-h: 33px;
   --drawer-title-h: 64px;
+  --header-h: 170px;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -58,8 +59,6 @@
 }
 
 html {
-  scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
   scroll-padding-top: 0;
 }
 
@@ -142,7 +141,6 @@ header.scrolled .nav-center a {
 }
 header.scrolled .nav-center a.active {
   color: var(--gold) !important;
-  border-bottom-color: var(--gold) !important;
 }
 header.scrolled .nav-icon-link {
   color: var(--ink) !important;
@@ -189,7 +187,6 @@ header.menu-open .nav-icon-link {
 }
 header.menu-open .nav-center a.active {
   color: var(--gold);
-  border-bottom-color: var(--gold);
 }
 header.menu-open .topbar-message {
   color: var(--ink);
@@ -283,6 +280,7 @@ header.menu-open .topbar-message {
   justify-content: center;
 }
 .nav-center a {
+  position: relative;
   text-decoration: none;
   color: #fff;
   font-family: var(--sans);
@@ -290,17 +288,39 @@ header.menu-open .topbar-message {
   font-weight: 400;
   letter-spacing: var(--tr-1);
   text-transform: uppercase;
-  transition: color var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease), opacity var(--t-fast) var(--ease), font-size var(--t-base) var(--ease);
   white-space: nowrap;
   padding-bottom: 2px;
-  border-bottom: 1px solid transparent;
+  transition: color 0.15s var(--ease);
 }
-.nav-center a:hover { opacity: 0.7; }
+
+/* Linea oro — animata con transform (fluida e reattiva) */
+.nav-center a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.2s var(--ease-out);
+}
+
+.nav-center a:hover {
+  color: var(--gold);
+}
+.nav-center a:hover::after {
+  transform: scaleX(1);
+}
+
 .nav-center a.active {
   color: var(--gold);
-  border-bottom-color: var(--gold);
-  opacity: 1;
 }
+.nav-center a.active::after {
+  transform: scaleX(1);
+}
+
 .nav-icon-link {
   position: relative;
   display: inline-flex;
@@ -364,10 +384,9 @@ header.menu-open .topbar-message {
 .header-actions { display: none; align-items: center; gap: 18px; }
 
 /* ============================================================
-   MEGAMENU (Abbigliamento, Accessori, Outlet) + RICERCA
+   MEGAMENU
    ============================================================ */
-.megamenu,
-.search-megamenu {
+.megamenu {
   position: absolute;
   top: 100%;
   left: 0;
@@ -384,22 +403,14 @@ header.menu-open .topbar-message {
   color: var(--ink);
   min-height: 420px;
 }
-.megamenu.open,
-.search-megamenu.open {
+.megamenu.open {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
 }
-.megamenu-inner,
-.search-mm-inner { max-width: 1500px; margin: 0 auto; }
-.megamenu-inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 2.4fr;
-  gap: 60px;
-  align-items: start;
-}
-.megamenu-col h4,
-.search-mm-col h4 {
+.megamenu-inner { max-width: 1500px; margin: 0 auto; }
+
+.megamenu-col h4 {
   font-family: var(--sans);
   font-size: var(--fs-12);
   font-weight: 600;
@@ -413,7 +424,7 @@ header.menu-open .topbar-message {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
 }
 .megamenu-col ul a {
   font-family: var(--sans);
@@ -425,17 +436,6 @@ header.menu-open .topbar-message {
   transition: color var(--t-fast) var(--ease);
 }
 .megamenu-col ul a:hover { color: var(--gold); }
-.search-mm-col a {
-  font-family: var(--sans);
-  font-size: var(--fs-14);
-  font-weight: 400;
-  letter-spacing: var(--tr-05);
-  text-transform: none;
-  color: #333;
-  text-decoration: none;
-  transition: color var(--t-fast) var(--ease);
-}
-.search-mm-col a:hover { color: var(--gold); }
 .megamenu-images {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -454,111 +454,12 @@ header.menu-open .topbar-message {
 .mm-card .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .mm-card h5 {
   font-family: var(--sans);
-  font-size: var(--fs-12);
+  font-size: var(--fs-11);
   font-weight: 400;
   letter-spacing: var(--tr-03);
   margin-top: 12px;
   text-align: center;
   color: var(--ink);
-}
-
-#megaAccessori .megamenu-inner,
-#megaOutlet .megamenu-inner {
-  grid-template-columns: 1fr 1fr 3.4fr;
-  gap: 50px;
-}
-#megaAccessori .megamenu-images,
-#megaOutlet .megamenu-images { grid-column: 3; gap: 22px; }
-@media (max-width: 1200px) {
-  #megaAccessori .megamenu-inner,
-  #megaOutlet .megamenu-inner { grid-template-columns: 1fr 1fr 2.6fr; gap: 30px; }
-  #megaAccessori .megamenu-images,
-  #megaOutlet .megamenu-images { margin-top: 0; gap: 16px; }
-}
-
-/* Search megamenu (layout desktop) */
-.search-mm-inner { display: flex; flex-direction: column; }
-.search-mm-bar {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  border-bottom: 1px solid var(--line);
-  padding-bottom: 12px;
-  margin-bottom: 32px;
-}
-.search-mm-bar svg { width: 18px; height: 18px; flex-shrink: 0; color: var(--ink); }
-.search-mm-bar input {
-  flex: 1;
-  border: none;
-  outline: none;
-  font-family: var(--sans);
-  font-size: var(--fs-14);
-  font-weight: 300;
-  color: var(--ink);
-  background: transparent;
-  padding: 4px 0;
-}
-.search-mm-bar input::placeholder { color: #999; font-weight: 300; }
-.search-mm-close {
-  width: 24px;
-  height: 24px;
-  border: none;
-  background: transparent;
-  color: var(--ink);
-  font-size: 18px;
-  line-height: 1;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-}
-.search-mm-close:hover { opacity: 0.6; }
-.search-mm-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1.6fr;
-  gap: 60px;
-  align-items: start;
-}
-.search-mm-col ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-.suggestions-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
-}
-.suggestions-grid a {
-  display: block;
-  aspect-ratio: 3 / 4;
-  overflow: hidden;
-  background: var(--paper);
-}
-.suggestions-grid img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform var(--t-slow) var(--ease);
-}
-.suggestions-grid a:hover img { transform: scale(1.04); }
-
-/* Layout desktop della ricerca: solo ≥ 1025px */
-@media (min-width: 1025px) {
-  .search-mm-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 380px;
-    column-gap: 50px;
-    align-items: start;
-  }
-  .search-mm-bar { grid-column: 1 / 4; grid-row: 1; }
-  .search-mm-grid { display: contents; }
-  .search-mm-suggestions { grid-column: 4; grid-row: 1 / span 2; }
 }
 
 /* ============================================================
@@ -1571,8 +1472,6 @@ footer {
    RESPONSIVE COMUNE
    ============================================================ */
 @media (max-width: 1200px) {
-  .megamenu-inner { grid-template-columns: 1fr 1fr 1fr 1fr; gap: 30px; }
-  .megamenu-images { grid-column: 1 / -1; margin-top: 30px; }
   .footer-main { grid-template-columns: 1fr 1fr 1fr; gap: 40px; }
   .footer-newsletter { grid-column: 1 / -1; }
   .nav-center { gap: 20px; }
@@ -1634,100 +1533,6 @@ footer {
 
   .megamenu { display: none; }
 
-  /* Ricerca: pannello ancorato sotto l'header (mai a schermo intero), fisarmonica con scroll interno se serve */
-  .search-megamenu {
-    padding: 24px 0 0;
-    max-height: min(600px, calc(100vh - 120px));
-    max-height: min(600px, calc(100dvh - 120px));
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    min-height: 0;
-    background: #faf8f5;
-  }
-  .search-mm-bar {
-    margin: 0 24px 28px;
-    position: sticky;
-    top: 0;
-    z-index: 2;
-    background: #faf8f5;
-    padding-top: 4px;
-  }
-  .search-mm-grid {
-    grid-template-columns: 1fr;
-    gap: 0;
-    border-top: 0.5px solid var(--gold);
-  }
-  .search-mm-suggestions {
-    grid-column: span 1;
-    display: block !important;
-    visibility: visible !important;
-    height: auto !important;
-  }
-  .search-mm-suggestions .suggestions-grid {
-    padding: 24px 24px 0;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-  }
-  .search-mm-suggestions:not(.open) .suggestions-grid { display: none; }
-  .search-mm-suggestions.open .suggestions-grid { display: grid; }
-
-  /* Titoli colonna (UOMO, ACCESSORI, OUTLET): MAIUSCOLI */
-  .search-mm-col h4 {
-    display: block;
-    margin: 0;
-    padding: 20px 24px;
-    text-align: center;
-    font-family: var(--sans);
-    font-size: var(--fs-13);
-    letter-spacing: var(--tr-2);
-    text-transform: uppercase;
-    font-weight: 400;
-    color: var(--ink);
-    border-bottom: 0.5px solid var(--gold);
-    transition: color var(--t-fast) var(--ease);
-  }
-  .search-mm-col h4:hover { color: var(--gold); }
-
-  /* Voci elenco: minuscole, come i sottomenu del burger */
-  .search-mm-col a {
-    display: block;
-    margin: 0;
-    padding: 20px 24px;
-    text-align: center;
-    font-family: var(--sans);
-    font-size: var(--fs-13);
-    letter-spacing: var(--tr-2);
-    text-transform: none;
-    font-weight: 300;
-    color: var(--ink);
-  }
-  .search-mm-col a:hover { color: var(--gold); }
-  .search-mm-col ul { gap: 0; }
-  .search-mm-col li { border-bottom: none; }
-  .search-mm-suggestions .suggestions-grid { padding: 24px 24px 0; }
-  .search-mm-suggestions .suggestions-grid a {
-    padding: 0;
-    letter-spacing: 0;
-    line-height: 0;
-  }
-
-  .search-mm-col h4 { position: relative; cursor: pointer; -webkit-tap-highlight-color: transparent; }
-  .search-mm-col h4::after {
-    content: "";
-    position: absolute;
-    right: 26px;
-    top: 50%;
-    width: 7px;
-    height: 7px;
-    border-right: 1.2px solid currentColor;
-    border-bottom: 1.2px solid currentColor;
-    transform: translateY(-70%) rotate(45deg);
-    transition: transform var(--t-fast) var(--ease);
-  }
-  .search-mm-col.open h4::after { transform: translateY(-30%) rotate(-135deg); }
-  .search-mm-col:not(.open) ul,
-  .search-mm-col:not(.open) .suggestions-grid { display: none; }
-
   footer { padding: 60px 24px 24px; min-height: auto; }
   .footer-main { grid-template-columns: 1fr 1fr; gap: 30px; padding-bottom: 40px; }
   .footer-newsletter { grid-column: 1 / -1; }
@@ -1760,10 +1565,6 @@ footer {
 }
 
 @media (max-width: 640px) {
-  .search-mm-inner { padding: 0; min-height: auto; }
-  .search-mm-grid { grid-template-columns: 1fr; gap: 0; }
-  .search-mm-suggestions { grid-column: span 1; }
-  .suggestions-grid { grid-template-columns: repeat(2, 1fr); }
   .wishlist-drawer { width: 100vw; }
 }
 
@@ -1807,4 +1608,300 @@ footer {
   background: #faf8f5;
 }
 
+/* ============================================================
+   NUOVI MEGAMENU — struttura unificata
+   Titoli forti, categorie leggere, "Vedi tutti" in oro senza linea
+   ============================================================ */
 
+/* --- Abbigliamento e Accessori: 2 colonne link + 3 immagini --- */
+#megaAbbigliamento .megamenu-inner,
+#megaAccessori .megamenu-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr 3fr;
+  gap: 60px;
+  align-items: start;
+}
+#megaAbbigliamento .megamenu-images,
+#megaAccessori .megamenu-images {
+  grid-column: 3;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+/* --- Outlet: 1 colonna link + 4 immagini --- */
+#megaOutlet .megamenu-inner {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  gap: 60px;
+  align-items: start;
+}
+#megaOutlet .megamenu-images {
+  grid-column: 2;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+/* --- Titolo colonna (Abbigliamento / Accessori / Outlet / In Evidenza) --- */
+#megaAbbigliamento .megamenu-col h4,
+#megaAccessori .megamenu-col h4,
+#megaOutlet .megamenu-col h4 {
+  font-family: var(--sans);
+  font-size: var(--fs-11);
+  font-weight: 500;
+  letter-spacing: var(--tr-2);
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 0 0 20px;
+  padding: 0;
+}
+
+/* --- Categorie (voci elenco) --- */
+#megaAbbigliamento .megamenu-col ul,
+#megaAccessori .megamenu-col ul,
+#megaOutlet .megamenu-col ul { gap: 14px; }
+
+#megaAbbigliamento .megamenu-col ul a,
+#megaAccessori .megamenu-col ul a,
+#megaOutlet .megamenu-col ul a {
+  text-transform: uppercase;
+  letter-spacing: var(--tr-05);
+  font-size: var(--fs-11);
+  font-weight: 300;
+  color: var(--ink);
+}
+
+#megaAbbigliamento .megamenu-col ul a:hover,
+#megaAccessori .megamenu-col ul a:hover,
+#megaOutlet .megamenu-col ul a:hover {
+  color: var(--gold);
+}
+
+/* --- "Vedi tutti" — NIENTE LINEA ORO, solo colore e peso --- */
+.mm-see-all {
+  margin-top: 20px;
+  color: var(--gold) !important;
+  font-weight: 500 !important;
+  letter-spacing: var(--tr-1) !important;
+}
+.mm-see-all:hover { color: var(--ink) !important; }
+
+/* --- Altezza minima megamenu --- */
+.megamenu { min-height: 480px; }
+
+/* --- Outlet in nav: oro --- */
+.nav-outlet { color: var(--gold) !important; }
+header.scrolled .nav-outlet,
+header.menu-open .nav-outlet { color: var(--gold) !important; }
+
+/* --- Tablet: immagini sotto le colonne --- */
+@media (max-width: 1200px) {
+  #megaAbbigliamento .megamenu-inner,
+  #megaAccessori .megamenu-inner,
+  #megaOutlet .megamenu-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+  #megaAbbigliamento .megamenu-images,
+  #megaAccessori .megamenu-images,
+  #megaOutlet .megamenu-images {
+    grid-column: 1 / -1;
+    margin-top: 30px;
+    gap: 16px;
+  }
+}
+
+/* ============================================================
+   SEARCH DRAWER (destra)
+   ============================================================ */
+.search-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--t-base) var(--ease), visibility var(--t-base) var(--ease);
+  z-index: 1200;
+}
+.search-overlay.active { opacity: 1; visibility: visible; }
+
+.search-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  height: 100dvh;
+  width: 520px;
+  max-width: 94vw;
+  background: #faf8f5;
+  z-index: 1300;
+  transform: translateX(100%);
+  transition: transform var(--t-base) var(--ease-out);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: var(--sans);
+  color: var(--ink);
+}
+.search-drawer.open { transform: translateX(0); }
+
+.search-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  margin-top: calc(var(--topbar-h) - 1px);
+  height: var(--drawer-title-h);
+  padding: 0 26px;
+  border-top: 1px solid var(--gold);
+  flex-shrink: 0;
+}
+.search-header-title { display: flex; align-items: center; gap: 10px; }
+.search-header-title svg { width: 20px; height: 20px; }
+.search-header-title h3 {
+  font-family: var(--sans);
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0;
+}
+.search-close {
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: transparent;
+  color: var(--ink);
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity var(--t-fast) var(--ease);
+}
+.search-close:hover { opacity: 0.6; }
+
+.search-drawer-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 0 26px max(40px, env(safe-area-inset-bottom));
+  -webkit-overflow-scrolling: touch;
+}
+.search-drawer-body::-webkit-scrollbar { width: 6px; }
+.search-drawer-body::-webkit-scrollbar-thumb { background: #ddd; }
+
+.search-drawer-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 12px;
+  margin-bottom: 28px;
+
+  /* Barra sticky: resta fissa in alto mentre scorri i risultati */
+  position: sticky;
+  top: 0;
+  background: #faf8f5;
+  z-index: 2;
+  padding-top: 20px;
+}
+.search-drawer-bar svg { width: 18px; height: 18px; color: var(--ink); flex-shrink: 0; }
+.search-drawer-bar input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: var(--sans);
+  font-size: 1rem;
+  color: var(--ink);
+  padding: 4px 0;
+}
+.search-drawer-bar input::placeholder { color: #999; }
+
+
+@media (max-width: 1024px) {
+  .search-drawer { width: 100vw; max-width: 100vw; }
+  .search-header { padding: 0 20px; }
+  .search-drawer-body { padding: 0 20px max(32px, env(safe-area-inset-bottom)); }
+}
+
+
+/* ============================================================
+   SEARCH — RISULTATI LIVE
+   ============================================================ */
+.search-results[hidden] { display: none; }
+
+.search-results-count {
+  font-family: var(--sans);
+  font-size: var(--fs-12);
+  font-weight: 400;
+  letter-spacing: var(--tr-05);
+  color: #666;
+  margin: 0 0 20px;
+  padding-bottom: 14px;
+  border-bottom: 0.5px solid var(--line);
+}
+
+.search-results-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px 14px;
+}
+
+.search-result-card {
+  display: block;
+  text-decoration: none;
+  color: var(--ink);
+  transition: opacity var(--t-fast) var(--ease);
+}
+.search-result-card:hover { opacity: 0.75; }
+
+.search-result-thumb {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: var(--paper);
+  margin-bottom: 10px;
+}
+.search-result-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--t-slow) var(--ease);
+}
+.search-result-card:hover .search-result-thumb img { transform: scale(1.04); }
+
+.search-result-card h6 {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 400;
+  line-height: 1.3;
+  margin: 0 0 4px;
+  color: var(--ink);
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.search-result-card p {
+  font-family: var(--sans);
+  font-size: 0.76rem;
+  font-weight: 400;
+  color: var(--ink);
+  margin: 0;
+}
+
+.search-results-empty {
+  font-family: var(--sans);
+  font-size: var(--fs-12);
+  font-weight: 300;
+  color: #777;
+  text-align: center;
+  padding: 40px 20px;
+  margin: 0;
+}
+.search-results-empty[hidden] { display: none; }

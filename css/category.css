@@ -54,10 +54,12 @@
 }
 
 .product-card.featured .featured-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 400;
-  font-size: clamp(24px, 2.5vw, 36px);
-  line-height: 1.1;
+  font-family: 'Jost', sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1.6;
   margin: 0 0 14px;
   color: #fff;
 }

@@ -3,16 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Doppelgänger — Essential</title>
+<title>Essential — Doppelgänger Roma</title>
 <link rel="icon" type="image/svg+xml" href="images/logo_page.svg">
 
-<!-- I CSS del sito per primi -->
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/collezione.css">
 <link rel="stylesheet" href="css/category.css">
-<script>/* parte solo dopo che i CSS qui sopra sono caricati: il body non viene disegnato senza stile */ document.documentElement.setAttribute("data-css", "ready");</script>
+<script>document.documentElement.setAttribute("data-css", "ready");</script>
 
-<!-- Google Fonts non bloccante -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Jost:wght@300;400;500&display=swap">
@@ -23,10 +21,10 @@
   <header id="header">
     <div class="topbar">
       <div class="topbar-messages">
-        <p class="topbar-message active">E-concierge disponibile ogni giorno, 9-19</p>
+        <p class="topbar-message active">Il lusso più accessibile al mondo — dal 1996</p>
+        <p class="topbar-message">E-concierge disponibile ogni giorno, 9-19</p>
         <p class="topbar-message">Iscriviti al Club: -20% + spedizione gratuita</p>
         <p class="topbar-message">Outlet -80%: Acquista ora!</p>
-        <p class="topbar-message">Scarica la nostra APP per un'esperienza unica</p>
         <p class="topbar-message">Sartoria in Boutique: prenota un appuntamento</p>
       </div>
     </div>
@@ -44,8 +42,8 @@
         </a>
         <a href="#" class="nav-icon-link" aria-label="Carrello">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg>
-      <span class="cart-badge">1</span>
-    </a>
+          <span class="cart-badge">1</span>
+        </a>
       </div>
     </div>
 
@@ -62,11 +60,10 @@
         </a>
       </div>
       <ul class="nav-center">
-        <li><a href="#">New in</a></li>
+        <li><a href="#">Nuovi Arrivi</a></li>
         <li><a href="#" id="linkAbbigliamento" aria-haspopup="true" aria-expanded="false">Abbigliamento</a></li>
-        <li><a href="#" id="linkAccessori" aria-haspopup="true" aria-expanded="false">Accessori e Scarpe</a></li>
-        <li><a href="#">Gift Card</a></li>
-        <li><a href="#" id="linkOutlet" aria-haspopup="true" aria-expanded="false">Outlet</a></li>
+        <li><a href="#" id="linkAccessori" aria-haspopup="true" aria-expanded="false">Accessori</a></li>
+        <li><a href="#" id="linkOutlet" class="nav-outlet" aria-haspopup="true" aria-expanded="false">Outlet</a></li>
       </ul>
       <div class="nav-right">
         <a href="#" class="nav-icon-link" aria-label="Cerca">
@@ -81,208 +78,141 @@
         </a>
         <a href="#" class="nav-icon-link" aria-label="Carrello">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg>
-      <span class="cart-badge">1</span>
-    </a>
+          <span class="cart-badge">1</span>
+        </a>
       </div>
     </nav>
 
+    <!-- MEGAMENU ABBIGLIAMENTO -->
     <div class="megamenu" id="megaAbbigliamento">
       <div class="megamenu-inner">
         <div class="megamenu-col">
-          <h4>Abiti</h4>
+          <h4>Abbigliamento</h4>
           <ul>
-            <li><a href="#">Abiti Componibili</a></li>
-            <li><a href="#">Abiti Monopetto</a></li>
-            <li><a href="#">Abiti Doppiopetto</a></li>
-          </ul>
-                    <h4 class="secondary">Camicie</h4>
-          <ul>
-            <li><a href="#">Camicie Classiche</a></li>
-            <li><a href="#">Camicie Casual</a></li>
-          </ul>
-        </div>
-        <div class="megamenu-col">
-          <h4>Pantaloni</h4>
-          <ul>
-            <li><a href="#">Pantaloni Chino</a></li>
-            <li><a href="#">Pantaloni Classici</a></li>
-            <li><a href="#">Jeans</a></li>
-          </ul>
-          <h4 class="secondary">Maglie</h4>
-          <ul>
-            <li><a href="#">Maglie Girocollo</a></li>
+            <li><a href="#">Cappotti</a></li>
+            <li><a href="#">Giacche</a></li>
+            <li><a href="#">Abiti</a></li>
+            <li><a href="#">Maglieria</a></li>
+            <li><a href="#">Camicie</a></li>
+            <li><a href="#">T-shirt &amp; Polo</a></li>
+            <li><a href="#">Pantaloni</a></li>
+            <li><a href="#">Denim</a></li>
+            <li><a href="#" class="mm-see-all">Vedi tutti</a></li>
           </ul>
         </div>
         <div class="megamenu-col">
-          <h4>Giacche</h4>
+          <h4>In Evidenza</h4>
           <ul>
-            <li><a href="#">Monopetto</a></li>
-            <li><a href="#">Doppiopetto</a></li>
-            <li><a href="#">Giacche in maglia</a></li>
-          </ul>
-          <h4 class="secondary">Giubbotti</h4>
-          <ul>
-            <li><a href="#">Giubbotti Tessuto Tecnico</a></li>
-            <li><a href="#">Impermeabili</a></li>
-          </ul>
-        </div>
-        <div class="megamenu-col">
-          <h4>Polo e T-Shirt</h4>
-          <ul>
-            <li><a href="#">T-shirt</a></li>
-            <li><a href="#">Polo</a></li>
-            <li><a href="#">Polo in Maglia</a></li>
-          </ul>
-          <h4 class="secondary">In Evidenza</h4>
-          <ul>
-            <li><a href="#">Cerimonia e Party</a></li>
-            <li><a href="#">Essential Must Have</a></li>
-            <li><a href="#">Outfit Scelti per Te</a></li>
+            <li><a href="ai-2026.html">AI 2026</a></li>
+            <li><a href="essential.html">Essential</a></li>
+            <li><a href="cerimonia.html">Cerimonia</a></li>
+            <li><a href="#">Must Have</a></li>
           </ul>
         </div>
         <div class="megamenu-images">
-          <a href="#" class="mm-card"><div class="thumb"><img src="images/bm.webp" alt="Essential Must Have"></div><h5>Essential Must Have</h5></a>
-          <a href="#" class="mm-card"><div class="thumb"><img src="images/ceri.webp" alt="Cerimonia"></div><h5>Cerimonia</h5></a>
-          <a href="#" class="mm-card"><div class="thumb"><img src="images/z.webp" alt="Outlet -80%"></div><h5>Outlet -80%</h5></a>
+          <a href="#" class="mm-card"><div class="thumb"><img src="images/bm.webp" alt="Cappotti"></div><h5>Cappotti</h5></a>
+          <a href="ai-2026.html" class="mm-card"><div class="thumb"><img src="images/a.jpg" alt="AI 2026"></div><h5>AI 2026</h5></a>
+          <a href="cerimonia.html" class="mm-card"><div class="thumb"><img src="images/ceri.webp" alt="Cerimonia"></div><h5>Cerimonia</h5></a>
         </div>
       </div>
     </div>
 
+    <!-- MEGAMENU ACCESSORI -->
     <div class="megamenu" id="megaAccessori">
       <div class="megamenu-inner">
         <div class="megamenu-col">
-          <h4>Scarpe e Profumi</h4>
-          <ul><li><a href="#">Scarpe</a></li><li><a href="#">Profumi</a></li></ul>
-        </div>
-        <div class="megamenu-col">
           <h4>Accessori</h4>
           <ul>
-            <li><a href="#">Cravatte</a></li>
+            <li><a href="#">Scarpe</a></li>
             <li><a href="#">Cinture</a></li>
-            <li><a href="#">Calze</a></li>
-            <li><a href="#">Bretelle</a></li>
-            <li><a href="#">Gemelli</a></li>
-            <li><a href="#">Scatola Regalo</a></li>
+            <li><a href="#">Cravatte &amp; Pochette</a></li>
+            <li><a href="#">Pelletteria</a></li>
+            <li><a href="#">Gemelli &amp; Dettagli</a></li>
+            <li><a href="#">Profumi</a></li>
+            <li><a href="#" class="mm-see-all">Vedi tutti</a></li>
+          </ul>
+        </div>
+        <div class="megamenu-col">
+          <h4>In Evidenza</h4>
+          <ul>
+            <li><a href="#">Novità</a></li>
+            <li><a href="#">Must Have</a></li>
+            <li><a href="#">Best Seller</a></li>
           </ul>
         </div>
         <div class="megamenu-images">
           <a href="#" class="mm-card"><div class="thumb"><img src="images/ac1.webp" alt="Scarpe"></div><h5>Scarpe</h5></a>
           <a href="#" class="mm-card"><div class="thumb"><img src="images/ac2.webp" alt="Cravatte"></div><h5>Cravatte</h5></a>
-          <a href="#" class="mm-card"><div class="thumb"><img src="images/ac3.webp" alt="Gemelli"></div><h5>Gemelli</h5></a>
+          <a href="#" class="mm-card"><div class="thumb"><img src="images/ac3.webp" alt="Pelletteria"></div><h5>Pelletteria</h5></a>
         </div>
       </div>
     </div>
 
+    <!-- MEGAMENU OUTLET -->
     <div class="megamenu" id="megaOutlet">
       <div class="megamenu-inner">
         <div class="megamenu-col">
-          <h4>Uomo -80%</h4>
-          <ul><li><a href="#">Abbigliamento -80%</a></li><li><a href="#">Accessori -80%</a></li></ul>
+          <h4>Outlet</h4>
+          <ul>
+            <li><a href="#">Abbigliamento -80%</a></li>
+            <li><a href="#">Accessori -80%</a></li>
+            <li><a href="#">Back to Work</a></li>
+            <li><a href="#">Ultimi Pezzi</a></li>
+            <li><a href="#" class="mm-see-all">Vedi tutto l'outlet</a></li>
+          </ul>
         </div>
-        <div class="megamenu-col"><h4>Back to Work</h4></div>
         <div class="megamenu-images">
-          <a href="#" class="mm-card"><div class="thumb"><img src="images/z.webp" alt="Uomo -80%"></div><h5>Uomo -80%</h5></a>
+          <a href="#" class="mm-card"><div class="thumb"><img src="images/z.webp" alt="Abbigliamento -80%"></div><h5>Abbigliamento -80%</h5></a>
           <a href="#" class="mm-card"><div class="thumb"><img src="images/bk1.webp" alt="Back to Work"></div><h5>Back to Work</h5></a>
           <a href="#" class="mm-card"><div class="thumb"><img src="images/a80.webp" alt="Accessori -80%"></div><h5>Accessori -80%</h5></a>
-        </div>
-      </div>
-    </div>
-
-    <div class="search-megamenu" id="searchMegamenu">
-      <div class="search-mm-inner">
-        <div class="search-mm-bar">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
-          <input type="text" placeholder="Cosa stai cercando?" id="searchInput">
-          <button type="button" class="search-mm-close" id="closeSearch">&times;</button>
-        </div>
-        <div class="search-mm-grid">
-          <div class="search-mm-col">
-            <h4>UOMO</h4>
-            <ul>
-              <li><a href="#">Nuovi Arrivi</a></li>
-              <li><a href="#">Maglieria</a></li>
-              <li><a href="#">Cappotti e Giacche</a></li>
-              <li><a href="#">Calzature</a></li>
-              <li><a href="#">Accessori</a></li>
-            </ul>
-          </div>
-          <div class="search-mm-col">
-            <h4>ACCESSORI</h4>
-            <ul>
-              <li><a href="#">Scarpe</a></li>
-              <li><a href="#">Borse</a></li>
-              <li><a href="#">Cinture</a></li>
-              <li><a href="#">Piccola Pelletteria</a></li>
-            </ul>
-          </div>
-          <div class="search-mm-col">
-            <h4>OUTLET</h4>
-            <ul>
-              <li><a href="#">Sconti fino -80%</a></li>
-              <li><a href="#">Ultimi Pezzi</a></li>
-              <li><a href="#">Primavera/Estate</a></li>
-              <li><a href="#">Cerimonia</a></li>
-            </ul>
-          </div>
-          <div class="search-mm-col search-mm-suggestions">
-            <h4>I NOSTRI SUGGERIMENTI</h4>
-            <div class="suggestions-grid">
-              <a href="#"><img src="images/1.webp" alt="Pantalone uomo in denim" loading="lazy"></a>
-              <a href="#"><img src="images/3.webp" alt="Impermeabile uomo doppiopetto" loading="lazy"></a>
-              <a href="#"><img src="images/6b.webp" alt="Pantalone uomo chino classico" loading="lazy"></a>
-              <a href="#"><img src="images/9.webp" alt="Giacca uomo monopetto tinta in capo" loading="lazy"></a>
-              <a href="#"><img src="images/8b.webp" alt="Giubbotto uomo in simil camoscio" loading="lazy"></a>
-              <a href="#"><img src="images/sug.webp" alt="Scarpe uomo" loading="lazy"></a>
-            </div>
-          </div>
+          <a href="#" class="mm-card"><div class="thumb"><img src="images/bk1.webp" alt="Ultimi Pezzi"></div><h5>Ultimi Pezzi</h5></a>
         </div>
       </div>
     </div>
   </header>
 
+  <!-- MENU MOBILE -->
   <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
     <ul class="mobile-menu-list">
-    <li><a href="#">Nuovi Arrivi</a></li>
+      <li><a href="#">Nuovi Arrivi</a></li>
       <li class="has-sub">
         <button type="button" class="mobile-sub-toggle" aria-expanded="false">
           <span>Abbigliamento</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M6 9l6 6 6-6"/></svg>
         </button>
         <ul class="mobile-sub">
-          <li><a href="#">Abiti</a></li><li><a href="#">Camicie</a></li><li><a href="#">Pantaloni</a></li>
-          <li><a href="#">Maglie</a></li><li><a href="#">Giacche</a></li><li><a href="#">Giubbotti</a></li>
-          <li><a href="#">Polo e T-Shirt</a></li><li><a href="#">In Evidenza</a></li>
+          <li><a href="#">Cappotti</a></li><li><a href="#">Giacche</a></li><li><a href="#">Abiti</a></li>
+          <li><a href="#">Maglieria</a></li><li><a href="#">Camicie</a></li><li><a href="#">T-shirt &amp; Polo</a></li>
+          <li><a href="#">Pantaloni</a></li><li><a href="#">Denim</a></li>
         </ul>
       </li>
       <li class="has-sub">
         <button type="button" class="mobile-sub-toggle" aria-expanded="false">
-          <span>Accessori e Scarpe</span>
+          <span>Accessori</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M6 9l6 6 6-6"/></svg>
         </button>
         <ul class="mobile-sub">
-          <li><a href="#">Scarpe</a></li><li><a href="#">Profumi</a></li><li><a href="#">Cravatte</a></li>
-          <li><a href="#">Cinture</a></li><li><a href="#">Calze</a></li><li><a href="#">Bretelle</a></li>
-          <li><a href="#">Gemelli</a></li><li><a href="#">Scatola Regalo</a></li>
+          <li><a href="#">Scarpe</a></li><li><a href="#">Cinture</a></li><li><a href="#">Cravatte &amp; Pochette</a></li>
+          <li><a href="#">Pelletteria</a></li><li><a href="#">Gemelli &amp; Dettagli</a></li><li><a href="#">Profumi</a></li>
+        </ul>
+      </li>
+      <li class="has-sub">
+        <button type="button" class="mobile-sub-toggle" aria-expanded="false">
+          <span class="nav-outlet">Outlet</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <ul class="mobile-sub">
+          <li><a href="#">Abbigliamento -80%</a></li><li><a href="#">Accessori -80%</a></li>
+          <li><a href="#">Back to Work</a></li><li><a href="#">Ultimi Pezzi</a></li>
         </ul>
       </li>
       <li><a href="#">Gift Card</a></li>
-      <li class="has-sub">
-        <button type="button" class="mobile-sub-toggle" aria-expanded="false">
-          <span>Outlet</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
-        <ul class="mobile-sub">
-          <li><a href="#">Abbigliamento -80%</a></li><li><a href="#">Accessori -80%</a></li><li><a href="#">Back to Work</a></li>
-        </ul>
-      </li>
     </ul>
     <div class="mobile-menu-icons">
       <a href="#" aria-label="Cerca"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></a>
       <a href="#" aria-label="Preferiti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg><span class="wishlist-badge">4</span></a>
       <a href="#" aria-label="Profilo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6"/></svg></a>
-      <a href="#" aria-label="Carrello"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg>
-      <span class="cart-badge">1</span>
-    </a>
+      <a href="#" aria-label="Carrello"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg><span class="cart-badge">1</span></a>
     </div>
     <div class="mobile-menu-utility">
       <a href="#" data-open-stores>Boutique</a>
@@ -291,6 +221,7 @@
     </div>
   </div>
 
+  <!-- DRAWERS -->
   <div class="country-overlay" id="countryOverlay"></div>
   <aside class="country-drawer" id="countryDrawer" aria-hidden="true">
     <div class="country-header">
@@ -462,6 +393,28 @@
     </div>
   </aside>
 
+  <div class="search-overlay" id="searchOverlay"></div>
+  <aside class="search-drawer" id="searchDrawer" aria-hidden="true" aria-label="Cerca">
+    <div class="search-header">
+      <div class="search-header-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        <h3>Cerca</h3>
+      </div>
+      <button type="button" class="search-close" id="closeSearchDrawer" aria-label="Chiudi">&times;</button>
+    </div>
+    <div class="search-drawer-body" data-lenis-prevent>
+      <div class="search-drawer-bar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        <input type="text" placeholder="Cosa stai cercando?" id="searchInput">
+      </div>
+      <div class="search-results" id="searchResults" hidden>
+        <p class="search-results-count" id="searchResultsCount"></p>
+        <div class="search-results-grid" id="searchResultsGrid"></div>
+        <p class="search-results-empty" id="searchResultsEmpty" hidden>Nessun risultato. Prova con un'altra parola.</p>
+      </div>
+    </div>
+  </aside>
+
   <div class="stores-overlay" id="storesOverlay"></div>
   <aside class="stores-drawer" id="storesDrawer" aria-hidden="true" aria-label="Boutique">
     <div class="stores-header">
@@ -537,122 +490,122 @@
       </div>
     </div>
   </aside>
+  <main class="page">
+    <section class="hero">
+      <div class="hero-inner">
+        <h1><span class="hero-line hero-line-main">Il guardaroba che non ci pensa.</span><span class="hero-line hero-line-sub">Maglieria, polo e pantaloni: l'essenziale, fatto bene.</span></h1>
+      </div>
+    </section>
 
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Essential</h1>
-    </div>
-  </section>
+    <section class="products-wrap">
+      <div class="filtri-bar">
+        <span>Filtri</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+          <path d="M4 6h16M7 12h10M10 18h4"/>
+        </svg>
+      </div>
 
-  <section class="products-wrap">
-    <div class="filtri-bar">
-      <span>Filtri</span>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
-        <path d="M4 6h16M7 12h10M10 18h4"/>
-      </svg>
-    </div>
+      <div class="products-grid">
+        <a href="#" class="product-card featured">
+          <div class="img-wrap">
+            <img src="images/basic-featured.webp" alt="Essential — l'essenziale di ogni giorno">
+          </div>
+          <div class="featured-overlay">
+            <span class="featured-eyebrow">La selezione</span>
+            <h3 class="featured-title">L'essenziale<br>di ogni giorno</h3>
+          </div>
+        </a>
 
-    <div class="products-grid">
+        <a href="#" class="product-card">
+          <div class="img-wrap">
+            <img src="images/ba4.webp" alt="Maglia uomo girocollo" class="img-main">
+            <img src="images/ba4b.webp" alt="Maglia uomo girocollo - vista alternativa" class="img-hover" loading="lazy" decoding="async">
+            <button class="wish" type="button" aria-label="Aggiungi ai preferiti"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg></button>
+          </div>
+          <div class="product-info">
+            <div class="details"><h3>Maglia uomo girocollo</h3><span class="price">€ 29,99</span></div>
+            <button class="plus" type="button" aria-label="Aggiungi">+</button>
+          </div>
+        </a>
 
-            <a href="#" class="product-card featured">
-        <div class="img-wrap">
-          <img src="images/basic-featured.webp" alt="Essential — l'essenziale di ogni giorno">
-        </div>
-        <div class="featured-overlay">
-          <span class="featured-eyebrow">La selezione</span>
-          <h3 class="featured-title">L'essenziale<br>di ogni giorno</h3>
-        </div>
-      </a>
+        <a href="#" class="product-card">
+          <div class="img-wrap">
+            <img src="images/ba1.webp" alt="Maglia uomo dolcevita" class="img-main">
+            <img src="images/ba1b.webp" alt="Maglia uomo dolcevita - vista alternativa" class="img-hover" loading="lazy" decoding="async">
+            <button class="wish" type="button" aria-label="Aggiungi ai preferiti"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg></button>
+          </div>
+          <div class="product-info">
+            <div class="details"><h3>Maglia uomo dolcevita</h3><span class="price">€ 34,99</span></div>
+            <button class="plus" type="button" aria-label="Aggiungi">+</button>
+          </div>
+        </a>
 
-            <a href="#" class="product-card">
-        <div class="img-wrap">
-          <img src="images/ba4.webp" alt="Maglia uomo girocollo" class="img-main">
-          <img src="images/ba4b.webp" alt="Maglia uomo girocollo - vista alternativa" class="img-hover" loading="lazy" decoding="async">
-          <button class="wish" type="button" aria-label="Aggiungi ai preferiti"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg></button>
-        </div>
-        <div class="product-info">
-          <div class="details"><h3>Maglia uomo girocollo</h3><span class="price">€ 29,99</span></div>
-          <button class="plus" type="button" aria-label="Aggiungi">+</button>
-        </div>
-      </a>
+        <a href="#" class="product-card">
+          <div class="img-wrap">
+            <img src="images/15.webp" alt="Polo uomo in maglia misto lana" class="img-main">
+            <img src="images/15b.webp" alt="Polo uomo in maglia misto lana - vista alternativa" class="img-hover" loading="lazy" decoding="async">
+            <button class="wish" type="button" aria-label="Aggiungi ai preferiti"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg></button>
+          </div>
+          <div class="product-info">
+            <div class="details"><h3>Polo uomo in maglia misto lana</h3><span class="price">€ 39,00</span></div>
+            <button class="plus" type="button" aria-label="Aggiungi">+</button>
+          </div>
+        </a>
 
-            <a href="#" class="product-card">
-        <div class="img-wrap">
-          <img src="images/ba1.webp" alt="Maglia uomo dolcevita" class="img-main">
-          <img src="images/ba1b.webp" alt="Maglia uomo dolcevita - vista alternativa" class="img-hover" loading="lazy" decoding="async">
-          <button class="wish" type="button" aria-label="Aggiungi ai preferiti"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg></button>
-        </div>
-        <div class="product-info">
-          <div class="details"><h3>Maglia uomo dolcevita</h3><span class="price">€ 34,99</span></div>
-          <button class="plus" type="button" aria-label="Aggiungi">+</button>
-        </div>
-      </a>
+        <a href="#" class="product-card">
+          <div class="img-wrap">
+            <img src="images/ba2.webp" alt="T-shirt uomo" class="img-main">
+            <img src="images/ba2b.webp" alt="T-shirt uomo - vista alternativa" class="img-hover" loading="lazy" decoding="async">
+            <button class="wish" type="button" aria-label="Aggiungi ai preferiti"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg></button>
+          </div>
+          <div class="product-info">
+            <div class="details"><h3>T-shirt uomo</h3><span class="price">€ 14,99</span></div>
+            <button class="plus" type="button" aria-label="Aggiungi">+</button>
+          </div>
+        </a>
 
-      <a href="#" class="product-card">
-        <div class="img-wrap">
-          <img src="images/15.webp" alt="Polo uomo in maglia misto lana" class="img-main">
-          <img src="images/15b.webp" alt="Polo uomo in maglia misto lana - vista alternativa" class="img-hover" loading="lazy" decoding="async">
-          <button class="wish" type="button" aria-label="Aggiungi ai preferiti"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg></button>
-        </div>
-        <div class="product-info">
-          <div class="details"><h3>Polo uomo in maglia misto lana</h3><span class="price">€ 39,00</span></div>
-          <button class="plus" type="button" aria-label="Aggiungi">+</button>
-        </div>
-      </a>
+        <a href="#" class="product-card">
+          <div class="img-wrap">
+            <img src="images/13.webp" alt="Jeans uomo 5 tasche" class="img-main">
+            <img src="images/13b.webp" alt="Jeans uomo 5 tasche - vista alternativa" class="img-hover" loading="lazy" decoding="async">
+            <button class="wish" type="button" aria-label="Aggiungi ai preferiti"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg></button>
+          </div>
+          <div class="product-info">
+            <div class="details"><h3>Jeans uomo 5 tasche</h3><span class="price">€ 59,99</span></div>
+            <button class="plus" type="button" aria-label="Aggiungi">+</button>
+          </div>
+        </a>
 
-      <a href="#" class="product-card">
-        <div class="img-wrap">
-          <img src="images/ba2.webp" alt="T-shirt uomo" class="img-main">
-          <img src="images/ba2b.webp" alt="T-shirt uomo - vista alternativa" class="img-hover" loading="lazy" decoding="async">
-          <button class="wish" type="button" aria-label="Aggiungi ai preferiti"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg></button>
-        </div>
-        <div class="product-info">
-          <div class="details"><h3>T-shirt uomo</h3><span class="price">€ 14,99</span></div>
-          <button class="plus" type="button" aria-label="Aggiungi">+</button>
-        </div>
-      </a>
-      <a href="#" class="product-card">
-        <div class="img-wrap">
-          <img src="images/13.webp" alt="Jeans uomo 5 tasche" class="img-main">
-          <img src="images/13b.webp" alt="Jeans uomo 5 tasche - vista alternativa" class="img-hover" loading="lazy" decoding="async">
-          <button class="wish" type="button" aria-label="Aggiungi ai preferiti"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg></button>
-        </div>
-        <div class="product-info">
-          <div class="details"><h3>Jeans uomo 5 tasche</h3><span class="price">€ 59,99</span></div>
-          <button class="plus" type="button" aria-label="Aggiungi">+</button>
-        </div>
-      </a>
+        <a href="#" class="product-card">
+          <div class="img-wrap">
+            <img src="images/10.webp" alt="Shacket uomo sfoderata in velluto" class="img-main">
+            <img src="images/10b.webp" alt="Shacket uomo sfoderata in velluto - vista alternativa" class="img-hover" loading="lazy" decoding="async">
+            <button class="wish" type="button" aria-label="Aggiungi ai preferiti"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg></button>
+          </div>
+          <div class="product-info">
+            <div class="details"><h3>Shacket uomo sfoderata in velluto</h3><span class="price">€ 89,00</span></div>
+            <button class="plus" type="button" aria-label="Aggiungi">+</button>
+          </div>
+        </a>
 
-      <a href="#" class="product-card">
-        <div class="img-wrap">
-          <img src="images/10.webp" alt="Shacket uomo sfoderata in velluto" class="img-main">
-          <img src="images/10b.webp" alt="Shacket uomo sfoderata in velluto - vista alternativa" class="img-hover" loading="lazy" decoding="async">
-          <button class="wish" type="button" aria-label="Aggiungi ai preferiti"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg></button>
-        </div>
-        <div class="product-info">
-          <div class="details"><h3>Shacket uomo sfoderata in velluto</h3><span class="price">€ 89,00</span></div>
-          <button class="plus" type="button" aria-label="Aggiungi">+</button>
-        </div>
-      </a>
+        <a href="#" class="product-card">
+          <div class="img-wrap">
+            <img src="images/ba3.webp" alt="Calze uomo natalizie" class="img-main" loading="lazy" decoding="async">
+            <img src="images/ba3b.webp" alt="Calze uomo natalizie - vista alternativa" class="img-hover" loading="lazy" decoding="async">
+            <button class="wish" type="button" aria-label="Aggiungi ai preferiti"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg></button>
+          </div>
+          <div class="product-info">
+            <div class="details"><h3>Calze uomo natalizie</h3><span class="price">€ 9,99</span></div>
+            <button class="plus" type="button" aria-label="Aggiungi">+</button>
+          </div>
+        </a>
+      </div>
 
-      <a href="#" class="product-card">
-        <div class="img-wrap">
-          <img src="images/ba3.webp" alt="Calze uomo natalizie" class="img-main" loading="lazy" decoding="async">
-          <img src="images/ba3b.webp" alt="Calze uomo natalizie - vista alternativa" class="img-hover" loading="lazy" decoding="async">
-          <button class="wish" type="button" aria-label="Aggiungi ai preferiti"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg></button>
-        </div>
-        <div class="product-info">
-          <div class="details"><h3>Calze uomo natalizie</h3><span class="price">€ 9,99</span></div>
-          <button class="plus" type="button" aria-label="Aggiungi">+</button>
-        </div>
-      </a>
-
-    </div>
-
-    <div class="load-more-wrap">
-      <button type="button" class="load-more-btn">Altri 36 prodotti</button>
-    </div>
-  </section>
+      <div class="load-more-wrap">
+        <button type="button" class="load-more-btn">Altri 36 prodotti</button>
+      </div>
+    </section>
+  </main>
 
   <footer>
     <div class="footer-main">
@@ -694,59 +647,67 @@
         <a href="#">Pinterest</a><a href="#">Telegram</a><a href="#">TikTok</a>
       </div>
     </div>
-    <p class="footer-copy">Doppelgänger 2026 — Pagina dimostrativa</p>
+    <p class="footer-copy">Doppelgänger 2026 — Demo non commerciale</p>
   </footer>
 
   <script src="js/boutiques.js"></script>
+  <script src="js/prodotti.js"></script>
   <script src="js/nav.js"></script>
 
   <script>
     (function () {
-      var panel = document.getElementById('searchMegamenu');
-      if (!panel) return;
-      var cols = Array.prototype.slice.call(panel.querySelectorAll('.search-mm-col'));
-      if (!cols.length) return;
-      var mq = window.matchMedia('(max-width: 1024px)');
-      function headOf(col) { return col.querySelector('h4'); }
-      function sync(col) {
-        var h = headOf(col);
-        if (!h) return;
-        if (mq.matches) {
-          h.setAttribute('role', 'button');
-          h.setAttribute('tabindex', '0');
-          h.setAttribute('aria-expanded', col.classList.contains('open') ? 'true' : 'false');
-        } else {
-          h.removeAttribute('role'); h.removeAttribute('tabindex'); h.removeAttribute('aria-expanded');
-        }
+      var videos = document.querySelectorAll('video[preload="none"], video.video-showcase-media');
+      if (!videos.length) return;
+      function play(v) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+
+      var showcase = document.querySelector('video.video-showcase-media');
+      function preloadShowcase() {
+        if (showcase && showcase.paused) { showcase.preload = 'auto'; showcase.load(); }
       }
-      function toggle(col) {
-        if (!mq.matches) return;
-        var wasOpen = col.classList.contains('open');
-        cols.forEach(function (c) { c.classList.remove('open'); sync(c); });
-        if (!wasOpen) { col.classList.add('open'); sync(col); }
+      if (document.readyState === 'complete') preloadShowcase();
+      else window.addEventListener('load', preloadShowcase);
+
+      if (!('IntersectionObserver' in window)) {
+        videos.forEach(function (v) { v.preload = 'auto'; play(v); });
+        return;
       }
-      cols.forEach(function (col) {
-        var h = headOf(col);
-        if (!h) return;
-        h.addEventListener('click', function () { toggle(col); });
-        h.addEventListener('keydown', function (e) {
-          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(col); }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) play(e.target); else e.target.pause();
         });
+      }, { rootMargin: '300px 300px' });
+      videos.forEach(function (v) { io.observe(v); });
+    })();
+  </script>
+
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script>
+    window.lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+      smoothTouch: false,
+    });
+
+    function raf(time) {
+      window.lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    (function () {
+      const observer = new MutationObserver(() => {
+        if (!window.lenis) return;
+        if (document.body.style.overflow === 'hidden') {
+          window.lenis.stop();
+        } else {
+          window.lenis.start();
+        }
       });
-      function resetAll() {
-        cols.forEach(function (c) { c.classList.remove('open'); sync(c); });
-        if (mq.matches && cols.length) { cols[0].classList.add('open'); sync(cols[0]); }
-      }
-      resetAll();
-      var wasOpen = panel.classList.contains('open');
-      new MutationObserver(function () {
-        var isOpen = panel.classList.contains('open');
-        if (isOpen && !wasOpen) resetAll();
-        wasOpen = isOpen;
-      }).observe(panel, { attributes: true, attributeFilter: ['class'] });
-      cols.forEach(sync);
-      if (mq.addEventListener) mq.addEventListener('change', function () { cols.forEach(sync); });
-      else if (mq.addListener) mq.addListener(function () { cols.forEach(sync); });
+      observer.observe(document.body, {
+        attributes: true,
+        attributeFilter: ['style']
+      });
     })();
   </script>
 </body>

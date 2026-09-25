@@ -90,8 +90,8 @@ if (header && (MEGA_MENUS.length || HOVER_ONLY_LINKS.length)) {
   // viene considerato il click sintetico emesso dal browser (e ignorato).
   const TAP_ECHO_WINDOW = 500;
 
-  function isSearchOpen() {
-    const s = document.getElementById('searchMegamenu');
+   function isSearchOpen() {
+    const s = document.getElementById('searchDrawer');
     return !!(s && s.classList.contains('open'));
   }
 
@@ -268,31 +268,7 @@ if (header && (MEGA_MENUS.length || HOVER_ONLY_LINKS.length)) {
   });
 }
 
-/* ============================================================
-   RICERCA: allinea l'altezza della ricerca a quella del megamenu
-   Abbigliamento (solo desktop largo, ≥ 1201px).
-   ============================================================ */
-(function () {
-  const search = document.getElementById('searchMegamenu');
-  const abb = document.getElementById('megaAbbigliamento');
-  if (!search || !abb) return;
 
-  function allineaAltezzaRicerca() {
-    search.style.minHeight = '';
-    if (window.innerWidth <= 1400) return;
-    const h = abb.getBoundingClientRect().height;
-    if (h > 0) search.style.minHeight = h + 'px';
-  }
-
-  allineaAltezzaRicerca();
-  window.addEventListener('load', allineaAltezzaRicerca);
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(allineaAltezzaRicerca);
-  let resizeTimer;
-  window.addEventListener('resize', () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(allineaAltezzaRicerca, 120);
-  });
-})();
 
 /* ============================================================
    CAROSELLO TOPBAR
@@ -391,73 +367,118 @@ if (navBurger && mobileMenu) {
 })();
 
 /* ============================================================
-   MEGAMENU RICERCA
+   SEARCH DRAWER
    ============================================================ */
 (function () {
-  const searchMegamenu = document.getElementById('searchMegamenu');
+  const drawer = document.getElementById('searchDrawer');
+  const overlay = document.getElementById('searchOverlay');
+  const closeBtn = document.getElementById('closeSearchDrawer');
   const searchInput = document.getElementById('searchInput');
-  const closeSearchBtn = document.getElementById('closeSearch');
   const searchIcons = document.querySelectorAll('a[aria-label="Cerca"]');
 
-  if (!searchMegamenu || !header) return;
+  const resultsBox = document.getElementById('searchResults');
+  const resultsCount = document.getElementById('searchResultsCount');
+  const resultsGrid = document.getElementById('searchResultsGrid');
+  const resultsEmpty = document.getElementById('searchResultsEmpty');
 
-  const closeOtherPanels = PanelManager.register(closeSearchFn);
+  if (!drawer || !overlay) return;
+
+  const closeOtherPanels = PanelManager.register(closeSearch);
 
   function openSearch(e) {
     if (e) e.preventDefault();
     closeOtherPanels();
-    searchMegamenu.classList.add('open');
-    headerHolds.add('search');
-    header.classList.add('menu-open');
+    drawer.classList.add('open');
+    overlay.classList.add('active');
+    drawer.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
-    if (searchInput) setTimeout(() => searchInput.focus(), 150);
+    if (searchInput) setTimeout(() => searchInput.focus(), 200);
   }
 
-  let searchCloseTimer = null;
-
-  function closeSearchFn() {
-    const wasOpen = searchMegamenu.classList.contains('open');
-    searchMegamenu.classList.remove('open');
+  function closeSearch() {
+    drawer.classList.remove('open');
+    overlay.classList.remove('active');
+    drawer.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
-    if (!wasOpen) return;
-    clearTimeout(searchCloseTimer);
-
-    const release = () => {
-      if (searchMegamenu.classList.contains('open')) return;
-      headerHolds.delete('search');
-      releaseHeaderIfFree();
-    };
-
-    if (isFullscreenPanelLayout()) {
-      searchCloseTimer = setTimeout(release, cssDurationMs('--t-base', 400));
-    } else {
-      release();
-    }
+    if (searchInput) searchInput.value = '';
+    if (resultsBox) resultsBox.hidden = true;
   }
 
   searchIcons.forEach(icon => {
     icon.addEventListener('click', (e) => {
       e.preventDefault();
-      if (searchMegamenu.classList.contains('open')) closeSearchFn();
+      if (drawer.classList.contains('open')) closeSearch();
       else openSearch();
     });
   });
 
-  if (closeSearchBtn) closeSearchBtn.addEventListener('click', closeSearchFn);
-
-  document.addEventListener('click', (e) => {
-    if (searchMegamenu.classList.contains('open') &&
-        !searchMegamenu.contains(e.target) &&
-        !e.target.closest('a[aria-label="Cerca"]')) {
-      closeSearchFn();
-    }
-  });
+  if (closeBtn) closeBtn.addEventListener('click', closeSearch);
+  overlay.addEventListener('click', closeSearch);
 
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && searchMegamenu.classList.contains('open')) closeSearchFn();
+    if (e.key === 'Escape' && drawer.classList.contains('open')) closeSearch();
   });
-})();
 
+  function normalizza(s) {
+    return String(s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
+  }
+
+  function formattaPrezzo(n) {
+    return '€ ' + Number(n).toFixed(2).replace('.', ',');
+  }
+
+  function renderRisultati(query) {
+    const q = normalizza(query);
+
+    if (!q) {
+      if (resultsBox) resultsBox.hidden = true;
+      return;
+    }
+
+    const lista = window.PRODOTTI || [];
+    const items = lista.filter((p) => {
+      return normalizza([p.nome, p.categoria, p.sub].join(' ')).indexOf(q) !== -1;
+    });
+
+    if (resultsCount) {
+      resultsCount.textContent = items.length + ' risultat' + (items.length === 1 ? 'o' : 'i') + ' per "' + query + '"';
+    }
+
+    if (resultsGrid) resultsGrid.textContent = '';
+
+    if (!items.length) {
+      if (resultsEmpty) resultsEmpty.hidden = false;
+      if (resultsBox) resultsBox.hidden = false;
+      return;
+    }
+    if (resultsEmpty) resultsEmpty.hidden = true;
+
+    const frag = document.createDocumentFragment();
+    items.forEach((p) => {
+      const a = document.createElement('a');
+      a.href = '#';
+      a.className = 'search-result-card';
+      a.innerHTML =
+        '<div class="search-result-thumb"><img src="' + p.img + '" alt="' + p.nome + '" loading="lazy"></div>' +
+        '<h6>' + p.nome + '</h6>' +
+        '<p>' + formattaPrezzo(p.prezzo) + '</p>';
+      frag.appendChild(a);
+    });
+    if (resultsGrid) resultsGrid.appendChild(frag);
+
+    if (resultsBox) resultsBox.hidden = false;
+  }
+
+  let debounceTimer = null;
+  if (searchInput) {
+    searchInput.addEventListener('input', () => {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(() => {
+        renderRisultati(searchInput.value);
+      }, 120);
+    });
+  }
+})();
 /* ============================================================
    COUNTRY DRAWER
    ============================================================ */
@@ -1129,5 +1150,41 @@ window.CartCounter = (function () {
       form.hidden = true;
       success.hidden = false;
     });
+  }
+})();
+
+
+/* ============================================================
+   ALTEZZA HEADER DINAMICA
+   Espone --header-h = altezza reale dell'header visibile.
+   ============================================================ */
+(function () {
+  const headerEl = document.getElementById('header');
+  if (!headerEl) return;
+
+  let raf = null;
+
+  function misura() {
+    raf = null;
+    const h = headerEl.getBoundingClientRect().height;
+    document.documentElement.style.setProperty('--header-h', h + 'px');
+  }
+
+  function schedule() {
+    if (raf) return;
+    raf = requestAnimationFrame(misura);
+  }
+
+  misura();
+  window.addEventListener('resize', schedule, { passive: true });
+  window.addEventListener('scroll', schedule, { passive: true });
+  window.addEventListener('load', schedule);
+
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(schedule);
+  }
+
+  if ('ResizeObserver' in window) {
+    new ResizeObserver(schedule).observe(headerEl);
   }
 })();

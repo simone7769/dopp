@@ -491,20 +491,6 @@ body { animation: none; }
 .w-prev { left: var(--w-pad); }
 .w-next { right: var(--w-pad); }
 
-/* ============================================================
-   SCROLL SNAP
-   ============================================================ */
-.hero,
-.info-bar,
-.video-showcase,
-.collection,
-.must-have,
-.duo,
-.world,
-footer {
-  scroll-snap-align: center;
-  scroll-snap-stop: always;
-}
 
 /* ============================================================
    HEADER SCROLLATO (home): il logo e la topbar spariscono
@@ -612,6 +598,7 @@ header.scrolled .topbar {
   .grid { grid-template-columns: 1fr; gap: 24px; }
   .duo-item { height: 60vh; min-height: 400px; }
 }
+
 
 
 
