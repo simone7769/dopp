@@ -1808,3 +1808,14 @@ footer {
 .stores-footer {
   background: #faf8f5;
 }
+
+
+/* ============================================================
+   RICERCA — Altezza massima contenuta su tablet/desktop
+   ============================================================ */
+@media (min-width: 1025px) {
+  .search-megamenu {
+    max-height: 520px;     /* Altezza massima del pannello */
+    overflow-y: auto;      /* Scrolla se il contenuto supera 520px */
+  }
+}
