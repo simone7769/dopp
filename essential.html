@@ -5,13 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Doppelgänger — Essential</title>
 <link rel="icon" type="image/svg+xml" href="images/logo_page.svg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 
+<!-- I CSS del sito per primi -->
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/collezione.css">
 <link rel="stylesheet" href="css/category.css">
+<script>/* parte solo dopo che i CSS qui sopra sono caricati: il body non viene disegnato senza stile */ document.documentElement.setAttribute("data-css", "ready");</script>
+
+<!-- Google Fonts non bloccante -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Jost:wght@300;400;500&display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Jost:wght@300;400;500&display=swap"></noscript>
 </head>
 <body id="top">
 
@@ -39,7 +44,8 @@
         </a>
         <a href="#" class="nav-icon-link" aria-label="Carrello">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg>
-        </a>
+      <span class="cart-badge">1</span>
+    </a>
       </div>
     </div>
 
@@ -57,7 +63,7 @@
       </div>
       <ul class="nav-center">
         <li><a href="#">New in</a></li>
-        <li><a href="#" class="active" id="linkAbbigliamento" aria-haspopup="true" aria-expanded="false">Abbigliamento</a></li>
+        <li><a href="#" id="linkAbbigliamento" aria-haspopup="true" aria-expanded="false">Abbigliamento</a></li>
         <li><a href="#" id="linkAccessori" aria-haspopup="true" aria-expanded="false">Accessori e Scarpe</a></li>
         <li><a href="#">Gift Card</a></li>
         <li><a href="#" id="linkOutlet" aria-haspopup="true" aria-expanded="false">Outlet</a></li>
@@ -75,7 +81,8 @@
         </a>
         <a href="#" class="nav-icon-link" aria-label="Carrello">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg>
-        </a>
+      <span class="cart-badge">1</span>
+    </a>
       </div>
     </nav>
 
@@ -278,7 +285,9 @@
       <a href="#" aria-label="Cerca"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></a>
       <a href="#" aria-label="Preferiti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg><span class="wishlist-badge">4</span></a>
       <a href="#" aria-label="Profilo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6"/></svg></a>
-      <a href="#" aria-label="Carrello"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg></a>
+      <a href="#" aria-label="Carrello"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg>
+      <span class="cart-badge">1</span>
+    </a>
     </div>
     <div class="mobile-menu-utility">
       <a href="#" data-open-stores>Boutique</a>
@@ -436,14 +445,14 @@
         </div>
         <div class="wishlist-card-info"><h4>Polo uomo in maglia misto lana</h4><p class="wishlist-card-price">€ 39,00</p><button type="button" class="wishlist-add-cart">Aggiungi al carrello</button></div>
       </article>
-      <article class="wishlist-card" data-price="35">
+      <article class="wishlist-card" data-price="34.99">
         <div class="wishlist-card-image">
           <img src="images/5b.webp" alt="Pantalone uomo in tela pesante">
           <button type="button" class="wishlist-remove" aria-label="Rimuovi dai preferiti"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg></button>
         </div>
         <div class="wishlist-card-info"><h4>Pantalone uomo in tela pesante</h4><p class="wishlist-card-price">€ 34,99</p><button type="button" class="wishlist-add-cart">Aggiungi al carrello</button></div>
       </article>
-      <article class="wishlist-card" data-price="50">
+      <article class="wishlist-card" data-price="49.90">
         <div class="wishlist-card-image">
           <img src="images/1b.webp" alt="Pantalone uomo in denim">
           <button type="button" class="wishlist-remove" aria-label="Rimuovi dai preferiti"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg></button>
@@ -563,7 +572,7 @@
       <a href="#" class="product-card">
         <div class="img-wrap">
           <img src="images/1.webp" alt="Pantalone uomo in denim" class="img-main">
-          <img src="images/1b.webp" alt="Pantalone uomo in denim - vista alternativa" class="img-hover">
+          <img src="images/1b.webp" alt="Pantalone uomo in denim - vista alternativa" class="img-hover" loading="lazy" decoding="async">
           <button class="wish" type="button" aria-label="Aggiungi ai preferiti"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg></button>
         </div>
         <div class="product-info">
@@ -575,7 +584,7 @@
       <a href="#" class="product-card">
         <div class="img-wrap">
           <img src="images/6.webp" alt="Pantalone uomo chino classico" class="img-main">
-          <img src="images/6b.webp" alt="Pantalone uomo chino classico - vista alternativa" class="img-hover">
+          <img src="images/6b.webp" alt="Pantalone uomo chino classico - vista alternativa" class="img-hover" loading="lazy" decoding="async">
           <button class="wish" type="button" aria-label="Aggiungi ai preferiti"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg></button>
         </div>
         <div class="product-info">
@@ -587,7 +596,7 @@
       <a href="#" class="product-card">
         <div class="img-wrap">
           <img src="images/15.webp" alt="Polo uomo in maglia misto lana" class="img-main">
-          <img src="images/15b.webp" alt="Polo uomo in maglia misto lana - vista alternativa" class="img-hover">
+          <img src="images/15b.webp" alt="Polo uomo in maglia misto lana - vista alternativa" class="img-hover" loading="lazy" decoding="async">
           <button class="wish" type="button" aria-label="Aggiungi ai preferiti"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg></button>
         </div>
         <div class="product-info">
@@ -599,7 +608,7 @@
       <a href="#" class="product-card">
         <div class="img-wrap">
           <img src="images/7.webp" alt="Camicia uomo tecnica" class="img-main">
-          <img src="images/7b.webp" alt="Camicia uomo tecnica - vista alternativa" class="img-hover">
+          <img src="images/7b.webp" alt="Camicia uomo tecnica - vista alternativa" class="img-hover" loading="lazy" decoding="async">
           <button class="wish" type="button" aria-label="Aggiungi ai preferiti"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg></button>
         </div>
         <div class="product-info">
@@ -611,7 +620,7 @@
       <a href="#" class="product-card">
         <div class="img-wrap">
           <img src="images/13.webp" alt="Jeans uomo 5 tasche" class="img-main">
-          <img src="images/13b.webp" alt="Jeans uomo 5 tasche - vista alternativa" class="img-hover">
+          <img src="images/13b.webp" alt="Jeans uomo 5 tasche - vista alternativa" class="img-hover" loading="lazy" decoding="async">
           <button class="wish" type="button" aria-label="Aggiungi ai preferiti"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg></button>
         </div>
         <div class="product-info">
@@ -623,7 +632,7 @@
       <a href="#" class="product-card">
         <div class="img-wrap">
           <img src="images/10.webp" alt="Shacket uomo sfoderata in velluto" class="img-main">
-          <img src="images/10b.webp" alt="Shacket uomo sfoderata in velluto - vista alternativa" class="img-hover">
+          <img src="images/10b.webp" alt="Shacket uomo sfoderata in velluto - vista alternativa" class="img-hover" loading="lazy" decoding="async">
           <button class="wish" type="button" aria-label="Aggiungi ai preferiti"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg></button>
         </div>
         <div class="product-info">
@@ -634,8 +643,8 @@
 
       <a href="#" class="product-card">
         <div class="img-wrap">
-          <img src="images/5.webp" alt="Pantalone uomo in tela pesante" class="img-main">
-          <img src="images/5b.webp" alt="Pantalone uomo in tela pesante - vista alternativa" class="img-hover">
+          <img src="images/5.webp" alt="Pantalone uomo in tela pesante" class="img-main" loading="lazy" decoding="async">
+          <img src="images/5b.webp" alt="Pantalone uomo in tela pesante - vista alternativa" class="img-hover" loading="lazy" decoding="async">
           <button class="wish" type="button" aria-label="Aggiungi ai preferiti"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg></button>
         </div>
         <div class="product-info">

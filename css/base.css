@@ -329,7 +329,8 @@ header.menu-open .topbar-message {
 .nav-icon-link:hover { opacity: 0.65; }
 .nav-icon-link svg { width: 17px; height: 17px; display: block; }
 
-.wishlist-badge {
+.wishlist-badge,
+.cart-badge {
   position: absolute;
   top: -6px;
   right: -9px;
@@ -346,8 +347,10 @@ header.menu-open .topbar-message {
   text-align: center;
   transition: transform var(--t-fast) var(--ease);
 }
-.wishlist-badge.bump { transform: scale(1.25); }
-.wishlist-badge[hidden] { display: none; }
+.wishlist-badge.bump,
+.cart-badge.bump { transform: scale(1.25); }
+.wishlist-badge[hidden],
+.cart-badge[hidden] { display: none; }
 
 .nav-burger {
   display: none;
@@ -459,7 +462,7 @@ header.menu-open .topbar-message {
 .mm-card .thumb {
   width: 100%;
   aspect-ratio: 3 / 4;
-  background-color: #eae6de;
+  background-color: var(--paper);
   position: relative;
   overflow: hidden;
   transition: transform var(--t-slow) var(--ease);
@@ -550,7 +553,7 @@ header.menu-open .topbar-message {
   display: block;
   aspect-ratio: 3 / 4;
   overflow: hidden;
-  background: #eae6de;
+  background: var(--paper);
 }
 .suggestions-grid img {
   width: 100%;
@@ -707,6 +710,7 @@ header.menu-open .topbar-message {
   padding: 10px 0;
 }
 .mobile-menu-icons a {
+  position: relative;
   color: inherit;
   display: inline-flex;
   align-items: center;

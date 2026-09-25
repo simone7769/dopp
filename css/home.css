@@ -3,6 +3,13 @@
    ============================================================ */
 
 /* ============================================================
+   NIENTE DISSOLVENZA D'ENTRATA SULLA HOME
+   base.css fa comparire il body con un fade da opacity 0: in quel momento
+   dietro c'è il fondo chiaro (--paper), che lampeggia prima dell'hero scuro.
+   ============================================================ */
+body { animation: none; }
+
+/* ============================================================
    HERO (immagine full-screen con overlay scuro)
    ============================================================ */
 .hero {
@@ -181,7 +188,7 @@
   margin: 0 auto;
 }
 .card {
-  background-color: #eae6de;
+  background-color: var(--paper);
   aspect-ratio: 4 / 5;
   display: flex;
   align-items: flex-end;
@@ -260,7 +267,7 @@
 .product .image {
   width: 100%;
   aspect-ratio: 3 / 4.5;
-  background-color: #eae6de;
+  background-color: var(--paper);
   position: relative;
   overflow: hidden;
   margin-bottom: 18px;

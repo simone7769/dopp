@@ -13,6 +13,15 @@
     });
     const pdpAddCart = document.querySelector('.pdp-add-cart');
     if (pdpAddCart) {
-      pdpAddCart.addEventListener('click', () => alert('Prodotto aggiunto al carrello (demo)'));
+      const originalLabel = pdpAddCart.textContent;
+      pdpAddCart.addEventListener('click', () => {
+        if (window.CartCounter) window.CartCounter.add(1);
+        pdpAddCart.textContent = 'Aggiunto ✓';
+        pdpAddCart.disabled = true;
+        setTimeout(() => {
+          pdpAddCart.textContent = originalLabel;
+          pdpAddCart.disabled = false;
+        }, 1600);
+      });
     }
   

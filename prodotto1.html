@@ -5,14 +5,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pantalone uomo in denim — Doppelgänger</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="images/logo_page.svg">
 
-<!-- Usa il CSS principale per header, footer e drawer -->
+<!-- I CSS del sito per primi -->
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/collezione.css">
 <link rel="stylesheet" href="css/prodotto.css">
+<script>/* parte solo dopo che i CSS qui sopra sono caricati: il body non viene disegnato senza stile */ document.documentElement.setAttribute("data-css", "ready");</script>
+
+<!-- Google Fonts non bloccante -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Jost:wght@300;400;500&display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Jost:wght@300;400;500&display=swap"></noscript>
 </head>
 <body id="top">
 
@@ -54,6 +59,7 @@
             <path d="M6 8h12l-1 12H7L6 8z"/>
             <path d="M9 8V6a3 3 0 016 0v2"/>
           </svg>
+          <span class="cart-badge">1</span>
         </a>
       </div>
     </div>
@@ -116,6 +122,7 @@
             <path d="M6 8h12l-1 12H7L6 8z"/>
             <path d="M9 8V6a3 3 0 016 0v2"/>
           </svg>
+          <span class="cart-badge">1</span>
         </a>
       </div>
 
@@ -438,6 +445,7 @@
     </a>
     <a href="#" aria-label="Carrello">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg>
+      <span class="cart-badge">1</span>
     </a>
   </div>
 
@@ -710,7 +718,7 @@
     </div>
   </article>
 
-  <article class="wishlist-card" data-price="35">
+  <article class="wishlist-card" data-price="34.99">
     <div class="wishlist-card-image">
       <img src="images/5b.webp" alt="Pantalone uomo in tela pesante">
       <button type="button" class="wishlist-remove" aria-label="Rimuovi dai preferiti">
@@ -726,7 +734,7 @@
     </div>
   </article>
 
-  <article class="wishlist-card" data-price="50">
+  <article class="wishlist-card" data-price="49.90">
     <div class="wishlist-card-image">
       <img src="images/1b.webp" alt="Pantalone uomo in denim">
       <button type="button" class="wishlist-remove" aria-label="Rimuovi dai preferiti">
@@ -906,10 +914,10 @@
                 <div class="pdp-gallery">
       <img src="images/aa1.webp" alt="Pantalone uomo in denim — vista frontale">
       <img src="images/bb1.webp" alt="Pantalone uomo in denim — dettaglio tessuto">
-      <img src="images/cc1.jpg" alt="Pantalone uomo in denim — dettaglio">
-      <img src="images/dd1.jpg" alt="Pantalone uomo in denim — dettaglio">
-      <img src="images/gg1.webp" alt="Pantalone uomo in denim — dettaglio">
-      <img src="images/ff1.webp" alt="Pantalone uomo in denim — dettaglio cuciture">
+      <img src="images/cc1.jpg" alt="Pantalone uomo in denim — dettaglio" loading="lazy" decoding="async">
+      <img src="images/dd1.jpg" alt="Pantalone uomo in denim — dettaglio" loading="lazy" decoding="async">
+      <img src="images/gg1.webp" alt="Pantalone uomo in denim — dettaglio" loading="lazy" decoding="async">
+      <img src="images/ff1.webp" alt="Pantalone uomo in denim — dettaglio cuciture" loading="lazy" decoding="async">
     </div>
 
     <div class="pdp-info">

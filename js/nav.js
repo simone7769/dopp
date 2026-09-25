@@ -103,7 +103,6 @@ if (header && (MEGA_MENUS.length || HOVER_ONLY_LINKS.length)) {
 
   let hideTimer;
   let current = null;
-  let hoveringNav = false; // true se il mouse è sopra una voce qualsiasi della nav
   const CLOSE_DELAY = 120;
   const TOLERANCE = 12;
 
@@ -211,7 +210,6 @@ if (header && (MEGA_MENUS.length || HOVER_ONLY_LINKS.length)) {
              e.clientY >= r.top && e.clientY <= r.bottom;
     });
     if (hover) {
-      hoveringNav = true;
       if (hover !== current) apriMenu(hover);
       else clearTimeout(hideTimer);
       return;
@@ -224,7 +222,6 @@ if (header && (MEGA_MENUS.length || HOVER_ONLY_LINKS.length)) {
              e.clientY >= r.top && e.clientY <= r.bottom;
     });
     if (hoverOnly) {
-      hoveringNav = true;
       // chiudi il pannello eventualmente aperto, ma tieni l'header aperto
       chiudiPannelloMaTieniHeader();
       header.classList.add('menu-open');
@@ -232,7 +229,6 @@ if (header && (MEGA_MENUS.length || HOVER_ONLY_LINKS.length)) {
     }
 
     // 3) né sopra un link con pannello né sopra una voce senza pannello
-    hoveringNav = false;
 
     // Se il mouse è ancora dentro la fascia della nav (anche tra un link
     // e l'altro, o sopra le icone laterali), consideralo "sicuro": non chiudere
@@ -568,6 +564,58 @@ if (navBurger && mobileMenu) {
 })();
 
 /* ============================================================
+   CONTATORE CARRELLO — fonte unica per il totale
+   Aggiorna insieme il numero nel titolo del drawer ("La tua
+   selezione") e tutti i badge sull'icona carrello nell'header
+   e nel menu mobile (.cart-badge). Il totale parte dalla somma
+   delle quantità già presenti nel drawer (qty-value) e viene
+   incrementato ogni volta che si preme "Aggiungi al carrello",
+   sia dalla wishlist sia dalla scheda prodotto (PDP).
+   ============================================================ */
+window.CartCounter = (function () {
+  const cartCountEl = document.getElementById('cartCount');
+  const badges = document.querySelectorAll('.cart-badge');
+  const cartDrawerEl = document.getElementById('cartDrawer');
+
+  function totalFromDrawer() {
+    if (!cartDrawerEl) return null;
+    const qtyEls = cartDrawerEl.querySelectorAll('.qty-value');
+    if (!qtyEls.length) return null;
+    let sum = 0;
+    qtyEls.forEach((q) => { sum += parseInt(q.textContent, 10) || 0; });
+    return sum;
+  }
+
+  let total = totalFromDrawer();
+  if (total === null) total = parseInt(cartCountEl ? cartCountEl.textContent : '0', 10) || 0;
+
+  function render() {
+    if (cartCountEl) cartCountEl.textContent = total;
+    badges.forEach((b) => {
+      b.textContent = total;
+      b.hidden = total === 0;
+      b.classList.add('bump');
+      setTimeout(() => b.classList.remove('bump'), cssDurationMs('--t-fast', 250));
+    });
+  }
+
+  function set(n) {
+    total = Math.max(0, n);
+    render();
+  }
+
+  render();
+
+  return {
+    add(n) { set(total + n); },
+    recalcFromDrawer() {
+      const t = totalFromDrawer();
+      if (t !== null) set(t);
+    }
+  };
+})();
+
+/* ============================================================
    CART DRAWER
    ============================================================ */
 (function () {
@@ -611,6 +659,7 @@ if (navBurger && mobileMenu) {
         if (btn.dataset.action === 'plus') val++;
         else if (btn.dataset.action === 'minus' && val > 1) val--;
         qtyValue.textContent = val;
+        if (window.CartCounter) window.CartCounter.recalcFromDrawer();
       });
     });
   }
@@ -675,7 +724,6 @@ if (navBurger && mobileMenu) {
   const emptyState = document.getElementById('wishlistEmpty');
   const countLabel = document.getElementById('wishlistCount');
   const badges = document.querySelectorAll('.wishlist-badge');
-  const cartCount = document.getElementById('cartCount');
 
   if (!drawer) return;
 
@@ -738,9 +786,7 @@ if (navBurger && mobileMenu) {
       addBtn.classList.add('added');
       addBtn.textContent = 'Aggiunto ✓';
       addBtn.disabled = true;
-      if (cartCount) {
-        cartCount.textContent = (parseInt(cartCount.textContent, 10) || 0) + 1;
-      }
+      if (window.CartCounter) window.CartCounter.add(1);
       setTimeout(() => {
         addBtn.classList.remove('added');
         addBtn.textContent = originalText;
@@ -1056,7 +1102,7 @@ if (navBurger && mobileMenu) {
           list.appendChild(item);
         });
     });
-    count.textContent = items.length + (items.length === 1 ? ' boutique' : ' boutique');
+    count.textContent = items.length + ' boutique';
   }
 
   const closeOtherPanels = PanelManager.register(closeDrawer);

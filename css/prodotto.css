@@ -173,6 +173,12 @@
   transition: background var(--t-base) var(--ease), color var(--t-base) var(--ease);
 }
 .pdp-add-cart:hover { background: transparent; color: var(--ink); }
+.pdp-add-cart:disabled {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #fff;
+  cursor: default;
+}
 .pdp-wish-btn {
   width: 52px; height: 52px;
   border: 1px solid var(--line);

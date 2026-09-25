@@ -67,7 +67,7 @@
   position: relative;
   width: 100%;
   aspect-ratio: 3 / 4;
-  background-color: #f0ece5;
+  background-color: var(--paper);
   overflow: hidden;
 }
 .product-card .img-wrap img {

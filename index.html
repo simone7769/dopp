@@ -61,6 +61,7 @@
             <path d="M6 8h12l-1 12H7L6 8z"/>
             <path d="M9 8V6a3 3 0 016 0v2"/>
           </svg>
+          <span class="cart-badge">1</span>
         </a>
       </div>
     </div>
@@ -123,6 +124,7 @@
             <path d="M6 8h12l-1 12H7L6 8z"/>
             <path d="M9 8V6a3 3 0 016 0v2"/>
           </svg>
+          <span class="cart-badge">1</span>
         </a>
       </div>
 
@@ -238,7 +240,7 @@
         <li><a href="#">Cinture</a></li>
         <li><a href="#">Calze</a></li>
         <li><a href="#">Bretelle</a></li>
-        <li><a href="#">Bretelle</a></li>
+        <li><a href="#">Gemelli</a></li>
         <li><a href="#">Scatola Regalo</a></li>
       </ul>
     </div>
@@ -445,6 +447,7 @@
     </a>
     <a href="#" aria-label="Carrello">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg>
+      <span class="cart-badge">1</span>
     </a>
   </div>
 
@@ -718,7 +721,7 @@
     </div>
   </article>
 
-  <article class="wishlist-card" data-price="35">
+  <article class="wishlist-card" data-price="34.99">
     <div class="wishlist-card-image">
       <img src="images/5b.webp" alt="Pantalone uomo in tela pesante">
       <button type="button" class="wishlist-remove" aria-label="Rimuovi dai preferiti">
@@ -734,7 +737,7 @@
     </div>
   </article>
 
-  <article class="wishlist-card" data-price="50">
+  <article class="wishlist-card" data-price="49.90">
     <div class="wishlist-card-image">
       <img src="images/1b.webp" alt="Pantalone uomo in denim">
       <button type="button" class="wishlist-remove" aria-label="Rimuovi dai preferiti">
@@ -932,7 +935,7 @@
 
   <!-- VIDEO SHOWCASE -->
   <section class="video-showcase">
-    <video class="video-showcase-media" autoplay muted loop playsinline>
+    <video class="video-showcase-media" muted loop playsinline preload="metadata">
       <source src="images/doppelganger-uomo-intro.mp4" type="video/mp4">
       Il tuo browser non supporta i video HTML5.
     </video>
@@ -981,7 +984,7 @@
 
       <a href="#" class="product" draggable="false">
         <div class="image">
-          <video class="mh-video" autoplay muted loop playsinline preload="auto">
+          <video class="mh-video" muted loop playsinline preload="none">
             <source src="images/az.mp4" type="video/mp4">
           </video>
         </div>
@@ -990,9 +993,9 @@
 
       <a href="#" class="product" draggable="false">
         <div class="image">
-          <img src="images/41PO3006MLU-141_01.webp" alt="Camicia da gemelli" draggable="false">
+          <img src="images/41PO3006MLU-141_01.webp" alt="Camicia elegante con polsini da gemelli" draggable="false">
         </div>
-        <h3>Camicia da gemelli</h3>
+        <h3>Camicia elegante con polsini da gemelli</h3>
       </a>
 
       <a href="#" class="product" draggable="false">
@@ -1004,7 +1007,7 @@
 
       <a href="#" class="product" draggable="false">
         <div class="image">
-          <video class="mh-video" autoplay muted loop playsinline preload="auto">
+          <video class="mh-video" muted loop playsinline preload="none">
             <source src="images/qw.mp4" type="video/mp4">
           </video>
         </div>
@@ -1200,6 +1203,35 @@
 
   <script src="js/boutiques.js"></script>
   <script src="js/nav.js"></script>
+
+  <!-- Video: il video AI 2026 si scarica subito dopo il caricamento della pagina (foto hero compresa);
+       i video del carosello solo quando si avvicinano. Tutti partono/si fermano in base alla visibilità. -->
+  <script>
+    (function () {
+      var videos = document.querySelectorAll('video[preload="none"], video.video-showcase-media');
+      if (!videos.length) return;
+      function play(v) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+
+      // video AI 2026: scarica per intero appena la pagina è pronta, così è già pronto quando ci arrivi
+      var showcase = document.querySelector('video.video-showcase-media');
+      function preloadShowcase() {
+        if (showcase && showcase.paused) { showcase.preload = 'auto'; showcase.load(); }
+      }
+      if (document.readyState === 'complete') preloadShowcase();
+      else window.addEventListener('load', preloadShowcase);
+
+      if (!('IntersectionObserver' in window)) {
+        videos.forEach(function (v) { v.preload = 'auto'; play(v); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) play(e.target); else e.target.pause();
+        });
+      }, { rootMargin: '300px 300px' });
+      videos.forEach(function (v) { io.observe(v); });
+    })();
+  </script>
 
   <!-- Ricerca mobile: categorie a fisarmonica (solo sotto i 900px), tutte chiuse di default -->
   <script>
