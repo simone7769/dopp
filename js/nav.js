@@ -86,6 +86,9 @@ if (header && (MEGA_MENUS.length || HOVER_ONLY_LINKS.length)) {
   let current = null;
   const CLOSE_DELAY = 120;
   const TOLERANCE = 12;
+  // Tempo entro cui un "click" successivo a un "pointerdown" touch
+  // viene considerato il click sintetico emesso dal browser (e ignorato).
+  const TAP_ECHO_WINDOW = 500;
 
   function isSearchOpen() {
     const s = document.getElementById('searchMegamenu');
@@ -210,8 +213,19 @@ if (header && (MEGA_MENUS.length || HOVER_ONLY_LINKS.length)) {
 
   MEGA_MENUS.forEach((m) => {
 
+    /* Traccia l'ultimo pointerdown touch su questo link, così
+       il click sintetico che il browser emette subito dopo
+       può essere ignorato (era lui a chiudere il menu appena aperto). */
+    let lastPointerDownWasTouch = 0;
+
     /* ---------- CLICK (desktop con mouse) ---------- */
     m.link.addEventListener('click', (e) => {
+      // Se subito prima è arrivato un pointerdown touch (tap),
+      // questo click è l'eco sintetica del browser: ignorala.
+      if (Date.now() - lastPointerDownWasTouch < TAP_ECHO_WINDOW) {
+        e.preventDefault();
+        return;
+      }
       e.preventDefault();
       clearTimeout(hideTimer);
       if (current === m) chiudiTuttoOra();
@@ -224,6 +238,7 @@ if (header && (MEGA_MENUS.length || HOVER_ONLY_LINKS.length)) {
        touch/pen, che arriva PRIMA e in modo affidabile.            */
     m.link.addEventListener('pointerdown', (e) => {
       if (e.pointerType === 'touch' || e.pointerType === 'pen') {
+        lastPointerDownWasTouch = Date.now();
         e.preventDefault();
         clearTimeout(hideTimer);
         if (current === m) chiudiTuttoOra();
