@@ -778,7 +778,9 @@ header.menu-open .topbar-message {
 }
 .country-drawer-content {
   flex: 1 1 auto;
+  min-height: 0;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   padding: 28px 32px 32px;
   display: flex;
   flex-direction: column;
@@ -839,6 +841,7 @@ header.menu-open .topbar-message {
    ============================================================ */
 .cart-body {
   flex: 1 1 auto;
+  min-height: 0;
   overflow-y: auto;
   padding: 24px 26px 0;
   display: flex;
@@ -944,6 +947,7 @@ header.menu-open .topbar-message {
    ============================================================ */
 .login-body {
   flex: 1 1 auto;
+  min-height: 0;
   overflow-y: auto;
   padding: 36px 26px max(40px, env(safe-area-inset-bottom));
   display: flex;
@@ -1013,6 +1017,7 @@ header.menu-open .topbar-message {
    ============================================================ */
 .wishlist-body {
   flex: 1 1 auto;
+  min-height: 0;
   overflow-y: auto;
   padding: 20px 20px;
   display: grid;
@@ -1141,6 +1146,7 @@ header.menu-open .topbar-message {
 .stores-count { font-size: 0.74rem; color: #888; margin: 10px 0 0; }
 .stores-list {
   flex: 1 1 auto;
+  min-height: 0;
   overflow-y: auto;
   padding: 0 26px 24px;
   -webkit-overflow-scrolling: touch;
@@ -1194,6 +1200,7 @@ header.menu-open .topbar-message {
    ============================================================ */
 .contact-body {
   flex: 1 1 auto;
+  min-height: 0;
   overflow-y: auto;
   padding: 32px 26px max(40px, env(safe-area-inset-bottom));
   display: flex;
@@ -1815,9 +1822,15 @@ header.menu-open .nav-outlet { color: var(--gold) !important; }
   outline: none;
   background: transparent;
   font-family: var(--sans);
-  font-size: 1rem;
+  font-size: var(--fs-14);
   color: var(--ink);
   padding: 4px 0;
+}
+/* Sotto i 640px torna a 16px: sotto quella soglia iOS Safari
+   zooma automaticamente la pagina quando un input ha un font-size
+   inferiore a 16px al focus. */
+@media (max-width: 640px) {
+  .search-drawer-bar input { font-size: 16px; }
 }
 .search-drawer-bar input::placeholder { color: #999; }
 
