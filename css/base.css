@@ -391,7 +391,7 @@ header.menu-open .topbar-message {
   background-color: #faf8f5;
   border-top: 1px solid var(--line);
   box-shadow: 0 20px 40px rgba(0,0,0,0.06);
-  padding: 55px 60px 65px;
+  padding: 50px 70px 55px;
   z-index: 999;
   opacity: 0;
   visibility: hidden;
@@ -411,31 +411,31 @@ header.menu-open .topbar-message {
 .megamenu-inner {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 2.4fr;
-  gap: 50px;
+  gap: 60px;
   align-items: start;
 }
 .megamenu-col h4,
 .search-mm-col h4 {
   font-family: var(--sans);
-  font-size: var(--fs-11);
+  font-size: var(--fs-12);
   font-weight: 600;
-  letter-spacing: var(--tr-15);
+  letter-spacing: var(--tr-2);
   text-transform: uppercase;
   color: var(--ink);
-  margin: 0 0 22px;
+  margin: 0 0 24px;
 }
-.megamenu-col h4.secondary { margin-top: 32px; }
+.megamenu-col h4.secondary { margin-top: 40px; }
 .megamenu-col ul {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
 .megamenu-col ul a {
   font-family: var(--sans);
-  font-size: var(--fs-13);
+  font-size: var(--fs-14);
   font-weight: 400;
-  letter-spacing: var(--tr-03);
+  letter-spacing: var(--tr-05);
   color: #333;
   text-decoration: none;
   transition: color var(--t-fast) var(--ease);
@@ -443,9 +443,9 @@ header.menu-open .topbar-message {
 .megamenu-col ul a:hover { color: var(--gold); }
 .search-mm-col a {
   font-family: var(--sans);
-  font-size: var(--fs-13);
+  font-size: var(--fs-14);
   font-weight: 400;
-  letter-spacing: var(--tr-03);
+  letter-spacing: var(--tr-05);
   text-transform: none;
   color: #333;
   text-decoration: none;
@@ -533,7 +533,7 @@ header.menu-open .topbar-message {
 .search-mm-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1.6fr;
-  gap: 50px;
+  gap: 60px;
   align-items: start;
 }
 .search-mm-col ul {
@@ -542,7 +542,7 @@ header.menu-open .topbar-message {
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
 .suggestions-grid {
   display: grid;
