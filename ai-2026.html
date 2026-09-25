@@ -1247,7 +1247,7 @@
       if (!panel) return;
       var cols = Array.prototype.slice.call(panel.querySelectorAll('.search-mm-col'));
       if (!cols.length) return;
-      var mq = window.matchMedia('(max-width: 1100px)'); // allineato alla soglia CSS del layout mobile della ricerca (era 900px)
+      var mq = window.matchMedia('(max-width: 1024px)'); // allineato alla soglia CSS del layout mobile della ricerca (era 900px)
 
       function headOf(col) { return col.querySelector('h4'); }
 

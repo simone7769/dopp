@@ -18,14 +18,11 @@
   --btn-width: 200px;
   --btn-height: 48px;
 
-  /* TRANSIZIONI — tre durate e due curve, usate da tutto il sito
-     (desktop e mobile, tutte le pagine). Per cambiare il "ritmo" del
-     sito basta modificare questi valori. nav.js legge --t-fast. */
-  --t-fast: 0.25s;  /* hover, colori, icone */
-  --t-base: 0.4s;   /* header, menu, ricerca, drawer, pulsanti */
-  --t-slow: 0.8s;   /* zoom immagini, dissolvenza video/hero */
+  --t-fast: 0.25s;
+  --t-base: 0.4s;
+  --t-slow: 0.8s;
   --ease: ease;
-  --ease-out: cubic-bezier(0.25, 0.8, 0.25, 1);  /* pannelli che scorrono (drawer) */
+  --ease-out: cubic-bezier(0.25, 0.8, 0.25, 1);
 
   --fs-10: 10px;
   --fs-11: 11px;
@@ -55,7 +52,6 @@
   --drawer-title-h: 64px;
 }
 
-/* Chi ha attivato "riduci movimento" nel sistema non vede transizioni */
 @media (prefers-reduced-motion: reduce) {
   :root { --t-fast: 0.01s; --t-base: 0.01s; --t-slow: 0.01s; }
   html { scroll-behavior: auto; }
@@ -368,7 +364,7 @@ header.menu-open .topbar-message {
 .header-actions { display: none; align-items: center; gap: 18px; }
 
 /* ============================================================
-   MEGAMENU + SEARCH MEGAMENU
+   MEGAMENU (Abbigliamento, Accessori, Outlet) + RICERCA
    ============================================================ */
 .megamenu,
 .search-megamenu {
@@ -480,7 +476,7 @@ header.menu-open .topbar-message {
   #megaOutlet .megamenu-images { margin-top: 0; gap: 16px; }
 }
 
-/* Search megamenu */
+/* Search megamenu (layout desktop) */
 .search-mm-inner { display: flex; flex-direction: column; }
 .search-mm-bar {
   display: flex;
@@ -552,7 +548,8 @@ header.menu-open .topbar-message {
 }
 .suggestions-grid a:hover img { transform: scale(1.04); }
 
-@media (min-width: 1101px) {
+/* Layout desktop della ricerca: solo ≥ 1025px */
+@media (min-width: 1025px) {
   .search-mm-inner {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 380px;
@@ -676,9 +673,7 @@ header.menu-open .topbar-message {
   text-decoration: none;
   transition: color var(--t-fast) var(--ease);
 }
-.mobile-sub a:hover {
-  color: var(--gold);
-}
+.mobile-sub a:hover { color: var(--gold); }
 .mobile-menu-icons {
   margin-top: auto;
   display: grid;
@@ -900,8 +895,8 @@ header.menu-open .topbar-message {
   font-family: var(--sans);
   font-size: 1rem;
   color: var(--ink);
-  background: #fff;
-  border: 1px solid var(--line);
+  background: #faf8f5;
+  border: 1px solid #d8d3c8;
   border-radius: 0;
   appearance: none;
   -webkit-appearance: none;
@@ -1066,8 +1061,8 @@ header.menu-open .topbar-message {
   font-family: var(--sans);
   font-size: 1rem;
   color: var(--ink);
-  background: #fff;
-  border: 1px solid var(--line);
+  background: #faf8f5;
+  border: 1px solid #d8d3c8;
   border-radius: 0;
   outline: none;
   transition: border-color var(--t-fast) var(--ease);
@@ -1333,8 +1328,8 @@ header.menu-open .topbar-message {
   font-family: var(--sans);
   font-size: 1rem;
   color: var(--ink);
-  background: #fff;
-  border: 1px solid var(--line);
+  background: #faf8f5;
+  border: 1px solid #d8d3c8;
   border-radius: 0;
   outline: none;
   transition: border-color var(--t-fast) var(--ease);
@@ -1588,12 +1583,16 @@ footer {
   header.scrolled .nav { padding: 6px 24px 12px; }
 }
 
-@media (max-width: 1024px) {
+/* Fascia intermedia desktop: nav un po' più stretta */
+@media (min-width: 1025px) and (max-width: 1200px) {
   .nav-center { gap: 14px; }
   .topbar-messages { min-width: 400px; }
 }
 
-@media (max-width: 1100px) {
+/* ============================================================
+   MOBILE / TABLET VERTICALE: soglia 1024px
+   ============================================================ */
+@media (max-width: 1024px) {
   html, body { scroll-snap-type: none; }
 
   .header-main {
@@ -1635,7 +1634,8 @@ footer {
 
   .megamenu { display: none; }
 
-    .search-megamenu {
+  /* Ricerca: pannello a tutto schermo con fisarmonica */
+  .search-megamenu {
     position: fixed;
     inset: 0;
     top: 0;
@@ -1690,7 +1690,7 @@ footer {
   }
   .search-mm-col h4:hover { color: var(--gold); }
 
-  /* Voci elenco (Nuovi Arrivi, Maglieria...): minuscole, come i sottomenu del burger */
+  /* Voci elenco: minuscole, come i sottomenu del burger */
   .search-mm-col a {
     display: block;
     margin: 0;
@@ -1801,171 +1801,10 @@ footer {
 }
 
 /* ============================================================
-   DISPOSITIVI TOUCH-ONLY (tablet puri, smartphone grandi):
-   la nav con megamenu hover non è affidabile, quindi forziamo
-   il burger menu anche su schermi larghi (> 900px).
-   La classe .touch-device viene aggiunta da nav.js.
-   ============================================================ */
-.touch-device .nav,
-.touch-device .nav-center,
-.touch-device .nav-left,
-.touch-device .nav-right { display: none; }
-
-.touch-device .nav-burger { display: flex; justify-self: start; }
-
-.touch-device .header-main {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-  padding: 14px 16px 14px;
-}
-
-.touch-device .logo-link { justify-self: center; }
-.touch-device .logo { height: 18px; }
-.touch-device .header-actions { display: flex; justify-self: end; }
-
-.touch-device .topbar { border-bottom: 1px solid var(--gold); }
-
-.touch-device header.scrolled .header-main {
-  height: auto;
-  min-height: 0;
-  max-height: none;
-  padding: 12px 16px;
-  margin: 0;
-  overflow: visible;
-  opacity: 1;
-}
-.touch-device header.scrolled .header-main .logo { height: 16px; }
-
-.touch-device header.menu-open .header-main {
-  padding: 14px 16px 14px;
-  height: auto;
-  opacity: 1;
-  overflow: visible;
-}
-.touch-device .mobile-menu { padding-top: 105px; }
-
-/* ============================================================
-   TABLET TOUCH: la ricerca deve essere identica al mobile.
-   Replica il blocco @media (max-width: 1100px) per i tablet
-   più larghi di 1100px che usano il burger menu via .touch-device.
-   ============================================================ */
-.touch-device .search-megamenu {
-  position: fixed;
-  inset: 0;
-  top: 0;
-  width: 100%;
-  height: 100vh;
-  height: 100dvh;
-  border-top: none;
-  box-shadow: none;
-  padding: 100px 0 40px;
-  z-index: 1001;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  min-height: 0;
-  background: #faf8f5;
-}
-.touch-device header .topbar,
-.touch-device header .header-main { position: relative; z-index: 1002; }
-.touch-device .search-mm-bar { margin: 0 24px 28px; }
-.touch-device .search-mm-grid {
-  grid-template-columns: 1fr;
-  gap: 0;
-  border-top: 0.5px solid var(--gold);
-}
-.touch-device .search-mm-suggestions {
-  grid-column: span 1;
-  display: block !important;
-  visibility: visible !important;
-  height: auto !important;
-}
-.touch-device .search-mm-suggestions .suggestions-grid {
-  padding: 24px 24px 0;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-}
-.touch-device .search-mm-suggestions:not(.open) .suggestions-grid { display: none; }
-.touch-device .search-mm-suggestions.open .suggestions-grid { display: grid; }
-
-/* Titoli colonna (UOMO, ACCESSORI, OUTLET): MAIUSCOLI */
-.touch-device .search-mm-col h4 {
-  display: block;
-  margin: 0;
-  padding: 20px 24px;
-  text-align: center;
-  font-family: var(--sans);
-  font-size: var(--fs-13);
-  letter-spacing: var(--tr-2);
-  text-transform: uppercase;
-  font-weight: 400;
-  color: var(--ink);
-  border-bottom: 0.5px solid var(--gold);
-  transition: color var(--t-fast) var(--ease);
-}
-.touch-device .search-mm-col h4:hover { color: var(--gold); }
-
-/* Voci elenco (Nuovi Arrivi, Maglieria...): minuscole */
-.touch-device .search-mm-col a {
-  display: block;
-  margin: 0;
-  padding: 20px 24px;
-  text-align: center;
-  font-family: var(--sans);
-  font-size: var(--fs-13);
-  letter-spacing: var(--tr-2);
-  text-transform: none;
-  font-weight: 300;
-  color: var(--ink);
-}
-
-.touch-device .search-mm-col ul { gap: 0; }
-.touch-device .search-mm-col li { border-bottom: none; }
-
-.touch-device .search-mm-suggestions .suggestions-grid {
-  padding: 24px 24px 0;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-}
-.touch-device .search-mm-suggestions .suggestions-grid a {
-  padding: 0;
-  letter-spacing: 0;
-  line-height: 0;
-}
-
-.touch-device .search-mm-col h4 { position: relative; cursor: pointer; -webkit-tap-highlight-color: transparent; }
-.touch-device .search-mm-col h4::after {
-  content: "";
-  position: absolute;
-  right: 26px;
-  top: 50%;
-  width: 7px;
-  height: 7px;
-  border-right: 1.2px solid currentColor;
-  border-bottom: 1.2px solid currentColor;
-  transform: translateY(-70%) rotate(45deg);
-  transition: transform var(--t-fast) var(--ease);
-}
-.touch-device .search-mm-col.open h4::after { transform: translateY(-30%) rotate(-135deg); }
-.touch-device .search-mm-col:not(.open) ul,
-.touch-device .search-mm-col:not(.open) .suggestions-grid { display: none; }
-
-
-/* ============================================================
    UNIFORMAZIONE PANNELLI → crema caldo #faf8f5
-   Sovrascrive i precedenti #fff di cart-total, cart-footer,
-   stores-footer e campi input.
    ============================================================ */
 .cart-total,
 .cart-footer,
 .stores-footer {
   background: #faf8f5;
-}
-
-.select-wrapper select,
-.login-field input,
-.contact-field input,
-.contact-field textarea {
-  background: #faf8f5;
-  border-color: #d8d3c8;   /* bordo più visibile sul crema */
 }

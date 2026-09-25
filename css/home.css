@@ -509,7 +509,7 @@ footer {
 /* ============================================================
    HEADER SCROLLATO (home): il logo e la topbar spariscono
    ============================================================ */
-@media (min-width: 1101px) {
+@media (min-width: 1025px) {
   header.scrolled .header-main {
     height: 0;
     min-height: 0;

@@ -41,39 +41,21 @@ function cssDurationMs(name, fallbackMs) {
   return v.endsWith('ms') ? num : num * 1000;
 }
 
-// true quando menu e ricerca sono pannelli a tutto schermo (mobile e tablet touch)
+// true quando menu e ricerca sono pannelli a tutto schermo
+// (mobile e tablet verticale, sotto 1024px).
 function isFullscreenPanelLayout() {
-  return window.matchMedia('(max-width: 1100px)').matches ||
-         document.documentElement.classList.contains('touch-device');
+  return window.matchMedia('(max-width: 1024px)').matches;
 }
-
-/* ============================================================
-   RILEVAMENTO DISPOSITIVI TOUCH-ONLY (tablet puri, smartphone)
-   Aggiunge la classe .touch-device su <html> se il dispositivo
-   non ha un mouse ma solo touch. Il CSS userà questa classe per
-   forzare il burger menu anche su schermi larghi, dove il
-   megamenu hover non è affidabile.
-   ============================================================ */
-(function () {
-  const isTouchOnly = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
-  if (isTouchOnly) {
-    document.documentElement.classList.add('touch-device');
-  }
-})();
 
 /* ============================================================
    MEGA-MENU DELLA NAV (Abbigliamento, Accessori e Scarpe, Outlet)
    Le voci senza pannello (New in, Gift Card) mantengono comunque
-   l'header in stato "menu-open" quando il mouse ci passa sopra,
-   per coerenza visiva con le voci che hanno il megamenu.
+   l'header in stato "menu-open" quando il mouse ci passa sopra.
    ============================================================ */
 const header = document.getElementById('header');
 
 // Pannelli a tutto schermo (menu mobile, ricerca) che tengono l'header chiaro
-// ("menu-open") finché sono aperti o si stanno ancora chiudendo. Finché ce n'è
-// uno, nessun altro codice deve togliere menu-open (era questo il motivo per cui
-// toccando una voce del menu logo e X diventavano bianchi: il listener "click
-// fuori dall'header" chiamava chiudiTuttoOra e toglieva menu-open).
+// ("menu-open") finché sono aperti o si stanno ancora chiudendo.
 const headerHolds = new Set();
 function releaseHeaderIfFree() {
   if (!header || headerHolds.size > 0) return;
@@ -90,12 +72,11 @@ const MEGA_MENUS = [
   panel: document.getElementById(m.panel)
 })).filter((m) => m.link && m.panel);
 
-// Voci che NON hanno pannello ma devono tenere l'header "aperto"
 const HOVER_ONLY_LINKS = [
-  '.nav-center a[href="#"]',   // New in, Gift Card
-  '.nav-left .nav-icon-link',  // icone sinistra (paese, assistenza, negozi)
-  '.nav-right .nav-icon-link', // icone destra (cerca, cuore, profilo, carrello)
-  '.header-actions .nav-icon-link' // icone header mobile (cerca, carrello)
+  '.nav-center a[href="#"]',
+  '.nav-left .nav-icon-link',
+  '.nav-right .nav-icon-link',
+  '.header-actions .nav-icon-link'
 ].flatMap(sel => Array.from(document.querySelectorAll(sel)))
  .filter(a => !MEGA_MENUS.some(m => m.link === a));
 
@@ -137,7 +118,6 @@ if (header && (MEGA_MENUS.length || HOVER_ONLY_LINKS.length)) {
     clearTimeout(hideTimer);
     if (current) spegni(current);
     current = null;
-    // NON togliere menu-open: lo farà chiudiTuttoOra()
   }
 
   function chiudiTuttoOra() {
@@ -152,8 +132,7 @@ if (header && (MEGA_MENUS.length || HOVER_ONLY_LINKS.length)) {
 
   const closeOtherPanels = PanelManager.register(chiudiTuttoOra);
 
-    function puntatoreDentroAreeSicure(x, y) {
-    // 1) dentro il link di un megamenu aperto?
+  function puntatoreDentroAreeSicure(x, y) {
     if (current) {
       const r1 = current.link.getBoundingClientRect();
       const r2 = current.panel.getBoundingClientRect();
@@ -163,15 +142,11 @@ if (header && (MEGA_MENUS.length || HOVER_ONLY_LINKS.length)) {
                          y >= r2.top - TOLERANCE && y <= r2.bottom + TOLERANCE;
       if (dentroLink || dentroMega) return true;
     }
-
-    // 2) dentro una voce senza pannello (New in, Gift Card)?
     for (const a of HOVER_ONLY_LINKS) {
       const r = a.getBoundingClientRect();
       if (x >= r.left - TOLERANCE && x <= r.right + TOLERANCE &&
           y >= r.top - TOLERANCE && y <= r.bottom + TOLERANCE) return true;
     }
-
-    // 3) dentro la fascia della nav (left, center, right)?
     const navAreas = [
       document.querySelector('.nav-left'),
       document.querySelector('.nav-center'),
@@ -179,13 +154,13 @@ if (header && (MEGA_MENUS.length || HOVER_ONLY_LINKS.length)) {
     ].filter(Boolean);
     for (const area of navAreas) {
       const r = area.getBoundingClientRect();
-      const t = 24; // tolleranza più generosa per i gap tra i link
+      const t = 24;
       if (x >= r.left - t && x <= r.right + t &&
           y >= r.top - t && y <= r.bottom + t) return true;
     }
-
     return false;
   }
+
   function programmaChiusura() {
     clearTimeout(hideTimer);
     hideTimer = setTimeout(() => {
@@ -195,15 +170,13 @@ if (header && (MEGA_MENUS.length || HOVER_ONLY_LINKS.length)) {
 
   let mouseX = -1, mouseY = -1;
 
-    document.addEventListener('mousemove', (e) => {
+  document.addEventListener('mousemove', (e) => {
     if (isSearchOpen()) return;
-    // Se un drawer/overlay è aperto, ignora completamente l'hover dell'header
     if (document.body.style.overflow === 'hidden') return;
 
     mouseX = e.clientX;
     mouseY = e.clientY;
 
-    // 1) sopra un link con megamenu?
     const hover = MEGA_MENUS.find((m) => {
       const r = m.link.getBoundingClientRect();
       return e.clientX >= r.left && e.clientX <= r.right &&
@@ -215,23 +188,17 @@ if (header && (MEGA_MENUS.length || HOVER_ONLY_LINKS.length)) {
       return;
     }
 
-    // 2) sopra una voce senza pannello?
     const hoverOnly = HOVER_ONLY_LINKS.some((a) => {
       const r = a.getBoundingClientRect();
       return e.clientX >= r.left && e.clientX <= r.right &&
              e.clientY >= r.top && e.clientY <= r.bottom;
     });
     if (hoverOnly) {
-      // chiudi il pannello eventualmente aperto, ma tieni l'header aperto
       chiudiPannelloMaTieniHeader();
       header.classList.add('menu-open');
       return;
     }
 
-    // 3) né sopra un link con pannello né sopra una voce senza pannello
-
-    // Se il mouse è ancora dentro la fascia della nav (anche tra un link
-    // e l'altro, o sopra le icone laterali), consideralo "sicuro": non chiudere
     if (puntatoreDentroAreeSicure(e.clientX, e.clientY)) {
       clearTimeout(hideTimer);
       return;
@@ -251,7 +218,7 @@ if (header && (MEGA_MENUS.length || HOVER_ONLY_LINKS.length)) {
       else apriMenu(m);
     });
 
-    /* ---------- TOUCH / PEN (tablet e dispositivi touch) ----------
+    /* ---------- TOUCH / PEN (tablet orizzontale) ----------
        Su tablet il click viene spesso "mangiato" dal browser per
        simulare l'hover. Intercettiamo pointerdown con pointerType
        touch/pen, che arriva PRIMA e in modo affidabile.            */
@@ -285,10 +252,10 @@ if (header && (MEGA_MENUS.length || HOVER_ONLY_LINKS.length)) {
     else header.classList.remove('scrolled');
   });
 }
+
 /* ============================================================
-   RICERCA: alta quanto Abbigliamento (solo desktop largo: sotto i 1200px
-   Abbigliamento porta le foto su una riga sotto i link e diventa molto
-   più alto, quindi lì la ricerca resta alla sua altezza naturale)
+   RICERCA: allinea l'altezza della ricerca a quella del megamenu
+   Abbigliamento (solo desktop largo, ≥ 1201px).
    ============================================================ */
 (function () {
   const search = document.getElementById('searchMegamenu');
@@ -348,24 +315,16 @@ if (navBurger && mobileMenu) {
     mobileMenu.setAttribute('aria-hidden', String(!willOpen));
     document.body.style.overflow = willOpen ? 'hidden' : '';
 
-    // Header chiaro con testi scuri finché il menu mobile è aperto (come per la
-    // ricerca). Serve perché in cima alla pagina l'header è trasparente con
-    // logo e icone bianchi, che sul fondo chiaro del menu non si vedrebbero.
-    // Se il menu era già chiuso non tocchiamo l'header (questa funzione viene
-    // chiamata anche quando si aprono altri pannelli).
     if (header && willOpen !== wasOpen) {
       clearTimeout(menuCloseTimer);
       if (willOpen) {
         headerHolds.add('menu');
         header.classList.add('menu-open');
       } else {
-        // Alla chiusura l'header resta chiaro (logo e X scuri) finché il menu
-        // non ha finito di dissolversi: se tornasse subito trasparente, logo e X
-        // diventerebbero bianchi sul fondo crema del menu che sta sfumando.
         menuCloseTimer = setTimeout(() => {
-          if (mobileMenu.classList.contains('open')) return; // riaperto nel frattempo
+          if (mobileMenu.classList.contains('open')) return;
           headerHolds.delete('menu');
-          releaseHeaderIfFree(); // se la ricerca è aperta l'header resta chiaro
+          releaseHeaderIfFree();
         }, cssDurationMs('--t-base', 400));
       }
     }
@@ -387,10 +346,9 @@ if (navBurger && mobileMenu) {
     if (e.key === 'Escape') toggleMobileMenu(false);
   });
 }
+
 /* ============================================================
    MENU MOBILE — Accordion sottomenu
-   Le voci "Abbigliamento", "Accessori e Scarpe", "Outlet"
-   si aprono/chiudono al tap, rivelando il sottomenu.
    ============================================================ */
 (function () {
   const mobileMenu = document.getElementById('mobileMenu');
@@ -401,20 +359,13 @@ if (navBurger && mobileMenu) {
   toggles.forEach((btn) => {
     btn.addEventListener('click', () => {
       const isOpen = btn.getAttribute('aria-expanded') === 'true';
-
-      // Chiudi tutti gli altri (accordion esclusivo)
       toggles.forEach((other) => {
-        if (other !== btn) {
-          other.setAttribute('aria-expanded', 'false');
-        }
+        if (other !== btn) other.setAttribute('aria-expanded', 'false');
       });
-
-      // Inverti lo stato di quello cliccato
       btn.setAttribute('aria-expanded', String(!isOpen));
     });
   });
 
-  // Quando il menu mobile si chiude, richiudi tutti gli accordion
   const observer = new MutationObserver(() => {
     const isMenuOpen = mobileMenu.classList.contains('open');
     if (!isMenuOpen) {
@@ -453,18 +404,15 @@ if (navBurger && mobileMenu) {
     const wasOpen = searchMegamenu.classList.contains('open');
     searchMegamenu.classList.remove('open');
     document.body.style.overflow = '';
-    // Questa funzione viene chiamata anche quando si aprono altri pannelli:
-    // se la ricerca era già chiusa non c'è nulla da fare sull'header.
     if (!wasOpen) return;
     clearTimeout(searchCloseTimer);
 
     const release = () => {
-      if (searchMegamenu.classList.contains('open')) return; // riaperta nel frattempo
+      if (searchMegamenu.classList.contains('open')) return;
       headerHolds.delete('search');
-      releaseHeaderIfFree(); // se ora è aperto il menu mobile l'header resta chiaro
+      releaseHeaderIfFree();
     };
 
-    // Su mobile il pannello è a tutto schermo: header chiaro finché non è sfumato
     if (isFullscreenPanelLayout()) {
       searchCloseTimer = setTimeout(release, cssDurationMs('--t-base', 400));
     } else {
@@ -564,13 +512,7 @@ if (navBurger && mobileMenu) {
 })();
 
 /* ============================================================
-   CONTATORE CARRELLO — fonte unica per il totale
-   Aggiorna insieme il numero nel titolo del drawer ("La tua
-   selezione") e tutti i badge sull'icona carrello nell'header
-   e nel menu mobile (.cart-badge). Il totale parte dalla somma
-   delle quantità già presenti nel drawer (qty-value) e viene
-   incrementato ogni volta che si preme "Aggiungi al carrello",
-   sia dalla wishlist sia dalla scheda prodotto (PDP).
+   CONTATORE CARRELLO
    ============================================================ */
 window.CartCounter = (function () {
   const cartCountEl = document.getElementById('cartCount');
@@ -713,7 +655,7 @@ window.CartCounter = (function () {
 })();
 
 /* ============================================================
-   WISHLIST DRAWER (griglia 2 colonne)
+   WISHLIST DRAWER
    ============================================================ */
 (function () {
   const drawer = document.getElementById('wishlistDrawer');
@@ -800,7 +742,6 @@ window.CartCounter = (function () {
 
 /* ============================================================
    MUST HAVE: carosello infinito continuo
-   (si attiva solo se #mhTrack esiste nella pagina)
    ============================================================ */
 (function () {
   const track = document.getElementById('mhTrack');
@@ -929,7 +870,6 @@ window.CartCounter = (function () {
 
 /* ============================================================
    JOURNAL: carosello semplice
-   (si attiva solo se #wTrack esiste nella pagina)
    ============================================================ */
 (function () {
   const track = document.getElementById('wTrack');
@@ -1020,7 +960,6 @@ window.CartCounter = (function () {
 
 /* ============================================================
    VIDEO SHOWCASE: dissolvenza all'ingresso
-   (si attiva solo se .video-showcase esiste nella pagina)
    ============================================================ */
 (function () {
   const videoShowcase = document.querySelector('.video-showcase');
@@ -1036,8 +975,7 @@ window.CartCounter = (function () {
 })();
 
 /* ============================================================
-   STORE LOCATOR DRAWER (sinistra) — icona Negozi
-   (si attiva solo se #storesDrawer esiste nella pagina)
+   STORE LOCATOR DRAWER
    ============================================================ */
 (function () {
   const drawer = document.getElementById('storesDrawer');
@@ -1135,8 +1073,7 @@ window.CartCounter = (function () {
 })();
 
 /* ============================================================
-   CONTACT DRAWER (sinistra) — icona Assistenza
-   (si attiva solo se #contactDrawer esiste nella pagina)
+   CONTACT DRAWER
    ============================================================ */
 (function () {
   const drawer = document.getElementById('contactDrawer');
