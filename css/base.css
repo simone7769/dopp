@@ -76,11 +76,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Entrata pagina: dissolvenza rapida solo all'arrivo (via di mezzo).
-   Nessun ritardo sul clic: il cambio pagina parte subito e la pagina nuova
-   si scopre in modo morbido, senza lo "scatto". Per toglierla basta
-   cancellare le due regole qui sotto. "backwards" = vale solo durante
-   l'animazione, poi il body torna normale. */
 @keyframes page-enter {
   from { opacity: 0; }
   to   { opacity: 1; }
@@ -135,9 +130,6 @@ header {
   transition: background var(--t-base) var(--ease), color var(--t-base) var(--ease), box-shadow var(--t-base) var(--ease);
 }
 
-/* ---------- HEADER SCROLLED ----------
-   Sfondo chiaro + tutti gli elementi (logo, menu, icone, topbar)
-   passano a colore scuro. */
 header.scrolled {
   background-color: rgba(250, 248, 245, 0.85);
   backdrop-filter: blur(12px);
@@ -177,7 +169,6 @@ header.scrolled .nav {
   height: auto;
 }
 
-/* ---------- HEADER MENU OPEN ---------- */
 header.menu-open,
 header.menu-open .topbar,
 header.menu-open .header-main,
@@ -208,7 +199,6 @@ header.menu-open .topbar-message {
   color: var(--ink);
 }
 
-/* ---------- TOPBAR ---------- */
 .topbar {
   background-color: rgba(255,255,255,0.08);
   backdrop-filter: blur(6px);
@@ -260,7 +250,6 @@ header.menu-open .topbar-message {
   transition: opacity var(--t-base) var(--ease) 0.08s, filter var(--t-base) var(--ease) 0.08s;
 }
 
-/* ---------- HEADER MAIN ---------- */
 .header-main {
   display: flex;
   justify-content: center;
@@ -278,7 +267,6 @@ header.menu-open .topbar-message {
 }
 .logo:hover { opacity: 0.8; }
 
-/* ---------- NAV ---------- */
 .nav {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
@@ -564,11 +552,6 @@ header.menu-open .topbar-message {
 }
 .suggestions-grid a:hover img { transform: scale(1.04); }
 
-/* Era "min-width: 1025px": si sovrapponeva per 75px alla versione
-   mobile della ricerca (attiva fino a max-width: 1100px), creando
-   una fascia (1025–1100px) con la griglia desktop a 4 colonne
-   applicata sopra un contenuto pensato per l'accordion mobile.
-   Allineata a 1101px così le due versioni non si toccano mai. */
 @media (min-width: 1101px) {
   .search-mm-inner {
     display: grid;
@@ -623,7 +606,6 @@ header.menu-open .topbar-message {
 .mobile-menu-list li { border-bottom: 0.5px solid var(--gold); }
 .mobile-menu-list li:last-child { border-bottom: none; }
 
-/* Voce semplice (link diretto) */
 .mobile-menu-list > li > a {
   display: block;
   padding: 20px 24px;
@@ -638,12 +620,11 @@ header.menu-open .topbar-message {
 }
 .mobile-menu-list > li > a:hover { color: var(--gold); }
 
-/* Voce con sottomenu (accordion) */
 .mobile-sub-toggle {
   position: relative;
   display: block;
   width: 100%;
-  padding: 20px 44px 20px 44px; /* lascia spazio per la freccia a destra */
+  padding: 20px 44px 20px 44px;
   background: transparent;
   border: none;
   font-family: var(--sans);
@@ -653,7 +634,7 @@ header.menu-open .topbar-message {
   text-transform: uppercase;
   color: var(--ink);
   cursor: pointer;
-  text-align: center; /* ← centrato come le voci semplici */
+  text-align: center;
   transition: color var(--t-fast) var(--ease);
 }
 .mobile-sub-toggle:hover { color: var(--gold); }
@@ -670,7 +651,6 @@ header.menu-open .topbar-message {
   transform: translateY(-50%) rotate(180deg);
 }
 
-/* Sottomenu */
 .mobile-sub {
   list-style: none;
   padding: 0;
@@ -678,7 +658,7 @@ header.menu-open .topbar-message {
   max-height: 0;
   overflow: hidden;
   transition: max-height var(--t-base) var(--ease);
-  background: rgba(184, 147, 90, 0.04);
+  background: transparent;
 }
 .mobile-sub-toggle[aria-expanded="true"] + .mobile-sub {
   max-height: 600px;
@@ -700,7 +680,7 @@ header.menu-open .topbar-message {
   color: var(--gold);
 }
 .mobile-menu-icons {
-  margin-top: auto; /* icone + Boutique / Contattaci / Accessibilità scendono in fondo al menu */
+  margin-top: auto;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   align-items: center;
@@ -1040,7 +1020,7 @@ header.menu-open .topbar-message {
   margin-top: auto;
   position: sticky;
   bottom: 0;
-  background: #faf8f5;      /* ← era #fff */
+  background: #faf8f5;
   padding: 18px 0 16px;
   border-top: 1px solid var(--line);
   display: flex;
@@ -1057,7 +1037,7 @@ header.menu-open .topbar-message {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  background: #faf8f5;      /* ← era #fff */
+  background: #faf8f5;
   border-top: none;
 }
 .cart-express { text-align: center; font-size: 0.78rem; color: #555; margin: 2px 0; }
@@ -1309,7 +1289,7 @@ header.menu-open .topbar-message {
   flex-shrink: 0;
   padding: 16px 26px max(26px, env(safe-area-inset-bottom));
   border-top: 1px solid var(--line);
-  background: #faf8f5;      /* ← era #fff */
+  background: #faf8f5;
 }
 .stores-btn { display: block; text-align: center; text-decoration: none; }
 
@@ -1371,7 +1351,6 @@ header.menu-open .topbar-message {
 .contact-btn { display: block; text-align: center; text-decoration: none; }
 button.contact-btn { display: block; }
 
-/* Pulsanti drawer comuni */
 .cart-btn-primary,
 .login-btn-primary,
 .login-btn-secondary,
@@ -1569,6 +1548,17 @@ footer {
   margin-top: 20px;
   border-top: 1px solid var(--gold);
 }
+.footer-signature {
+  text-align: center;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: var(--fs-14);
+  color: #cfcbc4;
+  letter-spacing: var(--tr-05);
+  padding-top: 20px;
+  margin-top: 20px;
+  border-top: 1px solid var(--gold);
+}
 .country-trigger {
   background: transparent;
   border: none;
@@ -1624,12 +1614,6 @@ footer {
   .nav-left,
   .nav-right { display: none; }
 
-  /* La regola "header.menu-open .header-main" più sotto nel file ha
-     una specificità più alta di ".header-main" dentro questa stessa
-     media query, quindi vince sempre e riporta l'header al padding
-     "da desktop" (32px/26px) ogni volta che si apre la ricerca su
-     mobile — l'header diventa più alto del previsto e copre la barra
-     di ricerca. Qui lo forziamo a restare col padding mobile. */
   header.menu-open .header-main {
     padding: 14px 16px 14px;
     height: auto;
@@ -1637,14 +1621,10 @@ footer {
     overflow: visible;
   }
 
-  /* Il padding-top del drawer del menu mobile era tarato sull'altezza
-     dell'header desktop (~166px) invece di quella reale dell'header
-     mobile (~93px): lasciava un grande spazio vuoto sopra "New in". */
   .mobile-menu {
     padding-top: 105px;
     padding-bottom: calc(28px + env(safe-area-inset-bottom, 0px));
   }
-  /* distanza minima tra le voci e il blocco icone/utility in fondo */
   .mobile-menu-list { margin-bottom: 32px; }
 
   header.scrolled .header-main {
@@ -1657,7 +1637,7 @@ footer {
 
   .megamenu { display: none; }
 
-  .search-megamenu {
+    .search-megamenu {
     position: fixed;
     inset: 0;
     top: 0;
@@ -1671,9 +1651,7 @@ footer {
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     min-height: 0;
-    background: rgba(250, 248, 245, 0.98);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: #faf8f5;
   }
   header .topbar,
   header .header-main { position: relative; z-index: 1002; }
@@ -1697,8 +1675,8 @@ footer {
   .search-mm-suggestions:not(.open) .suggestions-grid { display: none; }
   .search-mm-suggestions.open .suggestions-grid { display: grid; }
 
-  .search-mm-col h4,
-  .search-mm-col a {
+  /* Titoli colonna (UOMO, ACCESSORI, OUTLET): MAIUSCOLI */
+  .search-mm-col h4 {
     display: block;
     margin: 0;
     padding: 20px 24px;
@@ -1707,19 +1685,30 @@ footer {
     font-size: var(--fs-13);
     letter-spacing: var(--tr-2);
     text-transform: uppercase;
+    font-weight: 400;
+    color: var(--ink);
+    border-bottom: 0.5px solid var(--gold);
+    transition: color var(--t-fast) var(--ease);
+  }
+  .search-mm-col h4:hover { color: var(--gold); }
+
+  /* Voci elenco (Nuovi Arrivi, Maglieria...): minuscole, come i sottomenu del burger */
+  .search-mm-col a {
+    display: block;
+    margin: 0;
+    padding: 20px 24px;
+    text-align: center;
+    font-family: var(--sans);
+    font-size: var(--fs-13);
+    letter-spacing: var(--tr-2);
+    text-transform: none;
+    font-weight: 300;
     color: var(--ink);
   }
-  /* Pesi uniformati al menu burger (il più delicato):
-     titoli sezione 400 come le voci del menu, voci elenco 300 come i sottomenu. */
-  .search-mm-col h4 { font-weight: 400; border-bottom: 0.5px solid var(--gold); transition: color var(--t-fast) var(--ease); }
-  .search-mm-col h4:hover { color: var(--gold); }
-  .search-mm-col a { font-weight: 300; }
+  .search-mm-col a:hover { color: var(--gold); }
   .search-mm-col ul { gap: 0; }
-  .search-mm-col li { border-bottom: 0.5px solid var(--gold); }
+  .search-mm-col li { border-bottom: none; }
   .search-mm-suggestions .suggestions-grid { padding: 24px 24px 0; }
-  /* Le foto dei suggerimenti ereditavano il padding dei link della lista
-     (".search-mm-col a": 20px 24px), che creava una cornice beige attorno
-     all'immagine. Qui il link è solo il contenitore della foto: niente padding. */
   .search-mm-suggestions .suggestions-grid a {
     padding: 0;
     letter-spacing: 0;
@@ -1751,9 +1740,6 @@ footer {
   .footer-bottom-right { justify-content: center; text-align: center; }
   .footer-bottom-right { flex-wrap: wrap; gap: 16px; }
 
-  /* Colori header su mobile: identici al desktop (trasparente/bianco in cima,
-     chiaro/scuro da scrolled, chiaro/scuro da menu-open). Sono gestiti dalle
-     regole base di "header", "header.scrolled" e "header.menu-open". */
   header .topbar { border-bottom: 1px solid var(--gold) !important; }
 
   .country-drawer, .stores-drawer, .contact-drawer,
@@ -1840,11 +1826,8 @@ footer {
 .touch-device .logo { height: 18px; }
 .touch-device .header-actions { display: flex; justify-self: end; }
 
-/* Colori header: come desktop (regole base di header / .scrolled / .menu-open). */
 .touch-device .topbar { border-bottom: 1px solid var(--gold); }
 
-/* Da scrollato l'header-main (burger, logo, icone) deve restare visibile:
-   la regola di home.css lo nasconde solo per il desktop con nav a tutta larghezza. */
 .touch-device header.scrolled .header-main {
   height: auto;
   min-height: 0;
@@ -1856,12 +1839,6 @@ footer {
 }
 .touch-device header.scrolled .header-main .logo { height: 16px; }
 
-/* Stessi due fix del blocco "@media (max-width: 1100px)" qui sopra,
-   ma per i tablet più larghi (es. iPad Pro orizzontale, >1100px) che
-   passano al menu a hamburger tramite .touch-device invece che per
-   via del media query: senza queste righe i due bug (header che
-   cresce quando si apre la ricerca, e lo spazio vuoto sopra "New in"
-   nel drawer del menu) si ripresentano identici anche lì. */
 .touch-device header.menu-open .header-main {
   padding: 14px 16px 14px;
   height: auto;
@@ -1869,6 +1846,105 @@ footer {
   overflow: visible;
 }
 .touch-device .mobile-menu { padding-top: 105px; }
+
+/* ============================================================
+   TABLET TOUCH: la ricerca deve essere identica al mobile.
+   Replica il blocco @media (max-width: 1100px) per i tablet
+   più larghi di 1100px che usano il burger menu via .touch-device.
+   ============================================================ */
+.touch-device .search-megamenu {
+  position: fixed;
+  inset: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  border-top: none;
+  box-shadow: none;
+  padding: 100px 0 40px;
+  z-index: 1001;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  min-height: 0;
+  background: #faf8f5;
+}
+.touch-device header .topbar,
+.touch-device header .header-main { position: relative; z-index: 1002; }
+.touch-device .search-mm-bar { margin: 0 24px 28px; }
+.touch-device .search-mm-grid {
+  grid-template-columns: 1fr;
+  gap: 0;
+  border-top: 0.5px solid var(--gold);
+}
+.touch-device .search-mm-suggestions {
+  grid-column: span 1;
+  display: block !important;
+  visibility: visible !important;
+  height: auto !important;
+}
+.touch-device .search-mm-suggestions .suggestions-grid {
+  padding: 24px 24px 0;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+.touch-device .search-mm-suggestions:not(.open) .suggestions-grid { display: none; }
+.touch-device .search-mm-suggestions.open .suggestions-grid { display: grid; }
+
+/* Titoli colonna (UOMO, ACCESSORI, OUTLET): MAIUSCOLI */
+.touch-device .search-mm-col h4 {
+  display: block;
+  margin: 0;
+  padding: 20px 24px;
+  text-align: center;
+  font-family: var(--sans);
+  font-size: var(--fs-13);
+  letter-spacing: var(--tr-2);
+  text-transform: uppercase;
+  font-weight: 400;
+  color: var(--ink);
+  border-bottom: 0.5px solid var(--gold);
+  transition: color var(--t-fast) var(--ease);
+}
+.touch-device .search-mm-col h4:hover { color: var(--gold); }
+
+/* Voci elenco (Nuovi Arrivi, Maglieria...): minuscole */
+.touch-device .search-mm-col a {
+  display: block;
+  margin: 0;
+  padding: 20px 24px;
+  text-align: center;
+  font-family: var(--sans);
+  font-size: var(--fs-13);
+  letter-spacing: var(--tr-2);
+  text-transform: none;
+  font-weight: 300;
+  color: var(--ink);
+}
+
+.touch-device .search-mm-col ul { gap: 0; }
+.touch-device .search-mm-col li { border-bottom: none; }.touch-device .search-mm-suggestions .suggestions-grid { padding: 24px 24px 0; }
+.touch-device .search-mm-suggestions .suggestions-grid a {
+  padding: 0;
+  letter-spacing: 0;
+  line-height: 0;
+}
+
+.touch-device .search-mm-col h4 { position: relative; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.touch-device .search-mm-col h4::after {
+  content: "";
+  position: absolute;
+  right: 26px;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  border-right: 1.2px solid currentColor;
+  border-bottom: 1.2px solid currentColor;
+  transform: translateY(-70%) rotate(45deg);
+  transition: transform var(--t-fast) var(--ease);
+}
+.touch-device .search-mm-col.open h4::after { transform: translateY(-30%) rotate(-135deg); }
+.touch-device .search-mm-col:not(.open) ul,
+.touch-device .search-mm-col:not(.open) .suggestions-grid { display: none; }
 
 
 /* ============================================================
