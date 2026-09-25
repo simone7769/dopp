@@ -82,6 +82,11 @@
   .product-card.featured {
     grid-column: 1 / -1 !important;
     grid-row: auto !important;
+    /* La card featured va sempre per prima su mobile: in essential.html è già
+       la prima nel DOM, ma in cerimonia.html è la seconda (dopo "Card 1"), e
+       senza "order" la card1 restava a metà riga con un buco accanto mentre
+       l'immagine grande scivolava in seconda posizione. */
+    order: -1;
     min-height: 280px;
   }
   .product-card.featured .featured-overlay {
