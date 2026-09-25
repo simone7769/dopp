@@ -279,7 +279,7 @@ if (header && (MEGA_MENUS.length || HOVER_ONLY_LINKS.length)) {
 
   function allineaAltezzaRicerca() {
     search.style.minHeight = '';
-    if (window.innerWidth <= 1200) return;
+    if (window.innerWidth <= 1400) return;
     const h = abb.getBoundingClientRect().height;
     if (h > 0) search.style.minHeight = h + 'px';
   }
