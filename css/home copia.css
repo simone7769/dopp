@@ -4,11 +4,13 @@
 
 /* ============================================================
    NIENTE DISSOLVENZA D'ENTRATA SULLA HOME
+   base.css fa comparire il body con un fade da opacity 0: in quel momento
+   dietro c'è il fondo chiaro (--paper), che lampeggia prima dell'hero scuro.
    ============================================================ */
 body { animation: none; }
 
 /* ============================================================
-   HERO
+   HERO (immagine full-screen con overlay scuro)
    ============================================================ */
 .hero {
   position: relative;
@@ -54,8 +56,14 @@ body { animation: none; }
   margin-bottom: 24px;
   text-shadow: 0 2px 20px rgba(0,0,0,0.35);
 }
-.hero-content h1 .hero-line { display: block; }
-.hero-content h1 .hero-line:last-child { margin-top: 8px; }
+
+.hero-content h1 .hero-line {
+  display: block;
+}
+
+.hero-content h1 .hero-line:last-child {
+  margin-top: 8px;
+}
 .hero-content p {
   font-family: var(--sans);
   font-size: var(--fs-11);
@@ -180,8 +188,8 @@ body { animation: none; }
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 160px;
-  max-width: 1000px;
+  gap: 80px;
+  max-width: 850px;
   margin: 0 auto;
 }
 .card {
@@ -470,7 +478,7 @@ body { animation: none; }
   font-size: var(--fs-12);
   font-weight: 300;
   letter-spacing: var(--tr-03);
-  color: var(--ink);
+  color: var(--ink);    
   text-align: center;
   line-height: 1.55;
   margin: 0 auto;
@@ -479,32 +487,44 @@ body { animation: none; }
 .w-prev { left: var(--w-pad); }
 .w-next { right: var(--w-pad); }
 
+
 /* ============================================================
-   HEADER SCROLLATO (home)
+   HEADER SCROLLATO (home): il logo e la topbar spariscono
    ============================================================ */
 @media (min-width: 1025px) {
   header.scrolled .header-main {
-    height: 0; min-height: 0; max-height: 0;
-    padding: 0; margin: 0;
-    overflow: hidden; opacity: 0; border: none;
+    height: 0;
+    min-height: 0;
+    max-height: 0;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    opacity: 0;
+    border: none;
   }
 }
 header.scrolled .topbar {
-  height: 0; min-height: 0; max-height: 0;
-  padding: 0; margin: 0; border: none;
-  opacity: 0; transform: translateY(-100%);
-  pointer-events: none; overflow: hidden;
+  height: 0;
+  min-height: 0;
+  max-height: 0;
+  padding: 0;
+  margin: 0;
+  border: none;
+  opacity: 0;
+  transform: translateY(-100%);
+  pointer-events: none;
+  overflow: hidden;
 }
 
 /* ============================================================
-   RESPONSIVE
+   RESPONSIVE — sezioni esclusive di index.html
    ============================================================ */
 @media (max-width: 1400px) {
   .duo { height: 100vh; min-height: 550px; }
 }
 
 @media (max-width: 1200px) {
-  .grid { max-width: 880px; gap: 130px; }
+  .grid { max-width: 780px; gap: 70px; }
   .world { --w-visible: 3; --w-gaps: 2; }
 }
 
@@ -512,7 +532,7 @@ header.scrolled .topbar {
   .must-have { --mh-visible: 2.5; --mh-gaps: 2; --mh-gap: 32px; }
   .world { --w-visible: 2.5; --w-gaps: 2; --w-gap: 32px; }
   .duo { height: 100vh; min-height: 500px; }
-  .grid { max-width: 800px; gap: 110px; }
+  .grid { max-width: 700px; gap: 60px; }
 }
 
 @media (max-width: 900px) {
