@@ -42,7 +42,7 @@
 .looks-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 60px 40px;
+  gap: 90px 24px;
 }
 
 /* Spazio uniforme tra la prima e la seconda griglia */
@@ -59,6 +59,8 @@
 /* --- CARD --- */
 .look-card {
   display: block;
+  width: 82%;
+  margin: 0 auto;
   text-decoration: none;
   color: var(--ink);
 }
@@ -77,17 +79,7 @@
   object-fit: cover;
   display: block;
 }
-.look-image .img-main {
-  z-index: 1;
-}
-.look-image .img-hover {
-  z-index: 2;
-  opacity: 0;
-  transition: opacity var(--t-base) var(--ease);
-}
-.look-card:hover .img-hover {
-  opacity: 1;
-}
+
 
 /* --- TESTO INTRODUTTIVO tra le due griglie --- */
 .looks-intro {
@@ -149,7 +141,7 @@ header .topbar { border-bottom: 1px solid var(--gold); }
 @media (max-width: 1200px) {
   .hero { padding: 40px 30px 30px; }
   .looks-wrap { padding: 20px 30px 80px; }
-  .looks-grid { gap: 40px 24px; }
+  .looks-grid { gap: 60px 36px; }
   .looks-grid + .looks-grid { margin-top: 40px; }
   .looks-intro { margin: 60px auto; }
   .looks-wrap > .looks-intro:first-child { margin-bottom: 40px; }
@@ -158,14 +150,15 @@ header .topbar { border-bottom: 1px solid var(--gold); }
 @media (max-width: 900px) {
   .hero { padding: 30px 24px 20px; }
   .looks-wrap { padding: 20px 24px 60px; }
-  .looks-grid { gap: 30px 16px; }
+  .looks-grid { gap: 50px 24px; }
   .looks-grid + .looks-grid { margin-top: 30px; }
   .looks-intro { margin: 50px auto; padding: 0 16px; }
   .looks-wrap > .looks-intro:first-child { margin-bottom: 30px; }
 }
 
 @media (max-width: 640px) {
-  .looks-grid { grid-template-columns: 1fr; gap: 40px; }
+  .looks-grid { grid-template-columns: 1fr; gap: 60px; }
+  .look-card { width: 90%; }
   .look-image { aspect-ratio: 4 / 5; }
   .looks-intro { margin: 40px auto; }
   .looks-wrap > .looks-intro:first-child { margin-bottom: 40px; }
