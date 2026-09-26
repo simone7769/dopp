@@ -160,7 +160,7 @@
 .product-info .details .price {
   font-family: var(--sans);
   font-size: var(--fs-card-price);
-  font-weight: 300;
+  font-weight: 700;
   letter-spacing: var(--tr-03);
   color: var(--ink);
 }

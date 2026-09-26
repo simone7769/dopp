@@ -447,7 +447,7 @@ header.menu-open .topbar-message {
   gap: 18px;
   align-self: start;
 }
-.mm-card { text-decoration: none; color: var(--ink); display: block; }
+.mm-card { text-decoration: none; color: var(--ink); display: block; width: 215px; flex: 0 0 215px; }
 .mm-card .thumb {
   width: 100%;
   aspect-ratio: 3 / 4;
@@ -904,7 +904,7 @@ header.menu-open .topbar-message {
 }
 .qty-btn:hover { background: #f5f5f5; }
 .qty-value { min-width: 26px; text-align: center; font-size: 0.85rem; }
-.cart-item-price { font-size: 0.85rem; font-weight: 400; margin: 0; white-space: nowrap; }
+.cart-item-price { font-size: 0.85rem; font-weight: 700; margin: 0; white-space: nowrap; }
 .cart-item-remove {
   background: transparent;
   border: none;
@@ -1083,7 +1083,7 @@ header.menu-open .topbar-message {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.wishlist-card-price { font-size: 0.76rem; font-weight: 400; color: var(--ink); margin: 0 0 6px; }
+.wishlist-card-price { font-size: 0.76rem; font-weight: 700; color: var(--ink); margin: 0 0 6px; }
 .wishlist-add-cart {
   width: 100%;
   padding: 7px 8px;
@@ -1636,9 +1636,9 @@ footer {
 #megaAbbigliamento .megamenu-images,
 #megaAccessori .megamenu-images {
   grid-column: 3;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
 }
 
 /* --- Outlet: 1 colonna link + 4 immagini --- */
@@ -1650,9 +1650,9 @@ footer {
 }
 #megaOutlet .megamenu-images {
   grid-column: 2;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 22px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
 }
 
 /* --- Titolo colonna (Abbigliamento / Accessori / Outlet / In Evidenza) --- */
@@ -1720,8 +1720,9 @@ header.menu-open .nav-outlet { color: var(--gold) !important; }
   #megaOutlet .megamenu-images {
     grid-column: 1 / -1;
     margin-top: 30px;
-    gap: 16px;
+    gap: 20px;
   }
+  .mm-card { width: 155px; flex: 0 0 155px; }
 }
 
 /* ============================================================
