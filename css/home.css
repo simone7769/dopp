@@ -543,8 +543,8 @@ header.scrolled .topbar {
 
 @media (max-width: 900px) {
   .collection { padding: 0; }
-  .collection-frame h2 { top: 5%; letter-spacing: var(--tr-5); }
-  .collection-frame > p { top: 13%; }
+  .collection-frame h2,
+  .collection-frame > p { display: none; }
 
   .must-have {
     --mh-pad: 24px;
@@ -612,3 +612,4 @@ header.scrolled .topbar {
   .card h3 { font-size: 11px; letter-spacing: 0.05em; }
   .duo-item { height: 60vh; min-height: 400px; }
 }
+
