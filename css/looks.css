@@ -309,12 +309,18 @@ header .topbar { border-bottom: 1px solid var(--gold); }
 .article-split-media {
   width: 100%;
 }
-.article-split-media img,
+.article-split-media img {
+  width: 100%;
+  height: auto;
+  display: block;
+  /* Rimosso background: #000; per le immagini */
+}
+
 .article-split-media video {
   width: 100%;
   height: auto;
   display: block;
-  background: #000;
+  background: #000; /* Lo sfondo nero rimane solo per i video */
 }
 
 @media (max-width: 900px) {
