@@ -60,6 +60,11 @@
 
 html {
   scroll-padding-top: 0;
+  scroll-behavior: smooth;
+  /* "proximity" e non "mandatory": accompagna verso l'inizio della sezione
+     solo quando lo scroll si ferma vicino, senza bloccare mai lo scroll
+     veloce. Niente di rigido. */
+  scroll-snap-type: y proximity;
 }
 
 body {
@@ -578,7 +583,7 @@ header.menu-open .topbar-message {
 .mobile-menu-icons {
   margin-top: auto;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   align-items: center;
   justify-items: center;
   color: var(--ink);
