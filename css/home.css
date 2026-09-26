@@ -13,7 +13,6 @@ body { animation: none; }
    HERO (immagine full-screen con overlay scuro)
    ============================================================ */
 .hero {
-  scroll-snap-align: start;
   position: relative;
   height: 100vh;
   width: 100%;
@@ -31,7 +30,7 @@ body { animation: none; }
   height: 100%;
   object-fit: cover;
   z-index: -2;
-  background-color: #1f1f1f; /* scuro finché la foto non è caricata */
+  background-color: #1f1f1f;
 }
 .hero::after {
   content: "";
@@ -49,7 +48,7 @@ body { animation: none; }
 }
 .hero-content h1 {
   font-family: var(--serif);
-  font-size: clamp(22px, 2.6vw, 34px);   /* ridotto: la frase è più lunga */
+  font-size: clamp(22px, 2.6vw, 34px);
   font-weight: 400;
   letter-spacing: var(--tr-4);
   line-height: 1.25;
@@ -58,7 +57,6 @@ body { animation: none; }
   text-shadow: 0 2px 20px rgba(0,0,0,0.35);
 }
 
-/* Hero narrativa: due righe visive */
 .hero-content h1 .hero-line {
   display: block;
 }
@@ -113,7 +111,6 @@ body { animation: none; }
    VIDEO SHOWCASE
    ============================================================ */
 .video-showcase {
-  scroll-snap-align: start;
   position: relative;
   height: 100vh;
   width: 100%;
@@ -158,7 +155,6 @@ body { animation: none; }
   margin: 60px 8%;
   background: url("../images/TAP.webp") center / cover no-repeat;
 }
-/* velo scuro per far leggere titolo e card sopra l'immagine */
 .collection::before {
   content: "";
   position: absolute;
@@ -345,7 +341,6 @@ body { animation: none; }
    DUO
    ============================================================ */
 .duo {
-  scroll-snap-align: start;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0;
@@ -471,7 +466,7 @@ body { animation: none; }
 .w-item h3 {
   font-family: var(--sans);
   font-size: var(--fs-14);
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: var(--tr-2);
   text-transform: uppercase;
   color: var(--ink);
@@ -485,7 +480,7 @@ body { animation: none; }
   font-size: var(--fs-12);
   font-weight: 300;
   letter-spacing: var(--tr-03);
-  color: #7a7a7a;
+  color: var(--ink);    
   text-align: center;
   line-height: 1.55;
   margin: 0 auto;
@@ -587,7 +582,6 @@ header.scrolled .topbar {
     padding: 40px 20px;
   }
 
-  /* Hero narrativa su mobile */
   .hero-content h1 {
     font-size: 22px;
     line-height: 1.35;
@@ -601,7 +595,3 @@ header.scrolled .topbar {
   .grid { grid-template-columns: 1fr; gap: 24px; }
   .duo-item { height: 60vh; min-height: 400px; }
 }
-
-
-
-

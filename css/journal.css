@@ -1,0 +1,188 @@
+/* ============================================================
+   JOURNAL — pagina archivio articoli
+   ============================================================ */
+
+/* --- HERO piccolo --- */
+.journal-hero {
+  padding: 60px 50px 30px;
+  text-align: center;
+  background-color: #fcfcfb;
+}
+.journal-hero h1 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(28px, 3vw, 40px);
+  letter-spacing: var(--tr-4);
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 0;
+}
+
+/* --- SOTTOBAR FILTRI (come Barena) --- */
+.journal-filters {
+  border-bottom: 1px solid var(--line);
+  padding: 20px 50px;
+  background-color: #fcfcfb;
+}
+.journal-filters-inner {
+  max-width: 1600px;
+  margin: 0 auto;
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.journal-filters a {
+  font-family: var(--sans);
+  font-size: var(--fs-11);
+  font-weight: 400;
+  letter-spacing: var(--tr-3);
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+  transition: color var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
+  white-space: nowrap;
+}
+.journal-filters a:hover {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+}
+.journal-filters a.active {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+}
+
+/* --- GRIGLIA 4 COLONNE --- */
+.journal-grid-wrap {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 60px 50px 100px;
+}
+.journal-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px 24px;
+}
+
+/* --- CARD --- */
+.journal-card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: var(--ink);
+  transition: opacity var(--t-fast) var(--ease);
+}
+.journal-card:hover { opacity: 0.85; }
+
+.journal-card-image {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: var(--paper);
+  margin-bottom: 16px;
+}
+.journal-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--t-slow) var(--ease);
+}
+.journal-card:hover .journal-card-image img { transform: scale(1.03); }
+
+.journal-card h3 {
+  font-family: var(--sans);
+  font-size: var(--fs-14);
+  font-weight: 400;                
+  letter-spacing: var(--tr-05);
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 0 0 10px;
+  line-height: 1.4;
+}
+.journal-card p {
+  font-family: var(--sans);
+  font-size: var(--fs-12);         /* 12px (era 11) */
+  font-weight: 300;                /* 300, più leggero del titolo */
+  letter-spacing: var(--tr-03);    /* 0.3px */
+  line-height: 1.55;
+  color: var(--ink);               /* nero (era grigio #7a7a7a) */
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1200px) {
+  .journal-filters { padding: 18px 30px; }
+  .journal-filters-inner { gap: 28px; }
+  .journal-grid-wrap { padding: 50px 30px 80px; }
+  .journal-grid { grid-template-columns: repeat(3, 1fr); gap: 32px 20px; }
+}
+
+@media (max-width: 900px) {
+  .journal-hero { padding: 40px 24px 20px; }
+  .journal-filters { padding: 16px 24px; overflow-x: auto; }
+  .journal-filters-inner { justify-content: flex-start; gap: 24px; padding-bottom: 4px; }
+  .journal-grid-wrap { padding: 40px 24px 60px; }
+  .journal-grid { grid-template-columns: repeat(2, 1fr); gap: 28px 16px; }
+}
+
+@media (max-width: 600px) {
+  .journal-grid { grid-template-columns: 1fr; gap: 32px; }
+  .journal-card-image { aspect-ratio: 4 / 5; }
+}
+
+/* --- Header sempre chiaro su questa pagina --- */
+header {
+  background-color: #faf8f5;
+  color: var(--ink);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+}
+header .logo { filter: brightness(0) saturate(100%) !important; }
+header .nav-center a { color: var(--ink); }
+header .nav-center a.active { color: var(--gold); }
+header .nav-icon-link { color: var(--ink); }
+header .topbar-message { color: var(--ink); }
+header .topbar { border-bottom: 1px solid var(--gold); }
+
+/* Compensa l'header fixed */
+.page {
+  padding-top: var(--header-h, 170px);
+}
+
+
+/* ============================================================
+   HEADER SCROLLATO — topbar e logo spariscono come su
+   collezione.html, prodotto.html, index.html.
+   Resta solo la nav su sfondo crema.
+   ============================================================ */
+@media (min-width: 1025px) {
+  header.scrolled .header-main {
+    height: 0;
+    min-height: 0;
+    max-height: 0;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    opacity: 0;
+    border: none;
+  }
+}
+header.scrolled .topbar {
+  height: 0;
+  min-height: 0;
+  max-height: 0;
+  padding: 0;
+  margin: 0;
+  border: none;
+  opacity: 0;
+  transform: translateY(-100%);
+  pointer-events: none;
+  overflow: hidden;
+}

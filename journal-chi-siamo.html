@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mission &amp; Vision — Doppelgänger Journal</title>
+<link rel="icon" type="image/svg+xml" href="images/logo_page.svg">
+
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/looks.css">
+<script>document.documentElement.setAttribute("data-css", "ready");</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Jost:wght@300;400;500&display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Jost:wght@300;400;500&display=swap"></noscript>
+</head>
+<body id="top">
+
+  <header id="header">
+    <div class="topbar">
+      <div class="topbar-messages">
+        <p class="topbar-message active">Il lusso più accessibile al mondo — dal 1996</p>
+        <p class="topbar-message">E-concierge disponibile ogni giorno, 9-19</p>
+        <p class="topbar-message">Iscriviti al Club: -20% + spedizione gratuita</p>
+        <p class="topbar-message">Outlet -80%: Acquista ora!</p>
+        <p class="topbar-message">Sartoria in Boutique: prenota un appuntamento</p>
+      </div>
+    </div>
+
+    <div class="header-main">
+      <button class="nav-burger" id="navBurger" type="button" aria-label="Apri menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+      <a href="index.html#top" class="logo-link" aria-label="Home">
+        <img src="images/logo_page.svg" alt="Doppelgänger" class="logo">
+      </a>
+      <div class="header-actions">
+        <a href="#" class="nav-icon-link" aria-label="Cerca">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        </a>
+        <a href="#" class="nav-icon-link" aria-label="Carrello">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg>
+          <span class="cart-badge">1</span>
+        </a>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <div class="nav-left">
+        <a href="#" class="nav-icon-link" id="openCountryDrawer" aria-label="Cambia Paese/Lingua">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 3 2.5 15 0 18M12 3c-2.5 3-2.5 15 0 18"/></svg>
+        </a>
+        <a href="#" class="nav-icon-link" id="openContactDrawer" aria-label="Assistenza">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M4 14v-2a8 8 0 0116 0v2"/><rect x="3" y="14" width="4" height="6" rx="1"/><rect x="17" y="14" width="4" height="6" rx="1"/><path d="M20 20a4 4 0 01-4 3h-3"/></svg>
+        </a>
+        <a href="#" class="nav-icon-link" id="openStoresDrawer" aria-label="Negozi">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 22s7-6.4 7-12a7 7 0 10-14 0c0 5.6 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg>
+        </a>
+      </div>
+      <ul class="nav-center">
+        <li><a href="ai-2026.html">Nuovi Arrivi</a></li>
+        <li><a href="#" id="linkAbbigliamento" aria-haspopup="true" aria-expanded="false">Abbigliamento</a></li>
+        <li><a href="#" id="linkAccessori" aria-haspopup="true" aria-expanded="false">Accessori</a></li>
+        <li><a href="#" id="linkOutlet" class="nav-outlet" aria-haspopup="true" aria-expanded="false">Outlet</a></li>
+        <li><a href="journal.html">Journal</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="#" class="nav-icon-link" aria-label="Cerca">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        </a>
+        <a href="#" class="nav-icon-link" aria-label="Preferiti">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg>
+          <span class="wishlist-badge">4</span>
+        </a>
+        <a href="#" class="nav-icon-link" aria-label="Profilo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6"/></svg>
+        </a>
+        <a href="#" class="nav-icon-link" aria-label="Carrello">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg>
+          <span class="cart-badge">1</span>
+        </a>
+      </div>
+    </nav>
+
+    <!-- MEGAMENU ABBIGLIAMENTO -->
+    <div class="megamenu" id="megaAbbigliamento">
+      <div class="megamenu-inner">
+        <div class="megamenu-col">
+          <h4>Abbigliamento</h4>
+          <ul>
+            <li><a href="#">Cappotti</a></li>
+            <li><a href="#">Giacche</a></li>
+            <li><a href="#">Abiti</a></li>
+            <li><a href="#">Maglieria</a></li>
+            <li><a href="#">Camicie</a></li>
+            <li><a href="#">T-shirt &amp; Polo</a></li>
+            <li><a href="#">Pantaloni</a></li>
+            <li><a href="#">Denim</a></li>
+            <li><a href="#" class="mm-see-all">Vedi tutti</a></li>
+          </ul>
+        </div>
+        <div class="megamenu-col">
+          <h4>In Evidenza</h4>
+          <ul>
+            <li><a href="ai-2026.html">AI 2026</a></li>
+            <li><a href="essential.html">Essential</a></li>
+            <li><a href="cerimonia.html">Cerimonia</a></li>
+          </ul>
+        </div>
+        <div class="megamenu-images">
+          <a href="essential.html" class="mm-card"><div class="thumb"><img src="images/bm.webp" alt="Essential"></div><h5>Essential</h5></a>
+          <a href="ai-2026.html" class="mm-card"><div class="thumb"><img src="images/a.jpg" alt="AI 2026"></div><h5>AI 2026</h5></a>
+          <a href="cerimonia.html" class="mm-card"><div class="thumb"><img src="images/ceri.webp" alt="Cerimonia"></div><h5>Cerimonia</h5></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- MEGAMENU ACCESSORI -->
+    <div class="megamenu" id="megaAccessori">
+      <div class="megamenu-inner">
+        <div class="megamenu-col">
+          <h4>Accessori</h4>
+          <ul>
+            <li><a href="#">Scarpe</a></li>
+            <li><a href="#">Cinture</a></li>
+            <li><a href="#">Cravatte &amp; Pochette</a></li>
+            <li><a href="#">Pelletteria</a></li>
+            <li><a href="#">Gemelli &amp; Dettagli</a></li>
+            <li><a href="#">Profumi</a></li>
+            <li><a href="#" class="mm-see-all">Vedi tutti</a></li>
+          </ul>
+        </div>
+        <div class="megamenu-col">
+          <h4>In Evidenza</h4>
+          <ul>
+            <li><a href="#">Novità</a></li>
+            <li><a href="#">Must Have</a></li>
+            <li><a href="#">Best Seller</a></li>
+          </ul>
+        </div>
+        <div class="megamenu-images">
+          <a href="#" class="mm-card"><div class="thumb"><img src="images/ac1.webp" alt="Scarpe"></div><h5>Scarpe</h5></a>
+          <a href="#" class="mm-card"><div class="thumb"><img src="images/ac2.webp" alt="Cravatte"></div><h5>Cravatte</h5></a>
+          <a href="#" class="mm-card"><div class="thumb"><img src="images/ac3.webp" alt="Pelletteria"></div><h5>Pelletteria</h5></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- MEGAMENU OUTLET -->
+    <div class="megamenu" id="megaOutlet">
+      <div class="megamenu-inner">
+        <div class="megamenu-col">
+          <h4>Outlet</h4>
+          <ul>
+            <li><a href="#">Abbigliamento -80%</a></li>
+            <li><a href="#">Accessori -80%</a></li>
+            <li><a href="#">Back to Work</a></li>
+            <li><a href="#">Ultimi Pezzi</a></li>
+            <li><a href="#" class="mm-see-all">Vedi tutto l'outlet</a></li>
+          </ul>
+        </div>
+        <div class="megamenu-images">
+          <a href="#" class="mm-card"><div class="thumb"><img src="images/z.webp" alt="Abbigliamento -80%"></div><h5>Abbigliamento -80%</h5></a>
+          <a href="#" class="mm-card"><div class="thumb"><img src="images/bw.webp" alt="Back to Work"></div><h5>Back to Work</h5></a>
+          <a href="#" class="mm-card"><div class="thumb"><img src="images/a80.webp" alt="Accessori -80%"></div><h5>Accessori -80%</h5></a>
+          <a href="#" class="mm-card"><div class="thumb"><img src="images/ls1.webp" alt="Ultimi Pezzi"></div><h5>Ultimi Pezzi</h5></a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MENU MOBILE -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <ul class="mobile-menu-list">
+      <li><a href="ai-2026.html">Nuovi Arrivi</a></li>
+      <li class="has-sub">
+        <button type="button" class="mobile-sub-toggle" aria-expanded="false">
+          <span>Abbigliamento</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <ul class="mobile-sub">
+          <li><a href="#">Cappotti</a></li><li><a href="#">Giacche</a></li><li><a href="#">Abiti</a></li>
+          <li><a href="#">Maglieria</a></li><li><a href="#">Camicie</a></li><li><a href="#">T-shirt &amp; Polo</a></li>
+          <li><a href="#">Pantaloni</a></li><li><a href="#">Denim</a></li>
+        </ul>
+      </li>
+      <li class="has-sub">
+        <button type="button" class="mobile-sub-toggle" aria-expanded="false">
+          <span>Accessori</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <ul class="mobile-sub">
+          <li><a href="#">Scarpe</a></li><li><a href="#">Cinture</a></li><li><a href="#">Cravatte &amp; Pochette</a></li>
+          <li><a href="#">Pelletteria</a></li><li><a href="#">Gemelli &amp; Dettagli</a></li><li><a href="#">Profumi</a></li>
+        </ul>
+      </li>
+      <li class="has-sub">
+        <button type="button" class="mobile-sub-toggle" aria-expanded="false">
+          <span class="nav-outlet">Outlet</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <ul class="mobile-sub">
+          <li><a href="#">Abbigliamento -80%</a></li><li><a href="#">Accessori -80%</a></li>
+          <li><a href="#">Back to Work</a></li><li><a href="#">Ultimi Pezzi</a></li>
+        </ul>
+      </li>
+      <li><a href="journal.html">Journal</a></li>
+      <li><a href="#">Gift Card</a></li>
+    </ul>
+    <div class="mobile-menu-icons">
+      <a href="#" aria-label="Cerca"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></a>
+      <a href="#" aria-label="Preferiti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg><span class="wishlist-badge">4</span></a>
+      <a href="#" aria-label="Profilo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6"/></svg></a>
+      <a href="#" aria-label="Carrello"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg><span class="cart-badge">1</span></a>
+    </div>
+    <div class="mobile-menu-utility">
+      <a href="#" data-open-stores>Boutique</a>
+      <a href="#" data-open-contact>Contattaci</a>
+      <a href="#">Abilita accessibilità</a>
+    </div>
+  </div>
+
+  <!-- DRAWERS -->
+  <div class="country-overlay" id="countryOverlay"></div>
+  <aside class="country-drawer" id="countryDrawer" aria-hidden="true">
+    <div class="country-header">
+      <div class="country-header-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 3 2.5 15 0 18M12 3c-2.5 3-2.5 15 0 18"/></svg>
+        <h3>Cambia Paese/Lingua</h3>
+      </div>
+      <button type="button" class="country-close" id="closeCountryDrawer" aria-label="Chiudi">&times;</button>
+    </div>
+    <div class="country-drawer-hero"><img src="images/drawer-country.webp" alt="Cambia Paese/Lingua"></div>
+    <div class="country-drawer-content">
+      <p class="country-drawer-note">Ti ricordiamo che il catalogo, i servizi e i prezzi possono cambiare in base al Paese selezionato. Eventuali prodotti nel carrello verranno rimossi.</p>
+      <div class="country-field">
+        <label for="countrySelect">Paese</label>
+        <div class="select-wrapper">
+          <select id="countrySelect">
+            <option value="Italia" data-lang="Italiano" selected>Italia</option>
+            <option value="Francia" data-lang="Français">Francia</option>
+            <option value="Germania" data-lang="Deutsch">Germania</option>
+            <option value="Spagna" data-lang="Español">Spagna</option>
+            <option value="Regno Unito" data-lang="English">Regno Unito</option>
+            <option value="Svizzera" data-lang="Deutsch">Svizzera</option>
+            <option value="Austria" data-lang="Deutsch">Austria</option>
+            <option value="Stati Uniti" data-lang="English">Stati Uniti</option>
+            <option value="Canada" data-lang="English">Canada</option>
+            <option value="Brasile" data-lang="Português">Brasile</option>
+            <option value="Giappone" data-lang="English">Giappone</option>
+            <option value="Emirati Arabi Uniti" data-lang="English">Emirati Arabi Uniti</option>
+            <option value="Cina" data-lang="English">Cina</option>
+            <option value="Australia" data-lang="English">Australia</option>
+          </select>
+          <svg class="select-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+      </div>
+      <div class="country-field">
+        <label for="languageSelect">Lingua</label>
+        <div class="select-wrapper">
+          <select id="languageSelect">
+            <option value="Italiano" selected>Italiano</option>
+            <option value="Français">Français</option>
+            <option value="Deutsch">Deutsch</option>
+            <option value="Español">Español</option>
+            <option value="English">English</option>
+            <option value="Português">Português</option>
+          </select>
+          <svg class="select-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+      </div>
+      <button type="button" class="country-confirm" id="confirmCountry">Conferma</button>
+    </div>
+  </aside>
+
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
+    <div class="cart-header">
+      <div class="cart-header-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg>
+        <h3>La tua selezione (<span id="cartCount">1</span>)</h3>
+      </div>
+      <button type="button" class="cart-close" id="closeCartDrawer" aria-label="Chiudi">&times;</button>
+    </div>
+    <div class="cart-body">
+      <div class="cart-item">
+        <div class="cart-item-image"><img src="images/car.webp" alt="Pantalone uomo in denim"></div>
+        <div class="cart-item-info">
+          <h4>Pantalone uomo in denim</h4>
+          <p class="cart-item-attr">Colore: Blu denim</p>
+          <p class="cart-item-attr">Taglia: 48</p>
+          <p class="cart-item-sku">SKU: 262MPT571726DEN4801</p>
+          <div class="cart-item-bottom">
+            <div class="cart-qty">
+              <button type="button" class="qty-btn" data-action="minus">−</button>
+              <span class="qty-value" id="qtyValue">1</span>
+              <button type="button" class="qty-btn" data-action="plus">+</button>
+            </div>
+            <p class="cart-item-price">€ 49,90</p>
+          </div>
+        </div>
+        <button type="button" class="cart-item-remove" aria-label="Rimuovi">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M4 7h16M9 7V5a2 2 0 012-2h2a2 2 0 012 2v2M6 7l1 13a2 2 0 002 2h6a2 2 0 002-2l1-13"/></svg>
+        </button>
+      </div>
+      <div class="cart-total"><span>Totale parziale</span><span id="cartTotal">€ 49,90</span></div>
+    </div>
+    <div class="cart-footer">
+      <button type="button" class="cart-btn-primary">Vai al carrello</button>
+      <p class="cart-express">oppure procedi con il pagamento veloce</p>
+      <button type="button" class="cart-btn-paypal"><span class="paypal-p">Pay</span><span class="paypal-pal">Pal</span></button>
+      <p class="cart-note">L'opzione regalo non è disponibile con Express Checkout</p>
+    </div>
+  </aside>
+
+  <div class="login-overlay" id="loginOverlay"></div>
+  <aside class="login-drawer" id="loginDrawer" aria-hidden="true">
+    <div class="login-header">
+      <div class="login-header-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6"/></svg>
+        <h3>Effettua il login</h3>
+      </div>
+      <button type="button" class="login-close" id="closeLoginDrawer" aria-label="Chiudi">&times;</button>
+    </div>
+    <div class="login-body">
+      <form class="login-form" onsubmit="event.preventDefault();">
+        <div class="login-field"><label for="loginEmail">Inserisci e-mail*</label><input type="email" id="loginEmail" required></div>
+        <div class="login-field">
+          <label for="loginPassword">Inserisci la tua password*</label>
+          <div class="password-wrapper">
+            <input type="password" id="loginPassword" required>
+            <button type="button" class="toggle-password" id="togglePassword" aria-label="Mostra password">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+        </div>
+        <a href="#" class="login-forgot">password dimenticata?</a>
+        <button type="submit" class="login-btn-primary">Accedi</button>
+      </form>
+      <hr class="login-divider">
+      <div class="login-register">
+        <h4>Crea un account</h4>
+        <p>Vivi un'esperienza personalizzata e scopri tutti i servizi esclusivi.</p>
+        <button type="button" class="login-btn-secondary">Registrati</button>
+      </div>
+    </div>
+  </aside>
+
+  <div class="wishlist-overlay" id="wishlistOverlay"></div>
+  <aside class="wishlist-drawer" id="wishlistDrawer" aria-hidden="true">
+    <div class="wishlist-header">
+      <div class="wishlist-header-title">
+        <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg>
+        <h3>I tuoi preferiti (<span id="wishlistCount">4</span>)</h3>
+      </div>
+      <button type="button" class="wishlist-close" id="closeWishlistDrawer" aria-label="Chiudi">&times;</button>
+    </div>
+    <div class="wishlist-body" id="wishlistBody">
+      <article class="wishlist-card" data-price="139">
+        <div class="wishlist-card-image">
+          <img src="images/8b.webp" alt="Giubbotto uomo in simil camoscio">
+          <button type="button" class="wishlist-remove" aria-label="Rimuovi dai preferiti"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg></button>
+        </div>
+        <div class="wishlist-card-info"><h4>Giubbotto uomo in simil camoscio</h4><p class="wishlist-card-price">€ 139,00</p><button type="button" class="wishlist-add-cart">Aggiungi al carrello</button></div>
+      </article>
+      <article class="wishlist-card" data-price="39">
+        <div class="wishlist-card-image">
+          <img src="images/15b.webp" alt="Polo uomo in maglia misto lana">
+          <button type="button" class="wishlist-remove" aria-label="Rimuovi dai preferiti"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg></button>
+        </div>
+        <div class="wishlist-card-info"><h4>Polo uomo in maglia misto lana</h4><p class="wishlist-card-price">€ 39,00</p><button type="button" class="wishlist-add-cart">Aggiungi al carrello</button></div>
+      </article>
+      <article class="wishlist-card" data-price="34.99">
+        <div class="wishlist-card-image">
+          <img src="images/5b.webp" alt="Pantalone uomo in tela pesante">
+          <button type="button" class="wishlist-remove" aria-label="Rimuovi dai preferiti"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg></button>
+        </div>
+        <div class="wishlist-card-info"><h4>Pantalone uomo in tela pesante</h4><p class="wishlist-card-price">€ 34,99</p><button type="button" class="wishlist-add-cart">Aggiungi al carrello</button></div>
+      </article>
+      <article class="wishlist-card" data-price="49.90">
+        <div class="wishlist-card-image">
+          <img src="images/1b.webp" alt="Pantalone uomo in denim">
+          <button type="button" class="wishlist-remove" aria-label="Rimuovi dai preferiti"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg></button>
+        </div>
+        <div class="wishlist-card-info"><h4>Pantalone uomo in denim</h4><p class="wishlist-card-price">€ 49,90</p><button type="button" class="wishlist-add-cart">Aggiungi al carrello</button></div>
+      </article>
+    </div>
+    <div class="wishlist-empty" id="wishlistEmpty" hidden>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg>
+      <h4>Nessun preferito salvato</h4>
+      <p>Tocca il cuore su un prodotto per ritrovarlo qui.</p>
+    </div>
+  </aside>
+
+  <div class="search-overlay" id="searchOverlay"></div>
+  <aside class="search-drawer" id="searchDrawer" aria-hidden="true" aria-label="Cerca">
+    <div class="search-header">
+      <div class="search-header-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        <h3>Cerca</h3>
+      </div>
+      <button type="button" class="search-close" id="closeSearchDrawer" aria-label="Chiudi">&times;</button>
+    </div>
+    <div class="search-drawer-body">
+      <div class="search-drawer-bar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        <input type="text" placeholder="Cosa stai cercando?" id="searchInput">
+      </div>
+      <div class="search-results" id="searchResults" hidden>
+        <p class="search-results-count" id="searchResultsCount"></p>
+        <div class="search-results-grid" id="searchResultsGrid"></div>
+        <p class="search-results-empty" id="searchResultsEmpty" hidden>Nessun risultato. Prova con un'altra parola.</p>
+      </div>
+    </div>
+  </aside>
+
+  <div class="stores-overlay" id="storesOverlay"></div>
+  <aside class="stores-drawer" id="storesDrawer" aria-hidden="true" aria-label="Boutique">
+    <div class="stores-header">
+      <div class="stores-header-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 22s7-6.4 7-12a7 7 0 10-14 0c0 5.6 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg>
+        <h3>Boutique</h3>
+      </div>
+      <button type="button" class="stores-close" id="closeStoresDrawer" aria-label="Chiudi">&times;</button>
+    </div>
+    <div class="stores-search">
+      <div class="stores-search-field">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        <input type="search" id="storesSearch" placeholder="Cerca per città o Paese" autocomplete="off" aria-label="Cerca una boutique">
+      </div>
+      <p class="stores-count" id="storesCount" aria-live="polite"></p>
+    </div>
+    <div class="stores-list" id="storesList"></div>
+    <div class="stores-footer"><a href="#" class="stores-btn">Vedi tutte le boutique</a></div>
+  </aside>
+
+  <div class="contact-overlay" id="contactOverlay"></div>
+  <aside class="contact-drawer" id="contactDrawer" aria-hidden="true" aria-label="Contattaci">
+    <div class="contact-header">
+      <div class="contact-header-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M4 14v-2a8 8 0 0116 0v2"/><rect x="3" y="14" width="4" height="6" rx="1"/><rect x="17" y="14" width="4" height="6" rx="1"/><path d="M20 20a4 4 0 01-4 3h-3"/></svg>
+        <h3>Contattaci</h3>
+      </div>
+      <button type="button" class="contact-close" id="closeContactDrawer" aria-label="Chiudi">&times;</button>
+    </div>
+    <div class="contact-body">
+      <div class="contact-intro">
+        <h4>Possiamo aiutarti?</h4>
+        <p>Il nostro Servizio Clienti è a tua disposizione: scrivici la tua richiesta e ti risponderemo via e-mail il prima possibile.</p>
+      </div>
+      <form class="contact-form" id="contactForm">
+        <p class="contact-required">I campi contrassegnati da asterisco (*) sono obbligatori</p>
+        <div class="contact-field">
+          <label for="contactType">Tipo di richiesta*</label>
+          <div class="select-wrapper">
+            <select id="contactType" required>
+              <option value="" selected disabled>Seleziona</option>
+              <option>Informazioni sul prodotto</option>
+              <option>Ordini e resi</option>
+              <option>Spedizione e consegna</option>
+              <option>Pagamenti</option>
+              <option>Account personale</option>
+              <option>Servizi speciali</option>
+              <option>Feedback</option>
+              <option>Altro</option>
+            </select>
+            <svg class="select-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-field"><label for="contactName">Nome*</label><input type="text" id="contactName" autocomplete="given-name" required></div>
+          <div class="contact-field"><label for="contactSurname">Cognome*</label><input type="text" id="contactSurname" autocomplete="family-name" required></div>
+        </div>
+        <div class="contact-field"><label for="contactEmail">E-mail*</label><input type="email" id="contactEmail" autocomplete="email" required></div>
+        <div class="contact-field"><label for="contactOrder">Numero ordine</label><input type="text" id="contactOrder"></div>
+        <div class="contact-field"><label for="contactMessage">Messaggio*</label><textarea id="contactMessage" rows="5" required></textarea></div>
+        <p class="contact-privacy">Inviando la richiesta accetti che i tuoi dati vengano trattati per rispondere al tuo messaggio. Per maggiori informazioni consulta la nostra <a href="#">Privacy Policy</a>.</p>
+        <button type="submit" class="contact-btn">Invia richiesta</button>
+      </form>
+      <div class="contact-success" id="contactSuccess" hidden>
+        <h4>Grazie</h4>
+        <p>Abbiamo ricevuto la tua richiesta. Ti risponderemo via e-mail il prima possibile.</p>
+      </div>
+      <hr class="contact-divider">
+      <div class="contact-channel">
+        <h4>WhatsApp</h4>
+        <p>Preferisci scriverci in chat? Inviaci un messaggio e il nostro Servizio Clienti ti risponderà.</p>
+        <a href="#" class="contact-btn">Inviaci un messaggio</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ============================================================
+       MAIN — Mission & Vision
+       ============================================================ -->
+  <main class="page">
+
+    <section class="hero">
+      <div class="hero-inner">
+        <h1><span class="hero-line hero-line-main">Mission &amp; Vision Doppelgänger</span></h1>
+      </div>
+    </section>
+
+    <section class="looks-wrap">
+
+      <div class="article-split">
+        <div class="article-split-text">
+          <h2 class="article-subtitle">Lo Stile Doppelgänger</h2>
+          <p>Da anni, Doppelgänger è espressione dell'incontro armonioso tra lo stile anglosassone e quello italiano. La nostra creatività è da sempre messa in moto dall'idea di proporre "Il lusso più economico al mondo". Scegliere un capo Doppelgänger significa acquistare un capo esclusivo a un prezzo inclusivo.</p>
+          <p>Doppelgänger affonda le sue radici nell'eleganza classica, reinterpretandone i codici per creare un guardaroba contemporaneo, pensato per accompagnare l'uomo in ogni momento della giornata.</p>
+          <p>Le collezioni nascono da un'attenta ricerca dei tessuti, selezionati per richiamare un gusto heritage e lavorati in chiave moderna, con particolare attenzione alla vestibilità e alla funzionalità.</p>
+          <p>Dal formale al casual, ogni capo conserva così il fascino e la raffinatezza della tradizione, evolvendoli in uno stile versatile, confortevole e naturalmente elegante.</p>
+        </div>
+
+        <div class="article-split-media">
+          <video controls muted loop playsinline preload="metadata">
+            <source src="images/founder-doppelganger.mp4" type="video/mp4">
+            Il tuo browser non supporta i video HTML5.
+          </video>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-main">
+      <div class="footer-newsletter">
+        <h3>Iscriviti alla nostra newsletter</h3>
+        <p>Ricevi la newsletter e scopri il mondo Doppelgänger, le collezioni e tutti gli ultimi aggiornamenti.</p>
+        <form class="footer-form" onsubmit="event.preventDefault(); alert('Iscrizione inviata (demo)');">
+          <input type="email" placeholder="Il tuo indirizzo email" required>
+          <button type="submit" aria-label="Iscriviti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </form>
+        <p class="footer-privacy">Prendo atto che il mio indirizzo email verrà trattato da Doppelgänger secondo quanto previsto dall'<a href="#">Informativa Privacy</a>.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Mettiti in contatto</h4>
+        <ul><li><a href="#">Contatti</a></li><li><a href="#">FAQ</a></li><li><a href="#">Scrivici su WhatsApp</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <h4>Azienda</h4>
+        <ul><li><a href="#">I nostri negozi</a></li><li><a href="#">Lavora con noi</a></li><li><a href="#">Sostenibilità</a></li><li><a href="#">Doppelgänger Club</a></li><li><a href="#">Doppelgänger APP</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <h4>Servizi</h4>
+        <ul><li><a href="#">Tutti i servizi</a></li><li><a href="#">Gift Cards</a></li><li><a href="#">Il suo ordine</a></li><li><a href="#">Spedizioni e Resi</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <h4>Area legale</h4>
+        <ul><li><a href="#">Cookies Notice</a></li><li><a href="#">Compliance</a></li><li><a href="#">Area Legale</a></li><li><a href="#">Privacy &amp; Cookie</a></li><li><a href="#">Accessibilità</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-left">
+        <button type="button" class="country-trigger" id="openCountryDrawerFooter"><span id="countryLabel">Italia (Italiano)</span></button>
+      </div>
+      <div class="footer-bottom-center">
+        <a href="#top" class="footer-logo-text" aria-label="Torna all'inizio">DOPPELGÄNGER</a>
+      </div>
+      <div class="footer-bottom-right">
+        <a href="#">Instagram</a><a href="#">Facebook</a><a href="#">LinkedIn</a>
+        <a href="#">Pinterest</a><a href="#">Telegram</a><a href="#">TikTok</a>
+      </div>
+    </div>
+    <p class="footer-copy">Doppelgänger 2026 — Demo non commerciale</p>
+  </footer>
+
+  <script src="js/boutiques.js"></script>
+  <script src="js/prodotti.js"></script>
+  <script src="js/nav.js"></script>
+
+</body>
+</html>

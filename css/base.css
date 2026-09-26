@@ -61,10 +61,6 @@
 html {
   scroll-padding-top: 0;
   scroll-behavior: smooth;
-  /* "proximity" e non "mandatory": accompagna verso l'inizio della sezione
-     solo quando lo scroll si ferma vicino, senza bloccare mai lo scroll
-     veloce. Niente di rigido. */
-  scroll-snap-type: y proximity;
 }
 
 body {
@@ -131,9 +127,7 @@ header {
 }
 
 header.scrolled {
-  background-color: rgba(250, 248, 245, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background-color: #faf8f5;
   color: var(--ink);
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
 }
@@ -172,9 +166,7 @@ header.menu-open,
 header.menu-open .topbar,
 header.menu-open .header-main,
 header.menu-open .nav {
-  background-color: rgba(250, 248, 245, 0.95);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background-color: #faf8f5;
   color: var(--ink);
 }
 header.menu-open .header-main {
@@ -199,7 +191,6 @@ header.menu-open .topbar-message {
 
 .topbar {
   background-color: rgba(255,255,255,0.08);
-  backdrop-filter: blur(6px);
   border-bottom: 1px solid var(--gold);
   display: flex;
   align-items: center;
@@ -298,7 +289,6 @@ header.menu-open .topbar-message {
   transition: color 0.15s var(--ease);
 }
 
-/* Linea oro — animata con transform (fluida e reattiva) */
 .nav-center a::after {
   content: "";
   position: absolute;
@@ -478,8 +468,6 @@ header.menu-open .topbar-message {
   height: 100vh;
   height: 100dvh;
   background: #faf8f5;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   z-index: 999;
   display: flex;
   flex-direction: column;
@@ -1494,7 +1482,6 @@ footer {
   header.scrolled .nav { padding: 6px 24px 12px; }
 }
 
-/* Fascia intermedia desktop: nav un po' più stretta */
 @media (min-width: 1025px) and (max-width: 1200px) {
   .nav-center { gap: 14px; }
   .topbar-messages { min-width: 400px; }
@@ -1504,7 +1491,6 @@ footer {
    MOBILE / TABLET VERTICALE: soglia 1024px
    ============================================================ */
 @media (max-width: 1024px) {
-  html, body { scroll-snap-type: none; }
 
   .header-main {
     display: grid;
@@ -1622,10 +1608,8 @@ footer {
 
 /* ============================================================
    NUOVI MEGAMENU — struttura unificata
-   Titoli forti, categorie leggere, "Vedi tutti" in oro senza linea
    ============================================================ */
 
-/* --- Abbigliamento e Accessori: 2 colonne link + 3 immagini --- */
 #megaAbbigliamento .megamenu-inner,
 #megaAccessori .megamenu-inner {
   display: grid;
@@ -1641,7 +1625,6 @@ footer {
   gap: 30px;
 }
 
-/* --- Outlet: 1 colonna link + 4 immagini --- */
 #megaOutlet .megamenu-inner {
   display: grid;
   grid-template-columns: 1fr 4fr;
@@ -1655,7 +1638,6 @@ footer {
   gap: 30px;
 }
 
-/* --- Titolo colonna (Abbigliamento / Accessori / Outlet / In Evidenza) --- */
 #megaAbbigliamento .megamenu-col h4,
 #megaAccessori .megamenu-col h4,
 #megaOutlet .megamenu-col h4 {
@@ -1669,7 +1651,6 @@ footer {
   padding: 0;
 }
 
-/* --- Categorie (voci elenco) --- */
 #megaAbbigliamento .megamenu-col ul,
 #megaAccessori .megamenu-col ul,
 #megaOutlet .megamenu-col ul { gap: 14px; }
@@ -1690,7 +1671,6 @@ footer {
   color: var(--gold);
 }
 
-/* --- "Vedi tutti" — NIENTE LINEA ORO, solo colore e peso --- */
 .mm-see-all {
   margin-top: 20px;
   color: var(--gold) !important;
@@ -1699,15 +1679,12 @@ footer {
 }
 .mm-see-all:hover { color: var(--ink) !important; }
 
-/* --- Altezza minima megamenu --- */
 .megamenu { min-height: 480px; }
 
-/* --- Outlet in nav: oro --- */
 .nav-outlet { color: var(--gold) !important; }
 header.scrolled .nav-outlet,
 header.menu-open .nav-outlet { color: var(--gold) !important; }
 
-/* --- Tablet: immagini sotto le colonne --- */
 @media (max-width: 1200px) {
   #megaAbbigliamento .megamenu-inner,
   #megaAccessori .megamenu-inner,
@@ -1813,8 +1790,6 @@ header.menu-open .nav-outlet { color: var(--gold) !important; }
   border-bottom: 1px solid var(--line);
   padding-bottom: 12px;
   margin-bottom: 28px;
-
-  /* Barra sticky: resta fissa in alto mentre scorri i risultati */
   position: sticky;
   top: 0;
   background: #faf8f5;
@@ -1832,21 +1807,16 @@ header.menu-open .nav-outlet { color: var(--gold) !important; }
   color: var(--ink);
   padding: 4px 0;
 }
-/* Sotto i 640px torna a 16px: sotto quella soglia iOS Safari
-   zooma automaticamente la pagina quando un input ha un font-size
-   inferiore a 16px al focus. */
 @media (max-width: 640px) {
   .search-drawer-bar input { font-size: 16px; }
 }
 .search-drawer-bar input::placeholder { color: #999; }
-
 
 @media (max-width: 1024px) {
   .search-drawer { width: 100vw; max-width: 100vw; }
   .search-header { padding: 0 20px; }
   .search-drawer-body { padding: 0 20px max(32px, env(safe-area-inset-bottom)); }
 }
-
 
 /* ============================================================
    SEARCH — RISULTATI LIVE
@@ -1924,3 +1894,30 @@ header.menu-open .nav-outlet { color: var(--gold) !important; }
   margin: 0;
 }
 .search-results-empty[hidden] { display: none; }
+:root {
+  /* Titoli */
+  --fs-h1: 14px;
+  --fs-h2: 24px;
+  --fs-h3: 18px;
+
+  /* Testi */
+  --fs-lead: 18px;
+  --fs-body: 16px;
+  --fs-body-sm: 14px;
+
+  /* Card */
+  --fs-card-title: 14px;
+  --fs-card-body: 13px;
+  --fs-price: 14px;
+
+  /* UI */
+  --fs-meta: 11px;
+  --fs-nav: 12px;
+  --fs-btn: 11px;
+
+  /* Tracking (un solo sistema, em) */
+  --tr-h: 0.08em;    /* titoli uppercase */
+  --tr-ui: 0.1em;    /* nav, bottoni */
+  --tr-body: 0.01em; /* corpo serif */
+  --tr-meta: 0.15em; /* eyebrow, label, SKU */
+}

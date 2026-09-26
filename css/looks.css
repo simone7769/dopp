@@ -1,0 +1,389 @@
+/* ============================================================
+   LOOKS — pagina editoriale del Journal
+   Titolo + 2 foto + testo introduttivo + resto della griglia
+   ============================================================ */
+
+/* --- HERO (solo il titolo) --- */
+.page {
+  padding-top: var(--header-h, 170px);
+}
+
+.hero {
+  position: relative;
+  z-index: 1;
+  padding: 60px 50px 40px;
+  text-align: center;
+  background-color: #fcfcfb;
+  color: var(--ink);
+}
+.hero-inner {
+  margin: 0 auto;
+  max-width: 900px;
+}
+.hero h1 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: var(--fs-14);
+  letter-spacing: var(--tr-2);
+  text-transform: uppercase;
+  line-height: 1.5;
+  color: var(--ink);
+  margin: 0;
+}
+
+/* --- WRAP --- */
+.looks-wrap {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 20px 50px 100px;
+}
+
+/* --- GRIGLIA LOOKS: 2 colonne --- */
+.looks-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 60px 40px;
+}
+
+/* Spazio uniforme tra la prima e la seconda griglia */
+.looks-grid + .looks-grid {
+  margin-top: 60px;
+}
+
+/* Quando il testo introduttivo è in cima, rimuovi il margine sopra */
+.looks-wrap > .looks-intro:first-child {
+  margin-top: 0;
+  margin-bottom: 60px;
+}
+
+/* --- CARD --- */
+.look-card {
+  display: block;
+  text-decoration: none;
+  color: var(--ink);
+}
+.look-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background-color: var(--paper);
+}
+.look-image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.look-image .img-main {
+  z-index: 1;
+}
+.look-image .img-hover {
+  z-index: 2;
+  opacity: 0;
+  transition: opacity var(--t-base) var(--ease);
+}
+.look-card:hover .img-hover {
+  opacity: 1;
+}
+
+/* --- TESTO INTRODUTTIVO tra le due griglie --- */
+.looks-intro {
+  max-width: 680px;
+  margin: 80px auto;
+  padding: 0 20px;
+  text-align: left;
+}
+.looks-intro p {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 16px;
+  letter-spacing: 0.01em;
+  line-height: 1.7;
+  color: var(--ink);
+  margin: 0;
+}
+
+/* --- HEADER SCROLLATO: topbar e logo spariscono --- */
+@media (min-width: 1025px) {
+  header.scrolled .header-main {
+    height: 0;
+    min-height: 0;
+    max-height: 0;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    opacity: 0;
+    border: none;
+  }
+}
+header.scrolled .topbar {
+  height: 0;
+  min-height: 0;
+  max-height: 0;
+  padding: 0;
+  margin: 0;
+  border: none;
+  opacity: 0;
+  transform: translateY(-100%);
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* --- Header sempre chiaro su questa pagina --- */
+header {
+  background-color: #faf8f5;
+  color: var(--ink);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+}
+header .logo { filter: brightness(0) saturate(100%) !important; }
+header .nav-center a { color: var(--ink); }
+header .nav-center a.active { color: var(--gold); }
+header .nav-icon-link { color: var(--ink); }
+header .topbar-message { color: var(--ink); }
+header .topbar { border-bottom: 1px solid var(--gold); }
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1200px) {
+  .hero { padding: 40px 30px 30px; }
+  .looks-wrap { padding: 20px 30px 80px; }
+  .looks-grid { gap: 40px 24px; }
+  .looks-grid + .looks-grid { margin-top: 40px; }
+  .looks-intro { margin: 60px auto; }
+  .looks-wrap > .looks-intro:first-child { margin-bottom: 40px; }
+}
+
+@media (max-width: 900px) {
+  .hero { padding: 30px 24px 20px; }
+  .looks-wrap { padding: 20px 24px 60px; }
+  .looks-grid { gap: 30px 16px; }
+  .looks-grid + .looks-grid { margin-top: 30px; }
+  .looks-intro { margin: 50px auto; padding: 0 16px; }
+  .looks-wrap > .looks-intro:first-child { margin-bottom: 30px; }
+}
+
+@media (max-width: 640px) {
+  .looks-grid { grid-template-columns: 1fr; gap: 40px; }
+  .look-image { aspect-ratio: 4 / 5; }
+  .looks-intro { margin: 40px auto; }
+  .looks-wrap > .looks-intro:first-child { margin-bottom: 40px; }
+}
+
+/* ============================================================
+   VARIANTE: griglia a 1 colonna (pagina editoriale verticale)
+   ============================================================ */
+.looks-grid--single {
+  grid-template-columns: 1fr;
+  gap: 60px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+  .looks-grid--single { gap: 40px; }
+}
+
+@media (max-width: 640px) {
+  .looks-grid--single .look-image { aspect-ratio: 4 / 5; }
+}
+
+/* ============================================================
+   ARTICOLO JOURNAL — immagini + blocchi di testo
+   ============================================================ */
+
+.article-image {
+  max-width: 900px;
+  margin: 0 auto 80px;
+}
+.article-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.article-text {
+  max-width: 680px;
+  margin: 0 auto 80px;
+  padding: 0 20px;
+  text-align: left;
+}
+.article-text p {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 16px;
+  letter-spacing: 0.01em;
+  line-height: 1.7;
+  color: var(--ink);
+  margin: 0 0 1.4em;
+}
+.article-text p:last-child {
+  margin-bottom: 0;
+}
+
+.article-text .address {
+  margin-top: 40px;
+  font-family: var(--sans);
+  font-size: var(--fs-11);
+  letter-spacing: var(--tr-2);
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* Quando il testo è in cima alla sezione, niente margine extra sopra */
+.looks-wrap > .article-text:first-child {
+  margin-top: 0;
+}
+
+@media (max-width: 900px) {
+  .article-image { margin-bottom: 60px; }
+  .article-text { margin-bottom: 60px; }
+}
+
+@media (max-width: 640px) {
+  .article-image { margin-bottom: 50px; }
+  .article-text { margin-bottom: 50px; padding: 0 16px; }
+}
+
+.article-subtitle {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.4;
+  color: var(--ink);
+  text-align: left;
+  margin: 0 0 1.6em;
+}
+
+/* ============================================================
+   VIDEO ARTICOLO — stessa larghezza dell'immagine (900px)
+   ============================================================ */
+.article-video {
+  max-width: 900px;
+  margin: 0 auto 80px;
+}
+.article-video video {
+  width: 100%;
+  height: auto;
+  display: block;
+  background: #000;
+}
+
+@media (max-width: 900px) {
+  .article-video { margin-bottom: 60px; }
+}
+@media (max-width: 640px) {
+  .article-video { margin-bottom: 50px; }
+}
+
+/* ============================================================
+   ARTICOLO — Layout 2 colonne (testo sx, media dx)
+   ============================================================ */
+.article-split {
+  max-width: 1400px;
+  margin: 0 auto 100px;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.article-split-text {
+  max-width: 520px;
+}
+.article-split-text .article-subtitle {
+  text-align: left;
+  margin: 0 0 32px;
+}
+.article-split-text p {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 16px;
+  letter-spacing: 0.01em;
+  line-height: 1.7;
+  color: var(--ink);
+  margin: 0 0 1.4em;
+}
+.article-split-text p:last-child {
+  margin-bottom: 0;
+}
+
+.article-split-media {
+  width: 100%;
+}
+.article-split-media img,
+.article-split-media video {
+  width: 100%;
+  height: auto;
+  display: block;
+  background: #000;
+}
+
+@media (max-width: 900px) {
+  .article-split {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 0 24px;
+    margin-bottom: 60px;
+  }
+  .article-split-text { max-width: none; }
+  .article-split-text p { text-align: center; }
+}
+
+/* ============================================================
+   IMMAGINE CON FRASE + BOTTONE (Shop Experience)
+   ============================================================ */
+.article-cta-image {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto 80px;
+  overflow: hidden;
+}
+
+.article-cta-image > img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.article-cta-image .cta-phrase {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: calc(100% - 80px);
+  text-align: center;
+  font-family: var(--serif);
+  font-size: var(--fs-duo);
+  font-weight: 400;
+  letter-spacing: var(--tr-6);
+  text-transform: uppercase;
+  line-height: 1.2;
+  color: #fff;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.65);
+  margin: 0;
+  pointer-events: none;
+}
+
+.article-cta-image .duo-cta {
+  position: absolute;
+  left: 50%;
+  bottom: 16%;
+  transform: translateX(-50%);
+  z-index: 5;
+}
+
+@media (max-width: 900px) {
+  .article-cta-image { margin-bottom: 60px; }
+  .article-cta-image .cta-phrase { letter-spacing: var(--tr-4); }
+}
+
+@media (max-width: 640px) {
+  .article-cta-image { margin-bottom: 50px; }
+}
