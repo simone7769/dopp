@@ -160,7 +160,7 @@ header .topbar { border-bottom: 1px solid var(--gold); }
 
 @media (max-width: 640px) {
   .looks-grid { grid-template-columns: 1fr; gap: 60px; }
-  .look-card { width: 96%; }
+  .look-card { width: 90%; }
   .look-image { aspect-ratio: 4 / 5; }
   .looks-intro { margin: 24px auto; }
 }
@@ -239,7 +239,7 @@ header .topbar { border-bottom: 1px solid var(--gold); }
 .article-subtitle {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: var(--fs-14);
+  font-size: 14px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   line-height: 1.4;
@@ -389,14 +389,14 @@ header .topbar { border-bottom: 1px solid var(--gold); }
 
 .sartoria-section {
   max-width: 1400px;
-  margin: 0 auto 100px;
+  margin: 0 auto 70px;
   padding: 0 40px;
 }
 
 .sartoria-title {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: var(--fs-14);
+  font-size: 14px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--ink);
@@ -434,7 +434,7 @@ header .topbar { border-bottom: 1px solid var(--gold); }
 .sartoria-step h3 {
   font-family: var(--sans);
   font-weight: 500;
-  font-size: var(--fs-14);
+  font-size: 14px;
   letter-spacing: var(--tr-2);
   text-transform: uppercase;
   color: var(--ink);
@@ -446,7 +446,7 @@ header .topbar { border-bottom: 1px solid var(--gold); }
   display: block;
   font-family: var(--sans);
   font-weight: 300;
-  font-size: var(--fs-10);
+  font-size: 10px;
   letter-spacing: var(--tr-3);
   text-transform: uppercase;
   color: var(--muted);
@@ -456,7 +456,7 @@ header .topbar { border-bottom: 1px solid var(--gold); }
 .sartoria-step p {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: var(--fs-14);
+  font-size: 14px;
   letter-spacing: 0.01em;
   line-height: 1.6;
   color: var(--ink);
@@ -468,8 +468,7 @@ header .topbar { border-bottom: 1px solid var(--gold); }
 
 .sartoria-cta-wrap {
   text-align: center;
-  margin-top: 20px;
-  margin-bottom: 80px;
+  margin-bottom: 60px;
 }
 
 .sartoria-cta-wrap p {
@@ -479,7 +478,7 @@ header .topbar { border-bottom: 1px solid var(--gold); }
   letter-spacing: 0.01em;
   line-height: 1.65;
   color: var(--ink);
-  margin: 0 0 56px;
+  margin: 0 0 40px;
 }
 
 .sartoria-cta {
@@ -489,7 +488,7 @@ header .topbar { border-bottom: 1px solid var(--gold); }
   border: 1px solid var(--ink);
   color: var(--ink);
   font-family: var(--sans);
-  font-size: var(--fs-11);
+  font-size: 11px;
   font-weight: 400;
   letter-spacing: var(--tr-3);
   text-transform: uppercase;
@@ -507,7 +506,7 @@ header .topbar { border-bottom: 1px solid var(--gold); }
 @media (max-width: 900px) {
   .sartoria-section {
     padding: 0 24px;
-    margin-bottom: 70px;
+    margin-bottom: 50px;
   }
 
   .sartoria-title {
@@ -538,11 +537,7 @@ header .topbar { border-bottom: 1px solid var(--gold); }
   }
 
   .sartoria-cta-wrap {
-    margin-top: 14px;
-    margin-bottom: 60px;
-  }
-  .sartoria-cta-wrap p {
-    margin-bottom: 44px;
+    margin-bottom: 50px;
   }
 }
 
@@ -558,15 +553,12 @@ header .topbar { border-bottom: 1px solid var(--gold); }
 
 
 /* ============================================================
-   SARTORIA — immagine grande FULL WIDTH (edge-to-edge)
+   SARTORIA — immagine grande centrata
    ============================================================ */
 .sartoria-hero-image {
-  max-width: none;
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
-  padding: 0;
-  margin-bottom: 90px;
+  max-width: 1200px;
+  margin: 0 auto 60px;
+  padding: 0 20px;
 }
 .sartoria-hero-image img {
   width: 100%;
@@ -576,19 +568,20 @@ header .topbar { border-bottom: 1px solid var(--gold); }
 
 @media (max-width: 1200px) {
   .sartoria-hero-image {
-    margin-bottom: 70px;
+    margin-bottom: 48px;
   }
 }
 
 @media (max-width: 900px) {
   .sartoria-hero-image {
-    margin-bottom: 56px;
+    margin-bottom: 40px;
   }
 }
 
 @media (max-width: 640px) {
   .sartoria-hero-image {
-    margin-bottom: 46px;
+    padding: 0 16px;
+    margin-bottom: 36px;
   }
 }
 
@@ -598,7 +591,22 @@ header .topbar { border-bottom: 1px solid var(--gold); }
 .sartoria-eyebrow {
   font-family: var(--sans);
   font-weight: 500;
-  font-size: var(--fs-11);
+  font-size: 11px;
+  letter-spacing: var(--tr-3);
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 40px 0 16px;
+  padding: 0;
+  text-align: left;
+}
+
+/* ============================================================
+   SARTORIA — occhiello di sezione
+   ============================================================ */
+.sartoria-eyebrow {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 11px;
   letter-spacing: var(--tr-3);
   text-transform: uppercase;
   color: var(--gold);

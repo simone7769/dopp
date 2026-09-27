@@ -623,8 +623,8 @@ header.scrolled .topbar {
     margin-top: 12px;
   }
 
-  .must-have { --mh-gap: 16px; --mh-visible: 1.3; --mh-gaps: 1; }
-  .world { --w-gap: 16px; --w-visible: 1.3; --w-gaps: 1; }
+  .must-have { --mh-gap: 14px; --mh-visible: 1.1; --mh-gaps: 1; --mh-pad: 16px; }
+  .world { --w-gap: 14px; --w-visible: 1.1; --w-gaps: 1; --w-pad: 16px; }
   .card h3 { font-size: 11px; letter-spacing: 0.05em; }
   .duo-item { height: 60vh; min-height: 400px; }
 }

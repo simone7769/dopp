@@ -910,6 +910,81 @@ window.CartCounter = (function () {
 })();
 
 /* ============================================================
+   JOURNAL: fonte dati condivisa (articoli.js)
+   Popola sia il carosello Journal della home (#wTrack) sia la
+   griglia archivio di journal.html (#journalGrid), così un
+   articolo aggiunto/tolto in articoli.js compare o sparisce
+   automaticamente in entrambi i punti, senza doverli allineare
+   a mano.
+   ============================================================ */
+function creaJournalCard(articolo, variante) {
+  const a = document.createElement('a');
+  a.href = articolo.href;
+  a.setAttribute('draggable', 'false');
+  if (variante === 'home') {
+    a.className = 'w-item';
+    a.innerHTML =
+      '<div class="w-image"><img src="' + articolo.img + '" alt="' + articolo.alt + '" draggable="false"></div>' +
+      '<h3>' + articolo.title + '</h3>' +
+      '<p class="w-desc">' + articolo.desc + '</p>';
+  } else {
+    a.className = 'journal-card';
+    a.dataset.category = articolo.category;
+    a.innerHTML =
+      '<div class="journal-card-image"><img src="' + articolo.img + '" alt="' + articolo.alt + '"></div>' +
+      '<h3>' + articolo.title + '</h3>' +
+      '<p>' + articolo.desc + '</p>';
+  }
+  return a;
+}
+
+// Home: carosello Journal (#wTrack)
+(function () {
+  const track = document.getElementById('wTrack');
+  const articoli = window.ARTICOLI_JOURNAL;
+  if (!track || !articoli) return;
+  const frag = document.createDocumentFragment();
+  articoli.forEach((art) => frag.appendChild(creaJournalCard(art, 'home')));
+  track.textContent = '';
+  track.appendChild(frag);
+})();
+
+// Archivio: griglia journal.html (#journalGrid) + filtri per categoria
+(function () {
+  const grid = document.getElementById('journalGrid');
+  const articoli = window.ARTICOLI_JOURNAL;
+  if (!grid || !articoli) return;
+
+  const filterLinks = document.querySelectorAll('.journal-filters a[data-filter]');
+
+  function render(filtro) {
+    grid.textContent = '';
+    const items = filtro === 'all' ? articoli : articoli.filter((a) => a.category === filtro);
+    if (!items.length) {
+      const p = document.createElement('p');
+      p.className = 'journal-empty';
+      p.textContent = 'Nessun articolo in questa categoria per ora.';
+      grid.appendChild(p);
+      return;
+    }
+    const frag = document.createDocumentFragment();
+    items.forEach((art) => frag.appendChild(creaJournalCard(art, 'grid')));
+    grid.appendChild(frag);
+  }
+
+  filterLinks.forEach((link) => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      filterLinks.forEach((l) => l.classList.remove('active'));
+      link.classList.add('active');
+      render(link.dataset.filter);
+    });
+  });
+
+  render('all');
+})();
+
+/* ============================================================
    JOURNAL: carosello semplice
    ============================================================ */
 (function () {

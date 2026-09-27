@@ -6,7 +6,7 @@
   z-index: 1;
   min-height: auto;
   display: block;
-  padding: 60px 50px 6px;
+  padding: 60px 50px 12px;
   text-align: center;
   background-color: #fcfcfb;
   color: #2b2b2b;
@@ -43,7 +43,7 @@
 }
 @media (max-width: 1100px) {
   .hero {
-    padding: 40px 30px 6px;
+    padding: 40px 30px 10px;
     min-height: auto;
   }
   .hero h1 {
@@ -59,7 +59,7 @@
   position: relative;
   max-width: 1600px;
   margin: 0 auto;
-  padding: 4px 50px 90px;
+  padding: 8px 50px 90px;
 }
 .filtri-bar {
   display: flex;
@@ -230,7 +230,7 @@ header.scrolled .topbar {
    RESPONSIVE
    ============================================ */
 @media (max-width: 1200px) {
-  .products-wrap { padding: 8px 30px 70px; }
+  .products-wrap { padding: 16px 30px 70px; }
   .products-grid { gap: 32px 20px; }
 }
 
@@ -239,19 +239,14 @@ header.scrolled .topbar {
 }
 
 @media (max-width: 900px) {
-  .products-wrap { padding: 6px 16px 60px; }
+  .products-wrap { padding: 12px 16px 60px; }
   .products-grid { grid-template-columns: repeat(2, 1fr); gap: 24px 14px; }
   .product-card .wish { width: 34px; height: 34px; top: 12px; right: 12px; }
   .product-card .wish svg { width: 15px; height: 15px; }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 600px) {
   .products-grid { gap: 20px 12px; }
-}
-
-@media (max-width: 520px) {
-  .products-wrap { padding-left: 14px; padding-right: 14px; }
-  .products-grid { grid-template-columns: 1fr; gap: 32px; }
 }
 
 /* ============================================================
