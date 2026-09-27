@@ -45,7 +45,7 @@
 }
 
 .product-card.featured .featured-eyebrow {
-  font-family: 'Jost', sans-serif;
+  font-family: var(--sans);
   font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -54,7 +54,7 @@
 }
 
 .product-card.featured .featured-title {
-  font-family: 'Jost', sans-serif;
+  font-family: var(--sans);
   font-weight: 500;
   font-size: 13px;
   letter-spacing: 0.1em;
@@ -65,7 +65,7 @@
 }
 
 .product-card.featured .featured-cta {
-  font-family: 'Jost', sans-serif;
+  font-family: var(--sans);
   font-size: 12px;
   letter-spacing: 0.12em;
   text-transform: uppercase;

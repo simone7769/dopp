@@ -8,6 +8,19 @@
 body { animation: none; }
 
 /* ============================================================
+   SCROLL-SNAP (solo hero ↔ video-showcase)
+   Le uniche due sezioni a 100vh uniforme: proximity, non
+   mandatory, così non intrappola chi scorre veloce. Le sezioni
+   successive (collection, must-have, duo, world) restano a
+   scroll libero: altezze non uniformi o carousel orizzontali
+   interni, uno snap lì farebbe solo confusione.
+   ============================================================ */
+html { scroll-snap-type: y proximity; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-snap-type: none; }
+}
+
+/* ============================================================
    HERO
    ============================================================ */
 .hero {
@@ -20,6 +33,7 @@ body { animation: none; }
   justify-content: center;
   text-align: center;
   color: #fff;
+  scroll-snap-align: start;
 }
 .hero-video {
   position: absolute;
@@ -108,6 +122,9 @@ body { animation: none; }
   width: 100%;
   overflow: hidden;
 }
+.video-showcase.snap-ready {
+  scroll-snap-align: start;
+}
 .video-showcase-media {
   position: absolute;
   inset: 0;
@@ -154,6 +171,13 @@ body { animation: none; }
   margin: 0;
   aspect-ratio: 1616 / 899;
   background: url("../images/boiserie-bg1.jpg") center / cover no-repeat;
+  opacity: 0;
+  transform: scale(1.03);
+  transition: opacity var(--t-slow) var(--ease), transform var(--t-slow) var(--ease);
+}
+.collection.in-view .collection-frame {
+  opacity: 1;
+  transform: scale(1);
 }
 
 /* Titolo e sottotitolo sopra la boiserie — responsive con clamp() */
@@ -176,7 +200,7 @@ body { animation: none; }
   line-height: 1.15;
 }
 .collection-frame h2 {
-  top: 6%;
+  top: 7.5%;
   font-family: var(--serif);
   font-size: clamp(15px, 1.9vw, 30px);
   font-weight: 500;
@@ -184,7 +208,7 @@ body { animation: none; }
   text-transform: uppercase;
 }
 .collection-frame > p {
-  top: 12%;
+  top: 13.5%;
   font-family: var(--sans);
   font-size: clamp(9px, 0.82vw, 11.5px);
   font-weight: 400;
@@ -274,7 +298,6 @@ body { animation: none; }
   overflow-x: auto;
   padding-inline: var(--mh-pad);
   scroll-padding-inline: var(--mh-pad);
-  scroll-behavior: smooth;
   overscroll-behavior-x: contain;
   scrollbar-width: none;
   cursor: grab;
@@ -379,8 +402,15 @@ body { animation: none; }
   display: block;
   object-fit: cover;
   object-position: center;
-  transition: transform var(--t-slow) var(--ease);
+  opacity: 0;
+  transform: scale(1.03);
+  transition: opacity var(--t-slow) var(--ease), transform var(--t-slow) var(--ease);
 }
+.duo.in-view .duo-item img {
+  opacity: 1;
+  transform: scale(1);
+}
+.duo.in-view .duo-item:nth-child(2) img { transition-delay: 0.12s; }
 .duo-content {
   position: absolute;
   inset: 0;
@@ -450,7 +480,6 @@ body { animation: none; }
   overflow-x: auto;
   padding-inline: var(--w-pad);
   scroll-padding-inline: var(--w-pad);
-  scroll-behavior: smooth;
   overscroll-behavior-x: contain;
   scrollbar-width: none;
   cursor: grab;
@@ -583,21 +612,8 @@ header.scrolled .topbar {
 
 @media (max-width: 600px) {
   .collection { padding: 0; }
-
-  /* Titoli boiserie: font fissi piccoli + posizioni più distanziate
-     perché il frame è molto basso (aspect-ratio 16/9 circa) */
-  .collection-frame h2 {
-    top: 4%;
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    line-height: 1.1;
-  }
-  .collection-frame > p {
-    top: 13%;
-    font-size: 7px;
-    letter-spacing: 0.08em;
-    line-height: 1.1;
-  }
+  /* Titolo/sottotitolo boiserie restano nascosti sotto i 900px
+     (vedi regola display:none più sopra) — niente da fare qui. */
 
   .hero-content h1 {
     font-size: 22px;

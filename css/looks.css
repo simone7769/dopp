@@ -313,6 +313,7 @@ header .topbar { border-bottom: 1px solid var(--gold); }
   width: 100%;
   height: auto;
   display: block;
+  object-fit: cover;
   /* Rimosso background: #000; per le immagini */
 }
 
@@ -385,12 +386,4 @@ header .topbar { border-bottom: 1px solid var(--gold); }
 
 @media (max-width: 640px) {
   .article-cta-image { margin-bottom: 50px; }
-}
-
-
-.article-split-media img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
 }

@@ -261,6 +261,11 @@ if (header && (MEGA_MENUS.length || HOVER_ONLY_LINKS.length)) {
     if (e.key === 'Escape') chiudiTuttoOra();
   });
 
+  // Sincronizza subito lo stato dell'header con lo scroll già presente
+  // (es. reload a metà pagina): niente flash dell'header pieno in attesa
+  // del primo evento 'scroll'.
+  header.classList.toggle('scrolled', window.scrollY > 120);
+
   window.addEventListener('scroll', () => {
     if (current || header.classList.contains('menu-open')) return;
     if (window.scrollY > 120) header.classList.add('scrolled');
@@ -1011,6 +1016,28 @@ window.CartCounter = (function () {
 })();
 
 /* ============================================================
+   REVEAL — osservatore unico e condiviso da tutte le pagine.
+   Copre sia le sezioni home (.collection, .duo, guidate dalle
+   regole discendenti in home.css) sia le utility generiche
+   .reveal / .reveal-scale (definite in base.css) usabili in
+   qualunque pagina di catalogo o journal. Una volta rivelato,
+   l'elemento resta visibile (no re-fade risalendo).
+   ============================================================ */
+(function () {
+  const targets = document.querySelectorAll('.collection, .duo, .reveal, .reveal-scale');
+  if (!targets.length) return;
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  targets.forEach((t) => revealObserver.observe(t));
+})();
+
+/* ============================================================
    STORE LOCATOR DRAWER
    ============================================================ */
 (function () {
@@ -1153,6 +1180,35 @@ window.CartCounter = (function () {
   }
 })();
 
+
+/* ============================================================
+   SCROLL PROGRESS — barra sottile in alto, presente su ogni
+   pagina che carica nav.js. Creata via JS per non dover toccare
+   il markup di ogni file HTML.
+   ============================================================ */
+(function () {
+  const bar = document.createElement('div');
+  bar.id = 'scrollProgress';
+  bar.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(bar);
+
+  let raf = null;
+  function update() {
+    raf = null;
+    const doc = document.documentElement;
+    const max = doc.scrollHeight - doc.clientHeight;
+    const pct = max > 0 ? (doc.scrollTop / max) * 100 : 0;
+    bar.style.width = pct + '%';
+  }
+  function schedule() {
+    if (raf) return;
+    raf = requestAnimationFrame(update);
+  }
+
+  update();
+  window.addEventListener('scroll', schedule, { passive: true });
+  window.addEventListener('resize', schedule, { passive: true });
+})();
 
 /* ============================================================
    ALTEZZA HEADER DINAMICA

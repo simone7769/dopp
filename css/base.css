@@ -396,7 +396,7 @@ header.menu-open .topbar-message {
   transform: translateY(-8px);
   transition: opacity var(--t-base) var(--ease), transform var(--t-base) var(--ease), visibility var(--t-base) var(--ease);
   color: var(--ink);
-  min-height: 420px;
+  min-height: 480px;
 }
 .megamenu.open {
   opacity: 1;
@@ -906,7 +906,6 @@ header.menu-open .topbar-message {
 .cart-item-remove:hover { color: #c00; }
 .cart-body::-webkit-scrollbar { width: 6px; }
 .cart-body::-webkit-scrollbar-thumb { background: #ddd; }
-.cart-body { padding-bottom: 0; }
 .cart-item:has(+ .cart-total) { border-bottom: none; padding-bottom: 0; }
 .cart-total {
   margin-top: auto;
@@ -1679,8 +1678,6 @@ footer {
 }
 .mm-see-all:hover { color: var(--ink) !important; }
 
-.megamenu { min-height: 480px; }
-
 .nav-outlet { color: var(--gold) !important; }
 header.scrolled .nav-outlet,
 header.menu-open .nav-outlet { color: var(--gold) !important; }
@@ -1894,30 +1891,50 @@ header.menu-open .nav-outlet { color: var(--gold) !important; }
   margin: 0;
 }
 .search-results-empty[hidden] { display: none; }
-:root {
-  /* Titoli */
-  --fs-h1: 14px;
-  --fs-h2: 24px;
-  --fs-h3: 18px;
+/* ============================================================
+   REVEAL — utility generica di ingresso in viewport, condivisa
+   da TUTTE le pagine (arriva da base.css, non va duplicata nei
+   CSS di pagina). Due varianti, stesso linguaggio visivo già
+   usato in home su video-showcase/collection/duo:
 
-  /* Testi */
-  --fs-lead: 18px;
-  --fs-body: 16px;
-  --fs-body-sm: 14px;
+   .reveal        fade + leggero rialzo (12px) — testo, blocchi
+                  editoriali, contenitori di griglia presi UNA
+                  VOLTA sola (mai per singola card ripetuta).
+   .reveal-scale  fade + scale-in (1.03→1) — un blocco isolato
+                  di peso visivo (immagine grande, hero secondario).
 
-  /* Card */
-  --fs-card-title: 14px;
-  --fs-card-body: 13px;
-  --fs-price: 14px;
+   Da NON usare su: hero sopra la piega, card di catalogo prese
+   singolarmente, PDP. Vedi note nei CSS di pagina.
+   ============================================================ */
+.reveal,
+.reveal-scale {
+  opacity: 0;
+  transition: opacity var(--t-slow) var(--ease), transform var(--t-slow) var(--ease);
+}
+.reveal       { transform: translateY(16px); }
+.reveal-scale { transform: scale(1.03); }
+.reveal.in-view,
+.reveal-scale.in-view {
+  opacity: 1;
+  transform: none;
+}
 
-  /* UI */
-  --fs-meta: 11px;
-  --fs-nav: 12px;
-  --fs-btn: 11px;
-
-  /* Tracking (un solo sistema, em) */
-  --tr-h: 0.08em;    /* titoli uppercase */
-  --tr-ui: 0.1em;    /* nav, bottoni */
-  --tr-body: 0.01em; /* corpo serif */
-  --tr-meta: 0.15em; /* eyebrow, label, SKU */
+/* ============================================================
+   SCROLL PROGRESS — barra sottile fissa in alto, si riempie
+   con l'avanzamento della pagina. Condivisa da tutte le pagine,
+   nessun elemento di contenuto viene toccato.
+   ============================================================ */
+#scrollProgress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background-color: var(--gold, #b89b6a);
+  z-index: 2000;
+  transition: width 0.1s linear;
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  #scrollProgress { transition: none; }
 }
