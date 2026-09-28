@@ -1563,9 +1563,11 @@ footer {
 
 @media (max-width: 640px) {
   .wishlist-drawer { width: 100vw; }
+  /* Margine laterale mobile uniforme: 16px (come header e contenuti) */
+  footer { padding-left: 16px; padding-right: 16px; }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
   :root { --btn-width: 170px; --btn-height: 42px; }
   .logo { height: 16px; }
   header.scrolled .header-main .logo { height: 14px; }

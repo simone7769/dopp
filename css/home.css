@@ -610,10 +610,35 @@ header.scrolled .topbar {
   .duo-content h3 { letter-spacing: var(--tr-4); }
 }
 
-@media (max-width: 600px) {
-  .collection { padding: 0; }
-  /* Titolo/sottotitolo boiserie restano nascosti sotto i 900px
-     (vedi regola display:none più sopra) — niente da fare qui. */
+@media (max-width: 640px) {
+  /* Mobile: niente boiserie. Cerimonia ed Essential diventano due card
+     a tutta larghezza (a filo schermo, come il Duo),
+     una sotto l'altra, con la proporzione 4/5 (come Journal e Looks). */
+  .collection { padding: 44px 0 0; }
+  .collection-frame {
+    aspect-ratio: auto;
+    background: none;
+    transform: none;
+  }
+  .collection.in-view .collection-frame { transform: none; }
+  .collection .grid {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .collection .card:nth-child(1),
+  .collection .card:nth-child(2) {
+    position: static;
+    width: 100%;
+    height: auto;
+  }
+  .collection .card-media {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    padding: 18px;
+  }
 
   .hero-content h1 {
     font-size: 22px;
@@ -626,6 +651,13 @@ header.scrolled .topbar {
   .must-have { --mh-gap: 14px; --mh-visible: 1.1; --mh-gaps: 1; --mh-pad: 16px; }
   .world { --w-gap: 14px; --w-visible: 1.1; --w-gaps: 1; --w-pad: 16px; }
   .card h3 { font-size: 11px; letter-spacing: 0.05em; }
-  .duo-item { height: 60vh; min-height: 400px; }
+
+  /* Mobile: le 4 card impilate (Cerimonia, Essential, Outlet,
+     Primavera Estate) sono tutte a tutta larghezza e 4/5.
+     Il Journal (carousel) e' 4/5 come l'archivio; il Must Have
+     resta 2:3 (foto prodotto). Solo <=640px. */
+  .duo { gap: 14px; background: transparent; }
+  .duo-item { height: auto; min-height: 0; aspect-ratio: 4 / 5; }
+  .w-item .w-image { aspect-ratio: 4 / 5; }
 }
 

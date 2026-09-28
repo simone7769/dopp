@@ -220,9 +220,12 @@
 
 @media (max-width: 640px) {
   .products-grid { gap: 20px 12px; }
+  /* Titolo su mobile: margine laterale 16px, spazio 28px sopra / 10px sotto
+     (via di mezzo, uguale a Looks e archivio Journal) */
+  .hero { padding: 28px 16px 10px; }
 }
 
 @media (max-width: 520px) {
-  .products-wrap { padding-left: 14px; padding-right: 14px; }
+  .products-wrap { padding-left: 16px; padding-right: 16px; }
   .products-grid { grid-template-columns: 1fr; gap: 32px; }
 }

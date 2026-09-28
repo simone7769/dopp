@@ -121,8 +121,13 @@
 }
 
 @media (max-width: 640px) {
+  /* Margine laterale mobile uniforme: 16px (come la home) */
+  .hero,
+  .looks-wrap { padding-left: 16px; padding-right: 16px; }
+  /* Titolo su mobile: 28px sopra / 10px sotto (uguale a collezioni e Journal) */
+  .hero { padding-top: 28px; padding-bottom: 10px; }
   .looks-grid { grid-template-columns: 1fr; gap: 60px; }
-  .look-card { width: 96%; }
+  .look-card { width: 100%; }
   .look-image { aspect-ratio: 4 / 5; }
   .looks-intro { margin: 24px auto; }
 }
@@ -578,4 +583,21 @@
   margin: 0 0 20px;
   padding: 0;
   text-align: left;
+}
+
+
+/* ============================================================
+   MOBILE — niente doppio padding laterale
+   Questi blocchi stanno dentro .looks-wrap, che su mobile ha già
+   16px per lato: il loro padding va azzerato, così testo e
+   immagini sono allineati agli stessi 16px. Solo <=640px.
+   ============================================================ */
+@media (max-width: 640px) {
+  .article-text,
+  .article-split,
+  .sartoria-section,
+  .looks-intro {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }

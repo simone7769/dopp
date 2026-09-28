@@ -100,3 +100,13 @@
 .layout-featured-right .product-card.featured {
   grid-column: 2 / span 2;
 }
+
+/* ---------- Mobile (<=520px, griglia a 1 colonna): la featured segue il
+   4/5 delle altre card invece del banner largo con altezza minima. ---------- */
+@media (max-width: 520px) {
+  .product-card.featured {
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 4 / 5;
+  }
+}

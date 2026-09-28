@@ -250,3 +250,9 @@
   .pdp-related { padding: 10px 20px 60px; }
 }
 
+/* Margine laterale mobile uniforme: 16px (solo <=640px) */
+@media (max-width: 640px) {
+  .pdp-wrap,
+  .pdp-related { padding-left: 16px; padding-right: 16px; }
+}
+

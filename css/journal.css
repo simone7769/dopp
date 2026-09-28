@@ -135,12 +135,14 @@
 }
 
 @media (max-width: 640px) {
+  /* Margine laterale mobile uniforme: 16px (come la home) */
+  .journal-hero,
+  .journal-filters,
+  .journal-grid-wrap { padding-left: 16px; padding-right: 16px; }
+  /* Titolo su mobile: 28px sopra (uguale a collezioni e Looks) */
+  .journal-hero { padding-top: 28px; }
   .journal-grid { grid-template-columns: 1fr; gap: 32px; }
   .journal-card-image { aspect-ratio: 4 / 5; }
-}
-
-@media (max-width: 480px) {
-  .journal-grid-wrap { padding-left: 16px; padding-right: 16px; }
 }
 
 
