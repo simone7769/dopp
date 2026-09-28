@@ -51,6 +51,7 @@
   --topbar-h: 33px;
   --drawer-title-h: 64px;
   --header-h: 170px;
+  --touch-target: 44px; /* ← FIX touch target: dimensione minima WCAG per aree interattive */
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -732,8 +733,9 @@ header.menu-open .topbar-message {
 .wishlist-close,
 .stores-close,
 .contact-close {
-  width: 36px;
-  height: 36px;
+  /* ← FIX touch target: 44px minimo WCAG (era 36px) */
+  min-width: var(--touch-target, 44px);
+  min-height: var(--touch-target, 44px);
   border: none;
   background: transparent;
   color: var(--ink);
@@ -876,11 +878,11 @@ header.menu-open .topbar-message {
   display: inline-flex;
   align-items: center;
   border: 1px solid var(--line);
-  height: 32px;
+  height: 44px; /* ← FIX touch target: contenitore a 44px (era 32px) */
 }
 .qty-btn {
-  width: 30px;
-  height: 30px;
+  min-width: var(--touch-target, 44px); /* ← FIX touch target: 44px (era 30px) */
+  min-height: 32px;
   border: none;
   background: transparent;
   color: var(--ink);
@@ -899,8 +901,11 @@ header.menu-open .topbar-message {
   cursor: pointer;
   color: var(--ink);
   padding: 0;
-  width: 20px;
-  height: 20px;
+  min-width: var(--touch-target, 44px); /* ← FIX touch target */
+  min-height: var(--touch-target, 44px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .cart-item-remove svg { width: 16px; height: 16px; }
 .cart-item-remove:hover { color: #c00; }
@@ -972,8 +977,8 @@ header.menu-open .topbar-message {
   right: 12px;
   top: 50%;
   transform: translateY(-50%);
-  width: 28px;
-  height: 28px;
+  min-width: var(--touch-target, 44px); /* ← FIX touch target */
+  min-height: var(--touch-target, 44px);
   border: none;
   background: transparent;
   color: var(--ink);
@@ -1046,8 +1051,9 @@ header.menu-open .topbar-message {
   position: absolute;
   top: 8px;
   right: 8px;
-  width: 28px;
-  height: 28px;
+  /* ← FIX touch target: 44px minimo WCAG (era 28px) */
+  min-width: var(--touch-target, 44px);
+  min-height: var(--touch-target, 44px);
   border: none;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.9);
@@ -1058,7 +1064,7 @@ header.menu-open .topbar-message {
   justify-content: center;
   transition: color var(--t-fast) var(--ease), background-color var(--t-fast) var(--ease), transform var(--t-fast) var(--ease);
 }
-.wishlist-remove svg { width: 14px; height: 14px; }
+.wishlist-remove svg { width: 16px; height: 16px; } /* ← FIX: era 14px */
 .wishlist-remove:hover { color: #c00; background: #fff; transform: scale(1.08); }
 .wishlist-card-info h4 {
   font-family: var(--sans);
@@ -1349,6 +1355,8 @@ footer {
   cursor: pointer;
   color: #fff;
   padding: 4px;
+  min-width: var(--touch-target, 44px); /* ← FIX touch target */
+  min-height: var(--touch-target, 44px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1759,8 +1767,9 @@ header.menu-open .nav-outlet { color: var(--gold) !important; }
   margin: 0;
 }
 .search-close {
-  width: 36px;
-  height: 36px;
+  /* ← FIX touch target: 44px minimo WCAG (era 36px) */
+  min-width: var(--touch-target, 44px);
+  min-height: var(--touch-target, 44px);
   border: none;
   background: transparent;
   color: var(--ink);
@@ -1895,20 +1904,9 @@ header.menu-open .nav-outlet { color: var(--gold) !important; }
   margin: 0;
 }
 .search-results-empty[hidden] { display: none; }
+
 /* ============================================================
-   REVEAL — utility generica di ingresso in viewport, condivisa
-   da TUTTE le pagine (arriva da base.css, non va duplicata nei
-   CSS di pagina). Due varianti, stesso linguaggio visivo già
-   usato in home su video-showcase/collection/duo:
-
-   .reveal        fade + leggero rialzo (12px) — testo, blocchi
-                  editoriali, contenitori di griglia presi UNA
-                  VOLTA sola (mai per singola card ripetuta).
-   .reveal-scale  fade + scale-in (1.03→1) — un blocco isolato
-                  di peso visivo (immagine grande, hero secondario).
-
-   Da NON usare su: hero sopra la piega, card di catalogo prese
-   singolarmente, PDP. Vedi note nei CSS di pagina.
+   REVEAL — utility generica di ingresso in viewport
    ============================================================ */
 .reveal,
 .reveal-scale {
@@ -1924,9 +1922,7 @@ header.menu-open .nav-outlet { color: var(--gold) !important; }
 }
 
 /* ============================================================
-   SCROLL PROGRESS — barra sottile fissa in alto, si riempie
-   con l'avanzamento della pagina. Condivisa da tutte le pagine,
-   nessun elemento di contenuto viene toccato.
+   SCROLL PROGRESS
    ============================================================ */
 #scrollProgress {
   position: fixed;
@@ -1943,13 +1939,8 @@ header.menu-open .nav-outlet { color: var(--gold) !important; }
   #scrollProgress { transition: none; }
 }
 
-
 /* ============================================================
-   HEADER CHIARO — pagine interne (collezione, prodotto, journal,
-   looks). Si attiva con <body class="header-light">.
-   :where() mantiene la specificità identica alle vecchie regole
-   che stavano in collezione.css / journal.css / looks.css.
-   (index.html non ha la classe: lì l'header parte trasparente.)
+   HEADER CHIARO — pagine interne
    ============================================================ */
 :where(body.header-light) header {
   background-color: #faf8f5;
@@ -1965,7 +1956,6 @@ header.menu-open .nav-outlet { color: var(--gold) !important; }
 :where(body.header-light) header .topbar-message { color: var(--ink); }
 :where(body.header-light) header .topbar { border-bottom: 1px solid var(--gold); }
 
-/* Header scrollato: topbar e logo spariscono, resta la nav */
 @media (min-width: 1025px) {
   :where(body.header-light) header.scrolled .header-main {
     height: 0;

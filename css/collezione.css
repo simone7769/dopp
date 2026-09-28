@@ -120,8 +120,9 @@
   position: absolute;
   top: 18px;
   right: 18px;
-  width: 40px;
-  height: 40px;
+  /* ← FIX touch target: 44px minimo WCAG (era 40px) */
+  min-width: var(--touch-target, 44px);
+  min-height: var(--touch-target, 44px);
   border-radius: 50%;
   background-color: rgba(255,255,255,0.9);
   border: none;
@@ -134,8 +135,8 @@
 }
 .product-card .wish:hover { background-color: #fff; transform: scale(1.08); }
 .product-card .wish svg {
-  width: 18px;
-  height: 18px;
+  width: 20px; /* ← FIX: era 18px, +2 per proporzione nel cerchio più grande */
+  height: 20px;
   stroke: var(--ink);
   fill: none;
   stroke-width: 1.4;
@@ -214,8 +215,14 @@
 @media (max-width: 900px) {
   .products-wrap { padding: 6px 16px 60px; }
   .products-grid { grid-template-columns: repeat(2, 1fr); gap: 24px 14px; }
-  .product-card .wish { width: 34px; height: 34px; top: 12px; right: 12px; }
-  .product-card .wish svg { width: 15px; height: 15px; }
+  /* ← FIX touch target: cuore card resta a 44px (WCAG), non più 34px */
+  .product-card .wish {
+    min-width: var(--touch-target, 44px);
+    min-height: var(--touch-target, 44px);
+    top: 14px;
+    right: 14px;
+  }
+  .product-card .wish svg { width: 20px; height: 20px; }
 }
 
 @media (max-width: 640px) {
