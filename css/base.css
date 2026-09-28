@@ -437,7 +437,7 @@ header.menu-open .topbar-message {
   gap: 18px;
   align-self: start;
 }
-.mm-card { text-decoration: none; color: var(--ink); display: block; width: 215px; flex: 0 0 215px; }
+.mm-card { text-decoration: none; color: var(--ink); display: block; width: 100%; min-width: 0; }
 .mm-card .thumb {
   width: 100%;
   aspect-ratio: 3 / 4;
@@ -1619,8 +1619,8 @@ footer {
 #megaAbbigliamento .megamenu-images,
 #megaAccessori .megamenu-images {
   grid-column: 3;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 215px));
   gap: 30px;
 }
 
@@ -1632,8 +1632,8 @@ footer {
 }
 #megaOutlet .megamenu-images {
   grid-column: 2;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 215px));
   gap: 30px;
 }
 
@@ -1696,7 +1696,9 @@ header.menu-open .nav-outlet { color: var(--gold) !important; }
     margin-top: 30px;
     gap: 20px;
   }
-  .mm-card { width: 155px; flex: 0 0 155px; }
+  #megaAbbigliamento .megamenu-images,
+  #megaAccessori .megamenu-images { grid-template-columns: repeat(3, minmax(0, 155px)); }
+  #megaOutlet .megamenu-images { grid-template-columns: repeat(4, minmax(0, 155px)); }
 }
 
 /* ============================================================
