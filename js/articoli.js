@@ -17,8 +17,8 @@ window.ARTICOLI_JOURNAL = [
     id: 'aw26',
     href: 'looks.html',
     img: 'images/l9b.webp',
-    alt: 'Collezione Autunno/Inverno 2026',
-    title: 'Collezione Autunno/Inverno 2026',
+    alt: 'Autunno/Inverno 2026',
+    title: 'Autunno/Inverno 2026',
     desc: 'Tessuti heritage e linee contemporanee per un guardaroba che vive la stagione, non la insegue.',
     category: 'looks'
   },
