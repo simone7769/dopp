@@ -198,33 +198,6 @@
 }
 .load-more-btn:hover { background-color: var(--ink); color: #fff; }
 
-/* ============================================================
-   HEADER SCROLLATO (collezione/prodotto): logo e topbar spariscono
-   ============================================================ */
-@media (min-width: 1025px) {
-  header.scrolled .header-main {
-    height: 0;
-    min-height: 0;
-    max-height: 0;
-    padding: 0;
-    margin: 0;
-    overflow: hidden;
-    opacity: 0;
-    border: none;
-  }
-}
-header.scrolled .topbar {
-  height: 0;
-  min-height: 0;
-  max-height: 0;
-  padding: 0;
-  margin: 0;
-  border: none;
-  opacity: 0;
-  transform: translateY(-100%);
-  pointer-events: none;
-  overflow: hidden;
-}
 
 /* ============================================
    RESPONSIVE
@@ -253,41 +226,3 @@ header.scrolled .topbar {
   .products-wrap { padding-left: 14px; padding-right: 14px; }
   .products-grid { grid-template-columns: 1fr; gap: 32px; }
 }
-
-/* ============================================================
-   Su collezione e prodotto il contenuto è chiaro fin dall'inizio,
-   quindi l'header è SEMPRE chiaro con logo e menu scuri.
-   (Su index.html non si applica perché non carica questo file.)
-   ============================================================ */
-header {
-  background-color: #faf8f5;
-  color: var(--ink);
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
-}
-
-header .logo {
-  filter: brightness(0) saturate(100%) !important;
-}
-
-header .nav-center a {
-  color: var(--ink);
-}
-
-header .nav-center a.active {
-  color: var(--gold);
-}
-
-header .nav-icon-link {
-  color: var(--ink);
-}
-
-header .topbar-message {
-  color: var(--ink);
-}
-
-header .topbar {
-  border-bottom: 1px solid var(--gold);
-}
-
-
-

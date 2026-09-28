@@ -1940,3 +1940,51 @@ header.menu-open .nav-outlet { color: var(--gold) !important; }
 @media (prefers-reduced-motion: reduce) {
   #scrollProgress { transition: none; }
 }
+
+
+/* ============================================================
+   HEADER CHIARO — pagine interne (collezione, prodotto, journal,
+   looks). Si attiva con <body class="header-light">.
+   :where() mantiene la specificità identica alle vecchie regole
+   che stavano in collezione.css / journal.css / looks.css.
+   (index.html non ha la classe: lì l'header parte trasparente.)
+   ============================================================ */
+:where(body.header-light) header {
+  background-color: #faf8f5;
+  color: var(--ink);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+}
+:where(body.header-light) header .logo {
+  filter: brightness(0) saturate(100%) !important;
+}
+:where(body.header-light) header .nav-center a { color: var(--ink); }
+:where(body.header-light) header .nav-center a.active { color: var(--gold); }
+:where(body.header-light) header .nav-icon-link { color: var(--ink); }
+:where(body.header-light) header .topbar-message { color: var(--ink); }
+:where(body.header-light) header .topbar { border-bottom: 1px solid var(--gold); }
+
+/* Header scrollato: topbar e logo spariscono, resta la nav */
+@media (min-width: 1025px) {
+  :where(body.header-light) header.scrolled .header-main {
+    height: 0;
+    min-height: 0;
+    max-height: 0;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    opacity: 0;
+    border: none;
+  }
+}
+:where(body.header-light) header.scrolled .topbar {
+  height: 0;
+  min-height: 0;
+  max-height: 0;
+  padding: 0;
+  margin: 0;
+  border: none;
+  opacity: 0;
+  transform: translateY(-100%);
+  pointer-events: none;
+  overflow: hidden;
+}

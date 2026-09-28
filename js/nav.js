@@ -924,7 +924,7 @@ function creaJournalCard(articolo, variante) {
   if (variante === 'home') {
     a.className = 'w-item';
     a.innerHTML =
-      '<div class="w-image"><img src="' + articolo.img + '" alt="' + articolo.alt + '" draggable="false"></div>' +
+      '<div class="w-image"><img loading="lazy" src="' + articolo.img + '" alt="' + articolo.alt + '" draggable="false"></div>' +
       '<h3>' + articolo.title + '</h3>' +
       '<p class="w-desc">' + articolo.desc + '</p>';
   } else {

@@ -71,9 +71,9 @@ window.ARTICOLI_JOURNAL = [
     id: 'cinema',
     href: '#',
     img: 'images/gia.webp',
-    alt: 'Giacomo Gianniotti in Doppelg\u00e4nger',
+    alt: 'Look da cinema in Doppelg\u00e4nger',
     title: 'Cinema &amp; Doppelg\u00e4nger',
-    desc: 'Giacomo Gianniotti, volto noto di Grey\u2019s Anatomy e del cinema internazionale, sceglie Doppelg\u00e4nger anche fuori dal set. Sartorialit\u00e0 essenziale, tagli puliti e una naturalezza che davanti alla macchina da presa fa la differenza.',
+    desc: 'Dal set alla vita di tutti i giorni: sartorialit\u00e0 essenziale, tagli puliti e una naturalezza che davanti alla macchina da presa fa la differenza.',
     category: 'looks'
   },
   {
