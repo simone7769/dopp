@@ -345,10 +345,10 @@ html { scroll-snap-type: y proximity; }
   font-weight: 400;
   letter-spacing: var(--tr-03);
   color: var(--ink);
-  text-align: center;
-  line-height: 1.5;
-  max-width: 90%;
-  margin: 0 auto;
+  text-align: left;
+  line-height: 1.4;
+  margin: 0 0 4px;
+  max-width: 100%;
 }
 .mh-arrow,
 .w-arrow {
@@ -665,4 +665,50 @@ header.scrolled .topbar {
   .duo { gap: 14px; background: transparent; }
   .duo-item { height: auto; min-height: 0; aspect-ratio: 4 / 5; }
   .w-item .w-image { aspect-ratio: 4 / 5; }
+}
+
+/* ============================================================
+   MUST HAVE — didascalia allineata a sinistra (titolo + prezzo)
+   Stesse regole tipografiche e spaziatura di collezione.css
+   ============================================================ */
+
+/* Il contenitore del prodotto non centra nulla: tutto a sinistra */
+.must-have .product {
+  text-align: left;
+}
+
+/* Titolo prodotto — identico a .product-info .details h3 (collezione) */
+.must-have .product h3 {
+  font-family: var(--sans);
+  font-size: var(--fs-card-title);
+  font-weight: 400;
+  letter-spacing: var(--tr-03);
+  line-height: 1.4;
+  color: var(--ink);
+  text-align: left;
+  margin: 0 0 4px;
+  max-width: 100%;
+}
+
+/* Prezzo — identico a .product-info .details .price (collezione) */
+.must-have .product-price {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: var(--fs-card-price);
+  font-weight: 700;
+  letter-spacing: var(--tr-03);
+  color: var(--ink);
+  text-align: left;
+  line-height: 1.3;
+}
+
+/* Variante saldi / prezzo barrato (facoltativa) */
+.must-have .product-price del {
+  margin-right: 6px;
+  color: #999;
+  font-weight: 300;
+}
+.must-have .product-price ins {
+  text-decoration: none;
+  color: #a32638;
 }
