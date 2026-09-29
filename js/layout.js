@@ -210,7 +210,7 @@
     <button type="button" class="cart-close" id="closeCartDrawer" aria-label="Chiudi">&times;</button>\
   </div>\
   <div class="cart-body">\
-    <p class="cart-empty">Il carrello è vuoto.</p>\
+    <p class="cart-empty">Il carrello è una demo. Il sito ufficiale è Doppelganger.</p>\
     <div class="cart-total"><span>Totale parziale</span><span id="cartTotal">€ 0,00</span></div>\
   </div>\
   <div class="cart-footer">\
