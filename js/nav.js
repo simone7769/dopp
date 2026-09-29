@@ -1,8 +1,8 @@
 /* ============================================================
    NAV.JS — Script unificato per tutte le pagine
-   Contiene: nav, megamenu, drawer, caroselli, ricerca, menu mobile.
-   I caroselli (Must Have, Journal) e il video-showcase si attivano
-   solo se gli elementi esistono nella pagina (guard-rail).
+   Contiene: nav, megamenu, drawer, caroselli, ricerca, menu mobile,
+   carrello, cuori, video. I moduli si attivano solo se gli elementi
+   esistono nella pagina (guard-rail).
    ============================================================ */
 
 /* ---------- EVITA IL RITORNO IN CIMA AL CLICK SU href="#" ---------- */
@@ -12,11 +12,7 @@ document.addEventListener('click', (e) => {
 });
 
 /* ============================================================
-   GESTORE CENTRALE DEI PANNELLI (drawer laterali, overlay di
-   ricerca, menu mobile). Ogni pannello si registra con la sua
-   funzione di chiusura: prima di aprirsi chiude tutti gli altri,
-   così non restano mai due pannelli aperti insieme e lo scroll
-   del body non si sblocca finché uno di loro è ancora visibile.
+   GESTORE CENTRALE DEI PANNELLI
    ============================================================ */
 const PanelManager = (function () {
   const panels = [];
@@ -31,8 +27,6 @@ const PanelManager = (function () {
 
 /* ============================================================
    DURATE DELLE TRANSIZIONI
-   Legge le durate definite in base.css (--t-fast, --t-base, --t-slow),
-   così i timer JS restano sincronizzati con il CSS.
    ============================================================ */
 function cssDurationMs(name, fallbackMs) {
   const v = getComputedStyle(document.documentElement).getPropertyValue(name).trim();
@@ -41,21 +35,13 @@ function cssDurationMs(name, fallbackMs) {
   return v.endsWith('ms') ? num : num * 1000;
 }
 
-// true quando menu e ricerca sono pannelli a tutto schermo
-// (mobile e tablet verticale, sotto 1024px).
-function isFullscreenPanelLayout() {
-  return window.matchMedia('(max-width: 1024px)').matches;
-}
+
 
 /* ============================================================
-   MEGA-MENU DELLA NAV (Abbigliamento, Accessori e Scarpe, Outlet)
-   Le voci senza pannello (New in, Gift Card) mantengono comunque
-   l'header in stato "menu-open" quando il mouse ci passa sopra.
+   MEGA-MENU DELLA NAV
    ============================================================ */
 const header = document.getElementById('header');
 
-// Pannelli a tutto schermo (menu mobile, ricerca) che tengono l'header chiaro
-// ("menu-open") finché sono aperti o si stanno ancora chiudendo.
 const headerHolds = new Set();
 function releaseHeaderIfFree() {
   if (!header || headerHolds.size > 0) return;
@@ -86,11 +72,9 @@ if (header && (MEGA_MENUS.length || HOVER_ONLY_LINKS.length)) {
   let current = null;
   const CLOSE_DELAY = 120;
   const TOLERANCE = 12;
-  // Tempo entro cui un "click" successivo a un "pointerdown" touch
-  // viene considerato il click sintetico emesso dal browser (e ignorato).
   const TAP_ECHO_WINDOW = 500;
 
-   function isSearchOpen() {
+  function isSearchOpen() {
     const s = document.getElementById('searchDrawer');
     return !!(s && s.classList.contains('open'));
   }
@@ -213,15 +197,9 @@ if (header && (MEGA_MENUS.length || HOVER_ONLY_LINKS.length)) {
 
   MEGA_MENUS.forEach((m) => {
 
-    /* Traccia l'ultimo pointerdown touch su questo link, così
-       il click sintetico che il browser emette subito dopo
-       può essere ignorato (era lui a chiudere il menu appena aperto). */
     let lastPointerDownWasTouch = 0;
 
-    /* ---------- CLICK (desktop con mouse) ---------- */
     m.link.addEventListener('click', (e) => {
-      // Se subito prima è arrivato un pointerdown touch (tap),
-      // questo click è l'eco sintetica del browser: ignorala.
       if (Date.now() - lastPointerDownWasTouch < TAP_ECHO_WINDOW) {
         e.preventDefault();
         return;
@@ -232,10 +210,6 @@ if (header && (MEGA_MENUS.length || HOVER_ONLY_LINKS.length)) {
       else apriMenu(m);
     });
 
-    /* ---------- TOUCH / PEN (tablet orizzontale) ----------
-       Su tablet il click viene spesso "mangiato" dal browser per
-       simulare l'hover. Intercettiamo pointerdown con pointerType
-       touch/pen, che arriva PRIMA e in modo affidabile.            */
     m.link.addEventListener('pointerdown', (e) => {
       if (e.pointerType === 'touch' || e.pointerType === 'pen') {
         lastPointerDownWasTouch = Date.now();
@@ -246,7 +220,6 @@ if (header && (MEGA_MENUS.length || HOVER_ONLY_LINKS.length)) {
       }
     }, { passive: false });
 
-    /* ---------- FOCUS da tastiera ---------- */
     m.link.addEventListener('focus', () => {
       if (m.link.matches(':focus-visible')) apriMenu(m);
     });
@@ -261,9 +234,6 @@ if (header && (MEGA_MENUS.length || HOVER_ONLY_LINKS.length)) {
     if (e.key === 'Escape') chiudiTuttoOra();
   });
 
-  // Sincronizza subito lo stato dell'header con lo scroll già presente
-  // (es. reload a metà pagina): niente flash dell'header pieno in attesa
-  // del primo evento 'scroll'.
   header.classList.toggle('scrolled', window.scrollY > 120);
 
   window.addEventListener('scroll', () => {
@@ -272,8 +242,6 @@ if (header && (MEGA_MENUS.length || HOVER_ONLY_LINKS.length)) {
     else header.classList.remove('scrolled');
   });
 }
-
-
 
 /* ============================================================
    CAROSELLO TOPBAR
@@ -484,6 +452,7 @@ if (navBurger && mobileMenu) {
     });
   }
 })();
+
 /* ============================================================
    COUNTRY DRAWER
    ============================================================ */
@@ -553,24 +522,31 @@ if (navBurger && mobileMenu) {
 })();
 
 /* ============================================================
-   CONTATORE CARRELLO
+   CONTATORE CARRELLO (con persistenza in sessionStorage)
    ============================================================ */
 window.CartCounter = (function () {
+  const STORAGE_KEY = 'dg_cart_count';
   const cartCountEl = document.getElementById('cartCount');
   const badges = document.querySelectorAll('.cart-badge');
   const cartDrawerEl = document.getElementById('cartDrawer');
 
   function totalFromDrawer() {
     if (!cartDrawerEl) return null;
-    const qtyEls = cartDrawerEl.querySelectorAll('.qty-value');
-    if (!qtyEls.length) return null;
+    const righe = cartDrawerEl.querySelectorAll('.cart-item');
+    if (!righe.length) return 0;
     let sum = 0;
-    qtyEls.forEach((q) => { sum += parseInt(q.textContent, 10) || 0; });
+    righe.forEach((riga) => {
+      const q = riga.querySelector('.qty-value');
+      sum += parseInt(q ? q.textContent : '1', 10) || 0;
+    });
     return sum;
   }
 
-  let total = totalFromDrawer();
-  if (total === null) total = parseInt(cartCountEl ? cartCountEl.textContent : '0', 10) || 0;
+  let total = parseInt(sessionStorage.getItem(STORAGE_KEY), 10);
+  if (isNaN(total)) {
+    const daDrawer = totalFromDrawer();
+    total = daDrawer !== null ? daDrawer : parseInt(cartCountEl ? cartCountEl.textContent : '0', 10) || 0;
+  }
 
   function render() {
     if (cartCountEl) cartCountEl.textContent = total;
@@ -582,8 +558,13 @@ window.CartCounter = (function () {
     });
   }
 
+  function salva() {
+    try { sessionStorage.setItem(STORAGE_KEY, String(total)); } catch (e) {}
+  }
+
   function set(n) {
     total = Math.max(0, n);
+    salva();
     render();
   }
 
@@ -593,7 +574,10 @@ window.CartCounter = (function () {
     add(n) { set(total + n); },
     recalcFromDrawer() {
       const t = totalFromDrawer();
-      if (t !== null) set(t);
+      if (t === null) return;
+      /* Non azzera mai verso il basso gli "aggiunti" con +:
+         tiene il massimo tra contatore corrente e somma drawer. */
+      if (t > total) set(t);
     }
   };
 })();
@@ -606,10 +590,28 @@ window.CartCounter = (function () {
   const overlay = document.getElementById('cartOverlay');
   const closeBtn = document.getElementById('closeCartDrawer');
   const openBtns = document.querySelectorAll('a[aria-label="Carrello"]');
+  const totalEl = document.getElementById('cartTotal');
 
   if (!drawer) return;
 
   const closeOtherPanels = PanelManager.register(closeCart);
+
+  function aggiornaTotale() {
+    if (!totalEl) return;
+    const righe = drawer.querySelectorAll('.cart-item');
+    let somma = 0;
+    righe.forEach((riga) => {
+      const prezzoEl = riga.querySelector('.cart-item-price');
+      const qtyEl = riga.querySelector('.qty-value');
+      if (!prezzoEl) return;
+      const prezzo = parseFloat(
+        prezzoEl.textContent.replace('€', '').replace('.', '').replace(',', '.').trim()
+      ) || 0;
+      const qty = parseInt(qtyEl ? qtyEl.textContent : '1', 10) || 1;
+      somma += prezzo * qty;
+    });
+    totalEl.textContent = '€ ' + somma.toFixed(2).replace('.', ',');
+  }
 
   function openCart(e) {
     if (e) e.preventDefault();
@@ -618,6 +620,7 @@ window.CartCounter = (function () {
     if (overlay) overlay.classList.add('active');
     drawer.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
+    aggiornaTotale();
   }
 
   function closeCart() {
@@ -634,18 +637,45 @@ window.CartCounter = (function () {
     if (e.key === 'Escape' && drawer.classList.contains('open')) closeCart();
   });
 
-  const qtyValue = document.getElementById('qtyValue');
-  if (qtyValue) {
-    drawer.querySelectorAll('.qty-btn').forEach(btn => {
+  /* --- Quantità +/− su ogni riga --- */
+  drawer.querySelectorAll('.cart-qty').forEach((qtyBox) => {
+    const valueEl = qtyBox.querySelector('.qty-value');
+    if (!valueEl) return;
+    qtyBox.querySelectorAll('.qty-btn').forEach((btn) => {
       btn.addEventListener('click', () => {
-        let val = parseInt(qtyValue.textContent, 10) || 1;
+        let val = parseInt(valueEl.textContent, 10) || 1;
         if (btn.dataset.action === 'plus') val++;
         else if (btn.dataset.action === 'minus' && val > 1) val--;
-        qtyValue.textContent = val;
+        valueEl.textContent = val;
+        aggiornaTotale();
         if (window.CartCounter) window.CartCounter.recalcFromDrawer();
       });
     });
-  }
+  });
+
+  /* --- Rimuovi riga --- */
+  drawer.querySelectorAll('.cart-item-remove').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const riga = btn.closest('.cart-item');
+      if (!riga) return;
+      riga.remove();
+      aggiornaTotale();
+      if (window.CartCounter) window.CartCounter.recalcFromDrawer();
+      const rimaste = drawer.querySelectorAll('.cart-item').length;
+      if (rimaste === 0) {
+        const body = drawer.querySelector('.cart-body');
+        if (body && !body.querySelector('.cart-empty')) {
+          const p = document.createElement('p');
+          p.className = 'cart-empty';
+          p.textContent = 'Il carrello è vuoto.';
+          body.appendChild(p);
+        }
+        if (totalEl) totalEl.textContent = '€ 0,00';
+      }
+    });
+  });
+
+  aggiornaTotale();
 })();
 
 /* ============================================================
@@ -911,11 +941,6 @@ window.CartCounter = (function () {
 
 /* ============================================================
    JOURNAL: fonte dati condivisa (articoli.js)
-   Popola sia il carosello Journal della home (#wTrack) sia la
-   griglia archivio di journal.html (#journalGrid), così un
-   articolo aggiunto/tolto in articoli.js compare o sparisce
-   automaticamente in entrambi i punti, senza doverli allineare
-   a mano.
    ============================================================ */
 function creaJournalCard(articolo, variante) {
   const a = document.createElement('a');
@@ -938,7 +963,6 @@ function creaJournalCard(articolo, variante) {
   return a;
 }
 
-// Home: carosello Journal (#wTrack)
 (function () {
   const track = document.getElementById('wTrack');
   const articoli = window.ARTICOLI_JOURNAL;
@@ -949,7 +973,6 @@ function creaJournalCard(articolo, variante) {
   track.appendChild(frag);
 })();
 
-// Archivio: griglia journal.html (#journalGrid) + filtri per categoria
 (function () {
   const grid = document.getElementById('journalGrid');
   const articoli = window.ARTICOLI_JOURNAL;
@@ -1091,12 +1114,7 @@ function creaJournalCard(articolo, variante) {
 })();
 
 /* ============================================================
-   REVEAL — osservatore unico e condiviso da tutte le pagine.
-   Copre sia le sezioni home (.collection, .duo, guidate dalle
-   regole discendenti in home.css) sia le utility generiche
-   .reveal / .reveal-scale (definite in base.css) usabili in
-   qualunque pagina di catalogo o journal. Una volta rivelato,
-   l'elemento resta visibile (no re-fade risalendo).
+   REVEAL
    ============================================================ */
 (function () {
   const targets = document.querySelectorAll('.collection, .duo, .reveal, .reveal-scale');
@@ -1255,11 +1273,8 @@ function creaJournalCard(articolo, variante) {
   }
 })();
 
-
 /* ============================================================
-   SCROLL PROGRESS — barra sottile in alto, presente su ogni
-   pagina che carica nav.js. Creata via JS per non dover toccare
-   il markup di ogni file HTML.
+   SCROLL PROGRESS
    ============================================================ */
 (function () {
   const bar = document.createElement('div');
@@ -1288,11 +1303,17 @@ function creaJournalCard(articolo, variante) {
 /* ============================================================
    ALTEZZA HEADER DINAMICA
    Espone --header-h = altezza reale dell'header visibile.
+
+   Sulle pagine con body.header-light l'header si accorcia allo
+   scroll: se aggiornassimo --header-h a ogni scroll, il padding
+   di .page cambierebbe e il contenuto salterebbe. Quindi sulle
+   pagine header-light misuriamo l'altezza UNA VOLTA SOLA.
    ============================================================ */
 (function () {
   const headerEl = document.getElementById('header');
   if (!headerEl) return;
 
+  const isHeaderLight = document.body.classList.contains('header-light');
   let raf = null;
 
   function misura() {
@@ -1307,6 +1328,11 @@ function creaJournalCard(articolo, variante) {
   }
 
   misura();
+
+  /* Sulle pagine header-light l'altezza resta quella iniziale:
+     non ascoltiamo scroll né resize, così .page non salta. */
+  if (isHeaderLight) return;
+
   window.addEventListener('resize', schedule, { passive: true });
   window.addEventListener('scroll', schedule, { passive: true });
   window.addEventListener('load', schedule);
@@ -1318,4 +1344,80 @@ function creaJournalCard(articolo, variante) {
   if ('ResizeObserver' in window) {
     new ResizeObserver(schedule).observe(headerEl);
   }
+})();
+
+/* ============================================================
+   CUORI — toggle preferiti sulle card e nella scheda prodotto
+   ============================================================ */
+(function () {
+  const wishBadges = document.querySelectorAll('.wishlist-badge');
+
+  function contaPreferiti() {
+    return document.querySelectorAll('.wish.active, .pdp-wish-btn.active').length;
+  }
+
+  function aggiornaBadge() {
+    const n = contaPreferiti();
+    wishBadges.forEach((b) => {
+      b.textContent = n;
+      b.hidden = n === 0;
+      b.classList.add('bump');
+      setTimeout(() => b.classList.remove('bump'), cssDurationMs('--t-fast', 250));
+    });
+  }
+
+  document.querySelectorAll('.product-card .wish').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      btn.classList.toggle('active');
+      aggiornaBadge();
+    });
+  });
+
+  document.querySelectorAll('.pdp-wish-btn').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      btn.classList.toggle('active');
+      aggiornaBadge();
+    });
+  });
+
+  aggiornaBadge();
+})();
+
+/* ============================================================
+   VIDEO — autoplay quando visibili, pausa quando fuori schermo.
+   Rispetta prefers-reduced-motion (nessun autoplay).
+   ============================================================ */
+(function () {
+  const videos = document.querySelectorAll('video[preload="none"], video[preload="metadata"], video.video-showcase-media');
+  if (!videos.length) return;
+
+  function play(v) {
+    const p = v.play();
+    if (p && p.catch) p.catch(function () {});
+  }
+
+  const riduciMovimento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (riduciMovimento) return;
+
+  const showcase = document.querySelector('video.video-showcase-media');
+  function preloadShowcase() {
+    if (showcase && showcase.paused) { showcase.preload = 'auto'; showcase.load(); }
+  }
+  if (document.readyState === 'complete') preloadShowcase();
+  else window.addEventListener('load', preloadShowcase);
+
+  if (!('IntersectionObserver' in window)) {
+    videos.forEach(function (v) { v.preload = 'auto'; play(v); });
+    return;
+  }
+  const io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) play(e.target);
+      else e.target.pause();
+    });
+  }, { rootMargin: '300px 300px' });
+  videos.forEach(function (v) { io.observe(v); });
 })();

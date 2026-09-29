@@ -35,7 +35,7 @@ html { scroll-snap-type: y proximity; }
   color: #fff;
   scroll-snap-align: start;
 }
-.hero-video {
+.hero-cover {
   position: absolute;
   inset: 0;
   width: 100%;

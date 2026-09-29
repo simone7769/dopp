@@ -3,7 +3,7 @@
    per prodotto.html, prodotto1.html, prodotto2.html.
 
    Gli stili di base (reset, header, footer, drawer) arrivano
-   dal <link> a collezione.css negli HTML — NON da @import.
+   dal <link> a base.css e collezione.css negli HTML — NON da @import.
    ============================================================ */
 
 /* ============================================
@@ -12,7 +12,7 @@
 .pdp-wrap {
   max-width: 1600px;
   margin: 0 auto;
-  padding: 200px 50px 90px;
+  padding: calc(var(--header-h, 170px) + 30px) 50px 90px;
   display: grid;
   grid-template-columns: 1.3fr 0.9fr;
   gap: 70px;
@@ -34,7 +34,7 @@
 
 .pdp-info {
   position: sticky;
-  top: 180px;
+  top: calc(var(--header-h, 170px) + 10px);
 }
 
 .pdp-collection {
@@ -160,6 +160,15 @@
 }
 .pdp-size-guide:hover { color: var(--ink); }
 
+/* Avviso "seleziona taglia" — mostrato da prodotto.js */
+.pdp-size-warning {
+  font-family: var(--sans);
+  font-size: var(--fs-12);
+  font-weight: 400;
+  color: #a32638;
+  margin: 0 0 18px;
+}
+
 .pdp-actions {
   display: flex;
   gap: 10px;
@@ -250,11 +259,11 @@
 }
 
 @media (max-width: 1200px) {
-  .pdp-wrap { padding: 190px 30px 70px; gap: 50px; }
+  .pdp-wrap { padding: calc(var(--header-h, 170px) + 20px) 30px 70px; gap: 50px; }
 }
 
 @media (max-width: 900px) {
-  .pdp-wrap { grid-template-columns: 1fr; padding: 150px 20px 60px; gap: 30px; }
+  .pdp-wrap { grid-template-columns: 1fr; padding: calc(var(--header-h, 170px) + 10px) 20px 60px; gap: 30px; }
   .pdp-info { position: static; }
   .pdp-related { padding: 10px 20px 60px; }
 }

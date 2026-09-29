@@ -11,10 +11,7 @@
   background-color: #fcfcfb;
   color: #2b2b2b;
 }
-/* Il contenitore compensa l'header fixed UNA VOLTA SOLA */
-.page {
-  padding-top: var(--header-h, 170px);
-}
+
 
 .hero-inner {
   margin: 0 auto;

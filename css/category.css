@@ -64,21 +64,6 @@
   color: #fff;
 }
 
-.product-card.featured .featured-cta {
-  font-family: var(--sans);
-  font-size: 12px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  border-bottom: 1px solid currentColor;
-  padding-bottom: 3px;
-  align-self: flex-start;
-  transition: opacity 0.25s ease;
-}
-
-.product-card.featured:hover .featured-cta {
-  opacity: 0.7;
-}
-
 /* ---------- Responsive ---------- */
 @media (max-width: 1024px) {
   .product-card.featured {

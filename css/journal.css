@@ -97,7 +97,7 @@
 .journal-card h3 {
   font-family: var(--sans);
   font-size: var(--fs-14);
-  font-weight: 400;                
+  font-weight: 400;
   letter-spacing: var(--tr-05);
   text-transform: uppercase;
   color: var(--ink);
@@ -106,11 +106,11 @@
 }
 .journal-card p {
   font-family: var(--sans);
-  font-size: var(--fs-12);         /* 12px (era 11) */
-  font-weight: 300;                /* 300, più leggero del titolo */
-  letter-spacing: var(--tr-03);    /* 0.3px */
+  font-size: var(--fs-12);
+  font-weight: 300;
+  letter-spacing: var(--tr-03);
   line-height: 1.55;
-  color: var(--ink);               /* nero (era grigio #7a7a7a) */
+  color: var(--ink);
   margin: 0;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -143,12 +143,6 @@
   .journal-hero { padding-top: 28px; }
   .journal-grid { grid-template-columns: 1fr; gap: 32px; }
   .journal-card-image { aspect-ratio: 4 / 5; }
-}
-
-
-/* Compensa l'header fixed */
-.page {
-  padding-top: var(--header-h, 170px);
 }
 
 

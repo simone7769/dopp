@@ -415,7 +415,6 @@ header.menu-open .topbar-message {
   color: var(--ink);
   margin: 0 0 24px;
 }
-.megamenu-col h4.secondary { margin-top: 40px; }
 .megamenu-col ul {
   list-style: none;
   display: flex;
@@ -1451,17 +1450,7 @@ footer {
   margin-top: 20px;
   border-top: 1px solid var(--gold);
 }
-.footer-signature {
-  text-align: center;
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: var(--fs-14);
-  color: #cfcbc4;
-  letter-spacing: var(--tr-05);
-  padding-top: 20px;
-  margin-top: 20px;
-  border-top: 1px solid var(--gold);
-}
+
 .country-trigger {
   background: transparent;
   border: none;
@@ -1979,4 +1968,57 @@ header.menu-open .nav-outlet { color: var(--gold) !important; }
   transform: translateY(-100%);
   pointer-events: none;
   overflow: hidden;
+}
+
+
+
+
+/* Voci in evidenza nell'accordion mobile (Essential, Cerimonia) */
+.mobile-sub a.mobile-sub-highlight {
+  font-weight: 500;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: var(--tr-1);
+  font-size: var(--fs-11);
+}
+.mobile-sub a.mobile-sub-highlight:hover {
+  color: var(--ink);
+}
+
+
+
+/* Stato "carrello vuoto" — generato da nav.js */
+.cart-empty {
+  font-family: var(--sans);
+  font-size: var(--fs-13);
+  font-weight: 300;
+  color: #777;
+  text-align: center;
+  padding: 40px 0;
+  margin: 0;
+}
+
+
+/* Cuore "attivo" (prodotto nei preferiti) */
+.product-card .wish.active svg,
+.pdp-wish-btn.active svg {
+  fill: var(--gold);
+  stroke: var(--gold);
+}
+
+/* ============================================================
+   PDP — AVVISO TAGLIA
+   ============================================================ */
+.pdp-size-warning {
+  font-family: var(--sans);
+  font-size: var(--fs-12);
+  font-weight: 400;
+  color: #a32638;
+  margin: 0 0 18px;
+}
+
+
+/* Compensa l'header fixed — definito una sola volta, tutte le pagine */
+.page {
+  padding-top: var(--header-h, 170px);
 }
