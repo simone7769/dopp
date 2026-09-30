@@ -70,6 +70,7 @@ if (header && (MEGA_MENUS.length || HOVER_ONLY_LINKS.length)) {
 
   let hideTimer;
   let openTimer;
+  let pendingTarget = null;
   let current = null;
   const OPEN_DELAY = 150;   /* ms di sosta sul link prima che il menu si apra */
   const CLOSE_DELAY = 120;
@@ -93,9 +94,23 @@ if (header && (MEGA_MENUS.length || HOVER_ONLY_LINKS.length)) {
     m.link.setAttribute('aria-expanded', 'false');
   }
 
+  function annullaApertura() {
+    clearTimeout(openTimer);
+    pendingTarget = null;
+  }
+
+  /* Il timer parte una sola volta per bersaglio: i piccoli movimenti
+     del mouse sopra lo stesso elemento non lo fanno ripartire. */
+  function programmaApertura(target, fn) {
+    if (pendingTarget === target) return;
+    clearTimeout(openTimer);
+    pendingTarget = target;
+    openTimer = setTimeout(() => { pendingTarget = null; fn(); }, OPEN_DELAY);
+  }
+
   function apriMenu(m) {
     clearTimeout(hideTimer);
-    clearTimeout(openTimer);
+    annullaApertura();
     if (current === m) return;
     if (isSearchOpen()) return;
     if (current) spegni(current);
@@ -112,7 +127,7 @@ if (header && (MEGA_MENUS.length || HOVER_ONLY_LINKS.length)) {
 
   function chiudiTuttoOra() {
     clearTimeout(hideTimer);
-    clearTimeout(openTimer);
+    annullaApertura();
     if (current) spegni(current);
     current = null;
     if (!isSearchOpen() && headerHolds.size === 0) {
@@ -176,31 +191,37 @@ if (header && (MEGA_MENUS.length || HOVER_ONLY_LINKS.length)) {
     if (hover) {
       if (hover === current) {
         clearTimeout(hideTimer);
-        clearTimeout(openTimer);
+        annullaApertura();
       } else if (current) {
         /* un pannello è già aperto: il cambio tra link resta immediato */
         apriMenu(hover);
       } else {
-        /* nessun pannello aperto: apre solo se il mouse si ferma sul link */
-        clearTimeout(openTimer);
-        openTimer = setTimeout(() => apriMenu(hover), OPEN_DELAY);
+        /* nessun pannello aperto: apre solo se il mouse resta sul link */
+        programmaApertura(hover, () => apriMenu(hover));
       }
       return;
     }
 
-    /* il puntatore non è su un link con megamenu: annulla aperture in attesa */
-    clearTimeout(openTimer);
-
-    const hoverOnly = HOVER_ONLY_LINKS.some((a) => {
+    const hoverOnly = HOVER_ONLY_LINKS.find((a) => {
       const r = a.getBoundingClientRect();
       return e.clientX >= r.left && e.clientX <= r.right &&
              e.clientY >= r.top && e.clientY <= r.bottom;
     });
     if (hoverOnly) {
-      chiudiPannelloMaTieniHeader();
-      header.classList.add('menu-open');
+      if (current || header.classList.contains('menu-open')) {
+        /* header già chiaro: cambio immediato */
+        annullaApertura();
+        chiudiPannelloMaTieniHeader();
+        header.classList.add('menu-open');
+      } else {
+        /* barra a riposo: l'header si schiarisce solo se il mouse resta */
+        programmaApertura(hoverOnly, () => header.classList.add('menu-open'));
+      }
       return;
     }
+
+    /* il puntatore non è su nessun elemento della nav: annulla aperture in attesa */
+    annullaApertura();
 
     if (puntatoreDentroAreeSicure(e.clientX, e.clientY)) {
       clearTimeout(hideTimer);
