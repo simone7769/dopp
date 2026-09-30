@@ -173,6 +173,14 @@
   display: flex;
   gap: 10px;
   margin-bottom: 34px;
+  /* ← CTA sempre visibile in fondo alla viewport (desktop) */
+  position: sticky;
+  bottom: 0;
+  z-index: 5;
+  background: var(--paper);
+  padding: 14px 0;
+  /* ombra soffusa per staccare dal contenuto sotto */
+  box-shadow: 0 -14px 20px -14px rgba(0, 0, 0, 0.08);
 }
 .pdp-add-cart {
   flex: 1;
@@ -266,6 +274,8 @@
   .pdp-wrap { grid-template-columns: 1fr; padding: calc(var(--header-h, 170px) + 10px) 20px 60px; gap: 30px; }
   .pdp-info { position: static; }
   .pdp-related { padding: 10px 20px 60px; }
+  /* ← su mobile torna al comportamento normale */
+  .pdp-actions { position: static; padding: 0; box-shadow: none; }
 }
 
 /* Margine laterale mobile uniforme: 16px (solo <=640px) */
