@@ -84,7 +84,12 @@
   function applica() {
     const stato = leggiStato();
     assegnaOrdineOriginale();
-    const cards = Array.from(grid.querySelectorAll('.product-card'));
+    const tutte = Array.from(grid.querySelectorAll('.product-card'));
+    /* La card "featured" è editoriale: resta sempre visibile e ferma
+       (la sua posizione è decisa dal CSS), fuori da filtri e ordinamento. */
+    const featured = tutte.filter(c => c.classList.contains('featured'));
+    const cards = tutte.filter(c => !c.classList.contains('featured'));
+    featured.forEach(c => { c.style.display = ''; });
 
     /* 1. Filtri */
     cards.forEach(card => {
@@ -112,7 +117,7 @@
       if (stato.sort === 'name-asc')   r = nome(a).localeCompare(nome(b), 'it');
       return r || (ordineOriginale(a) - ordineOriginale(b));
     });
-    ordinate.forEach(c => grid.appendChild(c));
+    featured.concat(ordinate).forEach(c => grid.appendChild(c));
 
     aggiornaBadge(stato);
     closeDrawer();
