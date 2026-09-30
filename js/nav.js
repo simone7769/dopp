@@ -69,7 +69,9 @@ const HOVER_ONLY_LINKS = [
 if (header && (MEGA_MENUS.length || HOVER_ONLY_LINKS.length)) {
 
   let hideTimer;
+  let openTimer;
   let current = null;
+  const OPEN_DELAY = 150;   /* ms di sosta sul link prima che il menu si apra */
   const CLOSE_DELAY = 120;
   const TOLERANCE = 12;
   const TAP_ECHO_WINDOW = 500;
@@ -93,6 +95,7 @@ if (header && (MEGA_MENUS.length || HOVER_ONLY_LINKS.length)) {
 
   function apriMenu(m) {
     clearTimeout(hideTimer);
+    clearTimeout(openTimer);
     if (current === m) return;
     if (isSearchOpen()) return;
     if (current) spegni(current);
@@ -109,6 +112,7 @@ if (header && (MEGA_MENUS.length || HOVER_ONLY_LINKS.length)) {
 
   function chiudiTuttoOra() {
     clearTimeout(hideTimer);
+    clearTimeout(openTimer);
     if (current) spegni(current);
     current = null;
     if (!isSearchOpen() && headerHolds.size === 0) {
@@ -170,10 +174,22 @@ if (header && (MEGA_MENUS.length || HOVER_ONLY_LINKS.length)) {
              e.clientY >= r.top && e.clientY <= r.bottom;
     });
     if (hover) {
-      if (hover !== current) apriMenu(hover);
-      else clearTimeout(hideTimer);
+      if (hover === current) {
+        clearTimeout(hideTimer);
+        clearTimeout(openTimer);
+      } else if (current) {
+        /* un pannello è già aperto: il cambio tra link resta immediato */
+        apriMenu(hover);
+      } else {
+        /* nessun pannello aperto: apre solo se il mouse si ferma sul link */
+        clearTimeout(openTimer);
+        openTimer = setTimeout(() => apriMenu(hover), OPEN_DELAY);
+      }
       return;
     }
+
+    /* il puntatore non è su un link con megamenu: annulla aperture in attesa */
+    clearTimeout(openTimer);
 
     const hoverOnly = HOVER_ONLY_LINKS.some((a) => {
       const r = a.getBoundingClientRect();
