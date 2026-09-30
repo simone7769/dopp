@@ -14,6 +14,21 @@
 
   if (!drawer || !overlay || !grid) return;
 
+  /* Memorizza l'ordine originale delle card (una sola volta, al caricamento).
+     Le card aggiunte in seguito (es. "Altri prodotti") ricevono un numero
+     progressivo in coda. */
+  function assegnaOrdineOriginale() {
+    const cards = Array.from(grid.querySelectorAll('.product-card'));
+    let max = -1;
+    cards.forEach(c => {
+      if (c.dataset.order !== undefined) max = Math.max(max, parseInt(c.dataset.order, 10));
+    });
+    cards.forEach(c => {
+      if (c.dataset.order === undefined) c.dataset.order = ++max;
+    });
+  }
+  assegnaOrdineOriginale();
+
   function openDrawer(e) {
     if (e) e.preventDefault();
     drawer.classList.add('open');
@@ -51,6 +66,9 @@
     const el = card.querySelector('.details h3');
     return el ? el.textContent.trim().toLowerCase() : '';
   }
+  function ordineOriginale(card) {
+    return parseInt(card.dataset.order, 10) || 0;
+  }
 
   function leggiStato() {
     const sortEl = document.querySelector('input[name="sort"]:checked');
@@ -65,8 +83,10 @@
 
   function applica() {
     const stato = leggiStato();
+    assegnaOrdineOriginale();
     const cards = Array.from(grid.querySelectorAll('.product-card'));
 
+    /* 1. Filtri */
     cards.forEach(card => {
       const prezzo = prezzoNumerico(card);
       const disponibile = card.dataset.available !== 'false';
@@ -82,10 +102,16 @@
       card.style.display = ok ? '' : 'none';
     });
 
+    /* 2. Ordinamento: parte sempre dall'ordine originale.
+          "relevance" e i casi di parità tornano all'ordine di partenza. */
     const ordinate = cards.slice();
-    if (stato.sort === 'price-asc')  ordinate.sort((a, b) => prezzoNumerico(a) - prezzoNumerico(b));
-    if (stato.sort === 'price-desc') ordinate.sort((a, b) => prezzoNumerico(b) - prezzoNumerico(a));
-    if (stato.sort === 'name-asc')   ordinate.sort((a, b) => nome(a).localeCompare(nome(b), 'it'));
+    ordinate.sort((a, b) => {
+      let r = 0;
+      if (stato.sort === 'price-asc')  r = prezzoNumerico(a) - prezzoNumerico(b);
+      if (stato.sort === 'price-desc') r = prezzoNumerico(b) - prezzoNumerico(a);
+      if (stato.sort === 'name-asc')   r = nome(a).localeCompare(nome(b), 'it');
+      return r || (ordineOriginale(a) - ordineOriginale(b));
+    });
     ordinate.forEach(c => grid.appendChild(c));
 
     aggiornaBadge(stato);
