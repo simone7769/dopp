@@ -64,15 +64,10 @@
   color: #fff;
 }
 
-/* ---------- Responsive ---------- */
 @media (max-width: 1024px) {
   .product-card.featured {
     grid-column: 1 / -1 !important;
     grid-row: auto !important;
-    /* La card featured va sempre per prima su mobile: in essential.html è già
-       la prima nel DOM, ma in cerimonia.html è la seconda (dopo "Card 1"), e
-       senza "order" la card1 restava a metà riga con un buco accanto mentre
-       l'immagine grande scivolava in seconda posizione. */
     order: -1;
     min-height: 280px;
   }
@@ -81,17 +76,17 @@
   }
 }
 
-/* ---------- Variante: featured a DESTRA (Cerimonia) ---------- */
 .layout-featured-right .product-card.featured {
   grid-column: 2 / span 2;
 }
 
-/* ---------- Mobile (<=520px, griglia a 1 colonna): la featured segue il
-   4/5 delle altre card invece del banner largo con altezza minima. ---------- */
 @media (max-width: 520px) {
   .product-card.featured {
     height: auto;
     min-height: 0;
-    aspect-ratio: 4 / 5;
+    aspect-ratio: 4 / 3;
+  }
+  .product-card.featured .featured-overlay {
+    padding: 16px;
   }
 }
