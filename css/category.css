@@ -90,3 +90,12 @@
     padding: 16px;
   }
 }
+
+/* ============================================================
+   Card featured: decorativa, non cliccabile
+   (href="#" nel markup è un placeholder demo)
+   ============================================================ */
+.product-card.featured {
+  pointer-events: none;
+  cursor: default;
+}
