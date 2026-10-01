@@ -30,6 +30,31 @@ Proposta di redesign del sito Doppelgänger (demo non commerciale).
 
 SG — Concept, design e sviluppo
 
+## Cosa è incluso nella demo
+
+- 3 pagine collezione (AI 2026, Essential, Cerimonia)
+- 3 pagine prodotto dettagliate (prodotto, prodotto1, prodotto2)
+- Carrello funzionante (aggiungi da PDP e wishlist, +/−, rimozione)
+- Wishlist dinamica con drawer
+- Ricerca prodotti, drawer filtri, store locator
+- Layout responsive (desktop, tablet, mobile)
+- Journal con articoli
+
+## Cosa NON è incluso (da sviluppare)
+
+- Backend / CMS per gestire prodotti e contenuti
+- Checkout reale e integrazione pagamenti
+- Login utente e area personale
+- Gestione ordini e magazzino
+- Multi-lingua / multi-valuta
+
+## Ultime modifiche (ottobre 2026)
+
+- Carrello funzionante (aggiungi da PDP + wishlist, +/−, rimozione)
+- Home: ridotti slogan, pulsante Sartoria → journal-sartoria.html
+- Card featured: decorative, non cliccabili
+- Fix spaziatura info-bar
+
 ## Note legali
 
 Doppelgänger è un marchio dei rispettivi titolari.
