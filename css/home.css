@@ -105,6 +105,9 @@ html { scroll-snap-type: y proximity; }
   text-transform: uppercase;
   margin-bottom: 12px;
 }
+.info-bar .btn {
+  margin-top: 28px;
+}
 .info-bar p {
   font-family: var(--sans);
   font-size: var(--fs-11);
