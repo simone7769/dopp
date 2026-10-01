@@ -562,28 +562,10 @@ if (navBurger && mobileMenu) {
    CONTATORE CARRELLO (con persistenza in sessionStorage)
    ============================================================ */
 window.CartCounter = (function () {
-  const STORAGE_KEY = 'dg_cart_count';
   const cartCountEl = document.getElementById('cartCount');
   const badges = document.querySelectorAll('.cart-badge');
-  const cartDrawerEl = document.getElementById('cartDrawer');
 
-  function totalFromDrawer() {
-    if (!cartDrawerEl) return null;
-    const righe = cartDrawerEl.querySelectorAll('.cart-item');
-    if (!righe.length) return 0;
-    let sum = 0;
-    righe.forEach((riga) => {
-      const q = riga.querySelector('.qty-value');
-      sum += parseInt(q ? q.textContent : '1', 10) || 0;
-    });
-    return sum;
-  }
-
-  let total = parseInt(sessionStorage.getItem(STORAGE_KEY), 10);
-  if (isNaN(total)) {
-    const daDrawer = totalFromDrawer();
-    total = daDrawer !== null ? daDrawer : parseInt(cartCountEl ? cartCountEl.textContent : '0', 10) || 0;
-  }
+  let total = 0;
 
   function render() {
     if (cartCountEl) cartCountEl.textContent = total;
@@ -595,13 +577,8 @@ window.CartCounter = (function () {
     });
   }
 
-  function salva() {
-    try { sessionStorage.setItem(STORAGE_KEY, String(total)); } catch (e) {}
-  }
-
   function set(n) {
     total = Math.max(0, n);
-    salva();
     render();
   }
 
@@ -609,13 +586,8 @@ window.CartCounter = (function () {
 
   return {
     add(n) { set(total + n); },
-    recalcFromDrawer() {
-      const t = totalFromDrawer();
-      if (t === null) return;
-      /* Non azzera mai verso il basso gli "aggiunti" con +:
-         tiene il massimo tra contatore corrente e somma drawer. */
-      if (t > total) set(t);
-    }
+    set(n) { set(n); },
+    get() { return total; }
   };
 })();
 
@@ -674,30 +646,35 @@ window.CartCounter = (function () {
     if (e.key === 'Escape' && drawer.classList.contains('open')) closeCart();
   });
 
-  /* --- Quantità +/− su ogni riga --- */
-  drawer.querySelectorAll('.cart-qty').forEach((qtyBox) => {
-    const valueEl = qtyBox.querySelector('.qty-value');
-    if (!valueEl) return;
-    qtyBox.querySelectorAll('.qty-btn').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        let val = parseInt(valueEl.textContent, 10) || 1;
-        if (btn.dataset.action === 'plus') val++;
-        else if (btn.dataset.action === 'minus' && val > 1) val--;
-        valueEl.textContent = val;
-        aggiornaTotale();
-        if (window.CartCounter) window.CartCounter.recalcFromDrawer();
-      });
-    });
-  });
-
-  /* --- Rimuovi riga --- */
-  drawer.querySelectorAll('.cart-item-remove').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const riga = btn.closest('.cart-item');
-      if (!riga) return;
-      riga.remove();
+  /* --- Event delegation: +/− e rimozione (funziona su righe dinamiche) --- */
+  drawer.addEventListener('click', (e) => {
+    const qtyBtn = e.target.closest('.qty-btn');
+    if (qtyBtn) {
+      const qtyBox = qtyBtn.closest('.cart-qty');
+      const valueEl = qtyBox ? qtyBox.querySelector('.qty-value') : null;
+      if (!valueEl) return;
+      let val = parseInt(valueEl.textContent, 10) || 1;
+      if (qtyBtn.dataset.action === 'plus') {
+        val++;
+        if (window.CartCounter) window.CartCounter.add(1);
+      } else if (qtyBtn.dataset.action === 'minus' && val > 1) {
+        val--;
+        if (window.CartCounter) window.CartCounter.add(-1);
+      }
+      valueEl.textContent = val;
       aggiornaTotale();
-      if (window.CartCounter) window.CartCounter.recalcFromDrawer();
+      return;
+    }
+
+    const removeBtn = e.target.closest('.cart-item-remove');
+    if (removeBtn) {
+      const item = removeBtn.closest('.cart-item');
+      if (!item) return;
+      const valueEl = item.querySelector('.qty-value');
+      const qty = parseInt(valueEl ? valueEl.textContent : '1', 10) || 1;
+      item.remove();
+      aggiornaTotale();
+      if (window.CartCounter) window.CartCounter.add(-qty);
       const rimaste = drawer.querySelectorAll('.cart-item').length;
       if (rimaste === 0) {
         const body = drawer.querySelector('.cart-body');
@@ -709,8 +686,61 @@ window.CartCounter = (function () {
         }
         if (totalEl) totalEl.textContent = '€ 0,00';
       }
-    });
+    }
   });
+
+  /* --- API pubblica: aggiunge un prodotto al drawer --- */
+  window.Cart = {
+    add(prodotto) {
+      if (!prodotto || !prodotto.img) return;
+
+      const empty = drawer.querySelector('.cart-empty');
+      if (empty) empty.remove();
+
+      const esistente = drawer.querySelector('.cart-item[data-cart-id="' + CSS.escape(prodotto.id) + '"]');
+      if (esistente) {
+        const valueEl = esistente.querySelector('.qty-value');
+        if (valueEl) valueEl.textContent = (parseInt(valueEl.textContent, 10) || 1) + 1;
+      } else {
+        const article = document.createElement('article');
+        article.className = 'cart-item';
+        article.dataset.cartId = prodotto.id;
+
+        const attr = prodotto.taglia
+          ? '<p class="cart-item-attr">Taglia: ' + prodotto.taglia + '</p>'
+          : '';
+        const sku = prodotto.colore
+          ? '<p class="cart-item-sku">Colore: ' + prodotto.colore + '</p>'
+          : '';
+
+        article.innerHTML =
+          '<div class="cart-item-image"><img src="' + prodotto.img + '" alt="' + prodotto.nome + '"></div>' +
+          '<div class="cart-item-info">' +
+            '<h4>' + prodotto.nome + '</h4>' +
+            attr +
+            sku +
+            '<div class="cart-item-bottom">' +
+              '<div class="cart-qty">' +
+                '<button type="button" class="qty-btn" data-action="minus" aria-label="Riduci quantità">−</button>' +
+                '<span class="qty-value">1</span>' +
+                '<button type="button" class="qty-btn" data-action="plus" aria-label="Aumenta quantità">+</button>' +
+              '</div>' +
+              '<p class="cart-item-price">' + prodotto.prezzo + '</p>' +
+            '</div>' +
+          '</div>' +
+          '<button type="button" class="cart-item-remove" aria-label="Rimuovi dal carrello">' +
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M6 6l12 12M6 18L18 6"/></svg>' +
+          '</button>';
+
+        const totalBlock = drawer.querySelector('.cart-body .cart-total');
+        if (totalBlock) totalBlock.insertAdjacentElement('beforebegin', article);
+        else drawer.querySelector('.cart-body').appendChild(article);
+      }
+
+      aggiornaTotale();
+      if (window.CartCounter) window.CartCounter.add(1);
+    }
+  };
 
   aggiornaTotale();
 })();
@@ -1499,7 +1529,26 @@ window.WishlistStore = (function () {
       addBtn.classList.add('added');
       addBtn.textContent = 'Aggiunto ✓';
       addBtn.disabled = true;
-      if (window.CartCounter) window.CartCounter.add(1);
+
+      const card = addBtn.closest('.wishlist-card');
+      if (card && window.Cart) {
+        const imgEl = card.querySelector('.wishlist-card-image img');
+        const nameEl = card.querySelector('.wishlist-card-info h4');
+        const priceEl = card.querySelector('.wishlist-card-price');
+        const srcImg = imgEl ? imgEl.getAttribute('src') : '';
+        const nome = nameEl ? nameEl.textContent.trim() : '';
+        const prezzo = priceEl ? priceEl.textContent.trim() : '';
+        window.Cart.add({
+          id: srcImg + '|wishlist',
+          img: srcImg,
+          nome: nome,
+          prezzo: prezzo,
+          taglia: '',
+          colore: ''
+        });
+      } else if (window.CartCounter) {
+        window.CartCounter.add(1);
+      }
       setTimeout(() => {
         addBtn.classList.remove('added');
         addBtn.textContent = original;

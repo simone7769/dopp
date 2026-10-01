@@ -47,7 +47,24 @@
         return;
       }
 
-      if (window.CartCounter) window.CartCounter.add(1);
+      if (window.Cart) {
+        var imgEl = document.querySelector('.pdp-gallery img');
+        var coloreBtn = document.querySelector('.pdp-colors button.selected');
+        var nomeColore = coloreBtn ? (coloreBtn.getAttribute('aria-label') || '') : '';
+        var nomeTaglia = tagliaSelezionata ? tagliaSelezionata.textContent.trim() : '';
+        var srcImg = imgEl ? imgEl.getAttribute('src') : '';
+        var nome = document.querySelector('.pdp-title');
+        var prezzo = document.querySelector('.pdp-price');
+
+        window.Cart.add({
+          id: srcImg + '|' + nomeTaglia + '|' + nomeColore,
+          img: srcImg,
+          nome: nome ? nome.textContent.trim() : '',
+          prezzo: prezzo ? prezzo.textContent.trim() : '',
+          taglia: nomeTaglia,
+          colore: nomeColore
+        });
+      }
       pdpAddCart.textContent = 'Aggiunto ✓';
       pdpAddCart.disabled = true;
       setTimeout(function () {
