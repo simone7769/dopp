@@ -1502,9 +1502,9 @@ footer {
   .logo { height: 18px; }
   .header-actions { display: flex; justify-self: end; gap: 4px; }
 
-  /* Icone header mobile: area toccabile 44px, icona 18px */
+  /* Icone header mobile: area toccabile 36px, icona 18px */
   .header-left .nav-icon-link,
-  .header-actions .nav-icon-link { width: 44px; height: 44px; }
+  .header-actions .nav-icon-link { width: 36px; height: 36px; }
   .header-left .nav-icon-link svg,
   .header-actions .nav-icon-link svg { width: 18px; height: 18px; }
   .header-actions .wishlist-badge,
