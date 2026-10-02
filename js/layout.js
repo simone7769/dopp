@@ -24,15 +24,21 @@
     </div>\
   </div>\
   <div class="header-main">\
-    <button class="nav-burger" id="navBurger" type="button" aria-label="Apri menu" aria-expanded="false" aria-controls="mobileMenu">\
-      <span></span><span></span><span></span>\
-    </button>\
+    <div class="header-left">\
+      <button class="nav-burger" id="navBurger" type="button" aria-label="Apri menu" aria-expanded="false" aria-controls="mobileMenu">\
+        <span></span><span></span><span></span>\
+      </button>\
+      <a href="#" class="nav-icon-link" aria-label="Cerca">\
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>\
+      </a>\
+    </div>\
     <a href="' + LOGO_HREF + '" class="logo-link" aria-label="Home">\
       <img src="images/logo_page.svg" alt="Doppelgänger" class="logo">\
     </a>\
     <div class="header-actions">\
-      <a href="#" class="nav-icon-link" aria-label="Cerca">\
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>\
+      <a href="#" class="nav-icon-link" aria-label="Preferiti">\
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg>\
+        <span class="wishlist-badge" hidden>0</span>\
       </a>\
       <a href="#" class="nav-icon-link" aria-label="Carrello">\
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg>\
@@ -145,7 +151,7 @@
     <li><a href="journal.html">Journal</a></li>\
   </ul>\
   <div class="mobile-menu-icons">\
-    <a href="#" aria-label="Preferiti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg><span class="wishlist-badge" hidden>0</span></a>\
+    <a href="#" aria-label="Negozi" data-open-stores><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 22s7-6.4 7-12a7 7 0 10-14 0c0 5.6 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg></a>\
     <a href="#" aria-label="Profilo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6"/></svg></a>\
   </div>\
   <div class="mobile-menu-utility">\
@@ -429,15 +435,15 @@
       </form>\
       <p class="footer-privacy">Prendo atto che il mio indirizzo email verrà trattato da Doppelgänger secondo quanto previsto dall\'<a href="#">Informativa Privacy</a>.</p>\
     </div>\
-    <div class="footer-col"><h4>Mettiti in contatto</h4><ul>\
+    <div class="footer-col"><h4><button type="button" class="footer-toggle" aria-expanded="false">Mettiti in contatto<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></h4><ul>\
       <li><a href="#">Contatti</a></li><li><a href="#">FAQ</a></li><li><a href="#">Scrivici su WhatsApp</a></li></ul></div>\
-    <div class="footer-col"><h4>Azienda</h4><ul>\
+    <div class="footer-col"><h4><button type="button" class="footer-toggle" aria-expanded="false">Azienda<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></h4><ul>\
       <li><a href="#">I nostri negozi</a></li><li><a href="#">Lavora con noi</a></li><li><a href="#">Sostenibilità</a></li>\
       <li><a href="#">Doppelgänger Club</a></li><li><a href="#">Doppelgänger APP</a></li></ul></div>\
-    <div class="footer-col"><h4>Servizi</h4><ul>\
+    <div class="footer-col"><h4><button type="button" class="footer-toggle" aria-expanded="false">Servizi<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></h4><ul>\
       <li><a href="#">Tutti i servizi</a></li><li><a href="#">Gift Cards</a></li>\
       <li><a href="#">Il suo ordine</a></li><li><a href="#">Spedizioni e Resi</a></li></ul></div>\
-    <div class="footer-col"><h4>Area legale</h4><ul>\
+    <div class="footer-col"><h4><button type="button" class="footer-toggle" aria-expanded="false">Area legale<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></h4><ul>\
       <li><a href="#">Cookie</a></li><li><a href="#">Conformità</a></li><li><a href="#">Area Legale</a></li>\
       <li><a href="#">Privacy e Cookie</a></li><li><a href="#">Accessibilità</a></li></ul></div>\
   </div>\
@@ -462,5 +468,15 @@
   document.querySelectorAll('[data-layout]').forEach(function (ph) {
     var key = ph.getAttribute('data-layout');
     if (blocks[key]) ph.outerHTML = blocks[key];
+  });
+
+  /* Footer a tendina (attivo solo su mobile: vedi base.css) */
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest ? e.target.closest('.footer-toggle') : null;
+    if (!btn) return;
+    var col = btn.closest('.footer-col');
+    if (!col) return;
+    var open = col.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
   });
 })();

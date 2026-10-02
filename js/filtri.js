@@ -12,6 +12,23 @@
   const openers  = document.querySelectorAll('.filtri-bar');
   const grid     = document.querySelector('.products-grid');
 
+  /* ---- Scelta griglia mobile (2 / 3 colonne) ----
+     Si parte sempre da 2 colonne a ogni caricamento di pagina:
+     la scelta a 3 colonne vale solo finché si resta sulla pagina. */
+  (function () {
+    const g = document.querySelector('.products-grid');
+    const btns = document.querySelectorAll('.grid-switch button[data-cols]');
+    if (!g || !btns.length) return;
+    function imposta(n) {
+      g.dataset.cols = n;
+      btns.forEach(b => b.setAttribute('aria-pressed', b.dataset.cols === n ? 'true' : 'false'));
+    }
+    /* Pulisce la preferenza salvata dalla versione precedente */
+    try { localStorage.removeItem('dg-grid-cols'); } catch (e) {}
+    imposta('2');
+    btns.forEach(b => b.addEventListener('click', () => imposta(b.dataset.cols)));
+  })();
+
   if (!drawer || !overlay || !grid) return;
 
   /* Memorizza l'ordine originale delle card (una sola volta, al caricamento).

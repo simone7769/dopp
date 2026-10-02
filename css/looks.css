@@ -7,7 +7,7 @@
 .hero {
   position: relative;
   z-index: 1;
-  padding: 60px 50px 6px;
+  padding: 45px 50px 6px;
   text-align: center;
   background-color: #fcfcfb;
   color: var(--ink);
@@ -101,7 +101,7 @@
 
 /* --- RESPONSIVE --- */
 @media (max-width: 1200px) {
-  .hero { padding: 22px 30px 18px; }
+  .hero { padding: 16px 30px 18px; }
   .looks-wrap { padding: 10px 30px 80px; }
   .looks-grid { gap: 60px 36px; }
   .looks-grid + .looks-grid { margin-top: 40px; }
@@ -109,7 +109,7 @@
 }
 
 @media (max-width: 900px) {
-  .hero { padding: 18px 24px 14px; }
+  .hero { padding: 13px 24px 14px; }
   .looks-wrap { padding: 8px 24px 60px; }
   .looks-grid { gap: 50px 24px; }
   .looks-grid + .looks-grid { margin-top: 30px; }
@@ -120,8 +120,8 @@
   /* Margine laterale mobile uniforme: 16px (come la home) */
   .hero,
   .looks-wrap { padding-left: 16px; padding-right: 16px; }
-  /* Titolo su mobile: 28px sopra / 10px sotto (uguale a collezioni e Journal) */
-  .hero { padding-top: 28px; padding-bottom: 10px; }
+  /* Titolo su mobile: 21px sopra / 10px sotto (uguale a collezioni e Journal) */
+  .hero { padding-top: 21px; padding-bottom: 10px; }
   .looks-grid { grid-template-columns: 1fr; gap: 60px; }
   .look-card { width: 100%; }
   .look-image { aspect-ratio: 4 / 5; }

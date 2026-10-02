@@ -22,7 +22,7 @@
 /* --- SOTTOBAR FILTRI (come Barena) --- */
 .journal-filters {
   border-bottom: 1px solid var(--line);
-  margin-top: 40px;
+  margin-top: 30px;
   padding: 20px 50px;
   background-color: #fcfcfb;
 }
@@ -121,14 +121,14 @@
 
 /* --- RESPONSIVE --- */
 @media (max-width: 1200px) {
-  .journal-filters { padding: 18px 30px; margin-top: 30px; }
+  .journal-filters { padding: 18px 30px; margin-top: 25px; }
   .journal-filters-inner { gap: 28px; }
   .journal-grid-wrap { padding: 50px 30px 80px; }
   .journal-grid { grid-template-columns: repeat(3, 1fr); gap: 32px 20px; }
 }
 
 @media (max-width: 900px) {
-  .journal-hero { padding: 40px 24px 20px; }
+  .journal-hero { padding: 30px 24px 20px; }
   .journal-filters { padding: 16px 24px; overflow-x: auto; margin-top: 24px; }
   .journal-filters-inner { justify-content: flex-start; gap: 24px; padding-bottom: 4px; }
   .journal-grid-wrap { padding: 40px 24px 60px; }
@@ -140,8 +140,8 @@
   .journal-hero,
   .journal-filters,
   .journal-grid-wrap { padding-left: 16px; padding-right: 16px; }
-  /* Titolo su mobile: 28px sopra (uguale a collezioni e Looks) */
-  .journal-hero { padding-top: 28px; }
+  /* Titolo su mobile: 21px sopra (uguale a collezioni e Looks) */
+  .journal-hero { padding-top: 21px; }
   .journal-grid { grid-template-columns: 1fr; gap: 32px; }
   .journal-card-image { aspect-ratio: 4 / 5; }
 }
