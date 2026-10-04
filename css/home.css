@@ -342,6 +342,17 @@ html { scroll-snap-type: y proximity; }
   transform-origin: center;
   object-position: center 35%;
 }
+.product h3 {
+  font-family: var(--sans);
+  font-size: var(--fs-card-title);
+  font-weight: 400;
+  letter-spacing: var(--tr-03);
+  color: var(--ink);
+  text-align: left;
+  line-height: 1.4;
+  margin: 0 0 4px;
+  max-width: 100%;
+}
 .mh-arrow,
 .w-arrow {
   position: absolute;
@@ -585,11 +596,13 @@ header.scrolled .topbar {
   }
   .world h2 { letter-spacing: var(--tr-5); margin-bottom: 36px; }
 
-  /* Frecce carousel sempre visibili su touch (già 48px: sopra il minimo WCAG di 44px) */
+  /* ← FIX touch target: frecce carousel a 44px (WCAG), non più 36px */
   .mh-arrow,
   .w-arrow {
     opacity: 1 !important;
     visibility: visible !important;
+    min-width: var(--touch-target, 44px);
+    min-height: var(--touch-target, 44px);
   }
   .mh-arrow svg,
   .w-arrow svg { width: 18px; height: 18px; }

@@ -14,4 +14,3 @@ tests/
 # Cartella personale non parte del sito
 presentaz/
 *.bak
-*.pdf
