@@ -881,7 +881,17 @@ window.CartCounter = (function () {
   function endDrag() {
     if (!down) return;
     down = false;
+    const wasMoved = moved;
     track.classList.remove('dragging');
+    /* Dopo un drag col mouse lo snap CSS non sempre riaggancia da solo:
+       portiamo il carosello alla card più vicina. */
+    if (wasMoved) {
+      const step = cardStep();
+      if (!step) return;
+      const max = track.scrollWidth - track.clientWidth;
+      const target = Math.min(max, Math.max(0, Math.round(track.scrollLeft / step) * step));
+      track.scrollTo({ left: target, behavior: 'smooth' });
+    }
   }
   window.addEventListener('pointerup', endDrag);
   window.addEventListener('pointercancel', endDrag);
@@ -891,8 +901,7 @@ window.CartCounter = (function () {
   }, true);
 
   const EDGE_ZONE = 200;
-  const canHover = window.matchMedia('(hover: hover)').matches;
-  if (section && canHover) {
+  if (section) {
     section.addEventListener('mousemove', (e) => {
       const fromLeft = e.clientX;
       const fromRight = window.innerWidth - e.clientX;
@@ -1040,7 +1049,17 @@ function creaJournalCard(articolo, variante) {
   function endDrag() {
     if (!down) return;
     down = false;
+    const wasMoved = moved;
     track.classList.remove('dragging');
+    /* Dopo un drag col mouse lo snap CSS non sempre riaggancia da solo:
+       portiamo il carosello alla card più vicina. */
+    if (wasMoved) {
+      const step = cardStep();
+      if (!step) return;
+      const max = track.scrollWidth - track.clientWidth;
+      const target = Math.min(max, Math.max(0, Math.round(track.scrollLeft / step) * step));
+      track.scrollTo({ left: target, behavior: 'smooth' });
+    }
   }
   window.addEventListener('pointerup', endDrag);
   window.addEventListener('pointercancel', endDrag);
@@ -1050,8 +1069,7 @@ function creaJournalCard(articolo, variante) {
   }, true);
 
   const EDGE_ZONE = 200;
-  const canHover = window.matchMedia('(hover: hover)').matches;
-  if (section && canHover) {
+  if (section) {
     section.addEventListener('mousemove', (e) => {
       const fromLeft = e.clientX;
       const fromRight = window.innerWidth - e.clientX;
