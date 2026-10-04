@@ -830,7 +830,7 @@ window.CartCounter = (function () {
 })();
 
 /* ============================================================
-   MUST HAVE: carosello infinito continuo
+   MUST HAVE: carosello (scorrimento finito, con scroll-snap)
    ============================================================ */
 (function () {
   const track = document.getElementById('mhTrack');
@@ -840,9 +840,6 @@ window.CartCounter = (function () {
   const section = document.querySelector('.must-have');
   if (!prev || !next) return;
 
-  const originals = Array.from(track.querySelectorAll('.product'));
-  if (!originals.length) return;
-
   function cardStep() {
     const card = track.querySelector('.product');
     if (!card) return 0;
@@ -850,46 +847,11 @@ window.CartCounter = (function () {
     return card.getBoundingClientRect().width + gap;
   }
 
-  function originalsWidth() {
-    return cardStep() * originals.length;
-  }
-
-  originals.forEach((card) => {
-    const clone = card.cloneNode(true);
-    clone.setAttribute('aria-hidden', 'true');
-    clone.classList.add('mh-clone');
-    track.appendChild(clone);
-  });
-  originals.forEach((card) => {
-    const clone = card.cloneNode(true);
-    clone.setAttribute('aria-hidden', 'true');
-    clone.classList.add('mh-clone');
-    track.appendChild(clone);
-  });
-
-  let isJumping = false;
-
-  function checkLoop() {
-    if (isJumping) return;
-    const ow = originalsWidth();
-    if (track.scrollLeft >= ow) {
-      isJumping = true;
-      track.scrollLeft -= ow;
-      requestAnimationFrame(() => { isJumping = false; });
-    }
-  }
-
-  track.addEventListener('scroll', checkLoop, { passive: true });
-
   function scrollNext() {
     track.scrollBy({ left: cardStep() * 2, behavior: 'smooth' });
   }
 
   function scrollPrev() {
-    const ow = originalsWidth();
-    if (track.scrollLeft < ow * 0.5) {
-      track.scrollLeft += ow;
-    }
     track.scrollBy({ left: -cardStep() * 2, behavior: 'smooth' });
   }
 
@@ -929,7 +891,8 @@ window.CartCounter = (function () {
   }, true);
 
   const EDGE_ZONE = 200;
-  if (section) {
+  const canHover = window.matchMedia('(hover: hover)').matches;
+  if (section && canHover) {
     section.addEventListener('mousemove', (e) => {
       const fromLeft = e.clientX;
       const fromRight = window.innerWidth - e.clientX;
@@ -1087,7 +1050,8 @@ function creaJournalCard(articolo, variante) {
   }, true);
 
   const EDGE_ZONE = 200;
-  if (section) {
+  const canHover = window.matchMedia('(hover: hover)').matches;
+  if (section && canHover) {
     section.addEventListener('mousemove', (e) => {
       const fromLeft = e.clientX;
       const fromRight = window.innerWidth - e.clientX;

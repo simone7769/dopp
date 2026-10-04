@@ -8,12 +8,14 @@
 body { animation: none; }
 
 /* ============================================================
-   SCROLL-SNAP (solo hero ↔ video-showcase)
-   Le uniche due sezioni a 100vh uniforme: proximity, non
-   mandatory, così non intrappola chi scorre veloce. Le sezioni
-   successive (collection, must-have, duo, world) restano a
-   scroll libero: altezze non uniformi o carousel orizzontali
-   interni, uno snap lì farebbe solo confusione.
+   SCROLL-SNAP
+   Verticale (pagina): solo hero ↔ video-showcase, le uniche due
+   sezioni a 100vh uniforme. Proximity, non mandatory, così non
+   intrappola chi scorre veloce. collection, duo e le altre
+   sezioni restano a scroll libero (altezze non uniformi).
+   Orizzontale: i caroselli Must Have e Journal (.mh-track,
+   .w-track) agganciano le card (x mandatory); lo snap è
+   sospeso durante il drag col mouse (.dragging).
    ============================================================ */
 html { scroll-snap-type: y proximity; }
 @media (prefers-reduced-motion: reduce) {
@@ -296,9 +298,11 @@ html { scroll-snap-type: y proximity; }
   padding: 0 var(--mh-pad);
 }
 .mh-track {
+  scroll-snap-type: x mandatory;
   display: flex;
   gap: var(--mh-gap);
   overflow-x: auto;
+  overflow-y: hidden;
   padding-inline: var(--mh-pad);
   scroll-padding-inline: var(--mh-pad);
   overscroll-behavior-x: contain;
@@ -308,8 +312,9 @@ html { scroll-snap-type: y proximity; }
   -webkit-user-select: none;
 }
 .mh-track::-webkit-scrollbar { display: none; }
-.mh-track.dragging { scroll-behavior: auto; cursor: grabbing; }
+.mh-track.dragging { scroll-behavior: auto; scroll-snap-type: none; cursor: grabbing; }
 .product {
+  scroll-snap-align: start;
   flex: 0 0 calc((100% - var(--mh-gaps) * var(--mh-gap)) / var(--mh-visible));
   text-decoration: none;
   color: var(--ink);
@@ -341,17 +346,6 @@ html { scroll-snap-type: y proximity; }
   transform: scale(1.10) translateY(-10px);
   transform-origin: center;
   object-position: center 35%;
-}
-.product h3 {
-  font-family: var(--sans);
-  font-size: var(--fs-card-title);
-  font-weight: 400;
-  letter-spacing: var(--tr-03);
-  color: var(--ink);
-  text-align: left;
-  line-height: 1.4;
-  margin: 0 0 4px;
-  max-width: 100%;
 }
 .mh-arrow,
 .w-arrow {
@@ -478,9 +472,11 @@ html { scroll-snap-type: y proximity; }
   padding: 0 var(--w-pad);
 }
 .w-track {
+  scroll-snap-type: x mandatory;
   display: flex;
   gap: var(--w-gap);
   overflow-x: auto;
+  overflow-y: hidden;
   padding-inline: var(--w-pad);
   scroll-padding-inline: var(--w-pad);
   overscroll-behavior-x: contain;
@@ -490,8 +486,9 @@ html { scroll-snap-type: y proximity; }
   -webkit-user-select: none;
 }
 .w-track::-webkit-scrollbar { display: none; }
-.w-track.dragging { scroll-behavior: auto; cursor: grabbing; }
+.w-track.dragging { scroll-behavior: auto; scroll-snap-type: none; cursor: grabbing; }
 .w-item {
+  scroll-snap-align: start;
   flex: 0 0 calc((100% - var(--w-gaps) * var(--w-gap)) / var(--w-visible));
   text-decoration: none;
   color: var(--ink);
@@ -571,6 +568,13 @@ header.scrolled .topbar {
   .must-have { --mh-visible: 2.5; --mh-gaps: 2; --mh-gap: 32px; }
   .world { --w-visible: 2.5; --w-gaps: 2; --w-gap: 32px; }
   .duo { height: 100vh; min-height: 500px; }
+}
+
+/* Dispositivi touch (qualsiasi larghezza) e schermi <=1024px: niente frecce,
+   si scorre con il dito. !important serve a battere gli stili inline del JS. */
+@media (hover: none), (max-width: 1024px) {
+  .mh-arrow,
+  .w-arrow { display: none !important; }
 }
 
 @media (max-width: 900px) {
