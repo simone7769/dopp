@@ -440,7 +440,7 @@
       <li><a href="#">Contatti</a></li><li><a href="#">FAQ</a></li><li><a href="#">Scrivici su WhatsApp</a></li></ul></div>\
     <div class="footer-col"><h4><button type="button" class="footer-toggle" aria-expanded="false">Azienda<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></h4><ul>\
       <li><a href="#">I nostri negozi</a></li><li><a href="#">Lavora con noi</a></li><li><a href="#">Sostenibilità</a></li>\
-      <li><a href="#">Doppelgänger Club</a></li><li><a href="#">Doppelgänger APP</a></li></ul></div>\
+      <li><a href="club.html">Doppelgänger Club</a></li><li><a href="#">Doppelgänger APP</a></li></ul></div>\
     <div class="footer-col"><h4><button type="button" class="footer-toggle" aria-expanded="false">Servizi<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></h4><ul>\
       <li><a href="#">Tutti i servizi</a></li><li><a href="#">Gift Cards</a></li>\
       <li><a href="#">Il suo ordine</a></li><li><a href="#">Spedizioni e Resi</a></li></ul></div>\
