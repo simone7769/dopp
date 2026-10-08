@@ -153,6 +153,7 @@ Stato: da applicare al PDF attuale (versionato ottobre 2024)
 | **Club** | Pagina statica: **4 fasce** (Bronze, Silver, Gold, Platinum), **5 benefici con icone oro**, **7 FAQ** | Area riservata dinamica |
 | **Link "#"** | Non fanno nulla (non riportano in cima alla pagina). Molti ora puntano a pagine reali (Club, Chi Siamo, Shop Experience, legali, social) | Da sostituire con gli indirizzi veri |
 | **Header, pannelli, footer** | Componenti condivisi, caricati su ogni pagina da uno script comune (`js/layout.js`) | Modelli riusabili della piattaforma |
+| **Account e Registrazione** | 2 pagine statiche: `account.html` (dashboard con 4 tab: Ordini, Indirizzi, Dati personali, Preferiti) e `registrazione.html` (form iscrizione). Il drawer login del sito punta a queste pagine | Area riservata con backend |
 
 ---
 
@@ -214,7 +215,7 @@ Stato: da applicare al PDF attuale (versionato ottobre 2024)
 
 **Modifica 15.1** — Sostituire il blocco "NELLA DEMO" con:
 
-> Home; collezioni Al 2026, Cerimonia, Essential; 3 schede prodotto complete; archivio Journal (4 colonne, filtri); 5 pagine Journal (Looks AW26, Den Haag, Sartoria, Chi siamo, Esperienza); **Doppelgänger Club** (4 fasce, 5 benefici con icone, 7 FAQ); **carrello come pagina intera**; **checkout in una pagina**; **conferma ordine** con header e footer; **4 pagine legali con testi reali Doppelgänger**: Privacy+Cookie (unificate), Termini e Condizioni, Spedizioni e Resi, Dichiarazione di Accessibilità.
+> Home; collezioni Al 2026, Cerimonia, Essential; 3 schede prodotto complete; archivio Journal (4 colonne, filtri); 5 pagine Journal (Looks AW26, Den Haag, Sartoria, Chi siamo, Esperienza); **Doppelgänger Club** (4 fasce, 5 benefici con icone, 7 FAQ); **carrello come pagina intera**; **checkout in una pagina**; **conferma ordine** con header e footer; **4 pagine legali con testi reali Doppelgänger**: Privacy+Cookie (unificate), Termini e Condizioni, Spedizioni e Resi, Dichiarazione di Accessibilità. **Account** (`account.html`) con dashboard a 4 tab (Ordini, Indirizzi, Dati personali, Preferiti); **Registrazione** (`registrazione.html`).
 
 **Modifica 15.2** — Sostituire il blocco "FOOTER: QUATTRO MODELLI DI PAGINA" con:
 
