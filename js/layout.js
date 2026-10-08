@@ -342,7 +342,7 @@
       <div class="contact-field"><label for="contactEmail">E-mail*</label><input type="email" id="contactEmail" autocomplete="email" required></div>\
       <div class="contact-field"><label for="contactOrder">Numero ordine</label><input type="text" id="contactOrder"></div>\
       <div class="contact-field"><label for="contactMessage">Messaggio*</label><textarea id="contactMessage" rows="5" required></textarea></div>\
-      <p class="contact-privacy">Inviando la richiesta accetti che i tuoi dati vengano trattati per rispondere al tuo messaggio. Per maggiori informazioni consulta la nostra <a href="privacy.html">Privacy Policy</a>.</p>\
+      <p class="contact-privacy">Inviando la richiesta accetti che i tuoi dati vengano trattati per rispondere al tuo messaggio. Per maggiori informazioni consulta la nostra <a href="privacy-cookie.html">Privacy Policy</a>.</p>\
       <button type="submit" class="contact-btn">Invia richiesta</button>\
     </form>\
     <div class="contact-success" id="contactSuccess" hidden>\
@@ -434,7 +434,7 @@
         <input type="email" placeholder="Il tuo indirizzo email" required>\
         <button type="submit" aria-label="Iscriviti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>\
       </form>\
-      <p class="footer-privacy">Prendo atto che il mio indirizzo email verrà trattato da Doppelgänger secondo quanto previsto dall\'<a href="privacy.html">Informativa Privacy</a>.</p>\
+      <p class="footer-privacy">Prendo atto che il mio indirizzo email verrà trattato da Doppelgänger secondo quanto previsto dall\'<a href="privacy-cookie.html">Informativa Privacy</a>.</p>\
     </div>\
     <div class="footer-col"><h4><button type="button" class="footer-toggle" aria-expanded="false">Mettiti in contatto<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></h4><ul>\
       <li><a href="#">Contatti</a></li><li><a href="#">FAQ</a></li><li><a href="#">Scrivici su WhatsApp</a></li></ul></div>\
@@ -445,8 +445,8 @@
       <li><a href="#">Tutti i servizi</a></li><li><a href="#">Gift Cards</a></li>\
       <li><a href="#">Il suo ordine</a></li><li><a href="spedizioni.html">Spedizioni e Resi</a></li></ul></div>\
     <div class="footer-col"><h4><button type="button" class="footer-toggle" aria-expanded="false">Area legale<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></h4><ul>\
-      <li><a href="cookie.html">Cookie</a></li><li><a href="#">Conformità</a></li><li><a href="#">Area Legale</a></li>\
-      <li><a href="privacy.html">Privacy e Cookie</a></li><li><a href="accessibilita.html">Accessibilità</a></li></ul></div>\
+      <li><a href="privacy-cookie.html">Cookie</a></li><li><a href="#">Conformità</a></li><li><a href="#">Area Legale</a></li>\
+      <li><a href="privacy-cookie.html">Privacy e Cookie</a></li><li><a href="accessibilita.html">Accessibilità</a></li></ul></div>\
   </div>\
   <div class="footer-bottom">\
     <div class="footer-bottom-left">\
