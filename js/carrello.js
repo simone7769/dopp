@@ -3,6 +3,10 @@
    Legge le righe salvate da nav.js (sessionStorage 'dg_cart').
    +/−/rimuovi passano dal drawer (già gestito da nav.js), poi
    la pagina si ridisegna: un'unica fonte di verità.
+   ⚠️  DIPENDENZA: questo file richiede che nav.js sia caricato
+   PRIMA di carrello.js nell'HTML. Il click sui pulsanti della
+   pagina è delegato ai pulsanti del drawer in #cartDrawer, i cui
+   listener sono installati da nav.js. Non cambiare l'ordine.
    ============================================================ */
 (function () {
   'use strict';
