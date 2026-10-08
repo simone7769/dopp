@@ -20,9 +20,10 @@
 }
 
 .pdp-gallery {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 3px;
+  align-items: start;
 }
 .pdp-gallery img,
 .pdp-gallery video {
@@ -30,6 +31,87 @@
   height: auto;
   display: block;
   background: var(--paper);
+}
+/* Prima immagine grande a tutta larghezza */
+.pdp-gallery > :first-child { grid-column: 1 / -1; }
+/* Se l'ultimo elemento resta solo in una riga, occupa tutta la larghezza */
+.pdp-gallery > :nth-child(even):last-child { grid-column: 1 / -1; }
+/* Il video riempie l'altezza della riga accanto all'immagine vicina */
+.pdp-gallery video {
+  align-self: stretch;
+  height: 100%;
+  object-fit: cover;
+}
+/* Immagini cliccabili → lightbox */
+.pdp-gallery img { cursor: zoom-in; }
+.pdp-gallery img:focus-visible { outline: 1px solid var(--gold); outline-offset: -3px; }
+
+/* ============================================
+   LIGHTBOX (zoom immagine a schermo intero)
+   ============================================ */
+.pdp-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(252, 252, 251, 0.98);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--t-base) var(--ease), visibility 0s linear var(--t-base);
+}
+.pdp-lightbox.open {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity var(--t-base) var(--ease), visibility 0s;
+}
+.pdp-lightbox-img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+  padding: 0 72px;
+}
+.pdp-lightbox button {
+  position: absolute;
+  min-width: var(--touch-target, 44px);
+  min-height: var(--touch-target, 44px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: var(--ink);
+  cursor: pointer;
+  transition: color var(--t-fast) var(--ease), opacity var(--t-fast) var(--ease);
+}
+.pdp-lightbox button:hover { color: var(--gold); }
+.pdp-lightbox button:focus-visible { outline: 1px solid var(--gold); outline-offset: -4px; }
+.pdp-lightbox button svg { width: 26px; height: 26px; stroke: currentColor; fill: none; stroke-width: 1.1; }
+.pdp-lightbox-close { top: 18px; right: 22px; }
+.pdp-lightbox-prev  { left: 14px;  top: 50%; transform: translateY(-50%); }
+.pdp-lightbox-next  { right: 14px; top: 50%; transform: translateY(-50%); }
+.pdp-lightbox-count {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--sans);
+  font-size: var(--fs-11);
+  letter-spacing: var(--tr-2);
+  color: var(--muted);
+}
+body.pdp-lightbox-open { overflow: hidden; }
+
+@media (max-width: 640px) {
+  .pdp-lightbox-img { padding: 0; }
+  .pdp-lightbox-prev, .pdp-lightbox-next { display: none; } /* su mobile: swipe */
+  .pdp-lightbox-close { top: 10px; right: 10px; }
 }
 
 .pdp-info {

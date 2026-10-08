@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carrello — Doppelgänger Roma</title>
+<link rel="icon" href="images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/carrello.css">
+<script>document.documentElement.setAttribute("data-css", "ready");</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Jost:wght@300;400;500;600;700&display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Jost:wght@300;400;500;600;700&display=swap"></noscript>
+</head>
+<body id="top" class="header-light">
+
+  <div data-layout="header"></div>
+  <div data-layout="drawers"></div>
+
+  <main class="cp-wrap">
+    <h1 class="cp-title">Il tuo carrello</h1>
+    <p class="cp-ship" id="cpShip" hidden></p>
+
+    <div class="cp-layout" id="cpLayout">
+      <section class="cp-items" id="cpItems" aria-label="Prodotti nel carrello"></section>
+
+      <aside class="cp-summary" id="cpSummary" aria-label="Riepilogo ordine">
+        <p class="pdp-block-label">Codice promozionale</p>
+        <div class="cp-promo">
+          <input type="text" id="cpPromo" placeholder="Inserisci codice" aria-label="Codice promozionale">
+          <button type="button" id="cpPromoBtn">Invia</button>
+        </div>
+        <p class="cp-promo-msg" id="cpPromoMsg" hidden>Codice non valido.</p>
+
+        <dl class="cp-rows">
+          <div><dt>Subtotale</dt><dd id="cpSub">€ 0,00</dd></div>
+          <div><dt>Spese di spedizione</dt><dd id="cpShipCost">€ 0,00</dd></div>
+          <div class="cp-iva"><dt>di cui IVA</dt><dd id="cpIva">€ 0,00</dd></div>
+          <div class="cp-total"><dt>Totale</dt><dd id="cpTotal">€ 0,00</dd></div>
+        </dl>
+
+        <a href="checkout.html" class="cp-checkout">Concludi ordine</a>
+        <p class="cp-pay">PayPal · Carte · Klarna · Apple Pay · Google Pay</p>
+      </aside>
+    </div>
+
+    <div class="cp-empty" id="cpEmpty" hidden>
+      <p>Il tuo carrello è vuoto.</p>
+      <a href="ai-2026.html" class="cp-checkout cp-continue">Continua gli acquisti</a>
+    </div>
+  </main>
+
+  <section class="cp-benefits" aria-label="Spedizioni, resi e pagamenti">
+    <div>
+      <h2>Spedizione rapida e gratuita</h2>
+      <p>Tutti gli ordini vengono spediti con Corriere Espresso per garantire una consegna Rapida. Utilizzando il servizio di Consegna in Boutique la spedizione Rapida sarà anche Gratuita!</p>
+    </div>
+    <div>
+      <h2>Nessun problema di taglia!</h2>
+      <p>Cambio taglia o sostituzione Gratuita entro 60 giorni dalla ricezione. È possibile scegliere tra Reso con Corriere o Reso presso un fermo point.</p>
+    </div>
+    <div>
+      <h2>Pagamenti 100% sicuri</h2>
+      <p>Diverse modalità di pagamento disponibili con le migliori e più sicure tecnologie per la protezione delle transazioni e dei dati personali.</p>
+    </div>
+  </section>
+
+  <div data-layout="footer"></div>
+
+  <script src="js/layout.js"></script>
+  <script src="js/boutiques.js"></script>
+  <script src="js/prodotti.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/carrello.js"></script>
+</body>
+</html>

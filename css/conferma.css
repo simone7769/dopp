@@ -1,0 +1,72 @@
+/* ============================================================
+   CONFERMA.CSS — conferma ordine (conferma.html)
+   Riusa layout e riepilogo di checkout.css.
+   ============================================================ */
+.cf-check { width: 52px; height: 52px; color: var(--gold); margin-bottom: 22px; }
+.cf-kicker {
+  font-family: var(--sans);
+  font-size: var(--fs-11);
+  letter-spacing: var(--tr-2);
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+.cf-title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(30px, 3vw, 40px);
+  line-height: 1.2;
+  margin-bottom: 18px;
+}
+.cf-lead {
+  font-size: var(--fs-14);
+  font-weight: 300;
+  line-height: 1.75;
+  color: #4a463f;
+  margin-bottom: 34px;
+}
+.cf-lead strong { font-weight: 500; color: var(--ink); }
+
+.cf-info { border-top: 1px solid var(--line); margin-bottom: 26px; }
+.cf-info > div {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 16px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+}
+.cf-info dt {
+  font-family: var(--sans);
+  font-size: var(--fs-11);
+  letter-spacing: var(--tr-05);
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-top: 2px;
+}
+.cf-info dd { font-size: var(--fs-14); font-weight: 300; line-height: 1.7; }
+.cf-next { font-size: var(--fs-13); font-weight: 300; line-height: 1.75; color: #4a463f; margin-bottom: 34px; }
+
+.cf-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 56px;
+  background: var(--ink);
+  color: #fff;
+  border: 1px solid var(--ink);
+  text-decoration: none;
+  font-family: var(--sans);
+  font-size: var(--fs-12);
+  letter-spacing: var(--tr-2);
+  text-transform: uppercase;
+  transition: background var(--t-base) var(--ease), color var(--t-base) var(--ease);
+}
+.cf-btn:hover { background: transparent; color: var(--ink); }
+
+@media (max-width: 1000px) {
+  /* su mobile il messaggio di conferma viene prima del riepilogo */
+  .cf-page .co-side { order: 0; border-bottom: none; border-top: 1px solid var(--line); }
+}
+@media (max-width: 520px) {
+  .cf-info > div { grid-template-columns: 1fr; gap: 4px; }
+}

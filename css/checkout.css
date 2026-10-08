@@ -1,0 +1,182 @@
+/* ============================================================
+   CHECKOUT.CSS — checkout in una pagina (checkout.html)
+   Variabili e reset da base.css.
+   ============================================================ */
+.co-body { background: var(--paper); }
+
+.co-header {
+  display: flex;
+  justify-content: center;
+  padding: 26px 20px;
+  border-bottom: 1px solid var(--line);
+}
+.co-logo { height: 26px; width: auto; display: block; filter: brightness(0) saturate(100%); }
+
+/* Due metà uguali: la linea di divisione sta al centro, sotto il logo.
+   Il contenuto di sinistra si appoggia alla linea da sinistra, quello di destra da destra,
+   con la stessa larghezza (560px) e la stessa distanza dalla linea (56px). */
+.co-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: calc(100vh - 79px);
+}
+.co-main {
+  justify-self: end;
+  width: 100%;
+  max-width: 616px;
+  padding: 40px 56px 70px 20px;
+}
+.co-side { background: #faf8f5; border-left: 1px solid var(--line); }
+.co-side-in {
+  position: sticky;
+  top: 0;
+  max-width: 616px;
+  padding: 40px 20px 40px 56px;
+}
+
+/* --- Sezioni --- */
+.co-sec { margin-bottom: 38px; }
+.co-sec h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: var(--fs-22);
+  margin-bottom: 16px;
+}
+.co-note { font-size: var(--fs-12); color: var(--muted); margin: -8px 0 14px; }
+
+.co-field { margin-bottom: 14px; }
+.co-field label {
+  display: block;
+  font-family: var(--sans);
+  font-size: var(--fs-11);
+  letter-spacing: var(--tr-05);
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.co-field input,
+.co-field select {
+  width: 100%;
+  height: 48px;
+  padding: 0 14px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  font-family: var(--sans);
+  font-size: 16px; /* niente zoom automatico su iOS */
+  font-weight: 300;
+  color: var(--ink);
+  outline: none;
+  transition: border-color var(--t-fast) var(--ease);
+}
+.co-field input:focus,
+.co-field select:focus { border-color: var(--ink); }
+.co-field.invalid input,
+.co-field.invalid select { border-color: #a32638; }
+.co-field.invalid label { color: #a32638; }
+
+.co-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.co-row-3 { grid-template-columns: 1fr 1.4fr 1fr; }
+.co-fields { border: none; }
+.co-fields:disabled, [hidden] { display: none; }
+
+/* --- Metodo di consegna --- */
+.co-tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+.co-tile { position: relative; cursor: pointer; }
+.co-tile input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+.co-tile span {
+  display: block;
+  height: 100%;
+  padding: 18px 16px;
+  border: 1px solid var(--line);
+  background: #fff;
+  transition: border-color var(--t-fast) var(--ease), background var(--t-fast) var(--ease), color var(--t-fast) var(--ease);
+}
+.co-tile strong { display: block; font-family: var(--sans); font-size: var(--fs-13); font-weight: 500; margin-bottom: 4px; }
+.co-tile small { font-size: var(--fs-12); font-weight: 300; color: var(--muted); }
+.co-tile input:checked + span { background: var(--ink); border-color: var(--ink); color: #fff; }
+.co-tile input:checked + span small { color: rgba(255, 255, 255, 0.7); }
+.co-tile input:focus-visible + span { outline: 1px solid var(--gold); outline-offset: 2px; }
+
+/* --- Pagamento --- */
+.co-pay { border: 1px solid var(--line); background: #fff; }
+.co-pay-opt + .co-pay-opt { border-top: 1px solid var(--line); }
+.co-pay-opt > label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 56px;
+  padding: 0 16px;
+  font-size: var(--fs-13);
+  cursor: pointer;
+}
+.co-pay-opt > label span { flex: 1; font-weight: 400; }
+.co-pay-opt > label em { font-style: normal; font-size: var(--fs-11); letter-spacing: var(--tr-05); color: var(--muted); }
+.co-pay-opt input[type="radio"] { accent-color: var(--ink); width: 16px; height: 16px; }
+.co-card { display: none; padding: 4px 16px 6px; background: #faf8f5; border-top: 1px solid var(--line); }
+.co-card .co-field:first-child { margin-top: 14px; }
+.co-pay-opt.open .co-card { display: block; }
+.co-demo { margin-top: 10px; font-size: var(--fs-12); color: var(--muted); }
+
+/* --- Invio --- */
+.co-error { font-size: var(--fs-12); color: #a32638; margin-bottom: 12px; }
+.co-submit {
+  width: 100%;
+  height: 56px;
+  background: var(--ink);
+  color: #fff;
+  border: 1px solid var(--ink);
+  font-family: var(--sans);
+  font-size: var(--fs-12);
+  letter-spacing: var(--tr-2);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background var(--t-base) var(--ease), color var(--t-base) var(--ease);
+}
+.co-submit:hover { background: transparent; color: var(--ink); }
+.co-legal { margin-top: 40px; display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.co-legal a { font-size: var(--fs-12); color: var(--muted); text-decoration: underline; text-underline-offset: 3px; }
+.co-legal a:hover { color: var(--ink); }
+
+/* --- Riepilogo --- */
+.co-line { display: grid; grid-template-columns: 64px 1fr auto; gap: 14px; align-items: center; margin-bottom: 16px; }
+.co-thumb { position: relative; width: 64px; aspect-ratio: 3 / 4; }
+.co-thumb img { width: 100%; height: 100%; object-fit: contain; object-position: center top; display: block; }
+.co-thumb b {
+  position: absolute;
+  top: -7px;
+  right: -7px;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  border-radius: 10px;
+  background: var(--ink);
+  color: #fff;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.co-line-name { font-size: var(--fs-13); font-weight: 400; line-height: 1.35; }
+.co-line-attr { font-size: var(--fs-12); font-weight: 300; color: var(--muted); }
+.co-line-price { font-size: var(--fs-13); font-weight: 700; white-space: nowrap; }
+
+.co-rows { margin: 22px 0 18px; border-top: 1px solid var(--line); padding-top: 16px; }
+.co-rows > div { display: flex; justify-content: space-between; padding: 6px 0; font-size: var(--fs-13); }
+.co-rows .co-iva { font-size: var(--fs-12); color: var(--muted); }
+.co-rows .co-total { margin-top: 8px; padding-top: 14px; border-top: 1px solid var(--line); font-size: var(--fs-20); font-weight: 700; }
+.co-rows .co-total dt, .co-rows .co-total dd { font-weight: 700; }
+.co-edit { font-size: var(--fs-12); color: var(--muted); text-decoration: underline; text-underline-offset: 3px; }
+.co-edit:hover { color: var(--ink); }
+
+@media (max-width: 1000px) {
+  .co-grid { grid-template-columns: 1fr; }
+  .co-side { order: -1; border-left: none; border-bottom: 1px solid var(--line); }
+  .co-side-in { position: static; max-width: none; padding: 24px 20px; }
+  .co-main { justify-self: stretch; max-width: none; padding: 30px 20px 60px; }
+}
+@media (max-width: 520px) {
+  .co-tiles, .co-row, .co-row-3 { grid-template-columns: 1fr; }
+}

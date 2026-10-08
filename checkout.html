@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout — Doppelgänger Roma</title>
+<link rel="icon" href="images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/checkout.css">
+<script>document.documentElement.setAttribute("data-css", "ready");</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Jost:wght@300;400;500;600;700&display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Jost:wght@300;400;500;600;700&display=swap"></noscript>
+</head>
+<body class="co-body">
+
+  <div class="co-header">
+    <a href="index.html" aria-label="Home"><img src="images/logo_page.svg" alt="Doppelgänger" class="co-logo"></a>
+  </div>
+
+  <div class="co-grid">
+    <form class="co-main" id="coForm" novalidate>
+
+      <section class="co-sec">
+        <h2>Contatto</h2>
+        <div class="co-field"><label for="coEmail">E-mail</label><input type="email" id="coEmail" autocomplete="email" required></div>
+      </section>
+
+      <section class="co-sec">
+        <h2>Metodo di consegna</h2>
+        <div class="co-tiles" role="radiogroup" aria-label="Metodo di consegna">
+          <label class="co-tile"><input type="radio" name="consegna" value="domicilio" checked>
+            <span><strong>Consegna a domicilio</strong><small>Corriere espresso · gratuita da 99 €</small></span></label>
+          <label class="co-tile"><input type="radio" name="consegna" value="boutique">
+            <span><strong>Ritira in boutique</strong><small>Spedizione gratuita</small></span></label>
+        </div>
+
+        <div id="coBoutiqueBox" hidden>
+          <div class="co-field"><label for="coBoutique">Boutique di ritiro</label>
+            <select id="coBoutique" required disabled><option value="">Seleziona la boutique</option></select></div>
+        </div>
+
+        <fieldset id="coAddress" class="co-fields">
+          <div class="co-field"><label for="coPaese">Paese</label>
+            <select id="coPaese"><option>Italia</option></select></div>
+          <div class="co-row">
+            <div class="co-field"><label for="coNome">Nome</label><input id="coNome" autocomplete="given-name" required></div>
+            <div class="co-field"><label for="coCognome">Cognome</label><input id="coCognome" autocomplete="family-name" required></div>
+          </div>
+          <div class="co-field"><label for="coInd">Indirizzo</label><input id="coInd" autocomplete="address-line1" required></div>
+          <div class="co-field"><label for="coInd2">Interno, scala, ecc. (facoltativo)</label><input id="coInd2" autocomplete="address-line2"></div>
+          <div class="co-row co-row-3">
+            <div class="co-field"><label for="coCap">CAP</label><input id="coCap" inputmode="numeric" autocomplete="postal-code" required></div>
+            <div class="co-field"><label for="coCitta">Città</label><input id="coCitta" autocomplete="address-level2" required></div>
+            <div class="co-field"><label for="coProv">Provincia</label><input id="coProv" autocomplete="address-level1" required></div>
+          </div>
+          <div class="co-field"><label for="coTel">Telefono</label><input id="coTel" type="tel" autocomplete="tel" required></div>
+        </fieldset>
+      </section>
+
+      <section class="co-sec">
+        <h2>Pagamento</h2>
+        <p class="co-note">Tutte le transazioni sono sicure e crittografate.</p>
+        <div class="co-pay">
+          <div class="co-pay-opt open">
+            <label><input type="radio" name="pagamento" value="Carta di credito" checked><span>Carta di credito</span><em>VISA · Mastercard</em></label>
+            <div class="co-card" id="coCard">
+              <div class="co-field"><label for="coNum">Numero carta</label><input id="coNum" inputmode="numeric" autocomplete="cc-number" required></div>
+              <div class="co-row">
+                <div class="co-field"><label for="coExp">Scadenza (MM/AA)</label><input id="coExp" autocomplete="cc-exp" required></div>
+                <div class="co-field"><label for="coCvc">Codice di sicurezza</label><input id="coCvc" inputmode="numeric" autocomplete="cc-csc" required></div>
+              </div>
+              <div class="co-field"><label for="coIntest">Nome sulla carta</label><input id="coIntest" autocomplete="cc-name" required></div>
+            </div>
+          </div>
+          <div class="co-pay-opt"><label><input type="radio" name="pagamento" value="PayPal"><span>PayPal</span></label></div>
+          <div class="co-pay-opt"><label><input type="radio" name="pagamento" value="Klarna"><span>Klarna</span></label></div>
+          <div class="co-pay-opt"><label><input type="radio" name="pagamento" value="Apple Pay"><span>Apple Pay</span></label></div>
+          <div class="co-pay-opt"><label><input type="radio" name="pagamento" value="Google Pay"><span>Google Pay</span></label></div>
+        </div>
+        <p class="co-demo">Demo: nessun pagamento reale viene effettuato.</p>
+      </section>
+
+      <p class="co-error" id="coError" hidden>Completa i campi evidenziati per continuare.</p>
+      <button type="submit" class="co-submit" id="coSubmit">Paga ora</button>
+
+      <p class="co-legal"><a href="#">Informativa sui rimborsi</a><a href="#">Informativa sulla privacy</a><a href="#">Termini e condizioni</a><a href="#">Contatti</a></p>
+    </form>
+
+    <aside class="co-side" aria-label="Riepilogo ordine">
+      <div class="co-side-in">
+        <div id="coItems"></div>
+        <dl class="co-rows">
+          <div><dt>Subtotale</dt><dd id="coSub">€ 0,00</dd></div>
+          <div><dt>Spedizione</dt><dd id="coShip">€ 0,00</dd></div>
+          <div class="co-iva"><dt>di cui IVA</dt><dd id="coIva">€ 0,00</dd></div>
+          <div class="co-total"><dt>Totale</dt><dd id="coTotal">€ 0,00</dd></div>
+        </dl>
+        <a href="carrello.html" class="co-edit">Modifica carrello</a>
+      </div>
+    </aside>
+  </div>
+
+  <script src="js/boutiques.js"></script>
+  <script src="js/checkout.js"></script>
+</body>
+</html>

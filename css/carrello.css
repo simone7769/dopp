@@ -1,0 +1,297 @@
+/* ============================================================
+   CARRELLO.CSS — pagina carrello (carrello.html)
+   Stili di base (reset, header, footer, drawer) da base.css.
+   ============================================================ */
+.cp-wrap {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: calc(var(--header-h, 170px) + 30px) 50px 90px;
+}
+.cp-title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(27px, 2vw, 30px);
+  line-height: 1.3;
+  margin-bottom: 22px;
+}
+.cp-ship {
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  text-align: center;
+  font-family: var(--sans);
+  font-size: var(--fs-12);
+  font-weight: 400;
+  letter-spacing: var(--tr-15);
+  text-transform: uppercase;
+  padding: 18px 16px;
+  margin-bottom: 36px;
+}
+.cp-ship[hidden], .cp-layout[hidden], .cp-empty[hidden] { display: none; }
+
+.cp-layout {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+/* --- Righe prodotto --- */
+.cp-items { border-top: 1px solid var(--line); }
+.cp-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 24px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--line);
+}
+.cp-item-img {
+  width: 120px;
+  aspect-ratio: 3 / 4;
+  background: transparent;
+  overflow: hidden;
+}
+/* contain: la foto non viene mai tagliata */
+.cp-item-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center top;
+  display: block;
+}
+.cp-item-name {
+  font-family: var(--sans);
+  font-size: var(--fs-14);
+  font-weight: 500;
+  letter-spacing: var(--tr-03);
+  line-height: 1.4;
+  padding-right: 110px;
+  margin-bottom: 8px;
+}
+.cp-item-attr {
+  font-family: var(--sans);
+  font-size: var(--fs-13);
+  font-weight: 300;
+  color: #4a463f;
+  line-height: 1.7;
+}
+.cp-item-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  margin-top: 18px;
+}
+.cp-label {
+  display: block;
+  font-family: var(--sans);
+  font-size: var(--fs-11);
+  letter-spacing: var(--tr-05);
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.cp-val {
+  font-family: var(--sans);
+  font-size: var(--fs-14);
+  font-weight: 300;
+}
+.cp-val strong { font-weight: 700; }
+
+.cp-qty {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--line);
+}
+.cp-qty button {
+  width: var(--touch-target, 44px);
+  height: var(--touch-target, 44px);
+  background: transparent;
+  border: none;
+  color: var(--ink);
+  font-size: 18px;
+  font-weight: 300;
+  cursor: pointer;
+  transition: color var(--t-fast) var(--ease);
+}
+.cp-qty button:hover:not(:disabled) { color: var(--gold); }
+.cp-qty button:disabled { opacity: 0.3; cursor: default; }
+.cp-qty span {
+  min-width: 28px;
+  text-align: center;
+  font-family: var(--sans);
+  font-size: var(--fs-13);
+}
+
+.cp-remove {
+  position: absolute;
+  top: 18px;
+  right: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: var(--touch-target, 44px);
+  background: none;
+  border: none;
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: var(--fs-11);
+  letter-spacing: var(--tr-1);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color var(--t-fast) var(--ease);
+}
+.cp-remove:hover { color: #a32638; }
+.cp-remove svg { width: 16px; height: 16px; }
+
+/* --- Riepilogo --- */
+.cp-summary { position: sticky; top: calc(var(--header-h, 170px) + 10px); }
+.pdp-block-label {
+  font-family: var(--sans);
+  font-size: var(--fs-11);
+  letter-spacing: var(--tr-1);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.cp-promo { display: flex; }
+.cp-promo input {
+  flex: 1;
+  min-width: 0;
+  height: 48px;
+  padding: 0 12px;
+  border: none;
+  border-bottom: 1px solid var(--ink);
+  background: transparent;
+  font-family: var(--sans);
+  font-size: var(--fs-13);
+  color: var(--ink);
+  outline: none;
+}
+.cp-promo input::placeholder { color: #999; }
+.cp-promo button {
+  width: 110px;
+  height: 48px;
+  background: var(--ink);
+  color: #fff;
+  border: 1px solid var(--ink);
+  font-family: var(--sans);
+  font-size: var(--fs-11);
+  letter-spacing: var(--tr-3);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background var(--t-base) var(--ease), color var(--t-base) var(--ease);
+}
+.cp-promo button:hover { background: transparent; color: var(--ink); }
+.cp-promo-msg {
+  font-family: var(--sans);
+  font-size: var(--fs-12);
+  color: #a32638;
+  margin-top: 8px;
+}
+.cp-promo-msg[hidden] { display: none; }
+
+.cp-rows { margin: 32px 0 28px; }
+.cp-rows > div {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  font-family: var(--sans);
+  font-size: var(--fs-14);
+}
+.cp-rows dt { font-weight: 300; }
+.cp-rows dd { font-weight: 400; }
+.cp-rows .cp-iva { font-size: var(--fs-12); color: var(--muted); padding-top: 0; }
+.cp-rows .cp-total {
+  border-top: 1px solid var(--line);
+  margin-top: 8px;
+  padding-top: 18px;
+  font-weight: 700;
+}
+.cp-rows .cp-total dt, .cp-rows .cp-total dd { font-weight: 700; }
+
+.cp-checkout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 52px;
+  background: var(--ink);
+  color: #fff;
+  border: 1px solid var(--ink);
+  text-decoration: none;
+  font-family: var(--sans);
+  font-size: var(--fs-12);
+  letter-spacing: var(--tr-2);
+  text-transform: uppercase;
+  transition: background var(--t-base) var(--ease), color var(--t-base) var(--ease);
+}
+.cp-checkout:hover { background: transparent; color: var(--ink); }
+.cp-pay {
+  margin-top: 18px;
+  text-align: center;
+  font-family: var(--sans);
+  font-size: var(--fs-11);
+  letter-spacing: var(--tr-05);
+  color: var(--muted);
+}
+
+/* --- Carrello vuoto --- */
+.cp-empty { text-align: center; padding: 60px 0 40px; }
+.cp-empty p {
+  font-family: var(--serif);
+  font-size: var(--fs-26);
+  margin-bottom: 28px;
+}
+.cp-continue { display: inline-flex; padding: 0 46px; }
+
+@media (max-width: 1200px) {
+  .cp-wrap { padding: calc(var(--header-h, 170px) + 20px) 30px 70px; }
+  .cp-layout { gap: 50px; }
+}
+@media (max-width: 900px) {
+  .cp-wrap { padding: calc(var(--header-h, 170px) + 10px) 20px 60px; }
+  .cp-layout { grid-template-columns: 1fr; gap: 36px; }
+  .cp-summary { position: static; }
+}
+@media (max-width: 640px) {
+  .cp-wrap { padding-left: 16px; padding-right: 16px; }
+  .cp-item { grid-template-columns: 88px 1fr; gap: 14px; }
+  .cp-item-img { width: 88px; }
+  .cp-item-cols { grid-template-columns: 1fr 1fr; }
+  .cp-item-cols > :nth-child(3) { grid-column: 1 / -1; }
+  .cp-item-name { padding-right: 70px; }
+  .cp-remove span { display: none; }
+}
+
+/* --- Blocchi informativi sotto il carrello --- */
+.cp-benefits {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 50px 90px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
+  text-align: center;
+}
+.cp-benefits > div { padding-top: 40px; border-top: 1px solid var(--line); }
+.cp-benefits h2 {
+  font-family: var(--sans);
+  font-size: var(--fs-13);
+  font-weight: 500;
+  letter-spacing: var(--tr-15);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.cp-benefits p {
+  max-width: 44ch;
+  margin: 0 auto;
+  font-family: var(--sans);
+  font-size: var(--fs-13);
+  font-weight: 300;
+  line-height: 1.75;
+  color: #4a463f;
+}
+@media (max-width: 1200px) { .cp-benefits { padding: 0 30px 70px; gap: 36px; } }
+@media (max-width: 900px) {
+  .cp-benefits { grid-template-columns: 1fr; padding: 0 20px 60px; gap: 0; }
+  .cp-benefits > div { padding: 28px 0; }
+}
+@media (max-width: 640px) { .cp-benefits { padding-left: 16px; padding-right: 16px; } }

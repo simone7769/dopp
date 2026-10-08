@@ -1,0 +1,229 @@
+/* ============================================================
+   DOPPELGÄNGER — DESIGN TOKENS
+   Fonte: "Proposta di direzione" (set 2026) e
+          "Specifiche per l'agenzia" (ott 2026).
+   Riferimento vincolante insieme alla demo statica HTML/CSS/JS.
+   Non modificare i valori senza accordo scritto: ogni pagina
+   della demo è costruita su questi numeri.
+
+   Uso:  <link rel="stylesheet" href="css/tokens.css">
+         prima di base.css e degli altri fogli di pagina.
+   ============================================================ */
+
+:root {
+
+  /* ----------------------------------------------------------
+     1. COLORE
+     Palette corta, oro come accento.
+     Specifiche, pag. 3.
+     ---------------------------------------------------------- */
+
+  /* Fondi */
+  --paper:            #FCFCFB; /* sfondo di ogni pagina, segnaposto immagini */
+  --paper-alt:        #F5F5F5; /* segnaposto carrello e preferiti */
+  --crema-pannelli:   #FAF8F5; /* header scrollato, menu, pannelli laterali */
+  --notte:            #1F1F1F; /* footer, sfondo prima del caricamento */
+
+  /* Testo e linee */
+  --ink:              #2B2B2B; /* testi e bordi dei bottoni (1) */
+  --ink-soft:         #4A463F; /* testo scheda prodotto */
+  --muted:            #8A7D63; /* sabbia: etichette secondarie */
+  --testo-footer:     #CFCBC4;
+  --line:             #E5E2DC; /* bordi sottili, separatori */
+  --field-border:     #D8D3C8; /* bordo campi form */
+
+  /* Accento */
+  --gold:             #B8935A; /* linee, voce attiva, hover, badge, cuore attivo */
+
+  /* Stati e avvisi */
+  --danger:           #A32638; /* avviso "scegli una taglia", prezzo in saldo */
+  --danger-hover:     #CC0000; /* cestino e cuore preferiti al passaggio */
+  --price-strike:     #999999; /* prezzo barrato */
+  --size-disabled:    #C9C388; /* taglia esaurita, barrata */
+
+  /* Nota: il PDF "Specifiche" in copertina riporta INCHIOSTRO #282B2B,
+     ma nella pagina dei colori (pag. 3) e nel codice della demo è
+     #2B2B2B. Si adotta #2B2B2B. Da confermare col cliente. */
+
+
+  /* ----------------------------------------------------------
+     2. TIPOGRAFIA
+     Serif per il racconto, sans per tutto il resto.
+     Specifiche, pag. 4.
+     ---------------------------------------------------------- */
+
+  /* Famiglie */
+  --serif: 'Cormorant Garamond', Georgia, serif;      /* titoli ed editoriali */
+  --sans:  'Jost', 'Helvetica Neue', Helvetica, Arial, sans-serif; /* il resto */
+
+  /* Pesi caricati */
+  --fw-light:    300;   /* corpo, sans */
+  --fw-regular:  400;   /* titoli serif, bottoni */
+  --fw-medium:   500;   /* alcuni titoli serif, badge numerici */
+  --fw-semibold: 600;   /* nav, bottoni medi */
+  --fw-bold:     700;   /* prezzo nelle card */
+
+  /* Corpo */
+  --lh-body:      1.6;   /* sans */
+  --lh-editorial: 1.7;   /* serif, articoli Journal */
+  --measure-max:  46ch;  /* larghezza massima descrizione scheda prodotto */
+
+  /* Scala dimensioni — px (riferimento PDF pag. 5) */
+  --fs-10: 10px;   /* bottoni (maiuscolo, spaziatura 3px) */
+  --fs-11: 11px;   /* etichette, link, titoli colonna megamenu, didascalie */
+  --fs-12: 12px;   /* navigazione, topbar, prezzo card, footer */
+  --fs-13: 13px;   /* menu mobile, testo footer */
+  --fs-14: 14px;   /* titolo card prodotto, Journal, campo ricerca */
+
+  /* Ruoli specifici */
+  --fs-card-title: 14px;
+  --fs-card-price: 12px;
+  --fs-pdp-title:  clamp(27px, 2vw, 30px);   /* serif, scheda prodotto */
+  --fs-pdp-desc:   13px;
+  --fs-pdp-price:  15px;                     /* bold */
+  --fs-related:    26px;                     /* serif, "Potrebbero piacerti" */
+
+  /* Titoli di sezione, duo, hero — fluidi */
+  --fs-empty:   22px;                        /* serif, stati vuoti */
+  --fs-section: clamp(24px, 2vw, 26px);      /* serif maiuscolo, spaziatura 5-6px */
+  --fs-duo:     clamp(18px, 1.8vw, 22px);    /* serif maiuscolo, spaziatura 6px */
+  --fs-hero:    clamp(22px, 2.6vw, 34px);    /* serif maiuscolo, spaziatura 4px */
+
+  /* Spaziature tra lettere */
+  --tr-03: 0.3px;
+  --tr-05: 0.5px;
+  --tr-1:  1px;
+  --tr-15: 1.5px;
+  --tr-2:  2px;
+  --tr-3:  3px;   /* bottoni */
+  --tr-4:  4px;   /* hero */
+  --tr-5:  5px;   /* sezioni */
+  --tr-6:  6px;   /* titoli grandi */
+
+
+  /* ----------------------------------------------------------
+     3. MISURE E SPAZI
+     Specifiche, pagg. 6 e 8.
+     ---------------------------------------------------------- */
+
+  /* Bottoni */
+  --btn-width:  200px;
+  --btn-height: 48px;
+
+  /* Contenitore */
+  --max-width:   1600px;
+  --pad-desktop: 50px;   /* margine laterale desktop */
+  --pad-tablet:  30px;
+  --pad-mobile:  16px;   /* margine laterale mobile, uniforme */
+
+  /* Header e pannelli */
+  --topbar-h:        33px;
+  --drawer-title-h:  64px;   /* 56px su mobile */
+  --header-h:        170px;  /* impostata dinamicamente da nav.js */
+  --logo-h-desktop:  26px;
+  --logo-h-mobile:   18px;
+  --logo-h-phone:    16px;
+
+  /* Aree di tocco */
+  --touch-target: 44px;      /* minimo WCAG, mai scendere */
+
+  /* Proporzioni immagini */
+  --ratio-card:       4 / 5;   /* card mobile */
+  --ratio-product:    3 / 4;   /* card prodotto, menu, ricerca, preferiti */
+  --ratio-hero:       16 / 9;  /* hero, video */
+
+  /* Griglia prodotti */
+  --grid-gap-x-desktop: 24px;
+  --grid-gap-y-desktop: 40px;
+  --grid-gap-x-tablet:  20px;
+  --grid-gap-y-tablet:  32px;
+  --grid-gap-x-mobile:  14px;
+  --grid-gap-y-mobile:  24px;
+
+  /* Caroselli */
+  --carousel-gap: 40px;
+  --carousel-visible-desktop: 3.5; /* Must Have */
+  --carousel-visible-journal: 4;   /* Journal */
+
+
+  /* ----------------------------------------------------------
+     4. MOVIMENTO
+     Tre tempi, una curva. Specifiche, pag. 12.
+     ---------------------------------------------------------- */
+
+  --t-fast: 0.25s;   /* hover, icone */
+  --t-base: 0.4s;    /* menu, pannelli, bottoni, dissolvenze */
+  --t-slow: 0.8s;    /* immagini, comparsa blocchi */
+
+  --ease:     ease;
+  --ease-out: cubic-bezier(0.25, 0.8, 0.25, 1);  /* pannelli laterali */
+
+
+  /* ----------------------------------------------------------
+     5. Z-INDEX
+     Ordine dei livelli, dal più basso al più alto.
+     ---------------------------------------------------------- */
+
+  --z-megamenu:      999;
+  --z-mobile-menu:   999;
+  --z-header:       1000;
+  --z-overlay:      1200;   /* sfondo scuro dietro ai drawer */
+  --z-drawer:       1300;   /* pannelli laterali */
+  --z-progress:     2000;   /* barra di avanzamento in alto */
+
+
+  /* ----------------------------------------------------------
+     6. OMBRE
+     Poche, tutte molto discrete.
+     ---------------------------------------------------------- */
+
+  --shadow-header: 0 1px 0 rgba(0, 0, 0, 0.05);
+  --shadow-panel:  0 20px 40px rgba(0, 0, 0, 0.06);
+  --shadow-arrow:  0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+
+/* ============================================================
+   PREFERENZE DEL DISPOSITIVO
+   Con "riduci movimento" attivo, tutte le durate scendono
+   a 0,01s. Le media query non possono leggere variabili CSS:
+   per questo i punti di rottura sono elencati qui come
+   documentazione, non come token.
+   ------------------------------------------------------------
+   Breakpoints (Specifiche, pag. 6):
+     oltre 1200px   Desktop: nav a tre zone, megamenu 215px
+     1025–1200px    Desktop stretto: spaziature ridotte
+     fino a 1024px  Mobile e tablet verticale: menu a tutto schermo
+     fino a 640px   Telefono: bottoni 170×42, logo 16px, margini 16px
+     fino a 520px   Pannelli compatti: immagini carrello 76×94
+     fino a 380px   Form a una colonna
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --t-fast: 0.01s;
+    --t-base: 0.01s;
+    --t-slow: 0.01s;
+  }
+}
+
+
+/* ============================================================
+   ADATTAMENTI RESPONSIVE
+   Solo per i token che cambiano davvero con la larghezza.
+   ============================================================ */
+
+@media (max-width: 640px) {
+  :root {
+    --btn-width:      170px;
+    --btn-height:     42px;
+    --logo-h-desktop: 16px;
+    --drawer-title-h: 56px;
+  }
+}
+
+@media (max-width: 520px) {
+  :root {
+    --drawer-title-h: 56px;
+  }
+}
