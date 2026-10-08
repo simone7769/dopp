@@ -248,13 +248,13 @@
         </div>\
       </div>\
       <a href="#" class="login-forgot">password dimenticata?</a>\
-      <button type="submit" class="login-btn-primary">Accedi</button>\
+      <a href="account.html" class="login-btn-primary">Accedi</a>\
     </form>\
     <hr class="login-divider">\
     <div class="login-register">\
       <h4>Crea un account</h4>\
       <p>Vivi un\'esperienza personalizzata e scopri tutti i servizi esclusivi.</p>\
-      <button type="button" class="login-btn-secondary">Registrati</button>\
+      <a href="registrazione.html" class="login-btn-secondary">Registrati</a>\
     </div>\
   </div>\
 </aside>'; }
