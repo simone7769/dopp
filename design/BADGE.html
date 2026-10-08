@@ -104,13 +104,20 @@
     font-weight: 400;
     letter-spacing: 1.8px;
     text-transform: uppercase;
-    padding: 8px 14px;
+    padding: 0 14px;
     border-radius: 0;
     line-height: 1;
     pointer-events: none;
-    /* Effetto vetro smerigliato: sfondo semi-trasparente + blur */
+    /* Altezza fissa: tutti i badge sono esattamente uguali */
+    display: inline-flex;
+    align-items: center;
+    height: 27px;
+    box-sizing: border-box;
+    /* Effetto vetro smerigliato */
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
+    /* Ombra sottile: stacca il badge dalla foto, lo rende più definito */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
   }
   .badge.bestseller {
     background: rgba(43, 43, 43, 0.65);
@@ -350,7 +357,7 @@
     </a>
     <a href="#" class="badge-card">
       <div class="img-wrap">
-        <span class="badge sale">-50%</span>
+        <span class="badge sale">Saldi</span>
         <img src="../images/1.webp" alt="Pantalone uomo in denim">
       </div>
       <h3>Pantalone uomo in denim</h3>
@@ -456,7 +463,7 @@
     <li class="do"><strong>Una card, un badge.</strong> Mai due sovrapposti. Se un prodotto è sia "New in" sia "Bestseller", scegli quello con priorità più alta (Bestseller &gt; New in &gt; Ultimi pezzi).</li>
     <li class="do"><strong>Pochi badge per pagina.</strong> Su una griglia di 15 prodotti, massimo 3-4 con badge. Se ne metti 10, l'effetto è "mercato", non lusso.</li>
     <li class="do"><strong>Posizione fissa:</strong> in alto a sinistra, attaccato al bordo (top: 0, left: 0). Il cuore dei preferiti resta in alto a destra.</li>
-    <li class="do"><strong>Testo breve.</strong> "New in", "-50%", "Outlet". Mai frasi lunghe. Massimo 14 caratteri.</li>
+    <li class="do"><strong>Testo breve.</strong> "New in", "Saldi", "Outlet". Mai frasi lunghe. Massimo 14 caratteri.</li>
     <li class="do"><strong>Aggiornamento</strong>: i badge "New in" durano 30-60 giorni. I "Saldi" durano la durata della promozione. Vanno rimossi manualmente quando scadono.</li>
     <li class="dont"><strong>Niente badge su tutti i prodotti.</strong> Se ce l'hanno tutti, non significano niente.</li>
     <li class="dont"><strong>Niente badge sul titolo o sul prezzo.</strong> Solo dentro l'immagine, in alto a sinistra.</li>
@@ -479,13 +486,17 @@
   font-weight: 400;
   letter-spacing: 1.8px;
   text-transform: uppercase;
-  padding: 8px 14px;
+  padding: 0 14px;
   border-radius: 0;
   line-height: 1;
   pointer-events: none;
-  /* Effetto vetro smerigliato */
+  display: inline-flex;
+  align-items: center;
+  height: 27px;
+  box-sizing: border-box;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
 }
 .product-card .badge.bestseller {
   background: rgba(43, 43, 43, 0.65);
@@ -537,7 +548,7 @@
   <h3>Varianti disponibili</h3>
   <pre><code>&lt;span class="badge bestseller"&gt;Bestseller&lt;/span&gt;      → inchiostro su bianco
 &lt;span class="badge new-in"&gt;New in&lt;/span&gt;               → oro su carta
-&lt;span class="badge sale"&gt;-50%&lt;/span&gt;                   → rosso su bianco
+&lt;span class="badge sale"&gt;Saldi&lt;/span&gt;                   → rosso su bianco
 &lt;span class="badge outlet"&gt;Outlet -80%&lt;/span&gt;          → inchiostro su oro
 &lt;span class="badge ultimi"&gt;Ultimi pezzi&lt;/span&gt;          → soft-ink su bianco  (opzionale)
 &lt;span class="badge esclusiva"&gt;Esclusiva&lt;/span&gt;           → oro pieno  (opzionale)</code></pre>
