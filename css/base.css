@@ -1305,6 +1305,16 @@ button.contact-btn { display: block; }
   transition: border-color var(--t-base) var(--ease), background-color var(--t-base) var(--ease);
 }
 .cart-btn-paypal:hover { border-color: var(--ink); background: #fafafa; }
+
+/* I due bottoni del drawer sono <a>: servono display + text-align
+   per centrare il testo e togliere la sottolineatura di default
+   del link. Prima erano <button>, centrati dal browser. */
+.cart-btn-primary,
+.cart-btn-paypal {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+}
 .paypal-p { color: #003087; font-weight: 700; }
 .paypal-pal { color: #009cde; font-weight: 700; }
 
