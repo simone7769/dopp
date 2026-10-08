@@ -100,38 +100,41 @@
     left: 0;
     z-index: 3;
     font-family: var(--sans);
-    font-size: 10px;
+    font-size: 11px;
     font-weight: 500;
-    letter-spacing: 2px;
+    letter-spacing: 1.8px;
     text-transform: uppercase;
-    padding: 7px 12px;
+    padding: 8px 14px;
     border-radius: 0;
     line-height: 1;
     pointer-events: none;
+    /* Effetto vetro smerigliato: sfondo semi-trasparente + blur */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
   }
   .badge.bestseller {
-    background: var(--ink);
+    background: rgba(43, 43, 43, 0.75);
     color: #fff;
   }
   .badge.new-in {
-    background: rgba(252, 252, 251, 0.92);
-    color: var(--ink);
+    background: rgba(252, 252, 251, 0.70);
+    color: var(--gold);
   }
   .badge.sale {
-    background: var(--danger);
+    background: rgba(163, 38, 56, 0.80);
     color: #fff;
   }
   .badge.outlet {
-    background: var(--ink);
+    background: rgba(43, 43, 43, 0.75);
     color: var(--gold);
   }
   /* Opzionali (da decidere con il cliente) */
   .badge.ultimi {
-    background: var(--ink-soft);
+    background: rgba(74, 70, 63, 0.75);
     color: #fff;
   }
   .badge.esclusiva {
-    background: var(--gold);
+    background: rgba(184, 147, 90, 0.85);
     color: #fff;
   }
 
@@ -384,25 +387,25 @@
     <tr><th>Tipo</th><th>Sfondo</th><th>Testo</th><th>Quando si usa</th></tr>
     <tr>
       <td><strong>Bestseller</strong></td>
-      <td>Inchiostro #2B2B2B</td>
+      <td>Inchiostro 75% (vetro)</td>
       <td>Bianco, maiuscolo</td>
       <td>Prodotti più venduti nella categoria, in evidenza stabile</td>
     </tr>
     <tr>
       <td><strong>New in</strong></td>
-      <td>Bianco semi-trasparente (0,92)</td>
-      <td>Inchiostro #2B2B2B</td>
+      <td>Carta 70% (vetro)</td>
+      <td>Oro #B8935A</td>
       <td>Nuovi arrivi della stagione, primi 30-60 giorni</td>
     </tr>
     <tr>
       <td><strong>Saldi</strong></td>
-      <td>Rosso #A32638</td>
+      <td>Rosso 80% (vetro)</td>
       <td>Bianco, maiuscolo</td>
       <td>Prodotti in promozione con percentuale (-30%, -50%)</td>
     </tr>
     <tr>
       <td><strong>Outlet</strong></td>
-      <td>Inchiostro #2B2B2B</td>
+      <td>Inchiostro 75% (vetro)</td>
       <td>Oro #B8935A</td>
       <td>Solo nelle pagine Outlet, con percentuale fissa</td>
     </tr>
@@ -472,38 +475,41 @@
   left: 0;
   z-index: 3;
   font-family: var(--sans);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 500;
-  letter-spacing: 2px;
+  letter-spacing: 1.8px;
   text-transform: uppercase;
-  padding: 7px 12px;
+  padding: 8px 14px;
   border-radius: 0;
   line-height: 1;
   pointer-events: none;
+  /* Effetto vetro smerigliato */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 .product-card .badge.bestseller {
-  background: var(--ink);
+  background: rgba(43, 43, 43, 0.75);
   color: #fff;
 }
 .product-card .badge.new-in {
-  background: rgba(252, 252, 251, 0.92);
-  color: var(--ink);
+  background: rgba(252, 252, 251, 0.70);
+  color: var(--gold);
 }
 .product-card .badge.sale {
-  background: #A32638;
+  background: rgba(163, 38, 56, 0.80);
   color: #fff;
 }
 .product-card .badge.outlet {
-  background: var(--ink);
+  background: rgba(43, 43, 43, 0.75);
   color: var(--gold);
 }
 /* Opzionali */
 .product-card .badge.ultimi {
-  background: #4A463F;
+  background: rgba(74, 70, 63, 0.75);
   color: #fff;
 }
 .product-card .badge.esclusiva {
-  background: var(--gold);
+  background: rgba(184, 147, 90, 0.85);
   color: #fff;
 }
 
