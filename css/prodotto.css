@@ -139,7 +139,7 @@ body.pdp-lightbox-open { overflow: hidden; }
 
 .pdp-price {
   font-family: var(--sans);
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 700;
   letter-spacing: var(--tr-03);
   color: var(--ink);
@@ -148,7 +148,7 @@ body.pdp-lightbox-open { overflow: hidden; }
 
 .pdp-desc {
   font-family: var(--sans);
-  font-size: var(--fs-13);
+  font-size: var(--fs-14);
   font-weight: 300;
   line-height: 1.75;
   color: #4a463f;
