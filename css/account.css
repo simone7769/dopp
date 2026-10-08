@@ -200,6 +200,48 @@
   border: none;
 }
 
+/* Card prodotto nella tab Preferiti: riproduce il comportamento di collezione.css
+   (img-wrap 3:4, object-fit cover, testo sotto). collezione.css non è caricato
+   in account.html, quindi lo stiliamo qui in modo mirato. */
+.account-preferiti-grid .product-card {
+  display: block;
+  text-decoration: none;
+  color: var(--ink);
+}
+.account-preferiti-grid .img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  background-color: var(--paper);
+  overflow: hidden;
+}
+.account-preferiti-grid .img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.account-preferiti-grid .product-info {
+  display: block;
+  padding-top: 14px;
+}
+.account-preferiti-grid .product-info .details h3 {
+  font-family: var(--sans);
+  font-size: var(--fs-card-title);
+  font-weight: 400;
+  letter-spacing: var(--tr-03);
+  line-height: 1.4;
+  color: var(--ink);
+  margin: 0 0 4px;
+}
+.account-preferiti-grid .product-info .details .price {
+  font-family: var(--sans);
+  font-size: var(--fs-card-price);
+  font-weight: 700;
+  letter-spacing: var(--tr-03);
+  color: var(--ink);
+}
+
 /* Registrazione: link per accedere sotto il form */
 .account-login-link {
   text-align: center;
