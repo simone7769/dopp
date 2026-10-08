@@ -39,7 +39,7 @@
   --danger:           #A32638; /* avviso "scegli una taglia", prezzo in saldo */
   --danger-hover:     #CC0000; /* cestino e cuore preferiti al passaggio */
   --price-strike:     #999999; /* prezzo barrato */
-  --size-disabled:    #C9C388; /* taglia esaurita, barrata */
+  --size-disabled:    #C9C3B8; /* taglia esaurita, barrata */
 
   /* Nota: il PDF "Specifiche" in copertina riporta INCHIOSTRO #282B2B,
      ma nella pagina dei colori (pag. 3) e nel codice della demo è
@@ -79,8 +79,8 @@
   --fs-card-title: 14px;
   --fs-card-price: 12px;
   --fs-pdp-title:  clamp(27px, 2vw, 30px);   /* serif, scheda prodotto */
-  --fs-pdp-desc:   13px;
-  --fs-pdp-price:  15px;                     /* bold */
+  --fs-pdp-desc:   14px;
+  --fs-pdp-price:  17px;                     /* bold */
   --fs-related:    26px;                     /* serif, "Potrebbero piacerti" */
 
   /* Titoli di sezione, duo, hero — fluidi */
