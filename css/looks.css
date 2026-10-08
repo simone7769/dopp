@@ -525,8 +525,8 @@
 .sartoria-eyebrow {
   font-family: var(--sans);
   font-weight: 500;
-  font-size: var(--fs-11);
-  letter-spacing: var(--tr-3);
+  font-size: var(--fs-13);
+  letter-spacing: var(--tr-2);
   text-transform: uppercase;
   color: var(--gold);
   margin: 0 0 20px;
