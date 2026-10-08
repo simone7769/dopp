@@ -67,14 +67,23 @@
 
 /* --- FAQ (accordion) --- */
 .club-faq {
-  max-width: 900px;
+  max-width: 1400px;
   margin: 0 auto 100px;
-  padding: 0 40px;
+  padding: 0 50px;
 }
-.club-faq .sartoria-title { margin-bottom: 40px; }
+.club-faq .sartoria-title {
+  margin-bottom: 40px;
+  border-bottom: none;
+}
 
 .club-faq details {
   border-bottom: 1px solid var(--line);
+}
+.club-faq details:first-of-type {
+  border-top: 1px solid var(--gold);
+}
+.club-faq details:last-of-type {
+  border-bottom: 1px solid var(--gold);
 }
 .club-faq summary {
   list-style: none;
