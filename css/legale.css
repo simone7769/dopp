@@ -1,0 +1,81 @@
+/* ============================================================
+   LEGALE.CSS — pagine istituzionali (Privacy, Cookie, Termini,
+   Spedizioni, Accessibilità). Riusa hero e footer di base.
+   ============================================================ */
+
+.legale-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px 50px 100px;
+}
+
+.legale-wrap h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.3;
+  letter-spacing: var(--tr-2);
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 40px 0 18px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--gold);
+}
+.legale-wrap h2:first-of-type { margin-top: 0; }
+
+.legale-wrap h3 {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: var(--fs-13);
+  letter-spacing: var(--tr-1);
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 28px 0 10px;
+}
+
+.legale-wrap p {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 18px;
+  letter-spacing: 0.01em;
+  line-height: 1.75;
+  color: var(--ink);
+  margin: 0 0 1.4em;
+}
+
+.legale-wrap ul {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.75;
+  color: var(--ink);
+  padding-left: 24px;
+  margin: 0 0 1.4em;
+}
+.legale-wrap li { margin-bottom: 8px; }
+
+.legale-wrap a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--t-fast) var(--ease);
+}
+.legale-wrap a:hover { color: var(--gold); }
+
+.legale-updated {
+  font-family: var(--sans);
+  font-size: var(--fs-11);
+  letter-spacing: var(--tr-1);
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 40px;
+}
+
+@media (max-width: 900px) {
+  .legale-wrap { padding: 20px 24px 70px; }
+}
+@media (max-width: 640px) {
+  .legale-wrap { padding: 10px 16px 60px; }
+  .legale-wrap h2 { font-size: 20px; }
+  .legale-wrap p, .legale-wrap ul { font-size: 16px; }
+}
