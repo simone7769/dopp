@@ -466,8 +466,7 @@
       <a href="' + FOOTER_LOGO_HREF + '" class="footer-logo-text" aria-label="Torna alla home">DOPPELGÄNGER</a>\
     </div>\
     <div class="footer-bottom-right">\
-      <a href="#">Instagram</a><a href="#">Facebook</a><a href="#">LinkedIn</a>\
-      <a href="#">Pinterest</a><a href="#">Telegram</a><a href="#">TikTok</a>\
+      <a href="#">Dati societari completi</a>\
     </div>\
   </div>\
   <p class="footer-copy">&copy; 2026 SG — Proposta di redesign per Doppelgänger. Tutti i marchi citati appartengono ai rispettivi titolari.</p>\
