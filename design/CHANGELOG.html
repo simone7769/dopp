@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Changelog — Doppelgänger Sito</title>
+<style>
+  :root {
+    --paper: #FCFCFB;
+    --crema: #FAF8F5;
+    --ink: #2B2B2B;
+    --ink-soft: #4A463F;
+    --gold: #B8935A;
+    --line: #E5E2DC;
+    --muted: #8A7D63;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Jost', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Jost:wght@300;400;500;600&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: var(--sans);
+    font-weight: 300;
+    color: var(--ink);
+    background: var(--crema);
+    line-height: 1.65;
+    padding: 40px 20px;
+  }
+  .wrap {
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--paper);
+    padding: 60px 70px;
+    border: 1px solid var(--line);
+  }
+  h1 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 42px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-align: center;
+    margin-bottom: 12px;
+  }
+  .subtitle {
+    font-family: var(--serif);
+    font-size: 17px;
+    font-style: italic;
+    color: var(--muted);
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  .meta {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 60px;
+    padding: 24px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .meta div { text-align: center; }
+  .meta .val {
+    font-family: var(--serif);
+    font-size: 32px;
+    font-weight: 500;
+    color: var(--gold);
+    display: block;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .meta .lbl {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  h2 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 22px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-top: 50px;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--gold);
+  }
+  h2:first-of-type { margin-top: 0; }
+  h2 .count {
+    font-family: var(--sans);
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--muted);
+    float: right;
+    font-weight: 400;
+    margin-top: 10px;
+  }
+  .commit {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .commit:last-child { border-bottom: none; }
+  .commit code {
+    font-family: 'SF Mono', Menlo, monospace;
+    font-size: 11px;
+    color: var(--gold);
+    background: var(--crema);
+    padding: 3px 8px;
+    letter-spacing: 0;
+    margin-right: 12px;
+  }
+  .commit .msg {
+    font-family: var(--sans);
+    font-size: 14px;
+    color: var(--ink);
+    font-weight: 400;
+  }
+  .commit .note {
+    font-size: 12px;
+    color: var(--ink-soft);
+    margin-top: 6px;
+    padding-left: 2px;
+    font-style: italic;
+  }
+  .footer {
+    margin-top: 60px;
+    padding-top: 30px;
+    border-top: 1px solid var(--line);
+    text-align: center;
+    font-family: var(--serif);
+    font-size: 16px;
+    color: var(--muted);
+    letter-spacing: 1px;
+  }
+/* ============================================================
+     STAMPA / PDF
+     Regole per non spezzare i contenuti a metà pagina.
+     ============================================================ */
+  @page {
+    margin: 18mm 15mm;
+    size: A4;
+  }
+  @media print {
+    html, body {
+      background: white !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      font-size: 11pt;
+    }
+    .wrap {
+      max-width: none;
+      border: none !important;
+      padding: 0 !important;
+      background: white !important;
+    }
+    /* Titoli: mai da soli a fondo pagina */
+    h1, h2, h3, h4 {
+      break-after: avoid;
+      page-break-after: avoid;
+    }
+    h2 {
+      break-before: auto;
+      margin-top: 30px !important;
+    }
+    /* Card e blocchi: mai spezzati a metà */
+    .commit,
+    .benefit,
+    .ba-col,
+    .meta,
+    .closing,
+    .before-after,
+    .benefits {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+    .commit {
+      padding: 10px 0;
+    }
+    /* Meta (numeri in alto): resta compatto */
+    .meta {
+      grid-template-columns: repeat(3, 1fr);
+      padding: 14px 0;
+    }
+    /* Paragrafi senza vedove/orfane */
+    p, li {
+      orphans: 3;
+      widows: 3;
+    }
+    /* Link: mostra URL solo se utile (commentare se no) */
+    a { color: inherit !important; text-decoration: none !important; }
+    /* Immagini mai tagliate */
+    img {
+      max-width: 100% !important;
+      break-inside: avoid;
+    }
+    /* Colore scuro del blocco finale (se c'è) */
+    .closing {
+      background: #1F1F1F !important;
+      color: #CFCBC4 !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    /* Sezioni numerate del changelog: se lunghe, iniziano su nuova pagina */
+    h2 + .commit { break-before: avoid; }
+  }
+
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <h1>Changelog</h1>
+  <p class="subtitle">Doppelgänger — Sito demo, dal punto di partenza alla versione attuale</p>
+
+  <div class="meta">
+    <div>
+      <span class="val">55</span>
+      <span class="lbl">Commit</span>
+    </div>
+    <div>
+      <span class="val">53</span>
+      <span class="lbl">File modificati</span>
+    </div>
+    <div>
+      <span class="val">4042</span>
+      <span class="lbl">Righe aggiunte</span>
+    </div>
+  </div>
+
+  <p style="font-size: 13px; color: var(--ink-soft); text-align: center; margin-bottom: 40px;">
+    Da <code>de268ba</code> a <code>f6985a0</code> — 8 ottobre 2026
+  </p>
+
+  <h2>1. Carrello, Checkout, Conferma <span class="count">8 commit</span></h2>
+  <div class="commit">
+    <code>f8b145e</code><span class="msg">Carrello, checkout, conferma, tokens — primo blocco di lavoro</span>
+    <p class="note">Aggiunta la pagina carrello completa, il checkout in una pagina, la conferma ordine, i design token. Primo blocco sostanzioso del progetto.</p>
+  </div>
+  <div class="commit">
+    <code>022866e</code><span class="msg">carrello.js: documenta dipendenza da nav.js</span>
+    <p class="note">Nota per l'agenzia: il file carrello.js richiede che nav.js sia caricato prima.</p>
+  </div>
+  <div class="commit">
+    <code>955955b</code><span class="msg">carrello.css: documenta duplicazione di .pdp-block-label</span>
+    <p class="note">Nota tecnica sulla duplicazione di una classe condivisa.</p>
+  </div>
+  <div class="commit">
+    <code>16fe1c8</code><span class="msg">layout.js: drawer carrello con due bottoni distinti (carrello / checkout)</span>
+    <p class="note">Il drawer ora ha "Concludi ordine" e PayPal separati, entrambi verso il checkout.</p>
+  </div>
+  <div class="commit">
+    <code>4834e46</code><span class="msg">conferma.js: uniforma le due stringhe di conferma ordine</span>
+    <p class="note">Testi della conferma resi coerenti (boutique vs domicilio).</p>
+  </div>
+  <div class="commit">
+    <code>f66cf5e</code><span class="msg">conferma.html: header, footer e drawer coerenti con il resto del sito</span>
+    <p class="note">La conferma ordine ora ha header e footer come le altre pagine.</p>
+  </div>
+  <div class="commit">
+    <code>4e6c9d8</code><span class="msg">conferma.css: adatta .co-grid al layout con header e footer</span>
+    <p class="note">Adattamento CSS della griglia della conferma.</p>
+  </div>
+  <div class="commit">
+    <code>2738fc3</code><span class="msg">base.css: centra e togli sottolineatura ai due bottoni del drawer</span>
+    <p class="note">I bottoni del drawer carrello sono ora link: centrati, senza sottolineatura.</p>
+  </div>
+  <div class="commit">
+    <code>066e8a3</code><span class="msg">drawer: 'Concludi ordine' + link 'Vai al carrello'</span>
+    <p class="note">Ripristinata la CTA principale e aggiunto link secondario "Vai al carrello".</p>
+  </div>
+
+  <h2>2. Design System e Token <span class="count">3 commit</span></h2>
+  <div class="commit">
+    <code>cbf4fa4</code><span class="msg">tutte le pagine: link a tokens.css prima di base.css</span>
+    <p class="note">I design token ora sono disponibili in tutte le 21 pagine del sito.</p>
+  </div>
+  <div class="commit">
+    <code>014aaa2</code><span class="msg">design/: token.json + PDF proposta e specifiche per l'agenzia</span>
+    <p class="note">Cartella design/ con il file dei token in formato JSON e i due PDF di riferimento.</p>
+  </div>
+  <div class="commit">
+    <code>d0027ae</code><span class="msg">CSS cleanup: tutti i font-size usano token (0 rem residui in tutto il progetto)</span>
+    <p class="note">Uniformazione completa: tutte le dimensioni tipografiche usano i token del design system.</p>
+  </div>
+
+  <h2>3. Schede prodotto e correlati <span class="count">4 commit</span></h2>
+  <div class="commit">
+    <code>5763bb3</code><span class="msg">schede prodotto: rimossa immagine centrale dalle gallerie</span>
+    <p class="note">Ogni PDP ha una galleria più asciutta (5 immagini invece di 6).</p>
+  </div>
+  <div class="commit">
+    <code>d1cbb82</code><span class="msg">prodotto.css + nav.js: stili e logica carosello correlati</span>
+    <p class="note">Aggiunto il CSS e il JS per il carosello dei prodotti correlati (formato Must Have).</p>
+  </div>
+  <div class="commit">
+    <code>7e17e3a</code><span class="msg">prodotto1.html + prodotto2.html: correlati come carosello</span>
+    <p class="note">Le tre schede prodotto ora hanno il carosello dei correlati.</p>
+  </div>
+  <div class="commit">
+    <code>d082c58</code><span class="msg">prodotto.css: descrizione 14px, prezzo 17px (gerarchia PDP)</span>
+    <p class="note">Corretta la gerarchia visiva della scheda: prezzo più grande della descrizione.</p>
+  </div>
+
+  <h2>4. Doppelgänger Club <span class="count">6 commit</span></h2>
+  <div class="commit">
+    <code>5d5c054</code><span class="msg">club.html + club.css: pagina Doppelgänger Club con 4 fasce e FAQ</span>
+    <p class="note">Creata la pagina Club con la struttura del sito reale: fasce, benefici, domande frequenti.</p>
+  </div>
+  <div class="commit">
+    <code>dfc17eb</code><span class="msg">footer: 'Doppelgänger Club' punta a club.html</span>
+    <p class="note">Collegato il link nel footer.</p>
+  </div>
+  <div class="commit">
+    <code>7129e08</code><span class="msg">club.html: immagine hero clb.webp + 7 FAQ tematiche</span>
+    <p class="note">Ridotte le FAQ a 7 tematiche (dal regolamento reale) per non appesantire la pagina.</p>
+  </div>
+  <div class="commit">
+    <code>90a8ee7</code><span class="msg">club: FAQ con cornice oro, separatori crema, no linea sotto titolo</span>
+    <p class="note">Rifinitura grafica della sezione FAQ.</p>
+  </div>
+  <div class="commit">
+    <code>75d1384</code><span class="msg">club: benefici con icone oro, dimensioni testo riviste, FAQ a 900px</span>
+    <p class="note">5 benefici con icone SVG oro (Lucide) al posto dei 3 numerati precedenti.</p>
+  </div>
+  <div class="commit">
+    <code>dbc1d9b</code><span class="msg">club.css: titoli di sezione a 26px (allineati al resto)</span>
+    <p class="note">(poi portati a 18px per la gerarchia universale)</p>
+  </div>
+
+  <h2>5. Pagine legali <span class="count">7 commit</span></h2>
+  <div class="commit">
+    <code>649b412</code><span class="msg">5 pagine istituzionali: privacy, cookie, termini, spedizioni, accessibilità</span>
+    <p class="note">Create le 5 pagine legali con contenuti placeholder.</p>
+  </div>
+  <div class="commit">
+    <code>aa6fb24</code><span class="msg">footer: link a privacy, cookie, termini, spedizioni, accessibilità</span>
+    <p class="note">Collegati i link nel footer.</p>
+  </div>
+  <div class="commit">
+    <code>fd455be</code><span class="msg">legale.css: larghezza 1100px e padding coerenti con il resto del sito</span>
+    <p class="note">Adattamento visivo delle pagine legali.</p>
+  </div>
+  <div class="commit">
+    <code>f5788a3</code><span class="msg">privacy-cookie: unificata da testo reale Doppelgänger</span>
+    <p class="note">Privacy e Cookie uniti in un'unica pagina con il testo reale del sito Doppelgänger.</p>
+  </div>
+  <div class="commit">
+    <code>1524f9d</code><span class="msg">rimosse privacy.html e cookie.html (unificate in privacy-cookie.html)</span>
+    <p class="note">Eliminati i due file superati.</p>
+  </div>
+  <div class="commit">
+    <code>f089aad</code><span class="msg">link privacy/cookie aggiornati a privacy-cookie.html</span>
+    <p class="note">Aggiornati i link nel footer e nei form.</p>
+  </div>
+  <div class="commit">
+    <code>cdaf363</code> / <code>b4dd2b8</code> / <code>904c5d1</code>
+    <span class="msg">accessibilita.html / spedizioni.html / termini.html: testo reale Doppelgänger</span>
+    <p class="note">Le tre pagine legali contengono ora i testi reali del sito Doppelgänger.</p>
+  </div>
+
+  <h2>6. Footer <span class="count">5 commit</span></h2>
+  <div class="commit">
+    <code>f1c5602</code><span class="msg">footer: struttura Doppelgänger (Corporate / Informazioni utili / Servizio clienti / Seguici)</span>
+    <p class="note">Footer riscritto con la struttura reale del sito Doppelgänger, non più con le 4 colonne generiche.</p>
+  </div>
+  <div class="commit">
+    <code>1711554</code><span class="msg">footer: rimossi social duplicati dal fondo, aggiunto Dati societari</span>
+    <p class="note">Eliminata la duplicazione dei social.</p>
+  </div>
+  <div class="commit">
+    <code>9366bd6</code><span class="msg">footer: snellito a 18 voci (Scenario B)</span>
+    <p class="note">Ridotte le voci del footer da 32 a 18, togliendo quelle di nicchia.</p>
+  </div>
+  <div class="commit">
+    <code>224be97</code><span class="msg">footer: social in ordine Instagram, Facebook, TikTok, LinkedIn</span>
+    <p class="note">Riordino dei social e link reali.</p>
+  </div>
+
+  <h2>7. Tipografia e gerarchia <span class="count">10 commit</span></h2>
+  <div class="commit">
+    <code>ef0801f</code><span class="msg">looks.css: testi editoriali a 18px (Cormorant legge piccolo a 16px)</span>
+    <p class="note">I testi editoriali (Journal, Club, legali) passano a 18px perché Cormorant Garamond ha x-height basso.</p>
+  </div>
+  <div class="commit">
+    <code>1b1dcf9</code><span class="msg">looks.css: .sartoria-eyebrow da 11px a 13px</span>
+    <p class="note">Occhielli di sezione resi più leggibili.</p>
+  </div>
+  <div class="commit">
+    <code>da82ad9</code> / <code>b730e89</code><span class="msg">Tipografia: titoli di sezione e di pagina allineati</span>
+    <p class="note">Intervento sui titoli di pagina e di sezione per allinearli tra loro.</p>
+  </div>
+  <div class="commit">
+    <code>1d5537e</code><span class="msg">legali: h1 24px, h2 20px (scala compatta 24-20-18)</span>
+    <p class="note">Introduzione della scala tipografica per le pagine legali.</p>
+  </div>
+  <div class="commit">
+    <code>c338e7d</code><span class="msg">legali: h2 a 18px peso 500, indentazione uniformata</span>
+    <p class="note">H2 portati a 18px per allinearli al corpo.</p>
+  </div>
+  <div class="commit">
+    <code>ac7d838</code><span class="msg">tipografia: hero h1 peso 500, h2 peso 400 (gerarchia universale)</span>
+    <p class="note">Introduzione della regola: hero h1 più pesante, h2 più leggero.</p>
+  </div>
+  <div class="commit">
+    <code>cf59668</code> / <code>57b04a8</code><span class="msg">looks.css + club.css: .sartoria-title e titoli Club a 18px</span>
+    <p class="note">Allineamento dei titoli di sezione Club e Sartoria.</p>
+  </div>
+  <div class="commit">
+    <code>f2e8f3c</code><span class="msg">legale.css: corpo 16px (testi legali lunghi, standard del settore)</span>
+    <p class="note">Testi legali passano da 18 a 16px: sono lunghi, si consultano, non si leggono.</p>
+  </div>
+
+  <h2>8. Account e Registrazione <span class="count">5 commit</span></h2>
+  <div class="commit">
+    <code>3b153d1</code><span class="msg">account: 2 pagine (registrazione + dashboard con 4 tab)</span>
+    <p class="note">Create le due pagine: form di registrazione + dashboard con Ordini, Indirizzi, Dati personali, Preferiti.</p>
+  </div>
+  <div class="commit">
+    <code>528c877</code><span class="msg">account.css: stili card prodotto nella tab Preferiti</span>
+    <p class="note">Le card prodotto nella wishlist interna erano visualizzate con immagini giganti (bug), ora sono in griglia 3:4.</p>
+  </div>
+  <div class="commit">
+    <code>144b140</code><span class="msg">drawer login: 'Accedi' → account.html, 'Registrati' → registrazione.html</span>
+    <p class="note">Il drawer login ora naviga alle nuove pagine.</p>
+  </div>
+  <div class="commit">
+    <code>d46bc29</code> / <code>f6985a0</code><span class="msg">MODIFICHE PDF: aggiunte righe account e corpo legali 16px</span>
+    <p class="note">Aggiornato il documento di modifiche al PDF dell'agenzia.</p>
+  </div>
+  <div class="commit">
+    <code>8e73f94</code><span class="msg">account.html: <header> delle card ordine → <div> (conflitto con header del sito)</span>
+    <p class="note">Fix: il tag <code>&lt;header&gt;</code> applicava position fixed e faceva fluttuare i titoli degli ordini in cima alla pagina.</p>
+  </div>
+
+  <h2>9. Journal e immagine Club <span class="count">1 commit</span></h2>
+  <div class="commit">
+    <code>78841bd</code><span class="msg">Journal: card Doppelgänger Club (magazine) + immagine clbj.webp</span>
+    <p class="note">Aggiunta la card del Club al carosello Journal e all'archivio.</p>
+  </div>
+
+  <h2>10. Altro e rifiniture <span class="count">4 commit</span></h2>
+  <div class="commit">
+    <code>53bd0ca</code><span class="msg">looks.css: .sartoria-title a 22px per coerenza con club</span>
+    <p class="note">Primo intervento sui titoli di sezione (poi ulteriormente ridotti).</p>
+  </div>
+  <div class="commit">
+    <code>aa9c310</code><span class="msg">conferma.html: 'Continua gli acquisti' punta alla home</span>
+    <p class="note">Piccola modifica al link finale della conferma.</p>
+  </div>
+
+  <div class="footer">
+    Doppelgänger — Changelog<br>
+    Documento tecnico interno · Ottobre 2026
+  </div>
+
+</div>
+
+</body>
+</html>
