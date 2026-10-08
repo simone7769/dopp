@@ -14,8 +14,8 @@
 .cf-title {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: clamp(30px, 3vw, 40px);
-  line-height: 1.2;
+  font-size: clamp(24px, 2.2vw, 32px);
+  line-height: 1.25;
   margin-bottom: 18px;
 }
 .cf-lead {
