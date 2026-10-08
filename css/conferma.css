@@ -63,6 +63,28 @@
 }
 .cf-btn:hover { background: transparent; color: var(--ink); }
 
+/* ============================================================
+   ADATTAMENTO PER IL LAYOUT CON HEADER E FOOTER
+   La pagina conferma (dalla modifica header/footer) ha ora
+   l'header iniettato da layout.js sopra al .co-grid.
+   Qui sovrascriviamo il layout di checkout.css solo per
+   .cf-page, senza toccare checkout.html.
+
+   .co-grid su conferma non ha più bisogno di essere alta
+   quanto la viewport (il checkout invece sì, perché è una
+   pagina "nuda" senza header). Ora cresce col contenuto.
+
+   .co-side-in sticky: con l'header fixed sopra, lo sticky
+   deve fermarsi sotto l'header, non a top: 0 (dove finirebbe
+   coperto).
+   ============================================================ */
+.cf-page .co-grid {
+  min-height: auto;
+}
+.cf-page .co-side-in {
+  top: var(--header-h, 170px);
+}
+
 @media (max-width: 1000px) {
   /* su mobile il messaggio di conferma viene prima del riepilogo */
   .cf-page .co-side { order: 0; border-bottom: none; border-top: 1px solid var(--line); }
