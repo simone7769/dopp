@@ -436,17 +436,27 @@
       </form>\
       <p class="footer-privacy">Prendo atto che il mio indirizzo email verrà trattato da Doppelgänger secondo quanto previsto dall\'<a href="privacy-cookie.html">Informativa Privacy</a>.</p>\
     </div>\
-    <div class="footer-col"><h4><button type="button" class="footer-toggle" aria-expanded="false">Mettiti in contatto<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></h4><ul>\
-      <li><a href="#">Contatti</a></li><li><a href="#">FAQ</a></li><li><a href="#">Scrivici su WhatsApp</a></li></ul></div>\
-    <div class="footer-col"><h4><button type="button" class="footer-toggle" aria-expanded="false">Azienda<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></h4><ul>\
-      <li><a href="#">I nostri negozi</a></li><li><a href="#">Lavora con noi</a></li><li><a href="#">Sostenibilità</a></li>\
-      <li><a href="club.html">Doppelgänger Club</a></li><li><a href="#">Doppelgänger APP</a></li></ul></div>\
-    <div class="footer-col"><h4><button type="button" class="footer-toggle" aria-expanded="false">Servizi<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></h4><ul>\
-      <li><a href="#">Tutti i servizi</a></li><li><a href="#">Gift Cards</a></li>\
-      <li><a href="#">Il suo ordine</a></li><li><a href="spedizioni.html">Spedizioni e Resi</a></li></ul></div>\
-    <div class="footer-col"><h4><button type="button" class="footer-toggle" aria-expanded="false">Area legale<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></h4><ul>\
-      <li><a href="privacy-cookie.html">Cookie</a></li><li><a href="#">Conformità</a></li><li><a href="#">Area Legale</a></li>\
-      <li><a href="privacy-cookie.html">Privacy e Cookie</a></li><li><a href="accessibilita.html">Accessibilità</a></li></ul></div>\
+    <div class="footer-col"><h4><button type="button" class="footer-toggle" aria-expanded="false">Corporate<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></h4><ul>\
+      <li><a href="club.html">Doppelgänger Club</a></li><li><a href="#">Doppelgänger APP</a></li>\
+      <li><a href="journal-chi-siamo.html">Chi Siamo</a></li><li><a href="#">Lavora con noi</a></li>\
+      <li><a href="#">Franchising</a></li><li><a href="journal-esperienza-boutique.html">Shop Experience</a></li>\
+      <li><a href="#">SiteMap</a></li><li><a href="#">Politica Parità di Genere</a></li>\
+      <li><a href="#">Procedura Whistleblowing</a></li></ul></div>\
+    <div class="footer-col"><h4><button type="button" class="footer-toggle" aria-expanded="false">Informazioni utili<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></h4><ul>\
+      <li><a href="#" data-open-stores>Store Locator</a></li><li><a href="#">Gift Card</a></li>\
+      <li><a href="#">Guida alle Taglie</a></li><li><a href="#">Sconti e Promo</a></li>\
+      <li><a href="#">Klarna infopage</a></li><li><a href="privacy-cookie.html">Cookie e Privacy Policy</a></li>\
+      <li><a href="accessibilita.html">Dichiarazione accessibilità</a></li><li><a href="termini.html">Termini e condizioni di vendita</a></li>\
+      <li><a href="#">Istruzione per il riciclo</a></li></ul></div>\
+    <div class="footer-col"><h4><button type="button" class="footer-toggle" aria-expanded="false">Servizio clienti<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></h4><ul>\
+      <li><a href="#" data-open-contact>Contattaci</a></li><li><a href="#">FAQ</a></li>\
+      <li><a href="#">Resi e Rimborsi</a></li><li><a href="#">Monitora Ordine</a></li>\
+      <li><a href="#">Monitora Reso</a></li><li><a href="#">Metodi di Pagamento</a></li>\
+      <li><a href="spedizioni.html">Ordini e Spedizioni</a></li><li><a href="#">Scrivici su WhatsApp</a></li></ul></div>\
+    <div class="footer-col"><h4><button type="button" class="footer-toggle" aria-expanded="false">Seguici<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></h4><ul>\
+      <li><a href="#">Facebook</a></li><li><a href="#">Instagram</a></li>\
+      <li><a href="#">Pinterest</a></li><li><a href="#">Telegram</a></li>\
+      <li><a href="#">LinkedIn</a></li><li><a href="#">TikTok</a></li></ul></div>\
   </div>\
   <div class="footer-bottom">\
     <div class="footer-bottom-left">\
