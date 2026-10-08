@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Badge prodotto — Doppelgänger Sito</title>
+<style>
+  :root {
+    --paper: #FCFCFB;
+    --crema: #FAF8F5;
+    --ink: #2B2B2B;
+    --ink-soft: #4A463F;
+    --gold: #B8935A;
+    --line: #E5E2DC;
+    --muted: #8A7D63;
+    --danger: #A32638;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Jost', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Jost:wght@300;400;500;600&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: var(--sans);
+    font-weight: 300;
+    color: var(--ink);
+    background: var(--crema);
+    line-height: 1.65;
+    padding: 40px 20px;
+  }
+  .wrap {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: var(--paper);
+    padding: 60px 70px;
+    border: 1px solid var(--line);
+  }
+  h1 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 40px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-align: center;
+    margin-bottom: 12px;
+  }
+  .subtitle {
+    font-family: var(--serif);
+    font-size: 17px;
+    font-style: italic;
+    color: var(--muted);
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .intro {
+    font-family: var(--serif);
+    font-size: 16px;
+    color: var(--ink-soft);
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 50px;
+    line-height: 1.7;
+  }
+  h2 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 22px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-top: 50px;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--gold);
+  }
+  h2:first-of-type { margin-top: 0; }
+  h3 {
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 30px 0 12px;
+  }
+  p {
+    font-family: var(--serif);
+    font-size: 16px;
+    color: var(--ink);
+    margin-bottom: 14px;
+  }
+  p strong { font-weight: 500; }
+
+  /* ============================================================
+     BADGE — regole dimostrate
+     ============================================================ */
+  .badge {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    font-family: var(--sans);
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 10px;
+    border-radius: 0;
+    line-height: 1;
+    pointer-events: none;
+  }
+  .badge.bestseller {
+    background: var(--ink);
+    color: #fff;
+  }
+  .badge.new-in {
+    background: var(--paper);
+    color: var(--gold);
+    border: 1px solid var(--gold);
+  }
+  .badge.sale {
+    background: var(--danger);
+    color: #fff;
+  }
+  .badge.outlet {
+    background: var(--ink);
+    color: var(--gold);
+  }
+  /* Opzionali (da decidere con il cliente) */
+  .badge.ultimi {
+    background: var(--ink-soft);
+    color: #fff;
+  }
+  .badge.esclusiva {
+    background: var(--gold);
+    color: #fff;
+  }
+
+  /* Card di esempio */
+  .badge-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin: 24px 0;
+  }
+  .badge-card {
+    display: block;
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .badge-card .img-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    background-color: var(--paper);
+    overflow: hidden;
+  }
+  .badge-card .img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .badge-card h3 {
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+    text-transform: none;
+    color: var(--ink);
+    margin: 14px 0 4px;
+    line-height: 1.4;
+  }
+  .badge-card .price {
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  /* Tabella specifiche */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--sans);
+    font-size: 13px;
+    margin: 20px 0;
+  }
+  th {
+    text-align: left;
+    padding: 12px 10px;
+    border-bottom: 1px solid var(--ink);
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  td {
+    padding: 12px 10px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  td strong { font-weight: 500; }
+
+  /* Box snippet di codice */
+  pre {
+    background: var(--crema);
+    border-left: 3px solid var(--gold);
+    padding: 18px 20px;
+    font-family: 'SF Mono', Menlo, monospace;
+    font-size: 11.5px;
+    line-height: 1.65;
+    color: var(--ink);
+    overflow-x: auto;
+    margin: 16px 0;
+    white-space: pre;
+  }
+  code {
+    font-family: 'SF Mono', Menlo, monospace;
+    font-size: 12px;
+    background: var(--crema);
+    padding: 2px 6px;
+    color: var(--gold);
+  }
+  pre code {
+    background: none;
+    padding: 0;
+    color: inherit;
+  }
+
+  /* Regole d'uso */
+  .rules {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+  }
+  .rules li {
+    font-family: var(--serif);
+    font-size: 16px;
+    color: var(--ink);
+    padding: 12px 0 12px 30px;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+    line-height: 1.6;
+  }
+  .rules li:last-child { border-bottom: none; }
+  .rules li::before {
+    content: "·";
+    position: absolute;
+    left: 8px;
+    top: 8px;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 20px;
+  }
+  .rules li.do::before {
+    content: "✓";
+    font-size: 14px;
+    top: 13px;
+    color: var(--gold);
+  }
+  .rules li.dont::before {
+    content: "✗";
+    font-size: 14px;
+    top: 13px;
+    color: var(--danger);
+  }
+
+  /* Legenda badge inline */
+  .badge-inline {
+    display: inline-block;
+    font-family: var(--sans);
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 8px;
+    border-radius: 0;
+    line-height: 1;
+  }
+
+  .footer {
+    margin-top: 60px;
+    padding-top: 30px;
+    border-top: 1px solid var(--line);
+    text-align: center;
+    font-family: var(--serif);
+    font-size: 16px;
+    color: var(--muted);
+    letter-spacing: 1px;
+  }
+
+  @page { margin: 18mm 15mm; size: A4; }
+  @media print {
+    html, body { background: white !important; padding: 0 !important; margin: 0 !important; font-size: 10pt; }
+    .wrap { max-width: none; border: none !important; padding: 0 !important; background: white !important; }
+    h1, h2, h3 { break-after: avoid; page-break-after: avoid; }
+    h2 { margin-top: 24px !important; }
+    .badge-card,
+    .badge-grid,
+    .rules,
+    pre,
+    table { break-inside: avoid; page-break-inside: avoid; }
+    .badge-grid { grid-template-columns: repeat(3, 1fr); }
+    a { color: inherit !important; text-decoration: none !important; }
+  }
+  @media (max-width: 900px) {
+    .wrap { padding: 40px 30px; }
+    .badge-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 640px) {
+    .badge-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <h1>Badge prodotto</h1>
+  <p class="subtitle">Etichette sulle card — regole, esempi visivi e codice</p>
+
+  <p class="intro">Le etichette sulle card prodotto comunicano in un colpo d'occhio lo stato di un capo: nuovo, in saldo, bestseller. Nella demo <strong>non sono state implementate</strong> per non appesantire il sito. Questo documento raccoglie le regole per l'agenzia, con esempi visivi e codice pronto.</p>
+
+  <h2>1. I quattro badge principali</h2>
+
+  <p>Quattro categorie, tutte basate sul sito reale Doppelgänger. Ogni card ha <strong>al massimo un badge</strong>: mai due sovrapposti.</p>
+
+  <h3>Esempi visivi</h3>
+  <div class="badge-grid">
+    <a href="#" class="badge-card">
+      <div class="img-wrap">
+        <span class="badge bestseller">Bestseller</span>
+        <img src="../images/2.webp" alt="Abito uomo monopetto">
+      </div>
+      <h3>Abito uomo monopetto</h3>
+      <span class="price">€ 139,00</span>
+    </a>
+    <a href="#" class="badge-card">
+      <div class="img-wrap">
+        <span class="badge new-in">New in</span>
+        <img src="../images/3.webp" alt="Impermeabile uomo doppiopetto">
+      </div>
+      <h3>Impermeabile uomo doppiopetto</h3>
+      <span class="price">€ 149,00</span>
+    </a>
+    <a href="#" class="badge-card">
+      <div class="img-wrap">
+        <span class="badge sale">-50%</span>
+        <img src="../images/1.webp" alt="Pantalone uomo in denim">
+      </div>
+      <h3>Pantalone uomo in denim</h3>
+      <span class="price">€ 24,99</span>
+    </a>
+    <a href="#" class="badge-card">
+      <div class="img-wrap">
+        <span class="badge outlet">Outlet -80%</span>
+        <img src="../images/z.webp" alt="Cappotto outlet">
+      </div>
+      <h3>Cappotto uomo in lana</h3>
+      <span class="price">€ 49,90</span>
+    </a>
+    <a href="#" class="badge-card">
+      <div class="img-wrap">
+        <img src="../images/l.webp" alt="Overshirt in neppa">
+      </div>
+      <h3>Overshirt in neppa</h3>
+      <span class="price">€ 79,99</span>
+    </a>
+    <a href="#" class="badge-card">
+      <div class="img-wrap">
+        <img src="../images/m.webp" alt="Giacca monopetto in velluto">
+      </div>
+      <h3>Giacca monopetto in velluto</h3>
+      <span class="price">€ 129,99</span>
+    </a>
+  </div>
+
+  <p style="font-size: 13px; font-family: var(--sans); color: var(--muted); text-align: center;">Le ultime due card sono esempi <strong>senza badge</strong>. Nella griglia, le card senza badge devono essere la maggioranza.</p>
+
+  <h3>Specifiche tecniche</h3>
+  <table>
+    <tr><th>Tipo</th><th>Sfondo</th><th>Testo</th><th>Quando si usa</th></tr>
+    <tr>
+      <td><strong>Bestseller</strong></td>
+      <td>Inchiostro #2B2B2B</td>
+      <td>Bianco, maiuscolo</td>
+      <td>Prodotti più venduti nella categoria, in evidenza stabile</td>
+    </tr>
+    <tr>
+      <td><strong>New in</strong></td>
+      <td>Trasparente</td>
+      <td>Oro #B8935A con bordo oro</td>
+      <td>Nuovi arrivi della stagione, primi 30-60 giorni</td>
+    </tr>
+    <tr>
+      <td><strong>Saldi</strong></td>
+      <td>Rosso #A32638</td>
+      <td>Bianco, maiuscolo</td>
+      <td>Prodotti in promozione con percentuale (-30%, -50%)</td>
+    </tr>
+    <tr>
+      <td><strong>Outlet</strong></td>
+      <td>Inchiostro #2B2B2B</td>
+      <td>Oro #B8935A</td>
+      <td>Solo nelle pagine Outlet, con percentuale fissa</td>
+    </tr>
+  </table>
+
+  <h2>2. Badge opzionali</h2>
+
+  <p>Due categorie aggiuntive, <strong>da concordare con il cliente</strong>. Non sono nel sito attuale Doppelgänger, ma sono coerenti col sistema. Se il cliente non le chiede, l'agenzia non le implementa.</p>
+
+  <div class="badge-grid" style="grid-template-columns: repeat(2, 1fr); max-width: 500px; margin-left: auto; margin-right: auto;">
+    <a href="#" class="badge-card">
+      <div class="img-wrap">
+        <span class="badge ultimi">Ultimi pezzi</span>
+        <img src="../images/n.webp" alt="Giacca in lana e cashmere">
+      </div>
+      <h3>Giacca in lana e cashmere</h3>
+      <span class="price">€ 119,99</span>
+    </a>
+    <a href="#" class="badge-card">
+      <div class="img-wrap">
+        <span class="badge esclusiva">Esclusiva</span>
+        <img src="../images/o.webp" alt="Giacca in pelle">
+      </div>
+      <h3>Giacca in pelle</h3>
+      <span class="price">€ 59,99</span>
+    </a>
+  </div>
+
+  <table>
+    <tr><th>Tipo</th><th>Sfondo</th><th>Testo</th><th>Quando si usa</th></tr>
+    <tr>
+      <td><strong>Ultimi pezzi</strong></td>
+      <td>Inchiostro soft #4A463F</td>
+      <td>Bianco</td>
+      <td>Disponibilità limitata, sotto le 3-5 unità per taglia</td>
+    </tr>
+    <tr>
+      <td><strong>Esclusiva</strong></td>
+      <td>Oro #B8935A</td>
+      <td>Bianco</td>
+      <td>Capi esclusivi online o in selezionate boutique</td>
+    </tr>
+  </table>
+
+  <h2>3. Regole d'uso</h2>
+
+  <ul class="rules">
+    <li class="do"><strong>Una card, un badge.</strong> Mai due sovrapposti. Se un prodotto è sia "New in" sia "Bestseller", scegli quello con priorità più alta (Bestseller &gt; New in &gt; Ultimi pezzi).</li>
+    <li class="do"><strong>Pochi badge per pagina.</strong> Su una griglia di 15 prodotti, massimo 3-4 con badge. Se ne metti 10, l'effetto è "mercato", non lusso.</li>
+    <li class="do"><strong>Posizione fissa:</strong> in alto a sinistra, attaccato al bordo (top: 0, left: 0). Il cuore dei preferiti resta in alto a destra.</li>
+    <li class="do"><strong>Testo breve.</strong> "New in", "-50%", "Outlet". Mai frasi lunghe. Massimo 14 caratteri.</li>
+    <li class="do"><strong>Aggiornamento</strong>: i badge "New in" durano 30-60 giorni. I "Saldi" durano la durata della promozione. Vanno rimossi manualmente quando scadono.</li>
+    <li class="dont"><strong>Niente badge su tutti i prodotti.</strong> Se ce l'hanno tutti, non significano niente.</li>
+    <li class="dont"><strong>Niente badge sul titolo o sul prezzo.</strong> Solo dentro l'immagine, in alto a sinistra.</li>
+    <li class="dont"><strong>Niente più di due parole.</strong> "Bestseller della stagione" è troppo. Solo "Bestseller".</li>
+  </ul>
+
+  <h2>4. Codice per l'agenzia</h2>
+
+  <h3>CSS — da aggiungere a <code>css/collezione.css</code></h3>
+  <pre><code>/* ============================================================
+   BADGE PRODOTTO — etichette in alto a sinistra sulle card
+   ============================================================ */
+.product-card .badge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  font-family: var(--sans);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 6px 10px;
+  border-radius: 0;
+  line-height: 1;
+  pointer-events: none;
+}
+.product-card .badge.bestseller {
+  background: var(--ink);
+  color: #fff;
+}
+.product-card .badge.new-in {
+  background: var(--paper);
+  color: var(--gold);
+  border: 1px solid var(--gold);
+}
+.product-card .badge.sale {
+  background: #A32638;
+  color: #fff;
+}
+.product-card .badge.outlet {
+  background: var(--ink);
+  color: var(--gold);
+}
+/* Opzionali */
+.product-card .badge.ultimi {
+  background: #4A463F;
+  color: #fff;
+}
+.product-card .badge.esclusiva {
+  background: var(--gold);
+  color: #fff;
+}
+
+/* Mobile: badge più piccoli */
+@media (max-width: 520px) {
+  .product-card .badge {
+    top: 0;
+    left: 0;
+    font-size: 8px;
+    letter-spacing: 1.5px;
+    padding: 5px 8px;
+  }
+}</code></pre>
+
+  <h3>HTML — dentro <code>.img-wrap</code>, prima delle immagini</h3>
+  <pre><code>&lt;div class="img-wrap"&gt;
+  &lt;span class="badge bestseller"&gt;Bestseller&lt;/span&gt;
+  &lt;img src="../images/2.webp" alt="Abito uomo monopetto" class="img-main"&gt;
+  &lt;img src="../images/2b.webp" alt="..." class="img-hover"&gt;
+  &lt;button class="wish"&gt;...&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+
+  <p>Il badge è un semplice <code>&lt;span&gt;</code> dentro <code>.img-wrap</code>. La posizione è gestita dal CSS, l'agenzia non deve fare altro che aggiungere il markup.</p>
+
+  <h3>Varianti disponibili</h3>
+  <pre><code>&lt;span class="badge bestseller"&gt;Bestseller&lt;/span&gt;      → inchiostro su bianco
+&lt;span class="badge new-in"&gt;New in&lt;/span&gt;               → oro su carta
+&lt;span class="badge sale"&gt;-50%&lt;/span&gt;                   → rosso su bianco
+&lt;span class="badge outlet"&gt;Outlet -80%&lt;/span&gt;          → inchiostro su oro
+&lt;span class="badge ultimi"&gt;Ultimi pezzi&lt;/span&gt;          → soft-ink su bianco  (opzionale)
+&lt;span class="badge esclusiva"&gt;Esclusiva&lt;/span&gt;           → oro pieno  (opzionale)</code></pre>
+
+  <h2>5. Note per l'agenzia</h2>
+
+  <p><strong>Nel sito attuale Doppelgänger</strong> i badge compaiono su alcune card nelle pagine di collezione (Bestseller) e nell'Outlet (percentuali di sconto). Sulla home non ci sono, per non spezzare il ritmo editoriale delle sezioni.</p>
+
+  <p><strong>Da decidere con il cliente:</strong> su quali pagine attivare i badge, e con che criterio. Le opzioni sono due:</p>
+
+  <ul class="rules">
+    <li><strong>Manuale</strong> — un redattore decide quali prodotti hanno il badge (raccomandato per l'e-commerce del brand, permette controllo editoriale)</li>
+    <li><strong>Automatico</strong> — il sistema assegna il badge in base a regole (es. "primo acquisto in 30 giorni = New in"; "vendite nel mese &gt; X = Bestseller"). Più complesso da implementare, meno controllo</li>
+  </ul>
+
+  <p>Consigliamo l'approccio <strong>manuale</strong>: il cliente ha il controllo editoriale e può togliere un badge quando non serve più.</p>
+
+  <div class="footer">
+    Doppelgänger — Badge prodotto<br>
+    Documento tecnico · Ottobre 2026
+  </div>
+
+</div>
+
+</body>
+</html>
