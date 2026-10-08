@@ -145,6 +145,9 @@
 
 /* --- Riepilogo --- */
 .cp-summary { position: sticky; top: calc(var(--header-h, 170px) + 10px); }
+/* .pdp-block-label è duplicato da prodotto.css: in carrello.html
+   non carichiamo prodotto.css. Se in futuro si sposta in base.css,
+   aggiornare qui (e in prodotto.css). */
 .pdp-block-label {
   font-family: var(--sans);
   font-size: var(--fs-11);
