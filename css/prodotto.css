@@ -348,6 +348,115 @@ body.pdp-lightbox-open { overflow: hidden; }
   margin-bottom: 40px;
 }
 
+/* ============================================================
+   PDP — Correlati come carosello (formato Must Have)
+   Immagine 3:4.5, titolo + prezzo a sinistra, senza cuore né +.
+   Frecce solo desktop ≥1024px; drag col mouse; swipe su touch.
+   ============================================================ */
+.pdp-track-wrap {
+  position: relative;
+  --pdp-gap: 40px;
+  --pdp-visible: 4;
+  --pdp-gaps: 3;
+}
+.pdp-track {
+  scroll-snap-type: x mandatory;
+  display: flex;
+  gap: var(--pdp-gap);
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.pdp-track::-webkit-scrollbar { display: none; }
+.pdp-track.dragging { scroll-behavior: auto; scroll-snap-type: none; cursor: grabbing; }
+
+.pdp-item {
+  scroll-snap-align: start;
+  flex: 0 0 calc((100% - var(--pdp-gaps) * var(--pdp-gap)) / var(--pdp-visible));
+  text-decoration: none;
+  color: var(--ink);
+  display: block;
+}
+.pdp-item-image {
+  width: 100%;
+  aspect-ratio: 3 / 4.5;
+  background-color: var(--paper);
+  overflow: hidden;
+  margin-bottom: 18px;
+}
+.pdp-item-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--t-slow) var(--ease);
+  -webkit-user-drag: none;
+}
+.pdp-item:hover .pdp-item-image img { transform: scale(1.03); }
+
+.pdp-item h3 {
+  font-family: var(--sans);
+  font-size: var(--fs-card-title);
+  font-weight: 400;
+  letter-spacing: var(--tr-03);
+  line-height: 1.4;
+  color: var(--ink);
+  margin: 0 0 4px;
+  text-align: left;
+}
+.pdp-item-price {
+  font-family: var(--sans);
+  font-size: var(--fs-card-price);
+  font-weight: 700;
+  letter-spacing: var(--tr-03);
+  color: var(--ink);
+  margin: 0;
+  text-align: left;
+}
+
+.pdp-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: none;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: opacity var(--t-fast) var(--ease), background-color var(--t-fast) var(--ease), color var(--t-fast) var(--ease), visibility var(--t-fast) var(--ease);
+  opacity: 0;
+  visibility: hidden;
+}
+.pdp-arrow:hover { background-color: var(--ink); color: #fff; }
+.pdp-arrow svg { width: 20px; height: 20px; }
+.pdp-prev { left: -20px; }
+.pdp-next { right: -20px; }
+
+@media (hover: none), (max-width: 1024px) {
+  .pdp-arrow { display: none !important; }
+}
+
+@media (max-width: 1024px) {
+  .pdp-track-wrap { --pdp-visible: 2.5; --pdp-gaps: 2; --pdp-gap: 32px; }
+}
+@media (max-width: 900px) {
+  .pdp-track-wrap { --pdp-visible: 2.3; --pdp-gaps: 2; --pdp-gap: 20px; }
+}
+@media (max-width: 640px) {
+  .pdp-track-wrap { --pdp-visible: 1.1; --pdp-gaps: 1; --pdp-gap: 14px; }
+}
+
 @media (max-width: 1200px) {
   .pdp-wrap { padding: calc(var(--header-h, 170px) + 20px) 30px 70px; gap: 50px; }
 }

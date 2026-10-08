@@ -1150,6 +1150,73 @@ function creaJournalCard(articolo, variante) {
 })();
 
 /* ============================================================
+   PDP — Carosello "Potrebbero piacerti anche"
+   Stesso pattern del Journal: drag col mouse, frecce su desktop,
+   snap alla card più vicina dopo il drag.
+   ============================================================ */
+(function () {
+  const track = document.getElementById('pdpTrack');
+  if (!track) return;
+  const prev = document.querySelector('.pdp-prev');
+  const next = document.querySelector('.pdp-next');
+  const section = document.querySelector('.pdp-related');
+  if (!prev || !next) return;
+
+  function cardStep() {
+    const card = track.querySelector('.pdp-item');
+    if (!card) return 0;
+    const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+    return card.getBoundingClientRect().width + gap;
+  }
+  function scrollNext() { track.scrollBy({ left: cardStep() * 2, behavior: 'smooth' }); }
+  function scrollPrev() { track.scrollBy({ left: -cardStep() * 2, behavior: 'smooth' }); }
+  next.addEventListener('click', scrollNext);
+  prev.addEventListener('click', scrollPrev);
+
+  let down = false, moved = false, startX = 0, startLeft = 0;
+  track.addEventListener('pointerdown', (e) => {
+    if (e.pointerType !== 'mouse' || e.button !== 0) return;
+    down = true; moved = false; startX = e.clientX; startLeft = track.scrollLeft;
+  });
+  window.addEventListener('pointermove', (e) => {
+    if (!down) return;
+    const dx = e.clientX - startX;
+    if (!moved && Math.abs(dx) > 5) { moved = true; track.classList.add('dragging'); }
+    if (moved) track.scrollLeft = startLeft - dx;
+  });
+  function endDrag() {
+    if (!down) return;
+    down = false;
+    const wasMoved = moved;
+    track.classList.remove('dragging');
+    if (wasMoved) {
+      const step = cardStep();
+      if (!step) return;
+      const max = track.scrollWidth - track.clientWidth;
+      const target = Math.min(max, Math.max(0, Math.round(track.scrollLeft / step) * step));
+      track.scrollTo({ left: target, behavior: 'smooth' });
+    }
+  }
+  window.addEventListener('pointerup', endDrag);
+  window.addEventListener('pointercancel', endDrag);
+  track.addEventListener('click', (e) => { if (moved) { e.preventDefault(); moved = false; } }, true);
+
+  const EDGE_ZONE = 200;
+  if (section) {
+    section.addEventListener('mousemove', (e) => {
+      if (e.clientX < EDGE_ZONE) { prev.style.opacity = '1'; prev.style.visibility = 'visible'; }
+      else { prev.style.opacity = '0'; prev.style.visibility = 'hidden'; }
+      if (window.innerWidth - e.clientX < EDGE_ZONE) { next.style.opacity = '1'; next.style.visibility = 'visible'; }
+      else { next.style.opacity = '0'; next.style.visibility = 'hidden'; }
+    });
+    section.addEventListener('mouseleave', () => {
+      prev.style.opacity = '0'; prev.style.visibility = 'hidden';
+      next.style.opacity = '0'; next.style.visibility = 'hidden';
+    });
+  }
+})();
+
+/* ============================================================
    VIDEO SHOWCASE: dissolvenza all'ingresso
    ============================================================ */
 (function () {
