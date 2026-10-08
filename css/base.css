@@ -940,6 +940,19 @@ header.menu-open .topbar-message {
 }
 .cart-express { text-align: center; font-size: 0.78rem; color: #555; margin: 2px 0; }
 .cart-note { text-align: center; font-size: 0.72rem; color: #888; margin: 4px 0 0; }
+.cart-note-link {
+  display: block;
+  text-align: center;
+  font-family: var(--sans);
+  font-size: var(--fs-11);
+  letter-spacing: var(--tr-1);
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  margin: 8px 0 0;
+  transition: color var(--t-fast) var(--ease);
+}
+.cart-note-link:hover { color: var(--gold); }
 
 /* ============================================================
    LOGIN DRAWER

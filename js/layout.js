@@ -220,9 +220,10 @@
     <div class="cart-total"><span>Totale parziale</span><span id="cartTotal">€ 0,00</span></div>\
   </div>\
   <div class="cart-footer">\
-    <a href="carrello.html" class="cart-btn-primary">Vai al carrello</a>\
+    <a href="checkout.html" class="cart-btn-primary">Concludi ordine</a>\
     <p class="cart-express">oppure procedi con il pagamento veloce</p>\
     <a href="checkout.html" class="cart-btn-paypal"><span class="paypal-p">Pay</span><span class="paypal-pal">Pal</span></a>\
+    <a href="carrello.html" class="cart-note-link">Vai al carrello</a>\
     <p class="cart-note">L\'opzione regalo non è disponibile con Express Checkout</p>\
   </div>\
 </aside>'; }
