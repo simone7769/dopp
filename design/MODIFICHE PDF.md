@@ -73,6 +73,10 @@ Stato: da applicare al PDF attuale (versionato ottobre 2024)
 
 > **Gerarchia visiva**: h1 > h2 = corpo. La distinzione tra h2 e corpo non è dimensionale (entrambi 18 px) ma affidata a: serif maiuscolo, linea oro sotto, spaziatura sopra e sotto. L'hero h1 usa peso 500, l'h2 peso 400.
 
+**Modifica 5.3** — Nelle pagine legali (Privacy+Cookie, Termini, Spedizioni, Accessibilità), il corpo è a **16 px**, non 18 px. Motivazione: i testi legali sono lunghi e si consultano (non si leggono come un articolo). 16 px è lo standard del settore (Apple, Google, Bottega Veneta usano 14-15 px). Le pagine editoriali (Journal, Club) restano invece a 18 px.
+
+**Nota**: h1 (24 px) > h2 (18 px) > corpo legali (16 px). La gerarchia è visibile.
+
 ---
 
 ## PAG. 6 — MISURE
