@@ -26,7 +26,6 @@
     <div class="pdp-gallery">
       <img src="images/a.webp" alt="Abito uomo monopetto — vista frontale">
       <img src="images/b.webp" alt="Abito uomo monopetto — dettaglio tessuto">
-      <img src="images/c.webp" alt="Abito uomo monopetto — vista laterale" loading="lazy" decoding="async">
       <img src="images/d.webp" alt="Abito uomo monopetto — indossato" loading="lazy" decoding="async">
       <img src="images/e.webp" alt="Abito uomo monopetto — dettaglio bottoni" loading="lazy" decoding="async">
       <img src="images/f.webp" alt="Abito uomo monopetto — dettaglio finale" loading="lazy" decoding="async">
@@ -93,35 +92,39 @@
 
   <section class="pdp-related">
     <h2>Potrebbero piacerti anche</h2>
-    <div class="products-grid">
-      <a href="#" class="product-card">
-        <div class="img-wrap">
-          <img src="images/l.webp" alt="Overshirt in neppa con imbottitura">
-          <button class="wish" type="button" aria-label="Aggiungi ai preferiti"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg></button>
-        </div>
-        <div class="product-info"><div class="details"><h3>Overshirt in neppa con imbottitura</h3><span class="price">€ 79,99</span></div><button class="plus" type="button" aria-label="Aggiungi">+</button></div>
-      </a>
-      <a href="#" class="product-card">
-        <div class="img-wrap">
-          <img src="images/m.webp" alt="Giacca monopetto in velluto">
-          <button class="wish" type="button" aria-label="Aggiungi ai preferiti"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg></button>
-        </div>
-        <div class="product-info"><div class="details"><h3>Giacca monopetto in velluto</h3><span class="price">€ 129,99</span></div><button class="plus" type="button" aria-label="Aggiungi">+</button></div>
-      </a>
-      <a href="#" class="product-card">
-        <div class="img-wrap">
-          <img src="images/n.webp" alt="Giacca in lana e cashmere">
-          <button class="wish" type="button" aria-label="Aggiungi ai preferiti"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg></button>
-        </div>
-        <div class="product-info"><div class="details"><h3>Giacca in lana e cashmere</h3><span class="price">€ 119,99</span></div><button class="plus" type="button" aria-label="Aggiungi">+</button></div>
-      </a>
-      <a href="#" class="product-card">
-        <div class="img-wrap">
-          <img src="images/o.webp" alt="Giacca in pelle">
-          <button class="wish" type="button" aria-label="Aggiungi ai preferiti"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg></button>
-        </div>
-        <div class="product-info"><div class="details"><h3>Giacca in pelle</h3><span class="price">€ 59,99</span></div><button class="plus" type="button" aria-label="Aggiungi">+</button></div>
-      </a>
+    <div class="pdp-track-wrap">
+      <button class="pdp-arrow pdp-prev" type="button" aria-label="Precedente">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10 3 5 8l5 5"/>
+        </svg>
+      </button>
+      <button class="pdp-arrow pdp-next" type="button" aria-label="Successivo">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m6 3 5 5-5 5"/>
+        </svg>
+      </button>
+      <div class="pdp-track" id="pdpTrack">
+        <a href="#" class="pdp-item" draggable="false">
+          <div class="pdp-item-image"><img src="images/l.webp" alt="Overshirt in neppa con imbottitura" draggable="false"></div>
+          <h3>Overshirt in neppa con imbottitura</h3>
+          <p class="pdp-item-price">€ 79,99</p>
+        </a>
+        <a href="#" class="pdp-item" draggable="false">
+          <div class="pdp-item-image"><img src="images/m.webp" alt="Giacca monopetto in velluto" draggable="false"></div>
+          <h3>Giacca monopetto in velluto</h3>
+          <p class="pdp-item-price">€ 129,99</p>
+        </a>
+        <a href="#" class="pdp-item" draggable="false">
+          <div class="pdp-item-image"><img src="images/n.webp" alt="Giacca in lana e cashmere" draggable="false"></div>
+          <h3>Giacca in lana e cashmere</h3>
+          <p class="pdp-item-price">€ 119,99</p>
+        </a>
+        <a href="#" class="pdp-item" draggable="false">
+          <div class="pdp-item-image"><img src="images/o.webp" alt="Giacca in pelle" draggable="false"></div>
+          <h3>Giacca in pelle</h3>
+          <p class="pdp-item-price">€ 59,99</p>
+        </a>
+      </div>
     </div>
   </section>
 
