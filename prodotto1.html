@@ -91,23 +91,39 @@
 
   <section class="pdp-related">
     <h2>Potrebbero piacerti anche</h2>
-    <div class="products-grid">
-      <a href="#" class="product-card">
-        <div class="img-wrap"><img src="images/9.webp" alt="Giacca uomo monopetto tinta in capo"><button class="wish" type="button" aria-label="Aggiungi ai preferiti"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg></button></div>
-        <div class="product-info"><div class="details"><h3>Giacca uomo monopetto tinta in capo</h3><span class="price">€ 119,99</span></div><button class="plus" type="button" aria-label="Aggiungi">+</button></div>
-      </a>
-      <a href="#" class="product-card">
-        <div class="img-wrap"><img src="images/m2.webp" alt="Pantalone uomo classico in twill"><button class="wish" type="button" aria-label="Aggiungi ai preferiti"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg></button></div>
-        <div class="product-info"><div class="details"><h3>Pantalone uomo classico in twill</h3><span class="price">€ 59,99</span></div><button class="plus" type="button" aria-label="Aggiungi">+</button></div>
-      </a>
-      <a href="#" class="product-card">
-        <div class="img-wrap"><img src="images/n2.webp" alt="Jeans uomo 5 tasche regular"><button class="wish" type="button" aria-label="Aggiungi ai preferiti"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg></button></div>
-        <div class="product-info"><div class="details"><h3>Jeans uomo 5 tasche regular</h3><span class="price">€ 49,99</span></div><button class="plus" type="button" aria-label="Aggiungi">+</button></div>
-      </a>
-      <a href="#" class="product-card">
-        <div class="img-wrap"><img src="images/o2.webp" alt="Camicia uomo in tinto filo a righe"><button class="wish" type="button" aria-label="Aggiungi ai preferiti"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg></button></div>
-        <div class="product-info"><div class="details"><h3>Camicia uomo in tinto filo a righe</h3><span class="price">€ 34,99</span></div><button class="plus" type="button" aria-label="Aggiungi">+</button></div>
-      </a>
+    <div class="pdp-track-wrap">
+      <button class="pdp-arrow pdp-prev" type="button" aria-label="Precedente">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10 3 5 8l5 5"/>
+        </svg>
+      </button>
+      <button class="pdp-arrow pdp-next" type="button" aria-label="Successivo">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m6 3 5 5-5 5"/>
+        </svg>
+      </button>
+      <div class="pdp-track" id="pdpTrack">
+        <a href="#" class="pdp-item" draggable="false">
+          <div class="pdp-item-image"><img src="images/9.webp" alt="Giacca uomo monopetto tinta in capo" draggable="false"></div>
+          <h3>Giacca uomo monopetto tinta in capo</h3>
+          <p class="pdp-item-price">€ 119,99</p>
+        </a>
+        <a href="#" class="pdp-item" draggable="false">
+          <div class="pdp-item-image"><img src="images/m2.webp" alt="Pantalone uomo classico in twill" draggable="false"></div>
+          <h3>Pantalone uomo classico in twill</h3>
+          <p class="pdp-item-price">€ 59,99</p>
+        </a>
+        <a href="#" class="pdp-item" draggable="false">
+          <div class="pdp-item-image"><img src="images/n2.webp" alt="Jeans uomo 5 tasche regular" draggable="false"></div>
+          <h3>Jeans uomo 5 tasche regular</h3>
+          <p class="pdp-item-price">€ 49,99</p>
+        </a>
+        <a href="#" class="pdp-item" draggable="false">
+          <div class="pdp-item-image"><img src="images/o2.webp" alt="Camicia uomo in tinto filo a righe" draggable="false"></div>
+          <h3>Camicia uomo in tinto filo a righe</h3>
+          <p class="pdp-item-price">€ 34,99</p>
+        </a>
+      </div>
     </div>
   </section>
 
