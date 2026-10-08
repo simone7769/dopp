@@ -1,0 +1,124 @@
+/* ============================================================
+   CLUB.CSS — Doppelgänger Club (club.html)
+   Riusa looks.css per hero, article-text, sartoria-section,
+   sartoria-steps, sartoria-cta. Qui solo le parti specifiche.
+   ============================================================ */
+
+/* --- Griglia delle fasce --- */
+.club-tiers {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+.club-tier {
+  padding: 32px 24px;
+  border-right: 1px solid var(--line);
+  text-align: center;
+}
+.club-tier:last-child { border-right: none; }
+
+.club-tier-name {
+  display: block;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: var(--fs-22);
+  letter-spacing: var(--tr-4);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+/* Ogni fascia ha il suo tono, tutti desaturati e coerenti
+   con la palette oro/sabbia/notte del sito. */
+.club-tier:nth-child(1) .club-tier-name { color: #955F32; } /* Bronze  */
+.club-tier:nth-child(2) .club-tier-name { color: #A8A5A0; } /* Silver  */
+.club-tier:nth-child(3) .club-tier-name { color: #B8935A; } /* Gold    */
+.club-tier:nth-child(4) .club-tier-name { color: #6E6E6E; } /* Platinum */
+.club-tier-range {
+  display: block;
+  font-family: var(--sans);
+  font-size: var(--fs-11);
+  font-weight: 300;
+  letter-spacing: var(--tr-2);
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+.club-tier-benefit {
+  display: block;
+  font-family: var(--sans);
+  font-size: var(--fs-13);
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+@media (max-width: 900px) {
+  .club-tiers { grid-template-columns: repeat(2, 1fr); }
+  .club-tier:nth-child(2) { border-right: none; }
+  .club-tier:nth-child(1),
+  .club-tier:nth-child(2) { border-bottom: 1px solid var(--line); }
+  .club-tier { padding: 28px 18px; }
+}
+@media (max-width: 520px) {
+  .club-tiers { grid-template-columns: 1fr; }
+  .club-tier { border-right: none; border-bottom: 1px solid var(--line); }
+  .club-tier:last-child { border-bottom: none; }
+}
+
+/* --- FAQ (accordion) --- */
+.club-faq {
+  max-width: 900px;
+  margin: 0 auto 100px;
+  padding: 0 40px;
+}
+.club-faq .sartoria-title { margin-bottom: 40px; }
+
+.club-faq details {
+  border-bottom: 1px solid var(--line);
+}
+.club-faq summary {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 4px;
+  min-height: var(--touch-target, 44px);
+  font-family: var(--sans);
+  font-size: var(--fs-12);
+  font-weight: 500;
+  letter-spacing: var(--tr-05);
+  text-transform: uppercase;
+  color: var(--ink);
+  cursor: pointer;
+  user-select: none;
+}
+.club-faq summary::-webkit-details-marker { display: none; }
+.club-faq summary::after {
+  content: '+';
+  font-size: 22px;
+  font-weight: 300;
+  color: var(--muted);
+  margin-left: 20px;
+  flex-shrink: 0;
+}
+.club-faq details[open] summary::after { content: '–'; }
+
+.club-faq-body {
+  padding: 0 4px 24px;
+  max-width: 680px;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 15px;
+  letter-spacing: 0.01em;
+  line-height: 1.7;
+  color: var(--ink);
+}
+.club-faq-body p { margin: 0; }
+
+@media (max-width: 900px) {
+  .club-faq { padding: 0 24px; margin-bottom: 70px; }
+}
+@media (max-width: 640px) {
+  .club-faq { padding: 0 16px; margin-bottom: 60px; }
+  .club-faq summary { font-size: var(--fs-12); padding: 18px 4px; }
+}
