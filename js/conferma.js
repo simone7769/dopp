@@ -25,7 +25,7 @@
   if (ordine.consegna === 'boutique') {
     $('cfConsegnaLabel').textContent = 'Ritiro in boutique';
     $('cfConsegna').textContent = ordine.boutique || 'Doppelgänger Roma';
-    $('cfNext').textContent = 'Ti avviseremo via e-mail non appena l’ordine sarà pronto per il ritiro. Porta con te un documento d’identità.';
+    $('cfNext').textContent = 'Ti invieremo una e-mail non appena l’ordine sarà pronto per il ritiro. Porta con te un documento d’identità.';
   } else {
     var a = ordine.indirizzo || {};
     $('cfConsegnaLabel').textContent = 'Consegna a domicilio';
@@ -35,7 +35,7 @@
       esc((a.cap || '') + ' ' + (a.citta || '') + (a.provincia ? ' (' + a.provincia + ')' : '')).trim(),
       esc(a.paese)
     ].filter(Boolean).join('<br>');
-    $('cfNext').textContent = 'Riceverai una e-mail con il numero di tracciamento appena l’ordine sarà spedito.';
+    $('cfNext').textContent = 'Ti invieremo una e-mail con il numero di tracciamento appena l’ordine sarà affidato al corriere.';
   }
 
   $('cfItems').innerHTML = ordine.articoli.map(function (p) {
