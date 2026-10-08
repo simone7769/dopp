@@ -342,7 +342,7 @@ header.menu-open .topbar-message {
   background-color: var(--gold);
   color: #fff;
   font-family: var(--sans);
-  font-size: 9px;
+  font-size: var(--fs-10);
   font-weight: 500;
   line-height: 15px;
   text-align: center;
@@ -722,7 +722,7 @@ header.menu-open .topbar-message {
 .stores-header-title h3,
 .contact-header-title h3 {
   font-family: var(--sans);
-  font-size: 1rem;
+  font-size: var(--fs-14);
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -784,15 +784,15 @@ header.menu-open .topbar-message {
   gap: 16px;
   text-align: center;
 }
-.country-drawer-note { font-size: 0.92rem; line-height: 1.5; color: var(--ink); margin: 0; }
+.country-drawer-note { font-size: var(--fs-13); line-height: 1.5; color: var(--ink); margin: 0; }
 .country-field { display: flex; flex-direction: column; gap: 6px; text-align: left; }
-.country-field label { font-size: 0.9rem; color: var(--ink); }
+.country-field label { font-size: var(--fs-14); color: var(--ink); }
 .select-wrapper { position: relative; }
 .select-wrapper select {
   width: 100%;
   padding: 13px 44px 13px 16px;
   font-family: var(--sans);
-  font-size: 1rem;
+  font-size: var(--fs-14);
   color: var(--ink);
   background: #faf8f5;
   border: 1px solid #d8d3c8;
@@ -863,13 +863,13 @@ header.menu-open .topbar-message {
 .cart-item-image img { width: 100%; height: 100%; object-fit: contain; object-position: center top; display: block; }
 .cart-item-info h4 {
   font-family: var(--sans);
-  font-size: 0.9rem;
+  font-size: var(--fs-14);
   font-weight: 400;
   line-height: 1.35;
   margin: 0 0 8px;
 }
-.cart-item-attr { font-size: 0.78rem; color: #666; margin: 0 0 3px; }
-.cart-item-sku { font-size: 0.7rem; color: #999; margin: 4px 0 12px; }
+.cart-item-attr { font-size: var(--fs-12); color: #666; margin: 0 0 3px; }
+.cart-item-sku { font-size: var(--fs-11); color: #999; margin: 4px 0 12px; }
 .cart-item-bottom {
   display: flex;
   align-items: center;
@@ -895,8 +895,8 @@ header.menu-open .topbar-message {
   justify-content: center;
 }
 .qty-btn:hover { background: #f5f5f5; }
-.qty-value { min-width: 26px; text-align: center; font-size: 0.85rem; }
-.cart-item-price { font-size: 0.85rem; font-weight: 700; margin: 0; white-space: nowrap; }
+.qty-value { min-width: 26px; text-align: center; font-size: var(--fs-13); }
+.cart-item-price { font-size: var(--fs-13); font-weight: 700; margin: 0; white-space: nowrap; }
 .cart-item-remove {
   background: transparent;
   border: none;
@@ -924,7 +924,7 @@ header.menu-open .topbar-message {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 0.9rem;
+  font-size: var(--fs-14);
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -938,8 +938,8 @@ header.menu-open .topbar-message {
   background: #faf8f5;
   border-top: none;
 }
-.cart-express { text-align: center; font-size: 0.78rem; color: #555; margin: 2px 0; }
-.cart-note { text-align: center; font-size: 0.72rem; color: #888; margin: 4px 0 0; }
+.cart-express { text-align: center; font-size: var(--fs-12); color: #555; margin: 2px 0; }
+.cart-note { text-align: center; font-size: var(--fs-11); color: #888; margin: 4px 0 0; }
 .cart-note-link {
   display: block;
   text-align: center;
@@ -971,12 +971,12 @@ header.menu-open .topbar-message {
 .login-body::-webkit-scrollbar-thumb { background: #ddd; }
 .login-form { display: flex; flex-direction: column; gap: 22px; margin-bottom: 32px; }
 .login-field { display: flex; flex-direction: column; gap: 8px; }
-.login-field label { font-size: 0.9rem; color: var(--ink); }
+.login-field label { font-size: var(--fs-14); color: var(--ink); }
 .login-field input {
   width: 100%;
   padding: 14px 16px;
   font-family: var(--sans);
-  font-size: 1rem;
+  font-size: var(--fs-14);
   color: var(--ink);
   background: #faf8f5;
   border: 1px solid #d8d3c8;
@@ -1005,7 +1005,7 @@ header.menu-open .topbar-message {
 .toggle-password svg { width: 20px; height: 20px; }
 .login-forgot {
   align-self: flex-start;
-  font-size: 0.85rem;
+  font-size: var(--fs-13);
   color: var(--ink);
   text-decoration: underline;
   text-underline-offset: 3px;
@@ -1016,13 +1016,13 @@ header.menu-open .topbar-message {
 .login-register { display: flex; flex-direction: column; gap: 12px; }
 .login-register h4 {
   font-family: var(--sans);
-  font-size: 0.95rem;
+  font-size: var(--fs-14);
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   margin: 0;
 }
-.login-register p { font-size: 0.92rem; line-height: 1.55; color: var(--ink); margin: 0 0 6px; }
+.login-register p { font-size: var(--fs-13); line-height: 1.55; color: var(--ink); margin: 0 0 6px; }
 
 /* ============================================================
    WISHLIST DRAWER
@@ -1083,7 +1083,7 @@ header.menu-open .topbar-message {
 .wishlist-remove:hover { color: #c00; background: #fff; transform: scale(1.08); }
 .wishlist-card-info h4 {
   font-family: var(--sans);
-  font-size: 0.78rem;
+  font-size: var(--fs-12);
   font-weight: 400;
   line-height: 1.3;
   margin: 0 0 4px;
@@ -1091,7 +1091,7 @@ header.menu-open .topbar-message {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.wishlist-card-price { font-size: 0.76rem; font-weight: 700; color: var(--ink); margin: 0 0 6px; }
+.wishlist-card-price { font-size: var(--fs-12); font-weight: 700; color: var(--ink); margin: 0 0 6px; }
 .wishlist-add-cart {
   width: 100%;
   padding: 7px 8px;
@@ -1099,7 +1099,7 @@ header.menu-open .topbar-message {
   border: 1px solid var(--ink);
   color: var(--ink);
   font-family: var(--sans);
-  font-size: 0.62rem;
+  font-size: var(--fs-11);
   font-weight: 400;
   letter-spacing: var(--tr-1);
   text-transform: uppercase;
@@ -1126,7 +1126,7 @@ header.menu-open .topbar-message {
   letter-spacing: var(--tr-1);
   color: var(--ink);
 }
-.wishlist-empty p { font-size: 0.85rem; color: #777; max-width: 260px; }
+.wishlist-empty p { font-size: var(--fs-13); color: #777; max-width: 260px; }
 .wishlist-empty[hidden],
 .wishlist-body[hidden] { display: none; }
 
@@ -1151,12 +1151,12 @@ header.menu-open .topbar-message {
   outline: none;
   background: transparent;
   font-family: var(--sans);
-  font-size: 1rem;
+  font-size: var(--fs-14);
   color: var(--ink);
   padding: 14px 0;
 }
 .stores-search-field input::placeholder { color: #999; }
-.stores-count { font-size: 0.74rem; color: #888; margin: 10px 0 0; }
+.stores-count { font-size: var(--fs-12); color: #888; margin: 10px 0 0; }
 .stores-list {
   flex: 1 1 auto;
   min-height: 0;
@@ -1168,7 +1168,7 @@ header.menu-open .topbar-message {
 .stores-list::-webkit-scrollbar-thumb { background: #ddd; }
 .stores-country {
   font-family: var(--sans);
-  font-size: 0.72rem;
+  font-size: var(--fs-11);
   font-weight: 500;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -1180,17 +1180,17 @@ header.menu-open .topbar-message {
 .stores-item { padding: 20px 0; border-bottom: 1px solid var(--line); }
 .stores-item h5 {
   font-family: var(--sans);
-  font-size: 0.85rem;
+  font-size: var(--fs-13);
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   margin: 0 0 8px;
 }
-.stores-item p { font-size: 0.88rem; line-height: 1.5; color: #555; margin: 0; }
-.stores-item p.stores-hours { color: #888; font-size: 0.8rem; margin-top: 6px; }
+.stores-item p { font-size: var(--fs-14); line-height: 1.5; color: #555; margin: 0; }
+.stores-item p.stores-hours { color: #888; font-size: var(--fs-12); margin-top: 6px; }
 .stores-actions { display: flex; gap: 22px; margin-top: 14px; }
 .stores-actions a {
-  font-size: 0.7rem;
+  font-size: var(--fs-11);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--ink);
@@ -1199,7 +1199,7 @@ header.menu-open .topbar-message {
   transition: color var(--t-fast) var(--ease);
 }
 .stores-actions a:hover { color: var(--gold); }
-.stores-empty { font-size: 0.92rem; line-height: 1.55; color: #555; padding: 28px 0; margin: 0; }
+.stores-empty { font-size: var(--fs-13); line-height: 1.55; color: #555; padding: 28px 0; margin: 0; }
 .stores-footer {
   flex-shrink: 0;
   padding: 16px 26px max(26px, env(safe-area-inset-bottom));
@@ -1227,7 +1227,7 @@ header.menu-open .topbar-message {
 .contact-channel h4,
 .contact-success h4 {
   font-family: var(--sans);
-  font-size: 0.95rem;
+  font-size: var(--fs-14);
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -1235,19 +1235,19 @@ header.menu-open .topbar-message {
 }
 .contact-intro p,
 .contact-channel p,
-.contact-success p { font-size: 0.92rem; line-height: 1.55; color: var(--ink); margin: 0; }
+.contact-success p { font-size: var(--fs-13); line-height: 1.55; color: var(--ink); margin: 0; }
 .contact-channel p { margin-bottom: 18px; }
 .contact-form { display: flex; flex-direction: column; gap: 18px; }
-.contact-required { font-size: 0.74rem; color: #888; margin: 0; }
+.contact-required { font-size: var(--fs-12); color: #888; margin: 0; }
 .contact-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .contact-field { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
-.contact-field label { font-size: 0.9rem; color: var(--ink); }
+.contact-field label { font-size: var(--fs-14); color: var(--ink); }
 .contact-field input,
 .contact-field textarea {
   width: 100%;
   padding: 14px 16px;
   font-family: var(--sans);
-  font-size: 1rem;
+  font-size: var(--fs-14);
   color: var(--ink);
   background: #faf8f5;
   border: 1px solid #d8d3c8;
@@ -1259,7 +1259,7 @@ header.menu-open .topbar-message {
 .contact-field textarea { min-height: 120px; resize: vertical; line-height: 1.5; }
 .contact-field input:focus,
 .contact-field textarea:focus { border-color: var(--ink); }
-.contact-privacy { font-size: 0.74rem; line-height: 1.5; color: #888; margin: 0; }
+.contact-privacy { font-size: var(--fs-12); line-height: 1.5; color: #888; margin: 0; }
 .contact-privacy a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
 .contact-success[hidden],
 .contact-form[hidden] { display: none; }
@@ -1300,7 +1300,7 @@ button.contact-btn { display: block; }
   border-radius: 0;
   cursor: pointer;
   font-family: var(--sans);
-  font-size: 1.1rem;
+  font-size: 18px;
   font-weight: 500;
   transition: border-color var(--t-base) var(--ease), background-color var(--t-base) var(--ease);
 }
@@ -1587,9 +1587,9 @@ footer {
   .stores-footer { padding: 14px 20px max(22px, env(safe-area-inset-bottom)); }
   .wishlist-header { padding: 16px 20px; }
   .wishlist-body { padding: 16px 18px; gap: 14px 12px; }
-  .wishlist-card-info h4 { font-size: 0.74rem; }
-  .wishlist-card-price { font-size: 0.72rem; margin-bottom: 5px; }
-  .wishlist-add-cart { font-size: 0.58rem; padding: 6px 6px; }
+  .wishlist-card-info h4 { font-size: var(--fs-12); }
+  .wishlist-card-price { font-size: var(--fs-11); margin-bottom: 5px; }
+  .wishlist-add-cart { font-size: var(--fs-10); padding: 6px 6px; }
   .contact-body { padding: 24px 20px max(32px, env(safe-area-inset-bottom)); gap: 24px; }
 }
 
@@ -1784,7 +1784,7 @@ header.menu-open .nav-outlet { color: var(--gold) !important; }
 .search-header-title svg { width: 20px; height: 20px; }
 .search-header-title h3 {
   font-family: var(--sans);
-  font-size: 1rem;
+  font-size: var(--fs-14);
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -1908,7 +1908,7 @@ header.menu-open .nav-outlet { color: var(--gold) !important; }
 
 .search-result-card h6 {
   font-family: var(--sans);
-  font-size: 0.78rem;
+  font-size: var(--fs-12);
   font-weight: 400;
   line-height: 1.3;
   margin: 0 0 4px;
@@ -1920,7 +1920,7 @@ header.menu-open .nav-outlet { color: var(--gold) !important; }
 }
 .search-result-card p {
   font-family: var(--sans);
-  font-size: 0.76rem;
+  font-size: var(--fs-12);
   font-weight: 400;
   color: var(--ink);
   margin: 0;
