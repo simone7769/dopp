@@ -14,6 +14,15 @@
    ============================================================ */
 window.ARTICOLI_JOURNAL = [
   {
+    id: 'club',
+    href: 'club.html',
+    img: 'images/clbj.webp',
+    alt: 'Doppelg\u00e4nger Club',
+    title: 'Doppelg\u00e4nger Club',
+    desc: 'Il programma fedelt\u00e0: punti su ogni acquisto, sconti crescenti fino al 20% e vantaggi esclusivi.',
+    category: 'magazine'
+  },
+  {
     id: 'aw26',
     href: 'looks.html',
     img: 'images/l9b.webp',
