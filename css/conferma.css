@@ -147,3 +147,12 @@
 @media (max-width: 1000px) {
   .cf-page .cf-next { margin-bottom: 16px; }
 }
+
+/* ============================================================
+   CONFERMA — MOBILE/TABLET: azzera il padding inferiore di
+   .co-main (i 60px di checkout.css servivano a staccare la
+   nota demo, che ora è in .co-cta).
+   ============================================================ */
+@media (max-width: 1000px) {
+  .cf-page .co-main { padding-bottom: 0; }
+}
