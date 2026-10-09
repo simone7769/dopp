@@ -522,6 +522,7 @@
 /* ============================================================
    SARTORIA — occhiello di sezione
    ============================================================ */
+.article-text .sartoria-eyebrow,
 .sartoria-eyebrow {
   font-family: var(--sans);
   font-weight: 500;
