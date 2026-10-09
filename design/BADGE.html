@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Badge prodotto — Doppelgänger Sito</title>
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap');
   :root {
     --paper: #FCFCFB;
     --crema: #FAF8F5;
@@ -17,7 +18,6 @@
     --serif: 'Cormorant Garamond', Georgia, serif;
     --sans: 'Jost', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
-  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Jost:wght@300;400;500;600&display=swap');
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
     font-family: var(--sans);
@@ -396,26 +396,26 @@
     <tr><th>Tipo</th><th>Sfondo</th><th>Testo</th><th>Quando si usa</th></tr>
     <tr>
       <td><strong>Bestseller</strong></td>
-      <td>Inchiostro 72% (vetro)</td>
+      <td>Oro 92% (vetro)</td>
       <td>Bianco, maiuscolo</td>
       <td>Prodotti più venduti nella categoria, in evidenza stabile</td>
     </tr>
     <tr>
       <td><strong>New in</strong></td>
-      <td>Carta 72% (vetro)</td>
-      <td>Oro #B8935A</td>
+      <td>Inchiostro 85% (vetro)</td>
+      <td>Bianco, maiuscolo</td>
       <td>Nuovi arrivi della stagione, primi 30-60 giorni</td>
     </tr>
     <tr>
       <td><strong>Saldi</strong></td>
-      <td>Rosso 72% (vetro)</td>
+      <td>Rosso 88% (vetro)</td>
       <td>Bianco, maiuscolo</td>
-      <td>Prodotti in promozione con percentuale (-30%, -50%)</td>
+      <td>Prodotti in promozione; la percentuale (-30%, -50%) va sul prezzo, non nel badge</td>
     </tr>
     <tr>
       <td><strong>Outlet</strong></td>
-      <td>Inchiostro 72% (vetro)</td>
-      <td>Oro #B8935A</td>
+      <td>Rosso scuro 88% (vetro)</td>
+      <td>Bianco, maiuscolo</td>
       <td>Solo nelle pagine Outlet</td>
     </tr>
   </table>
@@ -462,7 +462,7 @@
   <h2>3. Regole d'uso</h2>
 
   <ul class="rules">
-    <li class="do"><strong>Una card, un badge.</strong> Mai due sovrapposti. Se un prodotto è sia "New in" sia "Bestseller", scegli quello con priorità più alta (Bestseller &gt; New in &gt; Ultimi pezzi).</li>
+    <li class="do"><strong>Una card, un badge.</strong> Mai due sovrapposti. Se un prodotto è sia "New in" sia "Bestseller", scegli quello con priorità più alta (Outlet &gt; Saldi &gt; Bestseller &gt; New in &gt; Ultimi pezzi &gt; Esclusiva).</li>
     <li class="do"><strong>Pochi badge per pagina.</strong> Su una griglia di 15 prodotti, massimo 3-4 con badge. Se ne metti 10, l'effetto è "mercato", non lusso.</li>
     <li class="do"><strong>Posizione fissa:</strong> in alto a sinistra, attaccato al bordo (top: 0, left: 0). Il cuore dei preferiti resta in alto a destra.</li>
     <li class="do"><strong>Testo breve.</strong> "New in", "Saldi", "Outlet". Mai frasi lunghe. Massimo 14 caratteri.</li>
@@ -531,9 +531,10 @@
   .product-card .badge {
     top: 0;
     left: 0;
-    font-size: 8px;
+    font-size: 10px;
     letter-spacing: 1.5px;
-    padding: 5px 8px;
+    padding: 0 10px;
+    height: 22px;
   }
 }</code></pre>
 
@@ -548,12 +549,12 @@
   <p>Il badge è un semplice <code>&lt;span&gt;</code> dentro <code>.img-wrap</code>. La posizione è gestita dal CSS, l'agenzia non deve fare altro che aggiungere il markup.</p>
 
   <h3>Varianti disponibili</h3>
-  <pre><code>&lt;span class="badge bestseller"&gt;Bestseller&lt;/span&gt;      → oro su bianco
-&lt;span class="badge new-in"&gt;New in&lt;/span&gt;               → inchiostro su bianco
-&lt;span class="badge sale"&gt;Saldi&lt;/span&gt;                   → rosso su bianco
-&lt;span class="badge outlet"&gt;Outlet&lt;/span&gt;          → rosso scuro su bianco
-&lt;span class="badge ultimi"&gt;Ultimi pezzi&lt;/span&gt;          → soft-ink su bianco  (opzionale)
-&lt;span class="badge esclusiva"&gt;Esclusiva&lt;/span&gt;           → oro pieno  (opzionale)</code></pre>
+  <pre><code>&lt;span class="badge bestseller"&gt;Bestseller&lt;/span&gt;      → sfondo oro, testo bianco
+&lt;span class="badge new-in"&gt;New in&lt;/span&gt;               → sfondo inchiostro, testo bianco
+&lt;span class="badge sale"&gt;Saldi&lt;/span&gt;                   → sfondo rosso, testo bianco
+&lt;span class="badge outlet"&gt;Outlet&lt;/span&gt;          → sfondo rosso scuro, testo bianco
+&lt;span class="badge ultimi"&gt;Ultimi pezzi&lt;/span&gt;          → sfondo inchiostro soft, testo bianco  (opzionale)
+&lt;span class="badge esclusiva"&gt;Esclusiva&lt;/span&gt;           → sfondo oro scuro, testo bianco  (opzionale)</code></pre>
 
   <h2>5. Note per l'agenzia</h2>
 
