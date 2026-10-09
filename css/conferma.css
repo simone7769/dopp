@@ -92,3 +92,58 @@
 @media (max-width: 520px) {
   .cf-info > div { grid-template-columns: 1fr; gap: 4px; }
 }
+
+/* ============================================================
+   CONFERMA — layout a tre aree (msg / side / cta)
+   Desktop: msg + cta a sinistra, side a destra.
+   Mobile:  msg → side → cta (riepilogo prima della CTA).
+   ============================================================ */
+.cf-page .co-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "msg side"
+    "cta side";
+}
+.cf-page .co-main { grid-area: msg; }
+.cf-page .co-side { grid-area: side; }
+.cf-page .co-cta  { grid-area: cta; }
+
+/* Desktop: la CTA ha lo stesso padding/larghezza del .co-main */
+.cf-page .co-cta {
+  justify-self: end;
+  width: 100%;
+  max-width: 616px;
+  padding: 0 56px 70px 20px;
+}
+
+@media (max-width: 1000px) {
+  .cf-page .co-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "msg"
+      "side"
+      "cta";
+  }
+  .cf-page .co-cta {
+    justify-self: stretch;
+    max-width: none;
+    padding: 24px 20px 60px;
+  }
+  /* annulla l'order:0 ereditato da checkout.css: con grid-areas
+     è già posizionato esplicitamente */
+  .cf-page .co-side { order: initial; }
+}
+
+@media (max-width: 520px) {
+  .cf-page .co-cta { padding: 20px 20px 50px; }
+}
+
+/* ============================================================
+   CONFERMA — MOBILE/TABLET: riduce lo spazio sotto il
+   messaggio "Ti invieremo una e-mail..." perché la CTA
+   non è più subito sotto (ora è in .co-cta in fondo).
+   ============================================================ */
+@media (max-width: 1000px) {
+  .cf-page .cf-next { margin-bottom: 16px; }
+}
