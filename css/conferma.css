@@ -226,3 +226,9 @@
     padding: 0 24px 0;
   }
 }
+
+/* CONFERMA — MOBILE: riepilogo senza beige */
+@media (max-width: 640px) {
+  .cf-page .co-side { background: transparent; border-top: none; border-bottom: none; }
+  .cf-page .co-side-in { padding-left: 24px; padding-right: 24px; }
+}
