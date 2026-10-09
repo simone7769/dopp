@@ -4,7 +4,7 @@ Una demo navigabile del nuovo sito Doppelgänger. Il design, i contenuti e i com
 
 ## Sito online
 
-**https://doppelgaenger-proposal.vercel.app**
+**https://doppelga-nger-proposal.vercel.app/**
 
 Apri il link dal telefono o dal computer. È la versione più aggiornata, sempre disponibile.
 
