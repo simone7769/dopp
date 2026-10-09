@@ -445,8 +445,8 @@
       <li><a href="#">Gift Card</a></li><li><a href="privacy-cookie.html">Cookie e Privacy Policy</a></li>\
       <li><a href="accessibilita.html">Dichiarazione accessibilità</a></li><li><a href="termini.html">Termini e condizioni di vendita</a></li></ul></div>\
     <div class="footer-col"><h4><button type="button" class="footer-toggle" aria-expanded="false">Servizio clienti<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></h4><ul>\
-      <li><a href="#" data-open-contact>Contattaci</a></li><li><a href="#">Resi e Rimborsi</a></li>\
-      <li><a href="spedizioni.html">Ordini e Spedizioni</a></li><li><a href="#">Metodi di Pagamento</a></li></ul></div>\
+      <li><a href="#" data-open-contact>Contattaci</a></li><li><a href="#">Traccia il tuo ordine</a></li>\
+      <li><a href="spedizioni.html">Spedizioni e Resi</a></li><li><a href="#">Metodi di Pagamento</a></li></ul></div>\
     <div class="footer-col"><h4><button type="button" class="footer-toggle" aria-expanded="false">Seguici<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></h4><ul>\
       <li><a href="https://www.instagram.com/doppelgangerofficial/" target="_blank" rel="noopener">Instagram</a></li>\
       <li><a href="https://www.facebook.com/doppelganger.abbigliamento/" target="_blank" rel="noopener">Facebook</a></li>\
