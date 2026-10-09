@@ -343,7 +343,7 @@ body.pdp-lightbox-open { overflow: hidden; }
 .pdp-related h2 {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: var(--fs-26);
+  font-size: var(--fs-related);
   text-align: center;
   margin-bottom: 40px;
 }
