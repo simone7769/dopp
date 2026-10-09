@@ -81,6 +81,7 @@
   --fs-pdp-title:  clamp(27px, 2vw, 30px);
   --fs-pdp-desc:   14px;
   --fs-pdp-price:  17px;
+  --fs-related:    26px;                     /* serif, "Potrebbero piacerti" */
 
   /* Titoli fluidi */
   --fs-duo: clamp(18px, 1.8vw, 22px);
