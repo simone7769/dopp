@@ -1,91 +1,81 @@
-# Doppelgänger — Proposta di redesign (demo non commerciale)
+# Doppelgänger — Demo sito
 
-## Link utili
+Una demo navigabile del nuovo sito Doppelgänger. Il design, i contenuti e i comportamenti sono pronti per essere mostrati e passati all'agenzia che svilupperà il sito vero.
 
-- Sito online: https://doppelga-nger-proposal.vercel.app
-- Repository GitHub: https://github.com/simone7769/dopp
+## Sito online
 
-## Contenuto
+**https://doppelgaenger-proposal.vercel.app**
 
-- `index.html` — Home
-- `ai-2026.html`, `essential.html`, `cerimonia.html` — Collezioni
-- `journal.html`, `looks.html`, `journal-*.html` — Journal e articoli
-- `prodotto*.html` — Schede prodotto
-- `css/` — Fogli di stile
-- `js/` — Script (layout, nav, filtri, dati)
-- `images/` — Immagini, video, loghi
+Apri il link dal telefono o dal computer. È la versione più aggiornata, sempre disponibile.
 
-## Come modificare e pubblicare
+## Cosa vedere
 
-1. Modifica i file sul tuo Mac
-2. Da terminale, nella cartella del progetto:
+Un giro di 5 minuti:
 
-   ```bash
-   cd ~/Desktop/doppelganger-sito
-   git status                          # controlla cosa è cambiato
-   git add -A
-   git reset HEAD *.pdf                # esclude eventuali PDF grandi
-   git commit -m "descrizione modifica"
-   git push origin main
-   ```
+1. **Home** — hero, collezioni, Must Have, Journal
+2. **Collezioni** — AI 2026, Cerimonia, Essential
+3. **Scheda prodotto** — scegli una taglia, aggiungi al carrello
+4. **Carrello** — apri il drawer (icona in alto a destra)
+5. **Checkout** — compila i campi, arriva alla conferma
+6. **Doppelgänger Club** — fasce, benefici, FAQ
+7. **Area personale** — login (icona profilo), dashboard con ordini, indirizzi, dati, preferiti
+8. **Journal** — articoli editoriali
 
-3. **Vercel aggiorna automaticamente** il sito online in ~30 secondi — **ma solo se il badge "Production" è blu pieno sulla dashboard Vercel**.
+Sul telefono, l'esperienza è pensata per il pollice: menu a tutto schermo, card su due colonne, drawer a tutta larghezza.
 
-### ⚠️ Se hai fatto un rollback su Vercel
+## Cosa c'è nella demo
 
-Dopo un `Instant Rollback` o un `Promote` su un vecchio deploy, **Vercel smette di auto-promuovere** i nuovi commit. In quel caso:
+**Pagine principali** (21 pagine totali):
+- Home
+- Collezioni: AI 2026, Cerimonia, Essential
+- 3 schede prodotto complete
+- Journal (archivio + 5 articoli)
+- Carrello: drawer + pagina
+- Checkout in una pagina
+- Conferma ordine
+- Doppelgänger Club
+- Account personale + registrazione
+- Pagine legali: Privacy e Cookie, Termini, Spedizioni e Resi, Accessibilità
 
-1. Vai su [vercel.com/dashboard](https://vercel.com/dashboard) → progetto `doppelga-nger-proposal`
-2. Tab **Deployments**
-3. Trova l'ultimo deploy con il messaggio del tuo commit
-4. Clicca `...` → **Promote** (badge Production diventa blu pieno)
+**Funzionalità:**
+- Carrello che mantiene i prodotti durante la visita
+- Wishlist (preferiti) con drawer
+- Ricerca prodotti mentre si scrive
+- Filtri per categoria, prezzo, taglia, colore
+- Store locator con 10 boutique di esempio
+- Design system completo (colori, tipografia, spaziature)
+- Layout responsive: desktop, tablet, mobile
 
-**Regola d'oro:** dopo ogni push, **controlla il badge "Production"** in Vercel. Se è grigio (outline), il sito online è fermo a un deploy vecchio.
+## Cosa non è incluso
 
-### 💡 Se devi annullare una modifica
+La demo è un **prototipo statico**: mostra il design e i comportamenti, ma **non è ancora un sito funzionante**. Sono a carico dell'agenzia che costruirà il sito vero:
 
-- **Meglio** `git revert <commit>` + push (Vercel auto-aggiorna)
-- **Evita** `Instant Rollback` / `Promote` su un deploy vecchio (blocca l'auto-deploy)
+- Catalogo prodotti reale e ricerca collegata a un database
+- Checkout e pagamenti reali (carte, PayPal, Klarna)
+- Area personale con login funzionante e ordini reali
+- Doppelgänger Club dinamico, collegato all'account
+- Store locator con mappa vera
+- Newsletter, cookie banner, SEO
+- Sistema di gestione per il Journal (CMS)
+
+## Documenti di riferimento
+
+Nella cartella `design/`:
+
+- **Doppelgänger — Proposta nuovo sito.pdf** — la direzione del progetto
+- **Doppelganger_Specifiche_per_agenzia.pdf** — le specifiche tecniche per l'agenzia
+- **NOVITA-SITO.html** — riepilogo delle novità
+- **CHANGELOG.html** — elenco dei passaggi di sviluppo
+- **DIFF-FILES.html** — file modificati
+- **BADGE.html** — regole per le etichette prodotto
+- **token.json** — design token in formato standard
 
 ## Autore
 
-SG — Concept, design e sviluppo
+**Simone Giordano**
+- E-mail: simonegiordano77@gmail.com
+- Telefono: 347 7492922
 
-## Cosa è incluso nella demo
+## Nota
 
-- 3 pagine collezione (AI 2026, Essential, Cerimonia)
-- 3 pagine prodotto dettagliate (prodotto, prodotto1, prodotto2)
-- Carrello funzionante (aggiungi da PDP e wishlist, +/−, rimozione)
-- Wishlist dinamica con drawer
-- Ricerca prodotti, drawer filtri, store locator
-- Layout responsive (desktop, tablet, mobile)
-- Journal con articoli
-- Header mobile ristrutturato (burger + search a sinistra, cuore + carrello a destra)
-- Footer accordion su mobile (4 sezioni apribili)
-- Search drawer da sinistra su mobile
-- Griglia prodotti selezionabile 2/3 colonne su mobile
-
-## Cosa NON è incluso (da sviluppare)
-
-- Backend / CMS per gestire prodotti e contenuti
-- Checkout reale e integrazione pagamenti
-- Login utente e area personale
-- Gestione ordini e magazzino
-- Multi-lingua / multi-valuta
-
-## Ultime modifiche (ottobre 2026)
-
-- Header mobile: icone tornano a 36px (44px rendevano l'header più alto)
-- Header mobile ristrutturato: burger + search a sinistra, cuore + carrello a destra
-- Menu mobile: "Negozi" al posto di "Preferiti"
-- Footer accordion su mobile (4 sezioni apribili)
-- Search drawer da sinistra su mobile (come Country/Stores/Contact)
-- Hero padding ridotto: 60→45 desktop, 40→30 tablet, 28→21 mobile
-- Grid 2/3 colonne selezionabile su mobile (≤900px)
-- Fix CSS duplicato `@media 640px` in `collezione.css`
-- Fix touch target WCAG: pulsante +/− carrello a 44px
-
-## Note legali
-
-Doppelgänger è un marchio dei rispettivi titolari.
-Questo è un progetto dimostrativo, non commerciale.
+Doppelgänger è un marchio dei rispettivi titolari. Questo è un progetto dimostrativo, non commerciale.
