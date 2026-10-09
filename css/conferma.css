@@ -232,3 +232,16 @@
   .cf-page .co-side { background: transparent; border-top: none; border-bottom: none; }
   .cf-page .co-side-in { padding-left: 24px; padding-right: 24px; }
 }
+
+/* Tablet: allinea padding laterale di head/info a 20px (come side e cta) */
+@media (max-width: 1000px) and (min-width: 641px) {
+  .cf-page .co-head { padding-left: 20px; padding-right: 20px; }
+  .cf-page .co-info-block { padding-left: 20px; padding-right: 20px; }
+}
+
+/* Mobile: allinea head/info/side a 20px, come originale */
+@media (max-width: 640px) {
+  .cf-page .co-head { padding-left: 20px; padding-right: 20px; }
+  .cf-page .co-info-block { padding-left: 20px; padding-right: 20px; }
+  .cf-page .co-side-in { padding-left: 20px; padding-right: 20px; }
+}
