@@ -180,3 +180,20 @@
 @media (max-width: 520px) {
   .co-tiles, .co-row, .co-row-3 { grid-template-columns: 1fr; }
 }
+
+/* ============================================================
+   UTILITY — Visibile solo agli screen reader
+   Usato per l'h1 di pagina del checkout, che non deve essere
+   visibile ma deve esistere per l'accessibilità.
+   ============================================================ */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
