@@ -551,3 +551,8 @@
     padding-right: 0;
   }
 }
+/* Chi Siamo — su mobile testo e didascalia a sinistra (come desktop) */
+@media (max-width: 900px) {
+  .article-split-text p { text-align: left; }
+  .article-split-media figcaption { text-align: left; }
+}
