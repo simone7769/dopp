@@ -438,7 +438,7 @@
     </div>\
     <div class="footer-col"><h4><button type="button" class="footer-toggle" aria-expanded="false">Corporate<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></h4><ul>\
       <li><a href="club.html">Doppelgänger Club</a></li><li><a href="journal-chi-siamo.html">Chi Siamo</a></li>\
-      <li><a href="journal-esperienza-boutique.html">Shop Experience</a></li><li><a href="#">Lavora con noi</a></li>\
+      <li><a href="journal-esperienza-boutique.html">Esperienza in Boutique</a></li><li><a href="#">Lavora con noi</a></li>\
       <li><a href="#">Franchising</a></li></ul></div>\
     <div class="footer-col"><h4><button type="button" class="footer-toggle" aria-expanded="false">Informazioni utili<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></h4><ul>\
       <li><a href="#" data-open-stores>Store Locator</a></li><li><a href="#">Guida alle Taglie</a></li>\
