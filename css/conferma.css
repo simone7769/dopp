@@ -156,3 +156,73 @@
 @media (max-width: 1000px) {
   .cf-page .co-main { padding-bottom: 0; }
 }
+
+/* ============================================================
+   CONFERMA — layout con 4 aree: head / info / side / cta
+   (sostituisce il vecchio msg/side/cta basato su .co-main)
+   Desktop: head+info+cta a sinistra, side a destra.
+   Tablet:  head → info → side → cta  (come prima)
+   Mobile:  head → side → info → cta  (riepilogo in cima)
+   ============================================================ */
+
+/* --- DESKTOP (≥ 1001px) --- */
+@media (min-width: 1001px) {
+  .cf-page .co-grid {
+    grid-template-areas:
+      "head side"
+      "info side"
+      "cta  side";
+  }
+  .cf-page .co-head {
+    grid-area: head;
+    justify-self: end;
+    width: 100%;
+    max-width: 616px;
+    padding: 40px 56px 0 20px;
+  }
+  .cf-page .co-info-block {
+    grid-area: info;
+    justify-self: end;
+    width: 100%;
+    max-width: 616px;
+    padding: 0 56px 0 20px;
+  }
+}
+
+/* --- TABLET (641–1000px) --- */
+@media (max-width: 1000px) and (min-width: 641px) {
+  .cf-page .co-grid {
+    grid-template-areas:
+      "head"
+      "info"
+      "side"
+      "cta";
+  }
+  .cf-page .co-head {
+    grid-area: head;
+    padding: 30px 24px 0;
+  }
+  .cf-page .co-info-block {
+    grid-area: info;
+    padding: 0 24px 0;
+  }
+}
+
+/* --- MOBILE (≤ 640px) — riepilogo in cima --- */
+@media (max-width: 640px) {
+  .cf-page .co-grid {
+    grid-template-areas:
+      "head"
+      "side"
+      "info"
+      "cta";
+  }
+  .cf-page .co-head {
+    grid-area: head;
+    padding: 24px 24px 0;
+  }
+  .cf-page .co-info-block {
+    grid-area: info;
+    padding: 0 24px 0;
+  }
+}
