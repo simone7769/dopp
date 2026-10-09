@@ -103,6 +103,8 @@
   font-weight: 500;
   letter-spacing: var(--tr-1);
   color: var(--ink);
+  display: inline;
+  margin: 0;
 }
 .order-meta {
   font-family: var(--sans);
