@@ -238,10 +238,10 @@
   </div>\
   <div class="login-body">\
     <form class="login-form" onsubmit="event.preventDefault();">\
-      <div class="login-field"><label for="loginEmail">Inserisci e-mail*</label><input type="email" id="loginEmail" required></div>\
+      <div class="login-field"><label for="loginEmail">Inserisci e-mail*</label><input type="email" id="loginEmail" autocomplete="email" required></div>\
       <div class="login-field"><label for="loginPassword">Inserisci la tua password*</label>\
         <div class="password-wrapper">\
-          <input type="password" id="loginPassword" required>\
+          <input type="password" id="loginPassword" autocomplete="current-password" required>\
           <button type="button" class="toggle-password" id="togglePassword" aria-label="Mostra password">\
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>\
           </button>\
@@ -431,7 +431,7 @@
       <h3>Iscriviti alla nostra newsletter</h3>\
       <p>Ricevi la newsletter e scopri il mondo Doppelgänger, le collezioni e tutti gli ultimi aggiornamenti.</p>\
       <form class="footer-form" onsubmit="event.preventDefault(); alert(\'Iscrizione inviata (demo)\');">\
-        <input type="email" placeholder="Il tuo indirizzo email" required>\
+        <input type="email" id="footerEmail" name="email" autocomplete="email" placeholder="Il tuo indirizzo email" required>\
         <button type="submit" aria-label="Iscriviti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>\
       </form>\
       <p class="footer-privacy">Prendo atto che il mio indirizzo email verrà trattato da Doppelgänger secondo quanto previsto dall\'<a href="privacy-cookie.html">Informativa Privacy</a>.</p>\
