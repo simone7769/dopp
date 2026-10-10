@@ -645,7 +645,11 @@ header.scrolled .topbar {
   /* Mobile: niente boiserie. Cerimonia ed Essential diventano due card
      a tutta larghezza (a filo schermo, come il Duo),
      una sotto l'altra, con la proporzione 4/5 (come Journal e Looks). */
-  .collection { padding: 44px 0 0; }
+  .collection { padding: 60px 0 0; }
+
+  /* Info bar mobile: spaziature riviste per fascia più compatta */
+  .info-bar h2 { margin-bottom: 14px; }
+  .info-bar .btn { margin-top: 32px; }
   .collection-frame {
     aspect-ratio: auto;
     background: none;
