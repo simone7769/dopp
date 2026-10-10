@@ -150,7 +150,7 @@ html { scroll-snap-type: y proximity; }
   object-fit: cover;
   opacity: 0;
   transform: scale(1.03);
-  transition: opacity var(--t-slow) var(--ease), transform var(--t-slow) var(--ease);
+  transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
 }
 .video-showcase.in-view .video-showcase-media {
   opacity: 1;
@@ -164,7 +164,7 @@ html { scroll-snap-type: y proximity; }
   z-index: 5;
   opacity: 0;
   pointer-events: none;
-  transition: opacity var(--t-slow) var(--ease), background-color var(--t-base) var(--ease), color var(--t-base) var(--ease);
+  transition: opacity 0.5s var(--ease), background-color var(--t-base) var(--ease), color var(--t-base) var(--ease);
 }
 .video-showcase.in-view .video-showcase-btn {
   opacity: 1;
@@ -190,7 +190,7 @@ html { scroll-snap-type: y proximity; }
   background: url("../images/boiserie-bg1.jpg") center / cover no-repeat;
   opacity: 0;
   transform: scale(1.03);
-  transition: opacity var(--t-slow) var(--ease), transform var(--t-slow) var(--ease);
+  transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
 }
 .collection.in-view .collection-frame {
   opacity: 1;
@@ -419,7 +419,7 @@ html { scroll-snap-type: y proximity; }
   object-position: center;
   opacity: 0;
   transform: scale(1.03);
-  transition: opacity var(--t-slow) var(--ease), transform var(--t-slow) var(--ease);
+  transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
 }
 .duo.in-view .duo-item img {
   opacity: 1;
