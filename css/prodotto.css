@@ -375,14 +375,19 @@ body.pdp-lightbox-open { overflow: hidden; }
 .pdp-track.dragging { scroll-behavior: auto; scroll-snap-type: none; cursor: grabbing; }
 
 .pdp-item {
+  position: relative; /* ancora per il cuore preferiti (.wish) */
   scroll-snap-align: start;
   flex: 0 0 calc((100% - var(--pdp-gaps) * var(--pdp-gap)) / var(--pdp-visible));
   text-decoration: none;
   color: var(--ink);
   display: block;
 }
+.pdp-item-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
 .pdp-item-image {
-  position: relative;
   width: 100%;
   aspect-ratio: 3 / 4.5;
   background-color: var(--paper);

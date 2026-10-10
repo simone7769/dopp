@@ -1547,7 +1547,7 @@ window.WishlistStore = (function () {
     const prezzo = card.querySelector('.details .price') || card.querySelector('.price, .product-price, .pdp-item-price');
     return {
       id: src,
-      href: card.getAttribute('href') || '#',
+      href: ((card.matches('a') ? card : card.querySelector('a')) || card).getAttribute('href') || '#',
       img: src,
       alt: (media && media.getAttribute('alt')) || (nome ? nome.textContent.trim() : ''),
       name: nome ? nome.textContent.trim() : '',
