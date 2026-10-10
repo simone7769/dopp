@@ -93,30 +93,7 @@
   transition: opacity var(--t-base) var(--ease);
 }
 .product-card:hover .img-wrap .img-hover { opacity: 1; }
-.product-card .wish {
-  position: absolute;
-  top: 18px;
-  right: 18px;
-  min-width: var(--touch-target, 44px);
-  min-height: var(--touch-target, 44px);
-  border-radius: 50%;
-  background-color: rgba(255,255,255,0.9);
-  border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 2;
-  transition: background-color var(--t-fast) var(--ease), transform var(--t-fast) var(--ease);
-}
-.product-card .wish:hover { background-color: #fff; transform: scale(1.08); }
-.product-card .wish svg {
-  width: 20px;
-  height: 20px;
-  stroke: var(--ink);
-  fill: none;
-  stroke-width: 1.4;
-}
+/* Il cuore preferiti (.wish) è un componente condiviso: vedi base.css */
 .product-info {
   display: grid;
   grid-template-columns: 1fr auto;
@@ -191,13 +168,6 @@
 @media (max-width: 900px) {
   .products-wrap { padding: 6px 16px 60px; }
   .products-grid { grid-template-columns: repeat(2, 1fr); gap: 24px 14px; }
-  .product-card .wish {
-    min-width: var(--touch-target, 44px);
-    min-height: var(--touch-target, 44px);
-    top: 14px;
-    right: 14px;
-  }
-  .product-card .wish svg { width: 20px; height: 20px; }
 }
 
 
@@ -257,22 +227,6 @@
     padding: 0 2px;
     pointer-events: auto;
   }
-
-  /* Cuore piccolo (32px visibili), area toccabile 44px */
-  .product-card .wish {
-    width: 32px;
-    height: 32px;
-    min-width: 32px;
-    min-height: 32px;
-    top: 8px;
-    right: 8px;
-  }
-  .product-card .wish::before {
-    content: "";
-    position: absolute;
-    inset: -6px;
-  }
-  .product-card .wish svg { width: 16px; height: 16px; }
 }
 
 /* Schermi molto stretti (< 340px): ancora più compatto */
@@ -285,8 +239,6 @@
   .product-info { padding: 30px 8px 8px; }
   .product-info .details h3,
   .product-info .details .price { font-size: 11px; }
-  .product-card .wish { width: 28px; height: 28px; min-width: 28px; min-height: 28px; top: 6px; right: 6px; }
-  .product-card .wish svg { width: 14px; height: 14px; }
 }
 
 
@@ -367,15 +319,8 @@
   .products-grid[data-cols="3"] .product-info .details h3,
   .products-grid[data-cols="3"] .product-info .details .price { font-size: 11px; }
   .products-grid[data-cols="3"] .product-info .plus { display: none; }
-  .products-grid[data-cols="3"] .product-card .wish {
-    width: 28px;
-    height: 28px;
-    min-width: 28px;
-    min-height: 28px;
-    top: 6px;
-    right: 6px;
-  }
-  .products-grid[data-cols="3"] .product-card .wish svg { width: 14px; height: 14px; }
+  .products-grid[data-cols="3"] .product-card .wish { top: 2px; right: 2px; }
+  .products-grid[data-cols="3"] .product-card .wish svg { width: 18px; height: 18px; }
 }
 
 @media (max-width: 520px) {
@@ -385,13 +330,6 @@
   /* Come su Barena: a 3 colonne solo foto, attaccate */
   .products-grid[data-cols="3"] { gap: 2px; }
   .products-grid[data-cols="3"] .product-info { display: none; }
-  .products-grid[data-cols="3"] .product-card .wish {
-    width: 24px;
-    height: 24px;
-    min-width: 24px;
-    min-height: 24px;
-    top: 4px;
-    right: 4px;
-  }
-  .products-grid[data-cols="3"] .product-card .wish svg { width: 12px; height: 12px; }
+  .products-grid[data-cols="3"] .product-card .wish { top: 0; right: 0; }
+  .products-grid[data-cols="3"] .product-card .wish svg { width: 16px; height: 16px; }
 }

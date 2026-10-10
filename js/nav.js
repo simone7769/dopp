@@ -592,6 +592,29 @@ window.CartCounter = (function () {
 })();
 
 /* ============================================================
+   MEDIA CARD — foto o video (le card con video non hanno still)
+   ============================================================ */
+window.DGMedia = (function () {
+  const RE_VIDEO = /\.(mp4|webm)(\?|#|$)/i;
+  const isVideo = (src) => RE_VIDEO.test(src || '');
+  const pulisci = (src) => (src || '').split('#')[0];
+  /* Markup per carrelli e preferiti: <img>, oppure <video> col primo fotogramma */
+  function markup(src, alt) {
+    if (isVideo(src)) {
+      return '<video src="' + pulisci(src) + '#t=0.1" muted playsinline preload="metadata" aria-label="' + (alt || '') + '"></video>';
+    }
+    return '<img src="' + src + '" alt="' + (alt || '') + '">';
+  }
+  /* Legge src dall'elemento media di una card (img, video o <source>) */
+  function srcDa(el) {
+    if (!el) return '';
+    const s = el.getAttribute('src') || (el.querySelector('source') ? el.querySelector('source').getAttribute('src') : '');
+    return pulisci(s);
+  }
+  return { isVideo, markup, srcDa };
+})();
+
+/* ============================================================
    CART DRAWER
    ============================================================ */
 (function () {
@@ -619,7 +642,7 @@ window.CartCounter = (function () {
       : '';
 
     article.innerHTML =
-      '<div class="cart-item-image"><img src="' + prodotto.img + '" alt="' + prodotto.nome + '"></div>' +
+      '<div class="cart-item-image">' + window.DGMedia.markup(prodotto.img, prodotto.nome) + '</div>' +
       '<div class="cart-item-info">' +
         '<h4>' + prodotto.nome + '</h4>' +
         attr +
@@ -643,7 +666,7 @@ window.CartCounter = (function () {
   function salva() {
     const lista = [];
     drawer.querySelectorAll('.cart-item').forEach((riga) => {
-      const img = riga.querySelector('.cart-item-image img');
+      const img = riga.querySelector('.cart-item-image img, .cart-item-image video');
       const nome = riga.querySelector('h4');
       const prezzo = riga.querySelector('.cart-item-price');
       const attr = riga.querySelector('.cart-item-attr');
@@ -651,7 +674,7 @@ window.CartCounter = (function () {
       const qty = riga.querySelector('.qty-value');
       lista.push({
         id: riga.dataset.cartId || '',
-        img: img ? img.getAttribute('src') : '',
+        img: img ? window.DGMedia.srcDa(img) : '',
         nome: nome ? nome.textContent : '',
         prezzo: prezzo ? prezzo.textContent : '',
         taglia: attr ? attr.textContent.replace('Taglia:', '').trim() : '',
@@ -1510,15 +1533,23 @@ window.WishlistStore = (function () {
 
   if (!body) return;
 
+  /* Card prodotto: collezione (.product-card), Must Have (.product), consigliati (.pdp-item) */
+  const CARD_SEL = '.product-card, .product, .pdp-item';
+
+  function mediaDaCard(card) {
+    return card.querySelector('.img-main') || card.querySelector('img') || card.querySelector('video');
+  }
+
   function infoDaCard(card) {
-    const img = card.querySelector('.img-main') || card.querySelector('.img-wrap img') || card.querySelector('img');
+    const media = mediaDaCard(card);
+    const src = window.DGMedia.srcDa(media);
     const nome = card.querySelector('.details h3') || card.querySelector('h3');
-    const prezzo = card.querySelector('.details .price') || card.querySelector('.price');
+    const prezzo = card.querySelector('.details .price') || card.querySelector('.price, .product-price, .pdp-item-price');
     return {
-      id: img ? img.getAttribute('src') : '',
+      id: src,
       href: card.getAttribute('href') || '#',
-      img: img ? img.getAttribute('src') : '',
-      alt: img ? (img.getAttribute('alt') || '') : '',
+      img: src,
+      alt: (media && media.getAttribute('alt')) || (nome ? nome.textContent.trim() : ''),
       name: nome ? nome.textContent.trim() : '',
       price: prezzo ? prezzo.textContent.trim() : ''
     };
@@ -1530,7 +1561,7 @@ window.WishlistStore = (function () {
     article.dataset.id = item.id;
     article.innerHTML =
       '<div class="wishlist-card-image">' +
-        '<img src="' + item.img + '" alt="' + item.alt + '">' +
+        window.DGMedia.markup(item.img, item.alt) +
         '<button type="button" class="wishlist-remove" aria-label="Rimuovi dai preferiti">' +
           '<svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg>' +
         '</button>' +
@@ -1565,11 +1596,12 @@ window.WishlistStore = (function () {
 
   function sincronizzaCuori(lista) {
     const ids = lista.map(i => i.id);
-    document.querySelectorAll('.product-card .wish').forEach(btn => {
-      const card = btn.closest('.product-card');
-      const img = card.querySelector('.img-main') || card.querySelector('.img-wrap img');
-      const src = img ? img.getAttribute('src') : '';
-      btn.classList.toggle('active', ids.includes(src));
+    document.querySelectorAll('.wish').forEach(btn => {
+      const card = btn.closest(CARD_SEL);
+      const src = card ? window.DGMedia.srcDa(mediaDaCard(card)) : '';
+      const attivo = ids.includes(src);
+      btn.classList.toggle('active', attivo);
+      btn.setAttribute('aria-pressed', attivo ? 'true' : 'false');
     });
     document.querySelectorAll('.pdp-wish-btn').forEach(btn => {
       const img = document.querySelector('.pdp-gallery img');
@@ -1586,11 +1618,11 @@ window.WishlistStore = (function () {
     render();
   }
 
-  document.querySelectorAll('.product-card .wish').forEach(btn => {
+  document.querySelectorAll('.wish').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       e.stopPropagation();
-      const card = btn.closest('.product-card');
+      const card = btn.closest(CARD_SEL);
       if (card) toggle(infoDaCard(card));
     });
   });
@@ -1633,10 +1665,10 @@ window.WishlistStore = (function () {
 
       const card = addBtn.closest('.wishlist-card');
       if (card && window.Cart) {
-        const imgEl = card.querySelector('.wishlist-card-image img');
+        const imgEl = card.querySelector('.wishlist-card-image img, .wishlist-card-image video');
         const nameEl = card.querySelector('.wishlist-card-info h4');
         const priceEl = card.querySelector('.wishlist-card-price');
-        const srcImg = imgEl ? imgEl.getAttribute('src') : '';
+        const srcImg = imgEl ? window.DGMedia.srcDa(imgEl) : '';
         const nome = nameEl ? nameEl.textContent.trim() : '';
         const prezzo = priceEl ? priceEl.textContent.trim() : '';
         window.Cart.add({

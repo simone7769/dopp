@@ -60,15 +60,25 @@ html { scroll-snap-type: y proximity; }
   max-width: 640px;
   margin-top: 120px;
 }
+/* Velo scuro morbido dietro al titolo: alza il contrasto sulla zona
+   chiara della foto (camicia/gilet) senza scurire tutta l'immagine */
+.hero-content::before {
+  content: "";
+  position: absolute;
+  inset: -50px -150px;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.35) 45%, rgba(0,0,0,0) 72%);
+}
 .hero-content h1 {
   font-family: var(--serif);
   font-size: clamp(24px, 2.2vw, 32px);
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: var(--tr-4);
   line-height: 1.25;
   text-transform: uppercase;
   margin-bottom: 24px;
-  text-shadow: 0 2px 20px rgba(0,0,0,0.35);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.55), 0 2px 24px rgba(0,0,0,0.5);
 }
 .hero-content h1 .hero-line { display: block; }
 .hero-content h1 .hero-line:last-child { margin-top: 8px; }
@@ -653,6 +663,7 @@ header.scrolled .topbar {
     padding: 18px;
   }
 
+  .hero-content::before { inset: -40px -30px; }
   .hero-content h1 {
     font-size: 22px;
     line-height: 1.35;

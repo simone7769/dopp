@@ -350,7 +350,7 @@ body.pdp-lightbox-open { overflow: hidden; }
 
 /* ============================================================
    PDP — Correlati come carosello (formato Must Have)
-   Immagine 3:4.5, titolo + prezzo a sinistra, senza cuore né +.
+   Immagine 3:4.5, titolo + prezzo a sinistra, cuore preferiti (.wish, vedi base.css), senza +.
    Frecce solo desktop ≥1024px; drag col mouse; swipe su touch.
    ============================================================ */
 .pdp-track-wrap {
@@ -382,6 +382,7 @@ body.pdp-lightbox-open { overflow: hidden; }
   display: block;
 }
 .pdp-item-image {
+  position: relative;
   width: 100%;
   aspect-ratio: 3 / 4.5;
   background-color: var(--paper);

@@ -855,7 +855,8 @@ header.menu-open .topbar-message {
   overflow: hidden;
 }
 /* contain: la foto prodotto non viene mai tagliata */
-.cart-item-image img { width: 100%; height: 100%; object-fit: contain; object-position: center top; display: block; }
+.cart-item-image img,
+.cart-item-image video { width: 100%; height: 100%; object-fit: contain; object-position: center top; display: block; }
 .cart-item-info h4 {
   font-family: var(--sans);
   font-size: var(--fs-14);
@@ -1060,7 +1061,8 @@ header.menu-open .topbar-message {
   margin-bottom: 10px;
   padding: 0;
 }
-.wishlist-card-image img {
+.wishlist-card-image img,
+.wishlist-card-image video {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -2047,8 +2049,63 @@ header.menu-open .nav-outlet { color: var(--gold) !important; }
 }
 
 
+/* ============================================================
+   CUORE PREFERITI — componente condiviso
+   Usato su: card collezione (.product-card), Must Have (.product),
+   consigliati in pagina prodotto (.pdp-item).
+   Solo icona (contorno bianco con ombra), senza disco. Il bottone
+   resta 44px come area di tocco ma è invisibile.
+   Il contenitore dell'immagine deve avere position: relative.
+   ============================================================ */
+.wish {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  min-width: var(--touch-target, 44px);
+  min-height: var(--touch-target, 44px);
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+  -webkit-tap-highlight-color: transparent;
+  transition: opacity var(--t-fast) var(--ease);
+}
+.wish svg {
+  width: 22px;
+  height: 22px;
+  stroke: #fff;
+  fill: none;
+  stroke-width: 1.5;
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,0.45));
+  transition: transform var(--t-fast) var(--ease);
+}
+.wish:hover svg { transform: scale(1.12); }
+
+/* Desktop con mouse: il cuore compare solo al passaggio sulla card
+   (resta visibile se già salvato o con il focus da tastiera) */
+@media (hover: hover) and (min-width: 901px) {
+  .wish { opacity: 0; }
+  .product-card:hover .wish,
+  .product:hover .wish,
+  .pdp-item:hover .wish,
+  .wish:focus-visible,
+  .wish.active { opacity: 1; }
+}
+
+/* Tablet e mobile: sempre visibile, più piccolo e discreto */
+@media (max-width: 900px) {
+  .wish { top: 6px; right: 6px; }
+  .wish svg { width: 20px; height: 20px; }
+}
+@media (max-width: 520px) {
+  .wish { top: 2px; right: 2px; }
+}
+
 /* Cuore "attivo" (prodotto nei preferiti) */
-.product-card .wish.active svg,
+.wish.active svg,
 .pdp-wish-btn.active svg {
   fill: var(--gold);
   stroke: var(--gold);
