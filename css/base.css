@@ -2203,3 +2203,20 @@ header.menu-open .nav-outlet { color: var(--gold) !important; }
     font-size: var(--fs-13);
   }
 }
+
+/* ============================================================
+   VISUALLY HIDDEN — nasconde visivamente ma resta accessibile
+   a screen reader. Usato per titoli di sezione necessari alla
+   gerarchia h1 → h2 → h3 ma non visibili nella pagina.
+   ============================================================ */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
