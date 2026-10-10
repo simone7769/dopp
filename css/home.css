@@ -107,7 +107,7 @@ html { scroll-snap-type: y proximity; }
   background-color: #1f1f1f;
   color: #fff;
   text-align: center;
-  padding: 70px 20px;
+  padding: 60px 20px;
 }
 .info-bar h2 {
   font-family: var(--serif);
@@ -126,6 +126,8 @@ html { scroll-snap-type: y proximity; }
   letter-spacing: var(--tr-3);
   text-transform: uppercase;
   opacity: 0.75;
+  line-height: 1.8;
+  text-wrap: balance;
 }
 
 /* ============================================================
