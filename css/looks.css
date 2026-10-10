@@ -556,3 +556,21 @@
   .article-split-text p { text-align: left; }
   .article-split-media figcaption { text-align: left; }
 }
+
+/* ============================================================
+   ESPERIENZA IN BOUTIQUE — solo questa pagina
+   Testo e immagine allineati in alto (non centrati verticalmente).
+   ============================================================ */
+.page-boutique .article-split {
+  align-items: start;
+}
+.page-boutique .sartoria-cta-wrap {
+  margin-top: 0;
+  margin-bottom: 100px;
+}
+
+
+/* ESPERIENZA IN BOUTIQUE — separazione tra "Accoglienza" e "Servizi" */
+.page-boutique .article-split-text p + h2.sartoria-eyebrow {
+  margin-top: 48px;
+}
