@@ -113,6 +113,13 @@
   transition: opacity var(--t-base) var(--ease);
 }
 .product-card:hover .img-wrap .img-hover { opacity: 1; }
+
+/* Touch senza hover (smartphone, tablet puri):
+   niente img-hover, evita il flash di hover simulato al tocco.
+   iPad con trackpad ha hover:hover, quindi la regola NON si applica. */
+@media (hover: none) and (pointer: coarse) {
+  .product-card .img-hover { display: none; }
+}
 /* Il cuore preferiti (.wish) è un componente condiviso: vedi base.css */
 .product-info {
   display: grid;
