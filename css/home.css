@@ -28,6 +28,7 @@ html { scroll-snap-type: y proximity; }
 .hero {
   position: relative;
   height: 100vh;
+  height: 100svh;
   width: 100%;
   overflow: hidden;
   display: flex;
@@ -136,6 +137,7 @@ html { scroll-snap-type: y proximity; }
 .video-showcase {
   position: relative;
   height: 100vh;
+  height: 100svh;
   width: 100%;
   overflow: hidden;
 }
@@ -402,6 +404,7 @@ html { scroll-snap-type: y proximity; }
   gap: 0;
   background: var(--paper);
   height: 100vh;
+  height: 100svh;
   min-height: 600px;
 }
 .duo-item {
@@ -575,7 +578,7 @@ header.scrolled .topbar {
    RESPONSIVE
    ============================================================ */
 @media (max-width: 1400px) {
-  .duo { height: 100vh; min-height: 550px; }
+  .duo { height: 100vh; height: 100svh; min-height: 550px; }
 }
 
 @media (max-width: 1200px) {
@@ -585,7 +588,7 @@ header.scrolled .topbar {
 @media (max-width: 1024px) {
   .must-have { --mh-visible: 2.5; --mh-gaps: 2; --mh-gap: 32px; }
   .world { --w-visible: 2.5; --w-gaps: 2; --w-gap: 32px; }
-  .duo { height: 100vh; min-height: 500px; }
+  .duo { height: 100vh; height: 100svh; min-height: 500px; }
 }
 
 /* Dispositivi touch (qualsiasi larghezza) e schermi <=1024px: niente frecce,
