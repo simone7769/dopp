@@ -1073,21 +1073,24 @@ header.menu-open .topbar-message {
   position: absolute;
   top: 8px;
   right: 8px;
-  /* ← FIX touch target: 44px minimo WCAG (era 28px) */
   min-width: var(--touch-target, 44px);
   min-height: var(--touch-target, 44px);
   border: none;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.9);
+  background: transparent;
   color: var(--gold);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: color var(--t-fast) var(--ease), background-color var(--t-fast) var(--ease), transform var(--t-fast) var(--ease);
+  -webkit-tap-highlight-color: transparent;
 }
-.wishlist-remove svg { width: 16px; height: 16px; } /* ← FIX: era 14px */
-.wishlist-remove:hover { color: #c00; background: #fff; transform: scale(1.08); }
+.wishlist-remove svg {
+  width: 20px;
+  height: 20px;
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.45));
+  transition: transform var(--t-fast) var(--ease);
+}
+.wishlist-remove:hover svg { transform: scale(1.12); }
 .wishlist-card-info h4 {
   font-family: var(--sans);
   font-size: var(--fs-12);
