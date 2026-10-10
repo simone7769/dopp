@@ -130,7 +130,7 @@ header.scrolled {
 header.scrolled .logo {
   filter: brightness(0) saturate(100%) !important;
 }
-header.scrolled .nav-center a {
+header.scrolled .nav-center a:not(.nav-outlet) {
   color: var(--ink) !important;
   font-size: var(--fs-12);
 }
@@ -175,7 +175,7 @@ header.menu-open .header-main {
 header.menu-open .logo {
   filter: brightness(0) saturate(100%);
 }
-header.menu-open .nav-center a,
+header.menu-open .nav-center a:not(.nav-outlet),
 header.menu-open .nav-icon-link {
   color: var(--ink);
 }
