@@ -1251,7 +1251,7 @@ function creaJournalCard(articolo, variante) {
         videoShowcase.classList.add('in-view');
       }
     });
-  }, { threshold: 0.4 });
+  }, { threshold: 0.1 });
   showcaseObserver.observe(videoShowcase);
 })();
 
