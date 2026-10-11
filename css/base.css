@@ -1402,7 +1402,7 @@ footer {
 .footer-privacy {
   font-size: var(--fs-11);
   line-height: 1.6;
-  color: #8a8680;
+  color: #a8a49c;
   max-width: 380px;
 }
 .footer-privacy a {
@@ -1480,7 +1480,7 @@ footer {
 .footer-copy {
   text-align: center;
   font-size: var(--fs-11);
-  color: #6a6660;
+  color: #8a8680;
   letter-spacing: var(--tr-05);
   padding-top: 20px;
   margin-top: 20px;
