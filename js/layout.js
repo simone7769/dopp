@@ -78,10 +78,10 @@
     <li><a href="#">Pantaloni</a></li><li><a href="#">Denim</a></li>\
     <li><a href="#" class="mm-see-all">Vedi tutti</a></li></ul></div>\
   <div class="megamenu-col"><h4>In Evidenza</h4><ul>\
-    <li><a href="ai-2026.html">AI 2026</a></li><li><a href="essential.html">Essential</a></li>\
+    <li><a href="ai-2026.html">Autunno/Inverno 2026</a></li><li><a href="essential.html">Essential</a></li>\
     <li><a href="cerimonia.html">Cerimonia</a></li></ul></div>\
   <div class="megamenu-images">\
-    <a href="ai-2026.html" class="mm-card"><div class="thumb"><img src="images/a.jpg" alt="AI 2026"></div><h5>AI 2026</h5></a>\
+    <a href="ai-2026.html" class="mm-card"><div class="thumb"><img src="images/a.jpg" alt="Autunno/Inverno 2026"></div><h5>Autunno/Inverno 2026</h5></a>\
     <a href="essential.html" class="mm-card"><div class="thumb"><img src="images/bm.webp" alt="Essential"></div><h5>Essential</h5></a>\
     <a href="cerimonia.html" class="mm-card"><div class="thumb"><img src="images/ceri.webp" alt="Cerimonia"></div><h5>Cerimonia</h5></a>\
   </div></div></div>\
@@ -124,7 +124,7 @@
         <li><a href="#">Cappotti</a></li><li><a href="#">Giacche</a></li><li><a href="#">Abiti</a></li>\
         <li><a href="#">Maglieria</a></li><li><a href="#">Camicie</a></li><li><a href="#">T-shirt &amp; Polo</a></li>\
         <li><a href="#">Pantaloni</a></li><li><a href="#">Denim</a></li>\
-        <li><a href="ai-2026.html" class="mobile-sub-highlight">AI 2026</a></li>\
+        <li><a href="ai-2026.html" class="mobile-sub-highlight">Autunno/Inverno 2026</a></li>\
         <li><a href="essential.html" class="mobile-sub-highlight">Essential</a></li>\
         <li><a href="cerimonia.html" class="mobile-sub-highlight">Cerimonia</a></li>\
       </ul>\
