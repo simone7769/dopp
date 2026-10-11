@@ -489,7 +489,7 @@
       <a href="#">Dati societari completi</a>\
     </div>\
   </div>\
-  <div class="footer-copy"><p>&copy; 2026 SG — Proposta di redesign per Doppelgänger. Tutti i marchi citati appartengono ai rispettivi titolari.</p>' + PAY_HTML + '</div>\
+  <div class="footer-copy"><p>&copy; 2026 Doppelgänger. Tutti i marchi citati appartengono ai rispettivi titolari.</p>' + PAY_HTML + '</div>\
 </footer>';
 
   /* ---------------- INIEZIONE ---------------- */
