@@ -124,6 +124,7 @@
         <li><a href="#">Cappotti</a></li><li><a href="#">Giacche</a></li><li><a href="#">Abiti</a></li>\
         <li><a href="#">Maglieria</a></li><li><a href="#">Camicie</a></li><li><a href="#">T-shirt &amp; Polo</a></li>\
         <li><a href="#">Pantaloni</a></li><li><a href="#">Denim</a></li>\
+        <li><a href="ai-2026.html" class="mobile-sub-highlight">AI 2026</a></li>\
         <li><a href="essential.html" class="mobile-sub-highlight">Essential</a></li>\
         <li><a href="cerimonia.html" class="mobile-sub-highlight">Cerimonia</a></li>\
       </ul>\
