@@ -424,9 +424,33 @@
   </div>\
 </aside>'; }
 
+  /* ---------------- FASCIA FIDUCIA + LOGHI PAGAMENTO ---------------- */
+  var TRUST_ITEMS = [
+    { href: "spedizioni.html", title: "Spedizioni", text: "Consegna a domicilio o ritiro in boutique",
+      icon: "<path d=\"M2 6h11v9H2zM13 9h4l3 3v3h-7\"/><circle cx=\"6.5\" cy=\"17.5\" r=\"1.8\"/><circle cx=\"16.5\" cy=\"17.5\" r=\"1.8\"/>" },
+    { href: "spedizioni.html", title: "Resi", text: "Cambi e resi semplici, anche in boutique",
+      icon: "<path d=\"M4 12a8 8 0 1 0 2.5-5.8\"/><path d=\"M3.5 4.5v4h4\"/>" },
+    { href: "#", title: "Pagamento sicuro", text: "Transazioni protette e dati al sicuro",
+      icon: "<rect x=\"5\" y=\"10.5\" width=\"14\" height=\"9.5\" rx=\"1\"/><path d=\"M8 10.5V8a4 4 0 0 1 8 0v2.5\"/>" },
+    { href: "#", title: "Assistenza", attr: "data-open-contact", text: "Il nostro team a tua disposizione",
+      icon: "<path d=\"M4 14v-2a8 8 0 0 1 16 0v2\"/><rect x=\"3\" y=\"14\" width=\"4\" height=\"5\" rx=\"1\"/><rect x=\"17\" y=\"14\" width=\"4\" height=\"5\" rx=\"1\"/><path d=\"M19 19c0 1.5-2 2-5 2\"/>" }
+  ];
+  var TRUST_HTML = "<ul class=\"footer-trust\">" + TRUST_ITEMS.map(function (t) {
+    return "<li><a href=\"" + t.href + "\"" + (t.attr ? " " + t.attr : "") + ">" +
+      "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\">" + t.icon + "</svg>" +
+      "<span class=\"ft-copy\"><span class=\"ft-title\">" + t.title + "</span><span class=\"ft-text\">" + t.text + "</span></span>" +
+      "</a></li>";
+  }).join("") + "</ul>";
+
+  var PAYMENTS = ["visa", "mastercard", "paypal", "applepay"];
+  var PAY_LABELS = { visa: "Visa", mastercard: "Mastercard", paypal: "PayPal", applepay: "Apple Pay" };
+  var PAY_HTML = "<ul class=\"footer-pay\" aria-label=\"Metodi di pagamento accettati\">" + PAYMENTS.map(function (k) {
+    return "<li><img src=\"images/" + k + ".svg\" alt=\"" + PAY_LABELS[k] + "\" height=\"22\"></li>";
+  }).join("") + "</ul>";
+
   /* ---------------- FOOTER ---------------- */
   var FOOTER = '\
-<footer>\
+<footer>' + TRUST_HTML + '\
   <div class="footer-main">\
     <div class="footer-newsletter">\
       <h3>Iscriviti al Doppelgänger Club</h3>\
@@ -465,7 +489,7 @@
       <a href="#">Dati societari completi</a>\
     </div>\
   </div>\
-  <p class="footer-copy">&copy; 2026 SG — Proposta di redesign per Doppelgänger. Tutti i marchi citati appartengono ai rispettivi titolari.</p>\
+  <div class="footer-copy"><p>&copy; 2026 SG — Proposta di redesign per Doppelgänger. Tutti i marchi citati appartengono ai rispettivi titolari.</p>' + PAY_HTML + '</div>\
 </footer>';
 
   /* ---------------- INIEZIONE ---------------- */
