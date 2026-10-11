@@ -105,10 +105,13 @@ html { scroll-snap-type: y proximity; }
    INFO BAR
    ============================================================ */
 .info-bar {
-  background-color: #1f1f1f;
-  color: #fff;
+  position: relative;
+  background-color: #faf8f5;
+  color: var(--ink);
   text-align: center;
   padding: 60px 20px;
+  border-top: 2px solid var(--gold, #B8935A);
+  border-bottom: 1px solid var(--line);
 }
 .info-bar h2 {
   font-family: var(--serif);
@@ -120,6 +123,12 @@ html { scroll-snap-type: y proximity; }
 }
 .info-bar .btn {
   margin-top: 28px;
+  border-color: var(--ink);
+  color: var(--ink);
+}
+.info-bar .btn:hover {
+  background-color: var(--ink);
+  color: #faf8f5;
 }
 .info-bar p {
   font-family: var(--sans);
@@ -759,25 +768,6 @@ header.scrolled .topbar {
    Full width dentro i margini, 1px, stesso oro del filo del footer.
    Spazio: 60px sopra, 48px sotto (desktop); 40/32 mobile.
    ============================================================ */
-.collection::before {
-  content: "";
-  display: block;
-  position: relative;
-  z-index: 5;
-  height: 1px;
-  background-color: var(--gold, #B8935A);
-  margin: 0;
-}
-@media (max-width: 640px) {
-  .collection {
-    padding: 0 0 60px;
-  }
-  .collection::before {
-    margin: 0 0 40px;
-    height: 2px;
-  }
-}
-
 /* ============================================================
    BOTTONE VIDEO — mobile: si allarga per contenere il testo
    "Autunno/Inverno 2026" su una riga sola (width auto + padding).
