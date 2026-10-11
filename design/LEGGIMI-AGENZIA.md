@@ -7,7 +7,7 @@ Documento di accompagnamento al pacchetto demo + specifiche. Per chi svilupperà
 | File / cartella | Cosa contiene |
 |---|---|
 | `*.html`, `css/`, `js/`, `images/` | Demo statica navigabile (21 pagine) |
-| `design/Doppelgänger — Proposta nuovo sito.pdf` | Direzione strategica del progetto |
+| `design/Doppelganger-Proposta-nuovo-sito.pdf` | Direzione strategica del progetto |
 | `design/Doppelganger_Specifiche_per_agenzia.pdf` | Specifiche tecniche dettagliate |
 | `design/CHANGELOG.html` | Elenco dei 54 commit con descrizione |
 | `design/DIFF-FILES.html` | File toccati, con righe aggiunte/rimosse |

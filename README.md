@@ -62,7 +62,7 @@ La demo è un **prototipo statico**: mostra il design e i comportamenti, ma **no
 
 Nella cartella `design/`:
 
-- **Doppelgänger — Proposta nuovo sito.pdf** — la direzione del progetto
+- **Doppelganger-Proposta-nuovo-sito.pdf** — la direzione del progetto
 - **Doppelganger_Specifiche_per_agenzia.pdf** — le specifiche tecniche per l'agenzia
 - **NOVITA-SITO.html** — riepilogo delle novità
 - **CHANGELOG.html** — elenco dei passaggi di sviluppo

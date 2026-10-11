@@ -17,7 +17,7 @@
 - **Design system**: `css/tokens.css` + `design/token.json`
 - **Documentazione tecnica**: `design/CHANGELOG.html`, `design/DIFF-FILES.html`, `design/BADGE.html`, `design/MODIFICHE PDF.md`
 - **Presentazione cliente**: `design/NOVITA-SITO.html`
-- **Riferimenti originali**: `design/Doppelgänger — Proposta nuovo sito.pdf`, `design/Doppelganger_Specifiche_per_agenzia.pdf`
+- **Riferimenti originali**: `design/Doppelganger-Proposta-nuovo-sito.pdf`, `design/Doppelganger_Specifiche_per_agenzia.pdf`
 
 ## Note
 
