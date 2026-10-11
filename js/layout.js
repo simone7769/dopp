@@ -429,8 +429,8 @@
 <footer>\
   <div class="footer-main">\
     <div class="footer-newsletter">\
-      <h3>Iscriviti alla nostra newsletter</h3>\
-      <p>Ricevi la newsletter e scopri il mondo Doppelgänger, le collezioni e tutti gli ultimi aggiornamenti.</p>\
+      <h3>Iscriviti al Doppelgänger Club</h3>\
+      <p>Ricevi la newsletter con storie, collezioni e novità. Accumula punti su ogni acquisto e accedi a sconti crescenti fino al -20%.</p>\
       <form class="footer-form" onsubmit="event.preventDefault(); alert(\'Iscrizione inviata (demo)\');">\
         <input type="email" id="footerEmail" name="email" autocomplete="email" placeholder="Il tuo indirizzo email" required>\
         <button type="submit" aria-label="Iscriviti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>\
