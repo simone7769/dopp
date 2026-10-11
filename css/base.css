@@ -93,9 +93,9 @@ body {
   color: #fff;
   text-decoration: none;
   font-family: var(--sans);
-  font-size: var(--fs-10);
+  font-size: var(--fs-11);
   font-weight: 400;
-  letter-spacing: var(--tr-3);
+  letter-spacing: var(--tr-2);
   text-transform: uppercase;
   transition: background-color var(--t-base) var(--ease), color var(--t-base) var(--ease);
   pointer-events: auto;
@@ -817,7 +817,7 @@ header.menu-open .topbar-message {
   font-family: var(--sans);
   font-size: var(--fs-11);
   font-weight: 400;
-  letter-spacing: var(--tr-3);
+  letter-spacing: var(--tr-2);
   text-transform: uppercase;
   border: 1px solid var(--ink);
   border-radius: 0;
@@ -1289,7 +1289,7 @@ button.contact-btn { display: block; }
   font-family: var(--sans);
   font-size: var(--fs-11);
   font-weight: 400;
-  letter-spacing: var(--tr-3);
+  letter-spacing: var(--tr-2);
   text-transform: uppercase;
   border: 1px solid var(--ink);
   border-radius: 0;

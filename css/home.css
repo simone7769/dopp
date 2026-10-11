@@ -132,10 +132,10 @@ html { scroll-snap-type: y proximity; }
 }
 .info-bar p {
   font-family: var(--sans);
-  font-size: var(--fs-11);
+  font-size: var(--fs-12);
   letter-spacing: var(--tr-3);
   text-transform: uppercase;
-  opacity: 0.75;
+  opacity: 0.85;
   line-height: 1.8;
   text-wrap: balance;
 }
@@ -564,8 +564,8 @@ html { scroll-snap-type: y proximity; }
 }
 .w-item p.w-desc {
   font-family: var(--sans);
-  font-size: var(--fs-12);
-  font-weight: 300;
+  font-size: var(--fs-13);
+  font-weight: 400;
   letter-spacing: var(--tr-03);
   color: var(--ink);
   text-align: center;
