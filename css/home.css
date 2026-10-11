@@ -263,7 +263,7 @@ html { scroll-snap-type: y proximity; }
 @media (min-width: 641px) {
   .card-media {
     width: 94%;
-    height: 94%;
+    height: 96%;
     aspect-ratio: auto;
     max-width: none;
   }
