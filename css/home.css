@@ -159,6 +159,7 @@ html { scroll-snap-type: y proximity; }
   transform: scale(1);
 }
 .video-showcase-btn {
+  white-space: nowrap;
   position: absolute;
   left: 50%;
   bottom: 16%;
@@ -178,6 +179,7 @@ html { scroll-snap-type: y proximity; }
    ============================================================ */
 .collection {
   position: relative;
+  display: flow-root;
   padding: 0;
   text-align: center;
 }
@@ -287,6 +289,21 @@ html { scroll-snap-type: y proximity; }
   z-index: 2;
   color: #fff;
   text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+}
+
+/* Desktop/tablet (>=641px): la foto riempie il pannello incassato della
+   boiserie, con un filo di margine uniforme (effetto "incastonata").
+   Il box .card è già calibrato sul pannello; qui cambia solo il media.
+   Mobile (<=640px): invariato, nessuna boiserie. */
+@media (min-width: 641px) {
+  .card-media {
+    width: 94%;
+    height: 94%;
+    aspect-ratio: auto;
+    max-width: none;
+  }
+  .card-media img { object-position: center 22%; }
+  .card h3 { font-size: clamp(12px, 1.05vw, 17px); }
 }
 
 /* ============================================================
@@ -429,6 +446,27 @@ html { scroll-snap-type: y proximity; }
   transform: scale(1);
 }
 .duo.in-view .duo-item:nth-child(2) img { transition-delay: 0.12s; }
+/* Gradiente scuro dal basso: sostiene il testo bianco sulla camicia.
+   Più deciso a destra, dove la foto è chiara (sfondo azzurro). */
+.duo-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(to top,
+    rgba(0,0,0,0.62) 0%,
+    rgba(0,0,0,0.42) 28%,
+    rgba(0,0,0,0.12) 52%,
+    rgba(0,0,0,0) 68%);
+}
+.duo-item:nth-child(2)::after {
+  background: linear-gradient(to top,
+    rgba(0,0,0,0.72) 0%,
+    rgba(0,0,0,0.52) 30%,
+    rgba(0,0,0,0.16) 54%,
+    rgba(0,0,0,0) 70%);
+}
 .duo-content {
   position: absolute;
   inset: 0;
@@ -448,12 +486,19 @@ html { scroll-snap-type: y proximity; }
   font-weight: 400;
   letter-spacing: var(--tr-6);
   text-transform: uppercase;
-  margin-bottom: 26px;
+  margin-bottom: 0;
   text-shadow: 0 2px 20px rgba(0,0,0,0.65);
   line-height: 1.2;
   display: flex;
   flex-direction: column;
   gap: 6px;
+  /* Titolo ancorato subito sopra la CTA (bottom: 16%, alta ~40px):
+     sta sulla camicia, non sul volto. */
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: calc(16% + 84px);
+  padding: 0 24px;
 }
 .duo-content h3 .duo-line { display: block; }
 .duo-content h3 .duo-line:last-child {
@@ -744,4 +789,22 @@ header.scrolled .topbar {
 .must-have .product-price ins {
   text-decoration: none;
   color: #a32638;
+}
+
+/* ============================================================
+   FILO ORO — tra la fascia Sartoria e il pannello Cerimonia/Essential
+   Full width dentro i margini, 1px, stesso oro del filo del footer.
+   Spazio: 60px sopra, 48px sotto (desktop); 40/32 mobile.
+   ============================================================ */
+.collection::before {
+  content: "";
+  display: block;
+  height: 1px;
+  background-color: var(--gold, #B8935A);
+  margin: 0;
+}
+@media (max-width: 640px) {
+  .collection::before {
+    margin: 0;
+  }
 }
