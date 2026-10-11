@@ -808,3 +808,16 @@ header.scrolled .topbar {
     margin: 0;
   }
 }
+
+/* ============================================================
+   BOTTONE VIDEO — mobile: si allarga per contenere il testo
+   "Autunno/Inverno 2026" su una riga sola (width auto + padding).
+   ============================================================ */
+@media (max-width: 640px) {
+  .video-showcase-btn {
+    width: auto;
+    min-width: var(--btn-width, 170px);
+    padding: 0 24px;
+    white-space: nowrap;
+  }
+}
