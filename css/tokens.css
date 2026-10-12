@@ -196,7 +196,7 @@
 @media (max-width: 640px) {
   :root {
     --btn-width:      170px;
-    --btn-height:     42px;
+    --btn-height:     44px;
     --logo-h-desktop: 16px;
     --drawer-title-h: 56px;
   }

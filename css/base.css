@@ -93,9 +93,9 @@ body {
   color: #fff;
   text-decoration: none;
   font-family: var(--sans);
-  font-size: var(--fs-11);
+  font-size: var(--fs-12);
   font-weight: 400;
-  letter-spacing: var(--tr-2);
+  letter-spacing: var(--tr-15);
   text-transform: uppercase;
   transition: background-color var(--t-base) var(--ease), color var(--t-base) var(--ease);
   pointer-events: auto;
@@ -815,9 +815,9 @@ header.menu-open .topbar-message {
   background: transparent;
   color: var(--ink);
   font-family: var(--sans);
-  font-size: var(--fs-11);
+  font-size: var(--fs-12);
   font-weight: 400;
-  letter-spacing: var(--tr-2);
+  letter-spacing: var(--tr-15);
   text-transform: uppercase;
   border: 1px solid var(--ink);
   border-radius: 0;
@@ -1111,7 +1111,7 @@ header.menu-open .topbar-message {
   font-family: var(--sans);
   font-size: var(--fs-11);
   font-weight: 400;
-  letter-spacing: var(--tr-1);
+  letter-spacing: var(--tr-2);
   text-transform: uppercase;
   cursor: pointer;
   transition: background-color var(--t-base) var(--ease), color var(--t-base) var(--ease);
@@ -1287,9 +1287,9 @@ button.contact-btn { display: block; }
   background: transparent;
   color: var(--ink);
   font-family: var(--sans);
-  font-size: var(--fs-11);
+  font-size: var(--fs-12);
   font-weight: 400;
-  letter-spacing: var(--tr-2);
+  letter-spacing: var(--tr-15);
   text-transform: uppercase;
   border: 1px solid var(--ink);
   border-radius: 0;
@@ -1614,7 +1614,7 @@ footer {
   .wishlist-body { padding: 16px 18px; gap: 14px 12px; }
   .wishlist-card-info h4 { font-size: var(--fs-12); }
   .wishlist-card-price { font-size: var(--fs-11); margin-bottom: 5px; }
-  .wishlist-add-cart { font-size: var(--fs-10); padding: 6px 6px; }
+  .wishlist-add-cart { font-size: var(--fs-10); padding: 6px 6px; letter-spacing: var(--tr-1); }
   .contact-body { padding: 24px 20px max(32px, env(safe-area-inset-bottom)); gap: 24px; }
 }
 
@@ -1625,7 +1625,7 @@ footer {
 }
 
 @media (max-width: 640px) {
-  :root { --btn-width: 170px; --btn-height: 42px; }
+  :root { --btn-width: 170px; --btn-height: 44px; }
   .logo { height: 16px; }
   header.scrolled .header-main .logo { height: 14px; }
 }
