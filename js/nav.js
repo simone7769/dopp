@@ -398,6 +398,7 @@ if (navBurger && mobileMenu) {
   function openSearch(e) {
     if (e) e.preventDefault();
     closeOtherPanels();
+    drawer.inert = false;
     drawer.classList.add('open');
     overlay.classList.add('active');
     drawer.setAttribute('aria-hidden', 'false');
@@ -515,6 +516,7 @@ if (navBurger && mobileMenu) {
   function openDrawer(e) {
     if (e) e.preventDefault();
     closeOtherPanels();
+    drawer.inert = false;
     drawer.classList.add('open');
     if (overlay) overlay.classList.add('active');
     drawer.setAttribute('aria-hidden', 'false');
@@ -731,6 +733,7 @@ window.DGMedia = (function () {
   function openCart(e) {
     if (e) e.preventDefault();
     closeOtherPanels();
+    drawer.inert = false;
     drawer.classList.add('open');
     if (overlay) overlay.classList.add('active');
     drawer.setAttribute('aria-hidden', 'false');
@@ -844,6 +847,7 @@ window.DGMedia = (function () {
   function openLogin(e) {
     if (e) e.preventDefault();
     closeOtherPanels();
+    drawer.inert = false;
     drawer.classList.add('open');
     if (overlay) overlay.classList.add('active');
     drawer.setAttribute('aria-hidden', 'false');
@@ -891,6 +895,7 @@ window.DGMedia = (function () {
   function openWishlist(e) {
     if (e) e.preventDefault();
     closeOtherPanels();
+    drawer.inert = false;
     drawer.classList.add('open');
     if (overlay) overlay.classList.add('active');
     drawer.setAttribute('aria-hidden', 'false');
@@ -1355,6 +1360,7 @@ function creaJournalCard(articolo, variante) {
 
   function openDrawer() {
     closeOtherPanels();
+    drawer.inert = false;
     drawer.classList.add('open');
     overlay.classList.add('active');
     drawer.setAttribute('aria-hidden', 'false');
@@ -1397,6 +1403,7 @@ function creaJournalCard(articolo, variante) {
 
   function openDrawer() {
     closeOtherPanels();
+    drawer.inert = false;
     drawer.classList.add('open');
     overlay.classList.add('active');
     drawer.setAttribute('aria-hidden', 'false');
