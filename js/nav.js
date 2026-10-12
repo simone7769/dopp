@@ -408,7 +408,9 @@ if (navBurger && mobileMenu) {
   function closeSearch() {
     drawer.classList.remove('open');
     overlay.classList.remove('active');
+    if (drawer.contains(document.activeElement)) document.activeElement.blur();
     drawer.setAttribute('aria-hidden', 'true');
+    drawer.inert = true;
     document.body.style.overflow = '';
     if (searchInput) searchInput.value = '';
     if (resultsBox) resultsBox.hidden = true;
@@ -522,7 +524,9 @@ if (navBurger && mobileMenu) {
   function closeDrawer() {
     drawer.classList.remove('open');
     if (overlay) overlay.classList.remove('active');
+    if (drawer.contains(document.activeElement)) document.activeElement.blur();
     drawer.setAttribute('aria-hidden', 'true');
+    drawer.inert = true;
     document.body.style.overflow = '';
   }
 
@@ -737,7 +741,9 @@ window.DGMedia = (function () {
   function closeCart() {
     drawer.classList.remove('open');
     if (overlay) overlay.classList.remove('active');
+    if (drawer.contains(document.activeElement)) document.activeElement.blur();
     drawer.setAttribute('aria-hidden', 'true');
+    drawer.inert = true;
     document.body.style.overflow = '';
   }
 
@@ -847,7 +853,9 @@ window.DGMedia = (function () {
   function closeLogin() {
     drawer.classList.remove('open');
     if (overlay) overlay.classList.remove('active');
+    if (drawer.contains(document.activeElement)) document.activeElement.blur();
     drawer.setAttribute('aria-hidden', 'true');
+    drawer.inert = true;
     document.body.style.overflow = '';
   }
 
@@ -892,7 +900,9 @@ window.DGMedia = (function () {
   function closeWishlist() {
     drawer.classList.remove('open');
     if (overlay) overlay.classList.remove('active');
+    if (drawer.contains(document.activeElement)) document.activeElement.blur();
     drawer.setAttribute('aria-hidden', 'true');
+    drawer.inert = true;
     document.body.style.overflow = '';
   }
 
@@ -1353,7 +1363,9 @@ function creaJournalCard(articolo, variante) {
   function closeDrawer() {
     drawer.classList.remove('open');
     overlay.classList.remove('active');
+    if (drawer.contains(document.activeElement)) document.activeElement.blur();
     drawer.setAttribute('aria-hidden', 'true');
+    drawer.inert = true;
     document.body.style.overflow = '';
   }
 
@@ -1393,7 +1405,9 @@ function creaJournalCard(articolo, variante) {
   function closeDrawer() {
     drawer.classList.remove('open');
     overlay.classList.remove('active');
+    if (drawer.contains(document.activeElement)) document.activeElement.blur();
     drawer.setAttribute('aria-hidden', 'true');
+    drawer.inert = true;
     document.body.style.overflow = '';
   }
 
