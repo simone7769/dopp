@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Doppelgänger · Specifiche per l’agenzia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --carta:#FCFCFB; --oro:#B8935A; --inchiostro:#2B2B2B; --notte:#1F1F1F;
+  --crema:#FAF8F5; --linea:#E5E2DC; --sabbia:#8A7D63; --testo-footer:#CFCBC4;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Jost','Helvetica Neue',Helvetica,Arial,sans-serif;
+  --nota:#8A7D63;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#d9d6d0;font-family:var(--sans);font-weight:300;color:var(--inchiostro);padding:24px 0 60px}
+.toolbar{position:fixed;top:10px;right:10px;z-index:10;display:flex;gap:6px}
+.toolbar button{font:400 12px var(--sans);padding:8px 12px;border:1px solid var(--inchiostro);background:#fff;cursor:pointer}
+#doc[contenteditable=true] .page{outline:1px dashed var(--oro)}
+.page{width:1333px;height:750px;margin:0 auto 24px;background:var(--carta);position:relative;padding:28px 67px 0;overflow:hidden;line-height:1.5}
+b{font-weight:600}
+.ph{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--linea);padding-bottom:10px;height:34px;margin-bottom:26px}
+.ph .logo{font-family:var(--serif);font-weight:500;font-size:14px;letter-spacing:.5px}
+.ph .pn{font-size:11.5px;letter-spacing:1.5px;color:var(--sabbia)}
+.eyebrow{font-size:11.5px;font-weight:600;letter-spacing:2.6px;color:var(--oro);text-transform:uppercase}
+.eyebrow.sub{margin:20px 0 14px}
+h1{font-family:var(--serif);font-weight:400;font-size:50px;line-height:1.1;margin-top:6px;color:var(--inchiostro)}
+.rule{width:58px;height:2px;background:var(--oro);margin:18px 0 26px}
+.rule.c{margin:30px auto}
+.pf{position:absolute;left:67px;right:67px;bottom:0;height:72px;border-top:1px solid var(--linea);padding-top:17px;font-size:13px;color:var(--nota);line-height:1.4}
+.pf b{color:var(--oro);font-weight:600}
+.serif{font-family:var(--serif)} .sans{font-family:var(--sans)}
+p{font-size:14px;line-height:1.75}
+/* liste */
+.bul{list-style:none}
+.bul li{position:relative;padding-left:27px;font-size:14.5px;line-height:1.72;margin-bottom:9px}
+.bul li:before{content:"";position:absolute;left:2px;top:.62em;width:7px;height:7px;background:var(--oro)}
+.bul b{color:var(--inchiostro)}
+.cols2{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.cols2 .eyebrow{margin-bottom:16px}
+.cols2.tight{margin-top:14px;gap:56px}
+.cols2.tight .bul li{font-size:13px;margin-bottom:5px}
+.cols3{display:grid;grid-template-columns:repeat(3,1fr);gap:48px}
+.dense .bul li{font-size:14px;line-height:1.7;margin-bottom:9px}
+.dense .cols2 .eyebrow{margin-bottom:14px}
+/* tabelle */
+table.tb{width:100%;border-collapse:collapse;table-layout:fixed}
+.tb th{font-size:10.5px;font-weight:600;letter-spacing:2.2px;color:var(--oro);text-align:left;padding:0 8px 10px 0;border-bottom:1px solid var(--inchiostro)}
+.tb td{font-size:13px;line-height:1.5;padding:8px 10px 8px 0;border-bottom:1px solid var(--linea);vertical-align:top}
+.tb.compact td{font-size:12.4px;padding:7px 10px 7px 0}
+.tb.scale td{font-size:13px;vertical-align:middle;padding:6px 10px 6px 0}
+.tb.scale td:first-child{font-size:12.5px}
+.tb td b{font-weight:600}
+.btnx{font-size:11px;letter-spacing:3px}
+.small{font-size:12.4px;line-height:1.55;margin:8px 0 0}
+.n{font-family:var(--serif);color:var(--oro);font-size:18px}
+/* cover */
+.cover{display:flex;padding:0;background:var(--notte);color:#fff}
+.cover-l{width:750px;padding:210px 67px 0}
+.cover .eyebrow{letter-spacing:3px}
+.cover-logo{font-family:var(--serif);font-weight:500;font-size:68px;letter-spacing:1px;margin:24px 0 30px;line-height:1}
+.cover .rule{margin:0 0 32px;width:66px;height:1px}
+.cover h2{font-family:var(--serif);font-weight:400;font-size:31px;line-height:1.4}
+.cover-sub{font-size:13px;margin-top:34px;color:#e5e2dc}
+.bar{width:194.5px;height:750px;display:flex;flex-direction:column;justify-content:flex-end;padding:0 0 55px 25px;color:#fff;font-size:11px}
+.bar b{font-weight:700;letter-spacing:2px;font-size:11px}
+.bar i{font-style:normal;letter-spacing:2px;opacity:.8;margin-top:6px;font-size:10px}
+.bar:last-child{width:194px}
+/* p2 */
+.c3top{margin-top:4px}
+.num{font-family:var(--serif);color:var(--oro);font-size:28px;line-height:1;padding-bottom:12px;border-bottom:1px solid var(--linea);margin-bottom:18px}
+.cols3 h2{font-size:11px;font-weight:600;letter-spacing:2.6px;margin-bottom:12px}
+.cols3 p{font-size:14px}
+.box{margin-top:34px;background:var(--crema);border:1px solid var(--linea);padding:20px 27px 24px}
+.box .eyebrow{margin-bottom:12px}
+.box p{font-size:12.6px;line-height:1.9}
+/* p3 */
+.pal{display:grid;grid-template-columns:690px 1fr;gap:58px;margin-top:-4px}
+.swrow{display:grid;grid-template-columns:repeat(4,156px);gap:22px;margin-bottom:34px}
+.sw{display:flex;flex-direction:column}
+.chip.big{height:137px;margin-bottom:14px}.chip.small{height:55px;margin-bottom:14px}
+.sw b{font-size:10.5px;letter-spacing:2.2px;font-weight:700}
+.sw i{font-style:normal;color:var(--oro);font-size:10px;letter-spacing:2px;margin:6px 0 6px}
+.sw span{font-size:11.5px}
+.callout{border-left:2px solid var(--oro);padding:2px 0 2px 17px;font-size:13px;line-height:1.7;margin-top:-4px}
+.callout.wide{margin-top:44px;font-size:13.5px;line-height:1.6;padding-left:17px}
+.swr .eyebrow{margin-bottom:18px}
+.swr .bul li{font-size:14px;line-height:1.7;margin-bottom:8px}
+.pal .swl{margin-top:0}
+/* p4 */
+.specs{display:grid;grid-template-columns:587px 1fr;gap:26px;margin-top:-6px}
+.spec{height:450px;padding:28px 32px}
+.spec.dark{background:var(--notte);color:#fff;border-left:3px solid var(--oro)}
+.spec.light{background:var(--carta);border:1px solid var(--linea);border-left:3px solid var(--inchiostro)}
+.spec .eyebrow{font-size:11px;margin-bottom:12px}
+.spec-top{display:flex;gap:26px;align-items:center}
+.aa{font-size:150px;line-height:1;width:190px;flex:none}
+.aa.serif{font-weight:400}.aa.sans{font-weight:300;font-size:140px;width:240px}
+.wts{flex:1;font-size:24px}
+.wts div{border-bottom:1px solid rgba(184,147,90,.5);padding:6px 0 4px}
+.light .wts div{border-bottom-color:var(--linea);font-size:17px}
+.wts small{display:block;font-size:9.5px;letter-spacing:2px;color:var(--oro);font-family:var(--sans);font-weight:500}
+.wts div:last-child{border:none}
+.gl{font-size:21px;line-height:1.5;margin-top:26px;padding-top:20px;border-top:1px solid rgba(184,147,90,.5)}
+.light .gl{font-size:17px;border-top:none;padding-top:0;margin-top:20px;letter-spacing:.5px}
+.sans.gl{font-weight:300}
+.spec-n{font-size:12.4px;line-height:1.6;margin-top:10px}
+.light .spec-n{color:#555}
+/* p7 */
+.comp{gap:40px;margin-top:-6px}
+.demo{height:156px;margin-bottom:26px;padding:28px 29px}
+.demo.dark{background:var(--notte);display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+.b{display:inline-block;font-size:10px;letter-spacing:3px;height:35px;line-height:33px;border:1px solid #fff;padding:0 13px;color:#fff;text-align:center;min-width:133px}
+.b-l{background:#fff;color:var(--inchiostro);font-size:11px;letter-spacing:3px;border-color:#fff;min-width:156px}
+.demo.card{background:var(--crema);border:1px solid var(--linea);display:flex;gap:44px;position:relative;padding:19px 29px}
+.ph-img{width:81px;height:96px;background:#e5e2dc;position:relative;flex:none}
+.ph-img i{position:absolute;right:6px;top:6px;width:9px;height:9px;border-radius:50%;border:1.5px solid var(--oro);background:#fff}
+.cl{display:flex;flex-direction:column;font-size:11.5px;line-height:19.5px;padding-top:12px;color:#555;font-weight:300}
+.cap{position:absolute;left:29px;top:121px;font-size:9.5px;line-height:1.5;width:81px}
+.cap b{font-weight:600}.plus{position:absolute;right:0;top:15px}
+.demo.nav{background:var(--crema);border:1px solid var(--linea)}
+.tabs{display:flex;gap:46px;font-size:11px;letter-spacing:3px;border-bottom:none;margin-top:-10px}
+.tabs span{padding-bottom:5px;font-weight:500}.tabs .on{color:var(--oro);border-bottom:1px solid var(--oro)}
+.nbadge{display:flex;gap:14px;margin-top:22px;font-size:11.5px;line-height:1.6;align-items:center}
+.nbadge em{font-style:normal;flex:none;width:23px;height:23px;border-radius:50%;background:var(--oro);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:500;font-size:12px}
+.comp h2{font-size:11px;font-weight:700;letter-spacing:2.6px;margin-bottom:10px}
+.comp p{font-size:13.2px;line-height:1.72}
+.wide{margin-top:40px}
+/* p15 */
+.lead{font-size:14.5px;line-height:1.75}
+.fgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:23px}
+.fcol{background:var(--crema);border:1px solid var(--linea);height:233px;padding:18px 20px;display:flex;flex-direction:column}
+.fcol .num{border:none;font-size:25px;padding:0;margin-bottom:6px}
+.fcol h2{font-size:11px;font-weight:700;letter-spacing:2.6px;margin-bottom:14px}
+.fcol span{font-size:12px;line-height:21.5px}
+.fp .pf{height:76px}
+/* p17 */
+.end{background:var(--notte);color:#fff}
+.end .ph{border-bottom-color:#4a463f}
+.end .ph .logo{color:#fff}.end .ph .pn{color:#e5e2dc}
+.end-c{text-align:center;margin-top:156px}
+.end-logo{font-family:var(--serif);font-weight:500;font-size:54px;letter-spacing:1px;line-height:1}
+.end h2{font-family:var(--serif);font-weight:400;font-size:41px;line-height:1.35}
+.end .eyebrow.c{color:#e5e2dc;font-weight:400;margin-top:42px;font-size:11.5px}
+.end .rule.c{width:66px;height:1px;margin:34px auto 38px}
+@page{size:1333px 750px;margin:0}
+@media print{body{background:none;padding:0}.toolbar{display:none}.page{margin:0;page-break-after:always;break-after:page}#doc[contenteditable=true] .page{outline:none}}
+.tb.compact td{padding:3.5px 10px 3.5px 0;line-height:1.4}
+.tb.scale td{padding:3px 10px 3px 0;line-height:1.2}
+.tb.scale{margin-top:-8px}
+.page.p5x .small{margin-top:6px}
+
+</style></head><body>
+<!-- Ogni pagina è una <section class="page">. Testi modificabili direttamente (clicca e scrivi) oppure nel sorgente.
+     Colori e font si cambiano una volta sola nelle variabili :root in cima al CSS. -->
+<div class="toolbar"><button onclick="toggleEdit(this)">Modalità modifica: OFF</button><button onclick="window.print()">Stampa / PDF</button></div>
+<main id="doc">
+
+<section class="page cover" id="p1">
+  <div class="cover-l">
+    <div class="eyebrow">SPECIFICHE PER L’AGENZIA · OTTOBRE 2026</div>
+    <div class="cover-logo">DOPPELGÄNGER</div>
+    <div class="rule"></div>
+    <h2>Dalla demo al sito dinamico.<br>Design system, componenti e comportamento.</h2>
+    <p class="cover-sub">Riferimento per riportare la demo statica sulla piattaforma di Doppelgänger Roma</p>
+  </div>
+  <div class="bar" style="background:var(--oro)"><b>ORO</b><i>#B8935A</i></div>
+  <div class="bar" style="background:var(--carta);color:var(--ink)"><b>CARTA</b><i>#FCFCFB</i></div>
+  <div class="bar" style="background:var(--inchiostro)"><b>INCHIOSTRO</b><i>#2B2B2B</i></div>
+</section>
+<section class="page " id="p2">
+  <header class="ph"><span class="logo">DOPPELGÄNGER</span><span class="pn">Specifiche per l’agenzia · 02 / 17</span></header>
+  <div class="eyebrow">IN BREVE</div>
+  <h1>Cosa è questo documento, e cosa no.</h1>
+  <div class="rule"></div>
+  
+<div class="cols3 c3top">
+ <div><div class="num">01</div><h2>LA DEMO</h2><p>Un prototipo statico in HTML, CSS e JavaScript: vetrina, menu, pannelli laterali, carrello dimostrativo. Dati di esempio, nessun backend.</p></div>
+ <div><div class="num">02</div><h2>QUESTO DOCUMENTO</h2><p>Raccoglie valori e comportamenti della demo (colori, font, misure, tempi, regole di interazione), perché l’agenzia li riporti fedelmente.</p></div>
+ <div><div class="num">03</div><h2>L’AGENZIA</h2><p>Costruisce il sito vero sulla piattaforma dinamica: catalogo, carrello, checkout, pagamenti, account e Club. Elenco completo a pagina 16.</p></div>
+</div>
+<div class="box"><div class="eyebrow">COSA È STATO LETTO</div><p>Valori ricavati dai file della demo e ricontrollati riga per riga: <b>base.css</b>, <b>home.css</b>, <b>collezione.css</b>, <b>category.css</b>, <b>filtri.css</b>, <b>journal.css</b>, <b>looks.css</b>, <b>prodotto.css</b>, <b>carrello.css</b>, <b>checkout.css</b>, <b>conferma.css</b>, <b>club.css</b>, <b>legale.css</b>, <b>tokens.css</b>, <b>account.css</b>; <b>nav.js</b>, <b>layout.js</b>, <b>filtri.js</b>, <b>prodotto.js</b>, <b>carrello.js</b>, <b>checkout.js</b>, <b>conferma.js</b>, <b>articoli.js</b>, <b>boutiques.js</b>, <b>prodotti.js</b>; tutte le 23 pagine HTML. I dati di esempio (<b>prodotti.js</b>, <b>boutiques.js</b>, <b>articoli.js</b>) sono segnalati come tali. I design token sono in <b>css/tokens.css</b> e <b>design/token.json</b>.</p></div>
+
+  <footer class="pf">&nbsp;</footer>
+</section>
+<section class="page " id="p3">
+  <header class="ph"><span class="logo">DOPPELGÄNGER</span><span class="pn">Specifiche per l’agenzia · 03 / 17</span></header>
+  <div class="eyebrow">DESIGN · COLORI</div>
+  <h1>Una palette corta, con l’oro come accento.</h1>
+  <div class="rule"></div>
+  
+<div class="pal"><div class="swl"><div class="swrow"><div class="sw"><div class="chip big" style="background:#FCFCFB;border:1px solid var(--linea)"></div><b>CARTA</b><i>#FCFCFB</i><span>Sfondo di tutte le pagine</span></div><div class="sw"><div class="chip big" style="background:#B8935A;"></div><b>ORO</b><i>#B8935A</i><span>Accento</span></div><div class="sw"><div class="chip big" style="background:#2B2B2B;"></div><b>INCHIOSTRO</b><i>#2B2B2B</i><span>Testi e bordi dei bottoni</span></div><div class="sw"><div class="chip big" style="background:#1F1F1F;"></div><b>NOTTE</b><i>#1F1F1F</i><span>Footer e primo caricamento</span></div></div><div class="swrow"><div class="sw"><div class="chip small" style="background:#FAF8F5;"></div><b>CREMA PANNELLI</b><i>#FAF8F5</i><span></span></div><div class="sw"><div class="chip small" style="background:#E5E2DC;"></div><b>LINEA</b><i>#E5E2DC</i><span></span></div><div class="sw"><div class="chip small" style="background:#8A7D63;"></div><b>SABBIA</b><i>#8A7D63</i><span></span></div><div class="sw"><div class="chip small" style="background:#CFCBC4;"></div><b>TESTO FOOTER</b><i>#CFCBC4</i><span></span></div></div>
+<div class="callout"><b>Token.</b> I valori sono definiti una sola volta in css/tokens.css (variabili CSS) e replicati in design/token.json per l’agenzia. Modifiche future: cambia lì, non nei singoli file.</div></div>
+<div class="swr"><div class="eyebrow">COME SI USANO</div><ul class="bul"><li><b>Carta #FCFCFB</b> è lo sfondo di ogni pagina e il colore dei segnaposto delle immagini: niente beige. Eccezione: nel carrello e nei preferiti il segnaposto è #F5F5F5.</li><li><b>Crema #FAF8F5</b> per header scrollato, menu e pannelli laterali.</li><li><b>Notte #1F1F1F</b> per il footer e come sfondo prima che la pagina sia caricata, per evitare il lampo bianco.</li><li><b>Oro</b> per linee sottili, voce attiva e hover dei link, badge dei contatori, cuore attivo, stato «aggiunto» ed etichetta della collezione nella scheda prodotto.</li><li><b>Rosso #A32638</b> per l’avviso «scegli una taglia» e per il prezzo in saldo (il prezzo barrato è #999999); <b>#CC0000</b> per cestino e cuore dei preferiti al passaggio del mouse.</li><li><b>Grigi di supporto:</b> #4A463F testo della scheda prodotto, #D8D3C8 bordo dei campi dei moduli. Il CSS usa anche grigi di testo #555–#888, le fasce Club e PayPal.</li></ul></div></div>
+
+  <footer class="pf"><b>Nota.</b> Nel PDF di proposta la palette ha quattro colori (slide 8); il codice usa anche grigi di testo (#555–#888), le fasce Club e PayPal, oltre ai colori sopra.</footer>
+</section>
+<section class="page " id="p4">
+  <header class="ph"><span class="logo">DOPPELGÄNGER</span><span class="pn">Specifiche per l’agenzia · 04 / 17</span></header>
+  <div class="eyebrow">DESIGN · TIPOGRAFIA</div>
+  <h1>Serif per il racconto, sans per il resto.</h1>
+  <div class="rule"></div>
+  
+<div class="specs">
+ <div class="spec dark"><div class="eyebrow">CORMORANT GARAMOND · SERIF</div>
+  <div class="spec-top"><div class="aa serif">Aa</div><div class="wts serif">
+   <div><small>300 LIGHT</small><span style="font-weight:300">Vestire bene non è un lusso.</span></div>
+   <div><small>400 REGULAR</small><span style="font-weight:400">Vestire bene non è un lusso.</span></div>
+   <div><small>500 MEDIUM</small><span style="font-weight:500">Vestire bene non è un lusso.</span></div></div></div>
+  <div class="gl serif">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>0123456789 &nbsp;àèéìòù &nbsp;« » &nbsp;€ &amp; &nbsp;Ä ä</div>
+  <p class="spec-n">Pesi caricati 300, 400, 500; nei file i titoli usano il 400. Titoli e testi editoriali, stati vuoti, logo testuale nel footer.</p></div>
+ <div class="spec light"><div class="eyebrow">JOST · SANS</div>
+  <div class="spec-top"><div class="aa sans">Aa</div><div class="wts sans">
+   <div><small>300 LIGHT</small><span style="font-weight:300">Navigazione · Bottoni · Etichette</span></div>
+   <div><small>400 REGULAR</small><span style="font-weight:400">Navigazione · Bottoni · Etichette</span></div>
+   <div><small>500 MEDIUM</small><span style="font-weight:500">Navigazione · Bottoni · Etichette</span></div>
+   <div><small>600 SEMIBOLD</small><span style="font-weight:600">Navigazione · Bottoni · Etichette</span></div>
+   <div><small>700 BOLD</small><span style="font-weight:700">Navigazione · Bottoni · Etichette</span></div></div></div>
+  <div class="gl sans">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>0123456789 &nbsp;àèéìòù &nbsp;« » &nbsp;€ &amp; &nbsp;Ä ä</div>
+  <p class="spec-n">Pesi 300–700; corpo a 300 con interlinea 1,6. Navigazione, bottoni, etichette, schede prodotto.</p></div>
+</div>
+
+  <footer class="pf"><b>Caricamento.</b> Non bloccante da Google Fonts (preconnect e <i>display=swap</i>); riserva Georgia per il serif, Helvetica Neue, Helvetica e Arial per il sans. Il corsivo non viene caricato.</footer>
+</section>
+<section class="page " id="p5">
+  <header class="ph"><span class="logo">DOPPELGÄNGER</span><span class="pn">Specifiche per l’agenzia · 05 / 17</span></header>
+  <div class="eyebrow">DESIGN · TIPOGRAFIA</div>
+  <h1>La scala, dal bottone all’hero.</h1>
+  <div class="rule"></div>
+  <table class="tb scale"><colgroup><col style="width:25%"><col style="width:37%"><col style="width:38%"></colgroup><thead><tr><th>DIMENSIONE</th><th>ESEMPIO</th><th>DOVE SI USA</th></tr></thead><tbody><tr><td><b>12 px</b></td><td><span class="btnx">SCOPRI DI PIÙ</span></td><td>Bottoni (maiuscolo, spaziatura 1,5 px)</td></tr><tr><td><b>11 px</b></td><td><span style="font-size:11px">Etichette</span></td><td>Link, didascalie, titoli colonna megamenu, badge</td></tr><tr><td><b>12 px</b></td><td><span style="font-size:12px;letter-spacing:1px;font-weight:300">Navigazione · € 29,99</span></td><td>Navigazione, topbar, prezzi nelle card, intestazioni footer</td></tr><tr><td><b>13 px</b></td><td><span style="font-size:13px">Voci del menu mobile</span></td><td>Menu mobile, eyebrow, FAQ summary, testo footer</td></tr><tr><td><b>14 px</b></td><td><span style="font-size:14px;font-weight:400">Maglia girocollo</span></td><td>Titoli card prodotto, nomi Cerimonia e Essential (maiuscolo), titoli Journal, campo di ricerca, descrizione PDP</td></tr><tr><td><b>17 px</b></td><td><span style="font-size:17px;font-weight:600">€ 139,00</span></td><td>Prezzo nella scheda prodotto (grassetto)</td></tr><tr><td><b>18 px</b></td><td><span style="font-size:18px">Corpo editoriale</span></td><td>Testi editoriali (Journal, Club, legali, carrello). H2 delle pagine legali e di sezione</td></tr><tr><td><b>clamp(20px, 1.6vw, 24px)</b></td><td><span class="serif" style="font-size:24px">Privacy Policy</span></td><td>Hero pagine interne (Journal, Club, legali)</td></tr><tr><td><b>clamp(24px, 2.2vw, 32px)</b></td><td><span class="serif" style="font-size:28px;letter-spacing:3px;text-transform:uppercase">Home hero · Conferma</span></td><td>Titolo principale di pagina (home, conferma)</td></tr><tr><td><b>clamp(27px, 2vw, 30px)</b></td><td><span class="serif" style="font-size:28px">Abito uomo monopetto</span></td><td>Titolo scheda prodotto, “Il tuo carrello”</td></tr><tr><td><b>38–56 px</b></td><td><span class="serif" style="font-size:34px;color:var(--oro);font-weight:300">Numeri step</span></td><td>Elementi decorativi (step Sartoria, ×2 Club)</td></tr></tbody></table>
+<p class="small"><b>Pagine legali</b> (Privacy+Cookie, Termini, Spedizioni, Accessibilità): il corpo è a <b>16 px</b>, non 18 px. Motivazione: i testi legali sono lunghi e si consultano (non si leggono come un articolo). 16 px è lo standard del settore (Apple, Google, Bottega Veneta usano 14-15 px). Le pagine editoriali (Journal, Club) restano invece a 18 px. <b>Nota:</b> h1 (24 px) &gt; h2 (18 px) &gt; corpo legali (16 px). La gerarchia è visibile.</p>
+
+  <footer class="pf"><b>Gerarchia visiva</b>: h1 &gt; h2 = corpo. La distinzione tra h2 e corpo non è dimensionale (entrambi 18 px) ma affidata a: serif maiuscolo, linea oro sopra e sotto, spaziatura sopra e sotto. L’hero h1 usa peso 500, l’h2 peso 400.</footer>
+</section>
+<section class="page " id="p6">
+  <header class="ph"><span class="logo">DOPPELGÄNGER</span><span class="pn">Specifiche per l’agenzia · 06 / 17</span></header>
+  <div class="eyebrow">DESIGN · MISURE</div>
+  <h1>Sette soglie, un solo ritmo.</h1>
+  <div class="rule"></div>
+  
+<div class="cols2"><div><div class="eyebrow">PUNTI DI ROTTURA</div><table class="tb compact"><colgroup><col style="width:27%"><col style="width:73%"></colgroup><thead><tr><th>LARGHEZZA</th><th>COSA CAMBIA</th></tr></thead><tbody><tr><td>oltre 1200</td><td>Desktop: nav a tre zone, megamenu con immagini da 215 px.</td></tr><tr><td>1025–1200</td><td>Desktop stretto: spaziature ridotte, immagini dei megamenu a 155 px sotto le colonne.</td></tr><tr><td>fino a 1024</td><td>Mobile e tablet verticale: menu a tutto schermo, pannelli a tutta larghezza, megamenu disattivati.</td></tr><tr><td>fino a 900</td><td>Griglia prodotti a 2 colonne; scheda prodotto a una colonna; pulsanti non più fissi.</td></tr><tr><td>fino a 640</td><td>Telefono: bottoni 170×44, logo 16 px, footer a tendina, margini 16 px.</td></tr><tr><td>fino a 520</td><td>Pannelli compatti: immagini del carrello 76×94.</td></tr><tr><td>fino a 380</td><td>Form a una colonna.</td></tr></tbody></table></div>
+<div><div class="eyebrow">MISURE RICORRENTI</div><table class="tb compact"><colgroup><col style="width:58%"><col style="width:42%"></colgroup><thead><tr><th>ELEMENTO</th><th>VALORE</th></tr></thead><tbody><tr><td>Topbar</td><td>33 px</td></tr><tr><td>Logo nell’header</td><td>26 px · 18 px mobile · 16 px telefono</td></tr><tr><td>Larghezza massima</td><td>1600 px</td></tr><tr><td>Bottone</td><td>200×48 · 170×44 sul telefono · bordo 1 px</td></tr><tr><td>Area di tocco minima</td><td>44×44 px</td></tr><tr><td>Margine laterale mobile</td><td>16 px</td></tr><tr><td>Titolo dei pannelli</td><td>64 px · 56 px mobile</td></tr><tr><td>Raggio cerchi colore (PDP)</td><td>22 px</td></tr><tr><td>Immagine carrello (drawer)</td><td>90×110 px</td></tr><tr><td>Immagine carrello (drawer, mobile ≤520)</td><td>76×94 px</td></tr><tr><td>Proporzioni immagini in menu, ricerca, preferiti</td><td>3:4</td></tr><tr><td>Proporzioni immagine PDP</td><td>3:4</td></tr><tr><td>Proporzioni card mobile</td><td>4:5</td></tr><tr><td>Proporzioni riquadro Collezioni</td><td>1616:899 (video hero a tutta altezza)</td></tr><tr><td>Proporzioni correlati PDP</td><td>3:4.5</td></tr></tbody></table></div></div>
+  <footer class="pf"><b>Nota.</b> Tutte le misure sono definite in css/tokens.css. Modifiche future: cambia lì.</footer>
+</section>
+<section class="page " id="p7">
+  <header class="ph"><span class="logo">DOPPELGÄNGER</span><span class="pn">Specifiche per l’agenzia · 07 / 17</span></header>
+  <div class="eyebrow">COMPONENTI</div>
+  <h1>Pochi elementi, riusati ovunque.</h1>
+  <div class="rule"></div>
+  
+<div class="cols3 comp">
+ <div><div class="demo dark"><span class="b b-d">SCOPRI DI PIÙ</span><div><span class="b b-d">AGGIUNGI</span> <span class="b b-l">SU FONDO CHIARO</span></div></div>
+  <h2>BOTTONE</h2><p>Contorno sottile, testo maiuscolo da 12 px con spaziatura 1,5 px. Al passaggio il riempimento arriva in 0,4 s. Su fondo chiaro (pannelli): bordo e testo inchiostro, 12 px, riempimento inchiostro.</p></div>
+ <div><div class="demo card"><div class="ph-img"><i></i></div><div class="cl"><span>Immagine 3:4</span><span>Nome 14 px</span><span>Prezzo 12 px</span><span>Cuore e «+»</span><span>Badge Bestseller / New</span></div><div class="cap"><b>Maglia girocollo</b><br><b>€ 29,99</b><b class="plus">+</b></div></div>
+  <h2>CARD PRODOTTO</h2><p>Solo immagine, nome, prezzo, cuore e «+». Cuore attivo: riempito oro. Cuore su tutte le card: al passaggio su desktop, sempre visibile su touch. Seconda foto al passaggio del mouse, in dissolvenza di 0,4 s (già nella demo).</p></div>
+ <div><div class="demo nav"><div class="tabs"><span class="on">OUTLET</span><span>ABBIGLIAMENTO</span></div><div class="nbadge"><em>2</em><span>Voce attiva: oro con sottolineatura che si apre dal centro.<br>Badge: cerchio oro da 15 px.</span></div></div>
+  <h2>NAVIGAZIONE E CONTATORI</h2><p>Il badge «dondola» (scala 1,25 per 0,25 s) quando il numero cambia. Frecce dei caroselli: tratto 1,2 px, etichette «Precedente» e «Successivo»; nascoste su touch e sotto i 1024 px.</p></div>
+</div>
+<div class="callout wide"><b>PayPal e aree di tocco.</b> Il bottone «PayPal» nel drawer è 18 px (allineato al corpo editoriale). Le aree di tocco rispettano il minimo 44×44 px anche nelle icone dell’header mobile.</div>
+
+  <footer class="pf"><b>Coerenza.</b> Gli stessi componenti compaiono nella home, nelle collezioni, nei pannelli e nel carrello: vanno costruiti una volta sola.</footer>
+</section>
+<section class="page dense" id="p8">
+  <header class="ph"><span class="logo">DOPPELGÄNGER</span><span class="pn">Specifiche per l’agenzia · 08 / 17</span></header>
+  <div class="eyebrow">NAVIGAZIONE · DESKTOP</div>
+  <h1>Header e megamenu.</h1>
+  <div class="rule"></div>
+  <div class="cols2"><div><div class="eyebrow">HEADER</div><ul class="bul"><li><b>Topbar</b> alta 33 px con cinque messaggi a rotazione ogni 6 secondi, uno alla volta (dissolvenza 0,4 s con lieve sfocatura) e linea oro sotto: «Il lusso più accessibile al mondo — dal 1996», e-concierge 9–19, Club –20%, Outlet –80%, Sartoria in Boutique.</li><li><b>In cima alla home</b> l’header è trasparente, con testo bianco sull’immagine; dopo 120 px di scroll diventa crema #FAF8F5 con ombra sottile e logo scuro. Il logo è il file <i>logo_page.svg</i>, reso bianco o scuro da un filtro.</li><li><b>Pagine interne:</b> header chiaro fin dall’inizio.</li><li><b>Tre zone</b> (griglia 1fr · auto · 1fr): a sinistra i servizi, al centro le voci, a destra ricerca, preferiti, accesso e carrello con badge.</li><li><b>Voce attiva</b> in oro; la sottolineatura si apre dal centro in 0,2 s. <b>Outlet</b> è sempre in oro.</li><li><b>Allo scroll</b> (home e pagine interne): la topbar sparisce a ogni larghezza; la riga del logo sparisce solo su desktop. Resta la barra di navigazione.</li></ul></div><div><div class="eyebrow">MEGAMENU</div><ul class="bul"><li><b>Voci con pannello:</b> Abbigliamento, Accessori, Outlet. Le altre voci sono link semplici.</li><li><b>Apertura</b> dopo 150 ms di sosta del mouse sulla voce. Se un pannello è già aperto, il passaggio a un’altra voce è immediato. <b>Chiusura</b> dopo 120 ms quando il puntatore esce dall’area del pannello; Esc chiude.</li><li><b>Pannello</b> a tutta larghezza, crema, alto almeno 480 px; entra scendendo di 8 px con dissolvenza di 0,4 s.</li><li><b>Abbigliamento e Accessori:</b> due colonne di link e tre immagini 3:4 da 215 px, distanza 30 px. <b>Outlet:</b> una colonna e quattro immagini.</li><li><b>Testi:</b> titoli colonna e link a 11 px maiuscolo; al passaggio il link diventa oro; «Vedi tutti» in oro.</li><li><b>Contenuti:</b> Abbigliamento (otto categorie, da Cappotti a Denim) e In Evidenza (Autunno/Inverno 2026, Essential, Cerimonia); Accessori (sei categorie) e In Evidenza (Novità, Must Have, Best Seller); Outlet (Abbigliamento -80%, Accessori -80%, Back to Work, Ultimi Pezzi).</li></ul></div></div>
+  <footer class="pf"><b>Conferma.</b> Le cinque voci principali della proposta (Nuovi Arrivi, Abbigliamento, Accessori, Outlet, Journal; slide 10 e 14) sono già nella demo.</footer>
+</section>
+<section class="page dense" id="p9">
+  <header class="ph"><span class="logo">DOPPELGÄNGER</span><span class="pn">Specifiche per l’agenzia · 09 / 17</span></header>
+  <div class="eyebrow">NAVIGAZIONE · MOBILE</div>
+  <h1>Header, menu e footer fino a 1024 px.</h1>
+  <div class="rule"></div>
+  <div class="cols2"><div><div class="eyebrow">HEADER E MENU</div><ul class="bul"><li><b>Header a tre colonne:</b> a sinistra il menu (hamburger da 32 px), al centro il logo (18 px; 16 px sotto i 640), a destra preferiti e carrello.</li><li><b>Menu a schermo intero</b>, crema, che scende di 8 px con dissolvenza di 0,4 s. Voci centrate a 13 px maiuscolo (spaziatura 2 px), separate da linee oro da 0,5 px.</li><li><b>Sottomenu ad accordion</b> (apertura in 0,4 s) con freccia che ruota di 180°. Essential e Cerimonia in evidenza, in oro.</li><li><b>In fondo:</b> due icone in griglia (negozi, profilo) e link utili a 11 px: Boutique, Contattaci, Abilita accessibilità.</li><li>Esc chiude il menu; con il menu aperto l’header diventa crema.</li></ul></div><div><div class="eyebrow">FOOTER E CORRETTO</div><ul class="bul"><li><b>Footer fino a 640 px:</b> una colonna per volta, a tendina; newsletter in fondo; ogni intestazione alta almeno 44 px.</li><li><b>Footer desktop</b>: newsletter + 4 colonne (<b>Corporate</b>, <b>Informazioni utili</b>, <b>Servizio clienti</b>, <b>Seguici</b>) con <b>19 voci totali</b>, <b>4 social linkati</b> (Instagram, Facebook, TikTok, LinkedIn). Il sito reale ha 32 voci; la demo ne ha 19, snellite. Voci di nicchia (Whistleblowing, Parità di genere, Istruzione riciclo, SiteMap, Klarna, Doppelgänger APP) tolte.</li><li><b>Corretto</b>: le icone dell’header mobile ora hanno area di tocco 44 px, come tutto il resto.</li><li><b>Fascia fiducia e pagamenti:</b> in cima al footer 4 voci (Spedizioni, Resi, Pagamento sicuro, Assistenza), icone a linea sottile #cfcbc4 su fondo notte. In fondo, accanto al copyright, loghi monocromatici di Visa, Mastercard, PayPal e Apple Pay (#a8a39b, alti 22 px).</li></ul></div></div>
+  <footer class="pf"><b>Regola.</b> Un’idea, un gesto: il pollice raggiunge menu e carrello senza dover cambiare presa (proposta, slide 4).</footer>
+</section>
+<section class="page " id="p10">
+  <header class="ph"><span class="logo">DOPPELGÄNGER</span><span class="pn">Specifiche per l’agenzia · 10 / 17</span></header>
+  <div class="eyebrow">PANNELLI LATERALI</div>
+  <h1>Otto pannelli, un solo comportamento.</h1>
+  <div class="rule"></div>
+  <table class="tb compact"><colgroup><col style="width:15%"><col style="width:17%"><col style="width:10%"><col style="width:58%"></colgroup><thead><tr><th>PANNELLO</th><th>LATO</th><th>LARGHEZZA</th><th>CONTENUTO</th></tr></thead><tbody><tr><td><b>Paese e lingua</b></td><td>sinistra</td><td>480 px</td><td>Immagine, nota, selettori di Paese (14) e lingua (6), conferma.</td></tr><tr><td><b>Negozi</b></td><td>sinistra</td><td>480 px</td><td>Ricerca per città o Paese, elenco per Paese con indirizzo e orari, azioni («Indicazioni», «E-mail»), pulsante verso la pagina dedicata.</td></tr><tr><td><b>Contattaci</b></td><td>sinistra</td><td>480 px</td><td>Modulo (tipo di richiesta, nome, cognome, e-mail, numero ordine, messaggio) con privacy e conferma; canale WhatsApp. Senza assistenza telefonica.</td></tr><tr><td><b>Ricerca</b></td><td>destra · sinistra su mobile</td><td>520 px</td><td>Campo fisso in alto, risultati mentre si scrive (griglia a 2 colonne con immagine e prezzo), conteggio, stato vuoto.</td></tr><tr><td><b>Carrello</b></td><td>destra</td><td>480 px</td><td>Righe con immagine 90×110, quantità, rimozione, totale sempre visibile, «Vai al carrello» e PayPal (pagamento veloce). Il carrello <b>persiste</b> in sessionStorage (chiave dg_cart): il contenuto sopravvive al cambio pagina e al refresh del browser.</td></tr><tr><td><b>Accesso</b></td><td>destra</td><td>480 px</td><td>Email, password con mostra/nascondi, password dimenticata, invito a registrarsi.</td></tr><tr><td><b>Preferiti</b></td><td>destra</td><td>600 px</td><td>Griglia a 2 colonne, rimozione, aggiungi al carrello, stato vuoto.</td></tr><tr><td><b>Filtra e ordina</b></td><td>destra</td><td>440 px</td><td>Ordina, solo disponibili, prezzo, taglia, colore; «Cancella tutto» e «Applica». Solo nelle pagine di collezione.</td></tr></tbody></table><div class="cols2 tight"><ul class="bul"><li>Sfondo scuro al 45%; entrata in 0,4 s con curva (0,25 · 0,8 · 0,25 · 1).</li><li>Linea oro in alto, allineata sotto la topbar; titolo alto 64 px (56 px su mobile).</li><li>Su mobile larghezza intera; pulsante di chiusura da 44 px.</li></ul><ul class="bul"><li>Un solo pannello aperto per volta: aprirne uno chiude gli altri.</li><li>Mentre un pannello è aperto, la pagina sotto non scorre.</li><li>Esc chiude il pannello aperto.</li></ul></div>
+  <footer class="pf"><b>Nota.</b> Ricerca, Negozi e Contattaci hanno dati di esempio: vanno collegati a catalogo, boutique e un servizio di invio vero.</footer>
+</section>
+<section class="page " id="p11">
+  <header class="ph"><span class="logo">DOPPELGÄNGER</span><span class="pn">Specifiche per l’agenzia · 11 / 17</span></header>
+  <div class="eyebrow">COMPORTAMENTO · DATI E STATO</div>
+  <h1>Che cosa è vero, e che cosa è finto.</h1>
+  <div class="rule"></div>
+  <table class="tb compact"><colgroup><col style="width:15%"><col style="width:60%"><col style="width:25%"></colgroup><thead><tr><th>FUNZIONE</th><th>NELLA DEMO</th><th>SUL SITO VERO</th></tr></thead><tbody><tr><td><b>Preferiti</b></td><td>Salvati in sessionStorage (chiave dg_wishlist); i cuori di tutte le card restano sincronizzati; badge sull’icona</td><td>Legati all’account</td></tr><tr><td><b>Carrello</b></td><td>Persiste in sessionStorage (chiave dg_cart); contatore condiviso tra badge, drawer, pagina carrello e scheda prodotto</td><td>Ordine reale, totale dal sistema</td></tr><tr><td><b>Checkout</b></td><td>Visivo, in una pagina. Nessun pagamento reale. Salva dg_order e svuota dg_cart all’invio (sessionStorage)</td><td>Integrazione con il sistema di pagamento</td></tr><tr><td><b>Conferma ordine</b></td><td>Pagina con header e footer completi. Legge dg_order.</td><td>Ordine reale dal sistema</td></tr><tr><td><b>Paese e lingua</b></td><td>Cambia solo l’etichetta nel footer; catalogo, prezzi e lingua restano uguali</td><td>Catalogo, prezzi e lingua per Paese</td></tr><tr><td><b>Ricerca</b></td><td>Filtra un elenco locale di prodotti demo (25), attesa di 120 ms mentre si scrive; prezzo in euro</td><td>Catalogo vero e suggerimenti</td></tr><tr><td><b>Boutique</b></td><td>10 boutique di esempio in 8 Paesi (indirizzi ed e-mail fittizi), filtro per città o Paese, senza mappa; «Indicazioni» apre Google Maps</td><td>Dati reali e mappa</td></tr><tr><td><b>Journal</b></td><td><b>9 articoli</b> in un solo elenco condiviso tra home e archivio, 5 categorie filtrabili. Include la card <b>Doppelgänger Club</b> in cima</td><td>Contenuti da un sistema di gestione</td></tr><tr><td><b>Club</b></td><td>Pagina statica: <b>4 fasce</b> (Bronze, Silver, Gold, Platinum), <b>5 benefici con icone oro</b>, <b>7 FAQ</b></td><td>Area riservata dinamica</td></tr><tr><td><b>Link «#»</b></td><td>Non fanno nulla (non riportano in cima alla pagina). Molti ora puntano a pagine reali (Club, Chi Siamo, Shop Experience, legali, social)</td><td>Da sostituire con gli indirizzi veri</td></tr><tr><td><b>Header, pannelli, footer</b></td><td>Componenti condivisi, caricati su ogni pagina da uno script comune (js/layout.js)</td><td>Modelli riusabili della piattaforma</td></tr><tr><td><b>Account e Registrazione</b></td><td>2 pagine statiche: account.html (dashboard con 4 tab: Ordini, Indirizzi, Dati personali, Preferiti) e registrazione.html (form iscrizione). Il drawer login del sito punta a queste pagine</td><td>Area riservata con backend</td></tr></tbody></table>
+  <footer class="pf"><b>Per l’agenzia.</b> Tutto ciò che nella colonna «Nella demo» è di esempio va collegato a dati reali; l’aspetto resta quello della demo. Spedizione 5,99 € sotto i 99 € e IVA 22%: costanti nel codice.</footer>
+</section>
+<section class="page " id="p12">
+  <header class="ph"><span class="logo">DOPPELGÄNGER</span><span class="pn">Specifiche per l’agenzia · 12 / 17</span></header>
+  <div class="eyebrow">MOVIMENTO E ACCESSIBILITÀ</div>
+  <h1>Pochi movimenti, tutti spegnibili.</h1>
+  <div class="rule"></div>
+  <div class="cols2"><div><div class="eyebrow">MOVIMENTO</div><ul class="bul"><li><b>Tre tempi:</b> 0,25 s (passaggio del mouse, icone), 0,4 s (menu, pannelli, bottoni), 0,8 s (immagini, comparsa dei blocchi). Curva «ease».</li><li><b>Ingresso pagina:</b> dissolvenza di 0,25 s; non sulla home.</li><li><b>Scroll-snap:</b> in verticale solo tra hero e video (in prossimità, non forzato); in orizzontale nei caroselli Must Have e Journal. Disattivato se il dispositivo chiede meno movimento.</li><li><b>Comparsa in vista:</b> i blocchi salgono di 16 px (o si riducono da 1,03) quando ne è visibile il 20%, una volta sola.</li><li><b>Barra di avanzamento</b> in alto, 2 px oro.</li><li><b>Video:</b> partono solo quando sono visibili (margine 300 px) e si fermano fuori schermo; se il dispositivo chiede meno movimento, non partono.</li></ul></div><div><div class="eyebrow">ACCESSIBILITÀ</div><ul class="bul"><li><b>Movimento ridotto:</b> se richiesto dal dispositivo, tutte le durate scendono a 0,01 s.</li><li><b>Zoom libero:</b> nessun limite di scala (il sito attuale blocca lo zoom, slide 11 della proposta).</li><li><b>Tastiera:</b> Esc chiude menu e pannelli.</li><li><b>Etichette in italiano</b> su frecce e pulsanti; titoli in testo vero.</li><li><b>Area di tocco</b> di almeno 44 px, rispettata in tutto il sito.</li><li><b>Da verificare con prove reali:</b> lettori di schermo e contrasto del testo bianco sulle immagini.</li></ul></div></div>
+  <footer class="pf"><b>Nota.</b> Nessuna di queste regole è stata misurata con strumenti: sono quelle scritte nel codice della demo.</footer>
+</section>
+<section class="page " id="p13">
+  <header class="ph"><span class="logo">DOPPELGÄNGER</span><span class="pn">Specifiche per l’agenzia · 13 / 17</span></header>
+  <div class="eyebrow">HOME · STRUTTURA</div>
+  <h1>Prima il marchio, poi il catalogo.</h1>
+  <div class="rule"></div>
+  <table class="tb compact"><colgroup><col style="width:6%"><col style="width:20%"><col style="width:74%"></colgroup><thead><tr><th>N.</th><th>SEZIONE</th><th>COME È FATTA</th></tr></thead><tbody><tr><td><span class='n'>1</span></td><td><b>Hero</b></td><td>Immagine a tutto schermo con velatura scura; titolo in testo vero, maiuscolo, su due righe: «Vestire bene non è un lusso. / È un’abitudine.» Header trasparente sopra.</td></tr><tr><td><span class='n'>2</span></td><td><b>Video</b></td><td>Video muto in loop a tutto schermo, dissolvenza di 0,5 s; appare quando il 10% è visibile. Bottone «Autunno/Inverno 2026».</td></tr><tr><td><span class='n'>5</span></td><td><b>La Selezione</b></td><td>Carosello di sei prodotti (quattro foto, due video), 3,5 card visibili: nome e prezzo a sinistra; scorrimento agganciato, trascinamento col mouse.</td></tr><tr><td><span class='n'>3</span></td><td><b>Collezioni</b></td><td>Due card sui pannelli di una boiserie (immagine di sfondo): Cerimonia ed Essential. Su telefono, due card a tutta larghezza 4:5.</td></tr><tr><td><span class='n'>4</span></td><td><b>Sartoria in Boutique</b></td><td>Fascia crema #FAF8F5 con filo oro sopra (2px), filo grigio sotto (1px), titolo maiuscolo, riga di supporto («Riparazioni e modifiche su misura · Su appuntamento in boutique») e bottone «Scopri il servizio».</td></tr><tr><td><span class='n'>6</span></td><td><b>Outlet e Primavera Estate</b></td><td>Due blocchi a tutta altezza, titolo su due righe e bottone («Entra nell’outlet», «Vedi i ribassi»); uno sotto l’altro sotto i 900 px.</td></tr><tr><td><span class='n'>7</span></td><td><b>Journal</b></td><td>Carosello dei <b>9 articoli</b> (4 visibili, 3:4) con titolo maiuscolo e testo breve, generato da un elenco condiviso con l’archivio Journal. Include la card <b>Doppelgänger Club</b> in cima.</td></tr><tr><td><span class='n'>8</span></td><td><b>Footer</b></td><td>Newsletter, quattro colonne (<b>Corporate, Informazioni utili, Servizio clienti, Seguici</b>), riga con Paese e lingua, logo testuale, 4 social linkati. Vedi pagina 15 per i contenuti. Fascia fiducia in cima (4 voci) e loghi di pagamento accanto al copyright.</td></tr></tbody></table>
+  <footer class="pf"><b>Caricamento.</b> Sfondo notte finché arriva il CSS; font non bloccanti; immagini sotto la prima schermata caricate solo quando servono.</footer>
+</section>
+<section class="page dense" id="p14">
+  <header class="ph"><span class="logo">DOPPELGÄNGER</span><span class="pn">Specifiche per l’agenzia · 14 / 17</span></header>
+  <div class="eyebrow">COLLEZIONE E SCHEDA PRODOTTO</div>
+  <h1>Una griglia sobria, una scheda che si segue.</h1>
+  <div class="rule"></div>
+  <div class="cols2"><div><div class="eyebrow">COLLEZIONE</div><ul class="bul"><li><b>Griglia a 3 colonne</b>, distanza 40×24 px (32×20 sotto 1200, 28×18 sotto 1024); contenitore fino a 1600 px, margini 50 px (30 sotto 1200, 16 sotto 900).</li><li><b>Sotto i 900 px:</b> 2 colonne, con scelta tra 2 e 3. Su telefono foto a tutta larghezza, distanza 2 px; nome e prezzo sulla foto, in bianco 12 px su sfumatura scura; a 3 colonne solo foto.</li><li><b>Card:</b> immagine 3:4; cuore senza cerchio in alto a destra, bianco con ombra (area di tocco 44 px, icona 22 px su desktop, 20 px su mobile); nome 14 px, prezzo 12 px in grassetto; «+» da 22 px.</li><li><b>Testata:</b> la sezione del titolo è vuota (margini 45 px 50 px): nessun titolo visibile.</li><li><b>Card in evidenza</b> (Cerimonia, Essential): 2 colonne × 1 riga in cima, fondo #111, foto a coprire, minimo 360 px, sfumatura scura dal basso; margine 32 px; «La selezione» Jost 11 px maiuscolo e titolo su due righe Jost 500 13 px. Sotto 1024 px tutta larghezza e prima (minimo 280 px); sotto 520 px 4:3. Non cliccabile.</li><li><b>Filtra e ordina</b> (14 px maiuscolo, a destra): ordine (rilevanza, prezzo, nome A–Z), solo disponibili, prezzo, taglia 46–56, colore (blu, nero, grigio, marrone, beige). Filtro nella pagina, badge oro col numero di filtri; 2/3 colonne riparte da 2.</li></ul></div><div><div class="eyebrow">SCHEDA PRODOTTO</div><ul class="bul"><li><b>Due colonne</b> (1,3fr · 0,9fr), distanza 70 px: foto e video in griglia a due colonne (la prima a tutta larghezza), distanziati di 3 px; le informazioni restano fisse sotto l’header.</li><li><b>Testi:</b> collezione in oro 11 px maiuscolo; titolo serif 27–30 px; <b>prezzo 17 px grassetto</b>; <b>descrizione 14 px</b>, peso 300, interlinea 1,75, larghezza massima 46 caratteri.</li><li><b>Colori:</b> cerchi da 44 px. <b>Taglie:</b> quadrati da 44 px; scelta in riempimento inchiostro, esaurita barrata (#C9C3B8).</li><li><b>Aggiungi al carrello:</b> alto 52 px, fisso in basso su desktop; taglia obbligatoria (senza, avviso rosso); poi «Aggiunto ✓» in oro per 1,6 s. Cuore 52×52 px.</li><li><b>Dettagli</b> in fisarmonica (11 px maiuscolo). Sotto i 900 px una colonna. <b>Prodotti correlati:</b> carosello in formato Must Have (4 card, 3.5 visibili su desktop, 2.3 su tablet, 1.1 su mobile). Immagini 3:4.5. Titolo serif 26 px. Frecce ai bordi su desktop, drag col mouse, swipe su touch.</li></ul></div></div>
+  <footer class="pf"><b>Nota.</b> Valori dai CSS e dagli script della demo. La card «in evidenza» resta fuori da filtri e ordine. Spedizione gratuita sopra 99 €, reso gratuito entro 60 giorni (testo della scheda).</footer>
+</section>
+<section class="page fp" id="p15">
+  <header class="ph"><span class="logo">DOPPELGÄNGER</span><span class="pn">Specifiche per l’agenzia · 15 / 17</span></header>
+  <div class="eyebrow">PAGINE</div>
+  <h1>Cosa c’è nella demo, cosa manca.</h1>
+  <div class="rule"></div>
+  
+<div class="eyebrow sub">NELLA DEMO</div>
+<p class="lead">Home; collezioni Autunno/Inverno 2026, Cerimonia, Essential; 3 schede prodotto complete; archivio Journal (4 colonne, filtri); 5 pagine Journal (Looks AW26, Den Haag, Sartoria, Chi siamo, Esperienza); <b>Doppelgänger Club</b> (4 fasce, 5 benefici con icone, 7 FAQ); <b>carrello come pagina intera</b>; <b>checkout in una pagina</b>; <b>conferma ordine</b> con header e footer; <b>4 pagine legali con testi reali Doppelgänger</b>: Privacy+Cookie (unificate), Termini e Condizioni, Spedizioni e Resi, Dichiarazione di Accessibilità. <b>Account</b> (account.html) con dashboard a 4 tab (Ordini, Indirizzi, Dati personali, Preferiti); <b>Registrazione</b> (registrazione.html).</p>
+<div class="eyebrow sub">FOOTER STRUTTURA DOPPELGÄNGER (DEMO) · 4 COLONNE, 19 VOCI TOTALI</div>
+<div class="fgrid"><div class="fcol"><div class="num">01</div><h2>CORPORATE (5)</h2><span>Doppelgänger Club</span><span>Chi Siamo</span><span>Esperienza in Boutique</span><span>Lavora con noi</span><span>Franchising</span></div><div class="fcol"><div class="num">02</div><h2>INFORMAZIONI UTILI (6)</h2><span>Store Locator</span><span>Guida alle Taglie</span><span>Gift Card</span><span>Cookie e Privacy Policy</span><span>Dichiarazione accessibilità</span><span>Termini e condizioni di vendita</span></div><div class="fcol"><div class="num">03</div><h2>SERVIZIO CLIENTI (4)</h2><span>Contattaci</span><span>Traccia il tuo ordine</span><span>Spedizioni e Resi</span><span>Metodi di Pagamento</span></div><div class="fcol"><div class="num">04</div><h2>SEGUICI (4)</h2><span>Instagram</span><span>Facebook</span><span>TikTok</span><span>LinkedIn</span></div></div>
+  <footer class="pf"><b>Attenzione.</b> Il sito reale ha 32 voci in 4 colonne (Corporate, Informazioni utili, Servizio clienti, Seguici). La demo ne ha 19: le voci di nicchia (Whistleblowing, Parità di genere, Istruzione riciclo, SiteMap, Klarna, Doppelgänger APP) sono state tolte e restano da confermare con il cliente.</footer>
+</section>
+<section class="page list" id="p16">
+  <header class="ph"><span class="logo">DOPPELGÄNGER</span><span class="pn">Specifiche per l’agenzia · 16 / 17</span></header>
+  <div class="eyebrow">PERIMETRO</div>
+  <h1>Cosa resta all’agenzia.</h1>
+  <div class="rule"></div>
+  <div class="eyebrow sub">FUORI DALLA DEMO</div><ul class="bul"><li><b>Account e accesso reali</b>: login, registrazione e area riservata (ordini, indirizzi, dati personali, preferiti). La demo ha solo le pagine statiche.</li><li><b>Pagamenti reali</b> (carte, PayPal, Klarna)</li><li><b>Catalogo, filtri reali, taglie e disponibilità</b></li><li><b>Paesi, lingue e prezzi per Paese</b></li><li><b>Store locator con mappa e dati reali</b></li><li><b>SEO</b>: titoli, indirizzi, dati strutturati</li><li><b>Sistema di gestione dei contenuti per il Journal</b></li><li><b>Newsletter, consensi, cookie e tracciamento</b></li><li><b>Dati di esempio</b>: nomi, prezzi e foto della demo non sono coerenti tra home, ricerca e collezioni; vanno sostituiti con il catalogo reale, non riportati</li><li><b>Misure di velocità</b>: ripetere sul sito vero. La demo è più leggera anche perché fa meno cose</li></ul>
+  <footer class="pf"><b>Nota.</b> Le cifre Lighthouse del PDF di proposta riguardano la demo: non sono una promessa per il sito dinamico.</footer>
+</section>
+<section class="page end" id="p17">
+  <header class="ph"><span class="logo">DOPPELGÄNGER</span><span class="pn">Specifiche per l’agenzia · 17 / 17</span></header>
+  <div class="end-c"><div class="end-logo">DOPPELGÄNGER</div><div class="rule c"></div>
+  <h2>Un sito che racconta il marchio,<br>prima ancora del catalogo.</h2>
+  <div class="eyebrow c">SPECIFICHE PER L’AGENZIA · OTTOBRE 2026</div></div>
+</section>
+</main>
+<script>
+function toggleEdit(b){var d=document.getElementById('doc');var on=d.getAttribute('contenteditable')==='true';d.setAttribute('contenteditable',on?'false':'true');b.textContent='Modalità modifica: '+(on?'OFF':'ON');}
+</script>
+</body></html>
