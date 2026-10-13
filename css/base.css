@@ -493,7 +493,8 @@ header.menu-open .topbar-message {
 
 .mobile-menu-list > li > a {
   display: block;
-  padding: 20px 24px;
+  padding: 20px 24px 20px 32px;
+  text-align: left;
   font-family: var(--sans);
   font-size: var(--fs-13);
   font-weight: 400;
@@ -509,7 +510,7 @@ header.menu-open .topbar-message {
   position: relative;
   display: block;
   width: 100%;
-  padding: 20px 44px 20px 44px;
+  padding: 20px 44px 20px 32px;
   background: transparent;
   border: none;
   font-family: var(--sans);
@@ -519,7 +520,7 @@ header.menu-open .topbar-message {
   text-transform: uppercase;
   color: var(--ink);
   cursor: pointer;
-  text-align: center;
+  text-align: left;
   transition: color var(--t-fast) var(--ease);
 }
 .mobile-sub-toggle:hover { color: var(--gold); }
@@ -551,7 +552,8 @@ header.menu-open .topbar-message {
 .mobile-sub li { border-bottom: none; }
 .mobile-sub a {
   display: block;
-  padding: 14px 24px 14px 40px;
+  padding: 14px 24px 14px 48px;
+  text-align: left;
   font-family: var(--sans);
   font-size: var(--fs-12);
   font-weight: 300;
@@ -2025,11 +2027,11 @@ header.menu-open .nav-outlet { color: var(--gold) !important; }
 
 /* Voci in evidenza nell'accordion mobile (Essential, Cerimonia) */
 .mobile-sub a.mobile-sub-highlight {
+  font-size: var(--fs-12);
   font-weight: 500;
   color: var(--gold);
   text-transform: uppercase;
   letter-spacing: var(--tr-1);
-  font-size: var(--fs-11);
 }
 .mobile-sub a.mobile-sub-highlight:hover {
   color: var(--ink);
