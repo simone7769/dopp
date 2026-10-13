@@ -2345,3 +2345,12 @@ header.menu-open .nav-outlet { color: var(--gold) !important; }
   padding: 20px 0 0;
   border-top: none;
 }
+.mobile-menu-utility a {
+  font-family: var(--sans);
+  font-size: var(--fs-14);
+  letter-spacing: var(--tr-05);
+  color: var(--muted);
+  text-decoration: none;
+  transition: color var(--t-fast) var(--ease);
+}
+.mobile-menu-utility a:hover { color: var(--gold); }
