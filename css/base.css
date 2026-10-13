@@ -584,21 +584,6 @@ header.menu-open .topbar-message {
 }
 .mobile-menu-icons a:hover { color: var(--gold); opacity: 0.85; }
 .mobile-menu-icons svg { width: 20px; height: 20px; }
-.mobile-menu-utility {
-  text-align: center;
-  padding-top: 10px;
-  margin-top: 0;
-  border-top: 0.5px solid var(--line);
-}
-.mobile-menu-utility a {
-  font-family: var(--sans);
-  font-size: var(--fs-11);
-  letter-spacing: var(--tr-05);
-  color: var(--muted);
-  text-decoration: none;
-}
-.mobile-menu-utility a:hover { color: var(--gold); }
-.mobile-menu-utility a + a { margin-left: 18px; }
 
 /* ============================================================
    DRAWER — struttura comune
