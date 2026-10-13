@@ -198,14 +198,11 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
 }
-.account-preferiti-grid .product-card {
-  border: none;
-}
-
 /* Card prodotto nella tab Preferiti: riproduce il comportamento di collezione.css
    (img-wrap 3:4, object-fit cover, testo sotto). collezione.css non è caricato
    in account.html, quindi lo stiliamo qui in modo mirato. */
 .account-preferiti-grid .product-card {
+  border: none;
   display: block;
   text-decoration: none;
   color: var(--ink);

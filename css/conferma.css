@@ -78,9 +78,6 @@
    deve fermarsi sotto l'header, non a top: 0 (dove finirebbe
    coperto).
    ============================================================ */
-.cf-page .co-grid {
-  min-height: auto;
-}
 .cf-page .co-side-in {
   top: var(--header-h, 170px);
 }
@@ -99,6 +96,7 @@
    Mobile:  msg → side → cta (riepilogo prima della CTA).
    ============================================================ */
 .cf-page .co-grid {
+  min-height: auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-areas:
@@ -107,10 +105,10 @@
 }
 .cf-page .co-main { grid-area: msg; }
 .cf-page .co-side { grid-area: side; }
-.cf-page .co-cta  { grid-area: cta; }
 
 /* Desktop: la CTA ha lo stesso padding/larghezza del .co-main */
 .cf-page .co-cta {
+  grid-area: cta;
   justify-self: end;
   width: 100%;
   max-width: 616px;
