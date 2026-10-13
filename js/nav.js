@@ -313,7 +313,11 @@ if (navBurger && mobileMenu) {
     const wasOpen = mobileMenu.classList.contains('open');
     mobileMenu.classList.toggle('open', willOpen);
     navBurger.setAttribute('aria-expanded', String(willOpen));
+    if (!willOpen && mobileMenu.contains(document.activeElement)) {
+      document.activeElement.blur();
+    }
     mobileMenu.setAttribute('aria-hidden', String(!willOpen));
+    mobileMenu.inert = !willOpen;
     document.body.style.overflow = willOpen ? 'hidden' : '';
 
     if (header && willOpen !== wasOpen) {
