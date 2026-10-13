@@ -256,6 +256,7 @@ table.tb{width:100%;border-collapse:collapse;table-layout:fixed}
   <h2>NAVIGAZIONE E CONTATORI</h2><p>Il badge «dondola» (scala 1,25 per 0,25 s) quando il numero cambia. Frecce dei caroselli: tratto 1,2 px, etichette «Precedente» e «Successivo»; nascoste su touch e sotto i 1024 px.</p></div>
 </div>
 <div class="callout wide"><b>PayPal e aree di tocco.</b> Il bottone «PayPal» nel drawer è 18 px (allineato al corpo editoriale). Le aree di tocco rispettano il minimo 44×44 px anche nelle icone dell’header mobile.</div>
+<div class="callout wide"><b>Quick-add dal «+».</b> Cliccando il «+» sulla card si apre un pannellino in fondo alla card con: colore (solo se il prodotto ha varianti, dichiarate in <code>data-colors</code>) e taglie 46-56. Il pannello chiama <code>window.Cart.add()</code> (la stessa API usata dalla scheda prodotto) e aggiunge al carrello demo (<code>sessionStorage</code> chiave <code>dg_cart</code>). Su mobile (≤640 px) il «+» è nascosto: si usa la scheda prodotto. I colori (PDP, filtri, quick-add) sono rettangolari, nudi a riposo, bordo inchiostro al passaggio e quando selezionati. Rapporto 1.3 (es. 52×40 in PDP, 48×38 in quick-add). Il file è <code>js/quick-add.js</code>.</div>
 
   <footer class="pf"><b>Coerenza.</b> Gli stessi componenti compaiono nella home, nelle collezioni, nei pannelli e nel carrello: vanno costruiti una volta sola.</footer>
 </section>
