@@ -1749,3 +1749,24 @@ window.WishlistStore = (function () {
   }, { rootMargin: '300px 300px' });
   videos.forEach(function (v) { io.observe(v); });
 })();
+/* ============================================================
+   TOUCH: rimuovi .img-hover dal DOM su dispositivi senza hover
+   Evita il flash di "hover simulato" al tocco e risparmia banda.
+   ============================================================ */
+(function () {
+  if (!window.matchMedia) return;
+  var touch = window.matchMedia('(hover: none)').matches ||
+              window.matchMedia('(pointer: coarse)').matches;
+  if (!touch) return;
+  function rimuovi() {
+    document.querySelectorAll('.img-hover').forEach(function (el) { el.remove(); });
+  }
+  rimuovi();
+  window.dgTouchNoHover = rimuovi;
+
+  /* Al ritorno dalla scheda prodotto (bfcache), il browser
+     ripristina la pagina com'era: rimuovi di nuovo gli img-hover. */
+  window.addEventListener('pageshow', function (e) {
+    if (e.persisted) rimuovi();
+  });
+})();
