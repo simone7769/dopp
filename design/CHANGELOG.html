@@ -273,7 +273,15 @@
   <div class="commit">
     <code>707a309</code><span class="msg">collezione: titolo visibile su desktop, nascosto su mobile (≤640px) nelle pagine AI 2026, Essential, Cerimonia</span>
   </div>
-  <h2>13. Aggiornamento del 13 ottobre 2026 <span class="count">17 commit</span></h2>
+  <h2>13. Aggiornamento del 13 ottobre 2026 <span class="count">19 commit</span></h2>
+  <div class="commit">
+    <code>a65a529</code><span class="msg">mobile-menu: riorganizzato stile Brunello (6 voci: area personale, wishlist, boutique, contattaci, paese, newsletter)</span>
+    <p class="note">Il menu mobile ora ha una lista extra con icona + testo (come Brunello): Area personale, Wishlist, Boutique, Contattaci, Paese/Lingua, Newsletter. Sostituisce la griglia di icone e i link in linea, riempie lo spazio vuoto, risolve il bug del Profilo che non apriva il drawer.</p>
+  </div>
+  <div class="commit">
+    <code>bee8ce2</code><span class="msg">a11y: fix warning aria-hidden sul menu mobile (blur + inert su chiusura)</span>
+    <p class="note">Il menu mobile ora rimuove il focus prima di nascondersi con aria-hidden, e usa inert quando chiuso. Coerente con gli altri drawer.</p>
+  </div>
   <div class="commit">
     <code>a7eb1d6</code><span class="msg">touch: rimuovi img-hover su device senza hover + pageshow (bfcache) — no flash, risparmio banda</span>
     <p class="note">Su dispositivi senza hover (mobile, tablet), le seconde immagini delle card (img-hover) vengono rimosse dal DOM: elimina il flash di hover simulato al tocco e risparmia banda. Il listener <code>pageshow</code> le rimuove di nuovo quando si torna indietro dalla scheda prodotto (bfcache).</p>
