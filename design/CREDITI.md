@@ -13,7 +13,7 @@
 
 ## Cosa comprende il pacchetto
 
-- **Sito demo**: 21 pagine HTML (home, collezioni, schede prodotto, carrello, checkout, conferma, Club, account, Journal, pagine legali)
+- **Sito demo**: 23 pagine HTML (home, collezioni, schede prodotto, carrello, checkout, conferma, Club, account, Journal, pagine legali)
 - **Design system**: `css/tokens.css` + `design/token.json`
 - **Documentazione tecnica**: `design/CHANGELOG.html`, `design/DIFF-FILES.html`, `design/BADGE.html`, `design/MODIFICHE PDF.md`
 - **Presentazione cliente**: `design/NOVITA-SITO.html`
