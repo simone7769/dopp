@@ -459,18 +459,18 @@
 }
 .quick-add-cta {
   width: 100%;
-  min-height: 40px;
+  min-height: var(--btn-height, 48px);
   border-radius: 0;
   border: 1px solid var(--ink);
   background: var(--ink);
   color: #fff;
   font-family: var(--sans);
-  font-size: 12px;
+  font-size: var(--fs-12);
   font-weight: 400;
-  letter-spacing: 1.5px;
+  letter-spacing: var(--tr-2);
   text-transform: uppercase;
   cursor: pointer;
-  transition: background-color var(--t-fast) var(--ease), color var(--t-fast) var(--ease);
+  transition: background-color var(--t-base) var(--ease), color var(--t-base) var(--ease);
 }
 .quick-add-cta:hover { background: transparent; color: var(--ink); }
 
