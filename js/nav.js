@@ -505,7 +505,8 @@ if (navBurger && mobileMenu) {
   const overlay = document.getElementById('countryOverlay');
   const openBtns = [
     document.getElementById('openCountryDrawer'),
-    document.getElementById('openCountryDrawerFooter')
+    document.getElementById('openCountryDrawerFooter'),
+    ...document.querySelectorAll('[data-open-country]')
   ].filter(Boolean);
   const closeBtn = document.getElementById('closeCountryDrawer');
   const confirmBtn = document.getElementById('confirmCountry');
@@ -842,7 +843,7 @@ window.DGMedia = (function () {
   const closeBtn = document.getElementById('closeLoginDrawer');
   const togglePwd = document.getElementById('togglePassword');
   const pwdInput = document.getElementById('loginPassword');
-  const openBtns = document.querySelectorAll('a[aria-label="Profilo"]');
+  const openBtns = document.querySelectorAll('a[aria-label="Profilo"], [data-open-login]');
 
   if (!drawer) return;
 
@@ -890,7 +891,7 @@ window.DGMedia = (function () {
   const drawer = document.getElementById('wishlistDrawer');
   const overlay = document.getElementById('wishlistOverlay');
   const closeBtn = document.getElementById('closeWishlistDrawer');
-  const openBtns = document.querySelectorAll('a[aria-label="Preferiti"]');
+  const openBtns = document.querySelectorAll('a[aria-label="Preferiti"], [data-open-wishlist]');
 
   if (!drawer) return;
 
@@ -1772,5 +1773,29 @@ window.WishlistStore = (function () {
      ripristina la pagina com'era: rimuovi di nuovo gli img-hover. */
   window.addEventListener('pageshow', function (e) {
     if (e.persisted) rimuovi();
+  });
+})();
+
+/* ============================================================
+   MOBILE MENU: link Newsletter → scrolla al form del footer
+   ============================================================ */
+(function () {
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest('[data-open-newsletter]');
+    if (!link) return;
+    e.preventDefault();
+    var emailInput = document.getElementById('footerEmail');
+    if (!emailInput) return;
+    /* Chiudi menu mobile se aperto */
+    var mobileMenu = document.getElementById('mobileMenu');
+    if (mobileMenu && mobileMenu.classList.contains('open')) {
+      var burger = document.getElementById('navBurger');
+      if (burger) burger.click();
+    }
+    /* Scrolla e metti focus */
+    setTimeout(function () {
+      emailInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      setTimeout(function () { emailInput.focus(); }, 400);
+    }, 100);
   });
 })();

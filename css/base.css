@@ -482,7 +482,7 @@ header.menu-open .topbar-message {
   flex-direction: column;
   gap: 0;
   text-align: center;
-  margin: 0 0 40px;
+  margin: 0 0 20px;
   width: 100%;
   border-top: 0.5px solid var(--gold);
   border-bottom: 0.5px solid var(--gold);
@@ -2311,4 +2311,52 @@ header.menu-open .nav-outlet { color: var(--gold) !important; }
 }
 @media (max-width: 640px) {
   .footer-trust a { flex-direction: column; gap: 12px; }
+}
+
+/* ============================================================
+   MOBILE MENU — lista extra (stile Brunello: icona + testo)
+   Sostituisce la griglia icone e i link in linea.
+   ============================================================ */
+.mobile-menu-extra {
+  margin: 0;
+  padding: 24px 0 0;
+  list-style: none;
+  width: 100%;
+  border-top: 0.5px solid var(--line);
+}
+.mobile-menu-extra li {
+  border-bottom: 0.5px solid var(--line);
+}
+.mobile-menu-extra li:last-child { border-bottom: none; }
+.mobile-menu-extra a {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 14px 32px;
+  min-height: 48px;
+  font-family: var(--sans);
+  font-size: var(--fs-13);
+  letter-spacing: var(--tr-05);
+  color: var(--ink);
+  text-decoration: none;
+  transition: color var(--t-fast) var(--ease);
+}
+.mobile-menu-extra a:hover,
+.mobile-menu-extra a:focus-visible { color: var(--gold); }
+.mobile-menu-extra svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  color: inherit;
+}
+.mobile-menu-extra span {
+  flex: 1 1 auto;
+}
+
+/* Utility in fondo: solo "Abilita accessibilità", centrata */
+.mobile-menu-utility {
+  margin-top: auto;
+  text-align: center;
+  padding: 20px 0 0;
+  border-top: none;
 }
