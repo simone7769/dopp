@@ -273,7 +273,19 @@
   <div class="commit">
     <code>707a309</code><span class="msg">collezione: titolo visibile su desktop, nascosto su mobile (≤640px) nelle pagine AI 2026, Essential, Cerimonia</span>
   </div>
-  <h2>13. Aggiornamento del 13 ottobre 2026 <span class="count">13 commit</span></h2>
+  <h2>13. Aggiornamento del 13 ottobre 2026 <span class="count">16 commit</span></h2>
+  <div class="commit">
+    <code>47f4432</code><span class="msg">a11y: fix warning aria-hidden sul drawer filtri (blur + inert su chiusura)</span>
+    <p class="note">Il drawer "Filtra e ordina" ora rimuove il focus prima di nascondersi con aria-hidden, e usa inert quando chiuso. Coerente con gli altri drawer (già corretti in precedenza).</p>
+  </div>
+  <div class="commit">
+    <code>6d0caae</code><span class="msg">css: tracking CTA uniformato a 1.5px (allineato a .btn e Specifiche)</span>
+    <p class="note">PDP, checkout, preferiti e quick-add passano da tracking 2px a 1.5px, allineandosi a .btn, al drawer e alle Specifiche per l'agenzia.</p>
+  </div>
+  <div class="commit">
+    <code>e637250</code><span class="msg">quick-add: pulsante CTA allineato al design system (48px, tracking 2px, transition --t-base)</span>
+    <p class="note">Il pulsante "Aggiungi al carrello" del pannellino quick-add ora usa var(--btn-height) = 48px (44px su mobile), come i bottoni generici del sito.</p>
+  </div>
   <div class="commit">
     <code>cb80540</code><span class="msg">home: rimosso preload immagine hero</span>
     <p class="note">Rimossi anche i 2 preload dei font Cormorant/Jost introdotti nello stesso ciclo: il preload dell'immagine hero peggiorava il LCP.</p>
