@@ -45,18 +45,19 @@
         </div>
 
         <fieldset id="coAddress" class="co-fields">
+          <legend class="visually-hidden">Indirizzo di spedizione</legend>
           <div class="co-field"><label for="coPaese">Paese</label>
             <select id="coPaese"><option>Italia</option></select></div>
           <div class="co-row">
-            <div class="co-field"><label for="coNome">Nome</label><input id="coNome" autocomplete="given-name" required></div>
-            <div class="co-field"><label for="coCognome">Cognome</label><input id="coCognome" autocomplete="family-name" required></div>
+            <div class="co-field"><label for="coNome">Nome</label><input type="text" id="coNome" autocomplete="given-name" required></div>
+            <div class="co-field"><label for="coCognome">Cognome</label><input type="text" id="coCognome" autocomplete="family-name" required></div>
           </div>
-          <div class="co-field"><label for="coInd">Indirizzo</label><input id="coInd" autocomplete="address-line1" required></div>
-          <div class="co-field"><label for="coInd2">Interno, scala, ecc. (facoltativo)</label><input id="coInd2" autocomplete="address-line2"></div>
+          <div class="co-field"><label for="coInd">Indirizzo</label><input type="text" id="coInd" autocomplete="address-line1" required></div>
+          <div class="co-field"><label for="coInd2">Interno, scala, ecc. (facoltativo)</label><input type="text" id="coInd2" autocomplete="address-line2"></div>
           <div class="co-row co-row-3">
-            <div class="co-field"><label for="coCap">CAP</label><input id="coCap" inputmode="numeric" autocomplete="postal-code" required></div>
-            <div class="co-field"><label for="coCitta">Città</label><input id="coCitta" autocomplete="address-level2" required></div>
-            <div class="co-field"><label for="coProv">Provincia</label><input id="coProv" autocomplete="address-level1" required></div>
+            <div class="co-field"><label for="coCap">CAP</label><input type="text" id="coCap" inputmode="numeric" autocomplete="postal-code" required></div>
+            <div class="co-field"><label for="coCitta">Città</label><input type="text" id="coCitta" autocomplete="address-level2" required></div>
+            <div class="co-field"><label for="coProv">Provincia</label><input type="text" id="coProv" autocomplete="address-level1" required></div>
           </div>
           <div class="co-field"><label for="coTel">Telefono</label><input id="coTel" type="tel" autocomplete="tel" required></div>
         </fieldset>
@@ -69,12 +70,12 @@
           <div class="co-pay-opt open">
             <label><input type="radio" name="pagamento" value="Carta di credito" checked><span>Carta di credito</span><em>VISA · Mastercard</em></label>
             <div class="co-card" id="coCard">
-              <div class="co-field"><label for="coNum">Numero carta</label><input id="coNum" inputmode="numeric" autocomplete="cc-number" required></div>
+              <div class="co-field"><label for="coNum">Numero carta</label><input type="text" id="coNum" inputmode="numeric" autocomplete="cc-number" required></div>
               <div class="co-row">
-                <div class="co-field"><label for="coExp">Scadenza (MM/AA)</label><input id="coExp" autocomplete="cc-exp" required></div>
-                <div class="co-field"><label for="coCvc">Codice di sicurezza</label><input id="coCvc" inputmode="numeric" autocomplete="cc-csc" required></div>
+                <div class="co-field"><label for="coExp">Scadenza (MM/AA)</label><input type="text" id="coExp" autocomplete="cc-exp" required></div>
+                <div class="co-field"><label for="coCvc">Codice di sicurezza</label><input type="text" id="coCvc" inputmode="numeric" autocomplete="cc-csc" required></div>
               </div>
-              <div class="co-field"><label for="coIntest">Nome sulla carta</label><input id="coIntest" autocomplete="cc-name" required></div>
+              <div class="co-field"><label for="coIntest">Nome sulla carta</label><input type="text" id="coIntest" autocomplete="cc-name" required></div>
             </div>
           </div>
           <div class="co-pay-opt"><label><input type="radio" name="pagamento" value="PayPal"><span>PayPal</span></label></div>
