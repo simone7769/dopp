@@ -128,7 +128,7 @@
   border: 1px solid var(--ink);
   font-family: var(--sans);
   font-size: var(--fs-12);
-  letter-spacing: var(--tr-2);
+  letter-spacing: var(--tr-15);
   text-transform: uppercase;
   cursor: pointer;
   transition: background var(--t-base) var(--ease), color var(--t-base) var(--ease);
