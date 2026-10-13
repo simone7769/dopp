@@ -48,6 +48,7 @@
 
   function openDrawer(e) {
     if (e) e.preventDefault();
+    drawer.inert = false;
     drawer.classList.add('open');
     overlay.classList.add('active');
     drawer.setAttribute('aria-hidden', 'false');
@@ -56,7 +57,9 @@
   function closeDrawer() {
     drawer.classList.remove('open');
     overlay.classList.remove('active');
+    if (drawer.contains(document.activeElement)) document.activeElement.blur();
     drawer.setAttribute('aria-hidden', 'true');
+    drawer.inert = true;
     document.body.style.overflow = '';
   }
 
