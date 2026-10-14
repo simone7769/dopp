@@ -1,0 +1,31 @@
+/* ============================================================
+   PAGAMENTI.CSS — pagina Metodi di Pagamento (pagamenti.html)
+   Estende legale.css: qui solo la griglia dei loghi in cima.
+   ============================================================ */
+
+.pay-logos {
+  list-style: none;
+  margin: 32px 0 48px;
+  padding: 24px 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.pay-logos li { display: flex; }
+.pay-logos img {
+  display: block;
+  height: 28px;
+  width: auto;
+  opacity: 0.85;
+  transition: opacity var(--t-fast) var(--ease);
+}
+.pay-logos img:hover { opacity: 1; }
+
+@media (max-width: 640px) {
+  .pay-logos { gap: 24px; }
+  .pay-logos img { height: 24px; }
+}
