@@ -104,6 +104,28 @@
 }
 .faq-body a:hover { color: var(--gold); }
 
+/* Liste dentro le risposte (es. costi di spedizione) */
+.faq-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1em;
+}
+.faq-list li {
+  position: relative;
+  padding: 4px 0 4px 16px;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--ink);
+}
+.faq-list li::before {
+  content: "–";
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+}
+
 /* Placeholder "Contenuto in arrivo" */
 .faq-placeholder {
   font-family: var(--sans);
