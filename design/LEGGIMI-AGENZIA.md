@@ -6,26 +6,59 @@ Documento di accompagnamento al pacchetto demo + specifiche. Per chi svilupperà
 
 | File / cartella | Cosa contiene |
 |---|---|
-| `*.html`, `css/`, `js/`, `images/` | Demo statica navigabile (23 pagine) |
+| `*.html`, `css/`, `js/` | Demo statica navigabile (**34 pagine**) |
+| `images/` | Immagini del sito (WebP ottimizzate) |
+| `images/guida-taglie/` | **18 immagini** per la guida taglie (WebP, ~3,4 MB totali) |
+| `fonts/` | Font self-hosted (Cormorant Garamond + Jost) |
 | `js/quick-add.js` | Pannellino quick-add sul «+» delle card: colore + taglia, aggiunge al carrello demo |
 | `design/Doppelganger-Proposta-nuovo-sito.pdf` | Direzione strategica del progetto |
-| `design/Doppelganger_Specifiche_per_agenzia.pdf` | Specifiche tecniche dettagliate |
-| `design/CHANGELOG.html` | Elenco dei 125 commit con descrizione |
+| `design/Doppelganger_Specifiche_per_agenzia.html` | Specifiche tecniche dettagliate (sorgente HTML editabile) |
+| `design/CHANGELOG.html` | Elenco dei commit con descrizione |
 | `design/DIFF-FILES.html` | File toccati, con righe aggiunte/rimosse |
 | `design/BADGE.html` | Regole e codice per le etichette prodotto |
 | `design/NOVITA-SITO.html` | Riepilogo delle novità (per il cliente) |
 | `design/token.json` | Design token in formato JSON |
 | `design/CREDITI.md` | Autore e contatti |
 
-## Struttura del progetto
+## Aggiornamento del 14 ottobre 2026
 
-ls -la README.md design/LEGGIMI-AGENZIA.md
-open README.md
-open design/LEGGIMI-AGENZIA.md
-git add README.md design/LEGGIMI-AGENZIA.md
-git commit -m "README cliente + guida agenzia + 36px confermato"
-git --no-pager log --oneline -3
-git status
-ls -la README.md design/LEGGIMI-AGENZIA.md 2>/dev/null
-git status
-git --no-pager log --oneline -5
+### Nuove pagine (11)
+- **`boutique.html`** — Store locator con 83 boutique reali, ricerca live
+- **`pagamenti.html`** — Metodi di pagamento (carte, PayPal, Klarna, Apple Pay, Google Pay)
+- **`guida-taglie.html`** — 18 categorie con modale a popup (dati reali)
+- **`traccia-ordine.html`** — Traccia ordine (form + risultato demo)
+- **`monitora-reso.html`** — Traccia reso (stessa struttura)
+- **`gift-card.html`** — Gift Card in stile PDP con selettore taglio
+- **`lavora-con-noi.html`** — 2 tab + 17 posizioni + form candidatura
+- **`faq.html`** — 22 domande in 12 gruppi
+- **`riciclo.html`** — Istruzioni riciclo imballaggi (47 voci)
+- **`whistleblowing.html`** — Procedura Whistleblowing (+ PDF)
+- **`parita-genere.html`** — Politica di Parità di Genere
+
+### Modifiche strutturali
+- **Footer ristrutturato**: trust bar, 3 colonne, 5 link legali in basso, 7 voci nuove
+- **Uniformazione "Boutique"**: era "Store Locator" / "Negozi"
+- **Ancore `#spedizioni` e `#resi`** funzionanti
+
+### Qualità e performance
+- **W3C**: 0 errori su HTML/CSS/JS
+- **Lighthouse**: Performance 100/100 (desktop + mobile), Accessibilità 100/100, Best Practices 100/100, SEO 100/100
+- **Immagini home** ottimizzate WebP q80 (-47%, da 3,2 MB a 1,7 MB)
+- **Video hero** con `preload="none"` + poster per LCP ottimale
+- **Meta description** su tutte le 34 pagine
+
+## Come aprire la demo
+
+Da terminale, nella cartella del progetto:
+- `python3 -m http.server 8000` → apri `http://localhost:8000/`
+- Oppure apri `index.html` direttamente nel browser
+
+## Come leggere il codice
+
+- **HTML**: una pagina per file, struttura chiara. Header/footer/drawer sono **iniettati da `js/layout.js`** (non duplicati su ogni pagina).
+- **CSS**: `css/tokens.css` (variabili di design system), `css/base.css` (header, footer, drawer, bottoni comuni), poi un CSS per pagina.
+- **JS**: `js/nav.js` gestisce tutti i comportamenti interattivi (menu, drawer, carrello, wishlist, ricerca, filtri). `js/layout.js` inietta header/footer. Il resto sono moduli per singola funzionalità.
+
+## Contatti
+
+Vedi `design/CREDITI.md`.
