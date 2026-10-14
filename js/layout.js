@@ -312,7 +312,7 @@
     <input type="search" id="storesSearch" placeholder="Cerca per città o Paese" autocomplete="off" aria-label="Cerca una boutique">\
   </div><p class="stores-count" id="storesCount" aria-live="polite"></p></div>\
   <div class="stores-list" id="storesList"></div>\
-  <div class="stores-footer"><a href="#" class="stores-btn">Vedi tutte le boutique</a></div>\
+  <div class="stores-footer"><a href="boutique.html" class="stores-btn">Vedi tutte le boutique</a></div>\
 </aside>'; }
 
   function CONTACT_DRAWER() { return '\
@@ -355,7 +355,7 @@
     <hr class="contact-divider">\
     <div class="contact-channel"><h4>WhatsApp</h4>\
       <p>Preferisci scriverci in chat? Inviaci un messaggio e il nostro Servizio Clienti ti risponderà.</p>\
-      <a href="#" class="contact-btn">Inviaci un messaggio</a>\
+      <a href="https://api.whatsapp.com/send?phone=15557933596&text=Ciao,%20vorrei%20avere%20maggiori%20informazioni%20per" target="_blank" rel="noopener" class="contact-btn">Inviaci un messaggio</a>\
     </div>\
   </div>\
 </aside>'; }
@@ -428,11 +428,11 @@
 
   /* ---------------- FASCIA FIDUCIA + LOGHI PAGAMENTO ---------------- */
   var TRUST_ITEMS = [
-    { href: "spedizioni.html", title: "Spedizioni", text: "Consegna a domicilio o ritiro in boutique",
+    { href: "spedizioni.html#spedizioni", title: "Spedizioni", text: "Consegna a domicilio o ritiro in boutique",
       icon: "<path d=\"M2 6h11v9H2zM13 9h4l3 3v3h-7\"/><circle cx=\"6.5\" cy=\"17.5\" r=\"1.8\"/><circle cx=\"16.5\" cy=\"17.5\" r=\"1.8\"/>" },
-    { href: "spedizioni.html", title: "Resi", text: "Cambi e resi semplici, anche in boutique",
+    { href: "spedizioni.html#resi", title: "Resi", text: "Cambi e resi semplici, anche in boutique",
       icon: "<path d=\"M4 12a8 8 0 1 0 2.5-5.8\"/><path d=\"M3.5 4.5v4h4\"/>" },
-    { href: "#", title: "Pagamento sicuro", text: "Transazioni protette e dati al sicuro",
+    { href: "pagamenti.html", title: "Pagamento sicuro", text: "Transazioni protette e dati al sicuro",
       icon: "<rect x=\"5\" y=\"10.5\" width=\"14\" height=\"9.5\" rx=\"1\"/><path d=\"M8 10.5V8a4 4 0 0 1 8 0v2.5\"/>" },
     { href: "#", title: "Assistenza", attr: "data-open-contact", text: "Il nostro team a tua disposizione",
       icon: "<path d=\"M4 14v-2a8 8 0 0 1 16 0v2\"/><rect x=\"3\" y=\"14\" width=\"4\" height=\"5\" rx=\"1\"/><rect x=\"17\" y=\"14\" width=\"4\" height=\"5\" rx=\"1\"/><path d=\"M19 19c0 1.5-2 2-5 2\"/>" }
@@ -465,15 +465,13 @@
     </div>\
     <div class="footer-col"><h4><button type="button" class="footer-toggle" aria-expanded="false">Corporate<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></h4><ul>\
       <li><a href="club.html">Doppelgänger Club</a></li><li><a href="journal-chi-siamo.html">Chi Siamo</a></li>\
-      <li><a href="journal-esperienza-boutique.html">Esperienza in Boutique</a></li><li><a href="#">Lavora con noi</a></li>\
-      <li><a href="#">Franchising</a></li></ul></div>\
-    <div class="footer-col"><h4><button type="button" class="footer-toggle" aria-expanded="false">Informazioni utili<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></h4><ul>\
-      <li><a href="#" data-open-stores>Store Locator</a></li><li><a href="#">Guida alle Taglie</a></li>\
-      <li><a href="#">Gift Card</a></li><li><a href="privacy-cookie.html">Cookie e Privacy Policy</a></li>\
-      <li><a href="accessibilita.html">Dichiarazione accessibilità</a></li><li><a href="termini.html">Termini e condizioni di vendita</a></li></ul></div>\
+      <li><a href="journal-esperienza-boutique.html">Esperienza in Boutique</a></li><li><a href="lavora-con-noi.html">Lavora con noi</a></li></ul></div>\
     <div class="footer-col"><h4><button type="button" class="footer-toggle" aria-expanded="false">Servizio clienti<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></h4><ul>\
-      <li><a href="#" data-open-contact>Contattaci</a></li><li><a href="#">Traccia il tuo ordine</a></li>\
-      <li><a href="spedizioni.html">Spedizioni e Resi</a></li><li><a href="#">Metodi di Pagamento</a></li></ul></div>\
+      <li><a href="#" data-open-contact>Contattaci</a></li>\
+      <li><a href="traccia-ordine.html">Traccia il tuo ordine</a></li>\
+      <li><a href="boutique.html">Store Locator</a></li>\
+      <li><a href="guida-taglie.html">Guida alle Taglie</a></li>\
+      <li><a href="gift-card.html">Gift Card</a></li></ul></div>\
     <div class="footer-col"><h4><button type="button" class="footer-toggle" aria-expanded="false">Seguici<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></h4><ul>\
       <li><a href="https://www.instagram.com/doppelgangerofficial/" target="_blank" rel="noopener">Instagram</a></li>\
       <li><a href="https://www.facebook.com/doppelganger.abbigliamento/" target="_blank" rel="noopener">Facebook</a></li>\
@@ -488,7 +486,12 @@
       <a href="' + FOOTER_LOGO_HREF + '" class="footer-logo-text" aria-label="Torna alla home">DOPPELGÄNGER</a>\
     </div>\
     <div class="footer-bottom-right">\
-      <a href="#">Dati societari completi</a>\
+      <nav class="footer-legal" aria-label="Informazioni legali">\
+        <a href="dati-societari.html">Dati societari</a>\
+        <a href="privacy-cookie.html">Cookie e Privacy</a>\
+        <a href="accessibilita.html">Accessibilità</a>\
+        <a href="termini.html">Termini di vendita</a>\
+      </nav>\
     </div>\
   </div>\
   <div class="footer-copy"><p>&copy; 2026 Doppelgänger. Tutti i marchi citati appartengono ai rispettivi titolari.</p>' + PAY_HTML + '</div>\

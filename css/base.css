@@ -55,7 +55,7 @@
 }
 
 html {
-  scroll-padding-top: 0;
+  scroll-padding-top: 70px;    /* ancora: header scrolled (topbar+logo nascosti) ≈ 50px + margine */
   scroll-behavior: smooth;
 }
 
@@ -1328,7 +1328,7 @@ footer {
   display: grid;
   /* Colonne a larghezza del contenuto, distribuite da bordo a bordo:
      la newsletter tocca il margine sinistro, "Seguici" quello destro. */
-  grid-template-columns: minmax(260px, 380px) repeat(4, minmax(0, max-content));
+  grid-template-columns: minmax(260px, 380px) repeat(3, minmax(0, max-content));
   justify-content: space-between;
   column-gap: 40px;
   row-gap: 60px;
@@ -1454,17 +1454,22 @@ footer {
 .footer-bottom-right {
   display: flex;
   justify-content: flex-end;
-  gap: 24px;
   flex-wrap: wrap;
 }
-.footer-bottom-right a {
-  font-size: var(--fs-12);
-  color: #cfcbc4;
+.footer-legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  justify-content: flex-end;
+}
+.footer-legal a {
+  font-size: var(--fs-11);
+  color: #a8a49c;
   text-decoration: none;
   letter-spacing: var(--tr-03);
   transition: color var(--t-fast) var(--ease);
 }
-.footer-bottom-right a:hover { color: #fff; }
+.footer-legal a:hover { color: #fff; }
 .footer-copy {
   position: relative;
   max-width: 1600px;
@@ -1508,7 +1513,7 @@ footer {
    ============================================================ */
 @media (max-width: 1200px) {
   .footer-main {
-    grid-template-columns: repeat(4, minmax(0, max-content));
+    grid-template-columns: repeat(3, minmax(0, max-content));
     justify-content: space-between;
     gap: 40px;
   }
@@ -1595,12 +1600,13 @@ footer {
   .megamenu { display: none; }
 
   footer { padding: 60px 24px 24px; min-height: auto; }
-  .footer-main { grid-template-columns: 1fr 1fr; gap: 30px; padding-bottom: 40px; }
+  .footer-main { grid-template-columns: 1fr 1fr 1fr; gap: 30px; padding-bottom: 40px; }
   .footer-newsletter { grid-column: 1 / -1; }
   .footer-bottom { grid-template-columns: 1fr; text-align: center; gap: 16px; }
   .footer-bottom-left,
   .footer-bottom-right { justify-content: center; text-align: center; }
-  .footer-bottom-right { flex-wrap: wrap; gap: 16px; }
+  .footer-bottom-right { flex-wrap: wrap; }
+  .footer-legal { justify-content: center; }
 
   header .topbar { border-bottom: 1px solid var(--gold) !important; }
 

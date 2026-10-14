@@ -1353,7 +1353,7 @@ function creaJournalCard(articolo, variante) {
           const actions = el('div', 'stores-actions');
           const dest = encodeURIComponent([b.address, b.city, b.country].join(', '));
           actions.appendChild(link('Indicazioni', 'https://www.google.com/maps/dir/?api=1&destination=' + dest, true));
-          if (b.email) actions.appendChild(link('E-mail', 'mailto:' + b.email));
+          if (b.phone) actions.appendChild(link('Telefono', 'tel:' + b.phone.replace(/\s/g, '')));
           item.appendChild(actions);
           list.appendChild(item);
         });
