@@ -154,6 +154,7 @@
   <ul class="mobile-menu-extra">\
     <li><a href="#" data-open-login><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6"/></svg><span>Area personale</span></a></li>\
     <li><a href="#" data-open-wishlist><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg><span>La mia Wishlist</span></a></li>\
+    <li><a href="doppelganger-app.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg><span>Doppelgänger APP</span></a></li>\
     <li><a href="#" data-open-stores><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 22s7-6.4 7-12a7 7 0 10-14 0c0 5.6 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg><span>Boutique</span></a></li>\
     <li><a href="#" data-open-contact><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M4 14v-2a8 8 0 0116 0v2"/><rect x="3" y="14" width="4" height="6" rx="1"/><rect x="17" y="14" width="4" height="6" rx="1"/><path d="M20 20a4 4 0 01-4 3h-3"/></svg><span>Contattaci</span></a></li>\
     <li><a href="#" data-open-country><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 3 2.5 15 0 18M12 3c-2.5 3-2.5 15 0 18"/></svg><span>Italia (Italiano)</span></a></li>\
@@ -465,7 +466,7 @@
     </div>\
     <div class="footer-col"><h4><button type="button" class="footer-toggle" aria-expanded="false">Corporate<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></h4><ul>\
       <li><a href="club.html">Doppelgänger Club</a></li><li><a href="journal-chi-siamo.html">Chi Siamo</a></li>\
-      <li><a href="journal-esperienza-boutique.html">Esperienza in Boutique</a></li><li><a href="lavora-con-noi.html">Lavora con noi</a></li><li><a href="parita-genere.html">Politica Parità di Genere</a></li><li><a href="whistleblowing.html">Procedura Whistleblowing</a></li></ul></div>\
+      <li><a href="journal-esperienza-boutique.html">Esperienza in Boutique</a></li><li><a href="doppelganger-app.html">Doppelgänger APP</a></li><li><a href="lavora-con-noi.html">Lavora con noi</a></li><li><a href="parita-genere.html">Politica Parità di Genere</a></li><li><a href="whistleblowing.html">Procedura Whistleblowing</a></li></ul></div>\
     <div class="footer-col"><h4><button type="button" class="footer-toggle" aria-expanded="false">Servizio clienti<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></h4><ul>\
       <li><a href="#" data-open-contact>Contattaci</a></li>\
       <li><a href="faq.html">FAQ</a></li>\

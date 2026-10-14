@@ -1,0 +1,149 @@
+/* ============================================================
+   APP.CSS — Pagina Doppelgänger App (doppelganger-app.html)
+   Layout: hero + 3 sezioni in riga + CTA badge store
+   ============================================================ */
+
+/* --- Hero --- */
+.app-hero .hero-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+
+/* --- Contenitore 3 sezioni (flex) --- */
+.app-sections {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 60px 50px 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 80px;
+}
+
+/* --- Singola sezione --- */
+.app-section {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.app-section-title {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(20px, 1.8vw, 26px);
+  letter-spacing: var(--tr-05);
+  color: var(--ink);
+  margin: 0 0 16px;
+}
+
+.app-section-text {
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  margin: 0 0 40px;
+  max-width: 300px;
+}
+
+
+/* --- Cornice iPhone (mockup) --- */
+.app-mockup {
+  position: relative;
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 8px 8px 0;
+  background: #1a1a1a;
+  border-radius: 32px 32px 0 0;
+  overflow: hidden;
+}
+
+
+.app-mockup img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 24px 24px 0 0;
+}
+
+
+
+.app-section-image {
+  margin: 0 auto;
+  max-width: 320px;
+  width: 100%;
+}
+.app-section-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* --- CTA badge store --- */
+.app-cta {
+  flex-direction: column;
+  align-items: center;
+  padding: 0 50px 120px;
+  display: flex;
+  justify-content: center;
+}
+
+.app-cta-sub {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(18px, 1.6vw, 22px);
+  line-height: 1.6;
+  color: var(--ink);
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 48px;
+}
+
+.app-badges {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.app-badges a {
+  display: inline-block;
+  line-height: 0;
+}
+.app-badges img {
+  display: block;
+  height: 52px;
+  width: auto;
+}
+
+/* --- Responsive --- */
+@media (max-width: 1200px) {
+  .app-sections {
+    gap: 40px;
+    padding: 100px 40px 60px;
+  }
+}
+
+@media (max-width: 900px) {
+  .app-sections {
+    flex-direction: column;
+    align-items: center;
+    gap: 80px;
+    padding: 80px 24px 40px;
+  }
+  .app-section-image { max-width: 320px; }
+  .app-cta { padding: 0 24px 80px; }
+}
+
+@media (max-width: 640px) {
+  .app-sections { padding: 60px 16px 30px; gap: 60px; }
+  .app-section-image { max-width: 280px; }
+  .app-cta { padding: 0 16px 60px; }
+  .app-badges { flex-direction: column; align-items: center; }
+}
