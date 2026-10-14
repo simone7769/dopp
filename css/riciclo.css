@@ -1,0 +1,115 @@
+/* ============================================================
+   RICICLO.CSS — pagina Istruzioni per il riciclo (riciclo.html)
+   Tabella con legenda colori per la raccolta differenziata.
+   Estende legale.css.
+   ============================================================ */
+
+/* --- Legenda --- */
+.riciclo-legend {
+  list-style: none;
+  padding: 20px 0;
+  margin: 24px 0 40px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 32px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  font-family: var(--sans);
+  font-size: var(--fs-12);
+  font-weight: 300;
+  letter-spacing: var(--tr-05);
+  color: var(--ink);
+}
+.riciclo-legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* --- Pallino colorato --- */
+.riciclo-dot {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+.dot-plastica { background-color: #F2C94C; }  /* giallo */
+.dot-carta    { background-color: #2D6CDF; }  /* blu */
+.dot-vetro    { background-color: #2E8B57; }  /* verde */
+.dot-tessuto  { background-color: #A0785A; }  /* marrone */
+.dot-indiff   { background-color: #8A8680; }  /* grigio */
+
+/* --- Tabella --- */
+.riciclo-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--line);
+  margin-bottom: 32px;
+}
+.riciclo-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--sans);
+  font-size: var(--fs-13);
+  font-weight: 300;
+  color: var(--ink);
+  min-width: 500px;
+}
+.riciclo-table th,
+.riciclo-table td {
+  padding: 14px 18px;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+  vertical-align: middle;
+}
+.riciclo-table tbody tr:last-child td {
+  border-bottom: none;
+}
+.riciclo-table th {
+  font-family: var(--sans);
+  font-size: var(--fs-11);
+  font-weight: 500;
+  letter-spacing: var(--tr-1);
+  text-transform: uppercase;
+  color: var(--ink);
+  background-color: var(--crema);
+  border-bottom: 1px solid var(--gold);
+}
+.riciclo-table tbody tr:hover { background-color: var(--crema); }
+
+.riciclo-table td:first-child {
+  font-weight: 400;
+}
+.riciclo-table td:nth-child(2) {
+  color: var(--ink-soft);
+  font-size: var(--fs-12);
+}
+.riciclo-table td:nth-child(3) {
+  width: 80px;
+  text-align: center;
+}
+
+/* --- Nota finale --- */
+.riciclo-note {
+  font-family: var(--sans);
+  font-size: var(--fs-12);
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--muted);
+  margin-top: 32px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .riciclo-legend { gap: 10px 24px; }
+}
+@media (max-width: 640px) {
+  .riciclo-legend { font-size: var(--fs-11); }
+  .riciclo-table th,
+  .riciclo-table td { padding: 12px 12px; }
+  .riciclo-table { font-size: var(--fs-12); }
+}
