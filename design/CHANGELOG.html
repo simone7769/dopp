@@ -235,7 +235,73 @@
     Da <code>de268ba</code> a <code>27daea7</code> — 8–14 ottobre 2026
   </p>
 
-  <h2>14. Aggiornamento del 14 ottobre 2026 <span class="count">19 commit</span></h2>
+  <h2>14. Aggiornamento del 14 ottobre 2026 <span class="count">39 commit</span></h2>
+
+  <div class="commit">
+    <code>3ecf96c</code><span class="msg">design: aggiornati LEGGIMI-AGENZIA e NOVITA-SITO (11 pagine nuove + performance 100/100)</span>
+  </div>
+  <div class="commit">
+    <code>8cfffe5</code><span class="msg">guida-taglie: font-size allineati al design system (celle 11→13, th 10→11, sottotitolo 11→13)</span>
+  </div>
+  <div class="commit">
+    <code>fe97d26</code><span class="msg">perf: immagini home ottimizzate WebP q80 (-47%, ~1,5 MB risparmiati)</span>
+    <p class="note">8 immagini della home ricompresse in WebP qualità 80. Risparmio: da 3,2 MB a 1,7 MB. Risultato: Performance Mobile da 84 a <strong>100/100</strong>.</p>
+  </div>
+  <div class="commit">
+    <code>6807569</code><span class="msg">seo: aggiunta meta description a tutte le pagine (SEO 91→100)</span>
+    <p class="note">34 pagine aggiornate con <code>&lt;meta name="description"&gt;</code> specifica. SEO da 91 a <strong>100/100</strong>.</p>
+  </div>
+  <div class="commit">
+    <code>bfe2fae</code><span class="msg">guida-taglie: attivata voce 'Costumi' (tabella S-XXL, dati demo)</span>
+  </div>
+  <div class="commit">
+    <code>6564e1b</code><span class="msg">guida-taglie: 18 immagini categoria (ottimizzate, 3,4 MB totali)</span>
+    <p class="note">18 immagini WebP per la guida taglie, ognuna per la sua categoria. Ottimizzate (q80, resize dove serve), 3,4 MB totali.</p>
+  </div>
+  <div class="commit">
+    <code>2be91dd</code><span class="msg">trigger: redeploy Vercel dopo reset (allinea a bcc11b1)</span>
+  </div>
+  <div class="commit">
+    <code>bcc11b1</code><span class="msg">home: video hero con preload=none + poster (fix LCP)</span>
+    <p class="note">Il video hero non si scarica più all'apertura: parte solo quando entra in viewport. Aggiunto poster (primo fotogramma) per visualizzazione immediata.</p>
+  </div>
+  <div class="commit">
+    <code>34c6f9a</code><span class="msg">a11y: aria-label drawer 'Apri pannello boutique' (distingue da pagina boutique)</span>
+  </div>
+  <div class="commit">
+    <code>3c1fef7</code><span class="msg">account: fix W3C (aria tab/tabpanel completi + aria-selected dinamico)</span>
+  </div>
+  <div class="commit">
+    <code>ec66339</code><span class="msg">lavora-con-noi: fix W3C (autocomplete address-line1, aria tab/tabpanel)</span>
+  </div>
+  <div class="commit">
+    <code>ed99554</code><span class="msg">faq: fix W3C (section senza heading -> div)</span>
+  </div>
+  <div class="commit">
+    <code>4d5896a</code><span class="msg">guida-taglie: fix W3C (img con src placeholder)</span>
+  </div>
+  <div class="commit">
+    <code>dd32813</code><span class="msg">guida-taglie: fix W3C (img senza src vuoto, heading h3->h2)</span>
+  </div>
+  <div class="commit">
+    <code>b91d859</code><span class="msg">fix: section senza heading convertite in div (W3C warning)</span>
+    <p class="note">5 pagine convertite (boutique, carrello, guida-taglie, riciclo, whistleblowing).</p>
+  </div>
+  <div class="commit">
+    <code>b2cf93b</code><span class="msg">fix: link reali (whistleblowing al portale, reso guest a monitora-reso)</span>
+  </div>
+  <div class="commit">
+    <code>35ddb3a</code><span class="msg">whistleblowing: link reale al portale segnalazioni (valore24whistleblowing)</span>
+  </div>
+  <div class="commit">
+    <code>0df5d68</code><span class="msg">Merge: footer ristrutturato + 11 pagine nuove + FAQ + documentazione aggiornata</span>
+  </div>
+  <div class="commit">
+    <code>14e221d</code><span class="msg">build: script per generare ZIP consegna (agenzia + completo)</span>
+  </div>
+  <div class="commit">
+    <code>3253503</code><span class="msg">design: aggiornati CHANGELOG, DIFF-FILES, NOVITA-SITO (sezione 14 ottobre 2026)</span>
+  </div>
   <div class="commit">
     <code>27daea7</code><span class="msg">parita-genere: nuova pagina (Politica di Parità di Genere, da PDF UNI/PdR 125:2022)</span>
   </div>
@@ -250,7 +316,7 @@
   </div>
   <div class="commit">
     <code>7d066d8</code><span class="msg">faq: pagina completa (12 gruppi, 22 domande)</span>
-    <p class="note">Pagina FAQ con 12 gruppi tematici: Ordini, Spedizioni, Sconti e Promozioni, Pagamento, Il mio Account, Reso ordine Online, Gift Card, Orari e Negozi, Cura dei Capi, Guida alle taglie, Contatti, Reso di un acquisto in Boutique.</p>
+    <p class="note">FAQ con 12 gruppi: Ordini, Spedizioni, Sconti e Promozioni, Pagamento, Il mio Account, Reso ordine Online, Gift Card, Orari e Negozi, Cura dei Capi, Guida alle taglie, Contatti, Reso di un acquisto in Boutique.</p>
   </div>
   <div class="commit">
     <code>b695a02</code><span class="msg">faq: 12 gruppi completi (mancano solo Cura dei Capi e Reso in Boutique)</span>
