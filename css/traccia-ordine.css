@@ -1,0 +1,267 @@
+/* ============================================================
+   TRACCIA-ORDINE.CSS — pagina Traccia il tuo ordine
+   Layout a 2 colonne: form (sinistra) + spiegazioni (destra).
+   Estende legale.css.
+   ============================================================ */
+
+.track-layout {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 80px;
+  align-items: start;
+  margin-top: 20px;
+}
+
+/* --- Colonna form --- */
+.track-heading {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 22px;
+  letter-spacing: var(--tr-05);
+  color: var(--ink);
+  margin: 0 0 12px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--gold);
+}
+.track-intro {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--ink);
+  margin: 0 0 32px;
+}
+
+.track-form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+.track-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.track-field label {
+  font-family: var(--sans);
+  font-size: var(--fs-12);
+  font-weight: 500;
+  letter-spacing: var(--tr-1);
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.track-field input {
+  width: 100%;
+  padding: 14px 16px;
+  font-family: var(--sans);
+  font-size: var(--fs-14);
+  font-weight: 300;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--field-border);
+  border-radius: 0;
+  outline: none;
+  transition: border-color var(--t-fast) var(--ease);
+}
+.track-field input:focus { border-color: var(--ink); }
+.track-field input::placeholder { color: var(--muted); }
+
+.track-submit {
+  display: block;
+  width: 100%;
+  padding: 16px 24px;
+  margin-top: 8px;
+  background: var(--ink);
+  border: 1px solid var(--ink);
+  color: #fff;
+  font-family: var(--sans);
+  font-size: var(--fs-12);
+  font-weight: 400;
+  letter-spacing: var(--tr-2);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color var(--t-base) var(--ease), color var(--t-base) var(--ease);
+}
+.track-submit:hover {
+  background: transparent;
+  color: var(--ink);
+}
+
+/* --- Risultato --- */
+.track-result {
+  margin-top: 40px;
+  padding: 28px 24px;
+  background: var(--crema);
+  border: 1px solid var(--line);
+}
+.track-result[hidden] { display: none; }
+
+.track-result-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.track-result-header svg {
+  width: 24px;
+  height: 24px;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+.track-result-header h3 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 20px;
+  letter-spacing: var(--tr-05);
+  color: var(--ink);
+  margin: 0;
+}
+.track-result-number {
+  font-family: var(--sans);
+  font-size: var(--fs-12);
+  font-weight: 400;
+  letter-spacing: var(--tr-2);
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 28px;
+}
+
+/* --- Step di tracciamento --- */
+.track-steps {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+  position: relative;
+}
+.track-steps li {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+.track-steps li:last-child { border-bottom: none; }
+
+.track-step-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 500;
+  background: var(--paper);
+}
+.track-steps li.done .track-step-icon {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #fff;
+}
+.track-steps li.current .track-step-icon {
+  border-color: var(--ink);
+  color: var(--ink);
+  background: var(--paper);
+}
+.track-steps li strong {
+  display: block;
+  font-family: var(--sans);
+  font-size: var(--fs-13);
+  font-weight: 500;
+  letter-spacing: var(--tr-05);
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.track-steps li p {
+  font-family: var(--serif);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.55;
+  color: var(--ink);
+  margin: 0;
+}
+.track-steps li p em {
+  font-style: italic;
+  color: var(--muted);
+}
+
+.track-result-note {
+  font-family: var(--sans);
+  font-size: var(--fs-11);
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--muted);
+  margin: 0;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+
+/* --- Errore --- */
+.track-error {
+  margin-top: 24px;
+  padding: 16px 20px;
+  background: var(--paper);
+  border-left: 2px solid var(--danger);
+}
+.track-error[hidden] { display: none; }
+.track-error p {
+  font-family: var(--sans);
+  font-size: var(--fs-13);
+  font-weight: 400;
+  color: var(--danger);
+  margin: 0;
+}
+
+/* --- Colonna info (destra) --- */
+.track-info-col {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding-top: 8px;
+}
+.track-info-block h3 {
+  font-family: var(--sans);
+  font-size: var(--fs-12);
+  font-weight: 500;
+  letter-spacing: var(--tr-1);
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 0 0 10px;
+}
+.track-info-block p {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--ink);
+  margin: 0;
+}
+.track-info-block a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--t-fast) var(--ease);
+}
+.track-info-block a:hover { color: var(--gold); }
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .track-layout {
+    grid-template-columns: 1fr;
+    gap: 56px;
+  }
+  .track-info-col {
+    padding-top: 0;
+    padding-bottom: 40px;
+    border-top: 1px solid var(--line);
+    padding-top: 40px;
+  }
+}
+@media (max-width: 640px) {
+  .track-heading { font-size: 18px; }
+  .track-result { padding: 22px 18px; }
+  .track-steps li { grid-template-columns: 28px 1fr; gap: 12px; }
+  .track-step-icon { width: 24px; height: 24px; font-size: 12px; }
+}
