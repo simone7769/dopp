@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lavora con noi — Doppelgänger Roma</title>
+<link rel="icon" href="images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/looks.css">
+<link rel="stylesheet" href="css/lavora-con-noi.css">
+<script>document.documentElement.setAttribute("data-css", "ready");</script>
+<link rel="stylesheet" href="css/fonts.css">
+</head>
+<body id="top" class="header-light">
+
+  <div data-layout="header"></div>
+  <div data-layout="drawers"></div>
+
+  <main class="page">
+
+    <section class="hero">
+      <div class="hero-inner">
+        <h1><span class="hero-line hero-line-main">Lavora con noi</span></h1>
+      </div>
+    </section>
+
+    <section class="looks-wrap">
+
+      <!-- Banner full-width (pattern .sartoria-hero-image) -->
+      <div class="sartoria-hero-image">
+        <img src="images/lavora-banner.webp" alt="Interno di una boutique Doppelgänger">
+      </div>
+
+      <div class="lavora-inner">
+
+        <!-- Tab -->
+        <div class="lavora-tabs" role="tablist">
+          <button type="button" class="lavora-tab active" data-tab="posizioni" role="tab" aria-selected="true">Posizioni aperte</button>
+          <button type="button" class="lavora-tab" data-tab="spontanea" role="tab" aria-selected="false">Candidatura spontanea</button>
+        </div>
+
+        <!-- Pannello 1: Posizioni aperte -->
+        <div class="lavora-panel active" id="panel-posizioni" role="tabpanel">
+
+          <p class="lavora-intro">Da oltre venticinque anni costruiamo un modo diverso di intendere l'abbigliamento maschile: sartorialità accessibile, cura del dettaglio, attenzione alle persone. Se condividi questi valori, ci piacerebbe conoscerti.</p>
+
+          <h2 class="lavora-count-title">17 Posizioni aperte</h2>
+
+          <div class="lavora-table-wrap">
+            <table class="lavora-table">
+              <thead>
+                <tr>
+                  <th scope="col">Posizione</th>
+                  <th scope="col">Reparto / Contratto</th>
+                  <th scope="col">Luogo</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Addetto alla contabilità</td><td>Full time</td><td>Roma</td></tr>
+                <tr><td>Addetto alla vendita</td><td>Part time</td><td>Roma — Piazza Venezia</td></tr>
+                <tr><td>Addetto alla vendita</td><td>Part time</td><td>Padova</td></tr>
+                <tr><td>Addetto alla vendita</td><td>Part time</td><td>Roma — Porta di Roma</td></tr>
+                <tr><td>Addetto alla vendita</td><td>Part time</td><td>Genova</td></tr>
+                <tr><td>Addetto alla vendita</td><td>Part time</td><td>Roma centro e centri commerciali</td></tr>
+                <tr><td>Addetto alla vendita</td><td>Full time</td><td>Roma centro e centri commerciali</td></tr>
+                <tr><td>Addetto alla vendita</td><td>Part time</td><td>Roma — Cola di Rienzo</td></tr>
+                <tr><td>Addetto alla vendita</td><td>Part time</td><td>Venezia</td></tr>
+                <tr><td>Responsabile di negozio</td><td>Full time</td><td>Livorno</td></tr>
+                <tr><td>Addetto alla vendita</td><td>Full time</td><td>Parigi</td></tr>
+                <tr><td>Addetto alla vendita</td><td>Full time</td><td>Milano centro città</td></tr>
+                <tr><td>Addetto alla vendita</td><td>Part time</td><td>Trieste</td></tr>
+                <tr><td>Responsabile di negozio</td><td>Full time</td><td>Roma città</td></tr>
+                <tr><td>Addetto alla vendita</td><td>Part time</td><td>Milano centro città</td></tr>
+                <tr><td>Magazziniere</td><td>Part time</td><td>Venezia</td></tr>
+                <tr><td>Responsabile di negozio</td><td>Full time</td><td>Milano Buenos Aires</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p class="lavora-note">Non trovi la posizione che cerchi? Inviaci la tua <button type="button" class="lavora-link" data-goto-tab="spontanea">candidatura spontanea</button>: la conserveremo per future opportunità.</p>
+
+        </div>
+
+        <!-- Pannello 2: Candidatura spontanea -->
+        <div class="lavora-panel" id="panel-spontanea" role="tabpanel" hidden>
+
+          <h2 class="lavora-form-title">Candidatura spontanea</h2>
+
+          <form class="lavora-form" id="lavoraForm" novalidate>
+
+            <div class="lavora-form-grid">
+
+              <div class="lavora-field">
+                <label for="nome">Nome*</label>
+                <input type="text" id="nome" name="nome" autocomplete="given-name" required>
+              </div>
+
+              <div class="lavora-field">
+                <label for="cognome">Cognome*</label>
+                <input type="text" id="cognome" name="cognome" autocomplete="family-name" required>
+              </div>
+
+              <div class="lavora-field">
+                <label for="email">Email*</label>
+                <input type="email" id="email" name="email" autocomplete="email" required>
+              </div>
+
+              <div class="lavora-field">
+                <label for="email2">Conferma Email*</label>
+                <input type="email" id="email2" name="email2" autocomplete="email" required>
+              </div>
+
+              <div class="lavora-field">
+                <label for="telefono">Telefono*</label>
+                <input type="tel" id="telefono" name="telefono" autocomplete="tel" required>
+              </div>
+
+              <div class="lavora-field">
+                <label for="indirizzo">Indirizzo*</label>
+                <input type="text" id="indirizzo" name="indirizzo" autocomplete="street-address" required>
+              </div>
+
+              <div class="lavora-field">
+                <label for="cap">CAP*</label>
+                <input type="text" id="cap" name="cap" autocomplete="postal-code" required>
+              </div>
+
+              <div class="lavora-field">
+                <label for="citta">Città*</label>
+                <input type="text" id="citta" name="citta" autocomplete="address-level2" required>
+              </div>
+
+              <div class="lavora-field">
+                <label for="store">Città o Store preferito*</label>
+                <input type="text" id="store" name="store" required>
+              </div>
+
+              <div class="lavora-field">
+                <label for="paese">Seleziona il paese*</label>
+                <div class="select-wrapper">
+                  <select id="paese" name="paese" required>
+                    <option value="" selected disabled>Seleziona il paese…</option>
+                    <option>Italia</option>
+                    <option>Francia</option>
+                    <option>Germania</option>
+                    <option>Spagna</option>
+                    <option>Regno Unito</option>
+                    <option>Svizzera</option>
+                    <option>Austria</option>
+                    <option>Paesi Bassi</option>
+                    <option>Belgio</option>
+                    <option>Emirati Arabi Uniti</option>
+                    <option>Qatar</option>
+                    <option>Bahrain</option>
+                    <option>Giordania</option>
+                    <option>Malta</option>
+                    <option>Altro</option>
+                  </select>
+                  <svg class="select-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+                </div>
+              </div>
+
+              <div class="lavora-field lavora-field-file">
+                <label for="cv">CV*</label>
+                <div class="lavora-file">
+                  <input type="file" id="cv" name="cv" accept=".doc,.docx,.pdf,.jpg,.png" required>
+                  <span class="lavora-file-fake" id="cvLabel">Scegli il file/upload</span>
+                  <span class="lavora-file-btn">Upload</span>
+                </div>
+                <p class="lavora-file-help">Tipi di file supportati: doc, docx, pdf, jpg, png<br>Grandezza massima di 1MB</p>
+              </div>
+
+              <div class="lavora-field lavora-field-file">
+                <label for="lettera">Lettera di accompagnamento</label>
+                <div class="lavora-file">
+                  <input type="file" id="lettera" name="lettera" accept=".doc,.docx,.pdf,.jpg,.png">
+                  <span class="lavora-file-fake" id="letteraLabel">Scegli il file/upload</span>
+                  <span class="lavora-file-btn">Upload</span>
+                </div>
+                <p class="lavora-file-help">Tipi di file supportati: doc, docx, pdf, jpg, png<br>Grandezza massima di 1MB</p>
+              </div>
+
+            </div>
+
+            <label class="lavora-privacy">
+              <input type="checkbox" id="privacy" name="privacy" required>
+              <span>Ho letto l'Informativa e dichiaro di averne compreso e di accettare il contenuto e le condizioni della <a href="privacy-cookie.html" target="_blank" rel="noopener">Privacy Policy</a>.</span>
+            </label>
+
+            <button type="submit" class="lavora-submit">Invia</button>
+
+            <p class="lavora-error" id="lavoraError" hidden></p>
+          </form>
+
+          <div class="lavora-success" id="lavoraSuccess" hidden>
+            <h3>Grazie</h3>
+            <p>Abbiamo ricevuto la tua candidatura. Il nostro team Risorse Umane la leggerà con attenzione e ti contatterà se il profilo sarà in linea con le posizioni aperte.</p>
+            <p class="lavora-success-note">Questa è una demo: in produzione la candidatura verrà inviata al sistema HR di Doppelgänger.</p>
+          </div>
+
+        </div>
+
+        <p class="lavora-footer-note">Per informazioni sulle posizioni aperte o sul processo di selezione, puoi <a href="#" data-open-contact>contattare</a> il nostro team Risorse Umane.</p>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <div data-layout="footer"></div>
+
+  <script src="js/layout.js"></script>
+  <script src="js/boutiques.js"></script>
+  <script src="js/prodotti.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/lavora-con-noi.js"></script>
+</body>
+</html>

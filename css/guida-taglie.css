@@ -1,0 +1,299 @@
+/* ============================================================
+   GUIDA-TAGLIE.CSS — pagina Guida alle Taglie
+   Lista categorie + modale (immagine + tabella + CTA).
+   Ispirato al widget "camerino di prova virtuale" Doppelgänger.
+   ============================================================ */
+
+.guide-intro {
+  text-align: center;
+  font-family: var(--sans);
+  font-size: var(--fs-13);
+  font-weight: 300;
+  letter-spacing: var(--tr-05);
+  color: var(--muted);
+  margin: 0 0 48px;
+}
+
+/* --- Lista voci --- */
+.guide-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 60px;
+  border-top: 1px solid var(--line);
+}
+.guide-list li {
+  border-bottom: 1px solid var(--line);
+}
+.guide-list button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 20px 8px;
+  background: transparent;
+  border: none;
+  font-family: var(--sans);
+  font-size: var(--fs-13);
+  font-weight: 400;
+  letter-spacing: var(--tr-1);
+  text-transform: uppercase;
+  color: var(--ink);
+  cursor: pointer;
+  transition: color var(--t-fast) var(--ease);
+}
+.guide-list button:hover {
+  color: var(--gold);
+}
+.guide-list button[disabled] {
+  color: var(--size-disabled);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+.guide-list button[disabled]::after {
+  content: " — in arrivo";
+  font-size: var(--fs-11);
+  text-transform: none;
+  letter-spacing: var(--tr-05);
+  color: var(--size-disabled);
+  margin-left: 8px;
+}
+
+/* --- Nota finale --- */
+.size-note {
+  font-family: var(--sans);
+  font-size: var(--fs-12);
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--muted);
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+.size-note a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.size-note a:hover { color: var(--gold); }
+
+/* ============================================================
+   MODALE
+   ============================================================ */
+.size-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 1400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--t-base) var(--ease), visibility var(--t-base) var(--ease);
+}
+.size-modal-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.size-modal {
+  position: relative;
+  background: var(--paper);
+  width: 100%;
+  max-width: 1120px;
+  max-height: calc(100vh - 48px);
+  max-height: calc(100dvh - 48px);
+  overflow-y: auto;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+  transform: translateY(12px);
+  transition: transform var(--t-base) var(--ease-out);
+}
+.size-modal-overlay.open .size-modal { transform: translateY(0); }
+
+.size-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition: opacity var(--t-fast) var(--ease);
+}
+.size-modal-close:hover { opacity: 0.6; }
+.size-modal-close svg { width: 20px; height: 20px; }
+
+.size-modal-body {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  min-height: 500px;
+}
+
+/* --- Colonna immagine --- */
+.size-modal-image {
+  position: relative;
+  background: var(--crema);
+  min-height: 500px;
+  overflow: hidden;
+}
+.size-modal-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.size-modal-image img[src=""] { display: none; }
+.size-modal-image-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--sans);
+  font-size: var(--fs-11);
+  font-weight: 400;
+  letter-spacing: var(--tr-2);
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 20px;
+  text-align: center;
+}
+.size-modal-image img:not([src=""]) ~ .size-modal-image-placeholder { display: none; }
+
+/* --- Colonna tabella --- */
+.size-modal-table {
+  padding: 48px 28px 32px;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.size-modal-table h3 {
+  font-family: var(--sans);
+  font-size: var(--fs-14);
+  font-weight: 500;
+  letter-spacing: var(--tr-05);
+  color: var(--ink);
+  margin: 0 0 8px;
+}
+.size-modal-subtitle {
+  font-family: var(--sans);
+  font-size: var(--fs-11);
+  font-weight: 300;
+  color: var(--muted);
+  margin: 0 0 32px;
+}
+
+.size-modal-table-wrap {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+#sizeModalTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 300;
+  color: var(--ink);
+  table-layout: auto;
+}
+#sizeModalTable th,
+#sizeModalTable td {
+  padding: 11px 6px;
+  text-align: center;
+  border-bottom: 1px solid var(--line);
+  word-break: break-word;
+}
+#sizeModalTable th {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-bottom: 1px solid var(--gold);
+  line-height: 1.3;
+}
+#sizeModalTable tbody tr:last-child td { border-bottom: none; }
+#sizeModalTable td:first-child { font-weight: 500; color: var(--ink); }
+
+/* --- Footer modale --- */
+.size-modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+.size-modal-units {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--sans);
+  font-size: var(--fs-12);
+  color: var(--muted);
+}
+.size-modal-units button {
+  padding: 8px 14px;
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  color: var(--muted);
+  cursor: pointer;
+  transition: color var(--t-fast) var(--ease);
+}
+.size-modal-units button.active {
+  background: var(--ink);
+  color: #fff;
+  font-weight: 500;
+}
+
+.size-modal-cta {
+  padding: 14px 24px;
+  background: var(--ink);
+  border: 1px solid var(--ink);
+  color: #fff;
+  font-family: var(--sans);
+  font-size: var(--fs-12);
+  font-weight: 500;
+  letter-spacing: var(--tr-2);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color var(--t-base) var(--ease), color var(--t-base) var(--ease);
+}
+.size-modal-cta:hover { background: transparent; color: var(--ink); }
+.size-modal-cta[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .size-modal-body {
+    grid-template-columns: 1fr;
+  }
+  .size-modal-image { min-height: 300px; }
+  .size-modal-table { padding: 32px 24px 24px; }
+}
+@media (max-width: 640px) {
+  .size-modal-overlay { padding: 0; align-items: stretch; }
+  .size-modal {
+    max-width: 100%;
+    max-height: 100vh;
+    max-height: 100dvh;
+  }
+  .size-modal-table { padding: 24px 16px 20px; }
+  .size-modal-footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .size-modal-cta { width: 100%; }
+}

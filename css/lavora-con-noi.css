@@ -1,0 +1,405 @@
+/* ============================================================
+   LAVORA-CON-NOI.CSS — pagina Carriere
+   2 tab (Posizioni aperte / Candidatura spontanea)
+   + tabella posizioni + form candidatura.
+   Estende legale.css.
+   ============================================================ */
+
+.lavora-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* --- Tab --- */
+.lavora-tabs {
+  display: flex;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 60px;
+}
+.lavora-tab {
+  flex: 1;
+  padding: 22px 20px;
+  background: transparent;
+  border: none;
+  font-family: var(--sans);
+  font-size: var(--fs-12);
+  font-weight: 400;
+  letter-spacing: var(--tr-2);
+  text-transform: uppercase;
+  color: var(--ink);
+  cursor: pointer;
+  transition: background-color var(--t-base) var(--ease), color var(--t-base) var(--ease);
+  position: relative;
+}
+.lavora-tab + .lavora-tab {
+  border-left: 1px solid var(--line);
+}
+.lavora-tab:hover {
+  background-color: var(--crema);
+}
+.lavora-tab.active {
+  background-color: var(--ink);
+  color: #fff;
+}
+
+/* --- Pannelli --- */
+.lavora-panel { display: none; }
+.lavora-panel.active { display: block; }
+
+.lavora-intro {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--ink);
+  max-width: 780px;
+  margin: 0 0 48px;
+}
+
+/* --- Posizioni aperte --- */
+.lavora-count-title {
+  font-family: var(--sans);
+  font-size: var(--fs-14);
+  font-weight: 500;
+  letter-spacing: var(--tr-1);
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 0 0 28px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--gold);
+}
+
+.lavora-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-bottom: 1px solid var(--ink);
+}
+.lavora-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--sans);
+  font-size: var(--fs-13);
+  font-weight: 300;
+  color: var(--ink);
+  min-width: 640px;
+}
+.lavora-table th,
+.lavora-table td {
+  padding: 22px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+  vertical-align: middle;
+}
+.lavora-table tbody tr:last-child td { border-bottom: none; }
+
+.lavora-table th {
+  font-size: var(--fs-11);
+  font-weight: 500;
+  letter-spacing: var(--tr-1);
+  text-transform: uppercase;
+  color: var(--ink);
+  padding-top: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+}
+.lavora-table tbody tr:hover { background-color: var(--crema); }
+.lavora-table td:first-child {
+  font-weight: 500;
+  color: var(--ink);
+}
+.lavora-table td:nth-child(2),
+.lavora-table td:nth-child(3) {
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  font-size: var(--fs-12);
+  letter-spacing: var(--tr-05);
+}
+
+.lavora-note {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--ink);
+  margin: 32px 0 0;
+}
+.lavora-link {
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  font-size: inherit;
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  transition: color var(--t-fast) var(--ease);
+}
+.lavora-link:hover { color: var(--gold); }
+
+/* --- Form candidatura --- */
+.lavora-form-title {
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: var(--tr-1);
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 0 0 40px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--gold);
+}
+
+.lavora-form {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.lavora-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px 60px;
+}
+
+.lavora-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+.lavora-field label {
+  font-family: var(--sans);
+  font-size: var(--fs-12);
+  font-weight: 500;
+  letter-spacing: var(--tr-05);
+  color: var(--ink);
+}
+.lavora-field input[type="text"],
+.lavora-field input[type="email"],
+.lavora-field input[type="tel"] {
+  width: 100%;
+  padding: 12px 0;
+  font-family: var(--sans);
+  font-size: var(--fs-14);
+  font-weight: 300;
+  color: var(--ink);
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--ink);
+  border-radius: 0;
+  outline: none;
+  transition: border-color var(--t-fast) var(--ease);
+}
+.lavora-field input[type="text"]:focus,
+.lavora-field input[type="email"]:focus,
+.lavora-field input[type="tel"]:focus {
+  border-bottom-color: var(--gold);
+}
+
+/* --- Select (riusa lo stile del site) --- */
+.lavora-field .select-wrapper select {
+  width: 100%;
+  padding: 12px 40px 12px 14px;
+  font-family: var(--sans);
+  font-size: var(--fs-14);
+  font-weight: 300;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--field-border);
+  border-radius: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  outline: none;
+  transition: border-color var(--t-fast) var(--ease);
+}
+.lavora-field .select-wrapper select:focus { border-color: var(--ink); }
+.lavora-field .select-wrapper .select-arrow {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  pointer-events: none;
+  color: var(--ink);
+}
+
+/* --- File upload --- */
+.lavora-field-file { grid-column: auto; }
+.lavora-file {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--field-border);
+  background: var(--paper);
+  transition: border-color var(--t-fast) var(--ease);
+}
+.lavora-file:hover { border-color: var(--ink); }
+.lavora-file input[type="file"] {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+.lavora-file-fake {
+  flex: 1;
+  padding: 12px 14px;
+  font-family: var(--sans);
+  font-size: var(--fs-13);
+  font-weight: 300;
+  color: var(--muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.lavora-file-fake.filled { color: var(--ink); }
+.lavora-file-btn {
+  padding: 12px 20px;
+  background: var(--ink);
+  color: #fff;
+  font-family: var(--sans);
+  font-size: var(--fs-11);
+  font-weight: 500;
+  letter-spacing: var(--tr-2);
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+.lavora-file-help {
+  font-family: var(--sans);
+  font-size: var(--fs-11);
+  font-weight: 300;
+  line-height: 1.55;
+  color: var(--muted);
+  margin: 6px 0 0;
+}
+
+/* --- Privacy --- */
+.lavora-privacy {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-family: var(--sans);
+  font-size: var(--fs-13);
+  font-weight: 300;
+  line-height: 1.55;
+  color: var(--ink);
+  cursor: pointer;
+}
+.lavora-privacy input[type="checkbox"] {
+  margin-top: 3px;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  cursor: pointer;
+  accent-color: var(--ink);
+}
+.lavora-privacy a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.lavora-privacy a:hover { color: var(--gold); }
+
+/* --- Submit --- */
+.lavora-submit {
+  padding: 18px 40px;
+  background: var(--ink);
+  border: 1px solid var(--ink);
+  color: #fff;
+  font-family: var(--sans);
+  font-size: var(--fs-12);
+  font-weight: 500;
+  letter-spacing: var(--tr-3);
+  text-transform: uppercase;
+  cursor: pointer;
+  align-self: flex-start;
+  min-width: 260px;
+  transition: background-color var(--t-base) var(--ease), color var(--t-base) var(--ease);
+}
+.lavora-submit:hover {
+  background: transparent;
+  color: var(--ink);
+}
+
+/* --- Errore --- */
+.lavora-error {
+  font-family: var(--sans);
+  font-size: var(--fs-13);
+  font-weight: 400;
+  color: var(--danger);
+  margin: 0;
+  padding: 12px 16px;
+  background: var(--paper);
+  border-left: 2px solid var(--danger);
+}
+.lavora-error[hidden] { display: none; }
+
+/* --- Successo --- */
+.lavora-success {
+  margin-top: 40px;
+  padding: 40px;
+  background: var(--crema);
+  border: 1px solid var(--line);
+}
+.lavora-success[hidden] { display: none; }
+.lavora-success h3 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 26px;
+  color: var(--ink);
+  margin: 0 0 16px;
+}
+.lavora-success p {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--ink);
+  margin: 0 0 12px;
+}
+.lavora-success-note {
+  font-family: var(--sans) !important;
+  font-size: var(--fs-11) !important;
+  color: var(--muted) !important;
+  margin-top: 20px !important;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+/* --- Nota finale --- */
+.lavora-footer-note {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--ink);
+  margin: 64px 0 0;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+}
+.lavora-footer-note a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.lavora-footer-note a:hover { color: var(--gold); }
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .lavora-tabs { margin-bottom: 40px; }
+  .lavora-form-grid { grid-template-columns: 1fr; gap: 28px; }
+  .lavora-submit { align-self: stretch; min-width: 0; }
+}
+@media (max-width: 640px) {
+  .lavora-tab { padding: 18px 12px; font-size: var(--fs-11); letter-spacing: var(--tr-1); }
+  .lavora-intro { font-size: 16px; margin-bottom: 32px; }
+  .lavora-count-title { font-size: var(--fs-13); }
+  .lavora-table th, .lavora-table td { padding: 16px 10px; font-size: var(--fs-12); }
+  .lavora-table td:nth-child(2), .lavora-table td:nth-child(3) { font-size: var(--fs-11); }
+  .lavora-submit { padding: 16px 24px; letter-spacing: var(--tr-2); }
+  .lavora-success { padding: 28px 20px; }
+}

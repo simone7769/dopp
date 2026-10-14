@@ -1,0 +1,184 @@
+/* ============================================================
+   FAQ.CSS — pagina Domande frequenti (faq.html)
+   Struttura a gruppi + accordion per ogni domanda.
+   Riusa .looks-wrap (max 1600, padding 12/50/100) come contenitore.
+   ============================================================ */
+
+/* --- Intestazione --- */
+.faq-intro {
+  font-family: var(--sans);
+  font-size: var(--fs-11);
+  font-weight: 400;
+  letter-spacing: var(--tr-2);
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: center;
+  margin: 26px 0 60px;
+}
+
+/* --- Contenitore --- */
+.faq-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* --- Gruppo (una categoria) --- */
+.faq-group {
+  margin-bottom: 60px;
+}
+.faq-group:last-of-type {
+  margin-bottom: 40px;
+}
+
+.faq-group-title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 22px;
+  letter-spacing: var(--tr-1);
+  color: var(--ink);
+  margin: 0 0 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--gold);
+}
+
+/* --- Singola domanda (accordion) --- */
+.faq-item {
+  border-bottom: 1px solid var(--line);
+}
+.faq-item:first-of-type {
+  border-top: 1px solid var(--line);
+}
+
+.faq-item > summary {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 22px 4px;
+  min-height: var(--touch-target, 44px);
+  font-family: var(--sans);
+  font-size: var(--fs-13);
+  font-weight: 400;
+  letter-spacing: var(--tr-05);
+  color: var(--ink);
+  cursor: pointer;
+  user-select: none;
+  transition: color var(--t-fast) var(--ease);
+}
+.faq-item > summary::-webkit-details-marker { display: none; }
+.faq-item > summary:hover { color: var(--gold); }
+
+/* "+" a destra */
+.faq-item > summary::after {
+  content: '+';
+  font-family: var(--sans);
+  font-size: 22px;
+  font-weight: 300;
+  color: var(--muted);
+  flex-shrink: 0;
+  transition: color var(--t-fast) var(--ease);
+}
+.faq-item[open] > summary::after { content: '−'; }
+.faq-item > summary:hover::after { color: var(--gold); }
+
+/* --- Contenuto della risposta --- */
+.faq-body {
+  padding: 0 4px 28px;
+}
+.faq-body p {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--ink);
+  margin: 0 0 1em;
+}
+.faq-body p:last-child { margin-bottom: 0; }
+
+.faq-body a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--t-fast) var(--ease);
+}
+.faq-body a:hover { color: var(--gold); }
+
+/* Liste dentro le risposte (es. costi di spedizione) */
+.faq-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1em;
+}
+.faq-list li {
+  position: relative;
+  padding: 4px 0 4px 16px;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--ink);
+}
+.faq-list li::before {
+  content: "–";
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+}
+
+/* Sottotitoli dentro una risposta (es. "Modalità di rimborso") */
+.faq-subheading {
+  font-family: var(--sans);
+  font-size: var(--fs-12);
+  font-weight: 500;
+  letter-spacing: var(--tr-1);
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 24px 0 12px;
+}
+.faq-subheading:first-child { margin-top: 0; }
+
+/* Placeholder "Contenuto in arrivo" */
+.faq-placeholder {
+  font-family: var(--sans);
+  font-size: var(--fs-12);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* --- CTA finale --- */
+.faq-cta {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--ink);
+  text-align: center;
+  margin: 60px 0 0;
+  padding-top: 40px;
+  border-top: 1px solid var(--line);
+}
+.faq-cta a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--t-fast) var(--ease);
+}
+.faq-cta a:hover { color: var(--gold); }
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .faq-wrap { padding: 0; }
+  .faq-group-title { font-size: 20px; }
+}
+@media (max-width: 640px) {
+  .faq-intro { margin: 21px 0 40px; }
+  .faq-group { margin-bottom: 40px; }
+  .faq-group-title { font-size: 18px; margin-bottom: 20px; padding-bottom: 14px; }
+  .faq-item > summary { font-size: var(--fs-12); padding: 18px 2px; }
+  .faq-body { padding: 0 2px 24px; }
+  .faq-body p { font-size: 16px; }
+  .faq-cta { font-size: 16px; padding-top: 32px; }
+}
