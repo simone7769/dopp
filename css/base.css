@@ -2394,3 +2394,28 @@ header.menu-open .nav-outlet { color: var(--gold) !important; }
   transition: color var(--t-fast) var(--ease);
 }
 .mobile-menu-utility a:hover { color: var(--gold); }
+
+/* ============================================================
+   TOUCH: disabilita hover "appiccicoso" sui link del footer
+   Su mobile/tablet il browser mantiene :hover dopo il tap,
+   lasciando il link bianco quando torni indietro.
+   Con @media (hover: none) lo disabilitiamo.
+   ============================================================ */
+@media (hover: none) {
+  .footer-trust a:hover,
+  .footer-trust a:hover .ft-text,
+  .footer-col ul a:hover,
+  .footer-legal a:hover,
+  .footer-privacy a:hover,
+  .footer-bottom-right a:hover {
+    color: inherit;
+  }
+
+  /* Focus da tap: niente outline, colore invariato */
+  .footer-trust a:focus:not(:focus-visible),
+  .footer-col ul a:focus:not(:focus-visible),
+  .footer-legal a:focus:not(:focus-visible) {
+    outline: none;
+    color: inherit;
+  }
+}

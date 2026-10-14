@@ -1799,3 +1799,19 @@ window.WishlistStore = (function () {
     }, 100);
   });
 })();
+
+/* ============================================================
+   TOUCH: rimuovi il focus residuo quando la pagina torna
+   dalla bfcache (tasto indietro). Evita che il link resti
+   "selezionato" (bianco) dopo il ritorno.
+   ============================================================ */
+(function () {
+  function rimuoviStato() {
+    document.querySelectorAll('a:focus, a:active').forEach(function (a) {
+      a.blur();
+    });
+  }
+  window.addEventListener('pageshow', function (e) {
+    if (e.persisted) rimuoviStato();
+  });
+})();
