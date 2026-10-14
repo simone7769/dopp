@@ -50,7 +50,7 @@
     <div class="nav-left">\
       <a href="#" class="nav-icon-link" id="openCountryDrawer" aria-label="Cambia Paese/Lingua"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 3 2.5 15 0 18M12 3c-2.5 3-2.5 15 0 18"/></svg></a>\
       <a href="#" class="nav-icon-link" id="openContactDrawer" aria-label="Assistenza"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M4 14v-2a8 8 0 0116 0v2"/><rect x="3" y="14" width="4" height="6" rx="1"/><rect x="17" y="14" width="4" height="6" rx="1"/><path d="M20 20a4 4 0 01-4 3h-3"/></svg></a>\
-      <a href="#" class="nav-icon-link" id="openStoresDrawer" aria-label="Boutique"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 22s7-6.4 7-12a7 7 0 10-14 0c0 5.6 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg></a>\
+      <a href="#" class="nav-icon-link" id="openStoresDrawer" aria-label="Apri pannello boutique"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 22s7-6.4 7-12a7 7 0 10-14 0c0 5.6 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg></a>\
     </div>\
     <ul class="nav-center">\
       <li><a href="ai-2026.html">Nuovi Arrivi</a></li>\
