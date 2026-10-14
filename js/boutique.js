@@ -10,11 +10,31 @@
 
   var list = document.getElementById('boutiqueList');
   var search = document.getElementById('boutiqueSearch');
+  var countrySelect = document.getElementById('boutiqueCountry');
   var count = document.getElementById('boutiqueCount');
   var intro = document.getElementById('boutiqueIntro');
-  if (!list || !search || !count) return;
+  if (!list || !search || !count || !countrySelect) return;
 
   var data = window.BOUTIQUES || [];
+
+  /* Popola il select dei Paesi (una volta sola) */
+  (function popolaPaesi() {
+    var paesi = [];
+    data.forEach(function (b) {
+      if (paesi.indexOf(b.country) === -1) paesi.push(b.country);
+    });
+    paesi.sort(function (a, b) {
+      if (a === 'Italia') return -1;
+      if (b === 'Italia') return 1;
+      return a.localeCompare(b, 'it');
+    });
+    paesi.forEach(function (p) {
+      var opt = document.createElement('option');
+      opt.value = p;
+      opt.textContent = p;
+      countrySelect.appendChild(opt);
+    });
+  })();
 
   if (intro && data.length) {
     intro.textContent = 'Scegli tra le ' + data.length + ' Boutique Doppelgänger — utilizza lo Store Locator per trovare quella più vicina a te.';
@@ -44,8 +64,10 @@
 
   function render() {
     var q = norm(search.value).trim();
+    var paese = countrySelect.value;
 
     var items = data.filter(function (b) {
+      if (paese && b.country !== paese) return false;
       if (!q) return true;
       return norm([b.name, b.city, b.country, b.address, b.phone].join(' ')).indexOf(q) !== -1;
     });
@@ -100,6 +122,7 @@
     clearTimeout(debounce);
     debounce = setTimeout(render, 120);
   });
+  countrySelect.addEventListener('change', render);
 
   render();
 })();
