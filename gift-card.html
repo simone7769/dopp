@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gift Card — Doppelgänger Roma</title>
+<link rel="icon" href="images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/collezione.css">
+<link rel="stylesheet" href="css/prodotto.css">
+<script>document.documentElement.setAttribute("data-css", "ready");</script>
+<link rel="stylesheet" href="css/fonts.css">
+</head>
+<body id="top" class="header-light">
+
+  <div data-layout="header"></div>
+  <div data-layout="drawers"></div>
+
+  <section class="pdp-wrap">
+    <div class="pdp-gallery">
+      <img src="images/gift-card.webp" alt="Doppelgänger Gift Card">
+    </div>
+
+    <div class="pdp-info">
+      <p class="pdp-collection">Doppelgänger Club</p>
+      <h1 class="pdp-title">Gift Card</h1>
+      <p class="pdp-price" id="giftPrice">€ 50,00</p>
+
+      <p class="pdp-desc">Regala l'eleganza senza tempo di Doppelgänger. La Gift Card è utilizzabile su tutto il catalogo, in boutique e online, ed è valida fino ad esaurimento del saldo.</p>
+
+      <p class="pdp-composition">Spedizione digitale via e-mail — Attivazione immediata</p>
+
+      <p class="pdp-block-label">Taglio</p>
+      <div class="pdp-sizes" id="giftSizes">
+        <button type="button" class="selected" data-value="50" data-label="50 €">50 €</button>
+        <button type="button" data-value="100" data-label="100 €">100 €</button>
+        <button type="button" data-value="200" data-label="200 €">200 €</button>
+        <button type="button" data-value="500" data-label="500 €">500 €</button>
+      </div>
+
+      <div class="pdp-actions">
+        <button type="button" class="pdp-add-cart" id="giftAdd">Aggiungi al carrello</button>
+        <button type="button" class="pdp-wish-btn" aria-label="Aggiungi ai preferiti">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg>
+        </button>
+      </div>
+
+      <div class="pdp-accordion">
+        <details open>
+          <summary>Come funziona</summary>
+          <div class="pdp-accordion-body">
+            <ul>
+              <li>Scegli il taglio e aggiungi la Gift Card al carrello.</li>
+              <li>Completa l'acquisto come un normale ordine.</li>
+              <li>Riceverai il codice via e-mail in pochi minuti.</li>
+              <li>Il destinatario potrà usarlo in boutique o su questo sito, anche in più occasioni.</li>
+            </ul>
+          </div>
+        </details>
+        <details>
+          <summary>Dove si utilizza</summary>
+          <div class="pdp-accordion-body">
+            <p>La Gift Card è valida su tutto il catalogo Doppelgänger — abbigliamento, accessori e calzature — ed è utilizzabile:</p>
+            <ul>
+              <li>Su questo sito, al momento del checkout;</li>
+              <li>In tutte le boutique Doppelgänger, in Italia e all'estero.</li>
+            </ul>
+            <p>Se l'importo del carrello supera il saldo, la differenza si paga con uno degli altri metodi di pagamento disponibili.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Validità e condizioni</summary>
+          <div class="pdp-accordion-body">
+            <ul>
+              <li>Valida <strong>24 mesi</strong> dalla data di acquisto.</li>
+              <li>Utilizzabile in <strong>più occasioni</strong>, non è vincolata a una sola spesa.</li>
+              <li>Non è convertibile in denaro contante né rimborsabile.</li>
+              <li>Non può essere utilizzata per acquistare altre Gift Card.</li>
+              <li>In caso di reso, l'importo viene riaccreditato sulla Gift Card stessa.</li>
+            </ul>
+          </div>
+        </details>
+        <details>
+          <summary>Domande frequenti</summary>
+          <div class="pdp-accordion-body">
+            <p><strong>Posso regalarla a un'altra persona?</strong><br>Certo. Dopo l'acquisto riceverai l'e-mail con il codice: ti basterà inoltrarla alla persona a cui vuoi regalarla.</p>
+            <p><strong>Posso usare più Gift Card sullo stesso ordine?</strong><br>Sì, è possibile combinarle. In caso di difficoltà, il Servizio Clienti può aiutarti.</p>
+            <p><strong>Ho perso il codice, come faccio?</strong><br>Contatta il Servizio Clienti: con i dati dell'acquisto possiamo recuperarlo.</p>
+            <p><strong>È cumulabile con promozioni o sconti?</strong><br>Sì. Il saldo viene scalato dall'importo finale dell'ordine.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <div data-layout="footer"></div>
+
+  <script src="js/layout.js"></script>
+  <script src="js/boutiques.js"></script>
+  <script src="js/prodotti.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/gift-card.js"></script>
+</body>
+</html>
