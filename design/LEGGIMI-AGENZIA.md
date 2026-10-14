@@ -20,7 +20,7 @@ Documento di accompagnamento al pacchetto demo + specifiche. Per chi svilupperà
 | `design/token.json` | Design token in formato JSON |
 | `design/CREDITI.md` | Autore e contatti |
 
-## Aggiornamento del 14 ottobre 2026
+## Secondo aggiornamento di ottobre 2026
 
 ### Nuove pagine (11)
 - **`boutique.html`** — Store locator con 83 boutique reali, ricerca live
