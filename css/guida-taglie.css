@@ -172,7 +172,7 @@
   flex-direction: column;
   min-width: 0;
 }
-.size-modal-table h3 {
+.size-modal-table h2 {
   font-family: var(--sans);
   font-size: var(--fs-14);
   font-weight: 500;
