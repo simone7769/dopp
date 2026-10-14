@@ -113,8 +113,8 @@
   position: absolute;
   top: 12px;
   right: 12px;
-  width: 40px;
-  height: 40px;
+  width: var(--touch-target, 44px);
+  height: var(--touch-target, 44px);
   background: transparent;
   border: none;
   cursor: pointer;
