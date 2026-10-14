@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monitora il tuo reso — Doppelgänger Roma</title>
+<link rel="icon" href="images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/looks.css">
+<link rel="stylesheet" href="css/legale.css">
+<link rel="stylesheet" href="css/traccia-ordine.css">
+<script>document.documentElement.setAttribute("data-css", "ready");</script>
+<link rel="stylesheet" href="css/fonts.css">
+</head>
+<body id="top" class="header-light">
+
+  <div data-layout="header"></div>
+  <div data-layout="drawers"></div>
+
+  <main class="page">
+
+    <section class="hero">
+      <div class="hero-inner">
+        <h1><span class="hero-line hero-line-main">Monitora il tuo reso</span></h1>
+      </div>
+    </section>
+
+    <section class="legale-wrap">
+
+      <div class="track-layout">
+
+        <!-- Colonna sinistra: form -->
+        <div class="track-form-col">
+          <h2 class="track-heading">Inserisci i dati del tuo reso</h2>
+          <p class="track-intro">Inserisci il numero del reso e l'indirizzo e-mail che hai utilizzato al momento dell'acquisto. Riceverai lo stato aggiornato della tua pratica.</p>
+
+          <form class="track-form" id="trackForm" novalidate>
+            <div class="track-field">
+              <label for="trackOrderNumber">Numero reso*</label>
+              <input type="text" id="trackOrderNumber" name="orderNumber" autocomplete="off" placeholder="es. RS-2026-12345" required>
+            </div>
+
+            <div class="track-field">
+              <label for="trackEmail">Indirizzo e-mail*</label>
+              <input type="email" id="trackEmail" name="email" autocomplete="email" placeholder="nome@esempio.it" required>
+            </div>
+
+            <button type="submit" class="track-submit">Monitora reso</button>
+          </form>
+
+          <!-- Risultato demo -->
+          <div class="track-result" id="trackResult" hidden>
+            <div class="track-result-header">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true">
+                <circle cx="12" cy="12" r="9"/>
+                <path d="M8 12l3 3 5-6"/>
+              </svg>
+              <h3>Reso trovato</h3>
+            </div>
+            <p class="track-result-number" id="trackResultNumber"></p>
+
+            <ol class="track-steps">
+              <li class="done">
+                <span class="track-step-icon">✓</span>
+                <div>
+                  <strong>Richiesta ricevuta</strong>
+                  <p>Abbiamo ricevuto la tua richiesta di reso e stiamo elaborando i dati.</p>
+                </div>
+              </li>
+              <li class="done">
+                <span class="track-step-icon">✓</span>
+                <div>
+                  <strong>Pacco in transito</strong>
+                  <p>Il pacco è in viaggio verso il nostro magazzino. <em>Tracking: IT 1234567890</em></p>
+                </div>
+              </li>
+              <li class="current">
+                <span class="track-step-icon">•</span>
+                <div>
+                  <strong>Prodotto verificato</strong>
+                  <p>Stiamo verificando l'integrità del prodotto e la conformità del reso.</p>
+                </div>
+              </li>
+              <li>
+                <span class="track-step-icon">○</span>
+                <div>
+                  <strong>Rimborso effettuato</strong>
+                  <p>In attesa di elaborazione.</p>
+                </div>
+              </li>
+            </ol>
+
+            <p class="track-result-note">Questa è una demo: lo stato mostrato è di esempio. In produzione la pagina si collegherà al sistema resi.</p>
+          </div>
+
+          <!-- Errore demo -->
+          <div class="track-error" id="trackError" hidden>
+            <p>Compila entrambi i campi per procedere.</p>
+          </div>
+        </div>
+
+        <!-- Colonna destra: spiegazioni -->
+        <aside class="track-info-col">
+          <div class="track-info-block">
+            <h3>Dove trovo il numero del reso?</h3>
+            <p>Lo trovi nell'e-mail di conferma del reso che ti abbiamo inviato, in alto a destra. Ha un formato simile a <strong>RS-2026-XXXXX</strong>.</p>
+          </div>
+
+          <div class="track-info-block">
+            <h3>Come funziona il reso?</h3>
+            <p>Puoi richiedere il reso entro <strong>60 giorni</strong> dalla consegna dell'ordine. Trovi tutte le informazioni nella pagina <a href="spedizioni.html#resi">Spedizioni e Resi</a>.</p>
+          </div>
+
+          <div class="track-info-block">
+            <h3>Hai un account Doppelgänger?</h3>
+            <p>Se hai effettuato l'acquisto con un account, trovi lo storico dei tuoi resi e lo stato delle pratiche direttamente nella tua <a href="account.html">area personale</a>.</p>
+          </div>
+
+          <div class="track-info-block">
+            <h3>Serve aiuto?</h3>
+            <p>Il nostro Servizio Clienti è a tua disposizione ogni giorno, 9–19. Scrivici via e-mail o <a href="#" data-open-contact>WhatsApp</a>.</p>
+          </div>
+        </aside>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <div data-layout="footer"></div>
+
+  <script src="js/layout.js"></script>
+  <script src="js/boutiques.js"></script>
+  <script src="js/prodotti.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/traccia-ordine.js"></script>
+</body>
+</html>

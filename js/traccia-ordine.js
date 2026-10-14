@@ -29,7 +29,9 @@
     }
 
     error.hidden = true;
-    numberEl.textContent = 'Ordine ' + num;
+    // Riconosce se siamo su traccia-ordine o monitora-reso
+    var isReso = location.pathname.indexOf('monitora-reso') !== -1;
+    numberEl.textContent = (isReso ? 'Reso ordine ' : 'Ordine ') + num;
 
     result.hidden = false;
     result.scrollIntoView({ behavior: 'smooth', block: 'start' });
