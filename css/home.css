@@ -368,7 +368,7 @@ html { scroll-snap-type: y proximity; }
   border-radius: 50%;
   background-color: #fff;
   border: none;
-  color: #2b2b2b;
+  color: var(--ink);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -380,7 +380,7 @@ html { scroll-snap-type: y proximity; }
   visibility: hidden;
 }
 .mh-arrow:hover,
-.w-arrow:hover { background-color: #2b2b2b; color: #fff; }
+.w-arrow:hover { background-color: var(--ink); color: #fff; }
 .mh-arrow svg,
 .w-arrow svg { width: 20px; height: 20px; }
 .mh-prev { left: var(--mh-pad); }
