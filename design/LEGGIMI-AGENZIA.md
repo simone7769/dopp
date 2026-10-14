@@ -41,8 +41,13 @@ Documento di accompagnamento al pacchetto demo + specifiche. Per chi svilupperà
 - **Ancore `#spedizioni` e `#resi`** funzionanti
 
 ### Qualità e performance
-- **W3C**: 0 errori su HTML/CSS/JS
-- **Lighthouse**: Performance 100/100 (desktop + mobile), Accessibilità 100/100, Best Practices 100/100, SEO 100/100
+- **W3C**: 0 errori su HTML/CSS/JS (validator ufficiali W3C)
+- **Lighthouse DevTools** (Chrome 153, v13.4.1, 14 ottobre 2026, home in produzione):
+  - **Performance**: 100/100 (desktop, nessuna emulazione) — 100/100 (mobile, emulazione Moto G Power + 4G lenta)
+  - **Accessibilità**: 100/100
+  - **Best Practices**: 100/100
+  - **SEO**: 100/100
+  - Nota: i punteggi possono variare leggermente (±5) tra una misurazione e l'altra perché dipendono dal carico del dispositivo e della rete. Le metriche stabili sono: LCP, CLS, TBT.
 - **Immagini home** ottimizzate WebP q80 (-47%, da 3,2 MB a 1,7 MB)
 - **Video hero** con `preload="none"` + poster per LCP ottimale
 - **Meta description** su tutte le 34 pagine
