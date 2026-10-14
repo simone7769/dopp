@@ -126,45 +126,17 @@
   color: var(--gold);
 }
 
-/* Bottoni dentro una risposta (es. "Iscriviti ora" + "Doppelgänger Club") */
-.faq-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  margin: 24px 0 28px;
-  justify-content: flex-start;
-}
-.faq-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 48px;
-  min-width: 220px;
-  padding: 14px 32px;
-  background: transparent;
-  border: 1px solid var(--ink);
-  color: var(--ink);
+/* Sottotitoli dentro una risposta (es. "Modalità di rimborso") */
+.faq-subheading {
   font-family: var(--sans);
-  font-size: var(--fs-11);
-  font-weight: 400;
-  letter-spacing: var(--tr-2);
+  font-size: var(--fs-12);
+  font-weight: 500;
+  letter-spacing: var(--tr-1);
   text-transform: uppercase;
-  cursor: pointer;
-  transition: background-color var(--t-base) var(--ease), color var(--t-base) var(--ease);
+  color: var(--ink);
+  margin: 24px 0 12px;
 }
-/* Il bottone-link non deve ereditare la sottolineatura di .faq-body a */
-.faq-body .faq-btn {
-  text-decoration: none;
-}
-.faq-btn:hover {
-  background-color: var(--ink);
-  color: #fff;
-}
-
-@media (max-width: 640px) {
-  .faq-actions { flex-direction: column; align-items: stretch; }
-  .faq-btn { width: 100%; }
-}
+.faq-subheading:first-child { margin-top: 0; }
 
 /* Placeholder "Contenuto in arrivo" */
 .faq-placeholder {
