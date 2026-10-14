@@ -1318,7 +1318,7 @@ button.contact-btn { display: block; }
 footer {
   background-color: #1f1f1f;
   color: #cfcbc4;
-  padding: 80px 60px 30px;
+  padding: 80px 50px 30px;
   font-family: var(--sans);
   font-weight: 300;
 }
