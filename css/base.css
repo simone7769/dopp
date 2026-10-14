@@ -59,6 +59,12 @@ html {
   scroll-behavior: smooth;
 }
 
+@media (max-width: 1024px) {
+  html {
+    scroll-padding-top: 160px;  /* mobile/tablet: header più alto (~150px) + margine */
+  }
+}
+
 body {
   font-family: var(--sans);
   color: var(--ink);
