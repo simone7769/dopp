@@ -487,7 +487,7 @@
     </div>\
     <div class="footer-bottom-right">\
       <nav class="footer-legal" aria-label="Informazioni legali">\
-        <a href="dati-societari.html">Dati societari</a>\
+        <a href="privacy-cookie.html#titolare">Dati societari</a>\
         <a href="privacy-cookie.html">Cookie e Privacy</a>\
         <a href="accessibilita.html">Accessibilità</a>\
         <a href="termini.html">Termini di vendita</a>\
