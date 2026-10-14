@@ -39,12 +39,12 @@
 
         <!-- Tab -->
         <div class="lavora-tabs" role="tablist">
-          <button type="button" class="lavora-tab active" data-tab="posizioni" role="tab" aria-selected="true">Posizioni aperte</button>
-          <button type="button" class="lavora-tab" data-tab="spontanea" role="tab" aria-selected="false">Candidatura spontanea</button>
+          <button type="button" class="lavora-tab active" id="tab-posizioni" data-tab="posizioni" role="tab" aria-selected="true" aria-controls="panel-posizioni">Posizioni aperte</button>
+          <button type="button" class="lavora-tab" id="tab-spontanea" data-tab="spontanea" role="tab" aria-selected="false" aria-controls="panel-spontanea">Candidatura spontanea</button>
         </div>
 
         <!-- Pannello 1: Posizioni aperte -->
-        <div class="lavora-panel active" id="panel-posizioni" role="tabpanel">
+        <div class="lavora-panel active" id="panel-posizioni" role="tabpanel" aria-labelledby="tab-posizioni">
 
           <p class="lavora-intro">Da oltre venticinque anni costruiamo un modo diverso di intendere l'abbigliamento maschile: sartorialità accessibile, cura del dettaglio, attenzione alle persone. Se condividi questi valori, ci piacerebbe conoscerti.</p>
 
@@ -86,7 +86,7 @@
         </div>
 
         <!-- Pannello 2: Candidatura spontanea -->
-        <div class="lavora-panel" id="panel-spontanea" role="tabpanel" hidden>
+        <div class="lavora-panel" id="panel-spontanea" role="tabpanel" aria-labelledby="tab-spontanea" hidden>
 
           <h2 class="lavora-form-title">Candidatura spontanea</h2>
 
@@ -121,7 +121,7 @@
 
               <div class="lavora-field">
                 <label for="indirizzo">Indirizzo*</label>
-                <input type="text" id="indirizzo" name="indirizzo" autocomplete="street-address" required>
+                <input type="text" id="indirizzo" name="indirizzo" autocomplete="address-line1" required>
               </div>
 
               <div class="lavora-field">
