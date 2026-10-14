@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guida alle Taglie — Doppelgänger Roma</title>
+<link rel="icon" href="images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/looks.css">
+<link rel="stylesheet" href="css/legale.css">
+<link rel="stylesheet" href="css/guida-taglie.css">
+<script>document.documentElement.setAttribute("data-css", "ready");</script>
+<link rel="stylesheet" href="css/fonts.css">
+</head>
+<body id="top" class="header-light">
+
+  <div data-layout="header"></div>
+  <div data-layout="drawers"></div>
+
+  <main class="page">
+
+    <section class="hero">
+      <div class="hero-inner">
+        <h1><span class="hero-line hero-line-main">Guida alle Taglie</span></h1>
+      </div>
+    </section>
+
+    <section class="legale-wrap">
+
+      <p class="guide-intro">Clicca su una categoria per vederne la guida taglie</p>
+
+      <ul class="guide-list" id="guideList">
+        <!-- Popolata via JS da js/guida-taglie.js -->
+      </ul>
+
+      <p class="size-note">Le misure indicate sono indicative e possono variare leggermente in base al modello, al tessuto e alla vestibilità del capo. Per informazioni specifiche su un prodotto, consulta la scheda prodotto o <a href="#" data-open-contact>contatta</a> il Servizio Clienti.</p>
+
+    </section>
+
+  </main>
+
+  <!-- Modale guida taglie -->
+  <div class="size-modal-overlay" id="sizeModal" aria-hidden="true">
+    <div class="size-modal" role="dialog" aria-modal="true" aria-labelledby="sizeModalTitle">
+      <button type="button" class="size-modal-close" id="sizeModalClose" aria-label="Chiudi">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M6 6l12 12M6 18L18 6"/></svg>
+      </button>
+      <div class="size-modal-body">
+        <div class="size-modal-image">
+          <img id="sizeModalImage" src="" alt="">
+          <span class="size-modal-image-placeholder" id="sizeModalImagePlaceholder">Immagine in arrivo</span>
+        </div>
+        <div class="size-modal-table">
+          <h3 id="sizeModalTitle">Confronta le tue misure con questa tabella.</h3>
+          <p class="size-modal-subtitle">Fai scorrere la barra di scorrimento per visualizzare più misure e taglie</p>
+          <div class="size-modal-table-wrap">
+            <table id="sizeModalTable"></table>
+          </div>
+          <div class="size-modal-footer">
+            <div class="size-modal-units" role="radiogroup" aria-label="Unità di misura">
+              <button type="button" class="active" data-unit="cm">cm</button>
+              <button type="button" data-unit="in">in</button>
+            </div>
+            <button type="button" class="size-modal-cta" disabled>Trova la tua taglia</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-layout="footer"></div>
+
+  <script src="js/layout.js"></script>
+  <script src="js/boutiques.js"></script>
+  <script src="js/prodotti.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/guida-taglie.js"></script>
+</body>
+</html>
