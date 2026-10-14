@@ -468,10 +468,12 @@
       <li><a href="journal-esperienza-boutique.html">Esperienza in Boutique</a></li><li><a href="lavora-con-noi.html">Lavora con noi</a></li><li><a href="parita-genere.html">Politica Parità di Genere</a></li><li><a href="whistleblowing.html">Procedura Whistleblowing</a></li></ul></div>\
     <div class="footer-col"><h4><button type="button" class="footer-toggle" aria-expanded="false">Servizio clienti<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></h4><ul>\
       <li><a href="#" data-open-contact>Contattaci</a></li>\
+      <li><a href="faq.html">FAQ</a></li>\
       <li><a href="traccia-ordine.html">Traccia il tuo ordine</a></li>\
       <li><a href="boutique.html">Boutique</a></li>\
       <li><a href="guida-taglie.html">Guida alle Taglie</a></li>\
-      <li><a href="gift-card.html">Gift Card</a></li><li><a href="monitora-reso.html">Monitora Reso</a></li><li><a href="faq.html">FAQ</a></li></ul></div>\
+      <li><a href="gift-card.html">Gift Card</a></li>\
+      <li><a href="monitora-reso.html">Monitora Reso</a></li></ul></div>\
     <div class="footer-col"><h4><button type="button" class="footer-toggle" aria-expanded="false">Seguici<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></h4><ul>\
       <li><a href="https://www.instagram.com/doppelgangerofficial/" target="_blank" rel="noopener">Instagram</a></li>\
       <li><a href="https://www.facebook.com/doppelganger.abbigliamento/" target="_blank" rel="noopener">Facebook</a></li>\
