@@ -6,7 +6,7 @@ Documento di accompagnamento al pacchetto demo + specifiche. Per chi svilupperà
 
 | File / cartella | Cosa contiene |
 |---|---|
-| `*.html`, `css/`, `js/` | Demo statica navigabile (**34 pagine**) |
+| `*.html`, `css/`, `js/` | Demo statica navigabile (**35 pagine**) |
 | `images/` | Immagini del sito (WebP ottimizzate) |
 | `images/guida-taglie/` | **18 immagini** per la guida taglie (WebP, ~3,4 MB totali) |
 | `fonts/` | Font self-hosted (Cormorant Garamond + Jost) |
@@ -22,7 +22,7 @@ Documento di accompagnamento al pacchetto demo + specifiche. Per chi svilupperà
 
 ## Secondo aggiornamento di ottobre 2026
 
-### Nuove pagine (11)
+### Nuove pagine (12)
 - **`boutique.html`** — Store locator con 83 boutique reali, ricerca live
 - **`pagamenti.html`** — Metodi di pagamento (carte, PayPal, Klarna, Apple Pay, Google Pay)
 - **`guida-taglie.html`** — 18 categorie con modale a popup (dati reali)
@@ -34,6 +34,7 @@ Documento di accompagnamento al pacchetto demo + specifiche. Per chi svilupperà
 - **`riciclo.html`** — Istruzioni riciclo imballaggi (47 voci)
 - **`whistleblowing.html`** — Procedura Whistleblowing (+ PDF)
 - **`parita-genere.html`** — Politica di Parità di Genere
+- **`doppelganger-app.html`** — Pagina Doppelgänger App: hero, 3 sezioni con mockup iPhone (Boutique/Acquista/Esplora), badge ufficiali App Store e Google Play
 
 ### Modifiche strutturali
 - **Footer ristrutturato**: trust bar, 3 colonne, 5 link legali in basso, 7 voci nuove
@@ -50,7 +51,7 @@ Documento di accompagnamento al pacchetto demo + specifiche. Per chi svilupperà
   - Nota: i punteggi possono variare leggermente (±5) tra una misurazione e l'altra perché dipendono dal carico del dispositivo e della rete. Le metriche stabili sono: LCP, CLS, TBT.
 - **Immagini home** ottimizzate WebP q80 (-47%, da 3,2 MB a 1,7 MB)
 - **Video hero** con `preload="none"` + poster per LCP ottimale
-- **Meta description** su tutte le 34 pagine
+- **Meta description** su tutte le 35 pagine
 
 ## Come aprire la demo
 
