@@ -183,9 +183,14 @@
     },
     {
       id: 'costumi', nome: 'Costumi', img: 'images/guida-taglie/costumi.webp',
-      colonne: [],
-      righe: [],
-      comingSoon: true
+      colonne: ['Taglia', 'Vita', 'Fianchi'],
+      righe: [
+        ['S', '76 – 82', '92 – 98'],
+        ['M', '82 – 88', '98 – 104'],
+        ['L', '88 – 94', '104 – 110'],
+        ['XL', '94 – 100', '110 – 116'],
+        ['XXL', '100 – 107', '116 – 122']
+      ]
     },
     {
       id: 'scarpe', nome: 'Scarpe', img: 'images/guida-taglie/scarpe.webp',
