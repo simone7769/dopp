@@ -50,7 +50,7 @@
     <div class="nav-left">\
       <a href="#" class="nav-icon-link" id="openCountryDrawer" aria-label="Cambia Paese/Lingua"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 3 2.5 15 0 18M12 3c-2.5 3-2.5 15 0 18"/></svg></a>\
       <a href="#" class="nav-icon-link" id="openContactDrawer" aria-label="Assistenza"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M4 14v-2a8 8 0 0116 0v2"/><rect x="3" y="14" width="4" height="6" rx="1"/><rect x="17" y="14" width="4" height="6" rx="1"/><path d="M20 20a4 4 0 01-4 3h-3"/></svg></a>\
-      <a href="#" class="nav-icon-link" id="openStoresDrawer" aria-label="Negozi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 22s7-6.4 7-12a7 7 0 10-14 0c0 5.6 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg></a>\
+      <a href="#" class="nav-icon-link" id="openStoresDrawer" aria-label="Boutique"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 22s7-6.4 7-12a7 7 0 10-14 0c0 5.6 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg></a>\
     </div>\
     <ul class="nav-center">\
       <li><a href="ai-2026.html">Nuovi Arrivi</a></li>\
@@ -469,7 +469,7 @@
     <div class="footer-col"><h4><button type="button" class="footer-toggle" aria-expanded="false">Servizio clienti<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></h4><ul>\
       <li><a href="#" data-open-contact>Contattaci</a></li>\
       <li><a href="traccia-ordine.html">Traccia il tuo ordine</a></li>\
-      <li><a href="boutique.html">Store Locator</a></li>\
+      <li><a href="boutique.html">Boutique</a></li>\
       <li><a href="guida-taglie.html">Guida alle Taglie</a></li>\
       <li><a href="gift-card.html">Gift Card</a></li></ul></div>\
     <div class="footer-col"><h4><button type="button" class="footer-toggle" aria-expanded="false">Seguici<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></h4><ul>\
