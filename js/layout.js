@@ -56,7 +56,7 @@
       <li><a href="ai-2026.html">Nuovi Arrivi</a></li>\
       <li><a href="#" id="linkAbbigliamento" aria-haspopup="true" aria-expanded="false">Abbigliamento</a></li>\
       <li><a href="#" id="linkAccessori" aria-haspopup="true" aria-expanded="false">Accessori</a></li>\
-      <li><a href="#" id="linkOutlet" class="nav-outlet" aria-haspopup="true" aria-expanded="false">Outlet</a></li>\
+      <li><a href="#" id="linkOutlet" aria-haspopup="true" aria-expanded="false">Outlet</a></li>\
       <li><a href="journal.html">Journal</a></li>\
     </ul>\
     <div class="nav-right">\
@@ -141,7 +141,7 @@
     </li>\
     <li class="has-sub">\
       <button type="button" class="mobile-sub-toggle" aria-expanded="false">\
-        <span class="nav-outlet">Outlet</span>\
+        <span>Outlet</span>\
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M6 9l6 6 6-6"/></svg>\
       </button>\
       <ul class="mobile-sub">\
