@@ -218,24 +218,62 @@
 
   <div class="meta">
     <div>
-      <span class="val">145</span>
+      <span class="val">155</span>
       <span class="lbl">Commit</span>
     </div>
     <div>
-      <span class="val">124</span>
+      <span class="val">135</span>
       <span class="lbl">File modificati</span>
     </div>
     <div>
-      <span class="val">11114</span>
+      <span class="val">11243</span>
       <span class="lbl">Righe aggiunte</span>
     </div>
   </div>
 
   <p style="font-size: 13px; color: var(--ink-soft); text-align: center; margin-bottom: 40px;">
-    Da <code>de268ba</code> a <code>d743e81</code> — 8–14 ottobre 2026
+    Da <code>de268ba</code> a <code>d531529</code> — 8–15 ottobre 2026
   </p>
 
-  <h2>14. Secondo aggiornamento di ottobre 2026 <span class="count">40 commit</span></h2>
+  <h2>14. Secondo aggiornamento di ottobre 2026 <span class="count">50 commit</span></h2>
+  <div class="commit">
+    <code>d531529</code><span class="msg">fix: iOS anti-zoom input + contrasto WCAG mobile (solo colori in palette)</span>
+    <p class="note">Blocco <code>@media (max-width: 1024px)</code> in <code>css/base.css</code>: input/select/textarea a 16px (no zoom iOS al focus), menu mobile a 14px, contrasto WCAG AA (#666 su SKU carrello, note, privacy, orari). Nessun colore nuovo introdotto.</p>
+  </div>
+  <div class="commit">
+    <code>95f778c</code><span class="msg">design: rimosse Wishlist, App e Newsletter dal menu mobile extra (ridondanti)</span>
+    <p class="note">Menu mobile extra ridotto da 7 a 4 voci: rimosse "La mia Wishlist" (cuore in header), "Doppelgänger APP" (footer), "Newsletter" (footer).</p>
+  </div>
+  <div class="commit">
+    <code>aa5af9e</code><span class="msg">design: OUTLET uniformato alle altre voci del menu (rimosso oro fisso)</span>
+    <p class="note">Rimossi <code>!important</code> e colore <code>var(--gold)</code> fisso su OUTLET. Rimossa classe <code>.nav-outlet</code> da <code>js/layout.js</code>. Ora hover oro come le altre voci.</p>
+  </div>
+  <div class="commit">
+    <code>29803ac</code><span class="msg">fix: immagini mockup con width/height espliciti (fix CLS Lighthouse)</span>
+    <p class="note">Le 3 immagini <code>app-*.webp</code> in <code>doppelganger-app.html</code> ora hanno <code>width</code> e <code>height</code> espliciti (CLS).</p>
+  </div>
+  <div class="commit">
+    <code>4639f8d</code><span class="msg">fix: doppelganger-app.html carica boutiques.js e prodotti.js per drawer coerenti</span>
+    <p class="note">I drawer "Boutique" e "Cerca" (iniettati da <code>layout.js</code>) apparivano vuoti sulla pagina App.</p>
+  </div>
+  <div class="commit">
+    <code>6784c43</code><span class="msg">fix: badge store leggermente più distanziati (gap 24→40px)</span>
+  </div>
+  <div class="commit">
+    <code>6e802a0</code><span class="msg">fix: badge Google Play rifatto con proporzioni uniformi ad App Store</span>
+    <p class="note">Badge SVG Google Play ridisegnato con stesso viewBox/proporzioni del badge App Store.</p>
+  </div>
+  <div class="commit">
+    <code>1250a3f</code><span class="msg">chore: build.sh scrive ZIP in consegne/ + fix riepilogo (no awk, path completi)</span>
+    <p class="note">Cartella output di <code>build.sh</code> spostata in <code>consegne/</code>. Riepilogo con path completi.</p>
+  </div>
+  <div class="commit">
+    <code>5100769</code><span class="msg">fix: scroll-padding-top per snap corretto della sezione video</span>
+    <p class="note">Aggiunto <code>scroll-padding-top: var(--header-h)</code> a <code>html</code> per compensare l'header fixed.</p>
+  </div>
+  <div class="commit">
+    <code>2ec6ead</code><span class="msg">docs: aggiornati CHANGELOG, DIFF-FILES, NOVITA-SITO, LEGGIMI con pagina Doppelgänger App</span>
+  </div>
   <div class="commit">
     <code>d743e81</code><span class="msg">feat: pagina Doppelgänger App + voce footer Corporate</span>
     <p class="note">Nuova pagina <code>doppelganger-app.html</code>: hero, 3 sezioni (Boutique/Acquista/Esplora) con mockup iPhone CSS, 2 badge store ufficiali SVG. Aggiunta voce "Doppelgänger APP" nel footer Corporate e nel menu mobile extra. 35 pagine totali.</p>
