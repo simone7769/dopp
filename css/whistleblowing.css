@@ -1,55 +1,43 @@
 /* ============================================================
    WHISTLEBLOWING.CSS — pagina Procedura Whistleblowing
-   Bottoni grandi per "Invia una segnalazione" + "Scarica PDF".
-   Estende legale.css.
+   Bottoni neri pieni, coerenti tra loro e col .btn del sito.
+   Specificità aumentata per vincere su .legale-wrap a.
    ============================================================ */
 
-.wb-actions {
+.legale-wrap .wb-actions {
   margin: 32px 0;
 }
 
-.wb-btn {
+.legale-wrap .wb-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 52px;
-  padding: 16px 40px;
+  width: 280px;
+  height: var(--btn-height, 48px);
+  padding: 0 16px;
   font-family: var(--sans);
   font-size: var(--fs-12);
   font-weight: 400;
-  letter-spacing: var(--tr-2);
+  letter-spacing: var(--tr-15);
   text-transform: uppercase;
   text-decoration: none;
+  white-space: nowrap;
   cursor: pointer;
+  background-color: var(--ink);
+  border: 1px solid var(--ink);
+  color: #fff;
   transition: background-color var(--t-base) var(--ease), color var(--t-base) var(--ease);
 }
 
-/* Bottone primario: nero pieno */
-.wb-btn-primary {
-  background-color: var(--ink);
-  border: 1px solid var(--ink);
-  color: #fff;
-}
-.wb-btn-primary:hover {
+.legale-wrap .wb-btn:hover {
   background-color: transparent;
   color: var(--ink);
 }
 
-/* Bottone secondario: outline */
-.wb-btn-secondary {
-  background-color: transparent;
-  border: 1px solid var(--ink);
-  color: var(--ink);
-}
-.wb-btn-secondary:hover {
-  background-color: var(--ink);
-  color: #fff;
-}
-
-/* --- Responsive --- */
+/* --- Responsive: full width su mobile --- */
 @media (max-width: 640px) {
-  .wb-btn {
+  .legale-wrap .wb-btn {
     width: 100%;
-    padding: 16px 24px;
+    white-space: normal;
   }
 }
