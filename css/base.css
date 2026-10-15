@@ -2340,8 +2340,8 @@ footer {
    Sostituisce la griglia icone e i link in linea.
    ============================================================ */
 .mobile-menu-extra {
-  margin: 0;
-  padding: 24px 0 0;
+  margin: 24px 0 0;
+  padding: 0;
   list-style: none;
   width: 100%;
   border-top: 0.5px solid var(--line);
