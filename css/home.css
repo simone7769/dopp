@@ -17,7 +17,7 @@ body { animation: none; }
    .w-track) agganciano le card (x mandatory); lo snap è
    sospeso durante il drag col mouse (.dragging).
    ============================================================ */
-html { scroll-snap-type: y proximity; }
+html { scroll-snap-type: y proximity; scroll-padding-top: var(--header-h, 170px); }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-snap-type: none; }
 }
