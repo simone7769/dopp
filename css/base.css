@@ -2416,3 +2416,33 @@ footer {
     color: inherit;
   }
 }
+
+/* ============================================================
+   MOBILE: leggibilità e anti-zoom iOS
+   ============================================================ */
+@media (max-width: 1024px) {
+  /* iOS zooma al focus se il campo è sotto i 16px */
+  .select-wrapper select,
+  .login-field input,
+  .contact-field input,
+  .contact-field textarea,
+  .stores-search-field input,
+  .footer-form input,
+  .search-drawer-bar input { font-size: 16px; }
+
+  /* Menu mobile: 14px, restano in stile brand */
+  .mobile-menu-list > li > a,
+  .mobile-sub-toggle,
+  .mobile-sub a,
+  .mobile-menu-extra a { font-size: var(--fs-14); }
+
+  /* Contrasto: #888/#999 su crema sono sotto il 4,5:1 */
+  .cart-item-sku,
+  .cart-note,
+  .contact-required,
+  .contact-privacy,
+  .stores-count,
+  .stores-item p.stores-hours { color: #666; }
+  .stores-search-field input::placeholder,
+  .search-drawer-bar input::placeholder { color: #666; }
+}
