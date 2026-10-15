@@ -24,7 +24,8 @@ zip -rq "$OUT/Doppelganger_demo_AGENZIA_$DATE.zip" "$FOLDER" \
   -x "$FOLDER/.DS_Store" \
   -x "**/.DS_Store" \
   -x "$FOLDER/node_modules/*" \
-  -x "$FOLDER/images/*"
+  -x "$FOLDER/images/*" \
+  -x "$FOLDER/documents/*"
 echo "  ✅ Fatto: Doppelganger_demo_AGENZIA_$DATE.zip"
 echo ""
 
