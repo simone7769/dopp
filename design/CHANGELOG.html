@@ -218,24 +218,35 @@
 
   <div class="meta">
     <div>
-      <span class="val">155</span>
+      <span class="val">158</span>
       <span class="lbl">Commit</span>
     </div>
     <div>
-      <span class="val">135</span>
+      <span class="val">174</span>
       <span class="lbl">File modificati</span>
     </div>
     <div>
-      <span class="val">11243</span>
+      <span class="val">13085</span>
       <span class="lbl">Righe aggiunte</span>
     </div>
   </div>
 
   <p style="font-size: 13px; color: var(--ink-soft); text-align: center; margin-bottom: 40px;">
-    Da <code>de268ba</code> a <code>d531529</code> — 8–15 ottobre 2026
+    Da <code>de268ba</code> a <code>9521d37</code> — 8–15 ottobre 2026
   </p>
 
-  <h2>14. Secondo aggiornamento di ottobre 2026 <span class="count">50 commit</span></h2>
+  <h2>14. Secondo aggiornamento di ottobre 2026 <span class="count">53 commit</span></h2>
+  <div class="commit">
+    <code>9521d37</code><span class="msg">fix: contrasto WCAG AA globale (11 regole #777/#888/#999 → #666, non solo mobile)</span>
+    <p class="note">Modificate 11 regole direttamente in <code>css/base.css</code>: contrasto <code>#666</code> ora vale su desktop e mobile. Rimossa la sezione ridondante dal <code>@media</code> mobile. Zero occorrenze di <code>#777/#888/#999</code> in base.css.</p>
+  </div>
+  <div class="commit">
+    <code>6ed9d8a</code><span class="msg">fix: rimossa spaziatura extra tra border-top e prima voce menu mobile extra</span>
+    <p class="note">In <code>.mobile-menu-extra</code>: spostato <code>padding: 24px 0 0</code> in <code>margin: 24px 0 0</code>. Le due linee grigie che contengono "Area personale" ora sono alla stessa distanza delle altre voci.</p>
+  </div>
+  <div class="commit">
+    <code>a2b97e8</code><span class="msg">docs: aggiornati CHANGELOG e DIFF-FILES con i 10 commit del 15 ottobre</span>
+  </div>
   <div class="commit">
     <code>d531529</code><span class="msg">fix: iOS anti-zoom input + contrasto WCAG mobile (solo colori in palette)</span>
     <p class="note">Blocco <code>@media (max-width: 1024px)</code> in <code>css/base.css</code>: input/select/textarea a 16px (no zoom iOS al focus), menu mobile a 14px, contrasto WCAG AA (#666 su SKU carrello, note, privacy, orari). Nessun colore nuovo introdotto.</p>
