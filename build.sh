@@ -10,7 +10,7 @@ DATE=$(date +%Y-%m-%d)
 ROOT=$(pwd)
 PARENT=$(dirname "$ROOT")
 FOLDER=$(basename "$ROOT")
-OUT="$HOME/Downloads"
+OUT="$HOME/Downloads/doppelganger-sito PROVA/consegne"
 
 echo "📦 Build ZIP per $FOLDER (data: $DATE)"
 echo ""
@@ -41,4 +41,4 @@ echo ""
 
 # --- Riepilogo ---
 echo "📊 Riepilogo:"
-ls -lh "$OUT/Doppelganger_demo_AGENZIA_$DATE.zip" "$OUT/Doppelganger_demo_COMPLETO_$DATE.zip" | awk '{print "  " $9 " (" $5 ")"}'
+ls -lh "$OUT/Doppelganger_demo_AGENZIA_$DATE.zip" "$OUT/Doppelganger_demo_COMPLETO_$DATE.zip"
