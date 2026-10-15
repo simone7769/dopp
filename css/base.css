@@ -855,7 +855,7 @@ header.menu-open .topbar-message {
   margin: 0 0 8px;
 }
 .cart-item-attr { font-size: var(--fs-12); color: #666; margin: 0 0 3px; }
-.cart-item-sku { font-size: var(--fs-11); color: #999; margin: 4px 0 12px; }
+.cart-item-sku { font-size: var(--fs-11); color: #666; margin: 4px 0 12px; }
 .cart-item-bottom {
   display: flex;
   align-items: center;
@@ -925,7 +925,7 @@ header.menu-open .topbar-message {
   border-top: none;
 }
 .cart-express { text-align: center; font-size: var(--fs-12); color: #555; margin: 2px 0; }
-.cart-note { text-align: center; font-size: var(--fs-11); color: #888; margin: 4px 0 0; }
+.cart-note { text-align: center; font-size: var(--fs-11); color: #666; margin: 4px 0 0; }
 .cart-note-link {
   display: block;
   text-align: center;
@@ -1126,7 +1126,7 @@ header.menu-open .topbar-message {
   letter-spacing: var(--tr-1);
   color: var(--ink);
 }
-.wishlist-empty p { font-size: var(--fs-13); color: #777; max-width: 260px; }
+.wishlist-empty p { font-size: var(--fs-13); color: #666; max-width: 260px; }
 .wishlist-empty[hidden],
 .wishlist-body[hidden] { display: none; }
 
@@ -1155,8 +1155,8 @@ header.menu-open .topbar-message {
   color: var(--ink);
   padding: 14px 0;
 }
-.stores-search-field input::placeholder { color: #999; }
-.stores-count { font-size: var(--fs-12); color: #888; margin: 10px 0 0; }
+.stores-search-field input::placeholder { color: #666; }
+.stores-count { font-size: var(--fs-12); color: #666; margin: 10px 0 0; }
 .stores-list {
   flex: 1 1 auto;
   min-height: 0;
@@ -1187,7 +1187,7 @@ header.menu-open .topbar-message {
   margin: 0 0 8px;
 }
 .stores-item p { font-size: var(--fs-14); line-height: 1.5; color: #555; margin: 0; }
-.stores-item p.stores-hours { color: #888; font-size: var(--fs-12); margin-top: 6px; }
+.stores-item p.stores-hours { color: #666; font-size: var(--fs-12); margin-top: 6px; }
 .stores-actions { display: flex; gap: 22px; margin-top: 14px; }
 .stores-actions a {
   font-size: var(--fs-11);
@@ -1238,7 +1238,7 @@ header.menu-open .topbar-message {
 .contact-success p { font-size: var(--fs-13); line-height: 1.55; color: var(--ink); margin: 0; }
 .contact-channel p { margin-bottom: 18px; }
 .contact-form { display: flex; flex-direction: column; gap: 18px; }
-.contact-required { font-size: var(--fs-12); color: #888; margin: 0; }
+.contact-required { font-size: var(--fs-12); color: #666; margin: 0; }
 .contact-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .contact-field { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
 .contact-field label { font-size: var(--fs-14); color: var(--ink); }
@@ -1259,7 +1259,7 @@ header.menu-open .topbar-message {
 .contact-field textarea { min-height: 120px; resize: vertical; line-height: 1.5; }
 .contact-field input:focus,
 .contact-field textarea:focus { border-color: var(--ink); }
-.contact-privacy { font-size: var(--fs-12); line-height: 1.5; color: #888; margin: 0; }
+.contact-privacy { font-size: var(--fs-12); line-height: 1.5; color: #666; margin: 0; }
 .contact-privacy a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
 .contact-success[hidden],
 .contact-form[hidden] { display: none; }
@@ -1885,7 +1885,7 @@ footer {
 @media (max-width: 640px) {
   .search-drawer-bar input { font-size: 16px; }
 }
-.search-drawer-bar input::placeholder { color: #999; }
+.search-drawer-bar input::placeholder { color: #666; }
 
 @media (max-width: 1024px) {
   /* Mobile: la ricerca esce da sinistra (come Paese/Lingua e Negozi) */
@@ -1971,7 +1971,7 @@ footer {
   font-family: var(--sans);
   font-size: var(--fs-12);
   font-weight: 300;
-  color: #777;
+  color: #666;
   text-align: center;
   padding: 40px 20px;
   margin: 0;
@@ -2076,7 +2076,7 @@ footer {
   font-family: var(--sans);
   font-size: var(--fs-13);
   font-weight: 300;
-  color: #777;
+  color: #666;
   text-align: center;
   padding: 40px 0;
   margin: 0;
@@ -2435,14 +2435,4 @@ footer {
   .mobile-sub-toggle,
   .mobile-sub a,
   .mobile-menu-extra a { font-size: var(--fs-14); }
-
-  /* Contrasto: #888/#999 su crema sono sotto il 4,5:1 */
-  .cart-item-sku,
-  .cart-note,
-  .contact-required,
-  .contact-privacy,
-  .stores-count,
-  .stores-item p.stores-hours { color: #666; }
-  .stores-search-field input::placeholder,
-  .search-drawer-bar input::placeholder { color: #666; }
 }
