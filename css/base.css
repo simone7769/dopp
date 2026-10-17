@@ -119,7 +119,7 @@ header.scrolled .header-actions a {
   color: var(--ink) !important;
 }
 header.scrolled .nav {
-  padding: 12px 50px 12px;
+  padding: 16px 50px 16px;
   min-height: 0;
   max-height: none;
   height: auto;
@@ -225,7 +225,7 @@ header.menu-open .topbar-message {
   align-items: center;
   max-width: 1600px;
   margin: 0 auto;
-  padding: 12px 50px 12px;
+  padding: 16px 50px 16px;
   position: relative;
   transition: padding var(--t-base) var(--ease), background-color var(--t-base) var(--ease);
 }
@@ -1489,10 +1489,10 @@ footer {
   .footer-newsletter { grid-column: 1 / -1; }
   .nav-center { gap: 20px; }
   .nav-center a { font-size: var(--fs-13); }
-  .nav { padding: 6px 24px 12px; }
+  .nav { padding: 12px 24px 12px; }
   .nav-left { gap: 14px; }
   .nav-right { gap: 14px; }
-  header.scrolled .nav { padding: 6px 24px 12px; }
+  header.scrolled .nav { padding: 12px 24px 12px; }
 }
 
 @media (min-width: 1025px) and (max-width: 1200px) {
