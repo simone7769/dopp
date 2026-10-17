@@ -19,7 +19,7 @@
 .hero h1 {
   font-family: var(--serif);
   font-weight: 500;
-  font-size: clamp(20px, 1.6vw, 24px);
+  font-size: var(--fs-hero-inner);
   letter-spacing: var(--tr-4);
   text-transform: uppercase;
   line-height: 1.3;

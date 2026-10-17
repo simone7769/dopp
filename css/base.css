@@ -1968,7 +1968,7 @@ footer {
   left: 0;
   height: 2px;
   width: 0%;
-  background-color: var(--gold, #b89b6a);
+  background-color: var(--gold);
   z-index: 2000;
   transition: width 0.1s linear;
   pointer-events: none;
