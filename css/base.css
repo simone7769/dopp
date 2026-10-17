@@ -135,7 +135,7 @@ header.scrolled .logo {
 }
 header.scrolled .nav-center a {
   color: var(--ink) !important;
-  font-size: var(--fs-12);
+  font-size: var(--fs-13);
 }
 header.scrolled .nav-center a.active {
   color: var(--gold) !important;
@@ -280,7 +280,7 @@ header.menu-open .topbar-message {
   text-decoration: none;
   color: #fff;
   font-family: var(--sans);
-  font-size: var(--fs-12);
+  font-size: var(--fs-13);
   font-weight: 400;
   letter-spacing: var(--tr-1);
   text-transform: uppercase;
@@ -1525,7 +1525,7 @@ footer {
   }
   .footer-newsletter { grid-column: 1 / -1; }
   .nav-center { gap: 20px; }
-  .nav-center a { font-size: var(--fs-12); }
+  .nav-center a { font-size: var(--fs-13); }
   .nav { padding: 6px 24px 12px; }
   .nav-left { gap: 14px; }
   .nav-right { gap: 14px; }
