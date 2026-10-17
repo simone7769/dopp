@@ -134,7 +134,7 @@ header.menu-open .nav {
 }
 header.menu-open .header-main {
   height: auto;
-  padding: 32px 20px 26px;
+  padding: 29px 20px;
   opacity: 1;
   overflow: visible;
 }
@@ -206,7 +206,7 @@ header.menu-open .topbar-message {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 32px 20px 26px;
+  padding: 29px 20px;
   transition: padding var(--t-base) var(--ease), height var(--t-base) var(--ease), opacity var(--t-base) var(--ease), background-color var(--t-base) var(--ease);
 }
 .logo-link { display: inline-flex; text-decoration: none; }
@@ -2399,4 +2399,9 @@ footer {
   .mobile-sub-toggle,
   .mobile-sub a,
   .mobile-menu-extra a { font-size: var(--fs-14); }
+}
+
+/* Correzione ottica allineamento verticale logo (compensa spazio SVG e padding menu) */
+@media (min-width: 1025px) {
+  .logo { transform: translateY(8px); }
 }
