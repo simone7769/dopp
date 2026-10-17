@@ -19,7 +19,7 @@
       <p class="topbar-message active">Il lusso più accessibile al mondo — dal 1996</p>\
       <p class="topbar-message">e-concierge disponibile ogni giorno, 9-19</p>\
       <p class="topbar-message">Iscriviti al Club: -20% + spedizione gratuita</p>\
-      <p class="topbar-message">Outlet -80%: Acquista ora!</p>\
+      <p class="topbar-message">Outlet: fino al -80%</p>\
       <p class="topbar-message">Sartoria in Boutique: prenota un appuntamento</p>\
     </div>\
   </div>\
@@ -99,13 +99,13 @@
   </div></div></div>\
 <div class="megamenu" id="megaOutlet"><div class="megamenu-inner">\
   <div class="megamenu-col"><h4>Outlet</h4><ul>\
-    <li><a href="#">Abbigliamento -80%</a></li><li><a href="#">Accessori -80%</a></li>\
+    <li><a href="#">Abbigliamento</a></li><li><a href="#">Accessori</a></li>\
     <li><a href="#">Back to Work</a></li><li><a href="#">Ultimi Pezzi</a></li>\
     <li><a href="#" class="mm-see-all">Vedi tutto l\'outlet</a></li></ul></div>\
   <div class="megamenu-images">\
-    <a href="#" class="mm-card"><div class="thumb"><img src="images/z.webp" alt="Abbigliamento -80%"></div><h5>Abbigliamento -80%</h5></a>\
+    <a href="#" class="mm-card"><div class="thumb"><img src="images/z.webp" alt="Abbigliamento"></div><h5>Abbigliamento</h5></a>\
     <a href="#" class="mm-card"><div class="thumb"><img src="images/bw.webp" alt="Back to Work"></div><h5>Back to Work</h5></a>\
-    <a href="#" class="mm-card"><div class="thumb"><img src="images/a80.webp" alt="Accessori -80%"></div><h5>Accessori -80%</h5></a>\
+    <a href="#" class="mm-card"><div class="thumb"><img src="images/a80.webp" alt="Accessori"></div><h5>Accessori</h5></a>\
     <a href="#" class="mm-card"><div class="thumb"><img src="images/ls1.webp" alt="Ultimi Pezzi"></div><h5>Ultimi Pezzi</h5></a>\
   </div></div></div>';
   }
@@ -145,7 +145,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M6 9l6 6 6-6"/></svg>\
       </button>\
       <ul class="mobile-sub">\
-        <li><a href="#">Abbigliamento -80%</a></li><li><a href="#">Accessori -80%</a></li>\
+        <li><a href="#">Abbigliamento</a></li><li><a href="#">Accessori</a></li>\
         <li><a href="#">Back to Work</a></li><li><a href="#">Ultimi Pezzi</a></li>\
       </ul>\
     </li>\

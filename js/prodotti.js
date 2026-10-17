@@ -28,7 +28,7 @@ window.PRODOTTI = [
   { nome: 'Portafoglio pelle nero',              categoria: 'Accessori', sub: 'Pelletteria',           prezzo:  14.99, img: 'images/ac3.webp' },
   { nome: 'Profumo uomo intenso',                categoria: 'Accessori', sub: 'Profumi',               prezzo:  39.99, img: 'images/ac1.webp' },
 
-  { nome: 'Cappotto outlet -80%',                categoria: 'Outlet', sub: 'Abbigliamento -80%', prezzo: 49.90, img: 'images/z.webp' },
-  { nome: 'Giacca outlet -80%',                  categoria: 'Outlet', sub: 'Abbigliamento -80%', prezzo: 39.90, img: 'images/bk1.webp' },
-  { nome: 'Scarpe outlet -80%',                  categoria: 'Outlet', sub: 'Accessori -80%',     prezzo: 29.90, img: 'images/a80.webp' }
+  { nome: 'Cappotto outlet -80%',                categoria: 'Outlet', sub: 'Abbigliamento', prezzo: 49.90, img: 'images/z.webp' },
+  { nome: 'Giacca outlet -80%',                  categoria: 'Outlet', sub: 'Abbigliamento', prezzo: 39.90, img: 'images/bk1.webp' },
+  { nome: 'Scarpe outlet -80%',                  categoria: 'Outlet', sub: 'Accessori',     prezzo: 29.90, img: 'images/a80.webp' }
 ];
