@@ -42,7 +42,7 @@
 .legale-wrap p {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: 16px;
+  font-size: var(--fs-body-legal);
   letter-spacing: 0.01em;
   line-height: 1.7;
   color: var(--ink);
@@ -52,7 +52,7 @@
 .legale-wrap ul {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: 16px;
+  font-size: var(--fs-body-legal);
   line-height: 1.7;
   color: var(--ink);
   padding-left: 24px;
@@ -82,5 +82,5 @@
 }
 @media (max-width: 640px) {
   .legale-wrap { padding: 10px 16px 60px; }
-  .legale-wrap p, .legale-wrap ul { font-size: 16px; }
+  .legale-wrap p, .legale-wrap ul { font-size: var(--fs-body-legal); }
 }

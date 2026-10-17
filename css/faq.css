@@ -33,7 +33,7 @@
 .faq-group-title {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: 22px;
+  font-size: var(--fs-22);
   letter-spacing: var(--tr-1);
   color: var(--ink);
   margin: 0 0 24px;
@@ -73,7 +73,7 @@
 .faq-item > summary::after {
   content: '+';
   font-family: var(--sans);
-  font-size: 22px;
+  font-size: var(--fs-22);
   font-weight: 300;
   color: var(--muted);
   flex-shrink: 0;
@@ -171,7 +171,7 @@
 /* --- Responsive --- */
 @media (max-width: 900px) {
   .faq-wrap { padding: 0; }
-  .faq-group-title { font-size: 20px; }
+  .faq-group-title { font-size: var(--fs-20); }
 }
 @media (max-width: 640px) {
   .faq-intro { margin: 21px 0 40px; }

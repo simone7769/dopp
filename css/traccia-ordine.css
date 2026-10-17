@@ -16,7 +16,7 @@
 .track-heading {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: 22px;
+  font-size: var(--fs-22);
   letter-spacing: var(--tr-05);
   color: var(--ink);
   margin: 0 0 12px;
@@ -111,7 +111,7 @@
 .track-result-header h3 {
   font-family: var(--serif);
   font-weight: 500;
-  font-size: 20px;
+  font-size: var(--fs-20);
   letter-spacing: var(--tr-05);
   color: var(--ink);
   margin: 0;
@@ -151,7 +151,7 @@
   border-radius: 50%;
   border: 1px solid var(--line);
   color: var(--muted);
-  font-size: 13px;
+  font-size: var(--fs-13);
   font-weight: 500;
   background: var(--paper);
 }

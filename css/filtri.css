@@ -107,7 +107,7 @@
 .filters-section summary::-webkit-details-marker { display: none; }
 .filters-section summary::after {
   content: '+';
-  font-size: 20px;
+  font-size: var(--fs-20);
   font-weight: 300;
   color: var(--muted);
   transition: transform var(--t-base) var(--ease);

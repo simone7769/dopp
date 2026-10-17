@@ -112,7 +112,7 @@
 }
 .boutique-rating-stars {
   color: var(--gold);
-  font-size: 13px;
+  font-size: var(--fs-13);
   letter-spacing: 1px;
 }
 .boutique-rating-value {

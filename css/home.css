@@ -654,7 +654,7 @@ header.scrolled .topbar {
   .w-next { right: 8px; }
 
   .card-media { padding: 18px; }
-  .card h3 { font-size: 12px; }
+  .card h3 { font-size: var(--fs-12); }
 
   .duo { grid-template-columns: 1fr; height: auto; min-height: auto; }
   .duo-item { height: 70vh; min-height: 450px; }
@@ -697,7 +697,7 @@ header.scrolled .topbar {
 
   .hero-content::before { inset: -40px -30px; }
   .hero-content h1 {
-    font-size: 22px;
+    font-size: var(--fs-22);
     line-height: 1.35;
   }
   .hero-content h1 .hero-line:last-child {

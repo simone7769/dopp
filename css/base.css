@@ -837,7 +837,7 @@ header.menu-open .topbar-message {
   border: none;
   background: transparent;
   color: var(--ink);
-  font-size: 14px;
+  font-size: var(--fs-14);
   cursor: pointer;
   display: flex;
   align-items: center;

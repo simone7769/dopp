@@ -349,7 +349,7 @@
 .lavora-success h3 {
   font-family: var(--serif);
   font-weight: 500;
-  font-size: 26px;
+  font-size: var(--fs-26);
   color: var(--ink);
   margin: 0 0 16px;
 }

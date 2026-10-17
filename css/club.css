@@ -180,7 +180,7 @@
 .club-faq summary::-webkit-details-marker { display: none; }
 .club-faq summary::after {
   content: '+';
-  font-size: 22px;
+  font-size: var(--fs-22);
   font-weight: 300;
   color: var(--muted);
   margin-left: 20px;
