@@ -480,7 +480,7 @@ d5827f0 - refactor: rimossi 34 token duplicati da base.css
 
 ### Stato finale 17 ottobre (fix logo)
 
-- HEAD = origin/main = 1526fe0
+- HEAD = origin/main = 9c74812
 - Working tree: pulito
 - ZIP in consegne/: aggiornati (13:34) - Doppelganger_demo_AGENZIA_2026-10-17.zip e Doppelganger_demo_COMPLETO_2026-10-17.zip
 - Branch attivo: main
