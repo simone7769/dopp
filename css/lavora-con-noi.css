@@ -50,7 +50,7 @@
 .lavora-intro {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: 18px;
+  font-size: var(--fs-body-editorial);
   line-height: 1.7;
   color: var(--ink);
   max-width: 780px;
@@ -119,7 +119,7 @@
 .lavora-note {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: 16px;
+  font-size: var(--fs-16);
   line-height: 1.7;
   color: var(--ink);
   margin: 32px 0 0;
@@ -141,7 +141,7 @@
 /* --- Form candidatura --- */
 .lavora-form-title {
   font-family: var(--serif);
-  font-size: 18px;
+  font-size: var(--fs-section-title);
   font-weight: 400;
   letter-spacing: var(--tr-1);
   text-transform: uppercase;
@@ -374,7 +374,7 @@
 .lavora-footer-note {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: 16px;
+  font-size: var(--fs-16);
   line-height: 1.7;
   color: var(--ink);
   margin: 64px 0 0;
@@ -396,7 +396,7 @@
 }
 @media (max-width: 640px) {
   .lavora-tab { padding: 18px 12px; font-size: var(--fs-11); letter-spacing: var(--tr-1); }
-  .lavora-intro { font-size: 16px; margin-bottom: 32px; }
+  .lavora-intro { font-size: var(--fs-16); margin-bottom: 32px; }
   .lavora-count-title { font-size: var(--fs-13); }
   .lavora-table th, .lavora-table td { padding: 16px 10px; font-size: var(--fs-12); }
   .lavora-table td:nth-child(2), .lavora-table td:nth-child(3) { font-size: var(--fs-11); }

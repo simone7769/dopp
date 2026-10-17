@@ -91,7 +91,7 @@
 .looks-intro p {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: 18px;
+  font-size: var(--fs-body-editorial);
   letter-spacing: 0.01em;
   line-height: 1.75;
   color: var(--ink);
@@ -152,7 +152,7 @@
 .article-text p {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: 18px;
+  font-size: var(--fs-body-editorial);
   letter-spacing: 0.01em;
   line-height: 1.75;
   color: var(--ink);
@@ -208,7 +208,7 @@
 .article-split-text p {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: 18px;
+  font-size: var(--fs-body-editorial);
   letter-spacing: 0.01em;
   line-height: 1.75;
   color: var(--ink);
@@ -323,7 +323,7 @@
 .sartoria-title {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: 18px;
+  font-size: var(--fs-section-title);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--ink);

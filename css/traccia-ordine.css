@@ -26,7 +26,7 @@
 .track-intro {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: 16px;
+  font-size: var(--fs-16);
   line-height: 1.7;
   color: var(--ink);
   margin: 0 0 32px;
@@ -233,7 +233,7 @@
 .track-info-block p {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: 16px;
+  font-size: var(--fs-16);
   line-height: 1.7;
   color: var(--ink);
   margin: 0;
@@ -260,7 +260,7 @@
   }
 }
 @media (max-width: 640px) {
-  .track-heading { font-size: 18px; }
+  .track-heading { font-size: var(--fs-section-title); }
   .track-result { padding: 22px 18px; }
   .track-steps li { grid-template-columns: 28px 1fr; gap: 12px; }
   .track-step-icon { width: 24px; height: 24px; font-size: 12px; }

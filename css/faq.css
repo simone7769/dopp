@@ -89,7 +89,7 @@
 .faq-body p {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: 16px;
+  font-size: var(--fs-16);
   line-height: 1.75;
   color: var(--ink);
   margin: 0 0 1em;
@@ -115,7 +115,7 @@
   padding: 4px 0 4px 16px;
   font-family: var(--serif);
   font-weight: 400;
-  font-size: 16px;
+  font-size: var(--fs-16);
   line-height: 1.7;
   color: var(--ink);
 }
@@ -176,9 +176,9 @@
 @media (max-width: 640px) {
   .faq-intro { margin: 21px 0 40px; }
   .faq-group { margin-bottom: 40px; }
-  .faq-group-title { font-size: 18px; margin-bottom: 20px; padding-bottom: 14px; }
+  .faq-group-title { font-size: var(--fs-section-title); margin-bottom: 20px; padding-bottom: 14px; }
   .faq-item > summary { font-size: var(--fs-12); padding: 18px 2px; }
   .faq-body { padding: 0 2px 24px; }
-  .faq-body p { font-size: 16px; }
-  .faq-cta { font-size: 16px; padding-top: 32px; }
+  .faq-body p { font-size: var(--fs-16); }
+  .faq-cta { font-size: var(--fs-16); padding-top: 32px; }
 }
