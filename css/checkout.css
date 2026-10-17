@@ -26,7 +26,7 @@
   max-width: 616px;
   padding: 40px 56px 70px 20px;
 }
-.co-side { background: #faf8f5; border-left: 1px solid var(--line); }
+.co-side { background: var(--crema-pannelli); border-left: 1px solid var(--line); }
 .co-side-in {
   position: sticky;
   top: 0;
@@ -72,8 +72,8 @@
 .co-field input:focus,
 .co-field select:focus { border-color: var(--ink); }
 .co-field.invalid input,
-.co-field.invalid select { border-color: #a32638; }
-.co-field.invalid label { color: #a32638; }
+.co-field.invalid select { border-color: var(--danger); }
+.co-field.invalid label { color: var(--danger); }
 
 .co-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .co-row-3 { grid-template-columns: 1fr 1.4fr 1fr; }
@@ -113,13 +113,13 @@
 .co-pay-opt > label span { flex: 1; font-weight: 400; }
 .co-pay-opt > label em { font-style: normal; font-size: var(--fs-11); letter-spacing: var(--tr-05); color: var(--muted); }
 .co-pay-opt input[type="radio"] { accent-color: var(--ink); width: 16px; height: 16px; }
-.co-card { display: none; padding: 4px 16px 6px; background: #faf8f5; border-top: 1px solid var(--line); }
+.co-card { display: none; padding: 4px 16px 6px; background: var(--crema-pannelli); border-top: 1px solid var(--line); }
 .co-card .co-field:first-child { margin-top: 14px; }
 .co-pay-opt.open .co-card { display: block; }
 .co-demo { margin-top: 10px; font-size: var(--fs-12); color: var(--muted); }
 
 /* --- Invio --- */
-.co-error { font-size: var(--fs-12); color: #a32638; margin-bottom: 12px; }
+.co-error { font-size: var(--fs-12); color: var(--danger); margin-bottom: 12px; }
 .co-submit {
   width: 100%;
   height: 56px;

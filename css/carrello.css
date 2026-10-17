@@ -140,7 +140,7 @@
   cursor: pointer;
   transition: color var(--t-fast) var(--ease);
 }
-.cp-remove:hover { color: #a32638; }
+.cp-remove:hover { color: var(--danger); }
 .cp-remove svg { width: 16px; height: 16px; }
 
 /* --- Riepilogo --- */
@@ -187,7 +187,7 @@
 .cp-promo-msg {
   font-family: var(--sans);
   font-size: var(--fs-12);
-  color: #a32638;
+  color: var(--danger);
   margin-top: 8px;
 }
 .cp-promo-msg[hidden] { display: none; }

@@ -7,7 +7,7 @@
   padding: 0;
   display: none;
   text-align: center;
-  background-color: #fcfcfb;
+  background-color: var(--paper);
 }
 .journal-hero h1 {
   font-family: var(--serif);
@@ -24,7 +24,7 @@
   border-bottom: 1px solid var(--line);
   margin-top: 30px;
   padding: 20px 50px;
-  background-color: #fcfcfb;
+  background-color: var(--paper);
 }
 .journal-filters-inner {
   max-width: 1600px;

@@ -9,7 +9,7 @@
   z-index: 1;
   padding: 45px 50px 6px;
   text-align: center;
-  background-color: #fcfcfb;
+  background-color: var(--paper);
   color: var(--ink);
 }
 .hero-inner {

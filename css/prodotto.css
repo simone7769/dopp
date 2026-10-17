@@ -255,7 +255,7 @@ body.pdp-lightbox-open { overflow: hidden; }
   font-family: var(--sans);
   font-size: var(--fs-12);
   font-weight: 400;
-  color: #a32638;
+  color: var(--danger);
   margin: 0 0 18px;
 }
 

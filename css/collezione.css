@@ -8,7 +8,7 @@
   display: block;
   padding: 45px 50px 6px;
   text-align: center;
-  background-color: #fcfcfb;
+  background-color: var(--paper);
   color: #2b2b2b;
 }
 /* Titolo di pagina visibile su desktop, nascosto su mobile (≤640px) */
