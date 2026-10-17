@@ -7,10 +7,8 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-:root {
-  /* I token vivono in tokens.css (caricato prima). Qui restano solo gli override locali. */
-  --header-h: 170px;
-}
+/* I token (compreso --header-h) vivono solo in tokens.css, caricato prima di questo file.
+   nav.js aggiorna --header-h con l'altezza reale dell'header. */
 
 @media (prefers-reduced-motion: reduce) {
   :root { --t-fast: 0.01s; --t-base: 0.01s; --t-slow: 0.01s; }
@@ -24,7 +22,10 @@ html {
 
 @media (max-width: 1024px) {
   html {
-    scroll-padding-top: 160px;  /* mobile/tablet: header più alto (~150px) + margine */
+    /* mobile/tablet: valore di ripiego (se il JS non parte). L'offset reale delle
+       ancore lo imposta il blocco "ANCORE (#hash)" in nav.js, che misura l'header
+       (117px a inizio pagina, 61px dopo lo scroll). */
+    scroll-padding-top: 160px;
   }
 }
 
