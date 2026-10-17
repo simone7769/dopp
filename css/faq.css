@@ -7,7 +7,7 @@
 /* --- Intestazione --- */
 .faq-intro {
   font-family: var(--sans);
-  font-size: var(--fs-11);
+  font-size: var(--fs-13);
   font-weight: 400;
   letter-spacing: var(--tr-2);
   text-transform: uppercase;
@@ -37,8 +37,6 @@
   letter-spacing: var(--tr-1);
   color: var(--ink);
   margin: 0 0 24px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid var(--gold);
 }
 
 /* --- Singola domanda (accordion) --- */
@@ -46,7 +44,10 @@
   border-bottom: 1px solid var(--line);
 }
 .faq-item:first-of-type {
-  border-top: 1px solid var(--line);
+  border-top: 1px solid var(--gold);
+}
+.faq-item:last-of-type {
+  border-bottom: 1px solid var(--gold);
 }
 
 .faq-item > summary {
@@ -59,14 +60,16 @@
   min-height: var(--touch-target, 44px);
   font-family: var(--sans);
   font-size: var(--fs-13);
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: var(--tr-05);
+  text-transform: uppercase;
   color: var(--ink);
   cursor: pointer;
   user-select: none;
   transition: color var(--t-fast) var(--ease);
 }
 .faq-item > summary::-webkit-details-marker { display: none; }
+.faq-item > summary::marker { content: ""; }
 .faq-item > summary:hover { color: var(--gold); }
 
 /* "+" a destra */
@@ -84,13 +87,14 @@
 
 /* --- Contenuto della risposta --- */
 .faq-body {
-  padding: 0 4px 28px;
+  padding: 0 4px 24px;
+  max-width: 900px;
 }
 .faq-body p {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: var(--fs-16);
-  line-height: 1.75;
+  font-size: var(--fs-body-editorial);
+  line-height: 1.7;
   color: var(--ink);
   margin: 0 0 1em;
 }
