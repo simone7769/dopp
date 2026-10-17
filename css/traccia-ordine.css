@@ -176,7 +176,7 @@
 }
 .track-steps li p {
   font-family: var(--serif);
-  font-size: 15px;
+  font-size: var(--fs-16);
   font-weight: 400;
   line-height: 1.55;
   color: var(--ink);

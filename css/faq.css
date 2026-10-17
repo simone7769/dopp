@@ -156,7 +156,7 @@
 .faq-cta {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: 17px;
+  font-size: var(--fs-body-editorial);
   line-height: 1.7;
   color: var(--ink);
   text-align: center;
