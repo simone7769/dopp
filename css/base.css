@@ -8,45 +8,8 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
-  --serif: 'Cormorant Garamond', Georgia, serif;
-  --sans: 'Jost', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  --ink: #2b2b2b;
-  --paper: #fcfcfb;
-  --muted: #8a7d63;
-  --gold: #b8935a;
-  --line: #e5e2dc;
-  --btn-width: 200px;
-  --btn-height: 48px;
-
-  --t-fast: 0.25s;
-  --t-base: 0.4s;
-  --t-slow: 0.8s;
-  --ease: ease;
-  --ease-out: cubic-bezier(0.25, 0.8, 0.25, 1);
-
-  --fs-10: 10px;
-  --fs-11: 11px;
-  --fs-12: 12px;
-  --fs-13: 13px;
-  --fs-14: 14px;
-  --fs-card-title: 14px;
-  --fs-card-price: 12px;
-  --fs-duo:  clamp(18px, 1.8vw, 22px);
-
-  --tr-03: 0.3px;
-  --tr-05: 0.5px;
-  --tr-1:  1px;
-  --tr-15: 1.5px;
-  --tr-2:  2px;
-  --tr-3:  3px;
-  --tr-4:  4px;
-  --tr-5:  5px;
-  --tr-6:  6px;
-
-  --topbar-h: 33px;
-  --drawer-title-h: 64px;
+  /* I token vivono in tokens.css (caricato prima). Qui restano solo gli override locali. */
   --header-h: 170px;
-  --touch-target: 44px; /* ← FIX touch target: dimensione minima WCAG per aree interattive */
 }
 
 @media (prefers-reduced-motion: reduce) {
