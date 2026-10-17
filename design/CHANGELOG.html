@@ -218,7 +218,7 @@
 
   <div class="meta">
     <div>
-      <span class="val">158</span>
+      <span class="val">266</span>
       <span class="lbl">Commit</span>
     </div>
     <div>
@@ -226,16 +226,42 @@
       <span class="lbl">File modificati</span>
     </div>
     <div>
-      <span class="val">13085</span>
+      <span class="val">13142</span>
       <span class="lbl">Righe aggiunte</span>
     </div>
   </div>
 
   <p style="font-size: 13px; color: var(--ink-soft); text-align: center; margin-bottom: 40px;">
-    Da <code>de268ba</code> a <code>9521d37</code> — 8–15 ottobre 2026
+    Da <code>de268ba</code> a <code>fc18531</code> — 8–17 ottobre 2026
   </p>
 
-  <h2>14. Secondo aggiornamento di ottobre 2026 <span class="count">53 commit</span></h2>
+  <h2>14. Secondo aggiornamento di ottobre 2026 <span class="count">59 commit</span></h2>
+
+  <div class="commit">
+    <code>fc18531</code><span class="msg">design: nav padding 12→16px (desktop) e 6/12→12/12px (≤1200px) + --header-h 170→169px</span>
+    <p class="note">Nav più respiro su desktop (52px) e tablet (50px). --header-h corretto a 169px (era 170, ma header reale 167).</p>
+  </div>
+  <div class="commit">
+    <code>66fcad3</code><span class="msg">design: 3 testi 15px→16px e 2 testi 17px→18px, ora su token</span>
+    <p class="note">.app-section-text, .sartoria-cta-wrap p, .track-steps li p: 15→16px. .faq-cta, .lavora-success p: 17→18px.</p>
+  </div>
+  <div class="commit">
+    <code>2025268</code><span class="msg">design: allineato pattern Q&amp;A FAQ al Club + faq-intro 13px</span>
+    <p class="note">Bordi oro first/last, summary uppercase 500, hover oro, marker reset, body 18px. Rimosso border-bottom da .faq-group-title. .faq-intro 11→13px.</p>
+  </div>
+  <div class="commit">
+    <code>8f16a62</code><span class="msg">refactor: 25 font-size px sostituiti con token di ruolo + aggiunto --fs-16 a tokens.css</span>
+    <p class="note">--fs-body-editorial, --fs-section-title, --fs-16, --fs-pdp-price. Zero cambi visivi.</p>
+  </div>
+  <div class="commit">
+    <code>d78223b</code><span class="msg">refactor: sostituiti 28 font-size px con token esistenti</span>
+    <p class="note">--fs-11, --fs-12, --fs-13, --fs-14, --fs-20, --fs-22, --fs-26, --fs-body-legal. Zero cambi visivi.</p>
+  </div>
+  <div class="commit">
+    <code>d5827f0</code><span class="msg">refactor: rimossi da base.css i 34 token duplicati di tokens.css</span>
+    <p class="note">base.css ora ha :root con solo --header-h. Fonte unica: tokens.css.</p>
+  </div>
+
   <div class="commit">
     <code>9521d37</code><span class="msg">fix: contrasto WCAG AA globale (11 regole #777/#888/#999 → #666, non solo mobile)</span>
     <p class="note">Modificate 11 regole direttamente in <code>css/base.css</code>: contrasto <code>#666</code> ora vale su desktop e mobile. Rimossa la sezione ridondante dal <code>@media</code> mobile. Zero occorrenze di <code>#777/#888/#999</code> in base.css.</p>
