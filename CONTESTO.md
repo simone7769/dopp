@@ -484,3 +484,41 @@ d5827f0 - refactor: rimossi 34 token duplicati da base.css
 - Working tree: pulito
 - ZIP in consegne/: aggiornati (13:34) - Doppelganger_demo_AGENZIA_2026-10-17.zip e Doppelganger_demo_COMPLETO_2026-10-17.zip
 - Branch attivo: main
+
+---
+
+## AGGIORNAMENTO 17 OTTOBRE 2026 (copy outlet luxury)
+
+### Commit pushati
+
+92e6167 - copy: uniformati testi outlet e prodotti (rimosse percentuali fisse, tono luxury)
+
+### Cosa è stato fatto
+
+**Coerenza posizionamento luxury**: eliminati termini "da volantino" ("sconti", "ribassi", "acquista ora!") mantenendo il vantaggio commerciale (la percentuale) in forma elegante.
+
+**index.html (card Home):**
+- Card Outlet: `Sconti fino all'80%` → `Fino all'80% in meno`
+- Card Primavera Estate: `Ulteriori ribassi` → `Ultimi ribassi`
+- Card Primavera Estate: `Vedi i ribassi` → `Scopri la selezione`
+
+**js/layout.js (menu, megamenu, topbar):**
+- Menu outlet (desktop + mobile + megamenu): `Abbigliamento -80%` → `Abbigliamento`, `Accessori -80%` → `Accessori` (4+4 occorrenze)
+- Topbar: `Outlet -80%: Acquista ora!` → `Outlet: fino al -80%` (niente apostrofo per non rompere JS)
+
+**js/prodotti.js (card prodotto):**
+- Etichette `sub` dei prodotti outlet: `Abbigliamento -80%` / `Accessori -80%` → `Abbigliamento` / `Accessori` (3 occorrenze)
+
+### Errore fatto e risolto
+
+**Primo tentativo**: la sostituzione della topbar con `"Outlet: fino all'80% in meno"` ha rotto la sintassi JS (l'apostrofo in `all'80%` chiudeva prematuramente la stringa tra apici singoli). Risultato: header e footer spariti.
+**Fix**: sostituito con `"Outlet: fino al -80%"` (senza apostrofo). Verificato con `node --check js/layout.js && node --check js/prodotti.js` (nessun errore).
+
+**Lezione**: nei file JS con stringhe tra apici singoli, mai inserire apostrofi nel testo sostitutivo. Oppure usare escape `\'`.
+
+### Stato finale 17 ottobre (copy outlet)
+
+- HEAD = origin/main = 92e6167
+- Working tree: pulito
+- ZIP in consegne/: aggiornati (14:12) - Doppelganger_demo_AGENZIA_2026-10-17.zip e Doppelganger_demo_COMPLETO_2026-10-17.zip
+- Branch attivo: main
