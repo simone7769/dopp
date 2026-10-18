@@ -1815,26 +1815,3 @@ window.WishlistStore = (function () {
     if (e.persisted) rimuoviStato();
   });
 })();
-
-/* ============================================================
-   ANCORE: scroll-padding-top dinamico al click (mobile/tablet)
-   Misura l'altezza reale dell'header nell'istante del click e
-   imposta lo spazio corretto. Funziona sia per l'header alto
-   (84px) che per quello scrolled (60px).
-   ============================================================ */
-(function () {
-  document.addEventListener('click', function (e) {
-    const link = e.target.closest('a[href*="#"]');
-    if (!link) return;
-    const header = document.getElementById('header');
-    if (!header) return;
-    // Applichiamo solo su mobile/tablet (su desktop il CSS funziona già)
-    if (!window.matchMedia('(max-width: 1024px)').matches) return;
-    
-    // Misura l'header in questo preciso istante
-    const h = header.getBoundingClientRect().height;
-    
-    // Imposta lo spazio: altezza header + 16px di margine
-    document.documentElement.style.scrollPaddingTop = (h + 16) + 'px';
-  }, true); // true = capture phase, gira PRIMA che il browser scrolli
-})();
