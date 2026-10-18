@@ -42,8 +42,8 @@ html {
   html {
     /* mobile/tablet: valore di ripiego (se il JS non parte). L'offset reale delle
        ancore lo imposta il blocco "ANCORE (#hash)" in nav.js, che misura l'header
-       (117px a inizio pagina, 61px dopo lo scroll). */
-    scroll-padding-top: 160px;
+       (93px a inizio pagina, 60px dopo lo scroll). */
+    scroll-padding-top: 105px;
   }
 }
 
