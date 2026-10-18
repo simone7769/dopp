@@ -288,7 +288,62 @@
   <h1>Aggiornamento della demo<br>Ottobre 2026</h1>
   <p class="lead">Cosa è stato aggiunto, cosa è cambiato, cosa rimane all'agenzia.</p>
 
-  
+  <h2>Terzo aggiornamento di ottobre 2026</h2>
+
+  <p style="text-align: center; font-family: var(--serif); font-size: 16px; font-style: italic; color: var(--muted); margin-bottom: 30px;">
+    Le rifiniture finali: accessibilità, coerenza visiva, token.
+  </p>
+
+  <div class="benefits">
+    <div class="benefit">
+      <h3>Il «+» funziona su tutte le collezioni</h3>
+      <p>Anche in <strong>Essential</strong> e <strong>Cerimonia</strong> il pulsante «+» sulle card apre il pannello di scelta taglia e colore e aggiunge al carrello, come in Autunno/Inverno 2026. Se si prova ad aggiungere senza scegliere la taglia, le taglie si evidenziano.</p>
+    </div>
+    <div class="benefit">
+      <h3>Navigazione da tastiera e screen reader</h3>
+      <p>Ogni pagina ha ora il collegamento «Vai al contenuto» e un'area principale ben definita. I campi con errori nel checkout e nella candidatura vengono annunciati, e il campo di ricerca ha un'etichetta accessibile.</p>
+    </div>
+    <div class="benefit">
+      <h3>Journal con titolo per i motori di ricerca</h3>
+      <p>Il titolo della pagina Journal non è più rimosso: resta invisibile a colpo d'occhio ma leggibile da screen reader e motori di ricerca.</p>
+    </div>
+    <div class="benefit">
+      <h3>Tabelle e box con lo sfondo corretto</h3>
+      <p>In Guida alle taglie, Lavora con noi, Riciclo e Traccia ordine alcuni sfondi crema non venivano applicati: ora usano il colore dei pannelli del sito.</p>
+    </div>
+    <div class="benefit">
+      <h3>Nessuna barra di scorrimento orizzontale</h3>
+      <p>Le immagini a tutta larghezza non fanno più comparire una barra orizzontale su Windows. Il riordino per prezzo è corretto anche per importi sopra i mille euro.</p>
+    </div>
+    <div class="benefit">
+      <h3>Design token allineati</h3>
+      <p>Il file <code>token.json</code> ora riflette esattamente i valori del CSS (altezza header 169px, bottoni telefono 44px, dimensioni testo, spaziature griglia e carosello).</p>
+    </div>
+    <div class="benefit">
+      <h3>Font su token (design system)</h3>
+      <p>Tutti i <code>font-size</code> del sito ora usano i token di <code>tokens.css</code> (<code>--fs-11</code>, <code>--fs-12</code>, <code>--fs-16</code>, <code>--fs-body-editorial</code>, ecc.). Zero cambi visivi, ma un solo posto per modificare le dimensioni.</p>
+    </div>
+    <div class="benefit">
+      <h3>Header mobile più respiro</h3>
+      <p>L'header mobile è passato da 72 a 84px di altezza (+12px). Più spazio per il logo e le icone, senza toccare il logo (invariato a 15px).</p>
+    </div>
+    <div class="benefit">
+      <h3>FAQ e Club: stesso stile Q&amp;A</h3>
+      <p>Le domande frequenti di <strong>FAQ</strong> e <strong>Doppelgänger Club</strong> ora hanno lo stesso stile: bordi oro, domande in maiuscolo, hover oro, risposte in serif 18px. Più coerenza per chi naviga.</p>
+    </div>
+    <div class="benefit">
+      <h3>Nav con più respiro</h3>
+      <p>Il menu di navigazione desktop ha più spazio sopra e sotto (+4px). Su tablet (≤1200px) il padding è stato uniformato. L'header è ora allineato al contenuto senza «buchi».</p>
+    </div>
+    <div class="benefit">
+      <h3>Ancore senza scatti su mobile</h3>
+      <p>Cliccando su «Spedizioni» o «Resi» dal footer su mobile, il titolo atterra nella posizione corretta. Il calcolo misura l'altezza reale dell'header al momento del click e posiziona il titolo di conseguenza, senza scatti.</p>
+    </div>
+    <div class="benefit">
+      <h3>Refactor CSS</h3>
+      <p>Sono stati ottimizzati i CSS: colori hardcoded sostituiti con token, rimossi token duplicati, aggiornati font-size e commenti. Il codice è più pulito e manutenibile, senza cambi visivi.</p>
+    </div>
+  </div>
 
   <h2>Secondo aggiornamento di ottobre 2026 — Performance 100/100</h2>
 
@@ -580,76 +635,6 @@
     <p>«Un sito che racconta il marchio, prima ancora del catalogo.»</p>
     <span class="signature">Doppelgänger · Ottobre 2026</span>
     <span class="credit">Realizzato da Simone Giordano · simonegiordano77@gmail.com</span>
-  </div>
-
-
-  <h2>Ottimizzazione font e Q&amp;A (17 ottobre 2026)</h2>
-
-  <div class="benefits">
-    <div class="benefit">
-      <h3>Font su token (design system)</h3>
-      <p>Tutti i <code>font-size</code> del sito ora usano i token di <code>tokens.css</code> (<code>--fs-11</code>, <code>--fs-12</code>, <code>--fs-16</code>, <code>--fs-body-editorial</code>, ecc.). Zero cambi visivi, ma ora un solo posto per modificare le dimensioni.</p>
-  
-    <div class="benefit">
-      <h3>Header mobile più respiro</h3>
-      <p>L'header mobile è passato da 72 a 84px di altezza (+12px). Più spazio per il logo e le icone, senza toccare il logo (invariato a 15px).</p>
-    </div>
-
-  </div>
-    <div class="benefit">
-      <h3>FAQ e Club: stesso stile Q&amp;A</h3>
-      <p>Le domande frequenti di <strong>FAQ</strong> e <strong>Doppelgänger Club</strong> ora hanno lo stesso stile: bordi oro, domande in maiuscolo, hover oro, risposte in serif 18px. Più coerenza per chi naviga.</p>
-    </div>
-    <div class="benefit">
-      <h3>Nav con più respiro</h3>
-      <p>Il menu di navigazione desktop ha più spazio sopra e sotto (+4px). Su tablet (≤1200px) il padding è stato uniformato. L'header è ora allineato al contenuto senza "buchi".</p>
-    </div>
-  </div>
-
-  <h2>Ancore mobile/tablet (18 ottobre 2026)</h2>
-
-  <div class="benefits">
-    <div class="benefit">
-      <h3>Fix delle ancore su mobile</h3>
-      <p>Risolto il problema che, cliccando sui link "Spedizioni" o "Resi" dal footer su mobile, mostrava la fine del paragrafo precedente sopra il titolo. Ora le ancore atterrano nella posizione corretta, con il titolo subito sotto l'header.</p>
-    </div>
-    <div class="benefit">
-      <h3>Calcolo dinamico dell'header</h3>
-      <p>Il fix misura l'altezza reale dell'header al momento del click e posiziona il titolo di conseguenza, senza scatti. Funziona su tutti i dispositivi (mobile, tablet, desktop).</p>
-    </div>
-    <div class="benefit">
-      <h3>Refactor CSS (17-18 ottobre)</h3>
-      <p>Oltre al fix delle ancore, sono stati ottimizzati i CSS: 39 colori hardcoded sostituiti con token, rimossi token duplicati, aggiornati font-size e commenti. Il codice è più pulito e manutenibile, senza cambi visivi.</p>
-    </div>
-  </div>
-
-  <h2>Revisione finale (18 ottobre 2026)</h2>
-
-  <div class="benefits">
-    <div class="benefit">
-      <h3>Il «+» funziona su tutte le collezioni</h3>
-      <p>Anche in <strong>Essential</strong> e <strong>Cerimonia</strong> il pulsante «+» sulle card apre il pannello di scelta taglia e colore e aggiunge al carrello, come in Autunno/Inverno 2026. Se si prova ad aggiungere senza scegliere la taglia, le taglie si evidenziano.</p>
-    </div>
-    <div class="benefit">
-      <h3>Navigazione da tastiera e screen reader</h3>
-      <p>Ogni pagina ha ora il collegamento «Vai al contenuto» e un'area principale ben definita. I campi con errori nel checkout e nella candidatura vengono annunciati, e il campo di ricerca ha un'etichetta accessibile.</p>
-    </div>
-    <div class="benefit">
-      <h3>Journal con titolo per i motori di ricerca</h3>
-      <p>Il titolo della pagina Journal non è più rimosso dalla pagina: resta invisibile a colpo d'occhio ma leggibile da screen reader e motori di ricerca.</p>
-    </div>
-    <div class="benefit">
-      <h3>Tabelle e box con lo sfondo corretto</h3>
-      <p>In Guida alle taglie, Lavora con noi, Riciclo e Traccia ordine alcuni sfondi crema non venivano applicati: ora usano il colore dei pannelli del sito.</p>
-    </div>
-    <div class="benefit">
-      <h3>Nessuna barra di scorrimento orizzontale</h3>
-      <p>Le immagini a tutta larghezza non fanno più comparire una barra orizzontale su Windows. Il riordino per prezzo è corretto anche per importi sopra i mille euro.</p>
-    </div>
-    <div class="benefit">
-      <h3>Design token allineati</h3>
-      <p>Il file <code>token.json</code> ora riflette esattamente i valori del CSS (altezza header 169px, bottoni telefono 44px, dimensioni testo, spaziature griglia e carosello).</p>
-    </div>
   </div>
 
 </div>

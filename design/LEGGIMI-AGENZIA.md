@@ -20,15 +20,6 @@ Documento di accompagnamento al pacchetto demo + specifiche. Per chi svilupperà
 | `design/token.json` | Design token in formato JSON |
 | `design/CREDITI.md` | Autore e contatti |
 
-## Revisione finale del 18 ottobre 2026
-
-- **Il «+» sulle card** funziona ora anche in `essential.html` e `cerimonia.html` (`js/quick-add.js`), con stato di errore se manca la taglia (`.quick-add-sizes.has-error`).
-- **Accessibilità**: skip-link «Vai al contenuto» (iniettato da `layout.js`) e `<main id="main">` su tutte le pagine; `aria-label` sul campo di ricerca, `aria-invalid` e `role="alert"` nei moduli, `aria-live` sul carrello, `aria-label` dinamico sui toggle password; h1 del Journal visivamente nascosto ma presente.
-- **CSS**: `--crema` non definita sostituita con `--crema-pannelli` (Guida taglie, Lavora con noi, Riciclo, Traccia ordine); `overflow-x: clip` su `html, body`.
-- **JS**: `filtri.js` calcola correttamente i prezzi sopra 999 €.
-- **`design/token.json`** allineato a `tokens.css`.
-- Dettaglio completo in `design/CHANGELOG.html` (sezione 15) e `design/DIFF-FILES.html` (sezione 15).
-
 ## Secondo aggiornamento di ottobre 2026
 
 ### Nuove pagine (12)
@@ -61,6 +52,8 @@ Documento di accompagnamento al pacchetto demo + specifiche. Per chi svilupperà
 - **Immagini home** ottimizzate WebP q80 (-47%, da 3,2 MB a 1,7 MB)
 - **Video hero** con `preload="none"` + poster per LCP ottimale
 - **Meta description** su tutte le 35 pagine
+- **Validazione finale**: HTML (`html-validate`), CSS (`csstree-validator`), JS (`node -c`), JSON (`json.load`) — 0 errori su tutti i file
+- **Test browser** (Chrome desktop, emulazione mobile 375 px): menu mobile, aree di tocco 44 px, boutique iOS (16 px), chip `aria-pressed`, filtro prezzo 1–2000 €, filtro taglia 46 (2 card nascoste su 15), totale carrello, icone header desktop (padding 6 px)
 
 ## Come aprire la demo
 
@@ -72,7 +65,21 @@ Da terminale, nella cartella del progetto:
 
 - **HTML**: una pagina per file, struttura chiara. Header/footer/drawer sono **iniettati da `js/layout.js`** (non duplicati su ogni pagina).
 - **CSS**: `css/tokens.css` (variabili di design system), `css/base.css` (header, footer, drawer, bottoni comuni), poi un CSS per pagina.
-- **JS**: `js/nav.js` gestisce tutti i comportamenti interattivi (menu, drawer, carrello, wishlist, ricerca, filtri). `js/layout.js` inietta header/footer. Il resto sono moduli per singola funzionalità.
+- **JS**: `js/nav.js` gestisce tutti i comportamenti interattivi (menu, drawer, carrello, wishlist, ricerca, filtri). `js/layout.js` inietta header/footer. Il resto sono moduli per singola funzionalità. `js/quick-add.js` gestisce il pannellino dal «+» sulle card.
+
+### Pattern e stati
+
+- **Skip-link «Vai al contenuto»**: iniettato da `layout.js`, appare al focus da tastiera. Punta a `<main id="main">` (presente su 34 pagine su 35; escluso `checkout.html`, pagina senza header/footer iniettati).
+- **Accessibilità dei form**: `aria-invalid` sui campi in errore (checkout, candidatura), `role="alert"` sui banner errore. Rimossi automaticamente quando l'utente corregge.
+- **Carrello**: `aria-live="polite"` su totale e messaggio spedizione. Il drawer aggiorna i valori a ogni modifica e gli screen reader li annunciano.
+- **Chip taglia/colori del drawer filtri**: `aria-pressed` dinamico, `filtri.js` lo aggiorna a ogni click (iniziale `aria-pressed="false"` nel markup di `layout.js`).
+- **Tablist accessibile**: in `account.html` e `lavora-con-noi.html`, frecce ←/→ spostano il focus tra tab, Home/End vanno al primo/ultimo.
+- **Journal**: l'`<h1>` è visivamente nascosto (non `display: none`), quindi leggibile da screen reader e SEO.
+- **Toggle password**: `aria-label` dinamico tra «Mostra password» e «Nascondi password» (account, registrazione).
+- **Filtro taglia funzionante**: `data-size="46 48 50 52 54 56"` sulle card di collezione. Card «in evidenza» escluse (non sono prodotti). Nella demo 3 card di Autunno/Inverno 2026 hanno taglie differenziate per rendere il filtro dimostrabile.
+- **`overflow-x: clip`** su `html, body`: previene barra orizzontale da elementi full-bleed su Windows.
+- **Parsing prezzi (`nav.js`)**: `.replace(/\./g, '')` per gestire correttamente importi sopra 999 €.
+- **`token.json`** allineato a `tokens.css` (header 169 px, bottoni telefono 44 px, `--fs-16`, spaziature griglia e carosello).
 
 ## Contatti
 
