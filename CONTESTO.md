@@ -522,3 +522,40 @@ d5827f0 - refactor: rimossi 34 token duplicati da base.css
 - Working tree: pulito
 - ZIP in consegne/: aggiornati (14:12) - Doppelganger_demo_AGENZIA_2026-10-17.zip e Doppelganger_demo_COMPLETO_2026-10-17.zip
 - Branch attivo: main
+
+---
+
+## AGGIORNAMENTO 18 OTTOBRE 2026
+
+### Commit pushati
+
+- 68860b0 - fix: ancore senza scatto (calcolo stato header + transizioni off)
+
+### Problema risolto: ancore mobile/tablet
+
+**Sintomo:** cliccando "Resi" dal footer su mobile, il paragrafo precedente restava visibile sopra il titolo.
+
+**Causa:** `scroll-padding-top: 160px` fisso, ma l'header mobile ha due altezze (84px normale, 60px scrolled). Un valore unico non può funzionare per entrambe le ancore.
+
+**Soluzione (in `js/nav.js`, blocco ANCORE):**
+- Calcola la posizione finale provando entrambi gli stati dell'header (`scrolled: true/false`) e sceglie quello coerente con la posizione finale
+- Disattiva le transizioni durante il posizionamento (classe `.ancora-fix`), poi le riattiva
+- Scrolla una volta sola al punto esatto (niente scatti)
+- Annulla i riposizionamenti se l'utente tocca, scrolla o preme tasti
+- Copre: arrivo da altra pagina (`load`), cambio ancora (`hashchange`), stessa ancora cliccata 2 volte (listener su `click`)
+
+**Test:** funziona su mobile, tablet, desktop. Verificato anche sul telefono vero.
+
+### Stato finale 18 ottobre
+
+- HEAD = origin/main = 68860b0
+- Working tree: pulito
+- ZIP in consegne/: aggiornati (`AGENZIA` e `COMPLETO` del 2026-10-18)
+- Branch attivi: main (unico)
+- Sito pronto per la consegna
+
+### Note
+
+- Il blocco ANCORE in `nav.js` è ~80 righe. Se in futuro cambia il comportamento dell'header (es. un terzo stato), va rivisto.
+- Le modifiche del 17 ottobre (token, colori, font, header 84px) sono intatte.
+- Il problema delle ancore è chiuso. Non toccare `nav.js` fino a dopo la consegna.
