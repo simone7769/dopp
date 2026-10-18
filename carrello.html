@@ -20,9 +20,9 @@
   <div data-layout="header"></div>
   <div data-layout="drawers"></div>
 
-  <main class="cp-wrap">
+  <main id="main" class="cp-wrap">
     <h1 class="cp-title">Il tuo carrello</h1>
-    <p class="cp-ship" id="cpShip" hidden></p>
+    <p class="cp-ship" id="cpShip" aria-live="polite" hidden></p>
 
     <div class="cp-layout" id="cpLayout">
       <div class="cp-items" id="cpItems" aria-label="Prodotti nel carrello"></div>
@@ -39,7 +39,7 @@
           <div><dt>Subtotale</dt><dd id="cpSub">€ 0,00</dd></div>
           <div><dt>Spese di spedizione</dt><dd id="cpShipCost">€ 0,00</dd></div>
           <div class="cp-iva"><dt>di cui IVA</dt><dd id="cpIva">€ 0,00</dd></div>
-          <div class="cp-total"><dt>Totale</dt><dd id="cpTotal">€ 0,00</dd></div>
+          <div class="cp-total"><dt>Totale</dt><dd id="cpTotal" aria-live="polite">€ 0,00</dd></div>
         </dl>
 
         <a href="checkout.html" class="cp-checkout">Concludi ordine</a>

@@ -20,6 +20,15 @@ Documento di accompagnamento al pacchetto demo + specifiche. Per chi svilupperà
 | `design/token.json` | Design token in formato JSON |
 | `design/CREDITI.md` | Autore e contatti |
 
+## Revisione finale del 18 ottobre 2026
+
+- **Il «+» sulle card** funziona ora anche in `essential.html` e `cerimonia.html` (`js/quick-add.js`), con stato di errore se manca la taglia (`.quick-add-sizes.has-error`).
+- **Accessibilità**: skip-link «Vai al contenuto» (iniettato da `layout.js`) e `<main id="main">` su tutte le pagine; `aria-label` sul campo di ricerca, `aria-invalid` e `role="alert"` nei moduli, `aria-live` sul carrello, `aria-label` dinamico sui toggle password; h1 del Journal visivamente nascosto ma presente.
+- **CSS**: `--crema` non definita sostituita con `--crema-pannelli` (Guida taglie, Lavora con noi, Riciclo, Traccia ordine); `overflow-x: clip` su `html, body`.
+- **JS**: `filtri.js` calcola correttamente i prezzi sopra 999 €.
+- **`design/token.json`** allineato a `tokens.css`.
+- Dettaglio completo in `design/CHANGELOG.html` (sezione 15) e `design/DIFF-FILES.html` (sezione 15).
+
 ## Secondo aggiornamento di ottobre 2026
 
 ### Nuove pagine (12)

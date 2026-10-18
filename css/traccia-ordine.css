@@ -91,7 +91,7 @@
 .track-result {
   margin-top: 40px;
   padding: 28px 24px;
-  background: var(--crema);
+  background: var(--crema-pannelli);
   border: 1px solid var(--line);
 }
 .track-result[hidden] { display: none; }

@@ -13,6 +13,7 @@
 
   /* ---------------- HEADER ---------------- */
   var HEADER = '\
+<a href="#main" class="skip-link">Vai al contenuto</a>\
 <header id="header">\
   <div class="topbar">\
     <div class="topbar-messages">\
@@ -287,7 +288,7 @@
   <div class="search-drawer-body">\
     <div class="search-drawer-bar">\
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>\
-      <input type="text" placeholder="Cosa stai cercando?" id="searchInput">\
+      <input type="text" placeholder="Cosa stai cercando?" id="searchInput" aria-label="Cerca nel sito">\
     </div>\
     <div class="search-results" id="searchResults" hidden>\
       <p class="search-results-count" id="searchResultsCount"></p>\
@@ -396,12 +397,12 @@
       <summary>Taglia</summary>\
       <div class="filters-section-body">\
         <div class="filters-chips" id="filtersSizes">\
-          <button type="button" data-size="46">46</button>\
-          <button type="button" data-size="48">48</button>\
-          <button type="button" data-size="50">50</button>\
-          <button type="button" data-size="52">52</button>\
-          <button type="button" data-size="54">54</button>\
-          <button type="button" data-size="56">56</button>\
+          <button type="button" data-size="46" aria-pressed="false">46</button>\
+          <button type="button" data-size="48" aria-pressed="false">48</button>\
+          <button type="button" data-size="50" aria-pressed="false">50</button>\
+          <button type="button" data-size="52" aria-pressed="false">52</button>\
+          <button type="button" data-size="54" aria-pressed="false">54</button>\
+          <button type="button" data-size="56" aria-pressed="false">56</button>\
         </div>\
       </div>\
     </details>\
@@ -409,11 +410,11 @@
       <summary>Colore</summary>\
       <div class="filters-section-body">\
         <div class="filters-colors" id="filtersColors">\
-          <button type="button" data-color="blu" aria-label="Blu"><span style="background:#2b3546"></span></button>\
-          <button type="button" data-color="nero" aria-label="Nero"><span style="background:#2b2b2b"></span></button>\
-          <button type="button" data-color="grigio" aria-label="Grigio"><span style="background:#8a8680"></span></button>\
-          <button type="button" data-color="marrone" aria-label="Marrone"><span style="background:#5a4633"></span></button>\
-          <button type="button" data-color="beige" aria-label="Beige"><span style="background:#c9b898"></span></button>\
+          <button type="button" data-color="blu" aria-label="Blu" aria-pressed="false"><span style="background:#2b3546"></span></button>\
+          <button type="button" data-color="nero" aria-label="Nero" aria-pressed="false"><span style="background:#2b2b2b"></span></button>\
+          <button type="button" data-color="grigio" aria-label="Grigio" aria-pressed="false"><span style="background:#8a8680"></span></button>\
+          <button type="button" data-color="marrone" aria-label="Marrone" aria-pressed="false"><span style="background:#5a4633"></span></button>\
+          <button type="button" data-color="beige" aria-label="Beige" aria-pressed="false"><span style="background:#c9b898"></span></button>\
         </div>\
       </div>\
     </details>\

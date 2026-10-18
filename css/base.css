@@ -10,6 +10,24 @@
 /* I token (compreso --header-h) vivono solo in tokens.css, caricato prima di questo file.
    nav.js aggiorna --header-h con l'altezza reale dell'header. */
 
+/* Evita barra orizzontale da elementi full-bleed (100vw / calc(50% - 50vw)); clip non rompe position: sticky */
+html, body { overflow-x: clip; }
+
+/* Skip-link: visibile solo quando riceve il focus da tastiera */
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 16px;
+  z-index: 3000;
+  padding: 10px 16px;
+  background: var(--notte);
+  color: var(--paper);
+  font-size: var(--fs-13);
+  text-decoration: none;
+  transform: translateY(-120%);
+}
+.skip-link:focus { transform: none; }
+
 @media (prefers-reduced-motion: reduce) {
   :root { --t-fast: 0.01s; --t-base: 0.01s; --t-slow: 0.01s; }
   html { scroll-behavior: auto; }
@@ -1529,7 +1547,7 @@ footer {
     padding: 0 16px;
   }
   .header-left { display: flex; align-items: center; gap: 2px; justify-self: start; }
-  .nav-burger { display: flex; width: 36px; height: 36px; }
+  .nav-burger { display: flex; width: 44px; height: 44px; }
   .logo-link { justify-self: center; }
   .logo { height: clamp(12px, calc((100vw - 204px) / 11.04), 18px); }
   .header-actions { display: flex; justify-self: end; gap: 2px; }
@@ -1556,7 +1574,7 @@ footer {
   }
 
   .mobile-menu {
-    padding-top: 105px;
+    padding-top: calc(var(--header-h, 117px) + 12px);
     padding-bottom: calc(28px + env(safe-area-inset-bottom, 0px));
   }
   .mobile-menu-list { margin-bottom: 32px; }

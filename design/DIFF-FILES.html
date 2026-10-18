@@ -188,6 +188,84 @@
     Da <code>de268ba</code> a <code>0d5564d</code> — 8–17 ottobre 2026
   </p>
 
+  <h2>15. Revisione finale del 18 ottobre 2026 <span class="count">46 file</span></h2>
+
+  <p style="font-size: 13px; color: var(--ink-soft); text-align: center; margin-bottom: 10px;">86 righe aggiunte · 46 rimosse (calcolate sul confronto tra pacchetto del 18 ottobre e versione corretta)</p>
+
+  <h3 style="text-align: center; font-family: var(--sans); font-size: 14px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-top: 40px; margin-bottom: 20px;">Revisione — CSS</h3>
+
+  <table>
+    <tr><th>File</th><th class="n">+</th><th class="n">−</th><th>Descrizione</th></tr>
+    <tr><td class="file">css/base.css</td><td class="n">+18</td><td class="n">0</td><td class="note">html, body { overflow-x: clip } contro la barra orizzontale da elementi a tutta larghezza; nuovo stile .skip-link.</td></tr>
+    <tr><td class="file">css/collezione.css</td><td class="n">+1</td><td class="n">0</td><td class="note">Stato errore .quick-add-sizes.has-error (bordo --danger) quando manca la taglia.</td></tr>
+    <tr><td class="file">css/guida-taglie.css</td><td class="n">+1</td><td class="n">−1</td><td class="note">var(--crema) non definita → var(--crema-pannelli).</td></tr>
+    <tr><td class="file">css/journal.css</td><td class="n">+7</td><td class="n">−1</td><td class="note">.journal-hero: h1 nascosto solo visivamente (non più display: none).</td></tr>
+    <tr><td class="file">css/lavora-con-noi.css</td><td class="n">+3</td><td class="n">−3</td><td class="note">var(--crema) non definita → var(--crema-pannelli) (3 punti).</td></tr>
+    <tr><td class="file">css/riciclo.css</td><td class="n">+2</td><td class="n">−2</td><td class="note">var(--crema) non definita → var(--crema-pannelli) (2 punti).</td></tr>
+    <tr><td class="file">css/traccia-ordine.css</td><td class="n">+1</td><td class="n">−1</td><td class="note">var(--crema) non definita → var(--crema-pannelli).</td></tr>
+  </table>
+
+
+  <h3 style="text-align: center; font-family: var(--sans); font-size: 14px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-top: 40px; margin-bottom: 20px;">Revisione — JavaScript</h3>
+
+  <table>
+    <tr><th>File</th><th class="n">+</th><th class="n">−</th><th>Descrizione</th></tr>
+    <tr><td class="file">js/boutiques.js</td><td class="n">+1</td><td class="n">−1</td><td class="note">Commento aggiornato: 83 boutique (non 86).</td></tr>
+    <tr><td class="file">js/checkout.js</td><td class="n">+2</td><td class="n">0</td><td class="note">aria-invalid sui campi in errore, azzerato alla modifica.</td></tr>
+    <tr><td class="file">js/filtri.js</td><td class="n">+1</td><td class="n">−1</td><td class="note">Parsing prezzi: .replace(/\./g, '') (corretto ordinamento per prezzo sopra 999 €).</td></tr>
+    <tr><td class="file">js/layout.js</td><td class="n">+2</td><td class="n">−1</td><td class="note">Skip-link «Vai al contenuto»; aria-label sul campo di ricerca.</td></tr>
+  </table>
+
+
+  <h3 style="text-align: center; font-family: var(--sans); font-size: 14px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-top: 40px; margin-bottom: 20px;">Revisione — Pagine HTML</h3>
+
+  <table>
+    <tr><th>File</th><th class="n">+</th><th class="n">−</th><th>Descrizione</th></tr>
+    <tr><td class="file">accessibilita.html</td><td class="n">+1</td><td class="n">−1</td><td class="note">id="main" sul &lt;main&gt; (destinazione dello skip-link).</td></tr>
+    <tr><td class="file">account.html</td><td class="n">+2</td><td class="n">−2</td><td class="note">id="main"; il toggle password aggiorna aria-label (Mostra/Nascondi).</td></tr>
+    <tr><td class="file">ai-2026.html</td><td class="n">+1</td><td class="n">−1</td><td class="note">id="main" sul &lt;main&gt; (destinazione dello skip-link).</td></tr>
+    <tr><td class="file">boutique.html</td><td class="n">+1</td><td class="n">−1</td><td class="note">id="main" sul &lt;main&gt; (destinazione dello skip-link).</td></tr>
+    <tr><td class="file">carrello.html</td><td class="n">+3</td><td class="n">−3</td><td class="note">id="main"; aria-live="polite" su messaggio spedizione e totale.</td></tr>
+    <tr><td class="file">cerimonia.html</td><td class="n">+2</td><td class="n">−1</td><td class="note">Caricato js/quick-add.js (il «+» sulle card ora funziona); id="main" sul &lt;main&gt;.</td></tr>
+    <tr><td class="file">checkout.html</td><td class="n">+1</td><td class="n">−1</td><td class="note">role="alert" sul messaggio d'errore del modulo.</td></tr>
+    <tr><td class="file">club.html</td><td class="n">+1</td><td class="n">−1</td><td class="note">id="main" sul &lt;main&gt; (destinazione dello skip-link).</td></tr>
+    <tr><td class="file">conferma.html</td><td class="n">+1</td><td class="n">−1</td><td class="note">id="main" sul &lt;main&gt; (destinazione dello skip-link).</td></tr>
+    <tr><td class="file">doppelganger-app.html</td><td class="n">+1</td><td class="n">−1</td><td class="note">id="main" sul &lt;main&gt; (destinazione dello skip-link).</td></tr>
+    <tr><td class="file">essential.html</td><td class="n">+2</td><td class="n">−1</td><td class="note">Caricato js/quick-add.js (il «+» sulle card ora funziona); id="main" sul &lt;main&gt;.</td></tr>
+    <tr><td class="file">faq.html</td><td class="n">+1</td><td class="n">−1</td><td class="note">id="main" sul &lt;main&gt; (destinazione dello skip-link).</td></tr>
+    <tr><td class="file">gift-card.html</td><td class="n">+2</td><td class="n">0</td><td class="note">Contenuto racchiuso in &lt;main id="main"&gt;.</td></tr>
+    <tr><td class="file">guida-taglie.html</td><td class="n">+1</td><td class="n">−1</td><td class="note">id="main" sul &lt;main&gt; (destinazione dello skip-link).</td></tr>
+    <tr><td class="file">index.html</td><td class="n">+2</td><td class="n">0</td><td class="note">Contenuto racchiuso in &lt;main id="main"&gt;.</td></tr>
+    <tr><td class="file">journal-chi-siamo.html</td><td class="n">+1</td><td class="n">−1</td><td class="note">id="main" sul &lt;main&gt; (destinazione dello skip-link).</td></tr>
+    <tr><td class="file">journal-den-haag.html</td><td class="n">+1</td><td class="n">−1</td><td class="note">id="main" sul &lt;main&gt; (destinazione dello skip-link).</td></tr>
+    <tr><td class="file">journal-esperienza-boutique.html</td><td class="n">+1</td><td class="n">−1</td><td class="note">id="main" sul &lt;main&gt; (destinazione dello skip-link).</td></tr>
+    <tr><td class="file">journal-sartoria.html</td><td class="n">+1</td><td class="n">−1</td><td class="note">id="main" sul &lt;main&gt; (destinazione dello skip-link).</td></tr>
+    <tr><td class="file">journal.html</td><td class="n">+1</td><td class="n">−1</td><td class="note">id="main" sul &lt;main&gt; (destinazione dello skip-link).</td></tr>
+    <tr><td class="file">lavora-con-noi.html</td><td class="n">+2</td><td class="n">−2</td><td class="note">id="main"; role="alert" sul messaggio d'errore del modulo.</td></tr>
+    <tr><td class="file">looks.html</td><td class="n">+1</td><td class="n">−1</td><td class="note">id="main" sul &lt;main&gt; (destinazione dello skip-link).</td></tr>
+    <tr><td class="file">monitora-reso.html</td><td class="n">+1</td><td class="n">−1</td><td class="note">id="main" sul &lt;main&gt; (destinazione dello skip-link).</td></tr>
+    <tr><td class="file">pagamenti.html</td><td class="n">+1</td><td class="n">−1</td><td class="note">id="main" sul &lt;main&gt; (destinazione dello skip-link).</td></tr>
+    <tr><td class="file">parita-genere.html</td><td class="n">+1</td><td class="n">−1</td><td class="note">id="main" sul &lt;main&gt; (destinazione dello skip-link).</td></tr>
+    <tr><td class="file">privacy-cookie.html</td><td class="n">+1</td><td class="n">−1</td><td class="note">id="main" sul &lt;main&gt; (destinazione dello skip-link).</td></tr>
+    <tr><td class="file">prodotto.html</td><td class="n">+2</td><td class="n">0</td><td class="note">Contenuto racchiuso in &lt;main id="main"&gt;.</td></tr>
+    <tr><td class="file">prodotto1.html</td><td class="n">+2</td><td class="n">0</td><td class="note">Contenuto racchiuso in &lt;main id="main"&gt;.</td></tr>
+    <tr><td class="file">prodotto2.html</td><td class="n">+2</td><td class="n">0</td><td class="note">Contenuto racchiuso in &lt;main id="main"&gt;.</td></tr>
+    <tr><td class="file">registrazione.html</td><td class="n">+2</td><td class="n">−2</td><td class="note">id="main"; il toggle password aggiorna aria-label (Mostra/Nascondi).</td></tr>
+    <tr><td class="file">riciclo.html</td><td class="n">+1</td><td class="n">−1</td><td class="note">id="main" sul &lt;main&gt; (destinazione dello skip-link).</td></tr>
+    <tr><td class="file">spedizioni.html</td><td class="n">+1</td><td class="n">−1</td><td class="note">id="main" sul &lt;main&gt; (destinazione dello skip-link).</td></tr>
+    <tr><td class="file">termini.html</td><td class="n">+1</td><td class="n">−1</td><td class="note">id="main" sul &lt;main&gt; (destinazione dello skip-link).</td></tr>
+    <tr><td class="file">traccia-ordine.html</td><td class="n">+1</td><td class="n">−1</td><td class="note">id="main" sul &lt;main&gt; (destinazione dello skip-link).</td></tr>
+    <tr><td class="file">whistleblowing.html</td><td class="n">+1</td><td class="n">−1</td><td class="note">id="main" sul &lt;main&gt; (destinazione dello skip-link).</td></tr>
+  </table>
+
+  <h3 style="text-align: center; font-family: var(--sans); font-size: 14px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-top: 40px; margin-bottom: 20px;">Revisione — Design token</h3>
+
+  <table>
+    <tr><th>File</th><th>Descrizione</th></tr>
+    <tr><td class="file">design/token.json</td><td class="note">Allineato a tokens.css: headerH 170→169px, btnHeightPhone 42→44px; aggiunti fs 16, pdpDesc, measure.max, gridGap, carousel, zIndex.mobileMenu.</td></tr>
+  </table>
+
+
   <h2>14. Secondo aggiornamento di ottobre 2026 <span class="count">85 file</span></h2>
 
   <h3 style="text-align: center; font-family: var(--sans); font-size: 14px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-top: 40px; margin-bottom: 20px;">Sera — Header mobile più respiro</h3>

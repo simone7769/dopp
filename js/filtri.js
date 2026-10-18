@@ -71,16 +71,22 @@
   });
 
   document.querySelectorAll('#filtersSizes button').forEach(btn => {
-    btn.addEventListener('click', () => btn.classList.toggle('active'));
+    btn.addEventListener('click', () => {
+      btn.classList.toggle('active');
+      btn.setAttribute('aria-pressed', btn.classList.contains('active') ? 'true' : 'false');
+    });
   });
   document.querySelectorAll('#filtersColors button').forEach(btn => {
-    btn.addEventListener('click', () => btn.classList.toggle('active'));
+    btn.addEventListener('click', () => {
+      btn.classList.toggle('active');
+      btn.setAttribute('aria-pressed', btn.classList.contains('active') ? 'true' : 'false');
+    });
   });
 
   function prezzoNumerico(card) {
     const el = card.querySelector('.price');
     if (!el) return 0;
-    return parseFloat(el.textContent.replace('€', '').replace('.', '').replace(',', '.').trim()) || 0;
+    return parseFloat(el.textContent.replace('€', '').replace(/\./g, '').replace(',', '.').trim()) || 0;
   }
   function nome(card) {
     const el = card.querySelector('.details h3');

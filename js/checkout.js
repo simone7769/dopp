@@ -103,6 +103,7 @@
   form.addEventListener('input', function (e) {
     var f = e.target.closest('.co-field');
     if (f) f.classList.remove('invalid');
+    if (e.target.getAttribute('aria-invalid')) e.target.setAttribute('aria-invalid', 'false');
   });
 
   form.addEventListener('submit', function (e) {
@@ -114,6 +115,7 @@
       var ok = v !== '' && (el.type !== 'email' || /^\S+@\S+\.\S+$/.test(v));
       var box = el.closest('.co-field');
       if (box) box.classList.toggle('invalid', !ok);
+      el.setAttribute('aria-invalid', ok ? 'false' : 'true');
       if (!ok && !primo) primo = el;
     });
     $('coError').hidden = !primo;

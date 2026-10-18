@@ -36,7 +36,7 @@
   border-left: 1px solid var(--line);
 }
 .lavora-tab:hover {
-  background-color: var(--crema);
+  background-color: var(--crema-pannelli);
 }
 .lavora-tab.active {
   background-color: var(--ink);
@@ -103,7 +103,7 @@
   padding-bottom: 16px;
   border-bottom: 1px solid var(--line);
 }
-.lavora-table tbody tr:hover { background-color: var(--crema); }
+.lavora-table tbody tr:hover { background-color: var(--crema-pannelli); }
 .lavora-table td:first-child {
   font-weight: 500;
   color: var(--ink);
@@ -342,7 +342,7 @@
 .lavora-success {
   margin-top: 40px;
   padding: 40px;
-  background: var(--crema);
+  background: var(--crema-pannelli);
   border: 1px solid var(--line);
 }
 .lavora-success[hidden] { display: none; }

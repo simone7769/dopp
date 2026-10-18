@@ -1,5 +1,5 @@
 /* ============================================================
-   ELENCO BOUTIQUE — DATI REALI DOPPELGÄNGER (86 boutique)
+   ELENCO BOUTIQUE — DATI REALI DOPPELGÄNGER (83 boutique)
    Fonte unica condivisa tra:
    - il drawer "Boutique" (nav.js)
    - la pagina boutique.html (boutique.js)

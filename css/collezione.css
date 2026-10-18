@@ -413,6 +413,7 @@
   list-style: none;
   border-bottom: 1px solid var(--gold);
 }
+.quick-add-sizes.has-error button { border-color: var(--danger); }
 .quick-add-colors button {
   width: 44px;
   height: 36px;

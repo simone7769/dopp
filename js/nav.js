@@ -726,7 +726,7 @@ window.DGMedia = (function () {
       const qtyEl = riga.querySelector('.qty-value');
       if (!prezzoEl) return;
       const prezzo = parseFloat(
-        prezzoEl.textContent.replace('€', '').replace('.', '').replace(',', '.').trim()
+        prezzoEl.textContent.replace('€', '').replace(/\./g, '').replace(',', '.').trim()
       ) || 0;
       const qty = parseInt(qtyEl ? qtyEl.textContent : '1', 10) || 1;
       somma += prezzo * qty;

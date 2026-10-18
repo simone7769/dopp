@@ -74,10 +74,10 @@
   letter-spacing: var(--tr-1);
   text-transform: uppercase;
   color: var(--ink);
-  background-color: var(--crema);
+  background-color: var(--crema-pannelli);
   border-bottom: 1px solid var(--gold);
 }
-.riciclo-table tbody tr:hover { background-color: var(--crema); }
+.riciclo-table tbody tr:hover { background-color: var(--crema-pannelli); }
 
 .riciclo-table td:first-child {
   font-weight: 400;

@@ -137,7 +137,7 @@
 /* --- Colonna immagine --- */
 .size-modal-image {
   position: relative;
-  background: var(--crema);
+  background: var(--crema-pannelli);
   min-height: 500px;
   overflow: hidden;
 }

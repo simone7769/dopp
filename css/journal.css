@@ -5,7 +5,13 @@
 /* --- HERO piccolo --- */
 .journal-hero {
   padding: 0;
-  display: none;
+  /* h1 visivamente nascosto ma presente per screen reader e SEO */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
   text-align: center;
   background-color: var(--paper);
 }
