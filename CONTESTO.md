@@ -590,3 +590,94 @@ Prima di chiudere, nell'ordine:
 
 8. **Aggiorna documentazione design/** (se richiesto)
    design/CHANGELOG.html, DIFF-FILES.html, NOVITA-SITO.html
+
+---
+
+## AGGIORNAMENTO 18 OTTOBRE 2026 (revisione finale + pulizia)
+
+### Commit pushati
+5db997c - revisione 18 ottobre: sync pacchetto + 5 fix residui
+(da pushere: commit "pulizia e a11y: blocchi 1-7")
+
+### Sync da Doppelganger_aggiornato_2026-10-18
+51 file sincronizzati (HTML, CSS, JS, design/*) senza toccare images/, fonts/, documents/.
+`nav.js` era gia' aggiornato in root (fix ancore 68860b0).
+
+### Fix residui (chiusi)
+- mobile-menu padding-top 105px -> calc(var(--header-h, 117px) + 12px)
+- nav-burger 36px -> 44px (WCAG 2.5.5)
+- boutique-search input 16px su <=1024px (iOS anti-zoom)
+- aria-pressed dinamico chip taglia/colori (filtri.js + layout.js)
+- nav.js aggiornaTotale(): .replace(/\./g, '') per prezzi > 999
+
+### Pulizia e a11y (blocchi 1-7)
+**Blocco 1 — pulizia banale**
+- Rimosso script morto `data-css="ready"` da 36 HTML
+- `.footer-copy` color #8a8680 -> #a8a49c (WCAG AA)
+- `.visually-hidden` rimosso da checkout.css (resta in base.css)
+- `.pdp-size-warning` rimosso da prodotto.css (resta in base.css)
+- `.hero color: #2b2b2b` -> `var(--ink)` in collezione.css
+
+**Blocco 2 — token cleanup**
+- `.pdp-title` usa `var(--fs-pdp-title)` (non piu' clamp hardcoded)
+- Rimossi `--logo-h-mobile` e `--logo-h-phone` da tokens.css (mai usati)
+- Rimossi `logoMobile`, `logoPhone` da token.json (fuorvianti)
+- `logoDesktop` mantenuto
+
+**Blocco 3 — guida taglie**
+- `.size-modal-units` e `.size-modal-cta` nascosti (`display: none !important`)
+- Erano placeholder non funzionanti (toggle cm/in, CTA disabled)
+- Commento in CSS spiega che vanno riattivati con l'implementazione reale
+
+**Blocco 4 — form lavora-con-noi**
+- `aria-invalid` su email/email2/privacy/cv in caso di errore
+- Listener `input` spegne `aria-invalid` quando l'utente corregge
+
+**Blocco 5 — tablist accessibile**
+- account.html: frecce, Home, End sul `.account-tabs`
+- lavora-con-noi.html: frecce, Home, End sul `.lavora-tabs`
+- Script inline in coda ai due HTML (non in nav.js)
+
+**Blocco 6 — icone header desktop**
+- `@media (min-width: 1025px) { .nav-icon-link { padding: 6px; } }`
+- Click area 32x32 (WCAG 2.5.8 AA, non AAA 44px)
+- Testato a 375, 1024, 1025, 1200, 1440 px: layout invariato
+
+**Blocco 7 — data-size sulle card**
+- `data-size="46 48 50 52 54 56"` su 29 card (`ai-2026`, `cerimonia`, `essential`)
+- Featured card escluse (non sono prodotti)
+- 3 card differenziate in ai-2026 per rendere il filtro dimostrabile:
+  - Abito monopetto: `48 50 52`
+  - Impermeabile doppiopetto: `46 48 50`
+  - Abito monopetto in lana: `50 52 54`
+- Test: filtro 46 nasconde 2 card, restano 13 visibili. OK
+
+### Test effettuato (DevTools, 375px + 1440px)
+- Menu mobile: primo link visibile
+- Burger 44x44px
+- Boutique input 16px
+- aria-pressed chip: false -> true -> false
+- Filtro prezzo 1-2000: prodotti visibili
+- Totale carrello: corretto
+- Filtro taglia 46: 2 card spariscono, 13 restano
+- Icone header padding 6px a 1025-1440px, layout invariato
+
+### Debiti tecnici residui (per agenzia)
+- Focus trap nei drawer (8 pannelli) — rimandato all'agenzia che rifa' i drawer
+- Filtro "solo disponibili" — funziona ma nessun prodotto ha `data-available`, quindi non esclude nulla (i dati demo sono tutti disponibili)
+- Test su Safari iPhone vero, Firefox, screen reader (fatti solo su Chrome)
+- `Doppelganger_Specifiche_per_agenzia.html` da aggiornare (vedi nota sotto)
+
+### Nota su Doppelganger_Specifiche_per_agenzia.html
+Non ancora aggiornato con: `--fs-16`, quick-add, fix ancore, `overflow-x: clip`, skip-link + id="main", pattern Q&A unificato. **Va fatto prima di consegnare all'agenzia**, altrimenti lavora su specifiche incomplete.
+
+### Correzione importante
+CONTESTO.md diceva "86 boutique": ora sono **83** (array reale). Documenti aggiornati.
+
+### Stato finale 18 ottobre (sessione 2)
+- HEAD = origin/main = 5db997c
+- Working tree: modificato (blocchi 1-7 in attesa di commit)
+- Branch attivo: main
+- Branch revisione-18-ottobre: mergiato
+- ZIP in consegne/: 18 ott 15:25 (da rigenerare dopo commit blocchi)
+- Backup: doppelganger-sito_BACKUP_20261018_1502 (200M, 276 file)

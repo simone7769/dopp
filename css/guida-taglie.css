@@ -297,3 +297,10 @@
   }
   .size-modal-cta { width: 100%; }
 }
+
+/* Toggle cm/in e CTA "Trova la tua taglia" nascosti in attesa
+   dell'implementazione reale (placeholder nella demo). */
+.size-modal-units,
+.size-modal-cta {
+  display: none !important;
+}

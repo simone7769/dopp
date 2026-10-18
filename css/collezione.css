@@ -9,7 +9,7 @@
   padding: 45px 50px 6px;
   text-align: center;
   background-color: var(--paper);
-  color: #2b2b2b;
+  color: var(--ink);
 }
 /* Titolo di pagina visibile su desktop, nascosto su mobile (≤640px) */
 .hero h1 {

@@ -1469,7 +1469,7 @@ footer {
   gap: 16px 32px;
   flex-wrap: wrap;
   font-size: var(--fs-11);
-  color: #8a8680;
+  color: #a8a49c;
   letter-spacing: var(--tr-05);
 }
 .footer-copy::before {
@@ -2423,4 +2423,14 @@ footer {
 /* Correzione ottica allineamento verticale logo (compensa spazio SVG e padding menu) */
 @media (min-width: 1025px) {
   .logo { transform: translateY(8px); }
+}
+
+
+/* Icone header desktop: padding per click area 32x32 (WCAG 2.5.8 AA).
+   Non e' AAA (44px), ma coerente con la soglia AA del sito.
+   Solo desktop: mobile ha gia' width: 36px dal media 1024. */
+@media (min-width: 1025px) {
+  .nav-icon-link {
+    padding: 6px;
+  }
 }

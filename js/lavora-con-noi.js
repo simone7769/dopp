@@ -63,6 +63,15 @@
   var errorEl = document.getElementById('lavoraError');
   if (!form || !success || !errorEl) return;
 
+  // Quando l'utente corregge un campo, spegni aria-invalid su quel campo
+  form.addEventListener('input', function (e) {
+    var target = e.target;
+    if (target && target.hasAttribute('aria-invalid')) {
+      target.removeAttribute('aria-invalid');
+    }
+  });
+
+
   function mostraErrore(msg) {
     errorEl.textContent = msg;
     errorEl.hidden = false;
@@ -78,13 +87,21 @@
     var privacy = document.getElementById('privacy').checked;
     var cv = document.getElementById('cv');
 
+    form.querySelectorAll('input, select, textarea').forEach(function (el) {
+      el.removeAttribute('aria-invalid');
+    });
+
     if (email !== email2) {
+      document.getElementById('email').setAttribute('aria-invalid', 'true');
+      document.getElementById('email2').setAttribute('aria-invalid', 'true');
       return mostraErrore('Le due email non coincidono. Controlla e riprova.');
     }
     if (!privacy) {
+      document.getElementById('privacy').setAttribute('aria-invalid', 'true');
       return mostraErrore('Devi accettare la Privacy Policy per procedere.');
     }
     if (!cv.files || !cv.files.length) {
+      document.getElementById('cv').setAttribute('aria-invalid', 'true');
       return mostraErrore('Allega il tuo CV per procedere.');
     }
 

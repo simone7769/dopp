@@ -13,7 +13,6 @@
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/looks.css">
 <link rel="stylesheet" href="css/lavora-con-noi.css">
-<script>document.documentElement.setAttribute("data-css", "ready");</script>
 <link rel="stylesheet" href="css/fonts.css">
 </head>
 <body id="top" class="header-light">
@@ -220,5 +219,34 @@
   <script src="js/prodotti.js"></script>
   <script src="js/nav.js"></script>
   <script src="js/lavora-con-noi.js"></script>
+
+<script>
+// Tablist accessibile: frecce, Home, End
+(function () {
+  var tablist = document.querySelector('.lavora-tabs');
+  if (!tablist) return;
+  var tabs = Array.prototype.slice.call(tablist.querySelectorAll('[role="tab"]'));
+  tablist.addEventListener('keydown', function (e) {
+    var idx = tabs.indexOf(document.activeElement);
+    if (idx === -1) return;
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+      e.preventDefault();
+      var next = tabs[(idx + 1) % tabs.length];
+      next.focus(); next.click();
+    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+      e.preventDefault();
+      var prev = tabs[(idx - 1 + tabs.length) % tabs.length];
+      prev.focus(); prev.click();
+    } else if (e.key === 'Home') {
+      e.preventDefault();
+      tabs[0].focus(); tabs[0].click();
+    } else if (e.key === 'End') {
+      e.preventDefault();
+      tabs[tabs.length - 1].focus(); tabs[tabs.length - 1].click();
+    }
+  });
+})();
+</script>
+
 </body>
 </html>
