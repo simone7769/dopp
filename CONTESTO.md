@@ -559,3 +559,34 @@ d5827f0 - refactor: rimossi 34 token duplicati da base.css
 - Il blocco ANCORE in `nav.js` è ~80 righe. Se in futuro cambia il comportamento dell'header (es. un terzo stato), va rivisto.
 - Le modifiche del 17 ottobre (token, colori, font, header 84px) sono intatte.
 - Il problema delle ancore è chiuso. Non toccare `nav.js` fino a dopo la consegna.
+
+---
+
+## CHECKLIST CHIUSURA SESSIONE
+
+Prima di chiudere, nell'ordine:
+
+1. **Test in locale** (server + browser, mobile/desktop)
+   `python3 -m http.server 8000`
+
+2. **Validazione sintassi JS** (se nav.js o altri JS modificati)
+   `node -c js/nav.js`
+
+3. **Validazione HTML** (se HTML modificato)
+   `npx html-validate file.html`
+
+4. **Verifica working tree pulito**
+   `git status --short` → deve essere vuoto
+
+5. **Commit e push**
+   `git add . && git commit -m "..." && git push origin main`
+
+6. **Genera ZIP di consegna**
+   `bash build.sh`
+   Verifica: `ls -lh ../consegne/*$(date +%Y-%m-%d)*`
+
+7. **Aggiorna CONTESTO.md** (sezione "AGGIORNAMENTO [data]")
+   Commit e push
+
+8. **Aggiorna documentazione design/** (se richiesto)
+   design/CHANGELOG.html, DIFF-FILES.html, NOVITA-SITO.html
