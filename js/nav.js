@@ -1,4 +1,14 @@
 /* ============================================================
+   ESCAPE HTML — sicurezza per stringhe iniettate via innerHTML
+   Converte &, <, >, ", ' in entita' HTML.
+   ============================================================ */
+function escNav(s) {
+  return String(s == null ? '' : s).replace(/[&<>"']/g, function (ch) {
+    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch];
+  });
+}
+
+/* ============================================================
    NAV.JS — Script unificato per tutte le pagine
    Contiene: nav, megamenu, drawer, caroselli, ricerca, menu mobile,
    carrello, cuori, video. I moduli si attivano solo se gli elementi
@@ -476,9 +486,9 @@ if (navBurger && mobileMenu) {
       a.href = '#';
       a.className = 'search-result-card';
       a.innerHTML =
-        '<div class="search-result-thumb"><img src="' + p.img + '" alt="' + p.nome + '" loading="lazy"></div>' +
-        '<h6>' + p.nome + '</h6>' +
-        '<p>' + formattaPrezzo(p.prezzo) + '</p>';
+        '<div class="search-result-thumb"><img src="' + escNav(p.img) + '" alt="' + escNav(p.nome) + '" loading="lazy"></div>' +
+        '<h6>' + escNav(p.nome) + '</h6>' +
+        '<p>' + escNav(formattaPrezzo(p.prezzo)) + '</p>';
       frag.appendChild(a);
     });
     if (resultsGrid) resultsGrid.appendChild(frag);
@@ -612,9 +622,9 @@ window.DGMedia = (function () {
   /* Markup per carrelli e preferiti: <img>, oppure <video> col primo fotogramma */
   function markup(src, alt) {
     if (isVideo(src)) {
-      return '<video src="' + pulisci(src) + '#t=0.1" muted playsinline preload="metadata" aria-label="' + (alt || '') + '"></video>';
+      return '<video src="' + escNav(pulisci(src)) + '#t=0.1" muted playsinline preload="metadata" aria-label="' + escNav(alt || '') + '"></video>';
     }
-    return '<img src="' + src + '" alt="' + (alt || '') + '">';
+    return '<img src="' + escNav(src) + '" alt="' + escNav(alt || '') + '">';
   }
   /* Legge src dall'elemento media di una card (img, video o <source>) */
   function srcDa(el) {
@@ -646,16 +656,16 @@ window.DGMedia = (function () {
     article.dataset.cartId = prodotto.id;
 
     const attr = prodotto.taglia
-      ? '<p class="cart-item-attr">Taglia: ' + prodotto.taglia + '</p>'
+      ? '<p class="cart-item-attr">Taglia: ' + escNav(prodotto.taglia) + '</p>'
       : '';
     const sku = prodotto.colore
-      ? '<p class="cart-item-sku">Colore: ' + prodotto.colore + '</p>'
+      ? '<p class="cart-item-sku">Colore: ' + escNav(prodotto.colore) + '</p>'
       : '';
 
     article.innerHTML =
       '<div class="cart-item-image">' + window.DGMedia.markup(prodotto.img, prodotto.nome) + '</div>' +
       '<div class="cart-item-info">' +
-        '<h4>' + prodotto.nome + '</h4>' +
+        '<h4>' + escNav(prodotto.nome) + '</h4>' +
         attr +
         sku +
         '<div class="cart-item-bottom">' +
@@ -664,7 +674,7 @@ window.DGMedia = (function () {
             '<span class="qty-value">' + (qty || 1) + '</span>' +
             '<button type="button" class="qty-btn" data-action="plus" aria-label="Aumenta quantità">+</button>' +
           '</div>' +
-          '<p class="cart-item-price">' + prodotto.prezzo + '</p>' +
+          '<p class="cart-item-price">' + escNav(prodotto.prezzo) + '</p>' +
         '</div>' +
       '</div>' +
       '<button type="button" class="cart-item-remove" aria-label="Rimuovi dal carrello">' +
@@ -1034,16 +1044,16 @@ function creaJournalCard(articolo, variante) {
   if (variante === 'home') {
     a.className = 'w-item';
     a.innerHTML =
-      '<div class="w-image"><img loading="lazy" src="' + articolo.img + '" alt="' + articolo.alt + '" draggable="false"></div>' +
-      '<h3>' + articolo.title + '</h3>' +
-      '<p class="w-desc">' + articolo.desc + '</p>';
+      '<div class="w-image"><img loading="lazy" src="' + escNav(articolo.img) + '" alt="' + escNav(articolo.alt) + '" draggable="false"></div>' +
+      '<h3>' + escNav(articolo.title) + '</h3>' +
+      '<p class="w-desc">' + escNav(articolo.desc) + '</p>';
   } else {
     a.className = 'journal-card';
     a.dataset.category = articolo.category;
     a.innerHTML =
-      '<div class="journal-card-image"><img src="' + articolo.img + '" alt="' + articolo.alt + '"></div>' +
-      '<h3>' + articolo.title + '</h3>' +
-      '<p>' + articolo.desc + '</p>';
+      '<div class="journal-card-image"><img src="' + escNav(articolo.img) + '" alt="' + escNav(articolo.alt) + '"></div>' +
+      '<h3>' + escNav(articolo.title) + '</h3>' +
+      '<p>' + escNav(articolo.desc) + '</p>';
   }
   return a;
 }
@@ -1593,8 +1603,8 @@ window.WishlistStore = (function () {
         '</button>' +
       '</div>' +
       '<div class="wishlist-card-info">' +
-        '<h4>' + item.name + '</h4>' +
-        '<p class="wishlist-card-price">' + item.price + '</p>' +
+        '<h4>' + escNav(item.name) + '</h4>' +
+        '<p class="wishlist-card-price">' + escNav(item.price) + '</p>' +
         '<button type="button" class="wishlist-add-cart">Aggiungi al carrello</button>' +
       '</div>';
     return article;
