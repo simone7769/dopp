@@ -24,6 +24,8 @@ zip -rq "$OUT/Doppelganger_demo_AGENZIA_$DATE.zip" "$FOLDER" \
   -x "$FOLDER/.gitignore" \
   -x "$FOLDER/.DS_Store" \
   -x "**/.DS_Store" \
+  -x "*.bak" \
+  -x "**/*.bak" \
   -x "$FOLDER/node_modules/*" \
   -x "$FOLDER/images/*" \
   -x "$FOLDER/documents/*"
@@ -38,6 +40,8 @@ zip -rq "$OUT/Doppelganger_demo_COMPLETO_$DATE.zip" "$FOLDER" \
   -x "$FOLDER/.gitignore" \
   -x "$FOLDER/.DS_Store" \
   -x "**/.DS_Store" \
+  -x "*.bak" \
+  -x "**/*.bak" \
   -x "$FOLDER/node_modules/*"
 echo "  ✅ Fatto: Doppelganger_demo_COMPLETO_$DATE.zip"
 echo ""
