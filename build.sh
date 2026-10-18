@@ -18,6 +18,7 @@ echo ""
 # --- ZIP 1: AGENZIA (senza images pesanti) ---
 echo "→ ZIP AGENZIA (codice + design, senza images/)"
 cd "$PARENT"
+rm -f "$OUT/Doppelganger_demo_AGENZIA_$DATE.zip"
 zip -rq "$OUT/Doppelganger_demo_AGENZIA_$DATE.zip" "$FOLDER" \
   -x "$FOLDER/.git/*" \
   -x "$FOLDER/.gitignore" \
@@ -31,6 +32,7 @@ echo ""
 
 # --- ZIP 2: COMPLETO (tutto) ---
 echo "→ ZIP COMPLETO (tutto incluso)"
+rm -f "$OUT/Doppelganger_demo_COMPLETO_$DATE.zip"
 zip -rq "$OUT/Doppelganger_demo_COMPLETO_$DATE.zip" "$FOLDER" \
   -x "$FOLDER/.git/*" \
   -x "$FOLDER/.gitignore" \
