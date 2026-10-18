@@ -84,3 +84,15 @@
   .legale-wrap { padding: 10px 16px 60px; }
   .legale-wrap p, .legale-wrap ul { font-size: var(--fs-body-legal); }
 }
+
+/* ============================================================
+   ANCORE: scroll-margin-top per i titoli (mobile/tablet)
+   Sostituisce scroll-padding-top globale, che non può funzionare
+   con header a due altezze (84px normale / 60px scrolled).
+   Il margine è sul target, non sull'header: sempre preciso.
+   ============================================================ */
+@media (max-width: 1024px) {
+  html { scroll-padding-top: 0; }
+  #spedizioni,
+  #resi { scroll-margin-top: 100px; }
+}
