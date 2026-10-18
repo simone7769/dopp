@@ -1628,9 +1628,6 @@ footer {
   footer { padding-left: 16px; padding-right: 16px; }
 }
 
-@media (max-width: 640px) {
-  :root { --btn-width: 170px; --btn-height: 44px; }
-}
 
 @media (max-width: 520px) {
   :root { --drawer-title-h: 56px; }

@@ -80,7 +80,6 @@
   --fs-card-title: 14px;
   --fs-card-price: 12px;
   --fs-pdp-title:  clamp(27px, 2vw, 30px);
-  --fs-pdp-desc:   14px;
   --fs-pdp-price:  17px;
   --fs-related:    26px;                     /* serif, "Potrebbero piacerti" */
 
@@ -88,7 +87,6 @@
   --fs-duo: clamp(18px, 1.8vw, 22px);
 
   /* Token di riferimento per la tipografia. */
-  --fs-hero-home:      clamp(24px, 2.2vw, 32px);
   --fs-hero-inner:     clamp(20px, 1.6vw, 24px);
   --fs-section-title:  18px;
   --fs-body-editorial: 18px;

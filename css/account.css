@@ -57,7 +57,7 @@
   font-weight: 400;
   letter-spacing: var(--tr-2);
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--ink-soft);
   cursor: pointer;
   transition: color var(--t-fast) var(--ease);
 }

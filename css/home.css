@@ -83,23 +83,6 @@ html { scroll-snap-type: y proximity; scroll-padding-top: var(--header-h, 170px)
 }
 .hero-content h1 .hero-line { display: block; }
 .hero-content h1 .hero-line:last-child { margin-top: 8px; }
-.hero-content p {
-  font-family: var(--sans);
-  font-size: var(--fs-11);
-  font-weight: 400;
-  letter-spacing: var(--tr-3);
-  text-transform: uppercase;
-  margin-bottom: 34px;
-  opacity: 0.95;
-  text-shadow: 0 2px 12px rgba(0,0,0,0.4);
-}
-.hero .btn {
-  position: absolute;
-  left: 50%;
-  bottom: 16%;
-  transform: translateX(-50%);
-  z-index: 5;
-}
 
 /* ============================================================
    INFO BAR
