@@ -232,10 +232,21 @@
   </div>
 
   <p style="font-size: 13px; color: var(--ink-soft); text-align: center; margin-bottom: 40px;">
-    Da <code>de268ba</code> a <code>0d5564d</code> — 8–17 ottobre 2026
+    Da <code>de268ba</code> a <code>d19d6fb</code> — 8–18 ottobre 2026
   </p>
 
-  <h2>15. Revisione finale del 18 ottobre 2026 <span class="count">9 interventi</span></h2>
+<h2>16. Header mobile fisso a 60px <span class="count">2 commit</span></h2>
+
+  <div class="commit">
+    <code>6b5c423</code><span class="msg">design: header mobile fisso a 60px (era 84px in cima → 60px scrollando)</span>
+    <p class="note">Il topbar sparisce scrollando come prima, ma l'header-main resta sempre 60px. Logo stabile (clamp 12-18px, non si rimpicciolisce più). Aggiunto <code>header.menu-open .header-main</code> a 60px (senza, aprendo il menu l'header sobbalzava a 84px). Rimossi <code>header.scrolled .header-main</code> e <code>header.scrolled .header-main .logo</code>. Niente sobbalzi visivi, più coerente con il linguaggio dei brand di lusso (Bottega Veneta, Zegna).</p>
+  </div>
+  <div class="commit">
+    <code>d19d6fb</code><span class="msg">design: scroll-padding-top 160 → 105px (ripiego coerente con header 60px)</span>
+    <p class="note">105px = topbar 33 + header 60 + gap 12. Il valore reale lo calcola comunque il blocco ANCORE di nav.js al click, questo è solo un fallback se il JS non parte.</p>
+  </div>
+
+    <h2>15. Revisione finale del 18 ottobre 2026 <span class="count">9 interventi</span></h2>
 
   <div class="commit">
     <code>da commit</code><span class="msg">fix: <code>--crema</code> non definita: sfondi di tabelle e box in Guida taglie, Lavora con noi, Riciclo e Traccia ordine ora usano --crema-pannelli.</span>

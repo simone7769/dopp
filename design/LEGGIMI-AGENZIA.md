@@ -79,6 +79,7 @@ Da terminale, nella cartella del progetto:
 - **`overflow-x: clip`** su `html, body`: previene barra orizzontale da elementi full-bleed su Windows.
 - **Parsing prezzi (`nav.js`)**: `.replace(/\./g, '')` per gestire correttamente importi sopra 999 €.
 - **`token.json`** allineato a `tokens.css` (header 169 px, bottoni telefono 44 px, `--fs-16`, spaziature griglia e carosello).
+- **Header mobile fisso a 60 px**: non cambia scrollando. Il logo è stabile (clamp 12-18 px) e non si rimpicciolisce più. Topbar (33 px) sparisce dopo 120 px di scroll. `scroll-padding-top: 105 px` (era 160) come ripiego, ma il blocco ANCORE di `nav.js` misura l'header reale al click.
 
 ## Contatti
 
