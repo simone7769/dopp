@@ -723,7 +723,7 @@ CONTESTO.md diceva "86 boutique": ora sono **83** (array reale). Documenti aggio
 
 - Focus trap nei drawer (8 pannelli): delegato all'agenzia che rifara i drawer
 - Test su Safari iPhone vero, Firefox, screen reader: fatti solo su Chrome simulato
-- Lighthouse finale post-fix: non rimisurato (era 100/100 prima di tutti i fix)
+- Lighthouse finale post-fix: **93 mobile / 100 desktop** (18 ottobre, dopo tutte le ottimizzazioni). Il 14 ottobre era 100/100 su home prima dei fix — la differenza dipende dal video hero (2,4 MB) e dai 4 font caricati, non da regressioni. Le ottimizzazioni del 18 ottobre hanno migliorato FCP (1,2s -> 1,1s), Speed Index (1,3s -> 1,2s), percorso critico (222ms -> 197ms).
 - .filtri-count contrasto ~3:1: scelta visiva (bianco su oro), documentato come debito minore
 
 ### Punti rimandati (architetturali, da agenzia)

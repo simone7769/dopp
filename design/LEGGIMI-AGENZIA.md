@@ -42,13 +42,12 @@ Documento di accompagnamento al pacchetto demo + specifiche. Per chi svilupperà
 - **Ancore `#spedizioni` e `#resi`** funzionanti
 
 ### Qualità e performance
-- **W3C**: 0 errori su HTML/CSS/JS (validator ufficiali W3C)
-- **Lighthouse DevTools** (Chrome 153, v13.4.1, 14 ottobre 2026, home in produzione):
-  - **Performance**: 100/100 (desktop, nessuna emulazione) — 100/100 (mobile, emulazione Moto G Power + 4G lenta)
-  - **Accessibilità**: 100/100
-  - **Best Practices**: 100/100
-  - **SEO**: 100/100
-  - Nota: i punteggi possono variare leggermente (±5) tra una misurazione e l'altra perché dipendono dal carico del dispositivo e della rete. Le metriche stabili sono: LCP, CLS, TBT.
+- **Validazione**: 0 errori su HTML (html-validate), CSS (csstree-validator), JS (node -c), JSON (json.load) — 41 HTML, 25 CSS, 16 JS, 1 JSON
+- **Lighthouse DevTools** (Chrome 153, v13.4.1, 18 ottobre 2026, home in produzione):
+  - **Desktop** (nessuna emulazione): Performance 100/100, Accessibilità 100/100, Best Practices 100/100, SEO 100/100
+  - **Mobile** (Moto G Power + 4G lenta): Accessibilità 100/100, Best Practices 100/100, SEO 100/100, **Performance 93/100**
+  - Il limite del 93 mobile è il LCP (3,2s), dovuto al video hero da 2,4 MB e ai 4 font caricati. L'agenzia potrà intervenire con `srcset` responsive sull'immagine hero, video `.webm`, formati AVIF, e build system per la minificazione di CSS/JS.
+  - Nota: i punteggi possono variare leggermente (±5) tra una misurazione e l'altra perché dipendono dal carico del dispositivo e della rete. Le metriche stabili sono: FCP (1,1s), Speed Index (1,2s), TBT (0ms), CLS (0).
 - **Immagini home** ottimizzate WebP q80 (-47%, da 3,2 MB a 1,7 MB)
 - **Video hero** con `preload="none"` + poster per LCP ottimale
 - **Meta description** su tutte le 35 pagine
