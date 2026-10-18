@@ -681,3 +681,92 @@ CONTESTO.md diceva "86 boutique": ora sono **83** (array reale). Documenti aggio
 - Branch revisione-18-ottobre: mergiato
 - ZIP in consegne/: 18 ott 15:25 (da rigenerare dopo commit blocchi)
 - Backup: doppelganger-sito_BACKUP_20261018_1502 (200M, 276 file)
+
+---
+
+## AGGIORNAMENTO 18 OTTOBRE 2026 (sera - chiusura finale)
+
+### Commit pushati (dalla revisione precedente a oggi)
+
+1. a1d842d - pulizia e a11y: blocchi 1-8 (fix minori, token, tablist, data-size, docs)
+2. fefabdd - build: rimuove zip esistente prima di ricrearlo (evita file orfani)
+3. bee1aa5 - a11y: section con aria-label in carrello, aria-hidden dinamico in guida-taglie
+4. f4b058c - css: env() avvolto in max() per padding safe-area
+5. 69f32ce - build: esclude *.bak e .DS_Store dagli ZIP di consegna
+6. e26f277 - docs: riscritti NOVITA-SITO, Specifiche, LEGGIMI senza appendici e date
+7. c986d1f - css: contrasto tab account, pulizia token orfani e CSS morto
+8. 15edc36 - a11y + sicurezza: escape HTML in nav.js, badge vicino alle icone, filtro disponibilita
+
+### Blocchi 1-8 (commit a1d842d)
+
+- Blocco 1: data-css morto (36 HTML), contrasto footer, duplicati CSS
+- Blocco 2: token cleanup (--fs-pdp-title usato, --logo-h-* rimossi)
+- Blocco 3: toggle cm/in guida-taglie nascosto
+- Blocco 4: aria-invalid lavora-con-noi
+- Blocco 5: tablist frecce tastiera (account + lavora-con-noi)
+- Blocco 6: icone header desktop padding 6px (32x32 WCAG AA)
+- Blocco 7: data-size su 29 card + 3 differenziate per filtro dimostrabile
+- Blocco 8: CONTESTO aggiornato, Specifiche +2 pagine (poi rimosse nella riscrittura)
+
+### Risultato test (DevTools 375px + 1440px)
+
+- Menu mobile: primo link visibile
+- Burger 44x44
+- Boutique input 16px (iOS no zoom)
+- aria-pressed chip filtri: false -> true -> false
+- Filtro prezzo 1-2000: prodotti visibili
+- Totale carrello: corretto
+- Filtro taglia 46: 2 card spariscono, 13 restano
+- Icone header padding 6px: layout invariato a 1025, 1200, 1440px
+
+### Punti rimandati (consapevoli)
+
+- Focus trap nei drawer (8 pannelli): delegato all'agenzia che rifara i drawer
+- Test su Safari iPhone vero, Firefox, screen reader: fatti solo su Chrome simulato
+- Lighthouse finale post-fix: non rimisurato (era 100/100 prima di tutti i fix)
+- .filtri-count contrasto ~3:1: scelta visiva (bianco su oro), documentato come debito minore
+
+### Punti rimandati (architetturali, da agenzia)
+
+- Scala font ridotta 12/14/16/20/24/32 (proposta in CONTESTO da 3 sessioni, richiede test visivo approfondito)
+- Carosello triplicato in nav.js (refactor estetico, delegato)
+- Code-splitting nav.js/layout.js (refactor architetturale, delegato)
+
+### Documenti riscritti in modo corretto
+
+Invece di appendici con date e note "uniscile tu" (errore fatto e corretto), i tre documenti sono stati riscritti integrando i contenuti nelle sezioni esistenti:
+
+- Doppelganger_Specifiche_per_agenzia.html: 17 pagine (era 19 con 2 appendici). Integrazioni in p5 (16px), p6 (icone header), p7 (Q&A), p8 (hamburger 44), p12 (a11y completa), p14 (data-size). Zero date nei titoli, zero "vanno integrate".
+- NOVITA-SITO.html: "Terzo aggiornamento di ottobre 2026" unico (raccoglie le 3 sezioni datate precedenti), closing spostato in fondo, div sbilanciato corretto.
+- LEGGIMI-AGENZIA.md: sezione "Revisione finale del 18 ottobre" eliminata. Contenuti integrati in "Pattern e stati" (10 voci) sotto "Come leggere il codice". "Qualita e performance" arricchita con validazione e test browser.
+
+### Pulizia disco
+
+- Cancellati ~798 MB (backup grande del 14 ottobre, 792 MB)
+- Cancellati file .DS_Store (3), .bak (3 in design/), deepseek_bash orfano
+- Cancellata cartella Doppelganger_aggiornato_2026-10-18 (sorgente sync, ridondante)
+- Cancellato CONTESTO.md orfano in ~/Downloads (era fermo al 17 ottobre)
+- Backup 18 ottobre spostato in backup/ insieme al pre-rewrite del 14 ottobre
+- build.sh: rm -f prima di ogni zip (niente file orfani futuri)
+
+### Validazione finale (100%)
+
+- HTML: 41 file (35 pagine + 6 design/*.html) - 0 errori con html-validate
+- CSS: 25 file - 0 errori con csstree-validator
+- JS: 16 file - 0 errori con node -c
+- JSON: 1 file (design/token.json) - parse OK
+- Conteggio parentesi: tutti i 16 JS bilanciati
+- Fix a11y durante validazione: section con aria-label in carrello, aria-hidden rimosso da overlay statico guida-taglie
+
+### Fix sicurezza
+
+- nav.js escNav(): escape HTML in tutte le iniezioni via innerHTML (search results, cart item, journal card home/grid, wishlist, DGMedia.markup). Prima i dati venivano iniettati raw: nella demo e innocuo (dati statici da prodotti.js), ma in produzione sarebbe un rischio XSS.
+
+### Stato finale 18 ottobre (sera)
+
+- HEAD = origin/main = 15edc36
+- Working tree: pulito
+- Branch attivo: main
+- Branch revisione-18-ottobre: cancellato (mergiato in main)
+- ZIP in consegne/: 18 ott 17:13 (AGENZIA 4.8M, COMPLETO 42M)
+- Backup: backup/ contiene pre-rewrite 14 ott (191M) + doppelganger-sito_BACKUP_20261018_1502 (200M, da tenere 2-3 giorni)
