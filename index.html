@@ -12,16 +12,291 @@
 
 <!-- Preload risorse critiche (font hero + immagine hero) -->
 <link rel="preload" href="fonts/cormorant-garamond-v21-latin_latin-ext-500.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/cormorant-garamond-v21-latin_latin-ext-regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/jost-v20-latin_latin-ext-regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/jost-v20-latin_latin-ext-300.woff2" as="font" type="font/woff2" crossorigin>
+
+<style>
+/* ============================================================
+   FONTS.CSS — Font self-hosted (Cormorant Garamond + Jost)
+   Sostituisce il caricamento da Google Fonts CDN.
+   File .woff2 in /fonts/
+   ============================================================ */
+
+/* --- Cormorant Garamond (serif, titoli) --- */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('fonts/cormorant-garamond-v21-latin_latin-ext-300.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/cormorant-garamond-v21-latin_latin-ext-regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('fonts/cormorant-garamond-v21-latin_latin-ext-500.woff2') format('woff2');
+}
+
+/* --- Jost (sans, tutto il resto) --- */
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('fonts/jost-v20-latin_latin-ext-300.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/jost-v20-latin_latin-ext-regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('fonts/jost-v20-latin_latin-ext-500.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('fonts/jost-v20-latin_latin-ext-600.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('fonts/jost-v20-latin_latin-ext-700.woff2') format('woff2');
+}
+
+</style>
 
 <style id="boot-bg">html { background: #1f1f1f; }</style>
 
-<link rel="stylesheet" href="css/tokens.css">
+<style>
+/* ============================================================
+   DOPPELGÄNGER — DESIGN TOKENS
+   Fonte: "Proposta di direzione" (set 2026) e
+          "Specifiche per l'agenzia" (ott 2026).
+   Riferimento vincolante insieme alla demo statica HTML/CSS/JS.
+   Non modificare i valori senza accordo scritto: ogni pagina
+   della demo è costruita su questi numeri.
+
+   Uso:  <link rel="stylesheet" href="css/tokens.css">
+         prima di base.css e degli altri fogli di pagina.
+   ============================================================ */
+
+:root {
+
+  /* ----------------------------------------------------------
+     1. COLORE
+     Palette corta, oro come accento.
+     Specifiche, pag. 3.
+     ---------------------------------------------------------- */
+
+  /* Fondi */
+  --paper:            #FCFCFB; /* sfondo di ogni pagina, segnaposto immagini */
+  --paper-alt:        #F5F5F5; /* segnaposto carrello e preferiti */
+  --crema-pannelli:   #FAF8F5; /* header scrollato, menu, pannelli laterali */
+  --notte:            #1F1F1F; /* footer, sfondo prima del caricamento */
+
+  /* Testo e linee */
+  --ink:              #2B2B2B; /* testi e bordi dei bottoni (1) */
+  --ink-soft:         #4A463F; /* testo scheda prodotto */
+  --muted:            #8A7D63; /* sabbia: etichette secondarie */
+  --testo-footer:     #CFCBC4;
+  --line:             #E5E2DC; /* bordi sottili, separatori */
+  --field-border:     #D8D3C8; /* bordo campi form */
+
+  /* Accento */
+  --gold:             #B8935A; /* linee, voce attiva, hover, badge, cuore attivo */
+
+  /* Stati e avvisi */
+  --danger:           #A32638; /* avviso "scegli una taglia", prezzo in saldo */
+  --danger-hover:     #CC0000; /* cestino e cuore preferiti al passaggio */
+  --price-strike:     #999999; /* prezzo barrato */
+  --size-disabled:    #C9C3B8; /* taglia esaurita, barrata */
+
+
+  /* ----------------------------------------------------------
+     2. TIPOGRAFIA
+     Serif per il racconto, sans per tutto il resto.
+     Specifiche, pag. 4.
+     ---------------------------------------------------------- */
+
+  /* Famiglie */
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans:  'Jost', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+  /* Pesi caricati */
+  --fw-light:    300;
+  --fw-regular:  400;
+  --fw-medium:   500;
+  --fw-semibold: 600;
+  --fw-bold:     700;
+
+  /* Corpo */
+  --lh-body:      1.6;
+  --lh-editorial: 1.7;
+  --measure-max:  46ch;
+
+  /* Scala dimensioni — px (riferimento PDF pag. 5) */
+  --fs-10: 10px;
+  --fs-11: 11px;
+  --fs-12: 12px;
+  --fs-13: 13px;
+  --fs-14: 14px;
+  --fs-16: 16px;
+  --fs-20: 20px;   /* totale checkout (spostato da base.css) */
+  --fs-22: 22px;   /* titoli checkout e pannelli (spostato da base.css) */
+  --fs-24: 24px;   /* fascia info home, hero Club (spostato da base.css) */
+  --fs-26: 26px;   /* titoli sezione Must Have, carrello, correlati (spostato da base.css) */
+
+  /* Ruoli specifici */
+  --fs-card-title: 14px;
+  --fs-card-price: 12px;
+  --fs-pdp-title:  clamp(27px, 2vw, 30px);
+  --fs-pdp-price:  17px;
+  --fs-related:    26px;                     /* serif, "Potrebbero piacerti" */
+
+  /* Titoli fluidi */
+  --fs-duo: clamp(18px, 1.8vw, 22px);
+
+  /* Token di riferimento per la tipografia. */
+  --fs-hero-inner:     clamp(20px, 1.6vw, 24px);
+  --fs-section-title:  18px;
+  --fs-body-editorial: 18px;
+  --fs-body-legal:     16px;
+  --fs-h1-legal:       24px;
+
+  /* Spaziature tra lettere */
+  --tr-03: 0.3px;
+  --tr-05: 0.5px;
+  --tr-1:  1px;
+  --tr-15: 1.5px;
+  --tr-2:  2px;
+  --tr-3:  3px;
+  --tr-4:  4px;
+  --tr-5:  5px;
+  --tr-6:  6px;
+
+
+  /* ----------------------------------------------------------
+     3. MISURE E SPAZI
+     ---------------------------------------------------------- */
+
+  --btn-width:  200px;
+  --btn-height: 48px;
+
+  --max-width:   1600px;
+  --pad-desktop: 50px;
+  --pad-tablet:  30px;
+  --pad-mobile:  16px;
+
+  --topbar-h:        33px;
+  --drawer-title-h:  64px;
+  --header-h:        169px;
+  --logo-h-desktop:  26px;
+
+  --touch-target: 44px;
+
+  --ratio-card:       4 / 5;
+  --ratio-product:    3 / 4;
+  --ratio-hero:       16 / 9;
+
+  --grid-gap-x-desktop: 24px;
+  --grid-gap-y-desktop: 40px;
+  --grid-gap-x-tablet:  20px;
+  --grid-gap-y-tablet:  32px;
+  --grid-gap-x-mobile:  14px;
+  --grid-gap-y-mobile:  24px;
+
+  --carousel-gap: 40px;
+  --carousel-visible-desktop: 3.5;
+  --carousel-visible-journal: 4;
+
+
+  /* ----------------------------------------------------------
+     4. MOVIMENTO
+     ---------------------------------------------------------- */
+
+  --t-fast: 0.25s;
+  --t-base: 0.4s;
+  --t-slow: 0.8s;
+
+  --ease:     ease;
+  --ease-out: cubic-bezier(0.25, 0.8, 0.25, 1);
+
+
+  /* ----------------------------------------------------------
+     5. Z-INDEX
+     ---------------------------------------------------------- */
+
+  --z-megamenu:      999;
+  --z-mobile-menu:   999;
+  --z-header:       1000;
+  --z-overlay:      1200;
+  --z-drawer:       1300;
+  --z-progress:     2000;
+
+
+  /* ----------------------------------------------------------
+     6. OMBRE
+     ---------------------------------------------------------- */
+
+  --shadow-header: 0 1px 0 rgba(0, 0, 0, 0.05);
+  --shadow-panel:  0 20px 40px rgba(0, 0, 0, 0.06);
+  --shadow-arrow:  0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+
+/* ============================================================
+   PREFERENZE DEL DISPOSITIVO
+   Breakpoints principali: 1200 / 1024 / 900 / 640 / 520 / 380.
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --t-fast: 0.01s;
+    --t-base: 0.01s;
+    --t-slow: 0.01s;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --btn-width:      170px;
+    --btn-height:     44px;
+    --logo-h-desktop: 16px;
+    --drawer-title-h: 56px;
+  }
+}
+
+@media (max-width: 520px) {
+  :root {
+    --drawer-title-h: 56px;
+  }
+}
+
+</style>
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/home.css">
 <script>var bootBg = document.getElementById("boot-bg"); if (bootBg) bootBg.remove();</script>
 
-<link rel="stylesheet" href="css/fonts.css">
 </head>
 <body id="top">
 
