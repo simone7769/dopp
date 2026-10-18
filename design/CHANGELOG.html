@@ -1011,7 +1011,53 @@
     <p class="note">Piccola modifica al link finale della conferma.</p>
   </div>
 
-  <div class="footer">
+    <h2>11. Refactor CSS, Header e Ancore (17-18 ottobre 2026) <span class="count">11 commit</span></h2>
+  <div class="commit">
+    <code>c7eac67</code><span class="msg">header mobile+desktop: icone 20px, logo fluido 12-18px, touch 36px, min-height 72px</span>
+    <p class="note">Aggiornato l'header per mobile e desktop: icone più grandi, logo con dimensione fluida, area touch 36px, altezza minima 72px.</p>
+  </div>
+  <div class="commit">
+    <code>0ad2988</code><span class="msg">nav center desktop 12→13px (3 regole insieme)</span>
+    <p class="note">Aumentata la dimensione del testo della nav centrale su desktop per migliorare la leggibilità.</p>
+  </div>
+  <div class="commit">
+    <code>d5827f0</code><span class="msg">rimossi 34 token duplicati da base.css (fonte unica: tokens.css)</span>
+    <p class="note">Eliminati i token duplicati in base.css, ora tutti i token sono definiti solo in tokens.css.</p>
+  </div>
+  <div class="commit">
+    <code>d78223b</code><span class="msg">sostituiti 28 font-size px con token esistenti</span>
+    <p class="note">Refactor: i font-size scritti a mano sono stati sostituiti con i token corrispondenti.</p>
+  </div>
+  <div class="commit">
+    <code>8f16a62</code><span class="msg">25 font-size px sostituiti con token di ruolo (--fs-body-editorial, --fs-section-title, --fs-16, --fs-pdp-price) + aggiunto --fs-16</span>
+    <p class="note">Altri font-size migrati a token di ruolo, aggiunto il token --fs-16 per il testo a 16px.</p>
+  </div>
+  <div class="commit">
+    <code>2025268</code><span class="msg">allineato pattern Q&amp;A FAQ al Club (bordi oro, uppercase 500, hover oro, marker reset, body 18px) + faq-intro 13px</span>
+    <p class="note">Uniformato lo stile delle domande e risposte tra FAQ e Club per coerenza visiva.</p>
+  </div>
+  <div class="commit">
+    <code>66fcad3</code><span class="msg">3 testi 15px→16px e 2 testi 17px→18px</span>
+    <p class="note">Piccoli aggiustamenti di dimensione per alcuni testi, ora allineati ai token.</p>
+  </div>
+  <div class="commit">
+    <code>fc18531</code><span class="msg">nav padding 12→16px (desktop) e 6/12→12/12 (≤1200px) + --header-h 170→169px</span>
+    <p class="note">Aumentato il padding della nav per allineare l'header al contenuto; corretto --header-h al valore reale.</p>
+  </div>
+  <div class="commit">
+    <code>0d5564d</code><span class="msg">header mobile min-height 72→84px (più respiro, logo invariato)</span>
+    <p class="note">L'header mobile è ora più alto per dare più spazio a logo e icone.</p>
+  </div>
+  <div class="commit">
+    <code>1526fe0</code><span class="msg">centratura ottica logo desktop (header padding 29px simmetrico + translateY 8px)</span>
+    <p class="note">Corretto l'allineamento verticale del logo su desktop per compensare lo spazio dell'SVG.</p>
+  </div>
+  <div class="commit">
+    <code>68860b0</code><span class="msg">fix: ancore senza scatto (calcolo stato header + transizioni off)</span>
+    <p class="note">Risolto il problema delle ancore su mobile/tablet: il titolo atterra nella posizione corretta senza scatti, calcolando lo stato dell'header in tempo reale.</p>
+  </div>
+
+<div class="footer">
     Doppelgänger — Changelog<br>
     Realizzato da Simone Giordano · simonegiordano77@gmail.com<br>
     Documento tecnico interno · Ottobre 2026
