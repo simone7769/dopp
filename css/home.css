@@ -540,7 +540,7 @@ html { scroll-snap-type: y proximity; scroll-padding-top: var(--header-h, 170px)
   letter-spacing: var(--tr-2);
   text-transform: uppercase;
   color: var(--ink);
-  text-align: center;
+  text-align: left;
   line-height: 1.5;
   margin: 0 auto 8px;
   max-width: 92%;
@@ -551,7 +551,7 @@ html { scroll-snap-type: y proximity; scroll-padding-top: var(--header-h, 170px)
   font-weight: 400;
   letter-spacing: var(--tr-03);
   color: var(--ink);
-  text-align: center;
+  text-align: left;
   line-height: 1.55;
   margin: 0 auto;
   max-width: 92%;
