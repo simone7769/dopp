@@ -1907,3 +1907,35 @@ window.WishlistStore = (function () {
     allinea(a.hash);
   });
 })();
+
+/* ============================================================
+   NEWSLETTER: box di conferma (demo)
+   ============================================================ */
+document.addEventListener('submit', function (e) {
+  if (!e.target || e.target.id !== 'footerNewsletterForm') return;
+  e.preventDefault(); // blocca il reload
+  
+  var email = document.getElementById('footerEmail');
+  var privacy = document.querySelector('.footer-consent input[type="checkbox"]');
+  var form = e.target;
+  
+  // Controllo manuale: se manca la mail o la spunta, blocca (il browser mostra i tooltip nativi)
+  if (!email.value || email.value.indexOf('@') < 0) {
+    email.reportValidity(); 
+    return;
+  }
+  if (!privacy.checked) {
+    privacy.reportValidity();
+    return;
+  }
+  
+  // Se tutto ok: nasconde il form e crea il box di successo
+  form.style.display = 'none';
+  
+  var success = document.createElement('div');
+  success.className = 'footer-newsletter-success';
+  success.textContent = 'Ti sei iscritto alla nostra newsletter.';
+  
+  // Inserisce il box al posto del form
+  form.parentNode.insertBefore(success, form);
+});

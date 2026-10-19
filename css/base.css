@@ -2448,3 +2448,15 @@ footer {
     padding: 6px;
   }
 }
+
+.footer-newsletter-success {
+  display: block;
+  background: var(--crema-pannelli);
+  color: var(--ink);
+  padding: 16px 20px;
+  font-family: var(--sans);
+  font-size: var(--fs-13);
+  line-height: 1.5;
+  margin-bottom: 20px;
+  max-width: 380px;
+}
