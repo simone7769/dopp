@@ -232,20 +232,32 @@
       break-after: avoid;
       page-break-after: avoid;
     }
-    h2 {
-      break-before: auto;
-      margin-top: 30px !important;
+    /* Ogni sezione (h2) inizia su pagina nuova, tranne la prima
+       che e' gia' in cima. Cosi' "In evidenza", "Rifiniture",
+       ogni "aggiornamento" e "Cosa resta all'agenzia" partono puliti. */
+    /* Ogni sezione (h2) inizia su pagina nuova, tranne la prima
+       che e' gia' in cima. Le card (.benefit) restano break-inside:
+       avoid, quindi non si tagliano a meta. */
+    .wrap > h2:not(:first-of-type) {
+      break-before: page;
+      page-break-before: always;
+      margin-top: 0 !important;
+      padding-top: 10px;
     }
     /* Card e blocchi: mai spezzati a metà */
-    .commit,
     .benefit,
     .ba-col,
     .meta,
-    .closing,
-    .before-after,
-    .benefits {
+    .closing {
       break-inside: avoid;
       page-break-inside: avoid;
+    }
+    /* Le griglie POSSONO spezzarsi tra pagine: prima erano bloccate
+       e questo causava buchi bianchi enormi con 4-11 card per griglia. */
+    .before-after,
+    .benefits {
+      break-inside: auto;
+      page-break-inside: auto;
     }
     .commit {
       padding: 10px 0;
@@ -288,108 +300,7 @@
   <h1>Aggiornamento della demo<br>Ottobre 2026</h1>
   <p class="lead">Cosa è stato aggiunto, cosa è cambiato, cosa rimane all'agenzia.</p>
 
-  <h2>Terzo aggiornamento di ottobre 2026</h2>
-
-  <p style="text-align: center; font-family: var(--serif); font-size: 16px; font-style: italic; color: var(--muted); margin-bottom: 30px;">
-    Le rifiniture finali: accessibilità, coerenza visiva, token.
-  </p>
-
-  <div class="benefits">
-    <div class="benefit">
-      <h3>Il «+» funziona su tutte le collezioni</h3>
-      <p>Anche in <strong>Essential</strong> e <strong>Cerimonia</strong> il pulsante «+» sulle card apre il pannello di scelta taglia e colore e aggiunge al carrello, come in Autunno/Inverno 2026. Se si prova ad aggiungere senza scegliere la taglia, le taglie si evidenziano.</p>
-    </div>
-    <div class="benefit">
-      <h3>Navigazione da tastiera e screen reader</h3>
-      <p>Ogni pagina ha ora il collegamento «Vai al contenuto» e un'area principale ben definita. I campi con errori nel checkout e nella candidatura vengono annunciati, e il campo di ricerca ha un'etichetta accessibile.</p>
-    </div>
-    <div class="benefit">
-      <h3>Journal con titolo per i motori di ricerca</h3>
-      <p>Il titolo della pagina Journal non è più rimosso: resta invisibile a colpo d'occhio ma leggibile da screen reader e motori di ricerca.</p>
-    </div>
-    <div class="benefit">
-      <h3>Tabelle e box con lo sfondo corretto</h3>
-      <p>In Guida alle taglie, Lavora con noi, Riciclo e Traccia ordine alcuni sfondi crema non venivano applicati: ora usano il colore dei pannelli del sito.</p>
-    </div>
-    <div class="benefit">
-      <h3>Nessuna barra di scorrimento orizzontale</h3>
-      <p>Le immagini a tutta larghezza non fanno più comparire una barra orizzontale su Windows. Il riordino per prezzo è corretto anche per importi sopra i mille euro.</p>
-    </div>
-    <div class="benefit">
-      <h3>Design token allineati</h3>
-      <p>Il file <code>token.json</code> ora riflette esattamente i valori del CSS (altezza header 169px, bottoni telefono 44px, dimensioni testo, spaziature griglia e carosello).</p>
-    </div>
-    <div class="benefit">
-      <h3>Font su token (design system)</h3>
-      <p>Tutti i <code>font-size</code> del sito ora usano i token di <code>tokens.css</code> (<code>--fs-11</code>, <code>--fs-12</code>, <code>--fs-16</code>, <code>--fs-body-editorial</code>, ecc.). Zero cambi visivi, ma un solo posto per modificare le dimensioni.</p>
-    </div>
-    <div class="benefit">
-      <h3>Header mobile più respiro</h3>
-      <p>L'header mobile è passato da 72 a 84px di altezza (+12px). Più spazio per il logo e le icone, senza toccare il logo (invariato a 15px).</p>
-    </div>
-    <div class="benefit">
-      <h3>FAQ e Club: stesso stile Q&amp;A</h3>
-      <p>Le domande frequenti di <strong>FAQ</strong> e <strong>Doppelgänger Club</strong> ora hanno lo stesso stile: bordi oro, domande in maiuscolo, hover oro, risposte in serif 18px. Più coerenza per chi naviga.</p>
-    </div>
-    <div class="benefit">
-      <h3>Nav con più respiro</h3>
-      <p>Il menu di navigazione desktop ha più spazio sopra e sotto (+4px). Su tablet (≤1200px) il padding è stato uniformato. L'header è ora allineato al contenuto senza «buchi».</p>
-    </div>
-    <div class="benefit">
-      <h3>Ancore senza scatti su mobile</h3>
-      <p>Cliccando su «Spedizioni» o «Resi» dal footer su mobile, il titolo atterra nella posizione corretta. Il calcolo misura l'altezza reale dell'header al momento del click e posiziona il titolo di conseguenza, senza scatti.</p>
-    </div>
-    <div class="benefit">
-      <h3>Refactor CSS</h3>
-      <p>Sono stati ottimizzati i CSS: colori hardcoded sostituiti con token, rimossi token duplicati, aggiornati font-size e commenti. Il codice è più pulito e manutenibile, senza cambi visivi.</p>
-    </div>
-    <div class="benefit">
-      <h3>Header mobile più stabile</h3>
-      <p>Prima l'header mobile era 84px in cima e si comprimeva a 60px scrollando, con il logo che si rimpiccioliva. Ora è <strong>60px fisso</strong>: il logo resta fermo, non ci sono sobbalzi, l'esperienza è più pulita e coerente con i brand di lusso.</p>
-    </div>
-  </div>
-
-  <h2>Secondo aggiornamento di ottobre 2026 — Performance ottimizzata</h2>
-
-  <p style="text-align: center; font-family: var(--serif); font-size: 16px; font-style: italic; color: var(--muted); margin-bottom: 30px;">
-    Il sito è ottimizzato: accessibilità, best practices e SEO al massimo.
-  </p>
-
-  <div class="benefits">
-    <div class="benefit">
-      <h3>Lighthouse: 100 su Accessibilità, Best Practices, SEO</h3>
-      <p>Accessibilità, Best Practices e SEO: <strong>100/100 su desktop e mobile</strong>. Performance: <strong>100/100 su desktop</strong>, 93/100 su mobile (emulazione 4G lenta) — il limite è il video hero da 2,4 MB, che l'agenzia potrà alleggerire con una build dedicata.</p>
-    </div>
-    <div class="benefit">
-      <h3>Immagini ottimizzate (-47%)</h3>
-      <p>Le immagini della home sono state compresse in WebP di alta qualità: <strong>da 3,2 MB a 1,7 MB</strong>. Il sito si carica molto più veloce, senza differenze visibili.</p>
-    </div>
-    <div class="benefit">
-      <h3>Guida alle taglie con 18 immagini</h3>
-      <p>Ogni categoria (abiti, camicie, pantaloni, scarpe, ecc.) ha ora la sua immagine nel pannello taglie. 18 file WebP ottimizzati, ~3,4 MB totali.</p>
-    </div>
-    <div class="benefit">
-      <h3>SEO 100/100</h3>
-      <p>Ogni pagina ha ora la sua <strong>meta description</strong> specifica, per una migliore visibilità sui motori di ricerca.</p>
-    </div>
-    <div class="benefit">
-      <h3>W3C: 0 errori</h3>
-      <p>HTML, CSS e JavaScript validati con i validator ufficiali: <strong>zero errori</strong> su tutte le 34 pagine.</p>
-    </div>
-    <div class="benefit">
-      <h3>Video hero ottimizzato</h3>
-      <p>Il video della home non viene più scaricato all'apertura: appare <strong>solo quando serve</strong>, con un poster immediato. LCP sceso sotto i 2,5 secondi.</p>
-    </div>
-  </div>
-
-  <p style="font-size: 12px; color: var(--muted); text-align: center; margin-top: 30px; font-style: italic; line-height: 1.7;">
-    <strong>Come sono stati misurati i punteggi</strong><br>
-    Lighthouse DevTools (Chrome 153, v13.4.1), 18 ottobre 2026, sulla home in produzione (<code>doppelga-nger-proposal.vercel.app</code>).<br>
-    <strong>Desktop</strong>: nessuna emulazione, 100/100 su tutte le categorie. <strong>Mobile</strong>: emulazione Moto G Power con connessione 4G lenta — Accessibilità, Best Practices e SEO 100/100, Performance 93/100 (LCP 3,2s dovuto al video hero).<br>
-    I punteggi possono variare leggermente tra una misurazione e l'altra (dipendono dal carico del dispositivo e della rete).
-  </p>
-
-<h2>Cosa avevamo, cosa abbiamo ora</h2>
+    <h2>Cosa avevamo, cosa abbiamo ora</h2>
 
   <div class="before-after">
     <div class="ba-col">
@@ -409,14 +320,14 @@
         <li><strong>Carrello</strong> completo (drawer + pagina)</li>
         <li><strong>Checkout</strong> in una pagina</li>
         <li><strong>Conferma ordine</strong> dedicata</li>
-        <li><strong>Doppelgänger Club</strong>: fasce, benefici, FAQ</li>
+        <li><strong>Doppelg&auml;nger Club</strong>: fasce, benefici, FAQ</li>
         <li><strong>Area personale</strong>: login, registrazione, dashboard</li>
         <li><strong>4 pagine legali</strong> con testi ufficiali</li>
         <li><strong>Boutique</strong> (83 negozi reali) + Guida alle Taglie (18 categorie)</li>
         <li><strong>FAQ</strong> (22 domande in 12 gruppi)</li>
         <li><strong>Lavora con Noi</strong>, Traccia Ordine, Monitora Reso</li>
         <li><strong>Gift Card</strong>, Pagamenti, Riciclo</li>
-        <li><strong>Whistleblowing</strong>, Parità di Genere</li>
+        <li><strong>Whistleblowing</strong>, Parit&agrave; di Genere</li>
         <li>Footer con la struttura reale del brand + 7 voci nuove</li>
         <li>Journal a 9 articoli, con la card Club</li>
       </ul>
@@ -425,202 +336,107 @@
 
   <h2>Le nuove sezioni in dettaglio</h2>
 
-  <h3>Carrello e percorso d'acquisto</h3>
-  <p>Un percorso completo, dalla scheda prodotto al pagamento visivo. Il carrello <strong>mantiene i prodotti</strong> durante la visita, anche cambiando pagina o ricaricando, il totale si aggiorna in tempo reale, la spedizione è gratuita sopra i 99&nbsp;€.</p>
+  <h3>Carrello e percorso d&#39;acquisto</h3>
+  <p>Un percorso completo, dalla scheda prodotto al pagamento visivo. Il carrello <strong>mantiene i prodotti</strong> durante la visita, anche cambiando pagina o ricaricando, il totale si aggiorna in tempo reale, la spedizione &egrave; gratuita sopra i 99&nbsp;&euro;.</p>
 
-  <h3>Doppelgänger Club</h3>
-  <p>Una pagina dedicata al programma fedeltà: quattro fasce (Bronze, Silver, Gold, Platinum), cinque benefici spiegati con icone, sette domande frequenti con le risposte reali del brand.</p>
+  <h3>Doppelg&auml;nger Club</h3>
+  <p>Una pagina dedicata al programma fedelt&agrave;: quattro fasce (Bronze, Silver, Gold, Platinum), cinque benefici spiegati con icone, sette domande frequenti con le risposte reali del brand.</p>
 
   <h3>Area personale</h3>
-  <p>Chi ha un account può gestire ordini, indirizzi, dati personali e preferiti da un'unica dashboard a quattro schede. La registrazione è in un unico modulo, con consenso privacy obbligatorio e consenso marketing facoltativo.</p>
+  <p>Chi ha un account pu&ograve; gestire ordini, indirizzi, dati personali e preferiti da un&#39;unica dashboard a quattro schede. La registrazione &egrave; in un unico modulo, con consenso privacy obbligatorio e consenso marketing facoltativo.</p>
 
   <h3>Pagine legali</h3>
-  <p>Privacy+Cookie (unificate), Termini, Spedizioni e Resi, Dichiarazione di accessibilità: quattro pagine <strong>con i testi ufficiali del brand</strong>, non con contenuti inventati.</p>
+  <p>Privacy+Cookie (unificate), Termini, Spedizioni e Resi, Dichiarazione di accessibilit&agrave;: quattro pagine <strong>con i testi ufficiali del brand</strong>, non con contenuti inventati.</p>
 
-  <h2>Cosa cambia per l'utente</h2>
+  <h2>Cosa cambia per l&#39;utente</h2>
 
   <div class="benefits">
     <div class="benefit">
       <h3>Ritrovare la selezione</h3>
-      <p>Il carrello e i preferiti restano per tutta la visita, anche cambiando pagina o ricaricando. Alla chiusura del browser si svuotano: nel sito vero saranno legati all'account.</p>
+      <p>Il carrello e i preferiti restano per tutta la visita, anche cambiando pagina o ricaricando. Alla chiusura del browser si svuotano: nel sito vero saranno legati all&#39;account.</p>
     </div>
     <div class="benefit">
       <h3>Tutto sul telefono</h3>
-      <p>Card su due colonne, immagini 4:5, testi leggibili, drawer a tutta larghezza. Il sito è pensato prima per il pollice.</p>
+      <p>Card su due colonne, immagini 4:5, testi leggibili, drawer a tutta larghezza. Il sito &egrave; pensato prima per il pollice.</p>
     </div>
     <div class="benefit">
-      <h3>Meno rumore, più messaggio</h3>
-      <p>Una promessa per volta: l'hero, la sezione, il footer. Non più dieci messaggi in competizione.</p>
+      <h3>Meno rumore, pi&ugrave; messaggio</h3>
+      <p>Una promessa per volta: l&#39;hero, la sezione, il footer. Non pi&ugrave; dieci messaggi in competizione.</p>
     </div>
     <div class="benefit">
       <h3>Un solo tono di voce</h3>
-      <p>Serif per il racconto, sans per l'informazione. La stessa palette ovunque. Il brand si riconosce da ogni pagina.</p>
+      <p>Serif per il racconto, sans per l&#39;informazione. La stessa palette ovunque. Il brand si riconosce da ogni pagina.</p>
     </div>
   </div>
 
-  <h2>Secondo aggiornamento di ottobre 2026 — 12 nuove pagine e footer</h2>
+  <h2>Primo aggiornamento</h2>
 
   <p style="text-align: center; font-family: var(--serif); font-size: 16px; font-style: italic; color: var(--muted); margin-bottom: 30px;">
-    12 nuove pagine, footer più completo, e tutto allineato al linguaggio del marchio.
+    Footer pi&ugrave; completo, un messaggio pi&ugrave; chiaro, dettagli affinati.
   </p>
 
   <div class="benefits">
     <div class="benefit">
-      <h3>Doppelgänger App</h3>
-      <p>Nuova pagina dedicata all'App ufficiale Doppelgänger. Tre sezioni mostrano cosa puoi fare dall'app: <strong>trovare la boutique più vicina</strong>, <strong>acquistare in un attimo</strong> e <strong>esplorare la collezione</strong>. Con i badge ufficiali per scaricarla da App Store e Google Play.</p>
-    </div>
-    <div class="benefit">
-      <h3>11 pagine nuove</h3>
-      <p>Boutique (con ricerca live e 83 negozi reali), Metodi di Pagamento, Guida alle Taglie (18 categorie con tabelle ufficiali), Traccia Ordine, Gift Card, Lavora con Noi, FAQ (12 gruppi, 22 domande), Monitora Reso, Istruzioni per il Riciclo, Whistleblowing, Politica di Parità di Genere.</p>
-    </div>
-    <div class="benefit">
-      <h3>Footer più completo</h3>
-      <p>Il footer ora contiene tutte le voci del sito reale Doppelgänger: <strong>Whistleblowing</strong>, <strong>Politica di Parità di Genere</strong>, <strong>FAQ</strong>, <strong>Monitora Reso</strong>, <strong>Istruzioni per il Riciclo</strong>, e i social <strong>Pinterest</strong> e <strong>Telegram</strong>. I "Dati societari" puntano direttamente alla sezione del Titolare nella Privacy Policy, senza pagina dedicata.</p>
-    </div>
-    <div class="benefit">
-      <h3>Boutique con tutte le informazioni</h3>
-      <p>La pagina Boutique mostra gli <strong>83 negozi reali</strong> con indirizzo, telefono, orari, rating, metodi di pagamento e servizio sartoria. Ricerca live per città, CAP o nome. Nel drawer laterale è stata aggiunta la voce "Telefono" (cliccabile) e un bottone "Vedi tutte le boutique" che porta alla pagina completa.</p>
-    </div>
-    <div class="benefit">
-      <h3>Guida alle Taglie</h3>
-      <p>Le tabelle ufficiali del sito Doppelgänger per <strong>18 categorie</strong> (Abiti, Giacche, Camicie, Maglie, Pantaloni, Scarpe, ecc.), consultabili in un pannello che si apre dal click sulla categoria, con la stessa esperienza del "camerino di prova virtuale" del sito vero.</p>
-    </div>
-    <div class="benefit">
-      <h3>FAQ con 22 risposte</h3>
-      <p>Dodici gruppi tematici (Ordini, Spedizioni, Sconti, Pagamento, Account, Resi Online, Gift Card, Orari, Cura dei Capi, Guida alle Taglie, Contatti, Reso in Boutique) con le risposte ufficiali del cliente. Nessun bottone "commerciale", solo link testuali nel testo, come nelle altre pagine.</p>
-    </div>
-    <div class="benefit">
-      <h3>Lavora con Noi con candidatura</h3>
-      <p>Due schede: <strong>Posizioni aperte</strong> (17 posizioni reali in tabella) e <strong>Candidatura spontanea</strong> (form completo con upload CV e lettera). Banner a tutta larghezza con la foto del punto cassa della boutique di Roma.</p>
-    </div>
-    <div class="benefit">
-      <h3>Traccia Ordine e Monitora Reso</h3>
-      <p>Due pagine identiche nel layout (2 colonne: form a sinistra, spiegazioni a destra), con stati di esempio per mostrare come funzioneranno una volta collegati al sistema ordini e al sistema resi.</p>
-    </div>
-    <div class="benefit">
-      <h3>Istruzioni per il Riciclo</h3>
-      <p>Tabella con tutti i componenti degli imballaggi Doppelgänger (47 voci), con il materiale (Plastica PET 1, Carta PAP 22, Vetro GL 70, ecc.) e il pallino colorato per il corretto contenitore di raccolta differenziata.</p>
-    </div>
-    <div class="benefit">
-      <h3>Whistleblowing + Parità di Genere</h3>
-      <p>Due pagine istituzionali obbligatorie per legge: <strong>Procedura Whistleblowing</strong> (con link alla piattaforma di segnalazione e PDF scaricabile) e <strong>Politica di Parità di Genere</strong> (dal documento ufficiale UNI/PdR 125:2022, con impegni, aree di intervento e procedure).</p>
-    </div>
-    <div class="benefit">
-      <h3>Design coerente</h3>
-      <p>Tutte le nuove pagine usano le classi del sito esistente (non CSS custom): <code>.legale-wrap</code>, <code>.looks-wrap</code>, <code>.pdp-*</code>. I bottoni sono coerenti con il resto (outline con hover nero), la tipografia è quella del design system, l'oro è usato con misura. Nessun <code>!important</code> nel CSS.</p>
-    </div>
-  </div>
-
-  <h2>Secondo aggiornamento di ottobre 2026 — footer ampliato</h2>
-
-  <p style="text-align: center; font-family: var(--serif); font-size: 16px; font-style: italic; color: var(--muted); margin-bottom: 30px;">
-    Più respiro, più equilibrio su ogni schermo.
-  </p>
-
-  <div class="benefits">
-    <div class="benefit">
-      <h3>Footer più equilibrato</h3>
-      <p>Nel footer le colonne dei link ora sono <strong>distribuite da bordo a bordo</strong>: la newsletter inizia dal margine sinistro e "Seguici" finisce su quello destro, senza spazio vuoto da una parte sola. Anche la fascia in alto (Spedizioni, Resi, Pagamento sicuro, Assistenza) segue la stessa logica: prima icona a sinistra, ultimo testo a destra.</p>
-    </div>
-    <div class="benefit">
-      <h3>Icona e testo allineati</h3>
-      <p>Nella fascia in alto del footer, l'icona di ogni voce è ora <strong>centrata verticalmente</strong> rispetto al titolo e alla descrizione. Prima stava allineata in alto, e il testo sembrava "scivolato" in basso. Ora è tutto in linea.</p>
-    </div>
-    <div class="benefit">
-      <h3>Newsletter più ordinata</h3>
-      <p>Su tablet la newsletter era su una sola colonna, con il campo email sotto il testo e molto spazio vuoto a destra. Ora è divisa in <strong>due metà affiancate</strong>: testo e titolo a sinistra, campo email e informativa privacy a destra. Più compatta, più elegante.</p>
-    </div>
-    <div class="benefit">
-      <h3>Footer a tendina sul tablet</h3>
-      <p>Il footer diventa "a tendina" (le colonne si aprono una alla volta) a partire da <strong>768px</strong> di larghezza, non più da 640px. Così anche su iPad in verticale il footer è più facile da usare con il dito, come fanno i principali marchi di moda.</p>
-    </div>
-  </div>
-
-
-  <h2>Aggiornamento del 13 ottobre 2026</h2>
-
-  <p style="text-align: center; font-family: var(--serif); font-size: 16px; font-style: italic; color: var(--muted); margin-bottom: 30px;">
-    Più veloce, più coerente, con una nuova funzionalità sulle card.
-  </p>
-
-  <div class="benefits">
-    <div class="benefit">
-      <h3>Caricamento più rapido</h3>
-      <p>I font del sito ora sono <strong>self-hosted</strong>: non si scaricano più da server esterni. Le immagini delle collezioni Cerimonia e Sartoria sono state ottimizzate (peso ridotto di oltre il 60%), 28 file non più utilizzati sono stati rimossi. Il sito si apre prima, anche su connessioni lente.</p>
-    </div>
-    <div class="benefit">
-      <h3>Quick-add dal «+»</h3>
-      <p>Cliccando il <strong>«+» su una card prodotto</strong> si apre un pannellino per scegliere <strong>colore</strong> e <strong>taglia</strong>, e aggiungere al carrello senza aprire la scheda. Il pannellino mostra i colori solo per i prodotti che ne hanno davvero. Su telefono il «+» è nascosto: si continua a usare la scheda prodotto, che è più comoda.</p>
-    </div>
-    <div class="benefit">
-      <h3>Menu del telefono riordinato</h3>
-      <p>Il menu mobile è stato riorganizzato: sotto le cinque voci principali ora ci sono <strong>sei collegamenti rapidi con icona</strong> (Area personale, Preferiti, Boutique, Contattaci, Paese/Lingua, Newsletter). Tutto allineato a sinistra, più chiaro da leggere e da toccare.</p>
-    </div>
-    <div class="benefit">
-      <h3>Colori coerenti ovunque</h3>
-      <p>I pallini colori nelle schede prodotto, nei filtri e nelle card hanno ora lo <strong>stesso aspetto</strong>: rettangoli semplici che mostrano il contorno scuro solo quando selezionati. Più pulito, più uniforme, coerente col resto del sito.</p>
-    </div>
-    <div class="benefit">
-      <h3>Bottoni allineati</h3>
-      <p>Tutti i bottoni principali (Aggiungi al carrello, Paga ora, Concludi ordine) hanno ora la <strong>stessa spaziatura tra le lettere</strong> e la stessa altezza. Dettaglio piccolo, ma il sito risulta più ordinato a colpo d'occhio.</p>
-    </div>
-    <div class="benefit">
-      <h3>Accessibilità</h3>
-      <p>Risolto un avviso tecnico che compariva sulla console del browser quando si chiudevano i pannelli laterali. <strong>Nessun errore in console</strong>, ora: il sito è ancora più pulito per chi lo ispeziona o lo testa con strumenti di accessibilità.</p>
-    </div>
-  </div>
-
-  <h2>Aggiornamento dell'11 ottobre 2026</h2>
-
-  <p style="text-align: center; font-family: var(--serif); font-size: 16px; font-style: italic; color: var(--muted); margin-bottom: 30px;">
-    Footer più completo, un messaggio più chiaro, dettagli affinati.
-  </p>
-
-  <div class="benefits">
-    <div class="benefit">
-      <h3>Footer più affidabile</h3>
-      <p>In cima al footer c'è ora una <strong>fascia fiducia</strong> con quattro voci: spedizioni, resi, pagamento sicuro e assistenza. Ogni voce ha un'icona a linea sottile e un testo breve. In fondo, accanto al copyright, compaiono i <strong>loghi dei metodi di pagamento</strong> (Visa, Mastercard, PayPal, Apple Pay) in monocromatico, coerenti col tono del brand.</p>
+      <h3>Footer pi&ugrave; affidabile</h3>
+      <p>In cima al footer c&#39;&egrave; ora una <strong>fascia fiducia</strong> con quattro voci: spedizioni, resi, pagamento sicuro e assistenza. Ogni voce ha un&#39;icona a linea sottile e un testo breve. In fondo, accanto al copyright, compaiono i <strong>loghi dei metodi di pagamento</strong> (Visa, Mastercard, PayPal, Apple Pay) in monocromatico, coerenti col tono del brand.</p>
     </div>
     <div class="benefit">
       <h3>Newsletter legata al Club</h3>
-      <p>La newsletter in fondo alla pagina non promette più due cose diverse. Ora dice <strong>"Iscriviti al Doppelgänger Club"</strong>: un unico messaggio che unisce l'iscrizione e i benefici del programma fedeltà (punti, sconti fino al -20%, spedizione gratuita). Nessuna ridondanza con il resto della comunicazione.</p>
+      <p>La newsletter in fondo alla pagina non promette pi&ugrave; due cose diverse. Ora dice <strong>&laquo;Iscriviti al Doppelg&auml;nger Club&raquo;</strong>: un unico messaggio che unisce l&#39;iscrizione e i benefici del programma fedelt&agrave; (punti, sconti fino al -20%, spedizione gratuita). Nessuna ridondanza con il resto della comunicazione.</p>
     </div>
     <div class="benefit">
-      <h3>Testi più leggibili</h3>
-      <p>Il copyright e il testo privacy sotto la newsletter erano troppo tenui sul fondo nero. Ora hanno un <strong>contrasto conforme WCAG AA</strong>: leggibili senza sforzo, ma ancora discreti. Le linee di separazione del footer (oro e grigia) sono a tutta larghezza, per un taglio più pulito.</p>
+      <h3>Testi pi&ugrave; leggibili</h3>
+      <p>Il copyright e il testo privacy sotto la newsletter erano troppo tenui sul fondo nero. Ora hanno un <strong>contrasto conforme WCAG AA</strong>: leggibili senza sforzo, ma ancora discreti. Le linee di separazione del footer (oro e grigia) sono a tutta larghezza, per un taglio pi&ugrave; pulito.</p>
     </div>
     <div class="benefit">
       <h3>Autunno/Inverno 2026, ovunque</h3>
-      <p>Il nome della nuova collezione è ora coerente in tutto il sito: nel <strong>bottone sotto il video</strong>, nel <strong>menu desktop</strong>, nel <strong>menu mobile</strong> e nel <strong>titolo della pagina</strong>. Non più "AI 2026" qua e "Autunno/Inverno 2026" là: un solo nome, chiaro e comprensibile.</p>
+      <p>Il nome della nuova collezione &egrave; ora coerente in tutto il sito: nel <strong>bottone sotto il video</strong>, nel <strong>menu desktop</strong>, nel <strong>menu mobile</strong> e nel <strong>titolo della pagina</strong>. Non pi&ugrave; &laquo;AI 2026&raquo; qua e &laquo;Autunno/Inverno 2026&raquo; l&agrave;: un solo nome, chiaro e comprensibile.</p>
     </div>
   </div>
 
-  <h2>Ultime rifiniture</h2>
-
-  <p style="text-align: center; font-family: var(--serif); font-size: 16px; font-style: italic; color: var(--muted); margin-bottom: 30px;">
-    Interventi recenti sulla demo — tutti visibili o percepibili nell'uso quotidiano.
-  </p>
+<h2>Rifiniture di base</h2>
 
   <div class="benefits">
     <div class="benefit">
       <h3>Cuori e preferiti</h3>
-      <p>Il cuore ora c'è su <strong>tutte</strong> le card prodotto: collezioni, Must Have, schede prodotto correlate. Su desktop appare al passaggio del mouse sulla card; su mobile è sempre visibile. Il drawer Preferiti è stato uniformato: cuore senza cerchio bianco, coerente con il resto del sito.</p>
+      <p>Il cuore ora c&#39;&egrave; su <strong>tutte</strong> le card prodotto: collezioni, Must Have, schede prodotto correlate. Su desktop appare al passaggio del mouse sulla card; su mobile &egrave; sempre visibile. Il drawer Preferiti &egrave; stato uniformato: cuore senza cerchio bianco, coerente con il resto del sito.</p>
     </div>
     <div class="benefit">
-      <h3>Home, più fluida</h3>
-      <p>La fascia "Sartoria in Boutique" ora sta <strong>dopo il video</strong>: si raccorda meglio tra hero e video, e ha una frase di supporto. Il video appare prima (quando inizia a essere visibile) e la dissolvenza è più rapida. Spaziature riviste su mobile, per una home più compatta.</p>
+      <h3>Home, pi&ugrave; fluida</h3>
+      <p>La fascia &laquo;Sartoria in Boutique&raquo; ora sta <strong>dopo il video</strong>: si raccorda meglio tra hero e video, e ha una frase di supporto. Il video appare prima (quando inizia a essere visibile) e la dissolvenza &egrave; pi&ugrave; rapida. Spaziature riviste su mobile, per una home pi&ugrave; compatta.</p>
     </div>
     <div class="benefit">
       <h3>Dettagli che si vedono</h3>
-      <p>L'header mantiene <strong>Outlet in oro</strong> anche quando la barra diventa chiara allo scroll. Su Safari iOS, hero e video usano <code>100svh</code>: il contenuto non finisce più sotto la barra del browser.</p>
+      <p>L&#39;header mantiene <strong>Outlet in oro</strong> anche quando la barra diventa chiara allo scroll. Su Safari iOS, hero e video usano <code>100svh</code>: il contenuto non finisce pi&ugrave; sotto la barra del browser.</p>
     </div>
     <div class="benefit">
-      <h3>Qualità</h3>
+      <h3>Qualit&agrave;</h3>
       <p>HTML valido W3C su tutte le pagine: struttura delle card rifatta, gerarchia dei titoli corretta, campi modulo accessibili.</p>
     </div>
+  </div>
+
+      <h2>Aggiornamenti finali</h2>
+
+  <p style="text-align: center; font-family: var(--serif); font-size: 16px; font-style: italic; color: var(--muted); margin-bottom: 30px;">
+    Le modifiche pi&ugrave; importanti fatte al sito dopo il documento base: nuove pagine, funzionalit&agrave; di acquisto, header mobile, performance, accessibilit&agrave; e sicurezza.
+  </p>
+
+  <div class="benefits">
     <div class="benefit">
-      <h3>Quick-add dal «+»</h3>
-      <p>Cliccando il <strong>«+» su una card</strong> si apre un pannellino compatto per scegliere <strong>colore</strong> (dove il prodotto ha varianti) e <strong>taglia</strong>, poi aggiungere al carrello senza aprire la scheda. Su mobile il «+» è nascosto: si usa la scheda prodotto.</p>
+      <h3>12 nuove pagine e l&rsquo;app</h3>
+      <p>Il sito passa da un nucleo di poche pagine a un&rsquo;esperienza completa: <strong>Boutique</strong> (con ricerca live e 83 negozi reali), <strong>Guida alle Taglie</strong> (18 categorie con tabelle ufficiali), <strong>FAQ</strong> (12 gruppi, 22 domande), <strong>Lavora con Noi</strong> (17 posizioni e candidatura con upload CV), <strong>Traccia Ordine</strong>, <strong>Monitora Reso</strong>, <strong>Istruzioni per il Riciclo</strong> (47 voci), <strong>Whistleblowing</strong>, <strong>Parit&agrave; di Genere</strong>, <strong>Metodi di Pagamento</strong>, <strong>Gift Card</strong> e la pagina dedicata alla <strong>Doppelg&auml;nger App</strong>. Il footer &egrave; stato ampliato con 7 nuove voci (tra cui Whistleblowing, Parit&agrave; di Genere, Monitora Reso, Pinterest, Telegram).</p>
+    </div>
+    <div class="benefit">
+      <h3>Aggiunta rapida dal &laquo;+&raquo; e filtro taglia</h3>
+      <p>Cliccando il <strong>&laquo;+&raquo; su una card prodotto</strong> si apre un pannellino per scegliere <strong>colore</strong> e <strong>taglia</strong>, e aggiungere al carrello senza aprire la scheda. Il filtro taglia funziona ora su <strong>29 card</strong> delle collezioni Autunno/Inverno, Cerimonia ed Essential: scegli la taglia e le card si aggiornano subito, senza ricaricare. Su mobile il &laquo;+&raquo; &egrave; nascosto: si continua a usare la scheda prodotto, che &egrave; pi&ugrave; comoda.</p>
+    </div>
+    <div class="benefit">
+      <h3>Header mobile a misura fissa</h3>
+      <p>Prima l&rsquo;header mobile era 84px in cima e si comprimeva a 60px scrollando, con il logo che si rimpiccioliva. Ora &egrave; <strong>60px fisso</strong>: il logo resta fermo, non ci sono sobbalzi, l&rsquo;esperienza &egrave; pi&ugrave; pulita e coerente con i brand di lusso.</p>
+    </div>
+    <div class="benefit">
+      <h3>Pi&ugrave; veloce, pi&ugrave; accessibile, pi&ugrave; sicuro</h3>
+      <p><strong>Pi&ugrave; veloce:</strong> font self-hosted, immagini in WebP (-47%), video hero con poster, CSS e font inline nella home. Lighthouse: <strong>100/100 desktop</strong> su tutte le categorie, <strong>93/100 Performance mobile</strong> (emulazione 4G lenta). <strong>Pi&ugrave; accessibile:</strong> skip-link &laquo;Vai al contenuto&raquo;, contrasto WCAG AA, navigazione da tastiera su account e candidatura, campi con errori annunciati, icone e pulsanti con area di tocco conforme. <strong>Pi&ugrave; sicuro:</strong> i dati dei prodotti sono protetti contro le iniezioni di codice (difesa standard per i siti di e-commerce).</p>
     </div>
   </div>
 
