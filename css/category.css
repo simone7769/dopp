@@ -71,7 +71,9 @@
     grid-column: 1 / -1 !important;
     grid-row: auto !important;
     order: -1;
-    min-height: 280px;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 3 / 2;
   }
   .product-card.featured .featured-overlay {
     padding: 20px;
