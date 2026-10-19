@@ -13,11 +13,12 @@
 
 ## Cosa comprende il pacchetto
 
-- **Sito demo**: 23 pagine HTML (home, collezioni, schede prodotto, carrello, checkout, conferma, Club, account, Journal, pagine legali)
+- **Sito demo**: 35 pagine HTML (home, 3 collezioni, 3 schede prodotto, 5 articoli Journal + archivio, Club, carrello, checkout, conferma, account, registrazione, 4 pagine legali, 12 pagine di servizio: Boutique, Guida alle Taglie, FAQ, Lavora con Noi, Traccia Ordine, Monitora Reso, Gift Card, Metodi Pagamento, Riciclo, Whistleblowing, Parità di Genere, Doppelgänger App)
 - **Design system**: `css/tokens.css` + `design/token.json`
-- **Documentazione tecnica**: `design/CHANGELOG.html`, `design/DIFF-FILES.html`, `design/BADGE.html`, `design/MODIFICHE PDF.md`
+- **Documentazione tecnica**: `design/CHANGELOG.html`, `design/DIFF-FILES.html`, `design/BADGE.html`, `design/Doppelganger_Specifiche_per_agenzia.html` (era PDF, ora HTML editabile), `design/LEGGIMI-AGENZIA.md`
 - **Presentazione cliente**: `design/NOVITA-SITO.html`
-- **Riferimenti originali**: `design/Doppelganger-Proposta-nuovo-sito.pdf`, `design/Doppelganger_Specifiche_per_agenzia.pdf`
+- **Riferimenti archiviati fuori dal repo**: `../Doppelganger-Proposta-nuovo-sito.pdf` (proposta di direzione, settembre 2026), `../Doppelganger-Aggiornamento-Demo.pdf` (documento cliente, ottobre 2026)
+- **Pagine di esempio (`design/`, non in consegna)**: 5 file HTML tecnici (`BADGE`, `CHANGELOG`, `DIFF-FILES`, `Doppelganger_Specifiche_per_agenzia`, `NOVITA-SITO`) — non sono pagine del sito
 
 ## Note
 
