@@ -218,7 +218,7 @@
 
   <div class="meta">
     <div>
-      <span class="val">281</span>
+      <span class="val">285</span>
       <span class="lbl">Commit</span>
     </div>
     <div>
@@ -226,16 +226,39 @@
       <span class="lbl">File modificati</span>
     </div>
     <div>
-      <span class="val">13376</span>
+      <span class="val">13399</span>
       <span class="lbl">Righe aggiunte</span>
     </div>
   </div>
 
   <p style="font-size: 13px; color: var(--ink-soft); text-align: center; margin-bottom: 40px;">
-    Da <code>de268ba</code> a <code>4058b79</code> — 8–19 ottobre 2026
+    Da <code>de268ba</code> a <code>f297271</code> — 8–19 ottobre 2026
   </p>
 
-<h2>18. Fix pomeridiano 19 ottobre 2026 <span class="count">5 commit</span></h2>
+<h2>19. Rifiniture finali 19 ottobre 2026 <span class="count">4 commit</span></h2>
+
+  <div class="commit">
+    <code>f297271</code><span class="msg">fix: blocca scroll nativo su click ancora stessa pagina (mobile/tablet), evitando lo scattino</span>
+    <p class="note"><code>js/nav.js</code> (+3/-1)</p>
+  </div>
+  <div class="commit">
+    <code>4cbeb8d</code><span class="msg">fix: allineata soglia ancore a 20px + --header-h iniziale a 93px su mobile (evita CLS)</span>
+    <p class="note"><code>css/tokens.css</code> (+6/-0), <code>index.html</code> (+6/-0), <code>js/nav.js</code> (+2/-2)</p>
+  </div>
+  <div class="commit">
+    <code>0d11636</code><span class="msg">fix: didascalie card Journal in home allineate a filo (rimosso margin auto e max-width 92%)</span>
+    <p class="note"><code>css/home.css</code> (+4/-4)</p>
+  </div>
+  <div class="commit">
+    <code>a7e3e7d</code><span class="msg">fix: allineamento a sinistra per le didascalie delle card Journal in home</span>
+    <p class="note"><code>css/base.css</code> (+2/-1)</p>
+  </div>
+
+  <div class="commit" style="margin-top: 16px; padding: 12px 16px; background: var(--crema); border-left: 2px solid var(--oro); font-style: italic; font-size: 13px; color: var(--ink-soft);">
+    <b>Sintesi.</b> 4 commit: due sul Journal in home (allineamento didascalie), uno sulle ancore (SOGLIA 20px + --header-h 93px su mobile), uno sul preventDefault (evita scattino sul click stessa ancora). Totale: +23/-8 righe su 5 file.
+  </div>
+
+  <h2>18. Fix pomeridiano 19 ottobre 2026 <span class="count">5 commit</span></h2>
 
   <div class="commit">
     <code>6d72a5d</code><span class="msg">feat: header compatto su tablet touch (>1024px) + soglia scroll 120→20px</span>

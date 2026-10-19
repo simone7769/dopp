@@ -40,6 +40,10 @@ Documento di accompagnamento al pacchetto demo + specifiche. Per chi svilupperà
 - **Footer ristrutturato**: trust bar, 3 colonne, 5 link legali in basso, 7 voci nuove
 - **Uniformazione "Boutique"**: era "Store Locator" / "Negozi"
 - **Ancore `#spedizioni` e `#resi`** funzionanti
+- **Header mobile**: 60px fisso, `scroll-padding-top: 105px`, `--header-h: 93px` (evita lo spostamento dei contenuti al primo caricamento)
+- **Featured card 3/2 su tablet**: era 2.63:1 (solo busto). Su mobile resta 4:3
+- **Soglia scroll header**: da 120px a 20px (l'header si comprime prima, liberando spazio visivo)
+- **Click su stessa ancora**: `preventDefault` su mobile/tablet per evitare il doppio movimento (scroll nativo del browser + correzione JS)
 
 ### Qualità e performance
 - **Validazione**: 0 errori su HTML (html-validate), CSS (csstree-validator), JS (node -c), JSON (json.load) — 41 HTML, 25 CSS, 16 JS, 1 JSON
