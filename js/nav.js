@@ -56,7 +56,7 @@ const headerHolds = new Set();
 function releaseHeaderIfFree() {
   if (!header || headerHolds.size > 0) return;
   header.classList.remove('menu-open');
-  header.classList.toggle('scrolled', window.scrollY > 120);
+  header.classList.toggle('scrolled', window.scrollY > 20);
 }
 
 const MEGA_MENUS = [
@@ -142,7 +142,7 @@ if (header && (MEGA_MENUS.length || HOVER_ONLY_LINKS.length)) {
     current = null;
     if (!isSearchOpen() && headerHolds.size === 0) {
       header.classList.remove('menu-open');
-      header.classList.toggle('scrolled', window.scrollY > 120);
+      header.classList.toggle('scrolled', window.scrollY > 20);
     }
   }
 
@@ -281,11 +281,11 @@ if (header && (MEGA_MENUS.length || HOVER_ONLY_LINKS.length)) {
     if (e.key === 'Escape') chiudiTuttoOra();
   });
 
-  header.classList.toggle('scrolled', window.scrollY > 120);
+  header.classList.toggle('scrolled', window.scrollY > 20);
 
   window.addEventListener('scroll', () => {
     if (current || header.classList.contains('menu-open')) return;
-    if (window.scrollY > 120) header.classList.add('scrolled');
+    if (window.scrollY > 20) header.classList.add('scrolled');
     else header.classList.remove('scrolled');
   });
 }

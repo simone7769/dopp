@@ -2001,6 +2001,13 @@ footer {
 :where(body.header-light) header .topbar-message { color: var(--ink); }
 :where(body.header-light) header .topbar { border-bottom: 1px solid var(--gold); }
 
+/* Riduzione altezza header SOLO su tablet touch (>1024px), desktop intatto */
+@media (hover: none) and (pointer: coarse) and (min-width: 1025px) {
+  .header-main { padding: 20px 20px; }
+  .nav { padding: 8px 20px 8px; }
+  .topbar { padding: 4px 20px 4px; }
+}
+
 @media (min-width: 1025px) {
   :where(body.header-light) header.scrolled .header-main {
     height: 0;
