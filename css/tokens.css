@@ -201,3 +201,9 @@
     --drawer-title-h: 56px;
   }
 }
+
+/* Valore iniziale dell'header su mobile/tablet (topbar 33 + barra 60): evita lo spostamento
+   dei contenuti al primo caricamento. nav.js poi lo sostituisce con la misura reale. */
+@media (max-width: 1024px) {
+  :root { --header-h: 93px; }
+}

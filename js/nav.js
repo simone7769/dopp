@@ -1830,7 +1830,7 @@ window.WishlistStore = (function () {
    ANCORE (#hash): il titolo atterra 16px sotto l'header REALE
    (solo mobile/tablet, <=1024px; su desktop basta il CSS).
    L'header cambia altezza in base alla posizione di arrivo (alto
-   sotto i 120px di scroll, ridotto sopra: vedi 'scrolled' sopra).
+   sotto i 20px di scroll, ridotto sopra: vedi 'scrolled' sopra).
    Quindi la posizione finale si calcola con l'header GIA' nel suo
    stato definitivo e senza animazioni (classe temporanea
    .ancora-fix): un solo salto, nessuno scatto dopo.
@@ -1840,7 +1840,7 @@ window.WishlistStore = (function () {
    ============================================================ */
 (function () {
   const GAP = 16;
-  const SOGLIA = 120;
+  const SOGLIA = 20;
   const html = document.documentElement;
   let timers = [];
 
