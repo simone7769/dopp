@@ -8,8 +8,8 @@
 
   // Se la pagina è la home, il logo linka "#top"; altrove "index.html#top".
   var isHome = /(^|\/)index\.html?$/.test(location.pathname) || /\/$/.test(location.pathname);
-  var LOGO_HREF = isHome ? '#top' : 'index.html#top';
-  var FOOTER_LOGO_HREF = isHome ? '#top' : 'index.html#top';
+  var LOGO_HREF = 'index.html';
+  var FOOTER_LOGO_HREF = 'index.html';
 
   /* ---------------- HEADER ---------------- */
   var HEADER = '\
