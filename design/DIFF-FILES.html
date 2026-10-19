@@ -175,20 +175,53 @@
       <span class="lbl">File toccati</span>
     </div>
     <div>
-      <span class="val">13276</span>
+      <span class="val">13376</span>
       <span class="lbl">Righe aggiunte</span>
     </div>
     <div>
-      <span class="val">1135</span>
+      <span class="val">1152</span>
       <span class="lbl">Righe rimosse</span>
     </div>
   </div>
 
   <p style="font-size: 13px; color: var(--ink-soft); text-align: center; margin-bottom: 40px;">
-    Da <code>de268ba</code> a <code>2196aa9</code> — 8–19 ottobre 2026
+    Da <code>de268ba</code> a <code>4058b79</code> — 8–19 ottobre 2026
   </p>
 
-<h2>17. Aggiornamento del 19 ottobre 2026 <span class="count">6 file</span></h2>
+<h2>18. Fix pomeridiano 19 ottobre 2026 <span class="count">7 file</span></h2>
+
+  <p style="font-size: 13px; color: var(--ink-soft); text-align: center; margin-bottom: 10px;">100 righe aggiunte · 17 rimosse (5 commit: a160b21, e30463f, 02aae53, 6d72a5d, 4058b79)</p>
+
+  <h3 style="text-align: center; font-family: var(--sans); font-size: 14px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-top: 40px; margin-bottom: 20px;">Sito (comportamento)</h3>
+
+  <table>
+    <tr><th>File</th><th class="n">+</th><th class="n">−</th><th>Descrizione</th></tr>
+    <tr><td class="file">css/base.css</td><td class="n">+7</td><td class="n">0</td><td class="note">Nuova media query <code>@media (hover: none) and (pointer: coarse) and (min-width: 1025px)</code>: header-main padding 29→20px, nav padding 12→8px, topbar padding 4/8→4/4. Desktop intatto. <code>6d72a5d</code></td></tr>
+    <tr><td class="file">js/nav.js</td><td class="n">+4</td><td class="n">−4</td><td class="note">Soglia scroll <code>window.scrollY > 120</code> → <code>window.scrollY > 20</code> (4 occorrenze). Header si comprime subito. <code>6d72a5d</code></td></tr>
+  </table>
+
+  <h3 style="text-align: center; font-family: var(--sans); font-size: 14px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-top: 40px; margin-bottom: 20px;">Documenti</h3>
+
+  <table>
+    <tr><th>File</th><th class="n">+</th><th class="n">−</th><th>Descrizione</th></tr>
+    <tr><td class="file">design/CHANGELOG.html</td><td class="n">+44</td><td class="n">−5</td><td class="note">Sezione 17 (8 commit) + nota trasparenza. <code>a160b21</code>, <code>02aae53</code></td></tr>
+    <tr><td class="file">design/DIFF-FILES.html</td><td class="n">+36</td><td class="n">−4</td><td class="note">Sezione 17 (6 file) + nota trasparenza. <code>a160b21</code>, <code>02aae53</code></td></tr>
+    <tr><td class="file">design/CREDITI.md</td><td class="n">+4</td><td class="n">−3</td><td class="note">23→35 pagine, rimossi MODIFICHE PDF + Specifiche .pdf, PDF archiviati fuori repo. <code>a160b21</code></td></tr>
+    <tr><td class="file">design/Doppelganger_Specifiche_per_agenzia.html</td><td class="n">+2</td><td class="n">−1</td><td class="note">p14 card in evidenza 3/2 su tablet; p15 ancore FAQ + boutique dal Journal. <code>a160b21</code></td></tr>
+  </table>
+
+  <h3 style="text-align: center; font-family: var(--sans); font-size: 14px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-top: 40px; margin-bottom: 20px;">Repo</h3>
+
+  <table>
+    <tr><th>File</th><th class="n">+</th><th class="n">−</th><th>Descrizione</th></tr>
+    <tr><td class="file">.gitignore</td><td class="n">+3</td><td class="n">0</td><td class="note">Aggiunte regole <code>design/*.bak_*</code>, <code>design/*.bak2_*</code>, <code>*.bak_*</code>. <code>e30463f</code>, <code>4058b79</code></td></tr>
+  </table>
+
+  <div style="margin: 16px 0; padding: 12px 16px; background: var(--crema); border-left: 2px solid var(--oro); font-style: italic; font-size: 13px; color: var(--ink-soft);">
+    <b>Nota.</b> L'unico commit che modifica il sito è <code>6d72a5d</code> (header touch + soglia scroll). Gli altri sono aggiornamenti ai documenti o a <code>.gitignore</code>.
+  </div>
+
+  <h2>17. Aggiornamento del 19 ottobre 2026 <span class="count">6 file</span></h2>
 
   <p style="font-size: 13px; color: var(--ink-soft); text-align: center; margin-bottom: 10px;">73 righe aggiunte · 251 rimosse (4 commit di contenuto: 1137b92, 516552f, 8454e18, 5f2228f; 1 commit di docs: 7f9b7a6; 3 commit di chore: 8d6183c, 54a22c4, 2196aa9)</p>
 
