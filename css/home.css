@@ -591,6 +591,15 @@ header.scrolled .topbar {
   .must-have { --mh-visible: 2.5; --mh-gaps: 2; --mh-gap: 32px; }
   .world { --w-visible: 2.5; --w-gaps: 2; --w-gap: 32px; }
   .duo { height: 100vh; height: 100svh; min-height: 500px; }
+  /* Tablet verticale: boiserie e duo come su mobile (card impilate 4/5) */
+  .collection { padding: 60px 0 0; }
+  .collection-frame { aspect-ratio: auto; background: none; transform: none; }
+  .collection.in-view .collection-frame { transform: none; }
+  .collection .grid { position: static; display: flex; flex-direction: column; gap: 14px; }
+  .collection .card:nth-child(1), .collection .card:nth-child(2) { position: static; width: 100%; height: auto; }
+  .collection .card-media { width: 100%; height: auto; aspect-ratio: 4 / 5; padding: 18px; }
+  .duo { grid-template-columns: 1fr; height: auto; min-height: auto; gap: 14px; background: transparent; }
+  .duo-item { height: auto; min-height: 0; aspect-ratio: 4 / 5; }
 }
 
 /* Dispositivi touch (qualsiasi larghezza) e schermi <=1024px: niente frecce,
@@ -602,6 +611,7 @@ header.scrolled .topbar {
 
 @media (max-width: 900px) {
   .collection { padding: 0; }
+
 
   .must-have {
     --mh-pad: 24px;
