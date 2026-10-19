@@ -163,12 +163,3 @@
   padding: 60px 20px;
   margin: 0;
 }
-/* Allineamento a sinistra per i testi delle card Journal */
-.journal-card,
-.journal-card h3,
-.journal-card p,
-.journal-grid h3,
-.journal-grid p {
-  text-align: left;
-}
-
