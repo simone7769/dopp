@@ -460,7 +460,7 @@
         <input type="email" id="footerEmail" name="email" autocomplete="email" placeholder="Il tuo indirizzo email" required>\
         <button type="submit" aria-label="Iscriviti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>\
       </form>\
-      <p class="footer-privacy">Prendo atto che il mio indirizzo email verrà trattato da Doppelgänger secondo quanto previsto dall\'<a href="privacy-cookie.html">Informativa Privacy</a>.</p>\
+      <label class="footer-consent"><input type="checkbox" required> <span>Acconsento a ricevere la newsletter. Ho letto l\'<a href="privacy-cookie.html">Informativa Privacy</a>.</span></label>\
     </div>\
     <div class="footer-col"><h4><button type="button" class="footer-toggle" aria-expanded="false">Corporate<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></h4><ul>\
       <li><a href="club.html">Doppelgänger Club</a></li><li><a href="journal-chi-siamo.html">Chi Siamo</a></li>\

@@ -1375,6 +1375,23 @@ footer {
 }
 .footer-form button:hover { transform: translateX(4px); }
 .footer-form button svg { width: 20px; height: 20px; }
+
+.footer-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: var(--fs-11);
+  line-height: 1.5;
+  color: #cfcbc4;
+}
+.footer-consent input[type="checkbox"] {
+  margin-top: 2px;
+  accent-color: var(--gold);
+  flex: 0 0 auto;
+}
+.footer-consent span { flex: 1; }
+.footer-consent a { color: #cfcbc4; text-decoration: underline; }
+
 .footer-privacy {
   font-size: var(--fs-11);
   line-height: 1.6;
