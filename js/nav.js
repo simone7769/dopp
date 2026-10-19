@@ -1902,6 +1902,8 @@ window.WishlistStore = (function () {
   document.addEventListener('click', function (e) {
     const a = e.target.closest && e.target.closest('a[href*="#"]');
     if (!a || !a.hash || a.pathname !== location.pathname || a.hash !== location.hash) return;
-    setTimeout(function () { allinea(a.hash); }, 0);
+    if (!window.matchMedia('(max-width: 1024px)').matches) return;
+    e.preventDefault();   // blocca scroll nativo (andrebbe verso scroll-padding-top e poi tornerebbe indietro)
+    allinea(a.hash);
   });
 })();
