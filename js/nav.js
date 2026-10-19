@@ -1929,13 +1929,14 @@ document.addEventListener('submit', function (e) {
     return;
   }
   
-  // Se tutto ok: nasconde il form e crea il box di successo
+  // Se tutto ok: nasconde form e checkbox, mostra il box naturale
+  var label = document.querySelector('.footer-consent');
   form.style.display = 'none';
+  if (label) label.style.display = 'none';
   
   var success = document.createElement('div');
   success.className = 'footer-newsletter-success';
   success.textContent = 'Ti sei iscritto alla nostra newsletter.';
   
-  // Inserisce il box al posto del form
   form.parentNode.insertBefore(success, form);
 });

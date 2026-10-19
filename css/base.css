@@ -2450,10 +2450,11 @@ footer {
 }
 
 .footer-newsletter-success {
-  display: block;
+  display: flex;
+  align-items: center;
   background: var(--crema-pannelli);
   color: var(--ink);
-  padding: 16px 20px;
+  padding: 12px 20px;
   font-family: var(--sans);
   font-size: var(--fs-14);
   font-weight: 500;
@@ -2461,4 +2462,5 @@ footer {
   line-height: 1.5;
   margin-bottom: 20px;
   max-width: 380px;
+  box-sizing: border-box;
 }
