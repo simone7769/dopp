@@ -2455,7 +2455,9 @@ footer {
   color: var(--ink);
   padding: 16px 20px;
   font-family: var(--sans);
-  font-size: var(--fs-13);
+  font-size: var(--fs-14);
+  font-weight: 500;
+  letter-spacing: var(--tr-03);
   line-height: 1.5;
   margin-bottom: 20px;
   max-width: 380px;
