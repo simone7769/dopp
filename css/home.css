@@ -542,8 +542,8 @@ html { scroll-snap-type: y proximity; scroll-padding-top: var(--header-h, 170px)
   color: var(--ink);
   text-align: left;
   line-height: 1.5;
-  margin: 0 auto 8px;
-  max-width: 92%;
+  margin: 0 0 8px;
+  max-width: 100%;
 }
 .w-item p.w-desc {
   font-family: var(--sans);
@@ -553,8 +553,8 @@ html { scroll-snap-type: y proximity; scroll-padding-top: var(--header-h, 170px)
   color: var(--ink);
   text-align: left;
   line-height: 1.55;
-  margin: 0 auto;
-  max-width: 92%;
+  margin: 0;
+  max-width: 100%;
 }
 .w-prev { left: var(--w-pad); }
 .w-next { right: var(--w-pad); }
