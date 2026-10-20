@@ -37,9 +37,9 @@ Documento di accompagnamento al pacchetto demo + specifiche. Per chi svilupperà
 - **`doppelganger-app.html`** — Pagina Doppelgänger App: hero, 3 sezioni con mockup iPhone (Boutique/Acquista/Esplora), badge ufficiali App Store e Google Play
 
 ### Modifiche strutturali
-- **Footer ristrutturato**: trust bar, 3 colonne, 5 link legali in basso, 7 voci nuove
+- **Footer ristrutturato**: trust bar con 3 voci (Spedizioni e resi con icona pacco, Pagamento, Assistenza), 3 colonne di link, 5 link legali in basso
 - **Uniformazione "Boutique"**: era "Store Locator" / "Negozi"
-- **Ancore `#spedizioni` e `#resi`** funzionanti
+- **Link a pagina, non a sezione**: i link con `#ancora` sono stati rimossi. Spedizioni e Resi sono una voce unica nel footer; "Dati societari" porta alla pagina privacy completa.
 - **Header mobile**: 60px fisso, `scroll-padding-top: 105px`, `--header-h: 93px` (evita lo spostamento dei contenuti al primo caricamento)
 - **Featured card 3/2 su tablet**: era 2.63:1 (solo busto). Su mobile resta 4:3
 - **Soglia scroll header**: da 120px a 20px (l'header si comprime prima, liberando spazio visivo)
