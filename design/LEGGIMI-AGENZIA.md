@@ -11,7 +11,7 @@ Documento di accompagnamento al pacchetto demo + specifiche. Per chi svilupperà
 | `images/guida-taglie/` | **18 immagini** per la guida taglie (WebP, ~3,4 MB totali) |
 | `fonts/` | Font self-hosted (Cormorant Garamond + Jost) |
 | `js/quick-add.js` | Pannellino quick-add sul «+» delle card: colore + taglia, aggiunge al carrello demo |
-| `design/Doppelganger-Proposta-nuovo-sito.pdf` | Direzione strategica del progetto |
+| `../Doppelganger-Proposta-nuovo-sito.pdf` | Direzione strategica del progetto (fuori dal repo, in `doppelganger-sito PROVA/`) |
 | `design/Doppelganger_Specifiche_per_agenzia.html` | Specifiche tecniche dettagliate (sorgente HTML editabile) |
 | `design/CHANGELOG.html` | Elenco dei commit con descrizione |
 | `design/DIFF-FILES.html` | File toccati, con righe aggiunte/rimosse |
@@ -43,7 +43,6 @@ Documento di accompagnamento al pacchetto demo + specifiche. Per chi svilupperà
 - **Header mobile**: 60px fisso, `scroll-padding-top: 105px`, `--header-h: 93px` (evita lo spostamento dei contenuti al primo caricamento)
 - **Featured card 3/2 su tablet**: era 2.63:1 (solo busto). Su mobile resta 4:3
 - **Soglia scroll header**: da 120px a 20px (l'header si comprime prima, liberando spazio visivo)
-- **Click su stessa ancora**: `preventDefault` su mobile/tablet per evitare il doppio movimento (scroll nativo del browser + correzione JS)
 
 ### Qualità e performance
 - **Validazione**: 0 errori su HTML (html-validate), CSS (csstree-validator), JS (node -c), JSON (json.load) — 41 HTML, 25 CSS, 16 JS, 1 JSON
@@ -83,7 +82,7 @@ Da terminale, nella cartella del progetto:
 - **`overflow-x: clip`** su `html, body`: previene barra orizzontale da elementi full-bleed su Windows.
 - **Parsing prezzi (`nav.js`)**: `.replace(/\./g, '')` per gestire correttamente importi sopra 999 €.
 - **`token.json`** allineato a `tokens.css` (header 169 px, bottoni telefono 44 px, `--fs-16`, spaziature griglia e carosello).
-- **Header mobile fisso a 60 px**: non cambia scrollando. Il logo è stabile (clamp 12-18 px) e non si rimpicciolisce più. Topbar (33 px) sparisce dopo 120 px di scroll. `scroll-padding-top: 105 px` (era 160) come ripiego, ma il blocco ANCORE di `nav.js` misura l'header reale al click.
+- **Header mobile fisso a 60 px**: non cambia scrollando. Il logo è stabile (clamp 12-18 px) e non si rimpicciolisce più. Topbar (33 px) sparisce dopo 20 px di scroll. `scroll-padding-top: 105 px` come ripiego CSS, ma i link non usano più `#ancora`: puntano a pagina, e il blocco ANCORE di `nav.js` è stato rimosso.
 
 ## Contatti
 
