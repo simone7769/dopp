@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Badge prodotto — Doppelgänger Sito</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap');
+  :root {
+    --paper: #FCFCFB;
+    --crema: #FAF8F5;
+    --ink: #2B2B2B;
+    --ink-soft: #4A463F;
+    --gold: #B8935A;
+    --line: #E5E2DC;
+    --muted: #8A7D63;
+    --danger: #A32638;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Jost', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: var(--sans);
+    font-weight: 300;
+    color: var(--ink);
+    background: var(--crema);
+    line-height: 1.65;
+    padding: 40px 20px;
+  }
+  .wrap {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: var(--paper);
+    padding: 60px 70px;
+    border: 1px solid var(--line);
+  }
+  h1 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 40px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-align: center;
+    margin-bottom: 12px;
+  }
+  .subtitle {
+    font-family: var(--serif);
+    font-size: 17px;
+    font-style: italic;
+    color: var(--muted);
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .intro {
+    font-family: var(--serif);
+    font-size: 16px;
+    color: var(--ink-soft);
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 50px;
+    line-height: 1.7;
+  }
+  h2 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 22px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-top: 50px;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--gold);
+  }
+  h2:first-of-type { margin-top: 0; }
+  h3 {
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 30px 0 12px;
+  }
+  p {
+    font-family: var(--serif);
+    font-size: 16px;
+    color: var(--ink);
+    margin-bottom: 14px;
+  }
+  p strong { font-weight: 500; }
+
+  /* ============================================================
+     BADGE
+     ============================================================ */
+  .badge {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    font-family: var(--sans);
+    font-size: clamp(8px, 2.7cqw, 11px);
+    font-weight: 400;
+    letter-spacing: clamp(1px, 0.44cqw, 1.8px);
+    text-transform: uppercase;
+    padding: 0 clamp(7px, 3.4cqw, 14px);
+    border-radius: 0;
+    line-height: 1;
+    pointer-events: none;
+    display: inline-flex;
+    align-items: center;
+    height: clamp(18px, 6.6cqw, 27px);
+    box-sizing: border-box;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  }
+  .badge.bestseller { background: rgba(184, 147, 90, 0.92); color: #fff; }
+  .badge.new-in    { background: rgba(43, 43, 43, 0.85); color: #fff; }
+  .badge.sale      { background: rgba(163, 38, 56, 0.88); color: #fff; }
+  .badge.outlet    { background: rgba(122, 26, 40, 0.88); color: #fff; }
+  .badge.ultimi    { background: rgba(74, 70, 63, 0.85); color: #fff; }
+  .badge.esclusiva { background: rgba(140, 111, 66, 0.92); color: #fff; }
+
+  /* Mappa schematica posizioni (wireframe) */
+  .map {
+    position: relative;
+    aspect-ratio: 3 / 4;
+    width: 100%;
+    margin: 0;
+    background: var(--crema);
+    border: 1px dashed var(--line);
+    font-family: var(--sans);
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .map .pin {
+    position: absolute;
+    padding: 8px 12px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    line-height: 1;
+    font-weight: 500;
+  }
+  .map .pin.tl { top: 0; left: 0; border-color: var(--gold); color: var(--gold); }
+  .map .pin.tr { top: 0; right: 0; }
+  .map .pin.bl { bottom: 0; left: 0; }
+  .map .pin.center {
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--muted);
+    border: none;
+    background: transparent;
+    text-align: center;
+    font-size: 14px;
+    letter-spacing: 2px;
+    font-weight: 400;
+    line-height: 1.4;
+  }
+
+  /* Prezzo scontato */
+  .price-block {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    flex-wrap: wrap;
+    font-family: var(--sans);
+  }
+  .price-block .price-old {
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--ink-soft);
+    text-decoration: line-through;
+  }
+  .price-block .price-now {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--danger);
+  }
+  .price-block .price-off {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: var(--danger);
+  }
+
+  /* ============================================================
+     ANATOMIA — card completa vs solo badge
+     ============================================================ */
+  /* Due colonne condividono le righe: didascalie e liste allineate */
+  .anatomia {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto auto;
+    column-gap: 40px;
+    row-gap: 16px;
+    margin: 30px 0 20px;
+    align-items: start;
+  }
+  .anatomia-col {
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: 1 / -1;
+    align-items: start;
+  }
+  .anatomia-label {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .anatomia-label .count {
+    color: var(--gold);
+    font-weight: 500;
+  }
+  .anatomia-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-family: var(--sans);
+    font-size: 12px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+  }
+  .anatomia-list li {
+    padding: 6px 0 6px 16px;
+    position: relative;
+    border-bottom: 1px solid var(--line);
+  }
+  .anatomia-list li:last-child { border-bottom: none; }
+  .anatomia-list li::before {
+    content: "·";
+    position: absolute;
+    left: 2px;
+    top: 4px;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1;
+  }
+  .anatomia-list b {
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  /* Tabella specifiche */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--sans);
+    font-size: 13px;
+    margin: 20px 0;
+  }
+  th {
+    text-align: left;
+    padding: 12px 10px;
+    border-bottom: 1px solid var(--ink);
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  td {
+    padding: 12px 10px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  td strong { font-weight: 500; }
+
+  /* Codice */
+  pre {
+    background: var(--crema);
+    border-left: 3px solid var(--gold);
+    padding: 18px 20px;
+    font-family: 'SF Mono', Menlo, monospace;
+    font-size: 11.5px;
+    line-height: 1.65;
+    color: var(--ink);
+    overflow-x: auto;
+    margin: 16px 0;
+    white-space: pre;
+  }
+  code {
+    font-family: 'SF Mono', Menlo, monospace;
+    font-size: 12px;
+    background: var(--crema);
+    padding: 2px 6px;
+    color: var(--gold);
+  }
+  pre code { background: none; padding: 0; color: inherit; }
+
+  /* Regole */
+  .rules {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+  }
+  .rules li {
+    font-family: var(--serif);
+    font-size: 16px;
+    color: var(--ink);
+    padding: 12px 0 12px 30px;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+    line-height: 1.6;
+  }
+  .rules li:last-child { border-bottom: none; }
+  .rules li::before {
+    content: "·";
+    position: absolute;
+    left: 8px;
+    top: 8px;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 20px;
+  }
+  .rules li.do::before {
+    content: "✓";
+    font-size: 14px;
+    top: 13px;
+    color: var(--gold);
+  }
+  .rules li.dont::before {
+    content: "✗";
+    font-size: 14px;
+    top: 13px;
+    color: var(--danger);
+  }
+
+  .footer {
+    margin-top: 60px;
+    padding-top: 30px;
+    border-top: 1px solid var(--line);
+    text-align: center;
+    font-family: var(--serif);
+    font-size: 16px;
+    color: var(--muted);
+    letter-spacing: 1px;
+  }
+
+  @page { margin: 18mm 15mm; size: A4; }
+  @media print {
+    html, body { background: white !important; padding: 0 !important; margin: 0 !important; font-size: 10pt; }
+    .wrap { max-width: none; border: none !important; padding: 0 !important; background: white !important; }
+    h1, h2, h3 { break-after: avoid; page-break-after: avoid; }
+    h2 { margin-top: 24px !important; }
+    .badge-card, .badge-grid, .rules, pre, table,
+    .anatomia, .anatomia-col { break-inside: avoid; page-break-inside: avoid; }
+    .badge-grid { grid-template-columns: repeat(3, 1fr); }
+    .anatomia { grid-template-columns: 1fr 1fr; gap: 20px; }
+    a { color: inherit !important; text-decoration: none !important; }
+  }
+  @media (max-width: 900px) {
+    .wrap { padding: 40px 30px; }
+    .badge-grid { grid-template-columns: repeat(2, 1fr); }
+    .anatomia { grid-template-columns: 1fr; grid-template-rows: none; gap: 30px; }
+    .anatomia-col { display: flex; flex-direction: column; gap: 16px; grid-row: auto; }
+  }
+  @media (max-width: 640px) {
+    .badge-grid { grid-template-columns: 1fr; }
+  }
+
+  
+  /* ============================================================
+     CARD PRODOTTO — Identiche al progetto
+     ============================================================ */
+  .badge-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px 24px;
+    margin: 24px 0;
+  }
+  .product-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: var(--ink);
+    position: relative;
+    container-type: inline-size;
+  }
+  .product-card .product-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+  }
+  .product-card .img-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    background-color: var(--paper);
+    overflow: hidden;
+    container-type: inline-size;
+  }
+  .product-card .img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .product-card .img-wrap .img-main {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+  .product-card .img-wrap .img-hover {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+  .product-card:hover .img-wrap .img-hover {
+    opacity: 1;
+  }
+
+  .product-info {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    gap: 12px;
+    padding-top: 12px;
+  }
+  .product-info .details {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+  }
+  .product-info .details h3 {
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 0.3px;
+    line-height: 20px;
+    color: var(--ink);
+    text-transform: none;
+    margin: 0 0 6px; /* annulla il margine dell'h3 generico (30px sopra) */
+  }
+  .product-info .details .price,
+  .product-info .details .price-now {
+    font-family: var(--sans);
+    font-size: 14px; /* Dimensione corretta */
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    color: var(--ink);
+  }
+  .product-info .details .price-now {
+    color: var(--danger);
+  }
+  .product-info .details .price-old {
+    font-size: 12px;
+    font-weight: 300;
+    color: #999999;
+    text-decoration: line-through;
+  }
+  .product-info .details .price-off {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: var(--danger);
+  }
+  .product-info .plus {
+    background: transparent;
+    border: none;
+    color: var(--ink);
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 20px; /* stessa riga del titolo: + centrato sul nome */
+    height: 20px;
+    padding: 0 2px;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+    font-family: var(--sans);
+  }
+  .product-info .plus:hover {
+    opacity: 0.5;
+  }
+
+  /* Cuore preferiti */
+  .wish {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 32px;
+    height: 32px;
+    background: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 3;
+    padding: 0;
+    outline: none;
+  }
+  .wish svg {
+    width: 18px; /* Dimensione corretta */
+    height: 18px;
+    stroke: #fff;
+    fill: none;
+    stroke-width: 1.5;
+    filter: drop-shadow(0 1px 3px rgba(0,0,0,0.45));
+    transition: transform 0.2s ease, fill 0.2s ease, stroke 0.2s ease;
+  }
+  .wish:hover svg {
+    transform: scale(1.12);
+  }
+  .wish.active svg {
+    fill: var(--gold);
+    stroke: var(--gold);
+    filter: drop-shadow(0 1px 3px rgba(0,0,0,0.15));
+  }
+  
+  @media (hover: hover) and (min-width: 901px) {
+    .product-card .wish { opacity: 0; }
+    .product-card:hover .wish,
+    .wish:focus-visible,
+    .wish.active { opacity: 1; }
+  }
+  @media (max-width: 900px) {
+    .wish { top: 10px; right: 10px; opacity: 1; }
+    .wish svg { width: 16px; height: 16px; }
+  }
+  @media (max-width: 520px) {
+    .wish { top: 6px; right: 6px; width: 28px; height: 28px; }
+    .wish svg { width: 14px; height: 14px; }
+  }
+
+
+  /* ============================================================
+     ARTICOLI SIMILI — CSS attivo (mancava)
+     ============================================================ */
+  .product-card .similar {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 4;
+    display: inline-flex;
+    align-items: center;
+    gap: clamp(4px, 1.5cqw, 6px);
+    height: clamp(18px, 6.6cqw, 27px);
+    padding: 0 clamp(7px, 3.4cqw, 14px);
+    background: rgba(252, 252, 251, 0.92);
+    color: var(--ink);
+    border: 0;
+    border-radius: 0;
+    font-family: var(--sans);
+    font-size: clamp(8px, 2.7cqw, 11px);
+    font-weight: 400;
+    letter-spacing: clamp(1px, 0.44cqw, 1.8px);
+    text-transform: uppercase;
+    line-height: 1;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  .product-card .similar svg {
+    width: clamp(9px, 2.9cqw, 12px);
+    height: clamp(9px, 2.9cqw, 12px);
+    display: block;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 1.5;
+  }
+
+  /* ============================================================
+     CARD DI RIFERIMENTO (§3, dentro .anatomia) — misure originali,
+     annulla il clamp solo qui
+     ============================================================ */
+  .anatomia .badge {
+    font-size: 11px !important;
+    letter-spacing: 1.8px !important;
+    padding: 0 14px !important;
+    height: 27px !important;
+    top: 0 !important;
+    left: 0 !important;
+  }
+  .anatomia .similar {
+    gap: 6px !important;
+    height: 27px !important;
+    padding: 0 14px !important;
+    font-size: 11px !important;
+    letter-spacing: 1.8px !important;
+    left: 0 !important;
+    bottom: 0 !important;
+  }
+  .anatomia .similar svg {
+    width: 12px !important;
+    height: 12px !important;
+  }
+  .anatomia .wish {
+    top: 10px !important;
+    right: 10px !important;
+    width: 32px !important;
+    height: 32px !important;
+  }
+  .anatomia .wish svg {
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  /* ============================================================
+     CARD PICCOLE — titolo, prezzo, plus proporzionali alla card
+     Solo dentro .badge-grid: la card grande .anatomia resta invariata
+     ============================================================ */
+  .badge-grid .product-card .product-info {
+    gap: clamp(8px, 2.9cqw, 12px);
+    padding-top: clamp(8px, 2.9cqw, 12px);
+  }
+  .badge-grid .product-card .product-info .details h3 {
+    font-size: clamp(11px, 3.4cqw, 14px);
+    line-height: clamp(14px, 4.9cqw, 20px);
+    margin: 0 0 clamp(4px, 1.46cqw, 6px);
+  }
+  .badge-grid .product-card .product-info .details .price,
+  .badge-grid .product-card .product-info .details .price-now {
+    font-size: clamp(11px, 3.4cqw, 14px);
+  }
+  .badge-grid .product-card .product-info .details .price-old {
+    font-size: clamp(10px, 2.9cqw, 12px);
+  }
+  .badge-grid .product-card .product-info .details .price-off {
+    font-size: clamp(9px, 2.7cqw, 11px);
+    letter-spacing: clamp(0.6px, 0.24cqw, 1px);
+  }
+  .badge-grid .product-card .product-info .plus {
+    font-size: clamp(16px, 5.85cqw, 24px);
+    line-height: clamp(14px, 4.9cqw, 20px);
+    height: clamp(14px, 4.9cqw, 20px);
+    padding: 0 clamp(1px, 0.5cqw, 2px);
+  }
+
+  /* ============================================================
+     CARD PICCOLE — cuore proporzionale
+     Solo dentro .badge-grid: la card grande .anatomia resta invariata
+     ============================================================ */
+  .badge-grid .product-card .wish {
+    top: clamp(4px, 2.44cqw, 10px);
+    right: clamp(4px, 2.44cqw, 10px);
+    width: clamp(20px, 7.8cqw, 32px);
+    height: clamp(20px, 7.8cqw, 32px);
+  }
+  .badge-grid .product-card .wish svg {
+    width: clamp(12px, 4.88cqw, 20px);
+    height: clamp(12px, 4.88cqw, 20px);
+  }
+
+  /* Didascalie figure §3 */
+  
+  
+
+  
+  .figure-caption {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--muted);
+    margin: 12px 0 16px;
+    padding: 0 4px;
+    border-left: 2px solid var(--gold);
+    padding-left: 12px;
+  }
+  .figure-caption b {
+    font-family: var(--sans);
+    font-style: normal;
+    font-weight: 500;
+    font-size: 10px;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 4px;
+  }
+</style>
+
+
+
+</head>
+<body>
+
+<div class="wrap">
+
+  <h1>Badge prodotto</h1>
+  <p class="subtitle">Etichette sulle card — regole, esempi visivi e codice</p>
+
+  <p class="intro">Le etichette sulle card prodotto comunicano in un colpo d'occhio lo stato di un capo: nuovo, in saldo, bestseller. Nella demo <strong>non sono state implementate</strong> per non appesantire il sito. Questo documento raccoglie le regole per l'agenzia, con esempi visivi e codice pronto. Include la <strong>mappa completa della card</strong> (§4), così si vede subito come badge, cuore preferiti e “Articoli simili” convivono senza sovrapporsi.</p>
+
+  <h2>1. I quattro badge principali</h2>
+
+  <p>Quattro categorie, tutte basate sul sito reale Doppelgänger. Ogni card ha <strong>al massimo un badge</strong>: mai due sovrapposti.</p>
+
+  <h3>Esempi visivi</h3>
+  <div class="badge-grid">
+    <div class="product-card">
+      <a href="#" class="product-link">
+        <div class="img-wrap">
+          <span class="badge bestseller">Bestseller</span>
+          <img src="images/2.webp" alt="Abito uomo monopetto" class="img-main">
+          <img src="images/2b.webp" alt="Abito uomo monopetto - vista alternativa" class="img-hover" loading="lazy">
+        </div>
+      </a>
+      <div class="product-info">
+        <a href="#" class="details">
+          <h3>Abito uomo monopetto</h3>
+          <span class="price">€ 139,00</span>
+        </a>
+        <button class="plus" type="button" aria-label="Aggiungi">+</button>
+      </div>
+      <button class="wish" type="button" aria-label="Aggiungi ai preferiti">
+        <svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg>
+      </button>
+    </div>
+
+    <div class="product-card">
+      <a href="#" class="product-link">
+        <div class="img-wrap">
+          <span class="badge new-in">New in</span>
+          <img src="images/3.webp" alt="Impermeabile uomo doppiopetto" class="img-main">
+          <img src="images/3b.webp" alt="Impermeabile uomo doppiopetto - vista alternativa" class="img-hover" loading="lazy">
+        </div>
+      </a>
+      <div class="product-info">
+        <a href="#" class="details">
+          <h3>Impermeabile uomo doppiopetto</h3>
+          <span class="price">€ 149,00</span>
+        </a>
+        <button class="plus" type="button" aria-label="Aggiungi">+</button>
+      </div>
+      <button class="wish" type="button" aria-label="Aggiungi ai preferiti">
+        <svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg>
+      </button>
+    </div>
+
+    <div class="product-card">
+      <a href="#" class="product-link">
+        <div class="img-wrap">
+          <span class="badge sale">Saldi</span>
+          <img src="images/1.webp" alt="Pantalone uomo in denim" class="img-main">
+          <img src="images/1b.webp" alt="Pantalone uomo in denim - vista alternativa" class="img-hover" loading="lazy">
+        </div>
+      </a>
+      <div class="product-info">
+        <a href="#" class="details">
+          <h3>Pantalone uomo in denim</h3>
+          <div class="price-block"><s class="price-old">€ 49,99</s><span class="price-now">€ 24,99</span><span class="price-off">-50%</span></div>
+        </a>
+        <button class="plus" type="button" aria-label="Aggiungi">+</button>
+      </div>
+      <button class="wish" type="button" aria-label="Aggiungi ai preferiti">
+        <svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg>
+      </button>
+    </div>
+
+    <div class="product-card">
+      <a href="#" class="product-link">
+        <div class="img-wrap">
+          <span class="badge outlet">Outlet</span>
+          <img src="images/4.webp" alt="Cappotto outlet" class="img-main">
+          <img src="images/4b.webp" alt="Cappotto outlet - vista alternativa" class="img-hover" loading="lazy">
+        </div>
+      </a>
+      <div class="product-info">
+        <a href="#" class="details">
+          <h3>Abito uomo monopetto in lana</h3>
+          <span class="price">€ 49,90</span>
+        </a>
+        <button class="plus" type="button" aria-label="Aggiungi">+</button>
+      </div>
+      <button class="wish" type="button" aria-label="Aggiungi ai preferiti">
+        <svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg>
+      </button>
+    </div>
+
+    <div class="product-card">
+      <a href="#" class="product-link">
+        <div class="img-wrap">
+          <img src="images/5.webp" alt="Pantalone uomo in tela pesante" class="img-main">
+          <img src="images/5b.webp" alt="Pantalone uomo in tela pesante - vista alternativa" class="img-hover" loading="lazy">
+        </div>
+      </a>
+      <div class="product-info">
+        <a href="#" class="details">
+          <h3>Pantalone uomo in tela pesante</h3>
+          <span class="price">€ 79,99</span>
+        </a>
+        <button class="plus" type="button" aria-label="Aggiungi">+</button>
+      </div>
+      <button class="wish" type="button" aria-label="Aggiungi ai preferiti">
+        <svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg>
+      </button>
+    </div>
+
+    <div class="product-card">
+      <a href="#" class="product-link">
+        <div class="img-wrap">
+          <img src="images/6.webp" alt="Pantalone uomo chino classico" class="img-main">
+          <img src="images/6b.webp" alt="Pantalone uomo chino classico - vista alternativa" class="img-hover" loading="lazy">
+        </div>
+      </a>
+      <div class="product-info">
+        <a href="#" class="details">
+          <h3>Pantalone uomo chino classico</h3>
+          <span class="price">€ 129,99</span>
+        </a>
+        <button class="plus" type="button" aria-label="Aggiungi">+</button>
+      </div>
+      <button class="wish" type="button" aria-label="Aggiungi ai preferiti">
+        <svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <p style="font-size: 13px; font-family: var(--sans); color: var(--muted); text-align: center;">Le ultime due card sono esempi <strong>senza badge</strong>. Nella griglia, le card senza badge devono essere la maggioranza.<br>Per non distrarre dal badge, in questa sezione cuore e articoli simili sono omessi: la <strong>card completa</strong> è in §4.</p>
+
+  <h3>Specifiche tecniche</h3>
+  <table>
+    <tr><th>Tipo</th><th>Sfondo</th><th>Testo</th><th>Quando si usa</th></tr>
+    <tr>
+      <td><strong>Bestseller</strong></td>
+      <td>Oro 92% (vetro)</td>
+      <td>Bianco, maiuscolo</td>
+      <td>Prodotti più venduti nella categoria, in evidenza stabile</td>
+    </tr>
+    <tr>
+      <td><strong>New in</strong></td>
+      <td>Inchiostro 85% (vetro)</td>
+      <td>Bianco, maiuscolo</td>
+      <td>Nuovi arrivi della stagione, primi 30-60 giorni</td>
+    </tr>
+    <tr>
+      <td><strong>Saldi</strong></td>
+      <td>Rosso 88% (vetro)</td>
+      <td>Bianco, maiuscolo</td>
+      <td>Prodotti in promozione; la percentuale (-30%, -50%) va sul prezzo, non nel badge (vedi §4)</td>
+    </tr>
+    <tr>
+      <td><strong>Outlet</strong></td>
+      <td>Rosso scuro 88% (vetro)</td>
+      <td>Bianco, maiuscolo</td>
+      <td>Solo nelle pagine Outlet</td>
+    </tr>
+  </table>
+
+  <h2>2. Badge opzionali</h2>
+
+  <p>Due categorie aggiuntive, <strong>da concordare con il cliente</strong>. Non sono nel sito attuale Doppelgänger, ma sono coerenti col sistema. Se il cliente non le chiede, l'agenzia non le implementa.</p>
+
+  <div class="badge-grid">
+    <div class="product-card">
+      <a href="#" class="product-link">
+        <div class="img-wrap">
+          <span class="badge ultimi">Ultimi pezzi</span>
+          <img src="images/9.webp" alt="Giacca uomo monopetto tinta in capo" class="img-main">
+          <img src="images/9b.webp" alt="Giacca uomo monopetto tinta in capo - vista alternativa" class="img-hover" loading="lazy">
+        </div>
+      </a>
+      <div class="product-info">
+        <a href="#" class="details">
+          <h3>Giacca uomo monopetto tinta in capo</h3>
+          <span class="price">€ 119,99</span>
+        </a>
+        <button class="plus" type="button" aria-label="Aggiungi">+</button>
+      </div>
+      <button class="wish" type="button" aria-label="Aggiungi ai preferiti">
+        <svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg>
+      </button>
+    </div>
+
+    <div class="product-card">
+      <a href="#" class="product-link">
+        <div class="img-wrap">
+          <span class="badge esclusiva">Esclusiva</span>
+          <img src="images/8.webp" alt="Giubbotto uomo in simil camoscio" class="img-main">
+          <img src="images/8b.webp" alt="Giubbotto uomo in simil camoscio - vista alternativa" class="img-hover" loading="lazy">
+        </div>
+      </a>
+      <div class="product-info">
+        <a href="#" class="details">
+          <h3>Giubbotto uomo in simil camoscio</h3>
+          <span class="price">€ 59,99</span>
+        </a>
+        <button class="plus" type="button" aria-label="Aggiungi">+</button>
+      </div>
+      <button class="wish" type="button" aria-label="Aggiungi ai preferiti">
+        <svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <table>
+    <tr><th>Tipo</th><th>Sfondo</th><th>Testo</th><th>Quando si usa</th></tr>
+    <tr>
+      <td><strong>Ultimi pezzi</strong></td>
+      <td>Inchiostro soft #4A463F</td>
+      <td>Bianco</td>
+      <td>Disponibilità limitata, sotto le 3-5 unità per taglia</td>
+    </tr>
+    <tr>
+      <td><strong>Esclusiva</strong></td>
+      <td>Oro #B8935A</td>
+      <td>Bianco</td>
+      <td>Capi esclusivi online o in selezionate boutique</td>
+    </tr>
+  </table>
+
+  <h2>3. Anatomia della card</h2>
+
+  <div class="anatomia">
+
+    <!-- CARD COMPLETA -->
+    <div class="anatomia-col">
+      <div class="anatomia-label">
+        <span>Completa — tutti gli elementi</span>
+        <span class="count">5</span>
+      </div>
+
+      
+
+      
+        
+          <article class="product-card">
+        <div class="img-wrap">
+          <span class="badge esclusiva">Esclusiva</span>
+          <a href="#" class="product-link">
+            <img src="images/8.webp" alt="Giubbotto uomo in simil camoscio" class="img-main">
+            <img src="images/8b.webp" alt="Giubbotto uomo in simil camoscio - vista alternativa" class="img-hover" loading="lazy">
+          </a>
+          <button class="similar" type="button" aria-label="Mostra articoli simili">
+            <svg viewBox="0 0 24 24"><path d="M4 7h10v10H4z"/><path d="M8 3h12v12"/></svg>
+            <span>Articoli simili</span>
+          </button>
+        </div>
+        <div class="product-info">
+          <a href="#" class="details">
+            <h3>Giubbotto uomo in simil camoscio</h3>
+            <div class="price-block" data-old="59.99" data-now="41.99">
+              <s class="price-old">€ 59,99</s>
+              <span class="price-now">€ 41,99</span>
+              <span class="price-off">-30%</span>
+            </div>
+          </a>
+          <button class="plus" type="button" aria-label="Aggiungi">+</button>
+        </div>
+        <button class="wish" type="button" aria-label="Aggiungi ai preferiti">
+          <svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg>
+        </button>
+      </article>
+
+        <p class="figure-caption">
+          <b>Fig. 1 · Card completa</b>
+          La card di riferimento nella sua composizione massima: badge, cuore, articoli simili, titolo e prezzo scontato. È la proporzione da cui derivano tutte le altre.
+        </p>
+          <ul class="anatomia-list">
+        <li><b>Badge</b> — alto a sinistra, non cliccabile (<code>pointer-events:none</code>)</li>
+        <li><b>Cuore preferiti</b> — alto a destra, pulsante</li>
+        <li><b>Articoli simili</b> — basso a sinistra, pulsante</li>
+        <li><b>Titolo</b> — sotto l'immagine, link</li>
+        <li><b>Prezzo scontato</b> — barrato + nuovo + %, sotto il titolo</li>
+      </ul>
+    </div>
+
+    <!-- CARD SOLO BADGE -->
+    <div class="anatomia-col">
+      <div class="anatomia-label">
+        <span>Mappa delle posizioni</span>
+        <span class="count">4</span>
+      </div>
+
+      
+
+      
+        
+          <div class="map" aria-label="Mappa posizioni dentro img-wrap">
+        <span class="pin tl">Badge</span>
+        <span class="pin tr">&#9825; Cuore</span>
+        <span class="pin bl">&#8862; Articoli simili</span>
+        <span class="pin center">Immagine<br>prodotto</span>
+      </div>
+        <p class="figure-caption">
+          <b>Fig. 2 · Mappa delle posizioni</b>
+          Dove va ciascun elemento dentro <code>.img-wrap</code>: badge in alto a sinistra, cuore in alto a destra, articoli simili in basso a sinistra, immagine al centro.
+        </p>
+          <ul class="anatomia-list">
+        <li><b>Badge</b> — alto a sinistra, non cliccabile (<code>pointer-events:none</code>)</li>
+        <li><b>Cuore preferiti</b> — alto a destra, pulsante</li>
+        <li><b>Articoli simili</b> — basso a sinistra, pulsante con finitura badge</li>
+        <li><b>Immagine</b> — centro, area libera per il capo</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <p style="font-size: 13px; font-family: var(--sans); color: var(--muted); text-align: center;">La card completa serve da riferimento visivo: <strong>badge in alto a sinistra, cuore in alto a destra, articoli simili in basso a sinistra</strong>. I tre elementi non si sovrappongono mai.<br><strong>Nota:</strong> questa composizione massima è valida solo su <em>griglie miste</em> (home, collezioni). In pagine Saldi / Special Price il badge va rimosso (vedi §4): restano cuore, articoli simili e prezzo scontato.<br><strong>A destra, la mappa delle posizioni</strong> mostra dove va ciascun elemento dentro <code>.img-wrap</code>: badge in alto a sinistra, cuore in alto a destra, articoli simili in basso a sinistra, immagine al centro.</p>
+
+  <h3>HTML — card completa (valid markup)</h3>
+  <p>La card è un <code>&lt;article&gt;</code> con link interni separati. Non deve essere un unico grande <code>&lt;a&gt;</code> che avvolge tutto: i pulsanti (cuore, articoli simili) non sono validi dentro un link.</p>
+  <pre><code>&lt;article class="product-card"&gt;
+  &lt;div class="img-wrap"&gt;
+    &lt;span class="badge esclusiva"&gt;Esclusiva&lt;/span&gt;
+
+    &lt;a href="#" class="img-link" aria-label="Vedi Giubbotto uomo in simil camoscio"&gt;
+      &lt;img src="images/8.webp" alt="Giubbotto uomo in simil camoscio" class="img-main"&gt;
+      &lt;img src="images/o-2.webp" alt="" class="img-hover"&gt;
+    &lt;/a&gt;
+
+    &lt;button class="wish" type="button" aria-label="Aggiungi ai preferiti"&gt;
+      &lt;svg viewBox="0 0 24 24"&gt;…&lt;/svg&gt;
+    &lt;/button&gt;
+
+    &lt;button class="similar" type="button" aria-label="Mostra articoli simili"&gt;
+      &lt;svg viewBox="0 0 24 24"&gt;…&lt;/svg&gt;
+      &lt;span&gt;Articoli simili&lt;/span&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+
+  &lt;div class="info"&gt;
+    &lt;a class="product-title" href="#"&gt;Giubbotto uomo in simil camoscio&lt;/a&gt;
+    &lt;div class="price-block" data-old="59.99" data-now="41.99"&gt;
+      &lt;s class="price-old"&gt;€ 59,99&lt;/s&gt;
+      &lt;span class="price-now"&gt;€ 41,99&lt;/span&gt;
+      &lt;span class="price-off"&gt;-30%&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/article&gt;</code></pre>
+
+  <h3>HTML — struttura minima (solo badge)</h3>
+  <pre><code>&lt;article class="product-card"&gt;
+  &lt;div class="img-wrap"&gt;
+    &lt;span class="badge new-in"&gt;New in&lt;/span&gt;
+    &lt;a href="#" class="img-link" aria-label="Vedi Impermeabile uomo doppiopetto"&gt;
+      &lt;img src="images/3.webp" alt="Impermeabile uomo doppiopetto"&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div class="info"&gt;
+    &lt;a class="product-title" href="#"&gt;Impermeabile uomo doppiopetto&lt;/a&gt;
+    &lt;span class="price"&gt;€ 149,00&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/article&gt;</code></pre>
+
+  <h3>Regole di composizione</h3>
+  <ul class="rules">
+    <li class="do"><strong>Tre elementi nell'immagine, tre angoli.</strong> Badge in alto a sinistra, cuore in alto a destra, articoli simili in basso a sinistra. La zona in basso a destra resta libera (di norma ci va una seconda immagine in hover o il nome della taglia).</li>
+    <li class="do"><strong>Cuore e articoli simili sono standard.</strong> Sono elementi fissi della card Doppelgänger: vanno sempre presenti, come nel sito attuale. È il <em>badge</em> a essere opzionale, e dipende dalla pagina.</li>
+    <li class="do"><strong>Pagine Saldi / Special Price / Outlet: card senza badge,</strong> con prezzo scontato. Vedi §4. Quindi anche la card “completa” perde il badge in quelle pagine.</li>
+    <li class="dont"><strong>Quattro o più elementi dentro l'immagine.</strong> Oltre tre overlay, la card diventa rumorosa e il capo non si vede più.</li>
+    <li class="dont"><strong>Badge ruotato, angoli arrotondati, percentuali sull'immagine.</strong> Tutto ciò che non è in questa card completa è da evitare.</li>
+  </ul>
+
+  <h2>4. Prezzi scontati</h2>
+
+  <p>Il badge dice <strong>che</strong> un capo è in promozione; il prezzo dice <strong>quanto</strong>. Le due cose stanno in posti diversi: il badge sull'immagine (in alto a sinistra), l'informazione di sconto <strong>sotto la card</strong>, accanto al prezzo. La percentuale non va mai nel badge né sull'immagine: una cifra in angolo dà un tono da volantino.</p>
+
+  <h3>Esempi visivi</h3>
+  <div class="badge-grid">
+    <div class="product-card">
+      <a href="#" class="product-link">
+        <div class="img-wrap">
+          <span class="badge sale">Saldi</span>
+          <img src="images/1.webp" alt="Pantalone uomo in denim" class="img-main">
+          <img src="images/1b.webp" alt="Pantalone uomo in denim - vista alternativa" class="img-hover" loading="lazy">
+        </div>
+      </a>
+      <div class="product-info">
+        <a href="#" class="details">
+          <h3>Pantalone uomo in denim</h3>
+          <div class="price-block"><s class="price-old">€ 49,99</s><span class="price-now">€ 24,99</span><span class="price-off">-50%</span></div>
+        </a>
+        <button class="plus" type="button" aria-label="Aggiungi">+</button>
+      </div>
+      <button class="wish" type="button" aria-label="Aggiungi ai preferiti">
+        <svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg>
+      </button>
+    </div>
+
+    <div class="product-card">
+      <a href="#" class="product-link">
+        <div class="img-wrap">
+          <img src="images/4.webp" alt="Abito uomo monopetto in lana" class="img-main">
+          <img src="images/4b.webp" alt="Abito uomo monopetto in lana - vista alternativa" class="img-hover" loading="lazy">
+        </div>
+      </a>
+      <div class="product-info">
+        <a href="#" class="details">
+          <h3>Abito uomo monopetto in lana</h3>
+          <div class="price-block"><s class="price-old">€ 129,00</s><span class="price-now">€ 90,30</span><span class="price-off">-30%</span></div>
+        </a>
+        <button class="plus" type="button" aria-label="Aggiungi">+</button>
+      </div>
+      <button class="wish" type="button" aria-label="Aggiungi ai preferiti">
+        <svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg>
+      </button>
+    </div>
+
+    <div class="product-card">
+      <a href="#" class="product-link">
+        <div class="img-wrap">
+          <img src="images/5.webp" alt="Pantalone uomo in tela pesante" class="img-main">
+          <img src="images/5b.webp" alt="Pantalone uomo in tela pesante - vista alternativa" class="img-hover" loading="lazy">
+        </div>
+      </a>
+      <div class="product-info">
+        <a href="#" class="details">
+          <h3>Pantalone uomo in tela pesante</h3>
+          <span class="price">€ 79,99</span>
+        </a>
+        <button class="plus" type="button" aria-label="Aggiungi">+</button>
+      </div>
+      <button class="wish" type="button" aria-label="Aggiungi ai preferiti">
+        <svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <p style="font-size: 13px; font-family: var(--sans); color: var(--muted); text-align: center;"><strong>Prima card:</strong> griglia mista (home, collezioni), badge + prezzo scontato. <strong>Seconda card:</strong> pagina Saldi / Special Price / Outlet, solo prezzo scontato, senza badge. <strong>Terza card:</strong> prezzo pieno, nessuna variazione.</p>
+
+  <h3>Specifiche tecniche</h3>
+  <table>
+    <tr><th>Elemento</th><th>Stile</th><th>Note</th></tr>
+    <tr>
+      <td><strong>Prezzo barrato</strong></td>
+      <td>12px, peso 300, inchiostro soft (#4A463F), sbarrato</td>
+      <td>Sempre prima del prezzo nuovo. Non usare il colore <code>--muted</code>: sotto il contrasto minimo per testo piccolo</td>
+    </tr>
+    <tr>
+      <td><strong>Prezzo scontato</strong></td>
+      <td>12px, peso 700, rosso (#A32638)</td>
+      <td>Stessa dimensione del prezzo pieno delle altre card, cambia solo il colore</td>
+    </tr>
+    <tr>
+      <td><strong>Percentuale</strong></td>
+      <td>11px, peso 400, spaziatura 1px, rosso</td>
+      <td>Intero arrotondato, con il segno meno (-30%). Mai decimali</td>
+    </tr>
+    <tr>
+      <td><strong>Ordine</strong></td>
+      <td>vecchio · nuovo · percentuale</td>
+      <td>Sulla stessa riga; su schermi stretti la percentuale può andare a capo</td>
+    </tr>
+  </table>
+
+  <h3>Regole</h3>
+  <ul class="rules">
+    <li class="do"><strong>Griglie miste: badge + prezzo scontato.</strong> Dove gli articoli in sconto sono la minoranza (home, collezioni normali), il badge "Saldi" segnala e il prezzo informa.</li>
+    <li class="do"><strong>Pagine Saldi e Special Price: solo prezzo scontato, senza badge.</strong> Se quasi tutto è scontato, il badge su ogni card contraddice la regola "pochi badge per pagina". Il contesto della pagina dice già che è saldo.</li>
+    <li class="do"><strong>Lo stesso blocco prezzo nella scheda prodotto,</strong> in dimensione maggiore (17px come il prezzo attuale della PDP), così lo sconto è coerente dal listing al prodotto.</li>
+    <li class="do"><strong>Il prezzo barrato è il prezzo di riferimento reale.</strong> Per la normativa europea sugli sconti (direttiva Omnibus) di norma è il prezzo più basso applicato nei 30 giorni precedenti. Da verificare con il cliente.</li>
+    <li class="dont"><strong>Mai solo il prezzo nuovo senza il vecchio.</strong> Senza riferimento lo sconto non si vede.</li>
+    <li class="dont"><strong>Mai la percentuale nel badge o sull'immagine.</strong> Il badge resta "Saldi", la cifra sta nel prezzo.</li>
+    <li class="dont"><strong>Mai il blocco prezzo scontato su prodotti senza sconto.</strong> Una card, o è scontata o non lo è.</li>
+  </ul>
+
+  <h3>Codice — da aggiungere a <code>css/collezione.css</code></h3>
+  <pre><code>/* Blocco prezzo scontato */
+.product-card .price-block {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.product-card .price-old {
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--ink-soft);
+  text-decoration: line-through;
+}
+.product-card .price-now {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--danger);
+}
+.product-card .price-off {
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: var(--danger);
+}</code></pre>
+
+  <h3>HTML — sotto il titolo della card</h3>
+  <pre><code>&lt;div class="price-block" data-old="49.99" data-now="24.99"&gt;
+  &lt;s class="price-old"&gt;€ 49,99&lt;/s&gt;
+  &lt;span class="price-now"&gt;€ 24,99&lt;/span&gt;
+  &lt;span class="price-off"&gt;-50%&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+
+  <h3>JavaScript — percentuale calcolata dal prezzo (opzionale)</h3>
+  <p>Evita errori di battitura: la percentuale deriva sempre dai due prezzi. In un sito dinamico lo stesso calcolo si può fare lato server.</p>
+  <pre><code>document.querySelectorAll('.price-block[data-old][data-now]').forEach(function (b) {
+  var old = parseFloat(b.dataset.old);
+  var now = parseFloat(b.dataset.now);
+  if (!old || !now || now &gt;= old) return;
+  var off = b.querySelector('.price-off');
+  if (off) off.textContent = '-' + Math.round((1 - now / old) * 100) + '%';
+});</code></pre>
+
+
+  <h2>5. Articoli simili (dettaglio)</h2>
+
+  <p>“Articoli simili” è un <strong>pulsante d'azione</strong> che apre il visualizzatore dei capi correlati. Usa la <strong>stessa finitura dei badge</strong> (vetro, altezza, font) per coerenza col sistema, ma non è un'etichetta di stato: il badge dice “cos'è”, il pulsante dice “cosa puoi fare”. Va trattato come tale, sia nel markup (è un <code>&lt;button&gt;</code>, non uno <code>&lt;span&gt;</code>) sia nella posizione. Non deve mai essere confuso col badge, che invece non è cliccabile (<code>pointer-events: none</code>).</p>
+
+  <p>Va posizionato in <strong>basso a sinistra</strong>, dentro <code>.img-wrap</code>. Così il badge resta in alto a sinistra (dove non dà fastidio al prodotto), il cuore resta in alto a destra, e “Articoli simili” non si sovrappone a nessuno dei due (vedi §3).</p>
+
+  <h3>Perché è separato dal badge</h3>
+  <ul class="rules">
+    <li class="do"><strong>Funzione diversa:</strong> il badge descrive lo stato del capo (saldi, new in…), il pulsante è un'azione (“mostrami cose simili”). Due semantiche, due elementi HTML, due stili.</li>
+    <li class="do"><strong>Interazione diversa:</strong> il badge è passivo, il pulsante è cliccabile. Non puoi mettere un <code>&lt;button&gt;</code> dentro un <code>&lt;a&gt;</code>: è HTML invalido e i click si comportano male.</li>
+    <li class="dont"><strong>Mai metterlo in alto:</strong> ruberebbe spazio visivo al badge e al cuore. In basso a sinistra è la zona “naturale”.</li>
+    <li class="dont"><strong>Mai dentro l'ancora dell'immagine:</strong> la card va strutturata come <code>&lt;article&gt;</code> con link separati. Vedi HTML in §4.</li>
+  </ul>
+
+  <h3>HTML — articoli simili dentro <code>.img-wrap</code></h3>
+  <pre><code>&lt;button class="similar" type="button" aria-label="Mostra articoli simili"&gt;
+  &lt;svg viewBox="0 0 24 24" aria-hidden="true"&gt;
+    &lt;path d="M4 7h10v10H4z"/&gt;
+    &lt;path d="M8 3h12v12"/&gt;
+  &lt;/svg&gt;
+  &lt;span&gt;Articoli simili&lt;/span&gt;
+&lt;/button&gt;</code></pre>
+
+  <h3>CSS — da aggiungere a <code>css/collezione.css</code></h3>
+  <pre><code>.product-card .similar {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 4;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  height: 27px;
+  padding: 0 14px;
+
+  background: rgba(252, 252, 251, 0.92);
+  color: var(--ink);
+  border: 0;
+  border-radius: 0;
+
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  line-height: 1;
+
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.product-card .similar svg {
+  width: 12px;
+  height: 12px;
+  display: block;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.5;
+}
+
+@media (max-width: 520px) {
+  .product-card .similar {
+    height: 22px;
+    padding: 0 10px;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    gap: 5px;
+  }
+  .product-card .similar svg { width: 10px; height: 10px; }
+}</code></pre>
+
+  <h2>6. Regole d'uso</h2>
+
+  <ul class="rules">
+    <li class="do"><strong>Una card, un badge.</strong> Mai due sovrapposti. Se un prodotto è sia "New in" sia "Bestseller", scegli quello con priorità più alta (Outlet &gt; Saldi &gt; Bestseller &gt; New in &gt; Ultimi pezzi &gt; Esclusiva).</li>
+    <li class="do"><strong>Pochi badge per pagina.</strong> Su una griglia di 15 prodotti, massimo 3-4 con badge. Se ne metti 10, l'effetto è "mercato", non lusso.</li>
+    <li class="do"><strong>Posizione fissa del badge:</strong> in alto a sinistra, attaccato al bordo (top: 0, left: 0).</li>
+    <li class="do"><strong>Mappa dei tre elementi nell'immagine:</strong> badge in alto a sinistra; cuore preferiti in alto a destra; <em>Articoli simili</em> in basso a sinistra. Non si sovrappongono mai (vedi §3).</li>
+    <li class="do"><strong>Testo breve.</strong> "New in", "Saldi", "Outlet". Mai frasi lunghe. Massimo 14 caratteri.</li>
+    <li class="do"><strong>Aggiornamento</strong>: i badge "New in" durano 30-60 giorni. I "Saldi" durano la durata della promozione. Vanno rimossi manualmente quando scadono.</li>
+    <li class="dont"><strong>Niente badge su tutti i prodotti.</strong> Se ce l'hanno tutti, non significano niente.</li>
+    <li class="dont"><strong>Niente badge sul titolo o sul prezzo.</strong> Solo dentro l'immagine, in alto a sinistra.</li>
+    <li class="dont"><strong>Niente più di due parole.</strong> "Bestseller della stagione" è troppo. Solo "Bestseller".</li>
+    <li class="dont"><strong>Niente <code>&lt;button&gt;</code> dentro <code>&lt;a&gt;</code>.</strong> Vale per il cuore e per "Articoli simili". Vedi HTML in §4.</li>
+  </ul>
+
+  <h2>7. Codice per l'agenzia</h2>
+
+  <h3>CSS — badge (invariato)</h3>
+  <pre><code>/* ============================================================
+   BADGE PRODOTTO — etichette in alto a sinistra sulle card
+   ============================================================ */
+.product-card .badge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  padding: 0 14px;
+  border-radius: 0;
+  line-height: 1;
+  pointer-events: none;
+  display: inline-flex;
+  align-items: center;
+  height: 27px;
+  box-sizing: border-box;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+.product-card .badge.bestseller { background: rgba(184, 147, 90, 0.92); color: #fff; }
+.product-card .badge.new-in    { background: rgba(43, 43, 43, 0.85);  color: #fff; }
+.product-card .badge.sale      { background: rgba(163, 38, 56, 0.88); color: #fff; }
+.product-card .badge.outlet    { background: rgba(122, 26, 40, 0.88); color: #fff; }
+.product-card .badge.ultimi    { background: rgba(74, 70, 63, 0.85);  color: #fff; }
+.product-card .badge.esclusiva { background: rgba(140, 111, 66, 0.92); color: #fff; }
+
+@media (max-width: 520px) {
+  .product-card .badge {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    padding: 0 10px;
+    height: 22px;
+  }
+}</code></pre>
+
+  <h3>CSS — cuore preferiti</h3>
+  <pre><code>.product-card .wish {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 4;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  color: var(--ink);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.product-card .wish svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.5;
+}
+.product-card .wish.is-active svg {
+  fill: var(--danger);
+  stroke: var(--danger);
+}</code></pre>
+
+  <h3>Varianti disponibili</h3>
+  <pre><code>&lt;span class="badge bestseller"&gt;Bestseller&lt;/span&gt;      → sfondo oro, testo bianco
+&lt;span class="badge new-in"&gt;New in&lt;/span&gt;               → sfondo inchiostro, testo bianco
+&lt;span class="badge sale"&gt;Saldi&lt;/span&gt;                   → sfondo rosso, testo bianco
+&lt;span class="badge outlet"&gt;Outlet&lt;/span&gt;                 → sfondo rosso scuro, testo bianco
+&lt;span class="badge ultimi"&gt;Ultimi pezzi&lt;/span&gt;          → sfondo inchiostro soft, testo bianco  (opzionale)
+&lt;span class="badge esclusiva"&gt;Esclusiva&lt;/span&gt;           → sfondo oro scuro, testo bianco  (opzionale)</code></pre>
+
+  <h2>8. Note per l'agenzia</h2>
+
+  <p><strong>Nel sito attuale Doppelgänger</strong> i badge compaiono su alcune card nelle pagine di collezione (Bestseller) e nell'Outlet — dove il badge <code>Outlet</code> è l'eccezione alla regola 'niente badge su pagine scontate': è un'etichetta di sezione, non di sconto. Sulla home non ci sono, per non spezzare il ritmo editoriale delle sezioni.</p>
+
+  <p><strong>Da decidere con il cliente:</strong> su quali pagine attivare i badge, e con che criterio. Le opzioni sono due:</p>
+
+  <ul class="rules">
+    <li><strong>Manuale</strong> — un redattore decide quali prodotti hanno il badge (raccomandato per l'e-commerce del brand, permette controllo editoriale)</li>
+    <li><strong>Automatico</strong> — il sistema assegna il badge in base a regole (es. "primo acquisto in 30 giorni = New in"; "vendite nel mese &gt; X = Bestseller"). Più complesso da implementare, meno controllo</li>
+  </ul>
+
+  <p>Consigliamo l'approccio <strong>manuale</strong>: il cliente ha il controllo editoriale e può togliere un badge quando non serve più.</p>
+
+  <div class="footer">
+    Doppelgänger — Badge prodotto<br>
+    Realizzato da Simone Giordano · simonegiordano77@gmail.com<br>
+    Documento tecnico · Ottobre 2026
+  </div>
+
+</div>
+
+
+  
+  
+  <script>
+    document.querySelectorAll('.wish').forEach(function(btn) {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        this.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html>
