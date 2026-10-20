@@ -2254,7 +2254,7 @@ footer {
 
 /* ============================================================
    TRUST BAR + LOGHI PAGAMENTO (footer)
-   Fascia di 4 voci in cima al footer + loghi metodi di pagamento
+   Fascia di 3 voci in cima al footer + loghi metodi di pagamento
    accanto al copyright in basso.
    ============================================================ */
 .footer-trust {
@@ -2264,12 +2264,14 @@ footer {
   padding: 0 0 48px;
   list-style: none;
   display: grid;
-  /* Voci a larghezza del contenuto, distribuite da bordo a bordo:
-     la prima icona e l'ultimo testo hanno lo stesso margine. */
-  grid-template-columns: repeat(4, minmax(0, max-content));
-  justify-content: space-between;
+  /* Prima voce a filo del margine sinistro, ultima a filo del destro,
+     quella al centro esattamente sull'asse della pagina. */
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   gap: 40px;
 }
+.footer-trust li:nth-child(1) { justify-self: start; }
+.footer-trust li:nth-child(2) { justify-self: center; }
+.footer-trust li:nth-child(3) { justify-self: end; }
 .footer-trust::after {
   content: "";
   position: absolute;
@@ -2316,12 +2318,16 @@ footer {
 .footer-pay svg { height: 22px; width: auto; color: #a8a39b; display: block; }
 
 @media (max-width: 900px) {
+  /* Tablet e mobile: tre colonne uguali, ogni voce centrata, icona sopra il testo. */
   .footer-trust {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 32px 24px;
     margin-bottom: 40px;
     padding-bottom: 36px;
   }
+  .footer-trust li:nth-child(n) { justify-self: center; }
+  .footer-trust a { flex-direction: column; align-items: center; gap: 12px; text-align: center; }
+  .footer-trust .ft-copy { align-items: center; }
   .footer-copy {
     flex-direction: column;
     justify-content: center;
@@ -2329,7 +2335,8 @@ footer {
   }
 }
 @media (max-width: 640px) {
-  .footer-trust a { flex-direction: column; align-items: flex-start; gap: 12px; }
+  /* Una voce per riga. */
+  .footer-trust { grid-template-columns: 1fr; }
 }
 
 /* ============================================================

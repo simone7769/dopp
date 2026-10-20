@@ -427,10 +427,8 @@
 
   /* ---------------- FASCIA FIDUCIA + LOGHI PAGAMENTO ---------------- */
   var TRUST_ITEMS = [
-    { href: "spedizioni.html#spedizioni", title: "Spedizioni", text: "Consegna a domicilio o ritiro in boutique",
-      icon: "<path d=\"M2 6h11v9H2zM13 9h4l3 3v3h-7\"/><circle cx=\"6.5\" cy=\"17.5\" r=\"1.8\"/><circle cx=\"16.5\" cy=\"17.5\" r=\"1.8\"/>" },
-    { href: "spedizioni.html#resi", title: "Resi", text: "Cambi e resi semplici, anche in boutique",
-      icon: "<path d=\"M4 12a8 8 0 1 0 2.5-5.8\"/><path d=\"M3.5 4.5v4h4\"/>" },
+    { href: "spedizioni.html", title: "Spedizioni e resi", text: "Consegna a domicilio, ritiro in boutique e resi semplici",
+      icon: "<path d=\"M12 3l8 4.5v9L12 21l-8-4.5v-9z\"/><path d=\"M4 7.5l8 4.5 8-4.5M12 12v9\"/>" },
     { href: "pagamenti.html", title: "Pagamento sicuro", text: "Transazioni protette e dati al sicuro",
       icon: "<rect x=\"5\" y=\"10.5\" width=\"14\" height=\"9.5\" rx=\"1\"/><path d=\"M8 10.5V8a4 4 0 0 1 8 0v2.5\"/>" },
     { href: "#", title: "Assistenza", attr: "data-open-contact", text: "Il nostro team a tua disposizione",
@@ -490,7 +488,7 @@
     </div>\
     <div class="footer-bottom-right">\
       <nav class="footer-legal" aria-label="Informazioni legali">\
-        <a href="privacy-cookie.html#titolare">Dati societari</a>\
+        <a href="privacy-cookie.html">Dati societari</a>\
         <a href="privacy-cookie.html">Cookie e Privacy</a>\
         <a href="accessibilita.html">Accessibilità</a>\
         <a href="termini.html">Termini di vendita</a>\
