@@ -86,7 +86,7 @@ Nella cartella design/:
 - NOVITA-SITO.html — riepilogo delle novità (per il cliente)
 - CHANGELOG.html — elenco dei commit con descrizione
 - DIFF-FILES.html — file modificati
-- BADGE.html — regole per le etichette prodotto
+- linee-guida-badge.html — regole per le etichette prodotto
 - token.json — design token in formato standard
 - CREDITI.md — autore e contatti
 

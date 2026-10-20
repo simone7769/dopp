@@ -15,7 +15,7 @@ Documento di accompagnamento al pacchetto demo + specifiche. Per chi svilupperà
 | `design/Doppelganger_Specifiche_per_agenzia.html` | Specifiche tecniche dettagliate (sorgente HTML editabile) |
 | `design/CHANGELOG.html` | Elenco dei commit con descrizione |
 | `design/DIFF-FILES.html` | File toccati, con righe aggiunte/rimosse |
-| `design/BADGE.html` | Regole e codice per le etichette prodotto |
+| `design/linee-guida-badge.html` | Regole e codice per le etichette prodotto |
 | `design/NOVITA-SITO.html` | Riepilogo delle novità (per il cliente) |
 | `design/token.json` | Design token in formato JSON |
 | `design/CREDITI.md` | Autore e contatti |
