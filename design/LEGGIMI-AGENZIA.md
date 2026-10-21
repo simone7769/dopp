@@ -81,7 +81,7 @@ Da terminale, nella cartella del progetto:
 - **Filtro taglia funzionante**: `data-size="46 48 50 52 54 56"` sulle card di collezione. Card «in evidenza» escluse (non sono prodotti). Nella demo 3 card di Autunno/Inverno 2026 hanno taglie differenziate per rendere il filtro dimostrabile.
 - **`overflow-x: clip`** su `html, body`: previene barra orizzontale da elementi full-bleed su Windows.
 - **Parsing prezzi (`nav.js`)**: `.replace(/\./g, '')` per gestire correttamente importi sopra 999 €.
-- **`token.json`** allineato a `tokens.css` (header 169 px, bottoni telefono 44 px, `--fs-16`, spaziature griglia e carosello).
+- **`token.json`** allineato a `tokens.css` (header 155 px, bottoni telefono 44 px, `--fs-16`, spaziature griglia e carosello).
 - **Header mobile fisso a 60 px**: non cambia scrollando. Il logo è stabile (clamp 12-18 px) e non si rimpicciolisce più. Topbar (33 px) sparisce dopo 20 px di scroll. `scroll-padding-top: 105 px` come ripiego CSS, ma i link non usano più `#ancora`: puntano a pagina, e il blocco ANCORE di `nav.js` è stato rimosso.
 
 ## Contatti
