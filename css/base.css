@@ -2443,7 +2443,7 @@ footer {
 
 /* Correzione ottica allineamento verticale logo (compensa spazio SVG e padding menu) */
 @media (min-width: 1025px) {
-  .logo { transform: translateY(6px); }
+  .logo { transform: translateY(10px); }
 }
 
 
