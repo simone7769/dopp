@@ -299,7 +299,7 @@
   position: relative;
   height: 150vh;
   height: 150svh;
-  margin-bottom: var(--vt-gap);
+  margin-bottom: 0;
 }
 .vt-sticky-frame {
   position: sticky;
@@ -547,4 +547,411 @@
 }
 .vt-products {
   margin-bottom: calc(var(--vt-gap) * 1.2);
+}
+
+
+/* Citazione di chiusura (stile editoriale) */
+.vt-quote {
+  margin: 0 0 40px;
+  padding: 0;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.vt-quote p {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: var(--fw-light);
+  font-size: clamp(20px, 2vw, 28px);
+  line-height: 1.45;
+  color: var(--ink);
+  margin: 0 0 20px;
+  text-wrap: balance;
+}
+.vt-quote cite {
+  display: block;
+  font-family: var(--sans);
+  font-style: normal;
+  font-size: var(--fs-12);
+  font-weight: var(--fw-regular);
+  letter-spacing: var(--tr-2);
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+
+/* Citazione sovrapposta allo sticky (in basso a sinistra) */
+.vt-sticky-quote {
+  position: absolute;
+  left: var(--vt-side);
+  right: var(--vt-side);
+  bottom: 48px;
+  max-width: 640px;
+  margin: 0;
+  color: #fff;
+}
+.vt-sticky-quote p {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: var(--fw-light);
+  font-size: clamp(16px, 1.4vw, 20px);
+  line-height: 1.45;
+  margin: 0 0 10px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+.vt-sticky-quote cite {
+  display: block;
+  font-family: var(--sans);
+  font-style: normal;
+  font-size: var(--fs-11);
+  font-weight: var(--fw-regular);
+  letter-spacing: var(--tr-2);
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.8);
+}
+@media (max-width: 640px) {
+  .vt-sticky-quote { bottom: 24px; }
+  .vt-sticky-quote p { font-size: 14px; }
+}
+
+
+/* Citazione centrata al posto delle parole animate */
+.vt-sticky-quote-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 40px;
+  margin: 0;
+  text-align: center;
+  pointer-events: none;
+}
+.vt-sticky-quote-center p {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: var(--fw-light);
+  font-size: clamp(20px, 2.2vw, 32px);
+  line-height: 1.45;
+  color: #fff;
+  max-width: 800px;
+  margin: 0 0 24px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  text-wrap: balance;
+}
+.vt-sticky-quote-center cite {
+  display: block;
+  font-family: var(--sans);
+  font-style: normal;
+  font-size: var(--fs-12);
+  font-weight: var(--fw-regular);
+  letter-spacing: var(--tr-2);
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.85);
+}
+@media (max-width: 640px) {
+  .vt-sticky-quote-center { padding: 0 24px; }
+  .vt-sticky-quote-center p { font-size: 18px; }
+}
+
+
+/* Card della Vetrina con Quick-Add e Cuore (come nelle collezioni) */
+.vt-products .vt-grid .vt-card {
+  position: relative;
+}
+.vt-products .vt-grid .vt-card-img {
+  position: relative;
+  aspect-ratio: var(--ratio-card);
+  overflow: hidden;
+  background: var(--paper-alt);
+  margin-bottom: 14px;
+}
+.vt-products .vt-grid .vt-card .product-info {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  gap: 12px;
+  padding-top: 0;
+}
+.vt-products .vt-grid .vt-card .details h3 {
+  font-family: var(--sans);
+  font-size: var(--fs-card-title);
+  font-weight: var(--fw-regular);
+  letter-spacing: var(--tr-03);
+  line-height: 1.4;
+  color: var(--ink);
+  margin: 0 0 4px;
+}
+.vt-products .vt-grid .vt-card .details .price {
+  font-family: var(--sans);
+  font-size: var(--fs-card-price);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--tr-03);
+  color: var(--ink);
+}
+.vt-products .vt-grid .vt-card .plus {
+  background: transparent;
+  border: none;
+  color: var(--ink);
+  font-size: var(--fs-22);
+  font-weight: 300;
+  line-height: 1;
+  padding: 0 4px;
+  cursor: pointer;
+  transition: opacity var(--t-fast) var(--ease);
+  font-family: var(--sans);
+}
+.vt-products .vt-grid .vt-card .plus:hover { opacity: 0.5; }
+
+
+/* Card Vetrina: cuore più piccolo, + in posizione */
+.vt-products .vt-card .wish {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  min-width: 32px;
+  min-height: 32px;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 3;
+}
+.vt-products .vt-card .wish svg {
+  width: 18px;
+  height: 18px;
+  stroke: #fff;
+  fill: none;
+  stroke-width: 1.5;
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,0.5));
+}
+.vt-products .vt-card .wish.active svg {
+  fill: var(--gold);
+  stroke: var(--gold);
+}
+
+/* Card Vetrina: layout interno tipo collezione */
+.vt-products .vt-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.vt-products .vt-card > a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+.vt-products .vt-card .vt-card-img {
+  position: relative;
+  aspect-ratio: var(--ratio-card);
+  overflow: hidden;
+  background: var(--paper-alt);
+  margin-bottom: 14px;
+}
+.vt-products .vt-card .product-info {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  gap: 12px;
+  padding-top: 0;
+}
+.vt-products .vt-card .details h3 {
+  font-family: var(--sans);
+  font-size: var(--fs-card-title);
+  font-weight: var(--fw-regular);
+  letter-spacing: var(--tr-03);
+  line-height: 1.4;
+  color: var(--ink);
+  margin: 0 0 4px;
+}
+.vt-products .vt-card .details .price {
+  font-family: var(--sans);
+  font-size: var(--fs-card-price);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--tr-03);
+  color: var(--ink);
+}
+.vt-products .vt-card .plus {
+  background: transparent;
+  border: none;
+  color: var(--ink);
+  font-size: var(--fs-22);
+  font-weight: 300;
+  line-height: 1;
+  padding: 0 4px;
+  cursor: pointer;
+  transition: opacity var(--t-fast) var(--ease);
+  font-family: var(--sans);
+}
+.vt-products .vt-card .plus:hover { opacity: 0.5; }
+
+@media (hover: hover) {
+  .vt-products .vt-card .wish { opacity: 0; }
+  .vt-products .vt-card:hover .wish { opacity: 1; }
+}
+
+
+/* ==========================================
+   QUICK ADD (copiato da collezione.css)
+   ========================================== */
+/* ============================================================
+   QUICK ADD — pannellino taglia (+ colore opzionale)
+   Appare cliccando il + sulla card. In fondo alla card.
+   ============================================================ */
+.quick-add {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+  background: rgba(252, 252, 251, 0.82);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border-top: 1px solid var(--line);
+  padding: 16px 16px 18px;
+  box-shadow: 0 -4px 12px rgba(0,0,0,0.06);
+  animation: qa-slide-up 0.25s var(--ease);
+}
+@keyframes qa-slide-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.quick-add-label {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 8px;
+}
+.quick-add-colors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 14px;
+  list-style: none;
+  padding: 0;
+}
+.quick-add-sizes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 -16px 14px;
+  padding: 0 16px 14px;
+  list-style: none;
+  border-bottom: 1px solid var(--gold);
+}
+.quick-add-sizes.has-error button { border-color: var(--danger); }
+.quick-add-colors button {
+  width: 44px;
+  height: 36px;
+  border-radius: 0;
+  border: 1px solid transparent;
+  padding: 2px;
+  background: transparent;
+  cursor: pointer;
+  transition: border-color var(--t-fast) var(--ease);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+@media (hover: hover) {
+  .quick-add-colors button:hover { border-color: var(--ink); }
+}
+.quick-add-colors button span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+}
+.quick-add-colors button.selected { border-color: var(--ink); }
+.quick-add-sizes button {
+  min-width: 36px;
+  min-height: 36px;
+  border-radius: 0;
+  border: 1px solid transparent;
+  background: transparent;
+  font-family: var(--sans);
+  font-size: var(--fs-12);
+  color: var(--ink);
+  cursor: pointer;
+  transition: border-color var(--t-fast) var(--ease), background-color var(--t-fast) var(--ease), color var(--t-fast) var(--ease);
+}
+@media (hover: hover) {
+  .quick-add-sizes button:hover { border-color: var(--ink); }
+}
+.quick-add-sizes button.selected {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #fff;
+}
+.quick-add-cta {
+  width: 100%;
+  min-height: var(--btn-height, 48px);
+  border-radius: 0;
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: #fff;
+  font-family: var(--sans);
+  font-size: var(--fs-12);
+  font-weight: 400;
+  letter-spacing: var(--tr-15);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color var(--t-base) var(--ease), color var(--t-base) var(--ease);
+}
+.quick-add-cta:hover { background: transparent; color: var(--ink); }
+
+@media (max-width: 520px) {
+  .quick-add { padding: 10px 10px 12px; }
+  .quick-add-colors button { width: 26px; height: 20px; }
+  .quick-add-colors button span { width: 22px; height: 16px; }
+  .quick-add-sizes button { min-width: 32px; min-height: 32px; }
+}
+
+
+
+/* Quick-Add nella Vetrina: versione compatta per card più piccole */
+.vt-card .quick-add {
+  padding: 12px 12px 14px;
+}
+.vt-card .quick-add-label {
+  font-size: 9px;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+.vt-card .quick-add-colors {
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.vt-card .quick-add-colors button {
+  width: 36px;
+  height: 28px;
+  padding: 1px;
+}
+.vt-card .quick-add-colors button span {
+  width: 100%;
+  height: 100%;
+}
+.vt-card .quick-add-sizes {
+  gap: 6px;
+  margin: 0 -12px 10px;
+  padding: 0 12px 10px;
+}
+.vt-card .quick-add-sizes button {
+  min-width: 30px;
+  min-height: 30px;
+  font-size: 11px;
+}
+.vt-card .quick-add-cta {
+  min-height: 40px;
+  font-size: 10px;
+  letter-spacing: 1px;
 }
