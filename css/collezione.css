@@ -590,3 +590,61 @@
   .product-card .similar { height: 22px; padding: 0 10px; font-size: 10px; letter-spacing: 1.5px; gap: 5px; }
   .product-card .similar svg { width: 10px; height: 10px; }
 }
+
+
+/* ==========================================
+   FIX MOBILE: Nascondi Articoli Simili e riduci Badge
+   ========================================== */
+@media (max-width: 640px) {
+  /* 1. Il pulsante Articoli simili su mobile non si vede */
+  .product-card .similar {
+    display: none !important;
+  }
+
+  /* 2. I badge devono essere più piccoli e discreti */
+  .product-card .badge {
+    font-size: 9px !important;
+    letter-spacing: 1px !important;
+    padding: 0 6px !important;
+    height: 20px !important;
+  }
+
+  /* 3. Il prezzo scontato va a capo in modo pulito */
+  .product-card .price-block {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 6px;
+    margin-top: 4px;
+  }
+  
+  .product-card .price-old,
+  .product-card .price-now,
+  .product-card .price-off {
+    font-size: 11px !important; /* Rende i prezzi proporzionati alla card mobile */
+  }
+
+
+  
+
+
+/* Fix definitivo: prezzo barrato bianco su mobile (sfondo scuro) */
+@media (max-width: 640px) {
+  .product-card .price-old {
+    color: rgba(255, 255, 255, 0.8) !important; 
+    /* Usiamo un bianco leggermente trasparente per mantenere la gerarchia visiva */
+  }
+}
+
+
+/* Prezzi in bianco su mobile per massima leggibilità */
+@media (max-width: 640px) {
+  /* Prezzo barrato: bianco leggermente trasparente per gerarchia */
+  .product-card .price-old {
+    color: rgba(255, 255, 255, 0.6) !important; 
+  }
+  /* Prezzo nuovo e percentuale: bianco brillante */
+  .product-card .price-now,
+  .product-card .price-off {
+    color: #ffffff !important; 
+  }
+}
