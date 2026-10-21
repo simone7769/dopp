@@ -147,7 +147,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M6 9l6 6 6-6"/></svg>\
       </button>\
       <ul class="mobile-sub">\
-        <li><a href="#">Abbigliamento</a></li><li><a href="#">Accessori</a></li>\
+        <li><a href="outlet-abbigliamento.html">Abbigliamento</a></li><li><a href="#">Accessori</a></li>\
         <li><a href="#">Back to Work</a></li><li><a href="#">Ultimi Pezzi</a></li>\
       </ul>\
     </li>\

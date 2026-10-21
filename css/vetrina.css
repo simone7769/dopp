@@ -411,8 +411,23 @@
   .vt-chapter-text h2 { margin-bottom: 20px; }
 
   
+  .vt-feature {
+    grid-template-columns: 1fr;
+    row-gap: 28px;
+  }
   .vt-feature-img,
-  
+  .vt-feature-text,
+  .vt-feature-still {
+    grid-column: 1;
+    grid-row: auto;
+  }
+  .vt-feature-img {
+    height: auto;
+  }
+  .vt-feature-img img {
+    height: auto;
+    aspect-ratio: 4 / 5;
+  }
 
   /* Prodotti: scorrimento orizzontale, 2 card e un pezzo della terza */
   .vt-grid {
@@ -520,13 +535,7 @@
 }
 
 
-/* Griglia prodotti: 3 card centrate con più spazio tra loro */
-.vt-products .vt-grid {
-  max-width: 900px;
-  margin: 0 auto;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px 80px; /* Spazio verticale 40px, orizzontale 80px */
-}
+
 
 
 /* Titolo sezione prodotti: centrato, con più aria sotto */
@@ -539,12 +548,7 @@
 }
 
 /* Griglia prodotti: ancora più spazio tra le card, più aria sotto la sezione */
-.vt-products .vt-grid {
-  max-width: 1000px;
-  margin: 0 auto;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 48px 100px;
-}
+
 .vt-products {
   margin-bottom: calc(var(--vt-gap) * 1.2);
 }
@@ -963,4 +967,58 @@
 }
 .vt-products-more .vt-link {
   display: inline-block;
+}
+
+/* ============================================
+   MOBILE: scheda grande in colonna singola
+   (aggiunto in fondo per vincere sulle regole precedenti)
+   ============================================ */
+@media (max-width: 900px) {
+  .vt-feature {
+    grid-template-columns: 1fr !important;
+    row-gap: 28px;
+  }
+  .vt-feature-img,
+  .vt-feature-text,
+  .vt-feature-still {
+    grid-column: 1 !important;
+    grid-row: auto !important;
+  }
+  .vt-feature-img {
+    height: auto !important;
+  }
+  .vt-feature-img img {
+    height: auto !important;
+    aspect-ratio: 4 / 5 !important;
+  }
+}
+
+
+/* ============================================
+   GALLERIA PRODOTTI SU MOBILE — scorrimento orizzontale
+   (aggiunto in fondo per vincere su tutte le regole precedenti)
+   ============================================ */
+@media (max-width: 900px) {
+  .vt-products .vt-grid {
+    max-width: none !important;
+    grid-template-columns: none !important;
+    grid-auto-flow: column !important;
+    grid-auto-columns: 42% !important;
+    gap: var(--grid-gap-x-tablet) !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    margin: 0 calc(-1 * var(--vt-side)) !important;
+    padding: 0 var(--vt-side) !important;
+    scroll-padding: 0 var(--vt-side) !important;
+    scrollbar-width: none !important;
+  }
+  .vt-products .vt-grid::-webkit-scrollbar { display: none !important; }
+  .vt-products .vt-grid .vt-card { scroll-snap-align: start !important; }
+}
+
+@media (max-width: 640px) {
+  .vt-products .vt-grid {
+    grid-auto-columns: 72% !important;
+    gap: var(--grid-gap-x-mobile) !important;
+  }
 }
