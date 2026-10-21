@@ -168,3 +168,62 @@
     }, { passive: true });
   }
 })();
+
+/* ============================================================
+   PROVA VIRTUALE — Logica Drawer (PDP)
+   ============================================================ */
+(function () {
+  'use strict';
+
+  var openBtn = document.querySelector('.pdp-virtual-banner');
+  var drawer = document.getElementById('pvDrawer');
+  var overlay = document.getElementById('pvOverlay');
+  var closeBtn = document.getElementById('closePvDrawer');
+  var fileInput = document.getElementById('pvFile');
+  var fileNameDisplay = document.getElementById('pvFileName');
+  var generateBtn = document.getElementById('pvGenerateBtn');
+
+  if (!openBtn || !drawer || !overlay) return;
+
+  function openDrawer() {
+    drawer.classList.add('open');
+    overlay.classList.add('active');
+    drawer.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeDrawer() {
+    drawer.classList.remove('open');
+    overlay.classList.remove('active');
+    drawer.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    
+    // Resetta l'input se l'utente chiude
+    if (fileInput) fileInput.value = '';
+    if (fileNameDisplay) fileNameDisplay.textContent = 'Carica una foto';
+    if (generateBtn) generateBtn.disabled = true;
+  }
+
+  openBtn.addEventListener('click', openDrawer);
+  closeBtn.addEventListener('click', closeDrawer);
+  overlay.addEventListener('click', closeDrawer);
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && drawer.classList.contains('open')) {
+      closeDrawer();
+    }
+  });
+
+  // Gestione caricamento file
+  if (fileInput && fileNameDisplay && generateBtn) {
+    fileInput.addEventListener('change', function () {
+      if (fileInput.files && fileInput.files.length > 0) {
+        fileNameDisplay.textContent = fileInput.files[0].name;
+        generateBtn.disabled = false;
+      } else {
+        fileNameDisplay.textContent = 'Carica una foto';
+        generateBtn.disabled = true;
+      }
+    });
+  }
+})();
