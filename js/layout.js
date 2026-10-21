@@ -100,7 +100,7 @@
   </div></div></div>\
 <div class="megamenu" id="megaOutlet"><div class="megamenu-inner">\
   <div class="megamenu-col"><h4>Outlet</h4><ul>\
-    <li><a href="#">Abbigliamento</a></li><li><a href="#">Accessori</a></li>\
+    <li><a href="outlet-abbigliamento.html">Abbigliamento</a></li><li><a href="#">Accessori</a></li>\
     <li><a href="#">Back to Work</a></li><li><a href="#">Ultimi Pezzi</a></li>\
     <li><a href="#" class="mm-see-all">Vedi tutto l\'outlet</a></li></ul></div>\
   <div class="megamenu-images">\

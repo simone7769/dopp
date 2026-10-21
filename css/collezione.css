@@ -648,3 +648,41 @@
     color: #ffffff !important; 
   }
 }
+
+/* ==========================================
+   DA PDF: BADGE PRODOTTO (§7)
+   ========================================== */
+.product-card .badge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  padding: 0 14px;
+  border-radius: 0;
+  line-height: 1;
+  pointer-events: none;
+  display: inline-flex;
+  align-items: center;
+  height: 27px;
+  box-sizing: border-box;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+.product-card .badge.bestseller { background: rgba(184, 147, 90, 0.92); color: #fff; }
+.product-card .badge.new-in { background: rgba(43, 43, 43, 0.85); color: #fff; }
+.product-card .badge.sale { background: rgba(163, 38, 56, 0.88); color: #fff; }
+.product-card .badge.outlet { background: rgba(122, 26, 40, 0.88); color: #fff; }
+.product-card .badge.ultimi { background: rgba(74, 70, 63, 0.85); color: #fff; }
+.product-card .badge.esclusiva { background: rgba(140, 111, 66, 0.92); color: #fff; }
+
+@media (max-width: 520px) {
+  .product-card .badge { font-size: 10px; letter-spacing: 1.5px; padding: 0 10px; height: 22px; }
+}
+
+
