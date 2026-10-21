@@ -23,7 +23,7 @@
 
     <!-- 1. HERO -->
     <section class="vt-bleed vt-hero">
-      <video id="vtVideo" src="images/doppelganger-uomo-intro.mp4" autoplay muted loop playsinline poster="images/l9b.webp" aria-hidden="true"></video>
+      <video id="vtVideo" src="images/doppelganger-uomo-intro.mp4" muted loop playsinline poster="images/l9b.webp" aria-hidden="true"></video>
       <div class="vt-hero-text">
         <p>Doppelgänger Roma</p>
         <h1>La Capsule</h1>
@@ -226,5 +226,18 @@
   })();
 
   </script>
+
+  <script>
+  (function () {
+    var v = document.getElementById('vtVideo');
+    if (!v) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      v.pause();
+    } else {
+      v.play().catch(function () {});
+    }
+  })();
+  </script>
+
 </body>
 </html>
