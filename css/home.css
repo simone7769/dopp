@@ -773,3 +773,13 @@ header.scrolled .topbar {
     white-space: nowrap;
   }
 }
+
+/* Disattiva scroll-snap su dispositivi touch (tablet e mobile) */
+@media (max-width: 1024px), (hover: none) and (pointer: coarse) {
+  html { 
+    scroll-snap-type: none; 
+  }
+  .video-showcase.snap-ready { 
+    scroll-snap-align: none; 
+  }
+}
