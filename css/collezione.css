@@ -622,9 +622,7 @@
   .product-card .price-off {
     font-size: 11px !important; /* Rende i prezzi proporzionati alla card mobile */
   }
-
-
-  
+} /* ← CHIUSURA @media (max-width: 640px) MANCANTE */
 
 
 /* Fix definitivo: prezzo barrato bianco su mobile (sfondo scuro) */

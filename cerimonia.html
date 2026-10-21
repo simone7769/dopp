@@ -69,69 +69,6 @@
   .product-card .badge.outlet { font-size: 10px !important; letter-spacing: 1.5px !important; height: 22px !important; padding: 0 10px !important; }
 }
 </style>
-
-
-/* Griglia a 3 colonne perfettamente simmetriche */
-#similarModal .similar-modal-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;
-  align-items: start;
-}
-
-/* Forziamo le card a essere tutte uguali */
-#similarModal .product-card { 
-  display: flex; flex-direction: column; text-decoration: none; 
-  width: 100% !important; max-width: none !important;
-}
-#similarModal .product-card .img-wrap { 
-  width: 100% !important; aspect-ratio: 3 / 4 !important; 
-  background: #F5F5F5; margin-bottom: 14px; overflow: hidden;
-}
-#similarModal .product-card .img-wrap img { width: 100%; height: 100%; object-fit: cover; }
-#similarModal .product-card h3 { 
-  font-family: 'Jost', sans-serif; font-size: 14px; font-weight: 400; 
-  margin: 0 0 6px; line-height: 1.4; color: #2B2B2B;
-}
-#similarModal .product-card .price, 
-#similarModal .product-card .price-block { 
-  font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 700; 
-  color: #2B2B2B;
-}
-
-/* Responsive: 2 colonne su tablet/mobile */
-@media (max-width: 900px) { 
-  #similarModal .similar-modal-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; } 
-}
-@media (max-width: 640px) {
-  #similarModal { padding: 30px 20px; width: 95%; }
-  #similarModal .similar-modal-grid { gap: 15px; }
-  #similarModal h2 {
-  font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 400;
-  text-transform: uppercase; letter-spacing: 2px; text-align: center;
-  margin: 0 0 35px; padding-bottom: 20px; 
-  position: relative;
-}
-
-/* Linea oro da bordo a bordo */
-#similarModal h2::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: -40px; /* Compensa il padding di #similarModal */
-  right: -40px;
-  height: 1px;
-  background-color: #B8935A;
-}
-@media (max-width: 640px) {
-  #similarModal h2::after {
-    left: -20px; /* Compensa il padding mobile */
-    right: -20px;
-  }
-}
-
-
-}
-
-
 </head>
 <body id="top" class="layout-featured-right header-light">
 
