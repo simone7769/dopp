@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test Popup</title>
+<style>
+  body { font-family: sans-serif; padding: 50px; background: #f0f0f0; }
+  .test-btn { padding: 15px 30px; background: #2B2B2B; color: #fff; border: none; cursor: pointer; font-size: 16px; }
+  
+  /* CSS del popup (identico al nostro) */
+  .similar-modal-overlay {
+    position: fixed; inset: 0; background: rgba(0, 0, 0, 0.4);
+    opacity: 0; visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    z-index: 2000;
+  }
+  .similar-modal-overlay.active { opacity: 1; visibility: visible; }
+  
+  .similar-modal {
+    position: fixed; top: 50%; left: 50%; transform: translate(-50%, -48%);
+    width: 90%; max-width: 800px; max-height: 85vh;
+    background: #fff; z-index: 2001;
+    opacity: 0; visibility: hidden;
+    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease;
+    overflow-y: auto; padding: 40px; box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+  }
+  .similar-modal.active { opacity: 1; visibility: visible; transform: translate(-50%, -50%); }
+  
+  .similar-modal-close {
+    position: absolute; top: 16px; right: 16px; width: 44px; height: 44px;
+    background: transparent; border: none; font-size: 28px; color: #2B2B2B;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+  }
+  .similar-modal h2 { font-family: serif; font-size: 24px; text-align: center; margin-bottom: 30px; }
+  .similar-modal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  
+  .fake-card { background: #f5f5f5; padding: 20px; text-align: center; border: 1px solid #ddd; }
+</style>
+</head>
+<body>
+
+  <h1>Test Popup</h1>
+  <p>Clicca il pulsante per aprire il pop-up.</p>
+  <button class="test-btn" id="openBtn">Apri Popup</button>
+
+  <div class="similar-modal-overlay" id="similarModalOverlay"></div>
+  <div class="similar-modal" id="similarModal">
+    <button type="button" class="similar-modal-close" id="closeSimilarModal" aria-label="Chiudi">&times;</button>
+    <h2>Articoli simili</h2>
+    <div class="similar-modal-grid">
+      <div class="fake-card">Prodotto 1</div>
+      <div class="fake-card">Prodotto 2</div>
+      <div class="fake-card">Prodotto 3</div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var openBtn = document.getElementById('openBtn');
+      var modal = document.getElementById('similarModal');
+      var overlay = document.getElementById('similarModalOverlay');
+      var closeBtn = document.getElementById('closeSimilarModal');
+
+      function openModal() {
+        modal.classList.add('active');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal() {
+        modal.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      openBtn.addEventListener('click', openModal);
+      closeBtn.addEventListener('click', closeModal);
+      overlay.addEventListener('click', closeModal);
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+      });
+    });
+  </script>
+</body>
+</html>
