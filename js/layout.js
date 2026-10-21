@@ -34,7 +34,7 @@
       </a>\
     </div>\
     <a href="' + LOGO_HREF + '" class="logo-link" aria-label="Home">\
-      <img src="images/logo_page.svg" alt="Doppelgänger" class="logo" width="199" height="18">\
+      <img src="images/logo_page.svg" alt="Doppelgänger" class="logo">\
     </a>\
     <div class="header-actions">\
       <a href="#" class="nav-icon-link" aria-label="Preferiti">\

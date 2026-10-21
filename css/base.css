@@ -234,7 +234,8 @@ header.menu-open .topbar-message {
   width: auto;
   display: block;
   filter: brightness(0) invert(1);
-  transition: opacity var(--t-base) var(--ease), filter var(--t-base) var(--ease), height var(--t-base) var(--ease);
+  color: transparent;
+  transition: opacity var(--t-base) var(--ease), filter var(--t-base) var(--ease);
 }
 .logo:hover { opacity: 0.8; }
 
