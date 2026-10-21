@@ -1580,7 +1580,7 @@ window.WishlistStore = (function () {
     const media = mediaDaCard(card);
     const src = window.DGMedia.srcDa(media);
     const nome = card.querySelector('.details h3') || card.querySelector('h3');
-    const prezzo = card.querySelector('.details .price') || card.querySelector('.price, .product-price, .pdp-item-price');
+    const prezzo = card.querySelector('.details .price, .details .price-now') || card.querySelector('.price, .product-price, .pdp-item-price');
     return {
       id: src,
       href: ((card.matches('a') ? card : card.querySelector('a')) || card).getAttribute('href') || '#',

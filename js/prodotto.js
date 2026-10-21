@@ -54,7 +54,7 @@
         var nomeTaglia = tagliaSelezionata ? tagliaSelezionata.textContent.trim() : '';
         var srcImg = imgEl ? imgEl.getAttribute('src') : '';
         var nome = document.querySelector('.pdp-title');
-        var prezzo = document.querySelector('.pdp-price');
+        var prezzo = document.querySelector('.pdp-price-now') || document.querySelector('.pdp-price');
 
         window.Cart.add({
           id: srcImg + '|' + nomeTaglia + '|' + nomeColore,

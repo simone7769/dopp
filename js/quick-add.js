@@ -96,7 +96,7 @@
 
     var media = card.querySelector('.img-main') || card.querySelector('img') || card.querySelector('video');
     var nome = card.querySelector('.details h3') || card.querySelector('h3');
-    var prezzo = card.querySelector('.details .price') || card.querySelector('.price, .product-price');
+    var prezzo = card.querySelector('.details .price, .details .price-now') || card.querySelector('.price, .product-price');
 
     if (!window.Cart) return;
 

@@ -148,6 +148,26 @@
   </section>
   </main>
 
+  <!-- DRAWER PROVA VIRTUALE -->
+  <div class="pv-overlay" id="pvOverlay"></div>
+  <aside class="pv-drawer" id="pvDrawer" aria-hidden="true">
+    <div class="pv-header">
+      <h3>Prova Virtuale</h3>
+      <button type="button" class="pv-close" id="closePvDrawer" aria-label="Chiudi">&times;</button>
+    </div>
+    <div class="pv-body">
+      <img src="images/prova-virtuale-cover.webp" alt="Prova Virtuale - Specchio" class="pv-cover-img">
+      <p class="pv-intro">Scatta o carica una tua foto. Assicurati che ci sia un solo soggetto in piedi e ben visibile, con una buona luce naturale.</p>
+      <label class="pv-upload-box" for="pvFile">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
+        <span id="pvFileName">Carica una foto</span>
+        <input type="file" accept="image/*" id="pvFile">
+      </label>
+      <p class="pv-note">La tua foto serve solo a creare l'anteprima e viene cancellata subito dopo.</p>
+      <button type="button" class="pv-btn-generate" id="pvGenerateBtn" disabled>Genera Prova</button>
+    </div>
+  </aside>
+
   <div data-layout="footer"></div>
 
   <script src="js/layout.js"></script>

@@ -279,9 +279,9 @@ body.pdp-lightbox-open { overflow: hidden; }
 }
 .pdp-add-cart:hover { background: transparent; color: var(--ink); }
 .pdp-add-cart:disabled {
-  background: var(--gold);
-  border-color: var(--gold);
-  color: #fff;
+  background: transparent;
+  border-color: var(--ink);
+  color: var(--ink);
   cursor: default;
 }
 .pdp-wish-btn {
@@ -725,4 +725,36 @@ body.pdp-lightbox-open { overflow: hidden; }
   color: var(--ink);
   flex-shrink: 0;
   opacity: 0.5;
+}
+
+/* ==========================================
+   PREZZO SCONTATO NELLA PDP (§6 del PDF)
+   ========================================== */
+.pdp-price-block {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+.pdp-price-old {
+  font-family: var(--sans);
+  font-size: var(--fs-16);
+  font-weight: 300;
+  color: var(--ink-soft);
+  text-decoration: line-through;
+}
+.pdp-price-now {
+  font-family: var(--sans);
+  font-size: var(--fs-pdp-price); /* 17px come da PDF */
+  font-weight: 700;
+  color: var(--danger);
+  letter-spacing: var(--tr-03);
+}
+.pdp-price-off {
+  font-family: var(--sans);
+  font-size: var(--fs-14);
+  font-weight: 400;
+  color: var(--danger);
+  letter-spacing: 1px;
 }
