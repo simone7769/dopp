@@ -2020,6 +2020,7 @@ footer {
 
 /* Riduzione altezza header SOLO su tablet touch (>1024px), desktop intatto */
 @media (hover: none) and (pointer: coarse) and (min-width: 1025px) {
+  .logo { height: 20px; }
   .header-main { padding: 20px 20px; }
   .nav,
   header.scrolled .nav { padding: 8px 20px 8px; }
