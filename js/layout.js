@@ -80,7 +80,7 @@
     <li><a href="#" class="mm-see-all">Vedi tutti</a></li></ul></div>\
   <div class="megamenu-col"><h4>In Evidenza</h4><ul>\
     <li><a href="ai-2026.html">Autunno/Inverno 2026</a></li><li><a href="essential.html">Essential</a></li>\
-    <li><a href="cerimonia.html">Cerimonia</a></li></ul></div>\
+    <li><a href="cerimonia.html">Cerimonia</a></li><li><a href="vetrina.html">La Capsule</a></li></ul></div>\
   <div class="megamenu-images">\
     <a href="ai-2026.html" class="mm-card"><div class="thumb"><img src="images/a.jpg" alt="Autunno/Inverno 2026"></div><h5>Autunno/Inverno 2026</h5></a>\
     <a href="essential.html" class="mm-card"><div class="thumb"><img src="images/bm.webp" alt="Essential"></div><h5>Essential</h5></a>\
@@ -128,6 +128,7 @@
         <li><a href="ai-2026.html" class="mobile-sub-highlight">Autunno/Inverno 2026</a></li>\
         <li><a href="essential.html" class="mobile-sub-highlight">Essential</a></li>\
         <li><a href="cerimonia.html" class="mobile-sub-highlight">Cerimonia</a></li>\
+        <li><a href="vetrina.html" class="mobile-sub-highlight">La Capsule</a></li>\
       </ul>\
     </li>\
     <li class="has-sub">\
