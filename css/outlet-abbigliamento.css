@@ -1,0 +1,150 @@
+/* ============================================================
+   DOPPELGÄNGER — ABBIGLIAMENTO OUTLET
+   ============================================================ */
+
+.product-card .badge.outlet {
+  background: rgba(122, 26, 40, 0.88);
+  color: #fff;
+}
+
+#similarModalOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-overlay);
+  display: none;
+  background: rgba(0, 0, 0, 0.45);
+}
+#similarModalOverlay.active { display: block; }
+
+#similarModal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: var(--z-drawer);
+  display: none;
+  box-sizing: border-box;
+  width: 90%;
+  max-width: 950px;
+  max-height: 85vh;
+  padding: 40px;
+  overflow-y: auto;
+  background: var(--paper);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  transform: translate(-50%, -50%);
+}
+#similarModal.active { display: block; }
+
+#similarModal .similar-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--touch-target);
+  height: var(--touch-target);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  font-size: 32px;
+  line-height: 1;
+  cursor: pointer;
+  transition: color var(--t-fast) var(--ease);
+}
+#similarModal .similar-modal-close:hover { color: var(--gold); }
+#similarModal .similar-modal-close:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+#similarModal h2 {
+  position: relative;
+  margin: 0 0 35px;
+  padding-bottom: 20px;
+  font-family: var(--serif);
+  font-size: var(--fs-26);
+  font-weight: var(--fw-regular);
+  letter-spacing: var(--tr-2);
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+#similarModal h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -40px;
+  right: -40px;
+  height: 1px;
+  background: var(--gold);
+}
+
+#similarModal .similar-modal-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  align-items: start;
+}
+
+#similarModal .product-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: none;
+  text-decoration: none;
+}
+#similarModal .product-card .img-wrap {
+  width: 100%;
+  aspect-ratio: var(--ratio-product);
+  margin-bottom: 14px;
+  overflow: hidden;
+  background: var(--paper-alt);
+}
+#similarModal .product-card .img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+#similarModal .product-card h3 {
+  margin: 0 0 6px;
+  font-family: var(--sans);
+  font-size: var(--fs-card-title);
+  font-weight: var(--fw-regular);
+  line-height: 1.4;
+  color: var(--ink);
+}
+#similarModal .product-card .price,
+#similarModal .product-card .price-block {
+  font-family: var(--sans);
+  font-size: var(--fs-card-price);
+  font-weight: var(--fw-bold);
+  color: var(--ink);
+}
+
+#similarModal .product-card .badge {
+  height: 20px;
+  padding: 0 8px;
+  font-size: 9px;
+  letter-spacing: var(--tr-1);
+}
+
+@media (max-width: 900px) {
+  #similarModal .similar-modal-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  #similarModal {
+    width: 95%;
+    padding: 30px 20px;
+  }
+  #similarModal h2 { font-size: var(--fs-22); }
+  #similarModal h2::after {
+    left: -20px;
+    right: -20px;
+  }
+  #similarModal .similar-modal-grid { gap: 15px; }
+}
