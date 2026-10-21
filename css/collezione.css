@@ -490,3 +490,103 @@
 @media (max-width: 640px) {
   .product-card .plus { display: none; }
 }
+
+
+.product-card .badge.bestseller { background: rgba(184, 147, 90, 0.92); color: #fff; }
+.product-card .badge.new-in { background: rgba(43, 43, 43, 0.85); color: #fff; }
+.product-card .badge.ultimi { background: rgba(74, 70, 63, 0.85); color: #fff; }
+
+@media (max-width: 520px) {
+  .product-card .badge { font-size: 10px; letter-spacing: 1.5px; padding: 0 10px; height: 22px; }
+}
+
+
+.product-card .price-old {
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--ink-soft);
+  text-decoration: line-through;
+}
+.product-card .price-now {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--danger);
+}
+.product-card .price-off {
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: var(--danger);
+}
+
+
+.product-card .similar svg {
+  width: 12px;
+  height: 12px;
+  display: block;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.5;
+}
+@media (max-width: 520px) {
+  .product-card .similar {
+    height: 22px;
+    padding: 0 10px;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    gap: 5px;
+  }
+  .product-card .similar svg { width: 10px; height: 10px; }
+}
+
+/* ==========================================
+   DA PDF: BADGE PRODOTTO (§7)
+   ========================================== */
+.product-card .badge {
+  position: absolute; top: 0; left: 0; z-index: 3;
+  font-family: var(--sans); font-size: 11px; font-weight: 400;
+  letter-spacing: 1.8px; text-transform: uppercase;
+  padding: 0 14px; border-radius: 0; line-height: 1;
+  pointer-events: none; display: inline-flex; align-items: center;
+  height: 27px; box-sizing: border-box;
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+.product-card .badge.sale { background: rgba(163, 38, 56, 0.88); color: #fff; }
+.product-card .badge.new-in { background: rgba(43, 43, 43, 0.85); color: #fff; }
+.product-card .badge.ultimi { background: rgba(74, 70, 63, 0.85); color: #fff; }
+
+@media (max-width: 520px) {
+  .product-card .badge { font-size: 10px; letter-spacing: 1.5px; padding: 0 10px; height: 22px; }
+}
+
+/* ==========================================
+   DA PDF: PREZZI SCONTATI (§4)
+   ========================================== */
+.product-card .price-block {
+  display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; margin-top: 4px;
+}
+.product-card .price-old { font-size: 12px; font-weight: 300; color: var(--ink-soft); text-decoration: line-through; }
+.product-card .price-now { font-size: 12px; font-weight: 700; color: var(--danger); }
+.product-card .price-off { font-size: 11px; letter-spacing: 1px; color: var(--danger); }
+
+/* Fix per far stare titolo e prezzo uno sotto l'altro */
+.product-card .details { display: flex; flex-direction: column; }
+
+/* ==========================================
+   DA PDF: PULSANTE ARTICOLI SIMILI (§5)
+   ========================================== */
+.product-card .similar {
+  position: absolute; left: 0; bottom: 0; z-index: 4;
+  display: inline-flex; align-items: center; gap: 6px;
+  height: 27px; padding: 0 14px;
+  background: rgba(252, 252, 251, 0.92); color: var(--ink);
+  border: 0; border-radius: 0; font-family: var(--sans);
+  font-size: 11px; font-weight: 400; letter-spacing: 1.8px;
+  text-transform: uppercase; line-height: 1; cursor: pointer;
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+}
+.product-card .similar svg { width: 12px; height: 12px; display: block; stroke: currentColor; fill: none; stroke-width: 1.5; }
+@media (max-width: 520px) {
+  .product-card .similar { height: 22px; padding: 0 10px; font-size: 10px; letter-spacing: 1.5px; gap: 5px; }
+  .product-card .similar svg { width: 10px; height: 10px; }
+}
