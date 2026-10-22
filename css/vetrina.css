@@ -164,7 +164,7 @@
   align-items: center;
   margin-bottom: var(--vt-gap);
 }
-.vt-chapter-img { grid-column: 1 / 7; margin: 0; }
+.vt-chapter-img { grid-column: 2 / 7; margin: 0; }
 .vt-chapter-text { grid-column: 8 / 12; }
 
 .vt-chapter-img img {
