@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="css/collezione.css">
 <link rel="stylesheet" href="css/filtri.css">
 <link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/similar-modal.css">
 </head>
 <body id="top" class="header-light">
 
@@ -42,13 +43,14 @@
       <h2 class="visually-hidden">Prodotti della collezione</h2>
       <div class="products-grid">
         <div class="product-card" data-size="46 48 50 52 54 56" data-available="false" data-colors="blu nero grigio">
-          <a href="prodotto1.html" class="product-link">
-            <div class="img-wrap">
-            <span class="badge bestseller">Bestseller</span>
-              <img src="images/1.webp" alt="Pantalone uomo in denim" class="img-main">
+          <div class="img-wrap">
+              <span class="badge bestseller">Bestseller</span>
+              <a href="prodotto1.html" class="product-link">
+                <img src="images/1.webp" alt="Pantalone uomo in denim" class="img-main">
             <img src="images/1b.webp" alt="Pantalone uomo in denim - vista alternativa" class="img-hover" loading="lazy" decoding="async">
+              </a>
+              <button type="button" class="similar" aria-label="Mostra articoli simili"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10v10H4z"/><path d="M8 3h12v12"/></svg><span>Articoli simili</span></button>
             </div>
-          </a>
           <div class="product-info">
             <a href="prodotto1.html" class="details"><h3>Pantalone uomo in denim</h3><span class="price">€ 49,99</span></a>
             <button class="plus" type="button" aria-label="Aggiungi">+</button>
@@ -57,12 +59,14 @@
         </div>
 
         <div class="product-card" data-size="48 50 52" data-available="false" data-colors="blu grigio marrone">
-          <a href="prodotto.html" class="product-link">
-            <div class="img-wrap">
-            <img src="images/2.webp" alt="Abito uomo monopetto" class="img-main">
+          <div class="img-wrap">
+              
+              <a href="prodotto.html" class="product-link">
+                <img src="images/2.webp" alt="Abito uomo monopetto" class="img-main">
             <img src="images/2b.webp" alt="Abito uomo monopetto - vista alternativa" class="img-hover" loading="lazy" decoding="async">
+              </a>
+              <button type="button" class="similar" aria-label="Mostra articoli simili"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10v10H4z"/><path d="M8 3h12v12"/></svg><span>Articoli simili</span></button>
             </div>
-          </a>
           <div class="product-info">
             <a href="prodotto.html" class="details"><h3>Abito uomo monopetto</h3><span class="price">€ 139,00</span></a>
             <button class="plus" type="button" aria-label="Aggiungi">+</button>
@@ -71,12 +75,14 @@
         </div>
 
         <div class="product-card" data-size="46 48 50" data-available="false" data-colors="blu nero cammello">
-          <a href="prodotto2.html" class="product-link">
-            <div class="img-wrap">
-            <img src="images/3.webp" alt="Impermeabile uomo doppiopetto" class="img-main">
+          <div class="img-wrap">
+              
+              <a href="prodotto2.html" class="product-link">
+                <img src="images/3.webp" alt="Impermeabile uomo doppiopetto" class="img-main">
             <img src="images/3b.webp" alt="Impermeabile uomo doppiopetto - vista alternativa" class="img-hover" loading="lazy" decoding="async">
+              </a>
+              <button type="button" class="similar" aria-label="Mostra articoli simili"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10v10H4z"/><path d="M8 3h12v12"/></svg><span>Articoli simili</span></button>
             </div>
-          </a>
           <div class="product-info">
             <a href="prodotto2.html" class="details"><h3>Impermeabile uomo doppiopetto</h3><span class="price">€ 149,00</span></a>
             <button class="plus" type="button" aria-label="Aggiungi">+</button>
@@ -85,12 +91,14 @@
         </div>
 
         <div class="product-card" data-size="50 52 54" data-available="true">
-          <a href="#" class="product-link">
-            <div class="img-wrap">
-            <img src="images/4.webp" alt="Abito uomo monopetto in lana" class="img-main">
+          <div class="img-wrap">
+              
+              <a href="#" class="product-link">
+                <img src="images/4.webp" alt="Abito uomo monopetto in lana" class="img-main">
             <img src="images/4b.webp" alt="Abito uomo monopetto in lana - vista alternativa" class="img-hover" loading="lazy" decoding="async">
+              </a>
+              <button type="button" class="similar" aria-label="Mostra articoli simili"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10v10H4z"/><path d="M8 3h12v12"/></svg><span>Articoli simili</span></button>
             </div>
-          </a>
           <div class="product-info">
             <a href="#" class="details"><h3>Abito uomo monopetto in lana</h3><span class="price">€ 139,00</span></a>
             <button class="plus" type="button" aria-label="Aggiungi">+</button>
@@ -99,12 +107,14 @@
         </div>
 
         <div class="product-card" data-size="46 48 50 52 54 56" data-available="true">
-          <a href="#" class="product-link">
-            <div class="img-wrap">
-            <img src="images/5.webp" alt="Pantalone uomo in tela pesante" class="img-main">
+          <div class="img-wrap">
+              
+              <a href="#" class="product-link">
+                <img src="images/5.webp" alt="Pantalone uomo in tela pesante" class="img-main">
             <img src="images/5b.webp" alt="Pantalone uomo in tela pesante - vista alternativa" class="img-hover" loading="lazy" decoding="async">
+              </a>
+              <button type="button" class="similar" aria-label="Mostra articoli simili"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10v10H4z"/><path d="M8 3h12v12"/></svg><span>Articoli simili</span></button>
             </div>
-          </a>
           <div class="product-info">
             <a href="#" class="details"><h3>Pantalone uomo in tela pesante</h3><span class="price">€ 49,99</span></a>
             <button class="plus" type="button" aria-label="Aggiungi">+</button>
@@ -113,12 +123,14 @@
         </div>
 
         <div class="product-card" data-size="46 48 50 52 54 56" data-available="true">
-          <a href="#" class="product-link">
-            <div class="img-wrap">
-            <img src="images/6.webp" alt="Pantalone uomo chino classico" class="img-main">
+          <div class="img-wrap">
+              
+              <a href="#" class="product-link">
+                <img src="images/6.webp" alt="Pantalone uomo chino classico" class="img-main">
             <img src="images/6b.webp" alt="Pantalone uomo chino classico - vista alternativa" class="img-hover" loading="lazy" decoding="async">
+              </a>
+              <button type="button" class="similar" aria-label="Mostra articoli simili"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10v10H4z"/><path d="M8 3h12v12"/></svg><span>Articoli simili</span></button>
             </div>
-          </a>
           <div class="product-info">
             <a href="#" class="details"><h3>Pantalone uomo chino classico</h3><span class="price">€ 59,99</span></a>
             <button class="plus" type="button" aria-label="Aggiungi">+</button>
@@ -127,13 +139,14 @@
         </div>
 
         <div class="product-card" data-size="46 48 50 52 54 56" data-available="true">
-          <a href="#" class="product-link">
-            <div class="img-wrap">
-            <span class="badge new-in">New in</span>
-              <img src="images/7.webp" alt="Camicia uomo tecnica" class="img-main" loading="lazy" decoding="async">
+          <div class="img-wrap">
+              <span class="badge new-in">New in</span>
+              <a href="#" class="product-link">
+                <img src="images/7.webp" alt="Camicia uomo tecnica" class="img-main" loading="lazy" decoding="async">
             <img src="images/7b.webp" alt="Camicia uomo tecnica - vista alternativa" class="img-hover" loading="lazy" decoding="async">
+              </a>
+              <button type="button" class="similar" aria-label="Mostra articoli simili"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10v10H4z"/><path d="M8 3h12v12"/></svg><span>Articoli simili</span></button>
             </div>
-          </a>
           <div class="product-info">
             <a href="#" class="details"><h3>Camicia uomo tecnica</h3><span class="price">€ 34,99</span></a>
             <button class="plus" type="button" aria-label="Aggiungi">+</button>
@@ -142,12 +155,14 @@
         </div>
 
         <div class="product-card" data-size="46 48 50 52 54 56" data-available="true">
-          <a href="#" class="product-link">
-            <div class="img-wrap">
-            <img src="images/8.webp" alt="Giubbotto uomo in simil camoscio" class="img-main" loading="lazy" decoding="async">
+          <div class="img-wrap">
+              
+              <a href="#" class="product-link">
+                <img src="images/8.webp" alt="Giubbotto uomo in simil camoscio" class="img-main" loading="lazy" decoding="async">
             <img src="images/8b.webp" alt="Giubbotto uomo in simil camoscio - vista alternativa" class="img-hover" loading="lazy" decoding="async">
+              </a>
+              <button type="button" class="similar" aria-label="Mostra articoli simili"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10v10H4z"/><path d="M8 3h12v12"/></svg><span>Articoli simili</span></button>
             </div>
-          </a>
           <div class="product-info">
             <a href="#" class="details"><h3>Giubbotto uomo in simil camoscio</h3><span class="price">€ 139,00</span></a>
             <button class="plus" type="button" aria-label="Aggiungi">+</button>
@@ -156,12 +171,14 @@
         </div>
 
         <div class="product-card" data-size="46 48 50 52 54 56" data-available="true">
-          <a href="#" class="product-link">
-            <div class="img-wrap">
-            <img src="images/9.webp" alt="Giacca uomo monopetto tinta in capo" class="img-main" loading="lazy" decoding="async">
+          <div class="img-wrap">
+              
+              <a href="#" class="product-link">
+                <img src="images/9.webp" alt="Giacca uomo monopetto tinta in capo" class="img-main" loading="lazy" decoding="async">
             <img src="images/9b.webp" alt="Giacca uomo monopetto tinta in capo - vista alternativa" class="img-hover" loading="lazy" decoding="async">
+              </a>
+              <button type="button" class="similar" aria-label="Mostra articoli simili"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10v10H4z"/><path d="M8 3h12v12"/></svg><span>Articoli simili</span></button>
             </div>
-          </a>
           <div class="product-info">
             <a href="#" class="details"><h3>Giacca uomo monopetto tinta in capo</h3><span class="price">€ 119,99</span></a>
             <button class="plus" type="button" aria-label="Aggiungi">+</button>
@@ -170,12 +187,14 @@
         </div>
 
         <div class="product-card" data-size="46 48 50 52 54 56" data-available="true">
-          <a href="#" class="product-link">
-            <div class="img-wrap">
-            <img src="images/10.webp" alt="Shacket uomo sfoderata in velluto" class="img-main" loading="lazy" decoding="async">
+          <div class="img-wrap">
+              
+              <a href="#" class="product-link">
+                <img src="images/10.webp" alt="Shacket uomo sfoderata in velluto" class="img-main" loading="lazy" decoding="async">
             <img src="images/10b.webp" alt="Shacket uomo sfoderata in velluto - vista alternativa" class="img-hover" loading="lazy" decoding="async">
+              </a>
+              <button type="button" class="similar" aria-label="Mostra articoli simili"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10v10H4z"/><path d="M8 3h12v12"/></svg><span>Articoli simili</span></button>
             </div>
-          </a>
           <div class="product-info">
             <a href="#" class="details"><h3>Shacket uomo sfoderata in velluto</h3><span class="price">€ 79,99</span></a>
             <button class="plus" type="button" aria-label="Aggiungi">+</button>
@@ -184,12 +203,14 @@
         </div>
 
         <div class="product-card" data-size="46 48 50 52 54 56" data-available="true">
-          <a href="#" class="product-link">
-            <div class="img-wrap">
-            <img src="images/11.webp" alt="Giacca uomo doppiopetto in tessuto hopsack" class="img-main" loading="lazy" decoding="async">
+          <div class="img-wrap">
+              
+              <a href="#" class="product-link">
+                <img src="images/11.webp" alt="Giacca uomo doppiopetto in tessuto hopsack" class="img-main" loading="lazy" decoding="async">
             <img src="images/11b.webp" alt="Giacca uomo doppiopetto in tessuto hopsack - vista alternativa" class="img-hover" loading="lazy" decoding="async">
+              </a>
+              <button type="button" class="similar" aria-label="Mostra articoli simili"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10v10H4z"/><path d="M8 3h12v12"/></svg><span>Articoli simili</span></button>
             </div>
-          </a>
           <div class="product-info">
             <a href="#" class="details"><h3>Giacca uomo doppiopetto in tessuto hopsack</h3><span class="price">€ 119,00</span></a>
             <button class="plus" type="button" aria-label="Aggiungi">+</button>
@@ -198,12 +219,14 @@
         </div>
 
         <div class="product-card" data-size="46 48 50 52 54 56" data-available="true">
-          <a href="#" class="product-link">
-            <div class="img-wrap">
-            <img src="images/12.webp" alt="Giacca uomo doppiopetto sfoderata in velluto" class="img-main" loading="lazy" decoding="async">
+          <div class="img-wrap">
+              
+              <a href="#" class="product-link">
+                <img src="images/12.webp" alt="Giacca uomo doppiopetto sfoderata in velluto" class="img-main" loading="lazy" decoding="async">
             <img src="images/12b.webp" alt="Giacca uomo doppiopetto sfoderata in velluto - vista alternativa" class="img-hover" loading="lazy" decoding="async">
+              </a>
+              <button type="button" class="similar" aria-label="Mostra articoli simili"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10v10H4z"/><path d="M8 3h12v12"/></svg><span>Articoli simili</span></button>
             </div>
-          </a>
           <div class="product-info">
             <a href="#" class="details"><h3>Giacca uomo doppiopetto sfoderata in velluto</h3><span class="price">€ 129,99</span></a>
             <button class="plus" type="button" aria-label="Aggiungi">+</button>
@@ -212,13 +235,14 @@
         </div>
 
         <div class="product-card" data-size="46 48 50 52 54 56" data-available="true">
-          <a href="#" class="product-link">
-            <div class="img-wrap">
-            <span class="badge ultimi">Ultimi pezzi</span>
-              <img src="images/13.webp" alt="Jeans uomo 5 tasche" class="img-main" loading="lazy" decoding="async">
+          <div class="img-wrap">
+              <span class="badge ultimi">Ultimi pezzi</span>
+              <a href="#" class="product-link">
+                <img src="images/13.webp" alt="Jeans uomo 5 tasche" class="img-main" loading="lazy" decoding="async">
             <img src="images/13b.webp" alt="Jeans uomo 5 tasche - vista alternativa" class="img-hover" loading="lazy" decoding="async">
+              </a>
+              <button type="button" class="similar" aria-label="Mostra articoli simili"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10v10H4z"/><path d="M8 3h12v12"/></svg><span>Articoli simili</span></button>
             </div>
-          </a>
           <div class="product-info">
             <a href="#" class="details"><h3>Jeans uomo 5 tasche</h3><span class="price">€ 49,99</span></a>
             <button class="plus" type="button" aria-label="Aggiungi">+</button>
@@ -227,12 +251,14 @@
         </div>
 
         <div class="product-card" data-size="46 48 50 52 54 56" data-available="true">
-          <a href="#" class="product-link">
-            <div class="img-wrap">
-            <img src="images/14.webp" alt="Giacca uomo in maglia Punto Milano" class="img-main" loading="lazy" decoding="async">
+          <div class="img-wrap">
+              
+              <a href="#" class="product-link">
+                <img src="images/14.webp" alt="Giacca uomo in maglia Punto Milano" class="img-main" loading="lazy" decoding="async">
             <img src="images/14b.webp" alt="Giacca uomo in maglia Punto Milano - vista alternativa" class="img-hover" loading="lazy" decoding="async">
+              </a>
+              <button type="button" class="similar" aria-label="Mostra articoli simili"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10v10H4z"/><path d="M8 3h12v12"/></svg><span>Articoli simili</span></button>
             </div>
-          </a>
           <div class="product-info">
             <a href="#" class="details"><h3>Giacca uomo in maglia Punto Milano</h3><span class="price">€ 89,99</span></a>
             <button class="plus" type="button" aria-label="Aggiungi">+</button>
@@ -241,12 +267,14 @@
         </div>
 
         <div class="product-card" data-size="46 48 50 52 54 56" data-available="true">
-          <a href="#" class="product-link">
-            <div class="img-wrap">
-            <img src="images/15.webp" alt="Polo uomo in maglia misto lana" class="img-main" loading="lazy" decoding="async">
+          <div class="img-wrap">
+              
+              <a href="#" class="product-link">
+                <img src="images/15.webp" alt="Polo uomo in maglia misto lana" class="img-main" loading="lazy" decoding="async">
             <img src="images/15b.webp" alt="Polo uomo in maglia misto lana - vista alternativa" class="img-hover" loading="lazy" decoding="async">
+              </a>
+              <button type="button" class="similar" aria-label="Mostra articoli simili"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10v10H4z"/><path d="M8 3h12v12"/></svg><span>Articoli simili</span></button>
             </div>
-          </a>
           <div class="product-info">
             <a href="#" class="details"><h3>Polo uomo in maglia misto lana</h3><span class="price">€ 39,99</span></a>
             <button class="plus" type="button" aria-label="Aggiungi">+</button>
@@ -259,6 +287,21 @@
         <button type="button" class="load-more-btn">Altri 36 prodotti</button>
       </div>
     </section>
+  
+  <!-- POP-UP ARTICOLI SIMILI -->
+  <div class="similar-modal-overlay" id="similarModalOverlay"></div>
+  <div class="similar-modal" id="similarModal">
+    <button type="button" class="similar-modal-close" id="closeSimilarModal" aria-label="Chiudi">&times;</button>
+    <h2>Articoli simili</h2>
+    <div class="similar-filters" id="similarFilters">
+      <span class="similar-filter-label">Ordina per:</span>
+      <button type="button" class="active" data-sort="relevance">I più simili</button>
+      <button type="button" data-sort="price-asc">Prezzo crescente</button>
+      <button type="button" data-sort="price-desc">Prezzo decrescente</button>
+    </div>
+    <div class="similar-modal-grid" id="similarModalGrid"></div>
+  </div>
+
   </main>
 
   <div data-layout="footer"></div>
@@ -269,5 +312,76 @@
   <script src="js/filtri.js"></script>
   <script src="js/nav.js"></script>
   <script src="js/quick-add.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var btns = document.querySelectorAll('.similar');
+  var modal = document.getElementById('similarModal');
+  var overlay = document.getElementById('similarModalOverlay');
+  var closeBtn = document.getElementById('closeSimilarModal');
+  var modalGrid = document.getElementById('similarModalGrid');
+  var filterBtns = document.querySelectorAll('.similar-filters button');
+  var originalCards = [];
+  if (!modal) return;
+
+  function openModal(e, currentCard) {
+    if (e) e.preventDefault();
+    modalGrid.innerHTML = '';
+    originalCards = [];
+    filterBtns.forEach(function(b) { b.classList.remove('active'); });
+    if (filterBtns[0]) filterBtns[0].classList.add('active');
+    var allCards = Array.from(document.querySelectorAll('.products-grid .product-card:not(.featured)'));
+    var otherCards = allCards.filter(function(c) { return c !== currentCard; });
+    otherCards.slice(0, 8).forEach(function(card) {
+      var clone = card.cloneNode(true);
+      var toRemove = clone.querySelectorAll('.similar, .plus, .wish');
+      toRemove.forEach(function(el) { el.remove(); });
+      modalGrid.appendChild(clone);
+      originalCards.push(clone);
+    });
+    modal.classList.add('active');
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    modal.classList.remove('active');
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  function getPrice(card) {
+    var priceEl = card.querySelector('.price-now') || card.querySelector('.price');
+    if (!priceEl) return 0;
+    var text = priceEl.textContent.replace('€', '').replace(/\./g, '').replace(',', '.').trim();
+    return parseFloat(text) || 0;
+  }
+  function sortCards(sortType) {
+    if (sortType === 'relevance') {
+      originalCards.forEach(function(card) { modalGrid.appendChild(card); });
+    } else if (sortType === 'price-asc') {
+      originalCards.slice().sort(function(a, b) { return getPrice(a) - getPrice(b); })
+        .forEach(function(card) { modalGrid.appendChild(card); });
+    } else if (sortType === 'price-desc') {
+      originalCards.slice().sort(function(a, b) { return getPrice(b) - getPrice(a); })
+        .forEach(function(card) { modalGrid.appendChild(card); });
+    }
+  }
+  filterBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      filterBtns.forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      sortCards(btn.dataset.sort);
+    });
+  });
+  btns.forEach(function(btn) {
+    btn.addEventListener('click', function(e) { openModal(e, btn.closest('.product-card')); });
+  });
+  closeBtn.addEventListener('click', closeModal);
+  overlay.addEventListener('click', closeModal);
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+  });
+});
+</script>
+
 </body>
 </html>
