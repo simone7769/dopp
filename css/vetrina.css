@@ -645,3 +645,18 @@
   .quick-add-colors button { width: 26px; height: 20px; }
   .quick-add-sizes button { min-width: 32px; min-height: 32px; }
 }
+
+/* ============================================================
+   RIDUZIONE MOVIMENTO (a11y)
+   Rispetta prefers-reduced-motion su tutte le transizioni/animazioni.
+   Pattern standard: override globale, unico !important legittimo.
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
