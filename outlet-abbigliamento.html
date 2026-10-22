@@ -356,6 +356,12 @@
   <div class="similar-modal" id="similarModal">
     <button type="button" class="similar-modal-close" id="closeSimilarModal" aria-label="Chiudi">&times;</button>
     <h2>Articoli simili</h2>
+    <div class="similar-filters" id="similarFilters">
+      <span class="similar-filter-label">Ordina per:</span>
+      <button type="button" class="active" data-sort="relevance">I più simili</button>
+      <button type="button" data-sort="price-asc">Prezzo crescente</button>
+      <button type="button" data-sort="price-desc">Prezzo decrescente</button>
+    </div>
     <div class="similar-modal-grid" id="similarModalGrid"></div>
   </div>
 
@@ -375,18 +381,24 @@ document.addEventListener('DOMContentLoaded', function() {
   var overlay = document.getElementById('similarModalOverlay');
   var closeBtn = document.getElementById('closeSimilarModal');
   var modalGrid = document.getElementById('similarModalGrid');
+  var filterBtns = document.querySelectorAll('.similar-filters button');
+  var originalCards = [];
   if (!modal) return;
 
   function openModal(e, currentCard) {
     if (e) e.preventDefault();
     modalGrid.innerHTML = '';
+    originalCards = [];
+    filterBtns.forEach(function(b) { b.classList.remove('active'); });
+    if (filterBtns[0]) filterBtns[0].classList.add('active');
     var allCards = Array.from(document.querySelectorAll('.products-grid .product-card'));
     var otherCards = allCards.filter(function(c) { return c !== currentCard; });
-    otherCards.slice(0, 6).forEach(function(card) {
+    otherCards.slice(0, 8).forEach(function(card) {
       var clone = card.cloneNode(true);
       var toRemove = clone.querySelectorAll('.similar, .plus, .wish');
       toRemove.forEach(function(el) { el.remove(); });
       modalGrid.appendChild(clone);
+      originalCards.push(clone);
     });
     modal.classList.add('active');
     overlay.classList.add('active');
@@ -397,6 +409,30 @@ document.addEventListener('DOMContentLoaded', function() {
     overlay.classList.remove('active');
     document.body.style.overflow = '';
   }
+  function getPrice(card) {
+    var priceEl = card.querySelector('.price-now') || card.querySelector('.price');
+    if (!priceEl) return 0;
+    var text = priceEl.textContent.replace('€', '').replace(/\./g, '').replace(',', '.').trim();
+    return parseFloat(text) || 0;
+  }
+  function sortCards(sortType) {
+    if (sortType === 'relevance') {
+      originalCards.forEach(function(card) { modalGrid.appendChild(card); });
+    } else if (sortType === 'price-asc') {
+      originalCards.slice().sort(function(a, b) { return getPrice(a) - getPrice(b); })
+        .forEach(function(card) { modalGrid.appendChild(card); });
+    } else if (sortType === 'price-desc') {
+      originalCards.slice().sort(function(a, b) { return getPrice(b) - getPrice(a); })
+        .forEach(function(card) { modalGrid.appendChild(card); });
+    }
+  }
+  filterBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      filterBtns.forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      sortCards(btn.dataset.sort);
+    });
+  });
   btns.forEach(function(btn) {
     btn.addEventListener('click', function(e) { openModal(e, btn.closest('.product-card')); });
   });
