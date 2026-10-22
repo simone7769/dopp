@@ -183,7 +183,7 @@ html { scroll-snap-type: y proximity; scroll-padding-top: var(--header-h, 170px)
   max-width: none;
   margin: 0;
   aspect-ratio: 1616 / 899;
-  background: url("../images/boiserie-bg1.jpg") center / cover no-repeat;
+  background: url("../images/boiserie-bg1.webp") center / cover no-repeat;
   opacity: 0;
   transform: scale(1.03);
   transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);

@@ -82,7 +82,7 @@
     <li><a href="ai-2026.html">Autunno/Inverno 2026</a></li><li><a href="essential.html">Essential</a></li>\
     <li><a href="cerimonia.html">Cerimonia</a></li><li><a href="vetrina.html">La Capsule</a></li></ul></div>\
   <div class="megamenu-images">\
-    <a href="ai-2026.html" class="mm-card"><div class="thumb"><img src="images/a.jpg" alt="Autunno/Inverno 2026"></div><h5>Autunno/Inverno 2026</h5></a>\
+    <a href="ai-2026.html" class="mm-card"><div class="thumb"><img src="images/megamenu-ai-2026.webp" alt="Autunno/Inverno 2026"></div><h5>Autunno/Inverno 2026</h5></a>\
     <a href="essential.html" class="mm-card"><div class="thumb"><img src="images/bm.webp" alt="Essential"></div><h5>Essential</h5></a>\
     <a href="cerimonia.html" class="mm-card"><div class="thumb"><img src="images/ceri.webp" alt="Cerimonia"></div><h5>Cerimonia</h5></a>\
   </div></div></div>\
