@@ -69,7 +69,7 @@
     <section class="vt-inner vt-products">
       <div class="vt-products-head">
         <h2>La selezione</h2>
-        </div>
+      </div>
       <!-- Per la seconda foto al passaggio: aggiungi un secondo <img> dentro .vt-card-img -->
       <ul class="vt-grid">
         <li class="vt-card product-card" data-available="true">
@@ -177,21 +177,22 @@
         
       </ul>
       <div class="vt-products-more">
-        <a class="vt-link" href="ai-2026.html">Vedi tutti i capi</a>
+        <a class="vt-btn" href="ai-2026.html">Vedi tutti i capi</a>
       </div>
     </section>
 
-    <!-- 6. MOMENTO FORTE -->
-    <section class="vt-sticky" id="vtSticky" aria-label="La pioggia, la città, il passo">
+    <!-- 6. CITAZIONE -->
+    <section class="vt-sticky" aria-label="La pioggia sulla città">
       <div class="vt-sticky-frame">
         <img src="images/capsule-pioggia-navona.webp" alt="Piazza Navona sotto la pioggia, di sera" loading="lazy">
         <blockquote class="vt-sticky-quote-center">
           <p>«Come se fossi appena giunto a Roma, e trovassi una immensa città sotto la pioggia, con quartieri sconosciuti e inconoscibili, di cui si sanno le leggende.»</p>
           <cite>— Pier Paolo Pasolini</cite>
-        </blockquote></div>
+        </blockquote>
+      </div>
     </section>
 
-    <!-- 7. CHIUSURA --></main>
+  </main>
 
   <div data-layout="footer"></div>
 
@@ -200,32 +201,6 @@
   <script src="js/prodotti.js"></script>
   <script src="js/nav.js"></script>
   <script src="js/quick-add.js"></script>
-  <script>
-  /* Sticky: cambia parola e contatore in base allo scroll */
-  (function () {
-    var s = document.getElementById('vtSticky');
-    if (!s) return;
-    var words = s.querySelectorAll('.vt-sticky-word');
-    var count = s.querySelector('.vt-sticky-count');
-    var cur = 0;
-    function update() {
-      var r = s.getBoundingClientRect();
-      var range = r.height - window.innerHeight;
-      var p = range > 0 ? Math.min(Math.max(-r.top / range, 0), 0.999) : 0;
-      var i = Math.floor(p * words.length);
-      if (i !== cur) {
-        words.forEach(function (w, k) { w.classList.toggle('is-active', k === i); });
-        if (count) count.textContent = (i + 1) + ' / ' + words.length;
-        cur = i;
-      }
-    }
-    window.addEventListener('scroll', update, { passive: true });
-    window.addEventListener('resize', update);
-    update();
-  })();
-
-  </script>
-
   <script>
   (function () {
     var v = document.getElementById('vtVideo');
