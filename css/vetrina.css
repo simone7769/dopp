@@ -529,7 +529,7 @@
   height: 100vh;
   height: 100svh;
   min-height: 520px;
-  max-height: 860px;
+  max-height: 720px;   /* era 860px: sezione citazione un po' più bassa */
   background: var(--notte);
 }
 .vt-sticky-frame {
