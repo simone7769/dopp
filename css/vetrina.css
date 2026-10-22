@@ -251,11 +251,6 @@
   grid-template-columns: repeat(3, 1fr);
   gap: var(--grid-gap-y-desktop) var(--grid-gap-x-desktop);
 }
-.vt-card a {
-  display: block;
-  color: var(--ink);
-  text-decoration: none;
-}
 .vt-card-img {
   position: relative;
   aspect-ratio: var(--ratio-card); /* 4:5 */
@@ -277,22 +272,6 @@
   .vt-card a:hover .vt-card-img img + img { opacity: 1; }
 }
 /* Nome e prezzo identici alle card di home e collezione */
-.vt-card h3 {
-  font-family: var(--sans);
-  font-size: var(--fs-card-title);
-  font-weight: var(--fw-regular);
-  letter-spacing: var(--tr-03);
-  line-height: 1.4;
-  margin: 0 0 4px;
-}
-.vt-card p {
-  font-family: var(--sans);
-  font-size: var(--fs-card-price);
-  font-weight: var(--fw-bold);
-  letter-spacing: var(--tr-03);
-  line-height: 1.3;
-  margin: 0;
-}
 
 /* ---------- 6. MOMENTO FORTE: STICKY ---------- */
 .vt-sticky {
