@@ -569,7 +569,7 @@
   text-shadow: 0 2px 8px rgba(0, 0, 0, .5);
   text-wrap: balance;
 }
-.vt-sticky-quote-center cite {
+.vt-sticky-quote-center footer {
   display: block;
   font-family: var(--sans);
   font-style: normal;
@@ -578,6 +578,10 @@
   letter-spacing: var(--tr-2);
   text-transform: uppercase;
   color: rgba(255, 255, 255, .85);
+  /* Reset stili ereditati dal footer globale (base.css) */
+  background: transparent;
+  padding: 0;
+  margin: 0;
 }
 
 
