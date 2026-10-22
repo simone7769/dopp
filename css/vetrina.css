@@ -520,7 +520,7 @@
 
 /* Griglia prodotti più piccola e centrata (dà più rilevanza al racconto) */
 .vt-products .vt-grid {
-  max-width: 900px;
+  max-width: 1150px; /* era 900px: card troppo piccole, quick-add illeggibile (22 ott) */
   margin: 0 auto;
   gap: 40px var(--grid-gap-x-desktop);
 }
