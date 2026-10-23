@@ -34,6 +34,8 @@ zip -rq "$OUT/Doppelganger_demo_AGENZIA_$DATE.zip" "$FOLDER" \
   -x "**/*.bak3_*" \
   -x "*.bak_safe_*" \
   -x "**/*.bak_safe_*" \
+  -x "test-*.html" \
+  -x "**/test-*.html" \
   -x "$FOLDER/backup/*" \
   -x "$FOLDER/node_modules/*" \
   -x "$FOLDER/images/*" \
@@ -59,6 +61,8 @@ zip -rq "$OUT/Doppelganger_demo_COMPLETO_$DATE.zip" "$FOLDER" \
   -x "**/*.bak3_*" \
   -x "*.bak_safe_*" \
   -x "**/*.bak_safe_*" \
+  -x "test-*.html" \
+  -x "**/test-*.html" \
   -x "$FOLDER/backup/*" \
   -x "$FOLDER/node_modules/*"
 echo "  ✅ Fatto: Doppelganger_demo_COMPLETO_$DATE.zip"
