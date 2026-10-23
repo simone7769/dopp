@@ -1712,8 +1712,8 @@ footer {
 #megaOutlet .megamenu-images {
   grid-column: 2;
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 215px));
-  gap: 30px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
 }
 
 #megaAbbigliamento .megamenu-col h4,
@@ -1780,14 +1780,13 @@ footer {
   }
 
   #megaOutlet .megamenu-inner {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 4fr;
     gap: 30px;
   }
   #megaOutlet .megamenu-images {
-    grid-column: 1 / -1;
-    margin-top: 30px;
-    gap: 20px;
-    grid-template-columns: repeat(4, minmax(0, 155px));
+    grid-column: 2;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
   }
 }
 
