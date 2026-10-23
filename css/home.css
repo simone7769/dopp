@@ -783,14 +783,3 @@ header.scrolled .topbar {
     scroll-snap-align: none; 
   }
 }
-/* Video 16:9 SOLO su tablet (da 641px a 1024px) */
-@media (min-width: 641px) and (max-width: 1024px) {
-  .video-showcase {
-    height: auto;
-    aspect-ratio: 16 / 9;
-  }
-  .video-showcase-media {
-    object-fit: cover; 
-  }
-}
-
