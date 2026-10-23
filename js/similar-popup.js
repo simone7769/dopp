@@ -25,6 +25,16 @@ document.addEventListener('DOMContentLoaded', function() {
       if (plusBtn) plusBtn.remove();
       var wishBtn = clone.querySelector('.wish');
       if (wishBtn) wishBtn.remove();
+      
+      // Mostra solo la still-life (img-hover) nel pop-up
+      var imgMain = clone.querySelector('.img-main');
+      var imgHover = clone.querySelector('.img-hover');
+      if (imgMain && imgHover) {
+        imgMain.style.display = 'none';
+        imgHover.style.display = 'block';
+        imgHover.style.opacity = '1'; // Sovrascrive opacità 0 di default
+      }
+      
       modalGrid.appendChild(clone);
     });
 
