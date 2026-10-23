@@ -171,11 +171,11 @@
 
   <div class="meta">
     <div>
-      <span class="val">174</span>
+      <span class="val">360</span>
       <span class="lbl">File toccati</span>
     </div>
     <div>
-      <span class="val">13420</span>
+      <span class="val">53773</span>
       <span class="lbl">Righe aggiunte</span>
     </div>
     <div>
@@ -187,6 +187,49 @@
   <p style="font-size: 13px; color: var(--ink-soft); text-align: center; margin-bottom: 40px;">
     Da <code>de268ba</code> a <code>e59f9e9</code> — 8–20 ottobre 2026
   </p>
+
+<h2>23. Aggiornamento del 23 ottobre 2026 <span class="count">45 file</span></h2>
+
+  <p style="font-size: 13px; color: var(--ink-soft); text-align: center; margin-bottom: 10px;">22 commit · 277 righe aggiunte · 86 rimosse</p>
+
+  <table>
+    <tr><th>File</th><th class="n">+</th><th class="n">−</th><th>Descrizione</th></tr>
+    <tr><td class="file">css/base.css</td><td class="n">+77</td><td class="n">−34</td><td class="note">Megamenu unificato 1fr 4fr. Overlay scuro (rgba 0.45). Padding allineato a header (50px). Card flessibili 1fr. Media query 1200px.</td></tr>
+    <tr><td class="file">css/club.css</td><td class="n">+67</td><td class="n">0</td><td class="note">Form iscrizione Club (input email, checkbox privacy, bottone submit).</td></tr>
+    <tr><td class="file">js/nav.js</td><td class="n">+39</td><td class="n">−1</td><td class="note">Overlay megamenu (apri/chiudi su apriMenu, chiudiTuttoOra, chiudiPannelloMaTieniHeader). Link WhatsApp senza data-open-contact.</td></tr>
+    <tr><td class="file">js/layout.js</td><td class="n">+17</td><td class="n">−22</td><td class="note">Megamenu: Abbigliamento 4 card (La Capsule in 1ª posizione), Outlet con 'Vedi tutto' a sinistra, Accessori con Novità/Must Have/Best Seller. Overlay scuro.</td></tr>
+    <tr><td class="file">css/home.css</td><td class="n">+15</td><td class="n">−15</td><td class="note">Card Duo a 641-900px occupano 100% larghezza. Card Collection/Duo a 3/2 su tablet. Video 100vh cover (rimosso 16/9).</td></tr>
+    <tr><td class="file">js/similar-popup.js</td><td class="n">+10</td><td class="n">0</td><td class="note">Pop-up Articoli Simili: solo still-life (img-hover al posto di img-main).</td></tr>
+    <tr><td class="file">club.html</td><td class="n">+8</td><td class="n">−1</td><td class="note">Form iscrizione Club (sostituisce link 'Iscriviti al Club').</td></tr>
+    <tr><td class="file">ai-2026.html</td><td class="n">+8</td><td class="n">0</td><td class="note">Pop-up Articoli Simili: solo still-life negli script inline.</td></tr>
+    <tr><td class="file">cerimonia.html</td><td class="n">+8</td><td class="n">0</td><td class="note">Pop-up Articoli Simili: solo still-life negli script inline.</td></tr>
+    <tr><td class="file">essential.html</td><td class="n">+8</td><td class="n">0</td><td class="note">Pop-up Articoli Simili: solo still-life negli script inline.</td></tr>
+    <tr><td class="file">outlet-abbigliamento.html</td><td class="n">+8</td><td class="n">0</td><td class="note">Pop-up Articoli Simili: solo still-life negli script inline.</td></tr>
+    <tr><td class="file">index.html</td><td class="n">+2</td><td class="n">−2</td><td class="note">Card Duo Outlet e Primavera Estate cliccabili (link a outlet-abbigliamento e ai-2026).</td></tr>
+    <tr><td class="file">Altri 33 file minori</td><td class="n">+10</td><td class="n">−11</td><td class="note">Checkout (header allineato), FAQ (link Club), PDP (taglia non preselezionata), similar-modal (linea grigia), immagini Accessori (still-life), favicon.</td></tr>
+  </table>
+
+
+<h2>22. Aggiornamento del 22 ottobre 2026 <span class="count">26 file</span></h2>
+
+  <p style="font-size: 13px; color: var(--ink-soft); text-align: center; margin-bottom: 10px;">24 commit · 1365 righe aggiunte · 1467 rimosse</p>
+
+  <table>
+    <tr><th>File</th><th class="n">+</th><th class="n">−</th><th>Descrizione</th></tr>
+    <tr><td class="file">css/vetrina.css</td><td class="n">+373</td><td class="n">−731</td><td class="note">Consolidamento CSS: rimosso .vt-card base, SET A duplicato, fuso .vt-products-head. File pulito (feature invertita, sticky statico, 0 important). Manifesto asciutto. Citazione max-height 720px.</td></tr>
+    <tr><td class="file">css/cerimonia.css</td><td class="n">+211</td><td class="n">−294</td><td class="note">Refactor: pop-up Articoli Simili in CSS dedicato (filtri, griglia 4 col). Pulizia.</td></tr>
+    <tr><td class="file">css/outlet-abbigliamento.css</td><td class="n">+110</td><td class="n">−251</td><td class="note">Refactor: pop-up in CSS dedicato, filtri, griglia 4 col. Pulizia.</td></tr>
+    <tr><td class="file">ai-2026.html</td><td class="n">+186</td><td class="n">−69</td><td class="note">Pop-up Articoli Simili (badge, prezzi scontati, griglia). Card ristrutturate (button fuori da &lt;a&gt;).</td></tr>
+    <tr><td class="file">css/similar-modal.css</td><td class="n">+221</td><td class="n">0</td><td class="note">Nuovo file: pop-up Articoli Simili condiviso (filtri, X 44px, card compatte, griglia 4 col).</td></tr>
+    <tr><td class="file">essential.html</td><td class="n">+141</td><td class="n">−38</td><td class="note">Pop-up Articoli Simili. Card ristrutturate. Badge.</td></tr>
+    <tr><td class="file">vetrina.html</td><td class="n">+29</td><td class="n">−56</td><td class="note">Griglia 1150px, titolo 'La selezione', manifesto asciutto, citazione più bassa. Card nomi/prezzi.</td></tr>
+    <tr><td class="file">outlet-abbigliamento.html</td><td class="n">+49</td><td class="n">−12</td><td class="note">Pop-up Articoli Simili. Card Abito link a prodotto-saldi.html. Ristrutturazione card.</td></tr>
+    <tr><td class="file">cerimonia.html</td><td class="n">+39</td><td class="n">−10</td><td class="note">Refactor CSS: rimosso &lt;style&gt; inline. Pop-up Articoli Simili.</td></tr>
+    <tr><td class="file">design/linee-guida-badge.html</td><td class="n">+1</td><td class="n">−1</td><td class="note">Aggiunto role='img' a div.map (a11y).</td></tr>
+    <tr><td class="file">test-popup.html</td><td class="n">+1</td><td class="n">−1</td><td class="note">Aggiunto type='button' (validazione HTML).</td></tr>
+    <tr><td class="file">css/home.css</td><td class="n">+1</td><td class="n">−1</td><td class="note">Ripristinato video 16/9 (poi rimosso il 23 ott).</td></tr>
+    <tr><td class="file">Altri 14 file minori</td><td class="n">+3</td><td class="n">−3</td><td class="note">—</td></tr>
+  </table>
 
 <h2>21. Aggiornamento del 21 ottobre 2026 <span class="count">7 file</span></h2>
 
