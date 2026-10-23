@@ -492,7 +492,7 @@ if (navBurger && mobileMenu) {
       a.href = '#';
       a.className = 'search-result-card';
       a.innerHTML =
-        '<div class="search-result-thumb"><img src="' + escNav(p.img) + '" alt="' + escNav(p.nome) + '" loading="lazy"></div>' +
+        '<div class="search-result-thumb"><img src="' + escNav(p.img) + '" alt="' + escNav(p.nome) + '" loading="lazy" width="800" height="1067"></div>' +
         '<h6>' + escNav(p.nome) + '</h6>' +
         '<p>' + escNav(formattaPrezzo(p.prezzo)) + '</p>';
       frag.appendChild(a);
@@ -1050,7 +1050,7 @@ function creaJournalCard(articolo, variante) {
   if (variante === 'home') {
     a.className = 'w-item';
     a.innerHTML =
-      '<div class="w-image"><img loading="lazy" src="' + escNav(articolo.img) + '" alt="' + escNav(articolo.alt) + '" draggable="false"></div>' +
+      '<div class="w-image"><img loading="lazy" src="' + escNav(articolo.img) + '" alt="' + escNav(articolo.alt) + '" draggable="false" width="800" height="600"></div>' +
       '<h3>' + escNav(articolo.title) + '</h3>' +
       '<p class="w-desc">' + escNav(articolo.desc) + '</p>';
   } else {
