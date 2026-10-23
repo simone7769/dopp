@@ -387,6 +387,22 @@ header.menu-open .topbar-message {
   visibility: visible;
   transform: translateY(0);
 }
+
+/* Overlay scuro sotto il megamenu (coerente con drawer/popup) */
+.megamenu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 998;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity var(--t-base) var(--ease), visibility var(--t-base) var(--ease);
+}
+.megamenu-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
 .megamenu-inner { max-width: 1500px; margin: 0 auto; }
 
 .megamenu-col h4 {

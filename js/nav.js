@@ -127,12 +127,16 @@ if (header && (MEGA_MENUS.length || HOVER_ONLY_LINKS.length)) {
     current = m;
     accendi(m);
     header.classList.add('menu-open');
+    var ov = document.getElementById('megamenuOverlay');
+    if (ov) ov.classList.add('active');
   }
 
   function chiudiPannelloMaTieniHeader() {
     clearTimeout(hideTimer);
     if (current) spegni(current);
     current = null;
+    var ov = document.getElementById('megamenuOverlay');
+    if (ov) ov.classList.remove('active');
   }
 
   function chiudiTuttoOra() {
@@ -140,6 +144,8 @@ if (header && (MEGA_MENUS.length || HOVER_ONLY_LINKS.length)) {
     annullaApertura();
     if (current) spegni(current);
     current = null;
+    var ov = document.getElementById('megamenuOverlay');
+    if (ov) ov.classList.remove('active');
     if (!isSearchOpen() && headerHolds.size === 0) {
       header.classList.remove('menu-open');
       header.classList.toggle('scrolled', window.scrollY > 20);

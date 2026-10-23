@@ -68,7 +68,8 @@
     </div>\
   </nav>\
   ' + MEGAMENUS() + '\
-</header>';
+</header>\
+<div class="megamenu-overlay" id="megamenuOverlay"></div>';
 
   function MEGAMENUS() {
     return '\
