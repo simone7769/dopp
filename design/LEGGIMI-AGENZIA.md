@@ -84,6 +84,14 @@ Da terminale, nella cartella del progetto:
 - **`token.json`** allineato a `tokens.css` (header 155 px, bottoni telefono 44 px, `--fs-16`, spaziature griglia e carosello).
 - **Header mobile fisso a 60 px**: non cambia scrollando. Il logo è stabile (clamp 12-18 px) e non si rimpicciolisce più. Topbar (33 px) sparisce dopo 20 px di scroll. `scroll-padding-top: 105 px` come ripiego CSS, ma i link non usano più `#ancora`: puntano a pagina, e il blocco ANCORE di `nav.js` è stato rimosso.
 
+- **Megamenu unificato (3 voci)**: i tre menu (`Abbigliamento`, `Accessori`, `Outlet`) condividono la stessa griglia `1fr 4fr` (voci sx, card dx), card a `1fr` (4 colonne), gap 16px, padding allineato a `nav` (50px). Sopra il menu si apre un **overlay scuro** `rgba(0,0,0,0.45)` (come drawer/popup). `pointer-events: none` perché la chiusura è gestita da `mousemove` + timer (`nav.js`). Abbigliamento: 4 card (La Capsule in 1ª posizione, AI 2026, Essential, Cerimonia). Accessori: 3 card (Novità, Must Have, Best Seller). Outlet: 4 card + link "Vedi tutto" a sinistra.
+- **Pop-up Articoli Simili con still-life**: il popup clona le card della pagina e sostituisce `img-main` (figura intera) con `img-hover` (still-life). CSS in `css/similar-modal.css` (condiviso). Script inline in `cerimonia.html`, `outlet-abbigliamento.html`, `ai-2026.html`, `essential.html`.
+- **Form iscrizione Club**: stesso pattern del form newsletter del footer. Il submit nasconde il form e mostra un messaggio di conferma in serif italic. L'utente riceve un feedback immediato senza ricaricare la pagina.
+- **Checkout standalone**: niente header/footer del sito (pattern standard e-commerce). Il logo è allineato visivamente alle altre pagine via `padding: 65px 20px 67px` (155px totali, come `--header-h`). La riga legale (privacy/termini) è stata rimossa: i link restano accessibili dal footer globale delle altre pagine.
+- **PDP taglia non preselezionata**: nessuna taglia ha `class="selected"` all'apertura. L'utente sceglie; se clicca "Aggiungi" senza taglia, riceve un avviso `.pdp-size-warning`. I colori invece restano preselezionati (colore principale del prodotto, standard e-commerce).
+- **Favicon bianca**: i 3 file (`favicon-16x16.png`, `favicon-32x32.png`, `favicon.ico`) hanno ora sfondo bianco (erano RGBA trasparente). Risultato: −94% di peso (286B vs 6KB), visibile anche nelle tab scure.
+- **Immagini JPG → WebP**: i 4 JPG residui sono stati convertiti: `a.jpg`→`megamenu-ai-2026.webp`, `ag.jpg`→`ag.webp`, `boiserie-bg1.jpg`→`boiserie-bg1.webp`, `dd1.jpg`→`dd1.webp`. Risparmio ~480 KB. Nessun JPG di contenuto rimasto (solo favicon `.png`).
+
 ## Contatti
 
 Vedi `design/CREDITI.md`.
