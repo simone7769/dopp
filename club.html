@@ -192,7 +192,14 @@
 
       <div class="article-text sartoria-cta-wrap">
         <p>Entra a far parte del Doppelgänger Club e inizia a godere dei tuoi vantaggi esclusivi già dal prossimo acquisto.</p>
-        <a href="#" class="sartoria-cta">Iscriviti al Club</a>
+        <form class="club-cta-form" id="clubNewsletterForm" novalidate>
+          <input type="email" id="clubEmail" name="email" autocomplete="email" placeholder="Il tuo indirizzo email" required aria-label="Email per iscrizione al Club">
+          <label class="club-cta-consent">
+            <input type="checkbox" required id="clubPrivacy">
+            <span>Acconsento a ricevere la newsletter. Ho letto l'<a href="privacy-cookie.html">Informativa Privacy</a>.</span>
+          </label>
+          <button type="submit" class="sartoria-cta">Iscriviti al Club</button>
+        </form>
       </div>
 
     </section>

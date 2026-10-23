@@ -210,3 +210,70 @@
   .club-faq { padding: 0 16px; margin-bottom: 60px; }
   .club-faq summary { font-size: var(--fs-12); padding: 18px 4px; }
 }
+
+
+/* ============================================================
+   Form iscrizione Club (sostituisce il link sartoria-cta)
+   Stesso pattern del footer newsletter, adattato al contesto chiaro
+   ============================================================ */
+.club-cta-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  max-width: 440px;
+  margin: 0 auto;
+}
+.club-cta-form input[type="email"] {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--ink);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: var(--fs-14);
+  letter-spacing: var(--tr-05);
+  padding: 8px 0;
+  text-align: center;
+  outline: none;
+}
+.club-cta-form input[type="email"]::placeholder {
+  color: var(--muted);
+  text-transform: uppercase;
+  font-size: var(--fs-11);
+  letter-spacing: var(--tr-15);
+}
+.club-cta-form input[type="email"]:focus {
+  border-bottom-color: var(--gold);
+}
+.club-cta-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-family: var(--sans);
+  font-size: var(--fs-11);
+  line-height: 1.5;
+  color: var(--muted);
+  text-align: left;
+  max-width: 380px;
+}
+.club-cta-consent input[type="checkbox"] {
+  margin-top: 3px;
+  flex-shrink: 0;
+  accent-color: var(--ink);
+}
+.club-cta-consent a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.club-newsletter-success {
+  font-family: var(--serif);
+  font-size: var(--vt-body, 18px);
+  font-style: italic;
+  color: var(--ink);
+  text-align: center;
+  max-width: 400px;
+  margin: 0 auto;
+}
+

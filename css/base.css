@@ -2459,17 +2459,13 @@ footer {
 }
 
 .footer-newsletter-success {
-  display: flex;
-  align-items: center;
-  background: var(--crema-pannelli);
-  color: var(--ink);
-  padding: 12px 20px;
-  font-family: var(--sans);
-  font-size: var(--fs-14);
-  font-weight: 500;
-  letter-spacing: var(--tr-03);
+  font-family: var(--serif);
+  font-size: var(--fs-body-editorial);
+  font-style: italic;
+  font-weight: var(--fw-regular);
+  color: #cfcbc4;
+  text-align: left;
+  max-width: 380px;
   line-height: 1.5;
   margin-bottom: 20px;
-  max-width: 380px;
-  box-sizing: border-box;
 }

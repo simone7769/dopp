@@ -1856,7 +1856,39 @@ document.addEventListener('submit', function (e) {
   
   var success = document.createElement('div');
   success.className = 'footer-newsletter-success';
-  success.textContent = 'Ti sei iscritto alla nostra newsletter.';
+  success.textContent = 'Ti sei iscritto al Doppelgänger Club.';
   
+  form.parentNode.insertBefore(success, form);
+});
+
+/* ============================================================
+   CLUB NEWSLETTER: box di conferma (demo)
+   Stesso pattern del footer, per il form in club.html
+   ============================================================ */
+document.addEventListener('submit', function (e) {
+  if (!e.target || e.target.id !== 'clubNewsletterForm') return;
+  e.preventDefault();
+
+  var email = document.getElementById('clubEmail');
+  var privacy = document.getElementById('clubPrivacy');
+  var form = e.target;
+
+  // Validazione manuale (novalidate sul form, quindi il browser non blocca)
+  if (!email.value || email.value.indexOf('@') < 0) {
+    email.reportValidity();
+    return;
+  }
+  if (!privacy.checked) {
+    privacy.reportValidity();
+    return;
+  }
+
+  // Nasconde form, mostra messaggio di conferma
+  form.style.display = 'none';
+
+  var success = document.createElement('div');
+  success.className = 'club-newsletter-success';
+  success.textContent = 'Ti sei iscritto al Doppelganger Club.';
+
   form.parentNode.insertBefore(success, form);
 });
