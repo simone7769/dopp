@@ -373,7 +373,7 @@ header.menu-open .topbar-message {
   background-color: var(--crema-pannelli);
   border-top: 1px solid var(--line);
   box-shadow: 0 20px 40px rgba(0,0,0,0.06);
-  padding: 50px 70px 55px;
+  padding: 50px 40px 55px;
   z-index: 999;
   opacity: 0;
   visibility: hidden;
@@ -1677,14 +1677,25 @@ footer {
    NUOVI MEGAMENU — struttura unificata
    ============================================================ */
 
-#megaAbbigliamento .megamenu-inner,
+#megaAbbigliamento .megamenu-inner {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  gap: 60px;
+  align-items: start;
+}
+#megaAbbigliamento .megamenu-images {
+  grid-column: 2;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
 #megaAccessori .megamenu-inner {
   display: grid;
   grid-template-columns: 1fr 1fr 3fr;
   gap: 60px;
   align-items: start;
 }
-#megaAbbigliamento .megamenu-images,
 #megaAccessori .megamenu-images {
   grid-column: 3;
   display: grid;
@@ -1748,20 +1759,27 @@ footer {
 
 
 @media (max-width: 1200px) {
-  #megaAbbigliamento .megamenu-inner,
+  #megaAbbigliamento .megamenu-inner {
+    grid-template-columns: 1fr 4fr;
+    gap: 30px;
+  }
+  #megaAbbigliamento .megamenu-images {
+    grid-column: 2;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+  }
+
   #megaAccessori .megamenu-inner,
   #megaOutlet .megamenu-inner {
     grid-template-columns: 1fr 1fr;
     gap: 30px;
   }
-  #megaAbbigliamento .megamenu-images,
   #megaAccessori .megamenu-images,
   #megaOutlet .megamenu-images {
     grid-column: 1 / -1;
     margin-top: 30px;
     gap: 20px;
   }
-  #megaAbbigliamento .megamenu-images,
   #megaAccessori .megamenu-images { grid-template-columns: repeat(3, minmax(0, 155px)); }
   #megaOutlet .megamenu-images { grid-template-columns: repeat(4, minmax(0, 155px)); }
 }
