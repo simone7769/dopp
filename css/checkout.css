@@ -7,10 +7,10 @@
 .co-header {
   display: flex;
   justify-content: center;
-  padding: 26px 20px;
+  padding: 65px 20px 67px;  /* 65px top + 22px logo + 67px bottom + 1px bordo = 155px (altezza header sito) */
   border-bottom: 1px solid var(--line);
 }
-.co-logo { height: 26px; width: auto; display: block; filter: brightness(0) saturate(100%); }
+.co-logo { height: var(--logo-h-desktop); width: auto; display: block; filter: brightness(0) saturate(100%); }
 
 /* Due metà uguali: la linea di divisione sta al centro, sotto il logo.
    Il contenuto di sinistra si appoggia alla linea da sinistra, quello di destra da destra,
