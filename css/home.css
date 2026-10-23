@@ -597,9 +597,9 @@ header.scrolled .topbar {
   .collection.in-view .collection-frame { transform: none; }
   .collection .grid { position: static; display: flex; flex-direction: column; gap: 14px; }
   .collection .card:nth-child(1), .collection .card:nth-child(2) { position: static; width: 100%; height: auto; }
-  .collection .card-media { width: 100%; height: auto; aspect-ratio: 4 / 5; padding: 18px; }
+  .collection .card-media { width: 100%; height: auto; aspect-ratio: 3 / 2; padding: 18px; }
   .duo { grid-template-columns: 1fr; height: auto; min-height: auto; gap: 14px; background: transparent; }
-  .duo-item { height: auto; min-height: 0; aspect-ratio: 4 / 5; }
+  .duo-item { width: 100%; height: auto; min-height: 0; aspect-ratio: 3 / 2; }
 }
 
 /* Dispositivi touch (qualsiasi larghezza) e schermi <=1024px: niente frecce,
@@ -650,7 +650,7 @@ header.scrolled .topbar {
   .card h3 { font-size: var(--fs-12); }
 
   .duo { grid-template-columns: 1fr; height: auto; min-height: auto; }
-  .duo-item { width: 100%; height: auto; min-height: 0; aspect-ratio: 4 / 5; }
+  .duo-item { width: 100%; height: auto; min-height: 0; aspect-ratio: 3 / 2; }
   .duo-content h3 { letter-spacing: var(--tr-4); }
 }
 
@@ -783,3 +783,14 @@ header.scrolled .topbar {
     scroll-snap-align: none; 
   }
 }
+/* Video 16:9 SOLO su tablet (da 641px a 1024px) */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .video-showcase {
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+  .video-showcase-media {
+    object-fit: cover; 
+  }
+}
+
