@@ -373,7 +373,7 @@ header.menu-open .topbar-message {
   background-color: var(--crema-pannelli);
   border-top: 1px solid var(--line);
   box-shadow: 0 20px 40px rgba(0,0,0,0.06);
-  padding: 50px 40px 55px;
+  padding: 50px 0 55px;
   z-index: 999;
   opacity: 0;
   visibility: hidden;
@@ -403,7 +403,7 @@ header.menu-open .topbar-message {
   opacity: 1;
   visibility: visible;
 }
-.megamenu-inner { max-width: 1500px; margin: 0 auto; }
+.megamenu-inner { max-width: 1600px; margin: 0 auto; padding: 0 50px; }
 
 .megamenu-col h4 {
   font-family: var(--sans);
