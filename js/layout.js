@@ -89,8 +89,6 @@
     <li><a href="#">Scarpe</a></li><li><a href="#">Cinture</a></li><li><a href="#">Cravatte &amp; Pochette</a></li>\
     <li><a href="#">Pelletteria</a></li><li><a href="#">Gemelli &amp; Dettagli</a></li><li><a href="#">Profumi</a></li>\
     <li><a href="#" class="mm-see-all">Vedi tutti</a></li></ul></div>\
-  <div class="megamenu-col"><h4>In Evidenza</h4><ul>\
-    <li><a href="#">Novità</a></li><li><a href="#">Must Have</a></li><li><a href="#">Best Seller</a></li></ul></div>\
   <div class="megamenu-images">\
     <a href="#" class="mm-card"><div class="thumb"><img src="images/ac1.webp" alt="Scarpe"></div><h5>Scarpe</h5></a>\
     <a href="#" class="mm-card"><div class="thumb"><img src="images/ac2.webp" alt="Cravatte"></div><h5>Cravatte</h5></a>\

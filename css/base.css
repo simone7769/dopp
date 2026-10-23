@@ -1692,15 +1692,15 @@ footer {
 
 #megaAccessori .megamenu-inner {
   display: grid;
-  grid-template-columns: 1fr 1fr 3fr;
+  grid-template-columns: 1fr 4fr;
   gap: 60px;
   align-items: start;
 }
 #megaAccessori .megamenu-images {
-  grid-column: 3;
+  grid-column: 2;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 215px));
-  gap: 30px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
 }
 
 #megaOutlet .megamenu-inner {
@@ -1769,19 +1769,26 @@ footer {
     gap: 12px;
   }
 
-  #megaAccessori .megamenu-inner,
+  #megaAccessori .megamenu-inner {
+    grid-template-columns: 1fr 4fr;
+    gap: 30px;
+  }
+  #megaAccessori .megamenu-images {
+    grid-column: 2;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+  }
+
   #megaOutlet .megamenu-inner {
     grid-template-columns: 1fr 1fr;
     gap: 30px;
   }
-  #megaAccessori .megamenu-images,
   #megaOutlet .megamenu-images {
     grid-column: 1 / -1;
     margin-top: 30px;
     gap: 20px;
+    grid-template-columns: repeat(4, minmax(0, 155px));
   }
-  #megaAccessori .megamenu-images { grid-template-columns: repeat(3, minmax(0, 155px)); }
-  #megaOutlet .megamenu-images { grid-template-columns: repeat(4, minmax(0, 155px)); }
 }
 
 /* ============================================================
