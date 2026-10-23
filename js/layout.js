@@ -90,14 +90,12 @@
     <li><a href="#">Pelletteria</a></li><li><a href="#">Gemelli &amp; Dettagli</a></li><li><a href="#">Profumi</a></li>\
     <li><a href="#" class="mm-see-all">Vedi tutti</a></li></ul></div>\
   <div class="megamenu-images">\
-    <a href="#" class="mm-card"><div class="thumb"><img src="images/ac1.webp" alt="Scarpe"></div><h5>Scarpe</h5></a>\
-    <a href="#" class="mm-card"><div class="thumb"><img src="images/ac2.webp" alt="Cravatte"></div><h5>Cravatte</h5></a>\
-    <a href="#" class="mm-card"><div class="thumb"><img src="images/ac3.webp" alt="Pelletteria"></div><h5>Pelletteria</h5></a>\
+    <a href="#" class="mm-card"><div class="thumb"><img src="images/ac1.webp" alt="Novità"></div><h5>Novità</h5></a>\
+    <a href="#" class="mm-card"><div class="thumb"><img src="images/ac2.webp" alt="Must Have"></div><h5>Must Have</h5></a>\
+    <a href="#" class="mm-card"><div class="thumb"><img src="images/ac3.webp" alt="Best Seller"></div><h5>Best Seller</h5></a>\
   </div></div></div>\
 <div class="megamenu" id="megaOutlet"><div class="megamenu-inner">\
-  <div class="megamenu-col"><h4>Outlet</h4><ul>\
-    <li><a href="outlet-abbigliamento.html">Abbigliamento</a></li><li><a href="outlet-abbigliamento.html">Accessori</a></li>\
-    <li><a href="outlet-abbigliamento.html">Back to Work</a></li><li><a href="outlet-abbigliamento.html">Ultimi Pezzi</a></li>\
+  <div class="megamenu-col megamenu-col-outlet"><h4>Outlet</h4><ul>\
     <li><a href="outlet-abbigliamento.html" class="mm-see-all">Vedi tutto l\'outlet</a></li></ul></div>\
   <div class="megamenu-images">\
     <a href="outlet-abbigliamento.html" class="mm-card"><div class="thumb"><img src="images/z.webp" alt="Abbigliamento"></div><h5>Abbigliamento</h5></a>\

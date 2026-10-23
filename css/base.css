@@ -1716,6 +1716,13 @@ footer {
   gap: 16px;
 }
 
+/* Outlet: stessa griglia di Abbigliamento (1fr 4fr) per card della stessa dimensione */
+#megaOutlet .megamenu-inner {
+  grid-template-columns: 1fr 4fr;
+  gap: 60px;
+}
+
+
 #megaAbbigliamento .megamenu-col h4,
 #megaAccessori .megamenu-col h4,
 #megaOutlet .megamenu-col h4 {
