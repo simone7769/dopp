@@ -218,36 +218,393 @@
 
   <div class="meta">
     <div>
-      <span class="val">286</span>
+      <span class="val">498</span>
       <span class="lbl">Commit</span>
     </div>
     <div>
-      <span class="val">174</span>
+      <span class="val">360</span>
       <span class="lbl">File modificati</span>
     </div>
     <div>
-      <span class="val">13420</span>
+      <span class="val">53773</span>
       <span class="lbl">Righe aggiunte</span>
     </div>
   </div>
 
+  <p style="font-size: 12px; color: var(--muted); text-align: center; margin-bottom: 8px; font-style: italic;">
+    Contatori aggiornati al 23 ottobre 2026: includono tutti i commit del repo (anche quelli precedenti al 14 ottobre, prima non conteggiati).
+  </p>
   <p style="font-size: 13px; color: var(--ink-soft); text-align: center; margin-bottom: 40px;">
     Da <code>de268ba</code> a <code>e59f9e9</code> — 8–20 ottobre 2026
   </p>
 
-<h2>21. Aggiornamento del 21 ottobre 2026 <span class="count">1 commit</span></h2>
+  <h2>23. Aggiornamento del 23 ottobre 2026 <span class="count">22 commit</span></h2>
 
   <div class="commit">
-    <code>c99bfbd</code><span class="msg">docs: header 155px, logo 22px, fix FOUC e scroll-snap touch</span>
-    <p class="note">Header desktop: 155px (era 169px), logo 22px (era 26px). Rimosso FOUC del logo in <code>layout.js</code> e <code>base.css</code>. Disattivato scroll-snap su touch in <code>home.css</code> per evitare bug di aggancio video. File toccati: <code>css/base.css</code>, <code>css/home.css</code>, <code>css/tokens.css</code>, <code>index.html</code>, <code>js/layout.js</code>, <code>design/token.json</code>.</p>
+    <code>3a65618</code><span class="msg">Home: card Duo a 641-900px occupano 100% larghezza (rimosso height 70vh che le stringeva a sinistra)</span>
+    <p class="note"><code>css/home.css</code> (+1/-1)</p>
+  </div>
+  <div class="commit">
+    <code>e7dbbc0</code><span class="msg">Home tablet (641-1024px): card Collection/Duo a 3/2, video showcase 16/9 (mobile e desktop invariati)</span>
+    <p class="note"><code>css/home.css</code> (+14/-3)</p>
+  </div>
+  <div class="commit">
+    <code>665bec0</code><span class="msg">Home: rimosso video 16/9 tablet (torna 100vh cover come prima); restano card 3/2</span>
+    <p class="note"><code>css/home.css</code> (+0/-11)</p>
+  </div>
+  <div class="commit">
+    <code>2d21d41</code><span class="msg">Immagini: aggiornate le img-hover con still-life per Ai-2026, Outlet, Essential e Cerimonia</span>
+    <p class="note"><code>images/10b.webp</code> (bin), <code>images/11b.webp</code> (bin), <code>images/12b.webp</code> (bin), <code>images/13b.webp</code> (bin) + altri 16</p>
+  </div>
+  <div class="commit">
+    <code>7507097</code><span class="msg">Pop-up Articoli Simili: mostra solo still-life (img-hover)</span>
+    <p class="note"><code>js/similar-popup.js</code> (+10/-0)</p>
+  </div>
+  <div class="commit">
+    <code>1a843d4</code><span class="msg">Pop-up Articoli Simili: mostra solo still-life (img-hover) negli script inline</span>
+    <p class="note"><code>ai-2026.html</code> (+8/-0), <code>cerimonia.html</code> (+8/-0), <code>essential.html</code> (+8/-0), <code>outlet-abbigliamento.html</code> (+8/-0)</p>
+  </div>
+  <div class="commit">
+    <code>b6a0c11</code><span class="msg">Club: form iscrizione funzionante + coerenza messaggio/stile con footer newsletter</span>
+    <p class="note"><code>club.html</code> (+8/-1), <code>css/base.css</code> (+7/-11), <code>css/club.css</code> (+67/-0), <code>js/nav.js</code> (+33/-1)</p>
+  </div>
+  <div class="commit">
+    <code>b20753b</code><span class="msg">Home: card Duo Outlet e Primavera Estate ora cliccabili (link a outlet-abbigliamento e ai-2026)</span>
+    <p class="note"><code>index.html</code> (+2/-2)</p>
+  </div>
+  <div class="commit">
+    <code>3515648</code><span class="msg">Link: sistemati link morti (checkout legali, FAQ Club, WhatsApp) + rimossi conflitti data-open-*</span>
+    <p class="note"><code>checkout.html</code> (+0/-1), <code>faq.html</code> (+1/-1), <code>monitora-reso.html</code> (+1/-1), <code>traccia-ordine.html</code> (+1/-1)</p>
+  </div>
+  <div class="commit">
+    <code>cd8d8cb</code><span class="msg">Checkout: header allineato al sito (logo 65px, bordo a 155px come header principale)</span>
+    <p class="note"><code>css/checkout.css</code> (+2/-2)</p>
+  </div>
+  <div class="commit">
+    <code>8b01d3e</code><span class="msg">PDP: rimossa preselezione taglia 48 (l'utente sceglie, warning se non seleziona)</span>
+    <p class="note"><code>prodotto-saldi.html</code> (+1/-1), <code>prodotto.html</code> (+1/-1), <code>prodotto1.html</code> (+1/-1), <code>prodotto2.html</code> (+1/-1)</p>
+  </div>
+  <div class="commit">
+    <code>7bdbb78</code><span class="msg">Popup Articoli Simili: linea sotto titolo da oro a grigio (--line, meno invadente)</span>
+    <p class="note"><code>css/similar-modal.css</code> (+1/-1)</p>
+  </div>
+  <div class="commit">
+    <code>de3cdde</code><span class="msg">Megamenu Outlet: tutti i link (testuali + card) puntano a outlet-abbigliamento.html (desktop + mobile)</span>
+    <p class="note"><code>js/layout.js</code> (+9/-9)</p>
+  </div>
+  <div class="commit">
+    <code>c6c7f6f</code><span class="msg">Megamenu Abbigliamento: 4 card (aggiunta La Capsule), rimosso In Evidenza, layout a 1fr 4fr</span>
+    <p class="note"><code>css/base.css</code> (+24/-6), <code>js/layout.js</code> (+1/-3)</p>
+  </div>
+  <div class="commit">
+    <code>3bf993d</code><span class="msg">Megamenu Abbigliamento e Accessori: rimossi 'In Evidenza', card allineate a 1fr (4 col Abbigliamento/Outlet, 4 col con 1 vuota per Accessori), aggiunta La Capsule</span>
+    <p class="note"><code>css/base.css</code> (+15/-8), <code>js/layout.js</code> (+0/-2)</p>
+  </div>
+  <div class="commit">
+    <code>a57bc34</code><span class="msg">Megamenu Outlet: card flessibili (1fr) e allineate agli altri menu, rimosso salto a 1200px</span>
+    <p class="note"><code>css/base.css</code> (+6/-7)</p>
+  </div>
+  <div class="commit">
+    <code>8b9c328</code><span class="msg">Megamenu: Outlet con 'Vedi tutto' a sinistra + 4 card; Accessori con card Novita/Must Have/Best Seller (foto segnaposto)</span>
+    <p class="note"><code>css/base.css</code> (+7/-0), <code>js/layout.js</code> (+4/-6)</p>
+  </div>
+  <div class="commit">
+    <code>f834186</code><span class="msg">Immagini Accessori: sostituite con still-life editoriali (Novità, Must Have, Best Seller)</span>
+    <p class="note"><code>images/ac1.webp</code> (bin), <code>images/ac2.webp</code> (bin), <code>images/ac3.webp</code> (bin)</p>
+  </div>
+  <div class="commit">
+    <code>af40964</code><span class="msg">Immagini Accessori: completata sostituzione (ac2 Must Have, ac3 Best Seller)</span>
+    <p class="note"><code>images/ac2.webp</code> (bin), <code>images/ac3.webp</code> (bin)</p>
+  </div>
+  <div class="commit">
+    <code>3867853</code><span class="msg">Megamenu: overlay scuro (coerente con drawer/popup, rgba 0.45)</span>
+    <p class="note"><code>css/base.css</code> (+16/-0), <code>js/layout.js</code> (+2/-1), <code>js/nav.js</code> (+6/-0)</p>
+  </div>
+  <div class="commit">
+    <code>5425f2d</code><span class="msg">Megamenu Abbigliamento: La Capsule in prima posizione</span>
+    <p class="note"><code>js/layout.js</code> (+1/-1)</p>
+  </div>
+  <div class="commit">
+    <code>ff845d4</code><span class="msg">Megamenu: allineato all'header (max-width 1600px, padding 50px come .nav)</span>
+    <p class="note"><code>css/base.css</code> (+2/-2)</p>
   </div>
 
-<h2>20. Aggiornamento del 20 ottobre 2026 <span class="count">1 commit</span></h2>
+  <div class="commit" style="margin-top: 16px; padding: 12px 16px; background: var(--crema); border-left: 2px solid var(--oro); font-style: italic; font-size: 13px; color: var(--ink-soft);">
+    <b>Sintesi.</b> 22 commit, 61 file toccati. Totale: +277/-86 righe.
+  </div>
+
+
+  <h2>22. Aggiornamento del 22 ottobre 2026 <span class="count">24 commit</span></h2>
+
+  <div class="commit">
+    <code>9e7f46c</code><span class="msg">Pop-up Articoli Simili: filtri coerenti con drawer, X uniformate 44px, spaziature card compatte</span>
+    <p class="note"><code>cerimonia.html</code> (+6/-0), <code>css/cerimonia.css</code> (+204/-2), <code>css/outlet-abbigliamento.css</code> (+2/-2)</p>
+  </div>
+  <div class="commit">
+    <code>4d261f1</code><span class="msg">Outlet: aggiunti filtri e griglia 4 colonne nel pop-up Articoli Simili (coerente con Cerimonia)</span>
+    <p class="note"><code>css/outlet-abbigliamento.css</code> (+107/-0), <code>outlet-abbigliamento.html</code> (+37/-1)</p>
+  </div>
+  <div class="commit">
+    <code>29bce6a</code><span class="msg">Cerimonia: aggiornato JS del pop-up per gestire i filtri (allineato a Outlet)</span>
+    <p class="note"><code>cerimonia.html</code> (+32/-10)</p>
+  </div>
+  <div class="commit">
+    <code>2a5fc8f</code><span class="msg">Badge prodotto: aggiunti Bestseller/New in/Ultimi pezzi su ai-2026, Bestseller/Esclusiva/New in su essential</span>
+    <p class="note"><code>ai-2026.html</code> (+3/-0), <code>essential.html</code> (+3/-0)</p>
+  </div>
+  <div class="commit">
+    <code>cb9bf47</code><span class="msg">Badge prodotto: ridistribuiti su card 1/7/13 (ai-2026) e 1/4/6 (essential)</span>
+    <p class="note"><code>ai-2026.html</code> (+6/-6), <code>essential.html</code> (+6/-6)</p>
+  </div>
+  <div class="commit">
+    <code>062d067</code><span class="msg">Refactor CSS: pop-up Articoli Simili in file condiviso similar-modal.css + pop-up su ai-2026 ed essential</span>
+    <p class="note"><code>ai-2026.html</code> (+177/-63), <code>cerimonia.html</code> (+1/-0), <code>css/cerimonia.css</code> (+7/-292), <code>css/outlet-abbigliamento.css</code> (+1/-249) + altri 3</p>
+  </div>
+  <div class="commit">
+    <code>ffbd2cb</code><span class="msg">Outlet: badge Outlet ridistribuiti su card 1/7/13 (come ai-2026 ed essential)</span>
+    <p class="note"><code>outlet-abbigliamento.html</code> (+2/-2)</p>
+  </div>
+  <div class="commit">
+    <code>9437b9f</code><span class="msg">Vetrina: griglia prodotti 900→1150px, titolo 'La selezione', rimosso link hero</span>
+    <p class="note"><code>css/vetrina.css</code> (+1/-1), <code>vetrina.html</code> (+1/-2)</p>
+  </div>
+  <div class="commit">
+    <code>3929a82</code><span class="msg">Refactor CSS vetrina: rimosso .vt-card base (codice morto)</span>
+    <p class="note"><code>css/vetrina.css</code> (+0/-21)</p>
+  </div>
+  <div class="commit">
+    <code>bd2dfe5</code><span class="msg">Refactor CSS vetrina: rimosso SET A .vt-grid .vt-card (duplicato di SET B)</span>
+    <p class="note"><code>css/vetrina.css</code> (+0/-46)</p>
+  </div>
+  <div class="commit">
+    <code>84983d0</code><span class="msg">Refactor CSS vetrina: fuso .vt-products-head (rimossa override ridondante)</span>
+    <p class="note"><code>css/vetrina.css</code> (+5/-13)</p>
+  </div>
+  <div class="commit">
+    <code>ee657e5</code><span class="msg">Vetrina: file pulito (feature invertita, sticky statico, 0 important) + La selezione + no link hero + rimossa chiusura vt-end</span>
+    <p class="note"><code>css/vetrina.css</code> (+344/-631), <code>vetrina.html</code> (+7/-32)</p>
+  </div>
+  <div class="commit">
+    <code>5ef8527</code><span class="msg">Vetrina: manifesto più asciutto (via 'La Capsule nasce da qui'), Scegliere senza ripetizione</span>
+    <p class="note"><code>vetrina.html</code> (+1/-2)</p>
+  </div>
+  <div class="commit">
+    <code>54013bb</code><span class="msg">Cleanup CSS vetrina: rimossi .vt-end e --vt-lead (codice morto)</span>
+    <p class="note"><code>css/vetrina.css</code> (+1/-16)</p>
+  </div>
+  <div class="commit">
+    <code>f430d0d</code><span class="msg">Vetrina: immagine Scegliere a 2/7 (margine 1 colonna, larghezza 5 colonne come feature)</span>
+    <p class="note"><code>css/vetrina.css</code> (+1/-1)</p>
+  </div>
+  <div class="commit">
+    <code>2a4fee1</code><span class="msg">Vetrina: fix a11y link immagine feature (rimosso aria-hidden su focalizzabile, aggiunto aria-label)</span>
+    <p class="note"><code>vetrina.html</code> (+1/-1)</p>
+  </div>
+  <div class="commit">
+    <code>2a3c8a6</code><span class="msg">Vetrina: a11y (cite→footer per Pasolini) + prefers-reduced-motion globale su transizioni</span>
+    <p class="note"><code>css/vetrina.css</code> (+15/-0), <code>vetrina.html</code> (+1/-1)</p>
+  </div>
+  <div class="commit">
+    <code>2ec926a</code><span class="msg">Vetrina: fix stile footer dentro blockquote (reset background/padding da base.css)</span>
+    <p class="note"><code>css/vetrina.css</code> (+5/-1)</p>
+  </div>
+  <div class="commit">
+    <code>3704ec2</code><span class="msg">Validazione: fix 2 errori HTML (button type + role img su div.map)</span>
+    <p class="note"><code>design/linee-guida-badge.html</code> (+1/-1), <code>test-popup.html</code> (+1/-1)</p>
+  </div>
+  <div class="commit">
+    <code>d799591</code><span class="msg">Vetrina: card galleria con nomi/prezzi corretti (T-shirt, Jeans, Polo, Mocassino, Coppola, Calza)</span>
+    <p class="note"><code>vetrina.html</code> (+18/-18)</p>
+  </div>
+  <div class="commit">
+    <code>0e2f54b</code><span class="msg">Vetrina: sezione citazione un po' più bassa (max-height 860→720px)</span>
+    <p class="note"><code>css/vetrina.css</code> (+1/-1)</p>
+  </div>
+  <div class="commit">
+    <code>358bf56</code><span class="msg">Favicon: sfondo bianco su 16x16, 32x32 e .ico (appiattito RGBA su RGB)</span>
+    <p class="note"><code>images/favicon-16x16.png</code> (bin), <code>images/favicon-32x32.png</code> (bin), <code>images/favicon.ico</code> (bin)</p>
+  </div>
+  <div class="commit">
+    <code>1f7f3c3</code><span class="msg">Media: convertiti 4 JPG in WebP + megamenu-ai-2026.webp (risparmio ~290 KB)</span>
+    <p class="note"><code>css/home.css</code> (+1/-1), <code>images/a.jpg</code> (bin), <code>images/ag.jpg</code> (bin), <code>images/ag.webp</code> (bin) + altri 8</p>
+  </div>
+  <div class="commit">
+    <code>363a5fa</code><span class="msg">Outlet: card Abito linka a prodotto-saldi.html (prezzi allineati 189/139/-26); Pantalone e Impermeabile senza link (#)</span>
+    <p class="note"><code>outlet-abbigliamento.html</code> (+9/-9)</p>
+  </div>
+
+  <div class="commit" style="margin-top: 16px; padding: 12px 16px; background: var(--crema); border-left: 2px solid var(--oro); font-style: italic; font-size: 13px; color: var(--ink-soft);">
+    <b>Sintesi.</b> 24 commit, 52 file toccati. Totale: +1008/-1432 righe.
+  </div>
+
+
+  <h2>21. Aggiornamento del 21 ottobre 2026 <span class="count">30 commit</span></h2>
+
+  <div class="commit">
+    <code>82114e1</code><span class="msg">Header: logo 22px, padding 22/12, header-h 155px, pulizia token</span>
+    <p class="note"><code>css/base.css</code> (+6/-6), <code>css/tokens.css</code> (+2/-3), <code>index.html</code> (+2/-3)</p>
+  </div>
+  <div class="commit">
+    <code>fb5166d</code><span class="msg">Header: logo otticamente centrato (translateY 10px)</span>
+    <p class="note"><code>css/base.css</code> (+1/-1)</p>
+  </div>
+  <div class="commit">
+    <code>7ebe475</code><span class="msg">Tablet orizzontale: logo 20px per coerenza proporzionale</span>
+    <p class="note"><code>css/base.css</code> (+1/-0)</p>
+  </div>
+  <div class="commit">
+    <code>de402a3</code><span class="msg">Header: caricamento logo pulito (rimossi width/height, rimosso transition e testo alt visibile)</span>
+    <p class="note"><code>css/base.css</code> (+2/-1), <code>js/layout.js</code> (+1/-1)</p>
+  </div>
+  <div class="commit">
+    <code>b310c80</code><span class="msg">Fix: disattivato scroll-snap su touch (tablet e mobile) in modo nativo</span>
+    <p class="note"><code>css/home.css</code> (+10/-0)</p>
+  </div>
+  <div class="commit">
+    <code>c99bfbd</code><span class="msg">Docs: aggiornati token.json (header 155, logo 22) e specifiche scroll-snap</span>
+    <p class="note"><code>design/Doppelganger_Specifiche_per_agenzia.html</code> (+1/-1), <code>design/token.json</code> (+2/-2)</p>
+  </div>
+  <div class="commit">
+    <code>fc72db1</code><span class="msg">Docs: allineati tutti i documenti design al 21 ottobre</span>
+    <p class="note"><code>design/CHANGELOG.html</code> (+7/-0), <code>design/DIFF-FILES.html</code> (+15/-0), <code>design/LEGGIMI-AGENZIA.md</code> (+1/-1), <code>design/NOVITA-SITO.html</code> (+6/-0)</p>
+  </div>
+  <div class="commit">
+    <code>c887687</code><span class="msg">Docs: aggiunto avviso HTML e PDF linee-guida-badge</span>
+    <p class="note"><code>design/linee-guida-badge.html</code> (+10/-5)</p>
+  </div>
+  <div class="commit">
+    <code>000af12</code><span class="msg">Feature: Prova Virtuale con banner integrato, drawer laterale e immagine di copertina</span>
+    <p class="note"><code>css/prodotto.css</code> (+248/-2), <code>images/prova-virtuale-cover.webp</code> (bin), <code>js/prodotto.js</code> (+60/-1), <code>prodotto.html</code> (+29/-0) + altri 2</p>
+  </div>
+  <div class="commit">
+    <code>75d6b42</code><span class="msg">Feature: Design system card (badge, prezzi scontati, articoli simili) + pagina test Cerimonia</span>
+    <p class="note"><code>cerimonia-test.html</code> (+176/-0), <code>css/collezione.css</code> (+100/-0)</p>
+  </div>
+  <div class="commit">
+    <code>c8ea71c</code><span class="msg">Feature: Design system card su cerimonia (badge, prezzi scontati, articoli simili e stili mobile)</span>
+    <p class="note"><code>cerimonia.html</code> (+8/-1), <code>css/collezione.css</code> (+58/-0)</p>
+  </div>
+  <div class="commit">
+    <code>2837ca7</code><span class="msg">Feature: Prova Virtuale, Design System Card (badge/sconti), PDP Saldi e fix carrello</span>
+    <p class="note"><code>cerimonia-test.html</code> (+0/-176), <code>cerimonia.html</code> (+2/-2), <code>css/prodotto.css</code> (+35/-3), <code>js/nav.js</code> (+1/-1) + altri 5</p>
+  </div>
+  <div class="commit">
+    <code>ce45333</code><span class="msg">Feature: Pop-up Articoli Simili (6 card, griglia 3x2, sfondo drawer)</span>
+    <p class="note"><code>cerimonia.html</code> (+135/-1), <code>css/popup.css</code> (+0/-0), <code>js/similar-popup.js</code> (+54/-0), <code>test-popup.html</code> (+86/-0)</p>
+  </div>
+  <div class="commit">
+    <code>9ae31e0</code><span class="msg">Fix: validazione HTML (button fuori dai link, div in span, rimozione aria-hidden)</span>
+    <p class="note"><code>cerimonia.html</code> (+49/-45), <code>prodotto-saldi.html</code> (+4/-4), <code>prodotto.html</code> (+4/-4), <code>prodotto1.html</code> (+4/-4) + altri 1</p>
+  </div>
+  <div class="commit">
+    <code>73ca335</code><span class="msg">Feature: Pagine Outlet (outlet.html e outlet-abbigliamento.html) con Design System completo + validazione HTML</span>
+    <p class="note"><code>css/collezione.css</code> (+38/-0), <code>js/layout.js</code> (+1/-1), <code>outlet-abbigliamento.html</code> (+471/-0), <code>outlet.html</code> (+471/-0)</p>
+  </div>
+  <div class="commit">
+    <code>959509e</code><span class="msg">Fix: rimossi tag &lt;/style&gt; orfani dopo le iniezioni CSS</span>
+    <p class="note"><code>cerimonia.html</code> (+68/-24), <code>outlet-abbigliamento.html</code> (+112/-34), <code>outlet.html</code> (+112/-34)</p>
+  </div>
+  <div class="commit">
+    <code>ed9f346</code><span class="msg">Feature: Pagina Vetrina (La Capsule) con hero video, sticky scroll, still-life e griglia prodotti</span>
+    <p class="note"><code>css/vetrina.css</code> (+550/-0), <code>images/capsule-impermeabile-dettaglio.webp</code> (bin), <code>images/capsule-impermeabile-pioggia.webp</code> (bin), <code>images/capsule-pioggia-navona.webp</code> (bin) + altri 1</p>
+  </div>
+  <div class="commit">
+    <code>388a9c3</code><span class="msg">Vetrina: immagini cap1-12 con doppia foto hover, Quick-Add ridotto, citazione Pasolini nello sticky</span>
+    <p class="note"><code>css/vetrina.css</code> (+408/-1), <code>vetrina.html</code> (+108/-37)</p>
+  </div>
+  <div class="commit">
+    <code>955443d</code><span class="msg">Vetrina: nomi e prezzi corretti (T-shirt, Jeans, Polo, Mocassino, Coppola, Calza), 4 nuovi prodotti in prodotti.js</span>
+    <p class="note"><code>css/vetrina.css</code> (+9/-0), <code>vetrina.html</code> (+4/-2)</p>
+  </div>
+  <div class="commit">
+    <code>b867e5c</code><span class="msg">Fix: rimozione autoplay HTML (validazione), video avviato via JS con rispetto prefers-reduced-motion</span>
+    <p class="note"><code>vetrina.html</code> (+14/-1)</p>
+  </div>
+  <div class="commit">
+    <code>1a92c22</code><span class="msg">Fix: rimosso CSS nudo e blocco &lt;style&gt; duplicato in outlet-abbigliamento.html</span>
+    <p class="note"><code>outlet-abbigliamento.html</code> (+1/-77)</p>
+  </div>
+  <div class="commit">
+    <code>6ebebee</code><span class="msg">Fix: pulizia HTML (graffe orfane, &lt;style&gt; duplicato) in outlet-abbigliamento.html</span>
+    <p class="note"><code>outlet-abbigliamento.html</code> (+0/-12)</p>
+  </div>
+  <div class="commit">
+    <code>8cb7f54</code><span class="msg">Fix: pulizia outlet-abbigliamento.html + aggiunta immagini cap1-12 per la Vetrina</span>
+    <p class="note"><code>images/cap1.webp</code> (bin), <code>images/cap10.webp</code> (bin), <code>images/cap11.webp</code> (bin), <code>images/cap12.webp</code> (bin) + altri 8</p>
+  </div>
+  <div class="commit">
+    <code>0410c17</code><span class="msg">chore: trigger deploy dopo disservizio GitHub</span>
+    <p class="note"></p>
+  </div>
+  <div class="commit">
+    <code>02ce801</code><span class="msg">Vetrina: sostituita immagine sticky (stesso nome file, contenuto nuovo)</span>
+    <p class="note"><code>images/capsule-pioggia-navona.webp</code> (bin)</p>
+  </div>
+  <div class="commit">
+    <code>046e1df</code><span class="msg">Feature: La Capsule nel menu (desktop + mobile), validazione finale</span>
+    <p class="note"><code>js/layout.js</code> (+2/-1)</p>
+  </div>
+  <div class="commit">
+    <code>5844233</code><span class="msg">Pulizia: rimossa outlet.html (orfana), tenuta solo outlet-abbigliamento.html linkata dal menu</span>
+    <p class="note"><code>outlet.html</code> (+0/-549)</p>
+  </div>
+  <div class="commit">
+    <code>f43a2da</code><span class="msg">Fix: rimosso CSS nudo da cerimonia.html e outlet-abbigliamento.html + graffa mancante in collezione.css</span>
+    <p class="note"><code>cerimonia.html</code> (+0/-63), <code>css/collezione.css</code> (+1/-3)</p>
+  </div>
+  <div class="commit">
+    <code>06b4a24</code><span class="msg">Fix: link Outlet nel menu mobile + regole CSS per galleria prodotti su mobile in vetrina</span>
+    <p class="note"><code>css/vetrina.css</code> (+72/-14), <code>js/layout.js</code> (+1/-1)</p>
+  </div>
+  <div class="commit">
+    <code>2ca4c66</code><span class="msg">Refactor CSS: rimosso &lt;style&gt; inline da cerimonia.html e outlet-abbigliamento.html, aggiunti CSS dedicati</span>
+    <p class="note"><code>cerimonia.html</code> (+1/-53), <code>css/cerimonia.css</code> (+145/-0), <code>css/outlet-abbigliamento.css</code> (+150/-0), <code>outlet-abbigliamento.html</code> (+1/-50)</p>
+  </div>
+
+  <div class="commit" style="margin-top: 16px; padding: 12px 16px; background: var(--crema); border-left: 2px solid var(--oro); font-style: italic; font-size: 13px; color: var(--ink-soft);">
+    <b>Sintesi.</b> 30 commit, 85 file toccati. Totale: +3860/-1225 righe.
+  </div>
+
+
+  <h2>20. Aggiornamento del 20 ottobre 2026 <span class="count">8 commit</span></h2>
 
   <div class="commit">
     <code>e59f9e9</code><span class="msg">refactor: unite Spedizioni e Resi nel footer, 3 voci; rimossi ancore e blocco ANCORE</span>
-    <p class="note">Trust bar: da 4 a 3 voci (Spedizioni e resi con icona pacco, Pagamento, Assistenza). <code>.footer-trust</code> con distribuzione start/center/end su desktop, 3 colonne su tablet. Link &laquo;Dati societari&raquo; punta a <code>privacy-cookie.html</code> (senza <code>#titolare</code>). Rimossi <code>#resi</code> e <code>#spedizioni</code> dai link (monitora-reso, pagamenti, spedizioni). <code>nav.js</code>: rimosso blocco ANCORE (~80 righe). I link ora puntano tutti a pagina, senza micro-scroll su Safari. File toccati: <code>css/base.css</code>, <code>js/layout.js</code>, <code>js/nav.js</code>, <code>monitora-reso.html</code>, <code>pagamenti.html</code>, <code>spedizioni.html</code>.</p>
+    <p class="note"><code>css/base.css</code> (+14/-7), <code>js/layout.js</code> (+3/-5), <code>js/nav.js</code> (+1/-81), <code>monitora-reso.html</code> (+1/-1) + altri 2</p>
   </div>
+  <div class="commit">
+    <code>507c010</code><span class="msg">docs: aggiornati documenti design al 20 ottobre</span>
+    <p class="note"><code>design/CHANGELOG.html</code> (+11/-4), <code>design/DIFF-FILES.html</code> (+18/-4), <code>design/LEGGIMI-AGENZIA.md</code> (+2/-2), <code>design/NOVITA-SITO.html</code> (+31/-2)</p>
+  </div>
+  <div class="commit">
+    <code>2721497</code><span class="msg">fix(build): esclude *.bak_* / *.bak_safe_* anche dal ZIP COMPLETO</span>
+    <p class="note"><code>build.sh</code> (+16/-0)</p>
+  </div>
+  <div class="commit">
+    <code>143956f</code><span class="msg">docs: Specifiche aggiornate al 20 ottobre</span>
+    <p class="note"><code>design/Doppelganger_Specifiche_per_agenzia.html</code> (+3/-3)</p>
+  </div>
+  <div class="commit">
+    <code>084e505</code><span class="msg">docs: LEGGIMI corretto (Proposta fuori repo, click ancora rimosso, soglia 20px)</span>
+    <p class="note"><code>design/LEGGIMI-AGENZIA.md</code> (+2/-3)</p>
+  </div>
+  <div class="commit">
+    <code>85e4c78</code><span class="msg">docs: NOVITA-SITO, sezioni aggiornamenti in ordine decrescente (dal più recente)</span>
+    <p class="note"><code>design/NOVITA-SITO.html</code> (+43/-43)</p>
+  </div>
+  <div class="commit">
+    <code>4970549</code><span class="msg">docs: linee-guida-badge in design/, incluso negli ZIP</span>
+    <p class="note"><code>design/linee-guida-badge.html</code> (+1409/-0)</p>
+  </div>
+  <div class="commit">
+    <code>3ec16e7</code><span class="msg">docs: rimosso BADGE.html (sostituito da linee-guida-badge.html), aggiornati CREDITI/LEGGIMI/README</span>
+    <p class="note"><code>README.md</code> (+1/-1), <code>design/BADGE.html</code> (+0/-581), <code>design/CREDITI.md</code> (+1/-1), <code>design/LEGGIMI-AGENZIA.md</code> (+1/-1)</p>
+  </div>
+
+  <div class="commit" style="margin-top: 16px; padding: 12px 16px; background: var(--crema); border-left: 2px solid var(--oro); font-style: italic; font-size: 13px; color: var(--ink-soft);">
+    <b>Sintesi.</b> 8 commit, 19 file toccati. Totale: +1557/-739 righe.
+  </div>
+
 
   <h2>19. Rifiniture finali 19 ottobre 2026 <span class="count">4 commit</span></h2>
 
