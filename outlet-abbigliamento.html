@@ -398,6 +398,14 @@ document.addEventListener('DOMContentLoaded', function() {
       var clone = card.cloneNode(true);
       var toRemove = clone.querySelectorAll('.similar, .plus, .wish');
       toRemove.forEach(function(el) { el.remove(); });
+      // Mostra solo la still-life (img-hover) nel pop-up
+      var imgMain = clone.querySelector('.img-main');
+      var imgHover = clone.querySelector('.img-hover');
+      if (imgMain && imgHover) {
+        imgMain.style.display = 'none';
+        imgHover.style.display = 'block';
+        imgHover.style.opacity = '1';
+      }
       modalGrid.appendChild(clone);
       originalCards.push(clone);
     });
