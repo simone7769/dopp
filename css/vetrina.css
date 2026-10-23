@@ -211,6 +211,8 @@
   overflow: hidden;
   margin: 0;
   height: 100%;
+  max-height: 780px;     /* limite: img verticali (aspect 3:4) non vengono zoomate oltre */
+  align-self: start;     /* si allinea in alto con il testo, non si estende fino alla still-life */
 }
 .vt-feature-text {
   grid-column: 2 / 6;
