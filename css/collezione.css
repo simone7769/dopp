@@ -53,7 +53,7 @@
   position: relative;
   max-width: 1600px;
   margin: 0 auto;
-  padding: 4px 50px 90px;
+  padding: 4px 8px 90px;
 }
 .filtri-bar {
   display: flex;
@@ -188,7 +188,7 @@
    RESPONSIVE
    ============================================ */
 @media (max-width: 1200px) {
-  .products-wrap { padding: 8px 30px 70px; }
+  .products-wrap { padding: 8px 8px 70px; }
   .products-grid { gap: 14px 8px; }
 }
 
@@ -716,4 +716,35 @@
     font-size: 8px !important;
     letter-spacing: 0.3px !important;
   }
+}
+
+/* ============================================================
+   ALLINEAMENTO "FILTRA E ORDINA" ALLE ICONE DELL'HEADER
+   Compensazione del diverso padding header vs griglia
+   ============================================================ */
+
+/* Desktop largo: header 32px, griglia 8px → compensazione 24px */
+@media (min-width: 1201px) {
+  .products-toolbar {
+    padding-right: 24px;
+  }
+}
+
+/* Desktop medio: header 24px, griglia 8px → compensazione 16px */
+@media (min-width: 901px) and (max-width: 1200px) {
+  .products-toolbar {
+    padding-right: 16px;
+  }
+}
+
+/* Tablet/mobile: toolbar a sinistra, header 20px, griglia 16px → compensazione 4px */
+@media (max-width: 900px) {
+  .products-toolbar {
+    padding-left: 4px;
+  }
+}
+
+/* Allinea l'icona del filtro al bordo destro del pulsante (che è già allineato al carrello) */
+.products-toolbar .filtri-bar {
+  padding-right: 6px;
 }
