@@ -812,6 +812,7 @@ header.scrolled .topbar {
   height: 100%;
   object-fit: cover;
   object-position: center left;
+  pointer-events: none; /* Evita che l'immagine intercetti i click */
 }
 
 .outlet-hero-content {
@@ -870,6 +871,7 @@ header.scrolled .topbar {
   padding: 0 32px;
   border: 1px solid var(--ink);
   color: var(--ink);
+  text-decoration: none; /* Rimuove la sottolineatura del link */
   font-family: var(--sans);
   font-size: var(--fs-11);
   text-transform: uppercase;
