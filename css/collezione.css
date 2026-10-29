@@ -75,7 +75,7 @@
 .products-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 40px 24px;
+  gap: 16px 8px;
 }
 .product-card {
   display: flex;
@@ -189,16 +189,16 @@
    ============================================ */
 @media (max-width: 1200px) {
   .products-wrap { padding: 8px 30px 70px; }
-  .products-grid { gap: 32px 20px; }
+  .products-grid { gap: 14px 8px; }
 }
 
 @media (max-width: 1024px) {
-  .products-grid { gap: 28px 18px; }
+  .products-grid { gap: 12px 6px; }
 }
 
 @media (max-width: 900px) {
   .products-wrap { padding: 6px 16px 60px; }
-  .products-grid { grid-template-columns: repeat(2, 1fr); gap: 24px 14px; }
+  .products-grid { grid-template-columns: repeat(2, 1fr); gap: 10px 6px; }
 }
 
 
