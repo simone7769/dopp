@@ -664,3 +664,36 @@
   }
 }
 
+/* Nuovi testi e sezioni per la Vetrina */
+.vt-subtitle {
+  display: block;
+  font-family: var(--sans);
+  font-size: clamp(16px, 1.5vw, 20px);
+  color: #fff; /* Bianco perché l'Hero ha sfondo scuro */
+  margin-top: 24px;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  opacity: 0.9;
+}
+
+.vt-intro-section {
+  max-width: 700px;
+  margin: 0 auto 60px;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.vt-intro-section h2 {
+  font-family: var(--serif);
+  font-size: clamp(28px, 3vw, 36px);
+  font-weight: var(--fw-regular);
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+
+.vt-intro-section p {
+  font-family: var(--sans);
+  font-size: var(--fs-16);
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
