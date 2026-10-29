@@ -720,24 +720,23 @@
 
 /* ============================================================
    ALLINEAMENTO "FILTRA E ORDINA" ALLE ICONE DELL'HEADER
-   Compensazione del diverso padding header vs griglia
    ============================================================ */
 
-/* Desktop largo: compensazione empirica 12px (header 50 - griglia 8 - padding carrello 6 - altri) */
+/* Desktop: header 50px - griglia 8px = 42px */
 @media (min-width: 1201px) {
   .products-toolbar {
-    padding-right: 12px;
+    padding-right: 42px;
   }
 }
 
-/* Desktop medio: header 24px, griglia 8px → compensazione 16px */
+/* 901-1200px: header 24px - griglia 8px = 16px */
 @media (min-width: 901px) and (max-width: 1200px) {
   .products-toolbar {
     padding-right: 16px;
   }
 }
 
-/* Tablet/mobile: toolbar a sinistra, header 20px, griglia 16px → compensazione 4px */
+/* ≤900px: toolbar a sinistra, header 20px - griglia 16px = 4px */
 @media (max-width: 900px) {
   .products-toolbar {
     padding-left: 4px;
