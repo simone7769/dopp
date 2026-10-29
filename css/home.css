@@ -990,10 +990,21 @@ header.scrolled .topbar {
     min-height: 0;
   }
   .capsule-img {
-    height: 50vh;
-    min-height: 350px;
+    height: 40vh; /* Immagine un po' più bassa */
+    min-height: 300px;
   }
   .capsule-text {
-    padding: 60px 20px;
+    padding: 40px 20px 48px; /* Spazio ridotto (era 60px) */
   }
+}
+
+/* Bottone della Capsule: invisibile di default (bianco su crema).
+   Forziamo i colori del design system (inchiostro su crema). */
+.capsule-text .btn {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+.capsule-text .btn:hover {
+  background-color: var(--ink);
+  color: #faf8f5;
 }
