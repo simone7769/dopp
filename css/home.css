@@ -808,7 +808,7 @@ header.scrolled .topbar {
 .outlet-hero-content {
   position: absolute;
   top: 50%;
-  right: 15%;
+  right: 30%; /* Spostato più a sinistra (era 15%) */
   transform: translateY(-50%);
   text-align: center;
   z-index: 2;
