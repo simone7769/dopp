@@ -819,7 +819,7 @@ header.scrolled .topbar {
 
 .outlet-hero-content h2 {
   font-family: var(--serif);
-  font-size: clamp(32px, 3.5vw, 48px);
+  font-size: clamp(28px, 3vw, 40px);
   font-weight: var(--fw-regular);
   letter-spacing: 0.1em;
   margin: 0 0 12px 0;
@@ -829,7 +829,7 @@ header.scrolled .topbar {
 
 .outlet-hero-sub {
   font-family: var(--sans);
-  font-size: clamp(12px, 1.2vw, 14px);
+  font-size: var(--fs-12);
   font-weight: 500;
   margin: 0 0 8px 0;
   letter-spacing: 0.15em;
@@ -839,7 +839,7 @@ header.scrolled .topbar {
 
 .outlet-hero-discount {
   font-family: var(--serif);
-  font-size: clamp(60px, 6vw, 85px);
+  font-size: clamp(48px, 5vw, 70px);
   font-weight: var(--fw-light);
   line-height: 1;
   margin-bottom: 8px;
@@ -857,7 +857,7 @@ header.scrolled .topbar {
 
 .outlet-hero-note {
   font-family: var(--sans);
-  font-size: clamp(12px, 1.2vw, 14px);
+  font-size: 14px; /* Allineato alla scala */
   font-weight: 400;
   margin: 0 0 32px 0;
   letter-spacing: 0.1em;
