@@ -787,7 +787,7 @@ header.scrolled .topbar {
 .outlet-hero {
   position: relative;
   width: 100%;
-  background-color: #fff;
+  background-color: var(--paper);
   overflow: hidden;
   /* Usa il rapporto naturale dell'immagine (2833x1322) */
   aspect-ratio: 2833 / 1322;
@@ -911,10 +911,12 @@ header.scrolled .topbar {
     position: relative;
     top: auto;
     right: auto;
+    left: auto;
+    width: auto;
     transform: none;
     max-width: none;
     padding: 24px 20px 32px;
-    background: #fff;
+    background: var(--paper);
   }
   
   .outlet-hero-content h2 {
