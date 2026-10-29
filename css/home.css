@@ -782,3 +782,141 @@ header.scrolled .topbar {
     scroll-snap-align: none; 
   }
 }
+
+/* ============================================================
+   OUTLET HERO (Desktop, Tablet, Mobile)
+   ============================================================ */
+.outlet-hero {
+  position: relative;
+  width: 100%;
+  background-color: #fff;
+  overflow: hidden;
+  /* Usa il rapporto naturale dell'immagine (2833x1322) */
+  aspect-ratio: 2833 / 1322;
+  max-height: 85vh;
+}
+
+.outlet-hero-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  text-decoration: none;
+}
+
+.outlet-hero img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center left;
+}
+
+.outlet-hero-content {
+  position: absolute;
+  top: 50%;
+  right: 10%;
+  transform: translateY(-50%);
+  text-align: center;
+  z-index: 2;
+  color: var(--ink);
+  max-width: 350px;
+}
+
+.outlet-hero-content h2 {
+  font-family: var(--serif);
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: var(--fw-regular);
+  letter-spacing: 0.1em;
+  margin: 0 0 12px 0;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.outlet-hero-sub {
+  font-family: var(--sans);
+  font-size: clamp(10px, 1vw, 12px);
+  font-weight: var(--fw-light);
+  margin: 0 0 12px 0;
+  letter-spacing: 0.1em;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+}
+
+.outlet-hero-discount {
+  font-family: var(--serif);
+  font-size: clamp(50px, 5vw, 70px);
+  font-weight: var(--fw-light);
+  line-height: 1;
+  margin-bottom: 30px;
+  letter-spacing: -0.02em;
+}
+
+.outlet-hero-discount span {
+  font-size: 0.4em;
+  font-weight: var(--fw-regular);
+  vertical-align: super;
+  margin-left: 4px;
+}
+
+.outlet-hero-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--btn-width);
+  height: var(--btn-height);
+  padding: 0 32px;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: var(--fs-11);
+  text-transform: uppercase;
+  letter-spacing: var(--tr-2);
+  line-height: 1;
+  transition: background var(--t-base) var(--ease), color var(--t-base) var(--ease);
+}
+
+.outlet-hero-btn:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* Tablet e Mobile (include iPad) */
+@media (max-width: 1025px) {
+  .outlet-hero {
+    aspect-ratio: auto;
+    max-height: none;
+    height: auto;
+    display: block;
+    background-color: #fff;
+  }
+  
+  .outlet-hero img {
+    position: relative;
+    width: 100%;
+    height: 45vh;
+    min-height: 320px;
+    object-fit: cover;
+    object-position: center 20%;
+  }
+  
+  .outlet-hero-content {
+    position: relative;
+    top: auto;
+    right: auto;
+    transform: none;
+    max-width: none;
+    padding: 24px 20px 32px;
+    background: #fff;
+  }
+  
+  .outlet-hero-content h2 {
+    margin-bottom: 8px;
+  }
+  
+  .outlet-hero-discount {
+    margin-bottom: 24px;
+  }
+}
