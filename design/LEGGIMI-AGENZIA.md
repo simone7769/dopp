@@ -92,6 +92,11 @@ Da terminale, nella cartella del progetto:
 - **Favicon bianca**: i 3 file (`favicon-16x16.png`, `favicon-32x32.png`, `favicon.ico`) hanno ora sfondo bianco (erano RGBA trasparente). Risultato: −94% di peso (286B vs 6KB), visibile anche nelle tab scure.
 - **Immagini JPG → WebP**: i 4 JPG residui sono stati convertiti: `a.jpg`→`megamenu-ai-2026.webp`, `ag.jpg`→`ag.webp`, `boiserie-bg1.jpg`→`boiserie-bg1.webp`, `dd1.jpg`→`dd1.webp`. Risparmio ~480 KB. Nessun JPG di contenuto rimasto (solo favicon `.png`).
 
+- **Outlet Hero (home)**: banner full-width al posto del blocco `.duo`. Immagine B/N `uno-outlet.webp`, testo a destra: "OUTLET / Fino al / 80% / di sconto / Entra nell'Outlet". CSS: `font-variant-numeric: lining-nums` (cifre dritte, no "8o"), numero 85px, `%` 0.5em, blocco a `right: 15%`. Solo il bottone è cliccabile (`pointer-events: none` sull'immagine, no tap highlight su mobile).
+- **La Capsule (home)**: sezione split (immagine `capsule-gocce.webp` a sinistra, testo crema a destra). Copy: "La Capsule / Con qualsiasi tempo / Pochi capi per uscire quando piove...". Bottone "Scopri la Capsule" (`.capsule-text .btn` con color ink, perché `.btn` globale è bianco). Mobile: immagine 40vh, padding ridotto.
+- **Similar hover**: il pulsante "Articoli simili" (`.similar` in `collezione.css`) è visibile in hover su desktop (come il cuore `.wish`), sempre visibile su touch. `:focus-within` per accessibilità da tastiera. `pointer-events: none` quando invisibile.
+- **Badge griglia 3 colonne**: regole specifiche per `[data-cols="3"]`. Desktop: altezza 20px, font 9px, padding 5px, letter-spacing 0.5px. Mobile (≤520px): altezza 16px, font 8px, padding 4px, letter-spacing 0.3px. I badge "Bestseller" e "Ultimi pezzi" stanno dentro la card senza sbordare.
+
 ## Contatti
 
 Vedi `design/CREDITI.md`.
