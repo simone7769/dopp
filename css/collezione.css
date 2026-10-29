@@ -130,7 +130,7 @@
   grid-template-columns: 1fr auto;
   align-items: start;
   gap: 12px;
-  padding-top: 14px;
+  padding: 14px 12px 0;
 }
 .product-info .details h3 {
   font-family: var(--sans);
@@ -362,7 +362,7 @@
   .products-grid[data-cols="3"] { gap: 2px; }
   .products-grid[data-cols="3"] .product-info { display: none; }
   .products-grid[data-cols="3"] .product-card .wish { top: 0; right: 0; }
-  .products-grid[data-cols="3"] .product-card .wish svg { width: 16px; height: 16px; }
+  .products-grid[data-cols="3"] .product-card .wish svg { width: 14px; height: 14px; }
 }
 
 /* ============================================================

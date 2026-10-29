@@ -2182,6 +2182,7 @@ footer {
 }
 @media (max-width: 520px) {
   .wish { top: 2px; right: 2px; }
+  .wish svg { width: 15px; height: 15px; }
 }
 
 /* Cuore "attivo" (prodotto nei preferiti) */
