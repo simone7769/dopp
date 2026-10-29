@@ -748,3 +748,10 @@
 .products-toolbar .filtri-bar {
   padding-right: 6px;
 }
+
+/* Nascondi "Articoli simili" su tutti i dispositivi touch (iPad, iPhone, Android) */
+@media (hover: none) {
+  .product-card .similar {
+    display: none !important;
+  }
+}
