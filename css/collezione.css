@@ -723,10 +723,10 @@
    Compensazione del diverso padding header vs griglia
    ============================================================ */
 
-/* Desktop largo: header 32px, griglia 8px → compensazione 24px */
+/* Desktop largo: compensazione empirica 12px (header 50 - griglia 8 - padding carrello 6 - altri) */
 @media (min-width: 1201px) {
   .products-toolbar {
-    padding-right: 24px;
+    padding-right: 12px;
   }
 }
 
