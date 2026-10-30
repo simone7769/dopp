@@ -935,7 +935,8 @@ header.scrolled .topbar {
   position: relative;
   display: block;
   width: 100%;
-  min-height: 600px;
+  aspect-ratio: 2833 / 1322; /* stesso rapporto dell'Outlet: altezze identiche */
+  min-height: auto;
   overflow: hidden;
   background-color: #faf8f5;
 }
@@ -998,7 +999,8 @@ header.scrolled .topbar {
 
 @media (max-width: 1024px) {
   .capsule-section {
-    min-height: 500px;
+    /* aspect-ratio governa l'altezza; min-height rimosso per evitare conflitti */
+    min-height: auto;
   }
   .capsule-text {
     padding: 40px 20px;
