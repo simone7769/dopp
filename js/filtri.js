@@ -146,6 +146,7 @@
     featured.concat(ordinate).forEach(c => grid.appendChild(c));
 
     aggiornaBadge(stato);
+    aggiornaConteggio();
     closeDrawer();
   }
 
@@ -157,6 +158,20 @@
     document.querySelectorAll('#filtersSizes button.active').forEach(b => b.classList.remove('active'));
     document.querySelectorAll('#filtersColors button.active').forEach(b => b.classList.remove('active'));
     applica();
+  }
+
+  function aggiornaConteggio() {
+    var grid = document.querySelector('.products-grid');
+    if (!grid) return;
+    var tutte = Array.prototype.slice.call(grid.querySelectorAll('.product-card'));
+    var visibili = tutte.filter(function (c) {
+      return !c.classList.contains('featured') && c.style.display !== 'none';
+    });
+    var n = visibili.length;
+    var testo = n + (n === 1 ? ' prodotto' : ' prodotti');
+    document.querySelectorAll('.products-count').forEach(function (el) {
+      el.textContent = testo;
+    });
   }
 
   function aggiornaBadge(stato) {
@@ -183,4 +198,5 @@
   resetBtn.addEventListener('click', reset);
 
   aggiornaBadge({ sort: 'relevance', availableOnly: false, priceMin: 0, priceMax: Infinity, sizes: [], colors: [] });
+  aggiornaConteggio();
 })();
