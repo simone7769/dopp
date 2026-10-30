@@ -92,7 +92,7 @@ html { scroll-snap-type: y proximity; scroll-padding-top: var(--header-h, 170px)
   background-color: #faf8f5;
   color: var(--ink);
   text-align: center;
-  padding: 60px 20px;
+  padding: 80px 20px;
   border-bottom: 1px solid var(--line);
 }
 .info-bar h2 {
@@ -153,7 +153,7 @@ html { scroll-snap-type: y proximity; scroll-padding-top: var(--header-h, 170px)
   white-space: nowrap;
   position: absolute;
   left: 50%;
-  bottom: 60px;
+  bottom: 80px;
   transform: translateX(-50%);
   z-index: 5;
   opacity: 0;
@@ -766,7 +766,7 @@ header.scrolled .topbar {
   .video-showcase-btn {
     width: auto;
     min-width: var(--btn-width, 170px);
-    bottom: 40px;
+    bottom: 60px;
     padding: 0 24px;
     white-space: nowrap;
   }
@@ -808,7 +808,7 @@ header.scrolled .topbar {
 
 .outlet-hero-content {
   position: absolute;
-  bottom: 60px;
+  bottom: 80px;
   left: 75%;
   width: 100%;
   max-width: 400px;
@@ -914,7 +914,7 @@ header.scrolled .topbar {
     width: auto;
     transform: none;
     max-width: none;
-    padding: 24px 20px 40px;
+    padding: 24px 20px 60px;
     background: rgba(0, 0, 0, 0.4);
     z-index: 2;
     display: flex;
@@ -983,7 +983,7 @@ header.scrolled .topbar {
   justify-content: flex-end;
   align-items: center;
   text-align: center;
-  padding: 0 10% 60px;
+  padding: 0 10% 80px;
   background: rgba(0, 0, 0, 0.35);
 }
 
@@ -1020,13 +1020,13 @@ header.scrolled .topbar {
     min-height: auto;
   }
   .capsule-text {
-    padding: 0 20px 40px;
+    padding: 0 20px 60px;
   }
   .video-showcase-btn {
-    bottom: 40px;
+    bottom: 60px;
   }
   .info-bar {
-    padding: 40px 20px; /* allineato a 40px su mobile (prima era 60px) */
+    padding: 60px 20px; /* allineato a 60px su mobile */
   }
 }
 
