@@ -100,6 +100,9 @@ Da terminale, nella cartella del progetto:
 - **Griglia collezioni edge-to-edge + toolbar allineata**: padding laterale `.products-wrap` ridotto a 8px (era 50px) su desktop, per un look più moderno. Gap griglia 16/8 (desktop), 20/12 (mobile, invariato). La toolbar `.products-toolbar` compensa il diverso padding dell'header (50px) con `padding-right: 42px` (desktop), `16px` (901-1200), `4px` (≤900) per allineare "Filtra e ordina" alle icone dell'header. Se in futuro si cambia il padding dell'header o della griglia, va ricalcolata la compensazione.
 - **Immagine narrativa "Scegliere" (vetrina)**: `capsule-impermeabile-pioggia.webp` sostituita con una nuova immagine (uomo con ombrello che guarda in alto, 1080x1349). Più narrativa del precedente scatto laterale. Il `<img>` ha `width="1080" height="1349"` per il CLS.
 
+- **Contatore prodotti + counter inline (collezioni)**: `.products-count` (a sinistra, desktop) mostra "N prodotti". Su mobile (≤900px) è nascosto, e il conteggio è integrato in `.filtri-bar` come `.filtri-bar-count`: "Filtra e ordina (N)". Aggiornato da `aggiornaConteggio()` in `filtri.js`, chiamata in `applica()` e all'init. Icona di `.filtri-bar` a sinistra del testo su mobile (stile Barena), a destra su desktop.
+- **Token `--t-page` (dissolvenza pagina)**: `0.1s` in `tokens.css`, usato da `page-enter` in `base.css`. Sostituisce `--t-fast` (0.25s) solo per l'ingresso pagina. Le altre 79 transizioni che usano `--t-fast` restano a 0.25s. Anche `0.01s` in `prefers-reduced-motion`.
+
 ## Contatti
 
 Vedi `design/CREDITI.md`.
