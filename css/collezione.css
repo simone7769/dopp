@@ -53,7 +53,7 @@
   position: relative;
   max-width: 1600px;
   margin: 0 auto;
-  padding: 4px 8px 90px;
+  padding: 4px var(--wrap-pad) 90px;
 }
 .filtri-bar {
   display: flex;
@@ -193,7 +193,7 @@
    RESPONSIVE
    ============================================ */
 @media (max-width: 1200px) {
-  .products-wrap { padding: 8px 8px 70px; }
+  .products-wrap { padding: 8px var(--wrap-pad) 70px; }
   .products-grid { gap: 14px 8px; }
 }
 
@@ -730,27 +730,21 @@
    ALLINEAMENTO "FILTRA E ORDINA" ALLE ICONE DELL'HEADER
    ============================================================ */
 
-/* Desktop: header 50px - griglia 8px = 42px (entrambi i lati) */
-@media (min-width: 1201px) {
+/* >900px: compensazione = padding header - padding griglia.
+   Entrambi vengono da --nav-pad / --wrap-pad (base.css): se cambia
+   l'header, la toolbar segue da sola. */
+@media (min-width: 901px) {
   .products-toolbar {
-    padding-left: 42px;
-    padding-right: 42px;
-  }
-}
-
-/* 901-1200px: header 24px - griglia 8px = 16px (entrambi i lati) */
-@media (min-width: 901px) and (max-width: 1200px) {
-  .products-toolbar {
-    padding-left: 16px;
-    padding-right: 16px;
+    padding-left: calc(var(--nav-pad) - var(--wrap-pad));
+    padding-right: calc(var(--nav-pad) - var(--wrap-pad));
   }
 }
 
 /* ≤900px: toolbar a sinistra, header 20px - griglia 16px = 4px (entrambi i lati) */
 @media (max-width: 900px) {
   .products-toolbar {
-    padding-left: 4px;
-    padding-right: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
   }
 }
 
