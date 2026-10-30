@@ -147,6 +147,7 @@
   --t-fast: 0.25s;
   --t-base: 0.4s;
   --t-slow: 0.8s;
+  --t-page: 0.1s;   /* dissolvenza ingresso pagina (prima usava --t-fast) */
 
   --ease:     ease;
   --ease-out: cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -184,6 +185,7 @@
     --t-fast: 0.01s;
     --t-base: 0.01s;
     --t-slow: 0.01s;
+    --t-page: 0.01s;
   }
 }
 

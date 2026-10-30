@@ -54,7 +54,7 @@ body {
   line-height: 1.6;
   font-weight: 300;
   -webkit-font-smoothing: antialiased;
-  animation: page-enter var(--t-fast) var(--ease) backwards;
+  animation: page-enter var(--t-page) var(--ease) backwards;
 }
 
 @keyframes page-enter {
