@@ -63,6 +63,7 @@
   padding-bottom: 24px;
   font-family: var(--sans);
   font-size: var(--fs-14);
+  font-weight: 400;
   letter-spacing: var(--tr-1);
   text-transform: uppercase;
   color: var(--ink);
@@ -761,7 +762,7 @@
 /* Contatore prodotti nella toolbar */
 .products-count {
   font-family: var(--sans);
-  font-size: var(--fs-12);
+  font-size: var(--fs-14);
   font-weight: 400;
   color: var(--ink);
   letter-spacing: var(--tr-1);
