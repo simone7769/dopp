@@ -15,7 +15,7 @@
 .hero h1 {
   font-family: var(--serif);
   font-weight: 500;
-  font-size: clamp(20px, 1.6vw, 24px);
+  font-size: clamp(18px, 1.4vw, 22px);
   letter-spacing: var(--tr-4);
   text-transform: uppercase;
   color: var(--ink);
@@ -779,4 +779,10 @@
   letter-spacing: var(--tr-1);
   text-transform: uppercase;
   margin-right: auto;
+}
+
+/* Sposta visivamente il titolo in basso senza alterare l'altezza della sezione */
+.hero h1 {
+  position: relative;
+  top: 15px; /* Regola questo valore per alzare/abbassare il titolo */
 }
