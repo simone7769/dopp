@@ -231,15 +231,6 @@
   object-fit: cover;
   background: var(--paper-alt);
 }
-.vt-feature-img img + img {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  transition: opacity var(--t-base) var(--ease);
-}
-@media (hover: hover) {
-  .vt-feature-img:hover img + img { opacity: 1; }
-}
 .vt-feature-still img {
   display: block;
   width: 100%;
