@@ -104,7 +104,8 @@
     const priceMax = parseFloat(document.getElementById('filterPriceMax').value) || Infinity;
     const sizes = Array.from(document.querySelectorAll('#filtersSizes button.active')).map(b => b.dataset.size);
     const colors = Array.from(document.querySelectorAll('#filtersColors button.active')).map(b => b.dataset.color);
-    return { sort, availableOnly, priceMin, priceMax, sizes, colors };
+    const types = Array.from(document.querySelectorAll('#filtersTypes button.active')).map(b => b.dataset.type);
+    return { sort, availableOnly, priceMin, priceMax, sizes, colors, types };
   }
 
   function applica() {
@@ -123,12 +124,14 @@
       const disponibile = card.dataset.available !== 'false';
       const taglie = (card.dataset.size || '').split(/\s+/).filter(Boolean);
       const colori = (card.dataset.color || '').split(/\s+/).filter(Boolean);
+      const tipi = (card.dataset.type || '').split(/\s+/).filter(Boolean);
 
       let ok = true;
       if (stato.availableOnly && !disponibile) ok = false;
       if (prezzo < stato.priceMin || prezzo > stato.priceMax) ok = false;
       if (stato.sizes.length && taglie.length && !stato.sizes.some(s => taglie.includes(s))) ok = false;
       if (stato.colors.length && colori.length && !stato.colors.some(c => colori.includes(c))) ok = false;
+      if (stato.types.length && tipi.length && !stato.types.some(t => tipi.includes(t))) ok = false;
 
       card.style.display = ok ? '' : 'none';
     });
@@ -157,6 +160,7 @@
     document.getElementById('filterPriceMax').value = '';
     document.querySelectorAll('#filtersSizes button.active').forEach(b => b.classList.remove('active'));
     document.querySelectorAll('#filtersColors button.active').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('#filtersTypes button.active').forEach(b => b.classList.remove('active'));
     applica();
   }
 
@@ -176,6 +180,7 @@
     document.querySelectorAll('.filtri-bar-count').forEach(function (el) {
       el.textContent = inlineTesto;
     });
+    grid.classList.toggle('grid-empty', n === 0);
   }
 
   function aggiornaBadge(stato) {
@@ -203,4 +208,12 @@
 
   aggiornaBadge({ sort: 'relevance', availableOnly: false, priceMin: 0, priceMax: Infinity, sizes: [], colors: [] });
   aggiornaConteggio();
+
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('#filtersTypes button');
+    if (!btn) return;
+    var pressed = btn.getAttribute('aria-pressed') === 'true';
+    btn.setAttribute('aria-pressed', pressed ? 'false' : 'true');
+    btn.classList.toggle('active', !pressed);
+  });
 })();

@@ -390,6 +390,22 @@
       </div>\
     </details>\
     <details class="filters-section">\
+      <summary>Tipo prodotto</summary>\
+      <div class="filters-section-body">\
+        <div class="filters-chips" id="filtersTypes">\
+          <button type="button" data-type="Cappotti" aria-pressed="false">Cappotti</button>\
+          <button type="button" data-type="Giacche" aria-pressed="false">Giacche</button>\
+          <button type="button" data-type="Abiti" aria-pressed="false">Abiti</button>\
+          <button type="button" data-type="Maglieria" aria-pressed="false">Maglieria</button>\
+          <button type="button" data-type="Camicie" aria-pressed="false">Camicie</button>\
+          <button type="button" data-type="T-shirt &amp; Polo" aria-pressed="false">T-shirt &amp; Polo</button>\
+          <button type="button" data-type="Pantaloni" aria-pressed="false">Pantaloni</button>\
+          <button type="button" data-type="Denim" aria-pressed="false">Denim</button>\
+          <button type="button" data-type="Accessori" aria-pressed="false">Accessori</button>\
+        </div>\
+      </div>\
+    </details>\
+    <details class="filters-section">\
       <summary>Taglia</summary>\
       <div class="filters-section-body">\
         <div class="filters-chips" id="filtersSizes">\

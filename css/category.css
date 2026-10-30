@@ -99,3 +99,24 @@
    Card featured: decorativa, non cliccabile
    (href="#" nel markup è un placeholder demo)
    ============================================================ */
+
+
+/* ============================================================
+   Griglia vuota: nasconde la featured editoriale e mostra un
+   messaggio. Evita che la featured si stiri quando i filtri
+   non restituiscono risultati.
+   ============================================================ */
+.products-grid.grid-empty .product-card.featured {
+  display: none !important;
+}
+.products-grid.grid-empty::after {
+  content: "Nessun prodotto corrisponde ai filtri selezionati.";
+  grid-column: 1 / -1;
+  display: block;
+  text-align: center;
+  padding: 80px 20px;
+  font-family: var(--sans);
+  font-size: var(--fs-14);
+  color: var(--ink-soft);
+  letter-spacing: 0.02em;
+}
