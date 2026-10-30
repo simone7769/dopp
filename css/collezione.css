@@ -6,7 +6,7 @@
   z-index: 1;
   min-height: auto;
   display: block;
-  padding: 22px 50px 4px;
+  padding: 20px 50px 6px;   /* titolo centrato otticamente tra header e toolbar (misurato sull'inchiostro) */
   text-align: center;
   background-color: var(--paper);
   color: var(--ink);
@@ -24,9 +24,14 @@
 
 @media (max-width: 1100px) {
   .hero {
-    padding: 15px 30px 4px;
+    padding: 17px 30px 2px;
     min-height: auto;
   }
+}
+
+@media (max-width: 900px) {
+  /* la toolbar qui è più alta: il titolo scende di qualche px per restare al centro */
+  .hero { padding: 19px 30px 0; }
 }
 
 @media (max-width: 640px) {
@@ -734,9 +739,12 @@
    Entrambi vengono da --nav-pad / --wrap-pad (base.css): se cambia
    l'header, la toolbar segue da sola. */
 @media (min-width: 901px) {
+  /* Le icone dell'header hanno 6px di padding + ~1.5px di margine nel disegno:
+     il testo si allinea al segno visibile dell'icona, non al suo riquadro.
+     A destra il pulsante filtro ha già 6px propri, ne servono 2 in più. */
   .products-toolbar {
-    padding-left: calc(var(--nav-pad) - var(--wrap-pad));
-    padding-right: calc(var(--nav-pad) - var(--wrap-pad));
+    padding-left: calc(var(--nav-pad) - var(--wrap-pad) + 7.5px);
+    padding-right: calc(var(--nav-pad) - var(--wrap-pad) + 2px);
   }
 }
 
