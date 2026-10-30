@@ -126,7 +126,7 @@ header.scrolled .nav-icon-link {
   color: var(--ink) !important;
 }
 header.scrolled .topbar-message {
-  color: var(--ink) !important;
+  color: var(--paper) !important;
 }
 header.scrolled .nav-burger {
   color: var(--ink) !important;
@@ -172,7 +172,7 @@ header.menu-open .topbar-message {
 }
 
 .topbar {
-  background-color: rgba(255,255,255,0.08);
+  background-color: var(--notte);
   border-bottom: 1px solid var(--gold);
   display: flex;
   align-items: center;
@@ -181,7 +181,7 @@ header.menu-open .topbar-message {
   padding: 4px 20px 8px;
   position: relative;
   transition: background var(--t-base) var(--ease), color var(--t-base) var(--ease), border-color var(--t-base) var(--ease), height var(--t-base) var(--ease), padding var(--t-base) var(--ease), opacity var(--t-base) var(--ease);
-  color: #fff;
+  color: var(--paper);
 }
 .topbar-messages {
   position: relative;
@@ -2074,7 +2074,7 @@ footer {
 :where(body.header-light) header .nav-center a { color: var(--ink); }
 :where(body.header-light) header .nav-center a.active { color: var(--gold); }
 :where(body.header-light) header .nav-icon-link { color: var(--ink); }
-:where(body.header-light) header .topbar-message { color: var(--ink); }
+:where(body.header-light) header .topbar-message { color: var(--paper); }
 :where(body.header-light) header .topbar { border-bottom: 1px solid var(--gold); }
 
 /* Riduzione altezza header SOLO su tablet touch (>1024px), desktop intatto */
