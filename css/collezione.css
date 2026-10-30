@@ -6,7 +6,7 @@
   z-index: 1;
   min-height: auto;
   display: block;
-  padding: 45px 50px 6px;
+  padding: 22px 50px 4px;
   text-align: center;
   background-color: var(--paper);
   color: var(--ink);
@@ -24,14 +24,14 @@
 
 @media (max-width: 1100px) {
   .hero {
-    padding: 30px 30px 6px;
+    padding: 15px 30px 4px;
     min-height: auto;
   }
 }
 
 @media (max-width: 640px) {
   .products-grid { gap: 20px 12px; }
-  .hero { padding: 21px 16px 10px; }
+  .hero { padding: 10px 16px 6px; }
   /* Su mobile il titolo torna nascosto */
   .hero h1 {
     position: absolute;
@@ -202,7 +202,7 @@
 }
 
 @media (max-width: 900px) {
-  .products-wrap { padding: 6px 16px 60px; }
+  .products-wrap { padding: 6px 16px 30px; }
   .products-grid { grid-template-columns: repeat(2, 1fr); gap: 10px 6px; }
 }
 
