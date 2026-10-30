@@ -207,7 +207,9 @@
 }
 
 @media (max-width: 900px) {
-  .products-wrap { padding: 6px 16px 30px; }
+  .products-wrap {
+    padding: 6px max(0px, env(safe-area-inset-right)) 30px max(0px, env(safe-area-inset-left));
+  }
   .products-grid { grid-template-columns: repeat(2, 1fr); gap: 10px 6px; }
 }
 
@@ -219,8 +221,8 @@
     box-sizing: border-box;
     width: 100%;
     max-width: 100%;
-    padding-left: max(16px, env(safe-area-inset-left));
-    padding-right: max(16px, env(safe-area-inset-right));
+    padding-left: max(0px, env(safe-area-inset-left));
+    padding-right: max(0px, env(safe-area-inset-right));
   }
 
   /* 2 colonne anche su smartphone.
@@ -273,8 +275,8 @@
 /* Schermi molto stretti (< 340px): ancora più compatto */
 @media (max-width: 340px) {
   .products-wrap {
-    padding-left: max(12px, env(safe-area-inset-left));
-    padding-right: max(12px, env(safe-area-inset-right));
+    padding-left: max(0px, env(safe-area-inset-left));
+    padding-right: max(0px, env(safe-area-inset-right));
   }
   .products-grid { gap: 12px 8px; }
   .product-info { padding: 30px 8px 8px; }
@@ -751,8 +753,8 @@
 /* ≤900px: toolbar a sinistra, header 20px - griglia 16px = 4px (entrambi i lati) */
 @media (max-width: 900px) {
   .products-toolbar {
-    padding-left: 8px;
-    padding-right: 8px;
+    padding-left: 24px;
+    padding-right: 24px;
   }
 }
 
