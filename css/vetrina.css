@@ -21,7 +21,7 @@
   /* Scala del racconto */
   --vt-title:      clamp(40px, 4.2vw, 64px);  /* titolo di capitolo */
   --vt-cover:      clamp(32px, 3.9vw, 56px);  /* titolo dell'hero, come una copertina */
-  --vt-standfirst: clamp(22px, 2.2vw, 32px);  /* manifesto, come l'occhiello di una rivista */
+  --vt-standfirst: clamp(20px, 1.7vw, 26px);  /* manifesto, come l'occhiello di una rivista */
   --vt-body:       var(--fs-body-editorial);  /* 18px, come il Journal */
 
   /* Etichetta in maiuscolo: una sola misura per tutta la pagina */
