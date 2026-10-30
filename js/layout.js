@@ -80,7 +80,7 @@
     <li><a href="#">Pantaloni</a></li><li><a href="#">Denim</a></li>\
     <li><a href="#" class="mm-see-all">Vedi tutti</a></li></ul></div>\
   <div class="megamenu-images">\
-    <a href="vetrina.html" class="mm-card"><div class="thumb"><img src="images/capsule-impermeabile-pioggia.webp" alt="La Capsule"></div><h5>La Capsule</h5></a>\
+    <a href="vetrina.html" class="mm-card"><div class="thumb"><img src="images/bomber-capsule.webp" alt="La Capsule"></div><h5>La Capsule</h5></a>\
     <a href="ai-2026.html" class="mm-card"><div class="thumb"><img src="images/megamenu-ai-2026.webp" alt="Autunno/Inverno 2026"></div><h5>Autunno/Inverno 2026</h5></a>\
     <a href="essential.html" class="mm-card"><div class="thumb"><img src="images/bm.webp" alt="Essential"></div><h5>Essential</h5></a>\
     <a href="cerimonia.html" class="mm-card"><div class="thumb"><img src="images/ceri.webp" alt="Cerimonia"></div><h5>Cerimonia</h5></a>\
