@@ -102,6 +102,7 @@ Da terminale, nella cartella del progetto:
 
 - **Contatore prodotti + counter inline (collezioni)**: `.products-count` (a sinistra, desktop) mostra "N prodotti". Su mobile (≤900px) è nascosto, e il conteggio è integrato in `.filtri-bar` come `.filtri-bar-count`: "Filtra e ordina (N)". Aggiornato da `aggiornaConteggio()` in `filtri.js`, chiamata in `applica()` e all'init. Icona di `.filtri-bar` a sinistra del testo su mobile (stile Barena), a destra su desktop.
 - **Token `--t-page` (dissolvenza pagina)**: `0.1s` in `tokens.css`, usato da `page-enter` in `base.css`. Sostituisce `--t-fast` (0.25s) solo per l'ingresso pagina. Le altre 79 transizioni che usano `--t-fast` restano a 0.25s. Anche `0.01s` in `prefers-reduced-motion`.
+- **Feature vetrina (single-image)**: `.vt-feature-img` è un `<div>` (non più un `<a>`), contiene solo `3.webp`, non è cliccabile. Il link a `prodotto-saldi.html` sta solo sul bottone della feature. Stesso pattern dell'Outlet Hero (solo il bottone è cliccabile).
 
 ## Contatti
 
