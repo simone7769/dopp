@@ -275,7 +275,8 @@
   margin-bottom: 64px;
 }
 /* Come i titoli di sezione della home (Must Have) */
-.vt-products-head h2 {
+.vt-products-head h2,
+.vt-products-head h3 {
   font-family: var(--serif);
   font-weight: var(--fw-regular);
   font-size: var(--fs-26);
@@ -631,7 +632,7 @@
   .vt-grid { grid-auto-columns: 72%; gap: var(--grid-gap-x-mobile); }
   .vt-products-head { margin-bottom: 40px; }
   /* Come i titoli di sezione della home su mobile */
-  .vt-products-head h2 { font-size: var(--fs-22); letter-spacing: var(--tr-4); }
+  .vt-products-head h2, .vt-products-head h3 { font-size: var(--fs-22); letter-spacing: var(--tr-4); }
 
   .vt-sticky { height: 80vh; height: 80svh; min-height: 420px; }
   .vt-sticky-quote-center { padding: 0 24px; }
