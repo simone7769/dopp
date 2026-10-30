@@ -57,6 +57,7 @@
 }
 .filtri-bar {
   display: flex;
+  flex-direction: row-reverse;
   justify-content: flex-end;
   align-items: center;
   gap: 10px;
@@ -69,6 +70,9 @@
   color: var(--ink);
   cursor: pointer;
   transition: opacity var(--t-fast) var(--ease);
+}
+.filtri-bar-count {
+  display: none;
 }
 .filtri-bar:hover { opacity: 0.6; }
 .filtri-bar svg { width: 16px; height: 16px; }
@@ -323,6 +327,9 @@
 
 @media (max-width: 900px) {
   .products-toolbar { justify-content: space-between; padding-bottom: 14px; }
+  .products-count { display: none; }
+  .filtri-bar { flex-direction: row; justify-content: flex-start; }
+  .filtri-bar-count { display: inline; }
 
   .grid-switch { display: flex; align-items: center; gap: 2px; }
   .grid-switch button {

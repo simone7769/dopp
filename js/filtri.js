@@ -172,6 +172,10 @@
     document.querySelectorAll('.products-count').forEach(function (el) {
       el.textContent = testo;
     });
+    var inlineTesto = ' (' + n + ')';
+    document.querySelectorAll('.filtri-bar-count').forEach(function (el) {
+      el.textContent = inlineTesto;
+    });
   }
 
   function aggiornaBadge(stato) {
