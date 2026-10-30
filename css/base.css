@@ -244,7 +244,7 @@ header.menu-open .topbar-message {
    calcola il proprio allineamento come --nav-pad - --wrap-pad. */
 :root {
   --nav-pad: 50px;   /* header, desktop */
-  --wrap-pad: 8px;   /* griglia prodotti (edge-to-edge) */
+  --wrap-pad: 0px;   /* griglia prodotti (edge-to-edge pieno) */
 }
 @media (max-width: 1200px) {
   :root { --nav-pad: 24px; }
