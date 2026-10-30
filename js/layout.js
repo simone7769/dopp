@@ -108,6 +108,7 @@
 
   /* ---------------- MOBILE MENU + DRAWERS ---------------- */
   var DRAWERS = '\
+<div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>\
 <div class="mobile-menu" id="mobileMenu" aria-hidden="true">\
   <ul class="mobile-menu-list">\
     <li><a href="ai-2026.html">Nuovi Arrivi</a></li>\

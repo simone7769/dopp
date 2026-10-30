@@ -325,9 +325,12 @@ if (navBurger && mobileMenu) {
 
   let menuCloseTimer = null;
 
+  const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+
   function setMobileMenu(willOpen) {
     const wasOpen = mobileMenu.classList.contains('open');
     mobileMenu.classList.toggle('open', willOpen);
+    if (mobileMenuOverlay) mobileMenuOverlay.classList.toggle('active', willOpen);
     navBurger.setAttribute('aria-expanded', String(willOpen));
     if (!willOpen && mobileMenu.contains(document.activeElement)) {
       document.activeElement.blur();
@@ -358,6 +361,9 @@ if (navBurger && mobileMenu) {
   }
 
   navBurger.addEventListener('click', () => toggleMobileMenu());
+  if (mobileMenuOverlay) {
+    mobileMenuOverlay.addEventListener('click', () => toggleMobileMenu(false));
+  }
 
   mobileMenu.querySelectorAll('a').forEach((a) => {
     a.addEventListener('click', () => toggleMobileMenu(false));
