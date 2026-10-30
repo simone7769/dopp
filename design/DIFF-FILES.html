@@ -171,15 +171,15 @@
 
   <div class="meta">
     <div>
-      <span class="val">394</span>
+      <span class="val">397</span>
       <span class="lbl">File toccati</span>
     </div>
     <div>
-      <span class="val">54323</span>
+      <span class="val">54362</span>
       <span class="lbl">Righe aggiunte</span>
     </div>
     <div>
-      <span class="val">1314</span>
+      <span class="val">1339</span>
       <span class="lbl">Righe rimosse</span>
     </div>
   </div>
@@ -187,6 +187,17 @@
   <p style="font-size: 13px; color: var(--ink-soft); text-align: center; margin-bottom: 40px;">
     Da <code>de268ba</code> a <code>1323dbc</code> — 8–30 ottobre 2026
   </p>
+
+<h2>27. Aggiornamento del 30 ottobre 2026 (sera) <span class="count">3 file</span></h2>
+
+  <p style="font-size: 13px; color: var(--ink-soft); text-align: center; margin-bottom: 10px;">5 commit · 30 ottobre 2026 (sera)</p>
+
+  <table>
+    <tr><th>File</th><th class="n">+</th><th class="n">−</th><th>Descrizione</th></tr>
+    <tr><td class="file">images/3.webp</td><td class="n">bin</td><td class="n">0</td><td class="note">Sostituzione immagine vetrina (soggetto intero, prima era tagliata a monte). 133 KB → 176 KB, dimensioni invariate 1509×2011.</td></tr>
+    <tr><td class="file">css/base.css</td><td class="n">+17</td><td class="n">−5</td><td class="note">Aggiunte variabili <code>--nav-pad</code> e <code>--wrap-pad</code> come unica fonte di verità. Sostituiti i padding hardcoded dell'header (<code>50px/24px/20px</code>). Aggiunto override <code>--nav-pad: 20px</code> in touch landscape (fix iPad).</td></tr>
+    <tr><td class="file">css/collezione.css</td><td class="n">+22</td><td class="n">−20</td><td class="note">Padding titolo <code>.hero</code> dimezzato (f7183ef). Toolbar mobile 4→8px (e586216). Compensazioni hardcoded 42/16 → <code>calc(var(--nav-pad) - var(--wrap-pad))</code> (0a7c683). Centratura ottica titolo e micro-compensazione (+7.5px/+2px) (a8c39bd).</td></tr>
+  </table>
 
 <h2>26. Aggiornamento del 30 ottobre 2026 <span class="count">15 file</span></h2>
 
