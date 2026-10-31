@@ -603,7 +603,7 @@
     grid-row: auto;
   }
   .vt-feature-img { height: auto; }
-  .vt-feature-img img { height: auto; aspect-ratio: 4 / 5; }
+  .vt-feature-img img { height: auto; aspect-ratio: 4 / 5; object-position: center top; }
 
   /* Prodotti: scorrimento orizzontale, 2 card e un pezzo della terza */
   .vt-grid {
