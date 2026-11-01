@@ -735,6 +735,7 @@ header.scrolled .topbar {
   text-align: left;
   margin: 0 0 4px;
   max-width: 100%;
+  padding: 0 12px;
 }
 
 /* Prezzo — identico a .product-info .details .price (collezione) */
@@ -747,6 +748,7 @@ header.scrolled .topbar {
   color: var(--ink);
   text-align: left;
   line-height: 1.3;
+  padding: 0 12px;
 }
 
 /* Variante saldi / prezzo barrato (facoltativa) */
