@@ -130,3 +130,6 @@ Nella home (`.must-have`), i contenitori `.product h3` e `.product-price` hanno 
 
 ### Dimensioni card (Titolo e Prezzo)
 I token `--fs-card-title` e `--fs-card-price` sono stati portati rispettivamente a 15px e 14px per garantire una migliore leggibilità delle didascalie prodotto. Su mobile restano a 14px e 12px.
+
+### Refactoring collezione.css
+Il file `collezione.css` è stato ripulito dai duplicati. Inoltre, il pulsante "+" (`.product-info .plus`) ha ora un'area di tocco di 44x44px (WCAG) per migliorare l'accessibilità su touch.
