@@ -127,3 +127,6 @@ Il blocco `.collection` non ha `padding-top` su tablet e mobile (allineato al de
 
 ### Padding didascalie e prezzi (Selezione)
 Nella home (`.must-have`), i contenitori `.product h3` e `.product-price` hanno `padding: 0 12px` per allineare il testo al margine delle immagini, esattamente come avviene su `.product-info` nelle pagine di collezione.
+
+### Dimensioni card (Titolo e Prezzo)
+I token `--fs-card-title` e `--fs-card-price` sono stati portati rispettivamente a 15px e 14px per garantire una migliore leggibilità delle didascalie prodotto. Su mobile restano a 14px e 12px.
