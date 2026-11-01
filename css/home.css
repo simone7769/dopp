@@ -117,7 +117,7 @@ html { scroll-snap-type: y proximity; scroll-padding-top: var(--header-h, 170px)
 .info-bar p {
   font-family: var(--sans);
   font-size: var(--fs-12);
-  letter-spacing: var(--tr-3);
+  letter-spacing: var(--tr-1);
   font-weight: 400;
   text-transform: uppercase;
   line-height: 1.8;
