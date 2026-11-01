@@ -71,10 +71,12 @@ html { scroll-snap-type: y proximity; scroll-padding-top: var(--header-h, 170px)
   pointer-events: none;
   background: radial-gradient(ellipse at center, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.35) 45%, rgba(0,0,0,0) 72%);
 }
-.hero-content h1 {
+/* Claim: titolo serif in maiuscolo spaziato sopra le immagini (hero e capsule) */
+.hero-content h1,
+.capsule-text h2 {
   font-family: var(--serif);
   font-size: var(--fs-claim);
-  font-weight: 500;
+  font-weight: var(--fw-medium);
   letter-spacing: var(--tr-4);
   line-height: 1.25;
   text-transform: uppercase;
@@ -117,7 +119,6 @@ html { scroll-snap-type: y proximity; scroll-padding-top: var(--header-h, 170px)
   font-size: var(--fs-12);
   letter-spacing: var(--tr-3);
   font-weight: 400;
-  opacity: 0.7;
   text-transform: uppercase;
   line-height: 1.8;
   text-wrap: balance;
@@ -686,8 +687,12 @@ header.scrolled .topbar {
     padding: 18px;
   }
 
+  /* Video: stessa proporzione 4/5 delle card, non più a schermo intero */
+  .video-showcase { height: auto; aspect-ratio: 4 / 5; }
+
   .hero-content::before { inset: -40px -30px; }
-  .hero-content h1 {
+  .hero-content h1,
+  .capsule-text h2 {
     font-size: var(--fs-22);
     letter-spacing: var(--tr-3);
     line-height: 1.35;
@@ -765,7 +770,6 @@ header.scrolled .topbar {
    "Autunno/Inverno 2026" su una riga sola (width auto + padding).
    ============================================================ */
 @media (max-width: 640px) {
-  .video-showcase { height: auto; aspect-ratio: 4 / 5; }
   .video-showcase-btn {
     width: auto;
     min-width: var(--btn-width, 170px);
@@ -1001,21 +1005,11 @@ header.scrolled .topbar {
   margin-bottom: 16px;
 }
 
+/* Il titolo della capsule usa lo stile "claim" definito accanto all'hero */
 .capsule-text h2 {
-  font-family: var(--serif);
-  font-size: var(--fs-claim);
-  font-weight: var(--fw-medium);
-  letter-spacing: var(--tr-4);
-  line-height: 1.25;
-  text-transform: uppercase;
-  text-wrap: balance;
   max-width: 640px;
+  text-wrap: balance;
   color: #fff;
-  margin-bottom: 24px;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.55), 0 2px 24px rgba(0,0,0,0.5);
-}
-@media (max-width: 640px) {
-  .capsule-text h2 { font-size: var(--fs-22); letter-spacing: var(--tr-3); }
 }
 
 .capsule-desc {
@@ -1053,10 +1047,4 @@ header.scrolled .topbar {
 .capsule-text .btn:hover {
   background-color: #fff;
   color: var(--ink);
-}
-
-/* Mobile: capsule e Outlet restano 4:5 pieni, senza limite di altezza */
-@media (max-width: 640px) {
-  .capsule-section,
-  .outlet-hero { max-height: none; }
 }
