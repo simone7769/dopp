@@ -115,3 +115,9 @@ Da terminale, nella cartella del progetto:
 ## Contatti
 
 Vedi `design/CREDITI.md`.
+
+### Claim unificato (Hero e Capsule)
+I titoli dell'Hero e della Capsule condividono la stessa regola CSS (`.hero-content h1, .capsule-text h2`). Usano il token `--fs-claim`, con `text-wrap: balance` per evitare parole orfane e `text-shadow` per garantire il contrasto su qualsiasi immagine di sfondo.
+
+### Video in Home (Mobile)
+Su mobile (`max-width: 640px`), il blocco video usa `height: 100svh` e `aspect-ratio: auto`. Mantiene il formato naturale del video, evitando tagli laterali o zoom innaturali, e occupa l'intero schermo per massimizzare l'impatto visivo.
