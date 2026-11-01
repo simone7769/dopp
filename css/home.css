@@ -94,7 +94,7 @@ html { scroll-snap-type: y proximity; scroll-padding-top: var(--header-h, 170px)
   background-color: #faf8f5;
   color: var(--ink);
   text-align: center;
-  padding: 80px 20px;
+  padding: 90px 20px;
   border-bottom: 1px solid var(--line);
 }
 .info-bar h2 {
@@ -921,7 +921,7 @@ header.scrolled .topbar {
     width: auto;
     transform: none;
     max-width: none;
-    padding: 24px 20px 60px;
+    padding: 24px 24px 60px;
     background: rgba(0, 0, 0, 0.4);
     z-index: 2;
     display: flex;
