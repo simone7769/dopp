@@ -593,7 +593,7 @@ header.scrolled .topbar {
   .world { --w-visible: 2.5; --w-gaps: 2; --w-gap: 32px; }
   .duo { height: 100vh; height: 100svh; min-height: 500px; }
   /* Tablet verticale: boiserie e duo come su mobile (card impilate 4/5) */
-  .collection { padding: 60px 0 0; }
+  .collection { padding: 0; }
   .collection-frame { aspect-ratio: auto; background: none; transform: none; }
   .collection.in-view .collection-frame { transform: none; }
   .collection .grid { position: static; display: flex; flex-direction: column; gap: 14px; }
@@ -657,7 +657,7 @@ header.scrolled .topbar {
   /* Mobile: niente boiserie. Cerimonia ed Essential diventano due card
      a tutta larghezza (a filo schermo, come il Duo),
      una sotto l'altra, con la proporzione 4/5 (come Journal e Looks). */
-  .collection { padding: 60px 0 0; }
+  .collection { padding: 0; }
 
   /* Info bar mobile: spaziature riviste per fascia più compatta */
   .info-bar h2 { margin-bottom: 14px; }
