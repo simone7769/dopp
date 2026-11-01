@@ -121,3 +121,6 @@ I titoli dell'Hero e della Capsule condividono la stessa regola CSS (`.hero-cont
 
 ### Video in Home (Mobile)
 Su mobile (`max-width: 640px`), il blocco video usa `height: 100svh` e `aspect-ratio: auto`. Mantiene il formato naturale del video, evitando tagli laterali o zoom innaturali, e occupa l'intero schermo per massimizzare l'impatto visivo.
+
+### Padding video -> Collection (Tablet e Mobile)
+Il blocco `.collection` non ha `padding-top` su tablet e mobile (allineato al desktop). Il video a tutto schermo "scivola" direttamente nella sezione successiva per mantenere un ritmo visivo cinematografico ed evitare buchi bianchi.
