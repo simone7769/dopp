@@ -20,6 +20,8 @@
   text-transform: uppercase;
   color: var(--ink);
   margin: 0;
+  position: relative;
+  top: 15px;   /* abbassa otticamente il titolo senza cambiare l'altezza della sezione */
 }
 
 @media (max-width: 1100px) {
@@ -35,11 +37,9 @@
 }
 
 @media (max-width: 640px) {
-  .products-grid { gap: 20px 12px; }
   .hero { padding: 10px 16px 6px; }
   /* Su mobile il titolo torna nascosto */
   .hero h1 {
-    position: absolute;
     width: 1px;
     height: 1px;
     margin: -1px;
@@ -165,7 +165,15 @@
   font-size: var(--fs-22);
   font-weight: 300;
   line-height: 1;
-  padding: 0 4px;
+  /* area toccabile 44x44 (token --touch-target); i margini negativi
+     la estendono senza cambiare l'altezza della didascalia */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--touch-target, 44px);
+  min-height: var(--touch-target, 44px);
+  margin: -11px -10px -11px 0;
+  padding: 0;
   cursor: pointer;
   transition: opacity var(--t-fast) var(--ease);
   font-family: var(--sans);
@@ -215,24 +223,22 @@
 
 
 @media (max-width: 520px) {
-  /* Margini laterali garantiti: il contenitore non supera mai lo schermo
-     (rispetta anche le zone sicure in orizzontale) */
+  /* Foto a tutta larghezza: il contenitore non supera mai lo schermo.
+     I margini laterali sono solo le zone sicure (notch), già impostate a <=900px. */
   .products-wrap {
     box-sizing: border-box;
     width: 100%;
     max-width: 100%;
-    padding-left: max(0px, env(safe-area-inset-left));
-    padding-right: max(0px, env(safe-area-inset-right));
   }
 
-  /* 2 colonne anche su smartphone.
-     minmax(0, 1fr): le colonne non si allargano mai oltre lo spazio
-     disponibile. */
+  /* 2 colonne anche su smartphone, card quasi attaccate (2px, stile editoriale:
+     il testo è sopra l'immagine, quindi non serve spazio verticale).
+     minmax(0, 1fr): le colonne non si allargano mai oltre lo spazio disponibile. */
   .products-grid {
     box-sizing: border-box;
     width: 100%;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px 10px;
+    gap: 2px;
   }
   .product-card { min-width: 0; }
 
@@ -270,37 +276,6 @@
     padding: 0 2px;
     pointer-events: auto;
   }
-}
-
-/* Schermi molto stretti (< 340px): ancora più compatto */
-@media (max-width: 340px) {
-  .products-wrap {
-    padding-left: max(0px, env(safe-area-inset-left));
-    padding-right: max(0px, env(safe-area-inset-right));
-  }
-  .products-grid { gap: 12px 8px; }
-  .product-info { padding: 30px 8px 8px; }
-  .product-info .details h3,
-  .product-info .details .price { font-size: 11px; }
-}
-
-
-/* ============================================================
-   MOBILE — foto a tutta larghezza (edge-to-edge)
-   ============================================================ */
-@media (max-width: 520px) {
-
-  /* Niente margini laterali: solo le zone sicure (notch) in landscape */
-  .products-wrap {
-    padding-left: max(0px, env(safe-area-inset-left));
-    padding-right: max(0px, env(safe-area-inset-right));
-  }
-
-  /* Card quasi attaccate: 2px, stile editoriale.
-     Il testo è sopra l'immagine, quindi non serve spazio verticale */
-  .products-grid {
-    gap: 2px;
-  }
 
   /* Gli elementi che NON sono foto tornano ad avere i loro 16px.
      Specificità alta per battere button.filtri-bar di filtri.css */
@@ -312,6 +287,13 @@
   .products-wrap .load-more-wrap {
     padding: 40px 16px 10px;
   }
+}
+
+/* Schermi molto stretti (< 340px): ancora più compatto */
+@media (max-width: 340px) {
+  .product-info { padding: 30px 8px 8px; }
+  .product-info .details h3,
+  .product-info .details .price { font-size: 11px; }
 }
 
 
@@ -363,7 +345,7 @@
     gap: 18px 8px;
   }
   .products-grid[data-cols="3"] .product-info .details h3,
-  .products-grid[data-cols="3"] .product-info .details .price { font-size: 11px; }
+  .products-grid[data-cols="3"] .product-info .details .price { font-size: var(--fs-12); }
   .products-grid[data-cols="3"] .product-info .plus { display: none; }
   .products-grid[data-cols="3"] .product-card .wish { top: 2px; right: 2px; }
   .products-grid[data-cols="3"] .product-card .wish svg { width: 18px; height: 18px; }
@@ -497,82 +479,6 @@
   .quick-add-sizes button { min-width: 32px; min-height: 32px; }
 }
 
-/* ============================================================
-   QUICK-ADD — disattivato su mobile (griglia 2 colonne)
-   Su mobile: niente pannellino. Il + è nascosto.
-   L'utente clicca la card → va alla scheda prodotto.
-   ============================================================ */
-@media (max-width: 640px) {
-  .product-card .plus { display: none; }
-}
-
-
-.product-card .badge.bestseller { background: rgba(184, 147, 90, 0.92); color: #fff; }
-.product-card .badge.new-in { background: rgba(43, 43, 43, 0.85); color: #fff; }
-.product-card .badge.ultimi { background: rgba(74, 70, 63, 0.85); color: #fff; }
-
-@media (max-width: 520px) {
-  .product-card .badge { font-size: 10px; letter-spacing: 1.5px; padding: 0 10px; height: 22px; }
-}
-
-
-.product-card .price-old {
-  font-size: 12px;
-  font-weight: 300;
-  color: var(--ink-soft);
-  text-decoration: line-through;
-}
-.product-card .price-now {
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--danger);
-}
-.product-card .price-off {
-  font-size: 11px;
-  letter-spacing: 1px;
-  color: var(--danger);
-}
-
-
-.product-card .similar svg {
-  width: 12px;
-  height: 12px;
-  display: block;
-  stroke: currentColor;
-  fill: none;
-  stroke-width: 1.5;
-}
-@media (max-width: 520px) {
-  .product-card .similar {
-    height: 22px;
-    padding: 0 10px;
-    font-size: 10px;
-    letter-spacing: 1.5px;
-    gap: 5px;
-  }
-  .product-card .similar svg { width: 10px; height: 10px; }
-}
-
-/* ==========================================
-   DA PDF: BADGE PRODOTTO (§7)
-   ========================================== */
-.product-card .badge {
-  position: absolute; top: 0; left: 0; z-index: 3;
-  font-family: var(--sans); font-size: 11px; font-weight: 400;
-  letter-spacing: 1.8px; text-transform: uppercase;
-  padding: 0 14px; border-radius: 0; line-height: 1;
-  pointer-events: none; display: inline-flex; align-items: center;
-  height: 27px; box-sizing: border-box;
-  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-}
-.product-card .badge.sale { background: rgba(163, 38, 56, 0.88); color: #fff; }
-.product-card .badge.new-in { background: rgba(43, 43, 43, 0.85); color: #fff; }
-.product-card .badge.ultimi { background: rgba(74, 70, 63, 0.85); color: #fff; }
-
-@media (max-width: 520px) {
-  .product-card .badge { font-size: 10px; letter-spacing: 1.5px; padding: 0 10px; height: 22px; }
-}
 
 /* ==========================================
    DA PDF: PREZZI SCONTATI (§4)
@@ -580,9 +486,9 @@
 .product-card .price-block {
   display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; margin-top: 4px;
 }
-.product-card .price-old { font-size: 12px; font-weight: 300; color: var(--ink-soft); text-decoration: line-through; }
-.product-card .price-now { font-size: 12px; font-weight: 700; color: var(--danger); }
-.product-card .price-off { font-size: 11px; letter-spacing: 1px; color: var(--danger); }
+.product-card .price-old { font-size: var(--fs-card-price); font-weight: 300; color: var(--ink-soft); text-decoration: line-through; }
+.product-card .price-now { font-size: var(--fs-card-price); font-weight: 700; color: var(--danger); }
+.product-card .price-off { font-size: var(--fs-12); letter-spacing: 1px; color: var(--danger); }
 
 /* Fix per far stare titolo e prezzo uno sotto l'altro */
 .product-card .details { display: flex; flex-direction: column; }
@@ -622,59 +528,35 @@
 
 
 /* ==========================================
-   FIX MOBILE: Nascondi Articoli Simili e riduci Badge
+   MOBILE (<=640px): card prodotto
+   - niente pannellino quick-add: il + è nascosto, la card porta alla scheda
+   - "Articoli simili" nascosto
+   - badge più piccoli e discreti
+   - prezzi scontati proporzionati alla card, in bianco (stanno sopra la foto)
    ========================================== */
 @media (max-width: 640px) {
-  /* 1. Il pulsante Articoli simili su mobile non si vede */
-  .product-card .similar {
-    display: none !important;
-  }
-
-  /* 2. I badge devono essere più piccoli e discreti */
+  .product-card .plus { display: none; }
+  .product-card .similar { display: none !important; }
   .product-card .badge {
     font-size: 9px !important;
     letter-spacing: 1px !important;
     padding: 0 6px !important;
     height: 20px !important;
   }
-
-  /* 3. Il prezzo scontato va a capo in modo pulito */
   .product-card .price-block {
     display: flex;
     flex-wrap: wrap;
     gap: 4px 6px;
     margin-top: 4px;
   }
-  
   .product-card .price-old,
   .product-card .price-now,
-  .product-card .price-off {
-    font-size: 11px !important; /* Rende i prezzi proporzionati alla card mobile */
-  }
-} /* ← CHIUSURA @media (max-width: 640px) MANCANTE */
-
-
-/* Fix definitivo: prezzo barrato bianco su mobile (sfondo scuro) */
-@media (max-width: 640px) {
-  .product-card .price-old {
-    color: rgba(255, 255, 255, 0.8) !important; 
-    /* Usiamo un bianco leggermente trasparente per mantenere la gerarchia visiva */
-  }
-}
-
-
-/* Prezzi in bianco su mobile per massima leggibilità */
-@media (max-width: 640px) {
-  /* Prezzo barrato: bianco leggermente trasparente per gerarchia */
-  .product-card .price-old {
-    color: rgba(255, 255, 255, 0.6) !important; 
-  }
-  /* Prezzo nuovo e percentuale: bianco brillante */
+  .product-card .price-off { font-size: 11px !important; }
+  .product-card .price-old { color: rgba(255, 255, 255, 0.6) !important; }
   .product-card .price-now,
-  .product-card .price-off {
-    color: #ffffff !important; 
-  }
+  .product-card .price-off { color: #ffffff !important; }
 }
+
 
 /* ==========================================
    DA PDF: BADGE PRODOTTO (§7)
@@ -781,8 +663,3 @@
   margin-right: auto;
 }
 
-/* Sposta visivamente il titolo in basso senza alterare l'altezza della sezione */
-.hero h1 {
-  position: relative;
-  top: 15px; /* Regola questo valore per alzare/abbassare il titolo */
-}
