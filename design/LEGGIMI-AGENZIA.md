@@ -124,3 +124,6 @@ Su mobile (`max-width: 640px`), il blocco video usa `height: 100svh` e `aspect-r
 
 ### Padding video -> Collection (Tablet e Mobile)
 Il blocco `.collection` non ha `padding-top` su tablet e mobile (allineato al desktop). Il video a tutto schermo "scivola" direttamente nella sezione successiva per mantenere un ritmo visivo cinematografico ed evitare buchi bianchi.
+
+### Padding didascalie e prezzi (Selezione)
+Nella home (`.must-have`), i contenitori `.product h3` e `.product-price` hanno `padding: 0 12px` per allineare il testo al margine delle immagini, esattamente come avviene su `.product-info` nelle pagine di collezione.
