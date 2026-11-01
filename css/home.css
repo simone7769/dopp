@@ -73,7 +73,7 @@ html { scroll-snap-type: y proximity; scroll-padding-top: var(--header-h, 170px)
 }
 .hero-content h1 {
   font-family: var(--serif);
-  font-size: clamp(24px, 2.2vw, 32px);
+  font-size: var(--fs-claim);
   font-weight: 500;
   letter-spacing: var(--tr-4);
   line-height: 1.25;
@@ -81,7 +81,7 @@ html { scroll-snap-type: y proximity; scroll-padding-top: var(--header-h, 170px)
   margin-bottom: 24px;
   text-shadow: 0 1px 2px rgba(0,0,0,0.55), 0 2px 24px rgba(0,0,0,0.5);
 }
-.hero-content h1 .hero-line { display: block; }
+.hero-content h1 .hero-line { display: block; text-wrap: balance; }
 .hero-content h1 .hero-line:last-child { margin-top: 8px; }
 
 /* ============================================================
@@ -116,8 +116,9 @@ html { scroll-snap-type: y proximity; scroll-padding-top: var(--header-h, 170px)
   font-family: var(--sans);
   font-size: var(--fs-12);
   letter-spacing: var(--tr-3);
+  font-weight: 400;
+  opacity: 0.7;
   text-transform: uppercase;
-  opacity: 0.85;
   line-height: 1.8;
   text-wrap: balance;
 }
@@ -688,6 +689,7 @@ header.scrolled .topbar {
   .hero-content::before { inset: -40px -30px; }
   .hero-content h1 {
     font-size: var(--fs-22);
+    letter-spacing: var(--tr-3);
     line-height: 1.35;
   }
   .hero-content h1 .hero-line:last-child {
@@ -763,6 +765,7 @@ header.scrolled .topbar {
    "Autunno/Inverno 2026" su una riga sola (width auto + padding).
    ============================================================ */
 @media (max-width: 640px) {
+  .video-showcase { height: auto; aspect-ratio: 4 / 5; }
   .video-showcase-btn {
     width: auto;
     min-width: var(--btn-width, 170px);
@@ -890,10 +893,10 @@ header.scrolled .topbar {
 }
 
 /* Tablet e Mobile (include iPad) */
-@media (max-width: 1025px) {
+@media (max-width: 1024px) {
   .outlet-hero {
     aspect-ratio: 4 / 5; /* formato verticale per il mobile */
-    max-height: none;
+    max-height: max(85vh, 440px); /* tablet: non più alto dello schermo; 440px = minimo per il testo */
     height: auto;
     display: block;
     background-color: #111;
@@ -953,6 +956,7 @@ header.scrolled .topbar {
   display: block;
   width: 100%;
   aspect-ratio: 2833 / 1322; /* stesso rapporto dell'Outlet: altezze identiche */
+  max-height: 85vh;          /* stesso limite dell'Outlet */
   min-height: auto;
   overflow: hidden;
   background-color: #faf8f5;
@@ -999,10 +1003,19 @@ header.scrolled .topbar {
 
 .capsule-text h2 {
   font-family: var(--serif);
-  font-size: clamp(32px, 4vw, 48px);
-  font-weight: var(--fw-regular);
+  font-size: var(--fs-claim);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--tr-4);
+  line-height: 1.25;
+  text-transform: uppercase;
+  text-wrap: balance;
+  max-width: 640px;
   color: #fff;
   margin-bottom: 24px;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.55), 0 2px 24px rgba(0,0,0,0.5);
+}
+@media (max-width: 640px) {
+  .capsule-text h2 { font-size: var(--fs-22); letter-spacing: var(--tr-3); }
 }
 
 .capsule-desc {
@@ -1017,10 +1030,11 @@ header.scrolled .topbar {
 @media (max-width: 1024px) {
   .capsule-section {
     aspect-ratio: 4 / 5; /* formato verticale su mobile, come Outlet */
+    max-height: max(85vh, 440px); /* tablet: come Outlet */
     min-height: auto;
   }
   .capsule-text {
-    padding: 0 20px 60px;
+    padding: 0 24px 60px;
   }
   .video-showcase-btn {
     bottom: 60px;
@@ -1039,4 +1053,10 @@ header.scrolled .topbar {
 .capsule-text .btn:hover {
   background-color: #fff;
   color: var(--ink);
+}
+
+/* Mobile: capsule e Outlet restano 4:5 pieni, senza limite di altezza */
+@media (max-width: 640px) {
+  .capsule-section,
+  .outlet-hero { max-height: none; }
 }
