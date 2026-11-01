@@ -77,8 +77,8 @@
   --fs-26: 26px;   /* titoli sezione Must Have, carrello, correlati (spostato da base.css) */
 
   /* Ruoli specifici */
-  --fs-card-title: 14px;
-  --fs-card-price: 12px;
+  --fs-card-title: 15px;
+  --fs-card-price: 14px;
   --fs-pdp-title:  clamp(27px, 2vw, 30px);
   --fs-pdp-price:  17px;
   --fs-related:    26px;                     /* serif, "Potrebbero piacerti" */
