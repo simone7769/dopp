@@ -688,7 +688,7 @@ header.scrolled .topbar {
   }
 
   /* Video: stessa proporzione 4/5 delle card, non più a schermo intero */
-  .video-showcase { height: auto; aspect-ratio: 4 / 5; }
+  .video-showcase { height: 100svh; aspect-ratio: auto; }
 
   .hero-content::before { inset: -40px -30px; }
   .hero-content h1,
