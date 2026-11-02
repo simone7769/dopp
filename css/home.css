@@ -184,7 +184,7 @@ html { scroll-snap-type: y proximity; scroll-padding-top: var(--header-h, 170px)
   width: 100%;
   max-width: none;
   margin: 0;
-  aspect-ratio: 1616 / 899;
+  aspect-ratio: 1616 / 777;
   background: url("../images/boiserie-bg1.webp") center / cover no-repeat;
   opacity: 0;
   transform: scale(1.03);
@@ -202,8 +202,8 @@ html { scroll-snap-type: y proximity; scroll-padding-top: var(--header-h, 170px)
 }
 .card {
   position: absolute;
-  top: 16%;
-  height: 66.6%;
+  top: 10.9%;
+  height: 77.05%;
   display: flex;
   align-items: center;
   justify-content: center;
