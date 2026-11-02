@@ -5,16 +5,11 @@ Le note che seguono integrano o modificano le specifiche originali.
 
 ---
 
-## 1. Video come Hero (Home)
+## 1. Hero: Immagine statica (video sperimentato e abbandonato)
 
-**Cosa è cambiato**: La home non usa più una foto statica come hero principale. Ora usa un video in autoplay (`doppelganger-uomo-intro.mp4`) a tutto schermo. Il claim testuale ("Vestire bene non è un lusso...") è stato rimosso. Il bottone "Autunno/Inverno 2026" è posizionato in basso (80px desktop, 60px mobile).
+**Decisione**: Si è sperimentato il video come hero (a tutto schermo, senza claim), ma dopo il test si è deciso di tornare all'immagine statica originale. La home usa l'immagine `hero-ai26.webp` con il claim "Vestire bene non è un lusso / È un'abitudine". Il video `doppelganger-uomo-intro.mp4` resta come sezione separata sotto l'hero, con il bottone "Autunno/Inverno 2026".
 
-**Perché**: maggiore impatto visivo ed emozionale. Coerente con i siti luxury contemporanei (Barena, Massimo Zara).
-
-**Come funziona tecnicamente**:
-- Il video ha `preload="none"` e `poster="images/poster-video.jpg"` (per il primo frame).
-- Lo script JS avvia il video solo dopo l'evento `load` della pagina (non blocca il rendering).
-- Il poster ha `width="1920" height="1080"` per evitare CLS.
+**Perché**: l'impatto visivo dell'immagine e la coerenza con il claim originale sono stati valutati superiori. Il video, come blocco autonomo, funziona meglio.
 
 ---
 
