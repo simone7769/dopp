@@ -60,7 +60,7 @@
   margin: 0 0 35px;
   padding-bottom: 20px;
   font-family: var(--serif);
-  font-size: var(--fs-26);
+  font-size: var(--fs-22);
   font-weight: var(--fw-regular);
   letter-spacing: var(--tr-2);
   text-align: center;
@@ -205,7 +205,7 @@
     width: 95%;
     padding: 30px 20px;
   }
-  #similarModal h2 { font-size: var(--fs-22); }
+  #similarModal h2 { font-size: var(--fs-20); }
   #similarModal h2::after {
     left: -20px;
     right: -20px;
