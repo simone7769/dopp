@@ -133,3 +133,6 @@ I token `--fs-card-title` e `--fs-card-price` sono stati portati rispettivamente
 
 ### Refactoring collezione.css
 Il file `collezione.css` è stato ripulito dai duplicati. Inoltre, il pulsante "+" (`.product-info .plus`) ha ora un'area di tocco di 44x44px (WCAG) per migliorare l'accessibilità su touch.
+
+### Dettagli prodotto (Prezzo e Pulsante "+")
+Il prezzo nelle card (Home e Collezioni) ha ora un peso di 600 (invece di 700) per un aspetto più elegante e meno "urlato". Il pulsante "+" (Quick Add) è stato ingrandito per essere più visibile e facilmente cliccabile su touch.
