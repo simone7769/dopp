@@ -202,17 +202,17 @@ html { scroll-snap-type: y proximity; scroll-padding-top: var(--header-h, 170px)
 }
 .card {
   position: absolute;
-  top: 10.9%;
-  height: 77.05%;
+  top: 12.48%;
+  height: 74.39%;
   display: flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
   color: var(--ink);
 }
-/* Le due card allineate esattamente ai due pannelli incassati della boiserie */
-.card:nth-child(1) { left: 6.1%;  width: 38.3%; }
-.card:nth-child(2) { left: 56.2%; width: 38.1%; }
+/* Le due card coincidono esattamente con i rettangoli verdi (misurati su 1616x777) */
+.card:nth-child(1) { left: 7.05%;  width: 36.51%; }
+.card:nth-child(2) { left: 57.12%; width: 36.51%; top: 12.36%; }
 
 /* Immagine rettangolare (come prima) centrata dentro al pannello quadrato */
 .card-media {
@@ -255,8 +255,8 @@ html { scroll-snap-type: y proximity; scroll-padding-top: var(--header-h, 170px)
    Mobile (<=640px): invariato, nessuna boiserie. */
 @media (min-width: 641px) {
   .card-media {
-    width: 94%;
-    height: 96%;
+    width: 100%;
+    height: 100%;
     aspect-ratio: auto;
     max-width: none;
   }
