@@ -247,6 +247,9 @@ html { scroll-snap-type: y proximity; scroll-padding-top: var(--header-h, 170px)
   z-index: 2;
   color: #fff;
   text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
 }
 
 /* Desktop/tablet (>=641px): la foto riempie il pannello incassato della
