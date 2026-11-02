@@ -154,7 +154,7 @@
 .product-info .details .price {
   font-family: var(--sans);
   font-size: var(--fs-card-price);
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: var(--tr-03);
   color: var(--ink);
 }
@@ -162,7 +162,7 @@
   background: transparent;
   border: none;
   color: var(--ink);
-  font-size: var(--fs-22);
+  font-size: var(--fs-26);
   font-weight: 300;
   line-height: 1;
   /* area toccabile 44x44 (token --touch-target); i margini negativi
@@ -272,7 +272,7 @@
   }
   .product-info .plus {
     color: #fff;
-    font-size: var(--fs-20);
+    font-size: var(--fs-24);
     padding: 0 2px;
     pointer-events: auto;
   }

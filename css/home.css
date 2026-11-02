@@ -743,7 +743,7 @@ header.scrolled .topbar {
   margin: 0;
   font-family: var(--sans);
   font-size: var(--fs-card-price);
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: var(--tr-03);
   color: var(--ink);
   text-align: left;
