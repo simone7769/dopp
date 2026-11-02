@@ -136,3 +136,10 @@ Il file `collezione.css` è stato ripulito dai duplicati. Inoltre, il pulsante "
 
 ### Dettagli prodotto (Prezzo e Pulsante "+")
 Il prezzo nelle card (Home e Collezioni) ha ora un peso di 600 (invece di 700) per un aspetto più elegante e meno "urlato". Il pulsante "+" (Quick Add) è stato ingrandito per essere più visibile e facilmente cliccabile su touch.
+
+
+### Video come Hero (Home)
+La home utilizza un video in autoplay (`doppelganger-uomo-intro.mp4`) come sfondo principale, eliminando il claim testuale sovrapposto. Lo script di avvio è ottimizzato per non bloccare il rendering (`preload="none"` + avvio su evento `load`).
+
+### Ottimizzazione Media (LCP)
+Per migliorare il Largest Contentful Paint (LCP), sono state ottimizzate le immagini principali (`cerimonia-featured`, `basic-featured`, `bomber-capsule`) con `cwebp` e il video hero è stato compresso (da 2.4M a 1.3M). I preload dei font nel `<head>` sono strategici: non rimuoverli.
