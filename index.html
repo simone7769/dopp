@@ -311,25 +311,34 @@
   <main id="main">
 
   <section class="hero">
-    <img class="hero-cover" src="images/hero-ai26.webp" alt="Doppelgänger">
-
-    <div class="hero-content">
-      <h1>
-        <span class="hero-line">Vestire bene non è un lusso.</span>
-        <span class="hero-line">È un'abitudine.</span>
-      </h1>
-    </div>
-
+    <video id="heroVideo" class="hero-cover" muted loop playsinline preload="none" poster="images/poster-video.jpg" width="1920" height="1080">
+      <source src="images/doppelganger-uomo-intro.mp4" type="video/mp4">
+    </video>
+    <a href="ai-2026.html" class="video-showcase-btn">Autunno/Inverno 2026</a>
   </section>
 
-  <div class="video-showcase">
-    <video class="video-showcase-media" muted loop playsinline preload="none" poster="images/poster-video.jpg">
-      <source src="images/doppelganger-uomo-intro.mp4" type="video/mp4">
-      Il tuo browser non supporta i video HTML5.
-    </video>
-
-    <a href="ai-2026.html" class="video-showcase-btn">Autunno/Inverno 2026</a>
-  </div>
+  <script>
+    (function() {
+      var video = document.getElementById('heroVideo');
+      if (!video) return;
+      // Avvia il video solo dopo che la pagina ha finito di caricare
+      // e solo se l'utente non ha prefers-reduced-motion
+      var mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+      if (mq.matches) return;
+      
+      var startVideo = function() {
+        video.play().catch(function() {
+          // Se l'autoplay è bloccato, non succede nulla
+        });
+      };
+      
+      if (document.readyState === 'complete') {
+        startVideo();
+      } else {
+        window.addEventListener('load', startVideo);
+      }
+    })();
+  </script>
 
   <section class="collection">
     <h2 class="visually-hidden">Le collezioni</h2>
