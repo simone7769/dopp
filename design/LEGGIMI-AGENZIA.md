@@ -6,7 +6,7 @@ Documento di accompagnamento al pacchetto demo + specifiche. Per chi svilupperà
 
 | File / cartella | Cosa contiene |
 |---|---|
-| `*.html`, `css/`, `js/` | Demo statica navigabile (**35 pagine**) |
+| `*.html`, `css/`, `js/` | Demo statica navigabile (**38 pagine**) |
 | `images/` | Immagini del sito (WebP ottimizzate) |
 | `images/guida-taglie/` | **18 immagini** per la guida taglie (WebP, ~3,4 MB totali) |
 | `fonts/` | Font self-hosted (Cormorant Garamond + Jost) |
@@ -53,7 +53,7 @@ Documento di accompagnamento al pacchetto demo + specifiche. Per chi svilupperà
   - Nota: i punteggi possono variare leggermente (±5) tra una misurazione e l'altra perché dipendono dal carico del dispositivo e della rete. Le metriche stabili sono: FCP (1,1s), Speed Index (1,2s), TBT (0ms), CLS (0).
 - **Immagini home** ottimizzate WebP q80 (-47%, da 3,2 MB a 1,7 MB)
 - **Video hero** con `preload="none"` + poster per LCP ottimale
-- **Meta description** su tutte le 35 pagine
+- **Meta description** su tutte le 38 pagine
 - **Validazione finale**: HTML (`html-validate`), CSS (`csstree-validator`), JS (`node -c`), JSON (`json.load`) — 0 errori su tutti i file
 - **Test browser** (Chrome desktop, emulazione mobile 375 px): menu mobile, aree di tocco 44 px, boutique iOS (16 px), chip `aria-pressed`, filtro prezzo 1–2000 €, filtro taglia 46 (2 card nascoste su 15), totale carrello, icone header desktop (padding 6 px)
 
@@ -71,7 +71,7 @@ Da terminale, nella cartella del progetto:
 
 ### Pattern e stati
 
-- **Skip-link «Vai al contenuto»**: iniettato da `layout.js`, appare al focus da tastiera. Punta a `<main id="main">` (presente su 34 pagine su 35; escluso `checkout.html`, pagina senza header/footer iniettati).
+- **Skip-link «Vai al contenuto»**: iniettato da `layout.js`, appare al focus da tastiera. Punta a `<main id="main">` (presente su 37 pagine su 38; escluso `checkout.html`, pagina senza header/footer iniettati).
 - **Accessibilità dei form**: `aria-invalid` sui campi in errore (checkout, candidatura), `role="alert"` sui banner errore. Rimossi automaticamente quando l'utente corregge.
 - **Carrello**: `aria-live="polite"` su totale e messaggio spedizione. Il drawer aggiorna i valori a ogni modifica e gli screen reader li annunciano.
 - **Chip taglia/colori del drawer filtri**: `aria-pressed` dinamico, `filtri.js` lo aggiorna a ogni click (iniziale `aria-pressed="false"` nel markup di `layout.js`).
@@ -143,3 +143,38 @@ La home usa l'immagine `hero-ai26.webp` come sfondo principale, con il claim tes
 
 ### Ottimizzazione Media (LCP)
 Per migliorare il Largest Contentful Paint (LCP), sono state ottimizzate le immagini principali (`cerimonia-featured`, `basic-featured`, `bomber-capsule`) con `cwebp` e il video hero è stato compresso (da 2.4M a 1.3M). I preload dei font nel `<head>` sono strategici: non rimuoverli.
+
+## Aggiornamento del 3 novembre 2026
+
+Riferimento: `CHANGELOG.html` e `DIFF-FILES.html`, sezione 44.
+
+### Breakpoint collezioni unificati a 1024px
+`collezione.css` usa ora gli stessi tre scalini dell'header: **desktop >=1025px**, **tablet 641-1024px**, **mobile <=640px**. I vecchi blocchi a 1200px e 900px per griglia e toolbar sono stati rimossi.
+
+### Griglia collezioni: tre scalini
+| | Desktop | Tablet | Mobile |
+|---|---|---|---|
+| Gap (righe / colonne) | 16 / 8px | 12 / 6px | 2 / 2px |
+| Padding `.products-wrap` (sopra / sotto) | 4 / 90px | 6 / 50px | 6 / 30px |
+| Font card (titolo / prezzo) | 15 / 14px | 14 / 13px | 14 / 12px |
+
+I font card sono token (`--fs-card-title`, `--fs-card-price` in `tokens.css`): prima tablet e desktop erano identici.
+
+### Badge responsive
+Scala unica per breakpoint, senza `!important`: desktop 11px/27px/0 14px, tablet 10px/22px/0 10px, mobile 9px/19px/0 6px. Il vecchio blocco `[data-cols="3"]` e il blocco 520px (non più raggiunto) sono stati rimossi.
+
+### Featured card sempre a destra
+In `category.css`, `.layout-featured-right .product-card.featured` usa `grid-column: -3 / -1`: occupa sempre le ultime due colonne, sia con 3 sia con 4 colonne. Prima era `2 / span 2` (con 4 colonne la lasciava a metà riga).
+
+### Icona switch unificata (`js/filtri.js`)
+Le icone griglia sono generate dalla stessa funzione `icona(n)` (quadratini n x n). Rimosso il caso speciale per `n === 2`. Ogni bottone ha `aria-pressed` e `aria-label` ("Griglia a N colonne").
+
+### Fix frammenti HTML (`CHANGELOG.html` e `DIFF-FILES.html`)
+Le sezioni 32-43 erano fuori dal `<body>`, sopra il DOCTYPE. Spostate dentro `.wrap`, validati.
+
+### Commit di riferimento
+- `b168839` refactor(collezioni): 3 scalini griglia, breakpoint 1024, font tablet 14/13, icona switch unificata, toolbar allineata
+- `5005bf2` fix(collezioni): featured card sempre nelle ultime 2 colonne (3 e 4 colonne)
+- `ac7bdfb` chore(collezioni): badge responsive pulito
+- `b11e530` fix(design): frammenti sezione 32-43 spostati dentro `.wrap`
+
