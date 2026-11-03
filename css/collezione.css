@@ -242,13 +242,6 @@
   }
   .product-card { min-width: 0; }
 
-  .product-info {
-    padding: 8px 10px 12px;
-  }
-  .product-info .details h3 {
-    margin-bottom: 2px;
-  }
-
   /* Gli elementi che NON sono foto tornano ad avere i loro 16px.
      Specificità alta per battere button.filtri-bar di filtri.css */
   .products-wrap .filtri-bar {
@@ -263,7 +256,6 @@
 
 /* Schermi molto stretti (< 340px): ancora più compatto */
 @media (max-width: 340px) {
-  .product-info { padding: 30px 8px 8px; }
   .product-info .details h3,
   .product-info .details .price { font-size: 11px; }
 }
