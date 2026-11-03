@@ -12,21 +12,83 @@
   const openers  = document.querySelectorAll('.filtri-bar');
   const grid     = document.querySelector('.products-grid');
 
-  /* ---- Scelta griglia mobile (2 / 3 colonne) ----
-     Si parte sempre da 2 colonne a ogni caricamento di pagina:
-     la scelta a 3 colonne vale solo finché si resta sulla pagina. */
+  /* ---- Scelta griglia (colonne) ----
+     Mobile  <=640px      : 1 / 2 colonne, default 2
+     Tablet  641-1024px   : 2 / 3 colonne, default 3
+     Desktop >=1025px     : 3 / 4 colonne, default 3
+     Lo switch è sempre visibile. Al cambio di breakpoint (resize, rotazione)
+     si mostrano solo i bottoni validi e si torna al default di quel breakpoint.
+     A ogni caricamento si riparte dal default: la scelta vale solo sulla pagina. */
   (function () {
-    const g = document.querySelector('.products-grid');
-    const btns = document.querySelectorAll('.grid-switch button[data-cols]');
-    if (!g || !btns.length) return;
-    function imposta(n) {
-      g.dataset.cols = n;
-      btns.forEach(b => b.setAttribute('aria-pressed', b.dataset.cols === n ? 'true' : 'false'));
+    const g  = document.querySelector('.products-grid');
+    const sw = document.querySelector('.grid-switch');
+    if (!g || !sw) return;
+
+    const mqMobile = window.matchMedia('(max-width: 640px)');
+    const mqTablet = window.matchMedia('(min-width: 641px) and (max-width: 1024px)');
+
+    function config() {
+      if (mqMobile.matches) return { opts: [1, 2], def: 2 };
+      if (mqTablet.matches) return { opts: [2, 3], def: 3 };
+      return { opts: [3, 4], def: 3 };
     }
-    /* Pulisce la preferenza salvata dalla versione precedente */
+
+    function icona(n) {
+      const NS = 'http://www.w3.org/2000/svg';
+      const svg = document.createElementNS(NS, 'svg');
+      svg.setAttribute('viewBox', '0 0 20 20');
+      svg.setAttribute('fill', 'currentColor');
+      svg.setAttribute('aria-hidden', 'true');
+      const rects = [];
+      if (n === 1) {
+        rects.push([2, 2, 16, 7], [2, 11, 16, 7]);
+      } else {
+        const gap = n === 4 ? 4 / 3 : (n === 3 ? 2.5 : 2);
+        const s = (16 - gap * (n - 1)) / n;
+        for (let r = 0; r < n; r++)
+          for (let c = 0; c < n; c++)
+            rects.push([2 + c * (s + gap), 2 + r * (s + gap), s, s]);
+      }
+      rects.forEach(function (v) {
+        const el = document.createElementNS(NS, 'rect');
+        el.setAttribute('x', v[0].toFixed(2));
+        el.setAttribute('y', v[1].toFixed(2));
+        el.setAttribute('width', v[2].toFixed(2));
+        el.setAttribute('height', v[3].toFixed(2));
+        svg.appendChild(el);
+      });
+      return svg;
+    }
+
+    function imposta(n) {
+      g.dataset.cols = String(n);
+      sw.querySelectorAll('button').forEach(function (b) {
+        b.setAttribute('aria-pressed', b.dataset.cols === String(n) ? 'true' : 'false');
+      });
+    }
+
+    function costruisci() {
+      const cfg = config();
+      sw.textContent = '';
+      cfg.opts.forEach(function (n) {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.dataset.cols = String(n);
+        b.setAttribute('aria-label', n === 1 ? 'Griglia a 1 colonna' : 'Griglia a ' + n + ' colonne');
+        b.appendChild(icona(n));
+        b.addEventListener('click', function () { imposta(n); });
+        sw.appendChild(b);
+      });
+      imposta(cfg.def);
+    }
+
+    /* Pulisce la preferenza salvata da versioni precedenti */
     try { localStorage.removeItem('dg-grid-cols'); } catch (e) {}
-    imposta('2');
-    btns.forEach(b => b.addEventListener('click', () => imposta(b.dataset.cols)));
+    costruisci();
+    [mqMobile, mqTablet].forEach(function (mq) {
+      if (mq.addEventListener) mq.addEventListener('change', costruisci);
+      else mq.addListener(costruisci);
+    });
   })();
 
   if (!drawer || !overlay || !grid) return;
