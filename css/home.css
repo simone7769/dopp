@@ -54,25 +54,7 @@ html { scroll-snap-type: y proximity; scroll-padding-top: var(--header-h, 170px)
   background: linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0.5) 100%);
   z-index: -1;
 }
-.hero-content {
-  position: relative;
-  z-index: 1;
-  padding: 20px;
-  max-width: 640px;
-  margin-top: 120px;
-}
-/* Velo scuro morbido dietro al titolo: alza il contrasto sulla zona
-   chiara della foto (camicia/gilet) senza scurire tutta l'immagine */
-.hero-content::before {
-  content: "";
-  position: absolute;
-  inset: -50px -150px;
-  z-index: -1;
-  pointer-events: none;
-  background: radial-gradient(ellipse at center, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.35) 45%, rgba(0,0,0,0) 72%);
-}
 /* Claim: titolo serif in maiuscolo spaziato sopra le immagini (hero e capsule) */
-.hero-content h1,
 .capsule-text h2 {
   font-family: var(--serif);
   font-size: var(--fs-claim);
@@ -83,8 +65,6 @@ html { scroll-snap-type: y proximity; scroll-padding-top: var(--header-h, 170px)
   margin-bottom: 24px;
   text-shadow: 0 1px 2px rgba(0,0,0,0.55), 0 2px 24px rgba(0,0,0,0.5);
 }
-.hero-content h1 .hero-line { display: block; text-wrap: balance; }
-.hero-content h1 .hero-line:last-child { margin-top: 8px; }
 
 /* ============================================================
    INFO BAR
@@ -693,15 +673,10 @@ header.scrolled .topbar {
   /* Video: stessa proporzione 4/5 delle card, non più a schermo intero */
   .video-showcase { height: 100svh; aspect-ratio: auto; }
 
-  .hero-content::before { inset: -40px -30px; }
-  .hero-content h1,
   .capsule-text h2 {
     font-size: var(--fs-22);
     letter-spacing: var(--tr-3);
     line-height: 1.35;
-  }
-  .hero-content h1 .hero-line:last-child {
-    margin-top: 12px;
   }
 
   .must-have { --mh-gap: 14px; --mh-visible: 1.1; --mh-gaps: 1; --mh-pad: 16px; }
