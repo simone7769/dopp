@@ -1,5 +1,7 @@
 # Aggiornamenti alle Specifiche — 2 novembre 2026
 
+> **Integrata il 3 novembre 2026** nelle Specifiche (`Doppelganger_Specifiche_per_agenzia.html`, 20 pagine). Questo file resta come storico; in caso di differenze valgono le Specifiche.
+
 Postilla al documento `Doppelganger_Specifiche_per_agenzia.html` (fermo al 23 ottobre 2026).
 Le note che seguono integrano o modificano le specifiche originali.
 

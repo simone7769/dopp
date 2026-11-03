@@ -1,5 +1,7 @@
 # Aggiornamenti del 30 ottobre 2026
 
+> **Integrata il 3 novembre 2026** nelle Specifiche (`Doppelganger_Specifiche_per_agenzia.html`, 20 pagine). Questo file resta come storico; in caso di differenze valgono le Specifiche.
+
 Postilla alle **Specifiche per l'agenzia** (`Doppelganger_Specifiche_per_agenzia.html`, ferme al 23 ottobre). Le modifiche sotto sono già applicate nella demo ma non compaiono nel documento di presentazione, perché le pagine a dimensione fissa non accettano testo aggiuntivo.
 
 La documentazione **completa** delle modifiche del 29-30 ottobre resta in `CHANGELOG.html`, `DIFF-FILES.html`, `NOVITA-SITO.html` e `LEGGIMI-AGENZIA.md`. Questo file raccoglie solo i **dettagli tecnici** emersi il 30 ottobre.
