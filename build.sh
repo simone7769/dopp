@@ -11,6 +11,8 @@ ROOT=$(pwd)
 PARENT=$(dirname "$ROOT")
 FOLDER=$(basename "$ROOT")
 OUT="$HOME/Downloads/doppelganger-sito PROVA/consegne"
+# Pulizia ZIP vecchi (evita accumulo in consegne/)
+rm -f "$OUT"/Doppelganger_demo_AGENZIA_*.zip "$OUT"/Doppelganger_demo_COMPLETO_*.zip
 
 echo "📦 Build ZIP per $FOLDER (data: $DATE)"
 echo ""
