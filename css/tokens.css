@@ -190,6 +190,14 @@
   }
 }
 
+/* Tablet (641–1024px): card a 3 colonne, scala intermedia tra desktop (15/14) e mobile (14/12) */
+@media (min-width: 641px) and (max-width: 1024px) {
+  :root {
+    --fs-card-title:  14px;
+    --fs-card-price:  13px;
+  }
+}
+
 @media (max-width: 640px) {
   :root {
     --btn-width:      170px;

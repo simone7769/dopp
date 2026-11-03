@@ -42,11 +42,8 @@
       const rects = [];
       if (n === 1) {
         rects.push([2, 2, 16, 7], [2, 11, 16, 7]);
-      } else if (n === 2) {
-        // Due quadrati grandi affiancati (come nello screenshot)
-        rects.push([2, 2, 7, 7], [11, 2, 7, 7], [2, 11, 7, 7], [11, 11, 7, 7]);
       } else {
-        const gap = n === 4 ? 4 / 3 : 2.5;
+        const gap = n === 4 ? 4 / 3 : (n === 3 ? 2.5 : 2);
         const s = (16 - gap * (n - 1)) / n;
         for (let r = 0; r < n; r++)
           for (let c = 0; c < n; c++)

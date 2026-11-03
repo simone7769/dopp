@@ -211,20 +211,11 @@
 /* ============================================
    RESPONSIVE
    ============================================ */
-@media (max-width: 1200px) {
-  .products-wrap { padding: 8px var(--wrap-pad) 70px; }
-  .products-grid { gap: 14px 8px; }
-}
-
 @media (max-width: 1024px) {
-  .products-grid { gap: 12px 6px; }
-}
-
-@media (max-width: 900px) {
   .products-wrap {
-    padding: 6px max(0px, env(safe-area-inset-right)) 30px max(0px, env(safe-area-inset-left));
+    padding: 6px max(0px, env(safe-area-inset-right)) 50px max(0px, env(safe-area-inset-left));
   }
-  .products-grid { gap: 10px 6px; }
+  .products-grid { gap: 12px 6px; }
 }
 
 /* Fallback senza JS: 2 colonne su mobile (con JS decide data-cols) */
@@ -233,10 +224,11 @@
 }
 
 
-@media (max-width: 520px) {
+@media (max-width: 640px) {
   /* Foto a tutta larghezza: il contenitore non supera mai lo schermo.
-     I margini laterali sono solo le zone sicure (notch), già impostate a <=900px. */
+     I margini laterali sono solo le zone sicure (notch), già impostate a <=1024px. */
   .products-wrap {
+    padding-bottom: 30px;
     box-sizing: border-box;
     width: 100%;
     max-width: 100%;
@@ -318,9 +310,8 @@
   .grid-switch { margin-left: 0; }
 }
 
-@media (max-width: 520px) {
+@media (max-width: 640px) {
   .products-toolbar { padding-bottom: 10px; }
-  .products-wrap .grid-switch { padding-right: 6px; }
 }
 
 /* ============================================================
@@ -556,10 +547,10 @@
    ALLINEAMENTO "FILTRA E ORDINA" ALLE ICONE DELL'HEADER
    ============================================================ */
 
-/* >900px: compensazione = padding header - padding griglia.
+/* >=1025px: compensazione = padding header - padding griglia.
    Entrambi vengono da --nav-pad / --wrap-pad (base.css): se cambia
    l'header, la toolbar segue da sola. */
-@media (min-width: 901px) {
+@media (min-width: 1025px) {
   /* Le icone dell'header hanno 6px di padding + ~1.5px di margine nel disegno:
      il testo si allinea al segno visibile dell'icona, non al suo riquadro.
      A destra il pulsante filtro ha già 6px propri, ne servono 2 in più. */
@@ -569,11 +560,13 @@
   }
 }
 
-/* ≤900px: toolbar a sinistra, header 20px - griglia 16px = 4px (entrambi i lati) */
-@media (max-width: 900px) {
+/* ≤1024px (tablet + mobile): allineamento ottico alle icone dell'header */
+@media (max-width: 1024px) {
   .products-toolbar {
-    padding-left: 24px;
-    padding-right: 24px;
+    /* 16px header + 12px margine icona - 10px margine interno switch = 18px */
+    padding-left: 18px;
+    /* 16px header + 12px margine icona - 6px padding filtro = 22px */
+    padding-right: 22px;
   }
 }
 
