@@ -284,10 +284,13 @@
   flex: 0 0 auto;
   width: auto;
   padding-bottom: 0;
+  margin-left: 16px;
+  padding-left: 16px;
+  border-left: 1px solid var(--line);
 }
 /* Switch colonne: sempre visibile, i bottoni li genera js/filtri.js */
 .products-count { margin-right: auto; }
-.grid-switch { display: flex; align-items: center; gap: 2px; margin-left: 16px; }
+.grid-switch { display: flex; align-items: center; gap: 2px; }
 .grid-switch button {
   width: 40px;
   height: 40px;
