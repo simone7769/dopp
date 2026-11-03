@@ -206,6 +206,14 @@
   }
 }
 
+/* iPhone SE e schermi molto stretti (≤380px) */
+@media (max-width: 380px) {
+  :root {
+    --fs-card-title: 13px;
+    --fs-card-price: 11px;
+  }
+}
+
 /* Valore iniziale dell'header su mobile/tablet (topbar 33 + barra 60): evita lo spostamento
    dei contenuti al primo caricamento. nav.js poi lo sostituisce con la misura reale. */
 @media (max-width: 1024px) {

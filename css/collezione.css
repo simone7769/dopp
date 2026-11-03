@@ -460,7 +460,7 @@
 }
 .product-card .price-old { font-size: var(--fs-card-price); font-weight: 300; color: var(--ink-soft); text-decoration: line-through; }
 .product-card .price-now { font-size: var(--fs-card-price); font-weight: 700; color: var(--danger); }
-.product-card .price-off { font-size: var(--fs-12); letter-spacing: 1px; color: var(--danger); }
+.product-card .price-off { font-size: var(--fs-card-price); letter-spacing: 1px; color: var(--danger); }
 
 /* Fix per far stare titolo e prezzo uno sotto l'altro */
 .product-card .details { display: flex; flex-direction: column; }
@@ -508,6 +508,8 @@
    ========================================== */
 @media (max-width: 640px) {
   .product-card .plus { display: none; }
+  .product-info { padding: 8px 10px 12px; }
+  .product-info .details h3 { margin-bottom: 2px; }
   .product-card .similar { display: none !important; }
   .product-card .badge {
     font-size: 9px !important;
