@@ -491,12 +491,6 @@
   .product-info { padding: 8px 10px 12px; }
   .product-info .details h3 { margin-bottom: 2px; }
   .product-card .similar { display: none !important; }
-  .product-card .badge {
-    font-size: 9px !important;
-    letter-spacing: 1px !important;
-    padding: 0 6px !important;
-    height: 20px !important;
-  }
   .product-card .price-block {
     display: flex;
     flex-wrap: wrap;
@@ -539,8 +533,24 @@
 .product-card .badge.ultimi { background: rgba(74, 70, 63, 0.85); color: #fff; }
 .product-card .badge.esclusiva { background: rgba(140, 111, 66, 0.92); color: #fff; }
 
-@media (max-width: 520px) {
-  .product-card .badge { font-size: 10px; letter-spacing: 1.5px; padding: 0 10px; height: 22px; }
+/* Badge ridotto su tablet (641-1024px): card a 3 colonne, meno spazio del desktop */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .product-card .badge {
+    font-size: 10px;
+    letter-spacing: 1.2px;
+    padding: 0 10px;
+    height: 22px;
+  }
+}
+
+/* Badge ridotto su mobile: applicato dopo la regola base, senza !important */
+@media (max-width: 640px) {
+  .product-card .badge {
+    font-size: 9px;
+    letter-spacing: 1px;
+    padding: 0 6px;
+    height: 19px;
+  }
 }
 
 /* ============================================================
