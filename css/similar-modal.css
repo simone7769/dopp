@@ -190,10 +190,10 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
   }
-  #similarModal .product-card h3 { font-size: 12px; }
+  #similarModal .product-card h3 { font-size: var(--fs-12); }
   #similarModal .product-card .price,
   #similarModal .product-card .price-now,
-  #similarModal .product-card .price-off { font-size: 11px; }
+  #similarModal .product-card .price-off { font-size: var(--fs-11); }
 }
 @media (max-width: 900px) and (min-width: 641px) {
   #similarModal .similar-modal-grid {

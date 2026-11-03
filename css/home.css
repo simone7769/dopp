@@ -681,7 +681,7 @@ header.scrolled .topbar {
 
   .must-have { --mh-gap: 14px; --mh-visible: 1.1; --mh-gaps: 1; --mh-pad: 16px; }
   .world { --w-gap: 14px; --w-visible: 1.1; --w-gaps: 1; --w-pad: 16px; }
-  .card h3 { font-size: 11px; letter-spacing: 0.05em; }
+  .card h3 { font-size: var(--fs-11); letter-spacing: 0.05em; }
 
   /* Mobile: le 4 card impilate (Cerimonia, Essential, Outlet,
      Primavera Estate) sono tutte a tutta larghezza e 4/5.
@@ -845,7 +845,7 @@ header.scrolled .topbar {
 
 .outlet-hero-note {
   font-family: var(--sans);
-  font-size: 14px; /* Allineato alla scala */
+  font-size: var(--fs-14); /* Allineato alla scala */
   font-weight: 400;
   margin: 0 0 32px 0;
   letter-spacing: 0.1em;

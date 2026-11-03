@@ -259,7 +259,7 @@
 /* Schermi molto stretti (< 340px): ancora più compatto */
 @media (max-width: 340px) {
   .product-info .details h3,
-  .product-info .details .price { font-size: 11px; }
+  .product-info .details .price { font-size: var(--fs-11); }
 }
 
 
@@ -338,7 +338,7 @@
 }
 .quick-add-label {
   font-family: var(--sans);
-  font-size: 10px;
+  font-size: var(--fs-10);
   font-weight: 500;
   letter-spacing: 1.5px;
   text-transform: uppercase;
@@ -454,7 +454,7 @@
   height: 27px; padding: 0 14px;
   background: rgba(252, 252, 251, 0.92); color: var(--ink);
   border: 0; border-radius: 0; font-family: var(--sans);
-  font-size: 11px; font-weight: 400; letter-spacing: 1.8px;
+  font-size: var(--fs-11); font-weight: 400; letter-spacing: 1.8px;
   text-transform: uppercase; line-height: 1; cursor: pointer;
   backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
   transition: opacity var(--t-base) var(--ease);
@@ -474,7 +474,7 @@
 }
 .product-card .similar svg { width: 12px; height: 12px; display: block; stroke: currentColor; fill: none; stroke-width: 1.5; }
 @media (max-width: 520px) {
-  .product-card .similar { height: 22px; padding: 0 10px; font-size: 10px; letter-spacing: 1.5px; gap: 5px; }
+  .product-card .similar { height: 22px; padding: 0 10px; font-size: var(--fs-10); letter-spacing: 1.5px; gap: 5px; }
   .product-card .similar svg { width: 10px; height: 10px; }
 }
 
@@ -510,7 +510,7 @@
   left: 0;
   z-index: 3;
   font-family: var(--sans);
-  font-size: 11px;
+  font-size: var(--fs-11);
   font-weight: 400;
   letter-spacing: 1.8px;
   text-transform: uppercase;
@@ -536,7 +536,7 @@
 /* Badge ridotto su tablet (641-1024px): card a 3 colonne, meno spazio del desktop */
 @media (min-width: 641px) and (max-width: 1024px) {
   .product-card .badge {
-    font-size: 10px;
+    font-size: var(--fs-10);
     letter-spacing: 1.2px;
     padding: 0 10px;
     height: 22px;

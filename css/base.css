@@ -2396,8 +2396,9 @@ footer {
 .footer-pay li { display: flex; }
 .footer-pay svg { height: 22px; width: auto; color: #a8a39b; display: block; }
 
-@media (max-width: 900px) {
-  /* Tablet e mobile: tre colonne uguali, ogni voce centrata, icona sopra il testo. */
+@media (max-width: 1024px) {
+  /* Tablet e mobile (stessa soglia di header e collezioni): tre colonne uguali,
+     ogni voce centrata, icona sopra il testo. */
   .footer-trust {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 32px 24px;

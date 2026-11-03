@@ -263,5 +263,5 @@
   .track-heading { font-size: var(--fs-section-title); }
   .track-result { padding: 22px 18px; }
   .track-steps li { grid-template-columns: 28px 1fr; gap: 12px; }
-  .track-step-icon { width: 24px; height: 24px; font-size: 12px; }
+  .track-step-icon { width: 24px; height: 24px; font-size: var(--fs-12); }
 }

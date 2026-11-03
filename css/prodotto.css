@@ -709,7 +709,7 @@ body.pdp-lightbox-open { overflow: hidden; }
 }
 .pv-badge {
   font-family: var(--sans);
-  font-size: 10px;
+  font-size: var(--fs-10);
   font-weight: 500;
   color: #2e7d32;
   background: #e8f5e9;

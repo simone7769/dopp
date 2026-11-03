@@ -313,7 +313,7 @@
   border-radius: 9px;
   background: var(--gold);
   color: #fff;
-  font-size: 10px;
+  font-size: var(--fs-10);
   font-weight: 500;
   margin-left: 6px;
 }
