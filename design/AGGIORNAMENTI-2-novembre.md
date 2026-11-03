@@ -27,6 +27,8 @@ Le note che seguono integrano o modificano le specifiche originali.
 - Mobile: 87/100 (era 81).
 - Accessibilità, Best Practice, SEO: 100/100 su entrambi.
 
+> **Nota (3 novembre 2026).** Questi valori si riferiscono a una configurazione poi abbandonata (video come hero). Il valore attuale è **100 desktop / 98 mobile** (Specifiche p17).
+
 **Nota critica**: i preload dei font nel `<head>` (`cormorant-500`, `cormorant-regular`, `jost-regular`, `jost-300`) sono **strategici**. Non rimuoverli: un esperimento di rimozione ha fatto crollare il punteggio da 81 a 55.
 
 ---

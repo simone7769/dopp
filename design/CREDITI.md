@@ -13,7 +13,7 @@
 
 ## Cosa comprende il pacchetto
 
-- **Sito demo**: 35 pagine HTML (home, 3 collezioni, 3 schede prodotto, 5 articoli Journal + archivio, Club, carrello, checkout, conferma, account, registrazione, 4 pagine legali, 12 pagine di servizio: Boutique, Guida alle Taglie, FAQ, Lavora con Noi, Traccia Ordine, Monitora Reso, Gift Card, Metodi Pagamento, Riciclo, Whistleblowing, Parità di Genere, Doppelgänger App)
+- **Sito demo**: 38 pagine HTML (home, 3 collezioni, 3 schede prodotto, 5 articoli Journal + archivio, Club, carrello, checkout, conferma, account, registrazione, 4 pagine legali, 12 pagine di servizio: Boutique, Guida alle Taglie, FAQ, Lavora con Noi, Traccia Ordine, Monitora Reso, Gift Card, Metodi Pagamento, Riciclo, Whistleblowing, Parità di Genere, Doppelgänger App)
 - **Design system**: `css/tokens.css` + `design/token.json`
 - **Documentazione tecnica**: `design/CHANGELOG.html`, `design/DIFF-FILES.html`, `design/linee-guida-badge.html`, `design/Doppelganger_Specifiche_per_agenzia.html` (era PDF, ora HTML editabile), `design/LEGGIMI-AGENZIA.md`
 - **Presentazione cliente**: `design/NOVITA-SITO.html`
