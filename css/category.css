@@ -81,7 +81,8 @@
 }
 
 .layout-featured-right .product-card.featured {
-  grid-column: 2 / span 2;
+  /* Ultime 2 colonne, indipendente dal numero di colonne (3 o 4) */
+  grid-column: -3 / -1;
 }
 
 @media (max-width: 520px) {
