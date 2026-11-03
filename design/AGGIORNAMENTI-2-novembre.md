@@ -23,8 +23,8 @@ Le note che seguono integrano o modificano le specifiche originali.
 - **Script**: aggiunto `defer` a tutti i `<script src="js/...">` per non bloccare il rendering.
 
 **Risultato Lighthouse**:
-- Desktop: 94/100 (era 76).
-- Mobile: 87/100 (era 81).
+- Desktop: 94/100 (era 76). **Superato** — valore di una prova poi abbandonata: dopo il ripristino dell’immagine statica e le ottimizzazioni successive, il valore attuale è 100 desktop / 98 mobile (Specifiche p17).
+- Mobile: 87/100 (era 81). **Superato** — stesso motivo.
 - Accessibilità, Best Practice, SEO: 100/100 su entrambi.
 
 > **Nota (3 novembre 2026).** Questi valori si riferiscono a una configurazione poi abbandonata (video come hero). Il valore attuale è **100 desktop / 98 mobile** (Specifiche p17).
