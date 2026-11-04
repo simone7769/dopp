@@ -94,14 +94,6 @@
 .products-grid[data-cols="3"] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .products-grid[data-cols="4"] { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 
-/* 1 colonna: la card è a tutta larghezza, quindi il badge torna
-   ai valori del desktop (11/27px). Il cuore si scala da solo (base.css). */
-.products-grid[data-cols="1"] .product-card .badge {
-  font-size: var(--fs-11);
-  letter-spacing: 1.8px;
-  padding: 0 14px;
-  height: 27px;
-}
 .product-card {
   display: flex;
   flex-direction: column;
@@ -513,23 +505,29 @@
 /* ==========================================
    DA PDF: BADGE PRODOTTO (§7)
    ========================================== */
+/* Misure in scala con la larghezza della card (la card è un container, vedi base.css).
+   Riferimenti: card ~460px (desktop, 3 colonne) = 11px / 27px; card ~176px
+   (mobile, 2 colonne) = ~9px / ~20px. In mezzo cresce in modo continuo, quindi
+   vale a qualunque larghezza e con qualunque numero di colonne scelto con lo switch.
+   Il clamp() ferma la scala agli estremi per tenere il testo leggibile. */
 .product-card .badge {
+  --badge-fs: clamp(9px, calc(8.2px + 0.6cqw), 11px);
   position: absolute;
   top: 0;
   left: 0;
   z-index: 3;
   font-family: var(--sans);
-  font-size: var(--fs-11);
+  font-size: var(--badge-fs);
   font-weight: 400;
-  letter-spacing: 1.8px;
+  letter-spacing: clamp(1.1px, calc(0.8px + 0.22cqw), 1.8px);
   text-transform: uppercase;
-  padding: 0 14px;
+  padding: 0 clamp(9px, calc(6px + 1.7cqw), 14px);
   border-radius: 0;
   line-height: 1;
   pointer-events: none;
   display: inline-flex;
   align-items: center;
-  height: 27px;
+  height: clamp(19px, calc(15px + 2.6cqw), 27px);
   box-sizing: border-box;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -541,26 +539,6 @@
 .product-card .badge.outlet { background: rgba(122, 26, 40, 0.88); color: #fff; }
 .product-card .badge.ultimi { background: rgba(74, 70, 63, 0.85); color: #fff; }
 .product-card .badge.esclusiva { background: rgba(140, 111, 66, 0.92); color: #fff; }
-
-/* Badge ridotto su tablet (641-1024px): card a 3 colonne, meno spazio del desktop */
-@media (min-width: 641px) and (max-width: 1024px) {
-  .product-card .badge {
-    font-size: var(--fs-10);
-    letter-spacing: 1.2px;
-    padding: 0 10px;
-    height: 22px;
-  }
-}
-
-/* Badge ridotto su mobile: applicato dopo la regola base, senza !important */
-@media (max-width: 640px) {
-  .product-card .badge {
-    font-size: var(--fs-10);
-    letter-spacing: 1.2px;
-    padding: 0 10px;
-    height: 22px;
-  }
-}
 
 /* ============================================================
    ALLINEAMENTO "FILTRA E ORDINA" ALLE ICONE DELL'HEADER
