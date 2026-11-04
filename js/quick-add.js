@@ -33,6 +33,13 @@
     p.setAttribute('role', 'dialog');
     p.setAttribute('aria-label', 'Aggiungi al carrello');
 
+    var x = document.createElement('button');
+    x.type = 'button';
+    x.className = 'quick-add-close';
+    x.setAttribute('aria-label', 'Chiudi');
+    x.innerHTML = '&times;';
+    p.appendChild(x);
+
     var colori = (card.dataset.colors || '').split(/\s+/).filter(function (c) { return COLORI[c]; });
     if (colori.length) {
       var lblC = document.createElement('p');
@@ -133,6 +140,16 @@
       cardAperta = card;
       var first = p.querySelector('.quick-add-colors button, .quick-add-sizes button');
       if (first) first.focus();
+      return;
+    }
+
+    var closeBtn = e.target.closest('.quick-add-close');
+    if (closeBtn) {
+      var cardChiusa = cardAperta;
+      chiudi();
+      // il focus torna al "+" che aveva aperto il pannello (se visibile)
+      var plusTorna = cardChiusa && cardChiusa.querySelector('.plus');
+      if (plusTorna && plusTorna.offsetParent !== null) plusTorna.focus();
       return;
     }
 

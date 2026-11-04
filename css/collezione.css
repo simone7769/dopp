@@ -337,6 +337,31 @@
   from { opacity: 0; transform: translateY(8px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+/* Chiudi (×): in alto a destra del pannellino, area di tocco 44px.
+   Stesso segno sottile del "+" della card. */
+.quick-add-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: var(--touch-target, 44px);
+  height: var(--touch-target, 44px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-family: var(--sans);
+  font-size: var(--fs-26);
+  font-weight: 300;
+  line-height: 1;
+  color: var(--ink);
+  cursor: pointer;
+  transition: opacity var(--t-fast) var(--ease);
+}
+.quick-add-close:hover { opacity: 0.5; }
+.quick-add-close:focus-visible { outline: 1px solid var(--ink); outline-offset: -6px; }
+
 .quick-add-label {
   font-family: var(--sans);
   font-size: var(--fs-10);
