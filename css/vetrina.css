@@ -312,7 +312,7 @@
   aspect-ratio: var(--ratio-card); /* 4:5 */
   overflow: hidden;
   background: var(--paper-alt);
-  margin-bottom: 14px;
+  /* margin-bottom rimosso: lo spazio lo dà .product-info (padding-top 14px), come nelle collezioni */
 }
 .vt-card-img img {
   position: absolute;
@@ -333,7 +333,7 @@
   grid-template-columns: 1fr auto;
   align-items: start;
   gap: 12px;
-  padding-top: 0;
+  padding: 14px 12px 0; /* allineato alle collezioni (padding orizzontale 12px) */
 }
 /* Nome e prezzo identici alle card di home e collezione */
 .vt-card .details h3 {
@@ -348,7 +348,7 @@
 .vt-card .details .price {
   font-family: var(--sans);
   font-size: var(--fs-card-price);
-  font-weight: var(--fw-bold);
+  font-weight: 600; /* allineato alle collezioni */
   letter-spacing: var(--tr-03);
   color: var(--ink);
 }
@@ -357,10 +357,16 @@
   border: none;
   color: var(--ink);
   font-family: var(--sans);
-  font-size: var(--fs-22);
+  font-size: var(--fs-26);
   font-weight: 300;
   line-height: 1;
-  padding: 0 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--touch-target, 44px);
+  min-height: var(--touch-target, 44px);
+  margin: -11px -10px -11px 0; /* estende l'area di tocco senza spostare il layout */
+  padding: 0;
   cursor: pointer;
   transition: opacity var(--t-fast) var(--ease);
 }
@@ -397,6 +403,29 @@
   from { opacity: 0; transform: translateY(8px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+/* Chiudi (×): in alto a destra del pannellino, area di tocco 44px. */
+.quick-add-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: var(--touch-target, 44px);
+  height: var(--touch-target, 44px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-family: var(--sans);
+  font-size: var(--fs-26);
+  font-weight: 300;
+  line-height: 1;
+  color: var(--ink);
+  cursor: pointer;
+  transition: opacity var(--t-fast) var(--ease);
+}
+.quick-add-close:hover { opacity: 0.5; }
+.quick-add-close:focus-visible { outline: 1px solid var(--ink); outline-offset: -6px; }
 .quick-add-label {
   font-family: var(--sans);
   font-size: var(--fs-10);
