@@ -20,7 +20,7 @@ Le note che seguono integrano o modificano le specifiche originali.
 **Cosa è cambiato**: Per migliorare le prestazioni (Lighthouse), sono stati ottimizzati i media principali:
 - **Video hero**: da 2.4 MB a 1.3 MB (compresso con `ffmpeg -crf 28`).
 - **Immagini principali** (`cerimonia-featured`, `basic-featured`, `bomber-capsule`): ridotte del ~50% con `cwebp`.
-- **Script**: aggiunto `defer` a tutti i `<script src="js/...">` per non bloccare il rendering.
+- **Script**: `defer` applicato a `index.html` (i 5 `<script src>` nel `<head>` della home, dove bloccherebbero il rendering). Le altre pagine usano script a fine `<body>`, senza `defer`: a fine body non bloccano il rendering, quindi il beneficio sarebbe nullo. Se in futuro servisse `defer` altrove, va prima verificato che gli inline dipendenti (popup, tab) non si rompano.
 
 **Risultato Lighthouse**:
 - Desktop: 94/100 (era 76). **Superato** — valore di una prova poi abbandonata: dopo il ripristino dell’immagine statica e le ottimizzazioni successive, il valore attuale è 100 desktop / 98 mobile (Specifiche p17).

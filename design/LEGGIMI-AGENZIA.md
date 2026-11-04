@@ -49,7 +49,7 @@ Documento di accompagnamento al pacchetto demo + specifiche. Per chi svilupperà
 - **Lighthouse DevTools** (ultimo test documentato, 3 novembre 2026, home in produzione):
   - **Desktop**: Performance 100/100, Accessibilità 100/100, Best Practices 100/100, SEO 100/100
   - **Mobile**: Performance 98/100, Accessibilità 100/100, Best Practices 100/100, SEO 100/100
-  - **Storico**: il test del 18 ottobre dava 93/100 mobile (LCP 3,2 s, video 2,4 MB). Dopo l’ottimizzazione del video (1,3 MB), delle immagini e il `defer` sugli script, il valore è salito a 98/100. I preload dei 4 font restano strategici: non rimuoverli.
+  - **Storico**: il test del 18 ottobre dava 93/100 mobile (LCP 3,2 s, video 2,4 MB). Dopo l’ottimizzazione del video (1,3 MB) e delle immagini, il valore è salito a 98/100. Il `defer` è applicato solo a `index.html` (script nel `<head>`); le altre pagine usano script a fine `<body>`. I preload dei 4 font restano strategici: non rimuoverli.
 - **Immagini home** ottimizzate WebP q80 (-47%, da 3,2 MB a 1,7 MB)
 - **Video hero** con `preload="none"` + poster per LCP ottimale
 - **Meta description** su tutte le 38 pagine
