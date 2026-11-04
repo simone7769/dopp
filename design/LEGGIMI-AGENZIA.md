@@ -266,3 +266,12 @@ Focus trap negli 8 drawer, code-splitting `nav.js`/`layout.js`, scala font 12/14
 - `f1c2a24` `+` visibile a 1 colonna su mobile
 - `86a4e1c` quick-add: pulsante × + focus
 - `e4be8c2` 3 colonne mobile (solo foto + cuore + %)
+
+### Allineamento schede in vetrina (`vetrina.css`)
+
+Le card della vetrina (`vetrina.html`) sono state allineate a quelle delle collezioni:
+- `.vt-card .product-info`: `padding: 14px 12px 0` (prima `padding-top: 0`).
+- Prezzo: peso `600` (era `700`), allineato a `.product-card .price`.
+- `+` (quick-add): `font-size: var(--fs-26)`, area di tocco 44×44 con margini negativi (identico a `.product-card .plus`).
+- `.vt-card-img`: rimosso `margin-bottom: 14px` (lo spazio lo dà il `padding-top` del testo, come nelle collezioni).
+- Aggiunto `.quick-add-close` (mancava in `vetrina.css`): `×` in alto a destra del pannellino, 44×44, senza bordo di default.

@@ -64,6 +64,8 @@ Le note che seguono integrano o modificano le specifiche originali.
 - **Linee-guida badge**: intro e §8 allineate (badge attivi su 4 collezioni). PDF rigenerato con immagini e testo aggiornato. `print-color-adjust: exact` per i colori in stampa.
 - **`defer`**: documentato con precisione (solo `index.html`; le altre pagine usano script a fine body).
 
+- **Schede in vetrina**: allineate alle collezioni (`vetrina.css`): padding `14px 12px 0`, prezzo 600, `+` 44×44 con margini negativi, spacing immagine-testo uniformato (rimosso `margin-bottom` da `.vt-card-img`), stile `.quick-add-close` per la `×` del quick-add.
+
 **Tentativi revertati**: menu mobile, chiusura istantanea (`aac6552`) e 150ms (`278402a`). Su device reale non convincevano: revertito con `cd0344f`. Documentato come delega all'agenzia.
 
 **Delegato all'agenzia** (invariato): focus trap negli 8 drawer, code-splitting `nav.js`/`layout.js` (60KB su ogni pagina), scala font 12/14/16/20/24/32, breakpoint 900px residui (~29), vetrina 16 immagini senza `width`/`height` (scelta consapevole), test cross-browser.
