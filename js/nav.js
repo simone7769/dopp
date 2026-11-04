@@ -329,6 +329,10 @@ if (navBurger && mobileMenu) {
 
   function setMobileMenu(willOpen) {
     const wasOpen = mobileMenu.classList.contains('open');
+    if (willOpen) {
+      mobileMenu.classList.remove('no-anim');
+      if (mobileMenuOverlay) mobileMenuOverlay.classList.remove('no-anim');
+    }
     mobileMenu.classList.toggle('open', willOpen);
     if (mobileMenuOverlay) mobileMenuOverlay.classList.toggle('active', willOpen);
     navBurger.setAttribute('aria-expanded', String(willOpen));
