@@ -546,10 +546,10 @@
 /* Badge ridotto su mobile: applicato dopo la regola base, senza !important */
 @media (max-width: 640px) {
   .product-card .badge {
-    font-size: 9px;
-    letter-spacing: 1px;
-    padding: 0 6px;
-    height: 19px;
+    font-size: var(--fs-10);
+    letter-spacing: 1.2px;
+    padding: 0 10px;
+    height: 22px;
   }
 }
 
