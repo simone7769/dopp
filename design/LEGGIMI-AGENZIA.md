@@ -177,3 +177,92 @@ Le sezioni 32-43 erano fuori dal `<body>`, sopra il DOCTYPE. Spostate dentro `.w
 - `ac7bdfb` chore(collezioni): badge responsive pulito
 - `b11e530` fix(design): frammenti sezione 32-43 spostati dentro `.wrap`
 
+
+## Aggiornamento del 4 novembre 2026
+
+Riferimento: `CHANGELOG.html` e `DIFF-FILES.html`, sezione 45.
+
+### Cuore proporzionale alla card (`base.css`)
+
+Il cuore (`.wish`) non usa più media query fisse. La card è un **container** (`container-type: inline-size`) e il cuore si dimensiona sulla larghezza della card:
+
+    .product-card, .product, .pdp-item, .vt-card { container-type: inline-size; }
+    .wish {
+      --wish-icon: clamp(16px, 7cqw, 26px);
+      --wish-inset: calc(var(--wish-icon) * 0.5);
+      top: var(--wish-inset);
+      right: var(--wish-inset);
+      width: var(--wish-icon);
+      height: var(--wish-icon);
+    }
+
+- Cuore 16–26px, distanza dall'angolo = metà del lato. A qualunque larghezza di card resta proporzionale.
+- Area di tocco 44×44 garantita da `.wish::after` (invisibile, non sposta il cuore).
+- Rimossi i breakpoint 1024/520 e l'override `[data-cols="1"]`.
+
+### Badge proporzionale alla card (`collezione.css`)
+
+Stesso approccio: `clamp()` in `cqw` al posto dei breakpoint 641-1024/≤640.
+
+    .product-card .badge {
+      --badge-fs: clamp(9px, calc(8.2px + 0.6cqw), 11px);
+      --badge-h:  clamp(19px, calc(15px + 2.6cqw), 27px);
+      font-size: var(--badge-fs);
+      height: var(--badge-h);
+      padding: 0 clamp(9px, calc(6px + 1.7cqw), 14px);
+      letter-spacing: clamp(1.1px, calc(0.8px + 0.22cqw), 1.8px);
+    }
+
+- 9→11px testo, 19→27px altezza, 9→14px padding, 1.1→1.8px tracking.
+- Riferimenti: card ~460px (desktop 3 col) = 11/27px; ~176px (mobile 2 col) = ~9/~20px.
+- `--badge-h` riusato per il quadratino `%`.
+
+### Terza opzione colonne su mobile (`filtri.js` + `collezione.css`)
+
+`filtri.js` espone `opts: [1, 2, 3]` su mobile. Con `data-cols="3"` su ≤640px: titolo e prezzo `visually-hidden` (restano per screen reader), solo `sale`/`outlet` come `%`, cuore visibile.
+
+### Quick-add: pulsante `×` (`quick-add.js` + `collezione.css`)
+
+`×` in alto a destra (44×44). Al click chiude il pannellino e riporta il focus al `+` che lo aveva aperto. Esc e click fuori continuano a funzionare.
+
+### `+` a 1 colonna su mobile
+
+Con `[data-cols="1"]` su ≤640px il `+` torna visibile. Padding extra sotto il testo per `gap: 2px`.
+
+### Area di tocco 44px (WCAG 2.5.5 AA)
+
+Cuore: `.wish::after` 44×44. Switch colonne: 40→44px. Quick-add `×`: 44×44.
+
+### Audit e piccoli fix
+
+- Alt: `bomber-capsule-dettaglio.webp` in `vetrina.html` = "Dettaglio del bomber in jersey laminato".
+- README: 38 pagine (era 35).
+- Badge popup simili: 10px (era 9px, unico testo sotto i 10px).
+- `documents/whistleblowing.pdf` incluso nello ZIP AGENZIA.
+- `aria-label` su `<ul>` spostato su `h2.visually-hidden` in `pagamenti.html` e `riciclo.html`.
+- Linee-guida badge: intro e §8 allineate, PDF rigenerato, `print-color-adjust: exact`.
+- `defer`: solo `index.html`; altre pagine usano script a fine body.
+
+### Menu mobile (tentativi revertati)
+
+Tentato chiusura istantanea (`aac6552`) e 150ms (`278402a`). Su device reale non convinceva: revertito con `cd0344f`. Documentato come delega all'agenzia.
+
+### Delegato all'agenzia (invariato)
+
+Focus trap negli 8 drawer, code-splitting `nav.js`/`layout.js`, scala font 12/14/16/20/24/32, breakpoint 900px residui (~29), vetrina 16 immagini senza `width`/`height`, test cross-browser.
+
+### Commit di riferimento
+- `4415774` badge mobile 9→10px
+- `8ace4f8` cuore breakpoint 900→1024 + 15→16px su ≤520
+- `e355eac` switch 40→44px (WCAG 2.5.5 AA)
+- `2467c77` copy vetrina bomber (75→36 parole)
+- `cd0344f` revert fix menu mobile
+- `1499106` 5 fix dal report consulente
+- `3232c64` doc defer corretta
+- `f5f6104` linee-guida badge HTML
+- `42a2bfa` banner + PDF badge
+- `c4e8d44` cuore proporzionale (container-type + cqw)
+- `2fe6bd1` badge proporzionale (clamp + cqw)
+- `f1c2a24` `+` visibile a 1 colonna su mobile
+- `86a4e1c` quick-add: pulsante × + focus
+- `e4be8c2` 3 colonne mobile (solo foto + cuore + %)

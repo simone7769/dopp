@@ -218,26 +218,48 @@
 
   <div class="meta">
     <div>
-      <span class="val">638</span>
+      <span class="val">655</span>
       <span class="lbl">Commit</span>
     </div>
     <div>
-      <span class="val">413</span>
+      <span class="val">428</span>
       <span class="lbl">File modificati</span>
     </div>
     <div>
-      <span class="val">54428</span>
+      <span class="val">54581</span>
       <span class="lbl">Righe aggiunte</span>
     </div>
   </div>
 
   <p style="font-size: 12px; color: var(--muted); text-align: center; margin-bottom: 8px; font-style: italic;">
-    Contatori aggiornati al 3 novembre 2026: includono tutti i commit del repo (anche quelli precedenti al 14 ottobre, prima non conteggiati).
+    Contatori aggiornati al 4 novembre 2026: includono tutti i commit del repo (anche quelli precedenti al 14 ottobre, prima non conteggiati).
   </p>
   <p style="font-size: 12px; color: var(--muted); text-align: center; margin-bottom: 8px; font-style: italic;">I contatori di questo documento contano tutti i commit del repo; quelli di <code>DIFF-FILES.html</code> contano i file toccati. Le due metriche non sono confrontabili.</p>
   <p style="font-size: 13px; color: var(--ink-soft); text-align: center; margin-bottom: 40px;">
-    Da <code>de268ba</code> a <code>b11e530</code> — 8 ottobre–3 novembre 2026
+    Da <code>de268ba</code> a <code>e4be8c2</code> — 8 ottobre–4 novembre 2026
   </p>
+
+<div class="commit">
+  <h3>Sezione 45 — 4 novembre 2026</h3>
+  <p><strong>Commit:</strong> <span class="val">17</span></p>
+  <p><strong>File modificati:</strong> <span class="val">15</span></p>
+  <p><strong>Righe aggiunte:</strong> <span class="val">153</span></p>
+  <ul>
+    <li><strong>Cuore proporzionale:</strong> posizione e misura in scala con la larghezza della card (<code>container-type: inline-size</code> + <code>clamp(16px, 7cqw, 26px)</code>). Rimossi i breakpoint 1024/520 e l'override 1 colonna. Il cuore resta tra 16 e 26px, distanza dall'angolo = metà del lato (sempre proporzionale).</li>
+    <li><strong>Badge proporzionale:</strong> <code>--badge-fs</code> e <code>--badge-h</code> con <code>clamp()</code> in <code>cqw</code>. Rimossi i breakpoint 641-1024/≤640, l'override 1 colonna e lo <code>--fs-10</code> fisso. Scala continua 9→11px / 19→27px.</li>
+    <li><strong>Terza opzione colonne su mobile:</strong> switch a 3 colonne (solo foto, cuore e simbolo <code>%</code> per saldi/outlet). Titolo e prezzo in <code>visually-hidden</code> (restano per screen reader). <code>--badge-h</code> token per il quadratino <code>%</code>.</li>
+    <li><strong>Quick-add: pulsante ×:</strong> chiusura esplicita (44×44) e focus di ritorno al <code>+</code>. Nuovo <code>.quick-add-close</code> in <code>collezione.css</code> e handler in <code>quick-add.js</code>.</li>
+    <li><strong>A 1 colonna torna il +:</strong> su mobile, con <code>[data-cols="1"]</code> il <code>+</code> (quick-add) è visibile. Padding extra sotto il testo per compensare <code>gap: 2px</code>.</li>
+    <li><strong>Cuore e badge allineati (fase 1):</strong> breakpoint cuore 900→1024px; badge mobile 9→10px (allineato al tablet, sotto i 10px illeggibile); <code>+</code> 1 colonna con <code>--touch-target</code>.</li>
+    <li><strong>Switch colonne accessibile:</strong> area di tocco 40→44px (WCAG 2.5.5 AA).</li>
+    <li><strong>Copy vetrina:</strong> descrizione bomber da 75 a 36 parole (-52%).</li>
+    <li><strong>Fix da audit:</strong> alt del dettaglio bomber in vetrina; README 38 pagine; badge popup simili a 10px; <code>documents/whistleblowing.pdf</code> incluso nello ZIP AGENZIA; <code>aria-label</code> su <code>&lt;ul&gt;</code> spostato su <code>h2.visually-hidden</code>.</li>
+    <li><strong>Linee-guida badge:</strong> intro e §8 allineate (badge attivi su 4 collezioni); banner HTML aggiornato; PDF rigenerato con immagini e testo nuovo; <code>print-color-adjust</code> per i colori in stampa.</li>
+    <li><strong>Doc defer:</strong> corretta in <code>AGGIORNAMENTI-2-novembre</code>, <code>LEGGIMI</code> e <code>CHANGELOG</code> (solo <code>index.html</code>, non tutte le pagine).</li>
+    <li><strong>Menu mobile:</strong> tentato chiusura istantanea (<code>aac6552</code>) e 150ms (<code>278402a</code>), poi revertato (<code>cd0344f</code>): su device reale il risultato non convinceva. Comportamento originale ripristinato, documentato come delega all'agenzia.</li>
+  </ul>
+  <p class="note"><b>Nota.</b> Questi contatori escludono il commit di aggiornamento documentale di questo file (docs: aggiornamento finale 4 novembre): pattern già usato per i commit auto-referenziali.</p>
+</div>
 
 <div class="commit">
   <h3>Sezione 44 — 3 novembre 2026</h3>
