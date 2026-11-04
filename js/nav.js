@@ -329,10 +329,6 @@ if (navBurger && mobileMenu) {
 
   function setMobileMenu(willOpen) {
     const wasOpen = mobileMenu.classList.contains('open');
-    if (willOpen) {
-      mobileMenu.classList.remove('no-anim');
-      if (mobileMenuOverlay) mobileMenuOverlay.classList.remove('no-anim');
-    }
     mobileMenu.classList.toggle('open', willOpen);
     if (mobileMenuOverlay) mobileMenuOverlay.classList.toggle('active', willOpen);
     navBurger.setAttribute('aria-expanded', String(willOpen));
@@ -370,18 +366,7 @@ if (navBurger && mobileMenu) {
   }
 
   mobileMenu.querySelectorAll('a').forEach((a) => {
-    a.addEventListener('click', () => {
-      const href = a.getAttribute('href') || '';
-      const navigates = href && href !== '#' && !href.startsWith('#')
-        && !a.hasAttribute('data-open-contact')
-        && !a.hasAttribute('data-open-stores')
-        && !a.hasAttribute('data-open-login');
-      if (navigates) {
-        mobileMenu.classList.add('no-anim');
-        if (mobileMenuOverlay) mobileMenuOverlay.classList.add('no-anim');
-      }
-      toggleMobileMenu(false);
-    });
+    a.addEventListener('click', () => toggleMobileMenu(false));
   });
 
   document.addEventListener('keydown', (e) => {

@@ -493,16 +493,6 @@ header.menu-open .topbar-message {
 }
 .mobile-menu.open { visibility: visible; transform: translateX(0); }
 
-/* Chiusura istantanea quando un link naviga: la pagina sta per cambiare,
-   l'animazione sarebbe tempo perso. Specificità .mobile-menu.no-anim (0,2,0)
-   batte .mobile-menu (0,1,0), niente !important. */
-.mobile-menu.no-anim {
-  transition: transform 0.15s var(--ease-out), visibility 0s linear 0.15s;
-}
-.mobile-menu-overlay.no-anim {
-  transition: opacity 0.15s var(--ease-out), visibility 0s linear 0.15s;
-}
-
 .mobile-menu-overlay {
   position: fixed;
   inset: 0;
