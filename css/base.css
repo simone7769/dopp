@@ -765,6 +765,12 @@ header.menu-open .topbar-message {
 .wishlist-close:hover,
 .stores-close:hover,
 .contact-close:hover { opacity: 0.6; }
+.country-close:focus-visible,
+.cart-close:focus-visible,
+.login-close:focus-visible,
+.wishlist-close:focus-visible,
+.stores-close:focus-visible,
+.contact-close:focus-visible { outline: 1px solid var(--ink); outline-offset: -4px; }
 
 /* ============================================================
    COUNTRY DRAWER
@@ -1912,6 +1918,7 @@ footer {
   transition: opacity var(--t-fast) var(--ease);
 }
 .search-close:hover { opacity: 0.6; }
+.search-close:focus-visible { outline: 1px solid var(--ink); outline-offset: -4px; }
 
 .search-drawer-body {
   flex: 1 1 auto;

@@ -72,6 +72,7 @@
   transition: opacity var(--t-fast) var(--ease);
 }
 .filters-close:hover { opacity: 0.6; }
+.filters-close:focus-visible { outline: 1px solid var(--ink); outline-offset: -4px; }
 
 /* Body scrollabile */
 .filters-body {

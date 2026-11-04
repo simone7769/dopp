@@ -577,6 +577,7 @@ body.pdp-lightbox-open { overflow: hidden; }
   transition: opacity var(--t-fast) var(--ease);
 }
 .pv-close:hover { opacity: 0.6; }
+.pv-close:focus-visible { outline: 1px solid var(--ink); outline-offset: -4px; }
 
 /* Body */
 .pv-body {

@@ -126,6 +126,7 @@
   transition: opacity var(--t-fast) var(--ease);
 }
 .size-modal-close:hover { opacity: 0.6; }
+.size-modal-close:focus-visible { outline: 1px solid var(--ink); outline-offset: -4px; }
 .size-modal-close svg { width: 20px; height: 20px; }
 
 .size-modal-body {
