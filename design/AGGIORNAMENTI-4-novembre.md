@@ -65,6 +65,7 @@ Le note che seguono integrano o modificano le specifiche originali.
 - **`defer`**: documentato con precisione (solo `index.html`; le altre pagine usano script a fine body).
 
 - **Schede in vetrina**: allineate alle collezioni (`vetrina.css`): padding `14px 12px 0`, prezzo 600, `+` 44×44 con margini negativi, spacing immagine-testo uniformato (rimosso `margin-bottom` da `.vt-card-img`), stile `.quick-add-close` per la `×` del quick-add.
+- **Pulsanti di chiusura**: `focus-visible` aggiunto a drawer, search, filters, PV, size modal. Similar modal: `font-size` 32→26px. `z-index: 1` su `.similar-modal-close` (l'`h2` con `position: relative` copriva metà pulsante e catturava i click).
 
 **Tentativi revertati**: menu mobile, chiusura istantanea (`aac6552`) e 150ms (`278402a`). Su device reale non convincevano: revertito con `cd0344f`. Documentato come delega all'agenzia.
 

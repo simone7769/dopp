@@ -275,3 +275,9 @@ Le card della vetrina (`vetrina.html`) sono state allineate a quelle delle colle
 - `+` (quick-add): `font-size: var(--fs-26)`, area di tocco 44×44 con margini negativi (identico a `.product-card .plus`).
 - `.vt-card-img`: rimosso `margin-bottom: 14px` (lo spazio lo dà il `padding-top` del testo, come nelle collezioni).
 - Aggiunto `.quick-add-close` (mancava in `vetrina.css`): `×` in alto a destra del pannellino, 44×44, senza bordo di default.
+
+### Pulsanti di chiusura (coerenza e a11y)
+
+- `focus-visible` (outline `1px solid var(--ink)`, `outline-offset: -4px`) aggiunto a: drawer (country, cart, login, wishlist, stores, contact), search, filters, PV, size modal. Prima mancava.
+- Similar modal: `font-size` del `×` da 32 a 26px, per coerenza con gli altri pulsanti testuali.
+- Similar modal: `z-index: 1` su `.similar-modal-close`. L'`h2` con `position: relative` copriva metà pulsante e catturava i click (area cliccabile spostata rispetto alla `×`).
