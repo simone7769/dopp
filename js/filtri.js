@@ -13,7 +13,7 @@
   const grid     = document.querySelector('.products-grid');
 
   /* ---- Scelta griglia (colonne) ----
-     Mobile  <=640px      : 1 / 2 colonne, default 2
+     Mobile  <=640px      : 1 / 2 / 3 colonne, default 2 (3 = solo foto, vedi collezione.css)
      Tablet  641-1024px   : 2 / 3 colonne, default 3
      Desktop >=1025px     : 3 / 4 colonne, default 3
      Lo switch è sempre visibile. Al cambio di breakpoint (resize, rotazione)
@@ -28,7 +28,7 @@
     const mqTablet = window.matchMedia('(min-width: 641px) and (max-width: 1024px)');
 
     function config() {
-      if (mqMobile.matches) return { opts: [1, 2], def: 2 };
+      if (mqMobile.matches) return { opts: [1, 2, 3], def: 2 };
       if (mqTablet.matches) return { opts: [2, 3], def: 3 };
       return { opts: [3, 4], def: 3 };
     }

@@ -508,6 +508,7 @@
 /* ==========================================
    MOBILE (<=640px): card prodotto
    - niente pannellino quick-add: il + è nascosto (tranne a 1 colonna), la card porta alla scheda
+   - 3 colonne: solo foto, cuore e segno "%" per saldi/outlet
    - "Articoli simili" nascosto
    - badge più piccoli e discreti
    - prezzi scontati proporzionati alla card, in bianco (stanno sopra la foto)
@@ -520,6 +521,39 @@
   .product-info { padding: 8px 10px 12px; }
   /* A 1 colonna più spazio sotto il testo: le card sono quasi attaccate (gap 2px) */
   .products-grid[data-cols="1"] .product-info { padding-bottom: 20px; }
+
+  /* 3 colonne (solo mobile): vista "muro di foto".
+     - titolo e prezzo non si vedono ma restano nella pagina per gli screen reader
+       (nascosti con la tecnica visually-hidden, non con display:none)
+     - restano il cuore e, solo sugli articoli in saldo/outlet, un quadratino "%"
+       con il colore del badge; gli altri badge (Bestseller, New in, Ultimi pezzi,
+       Esclusiva) non compaiono */
+  .products-grid[data-cols="3"] .product-info {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  .products-grid[data-cols="3"] .product-card .badge:not(.sale):not(.outlet) { display: none; }
+  .products-grid[data-cols="3"] .product-card .badge.sale,
+  .products-grid[data-cols="3"] .product-card .badge.outlet {
+    font-size: 0;
+    letter-spacing: 0;
+    padding: 0;
+    width: var(--badge-h);
+    justify-content: center;
+  }
+  .products-grid[data-cols="3"] .product-card .badge.sale::before,
+  .products-grid[data-cols="3"] .product-card .badge.outlet::before {
+    content: "%";
+    font-size: var(--badge-fs);
+    line-height: 1;
+  }
   .product-info .details h3 { margin-bottom: 2px; }
   .product-card .similar { display: none !important; }
   .product-card .price-block {
@@ -542,6 +576,7 @@
    Il clamp() ferma la scala agli estremi per tenere il testo leggibile. */
 .product-card .badge {
   --badge-fs: clamp(9px, calc(8.2px + 0.6cqw), 11px);
+  --badge-h: clamp(19px, calc(15px + 2.6cqw), 27px);
   position: absolute;
   top: 0;
   left: 0;
@@ -557,7 +592,7 @@
   pointer-events: none;
   display: inline-flex;
   align-items: center;
-  height: clamp(19px, calc(15px + 2.6cqw), 27px);
+  height: var(--badge-h);
   box-sizing: border-box;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
