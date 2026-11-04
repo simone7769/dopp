@@ -366,7 +366,18 @@ if (navBurger && mobileMenu) {
   }
 
   mobileMenu.querySelectorAll('a').forEach((a) => {
-    a.addEventListener('click', () => toggleMobileMenu(false));
+    a.addEventListener('click', () => {
+      const href = a.getAttribute('href') || '';
+      const navigates = href && href !== '#' && !href.startsWith('#')
+        && !a.hasAttribute('data-open-contact')
+        && !a.hasAttribute('data-open-stores')
+        && !a.hasAttribute('data-open-login');
+      if (navigates) {
+        mobileMenu.classList.add('no-anim');
+        if (mobileMenuOverlay) mobileMenuOverlay.classList.add('no-anim');
+      }
+      toggleMobileMenu(false);
+    });
   });
 
   document.addEventListener('keydown', (e) => {
