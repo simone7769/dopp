@@ -352,13 +352,16 @@
 
   @page { margin: 18mm 15mm; size: A4; }
   @media print {
+    /* Mantiene i colori di sfondo (badge, tabelle, riquadri) anche senza "Grafica di sfondo" attiva nella stampa */
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .agency-note { display: none !important; } /* il banner serve solo a chi apre l'HTML */
     html, body { background: white !important; padding: 0 !important; margin: 0 !important; font-size: 10pt; }
     .wrap { max-width: none; border: none !important; padding: 0 !important; background: white !important; }
     h1, h2, h3 { break-after: avoid; page-break-after: avoid; }
     h2 { margin-top: 24px !important; }
     .badge-card, .badge-grid, .rules, pre, table,
     .anatomia, .anatomia-col { break-inside: avoid; page-break-inside: avoid; }
-    .badge-grid { grid-template-columns: repeat(3, 1fr); }
+    .badge-grid { grid-template-columns: repeat(3, 1fr); max-width: 74%; margin-left: auto !important; margin-right: auto !important; }
     .anatomia { grid-template-columns: 1fr 1fr; gap: 20px; }
     a { color: inherit !important; text-decoration: none !important; }
   }
@@ -691,8 +694,9 @@
 
 </head>
 <body>
-<div style="background:#FAF8F5; border-left:4px solid #B8935A; padding:16px 24px; font-family:sans-serif; font-size:14px; color:#2B2B2B; margin-bottom:24px;">
-<strong>Nota per l'agenzia:</strong> Questo pacchetto (AGENZIA) non include la cartella <code>images/</code> per motivi di peso. Le immagini dei badge in questa pagina appariranno come "immagini rotte". Per vedere l'aspetto visivo corretto, consulta il PDF <strong>linee-guida-badge.pdf</strong> incluso in questa stessa cartella.
+<div class="agency-note" style="background:#FAF8F5; border-left:4px solid #B8935A; padding:16px 24px; font-family:sans-serif; font-size:14px; color:#2B2B2B; margin-bottom:24px;">
+<strong>Nota (3 novembre 2026):</strong> fa fede questa pagina HTML. Il PDF <strong>linee-guida-badge.pdf</strong> è del 21 ottobre ed è <em>storico</em>: contiene ancora la frase "nella demo non sono state implementate", che era vera allora. Oggi i badge sono attivi su 4 pagine di collezione (vedi intro e §8).<br><br>
+<strong>Immagini:</strong> il pacchetto AGENZIA non include la cartella <code>images/</code> per motivi di peso, quindi le immagini qui appaiono come "immagini rotte". Il PDF di ottobre mostra le immagini reali.
 </div>
 
 <div class="wrap">
@@ -700,7 +704,7 @@
   <h1>Badge prodotto</h1>
   <p class="subtitle">Etichette sulle card — regole, esempi visivi e codice</p>
 
-  <p class="intro">Le etichette sulle card prodotto comunicano in un colpo d'occhio lo stato di un capo: nuovo, in saldo, bestseller. Nella demo <strong>non sono state implementate</strong> per non appesantire il sito. Questo documento raccoglie le regole per l'agenzia, con esempi visivi e codice pronto. Include la <strong>mappa completa della card</strong> (§4), così si vede subito come badge, cuore preferiti e “Articoli simili” convivono senza sovrapporsi.</p>
+  <p class="intro">Le etichette sulle card prodotto comunicano in un colpo d'occhio lo stato di un capo: nuovo, in saldo, bestseller. Nella demo <strong>sono state implementate su 4 pagine di collezione</strong> (Cerimonia, Autunno/Inverno 2026, Essential, Outlet), dove alcune card in griglia hanno il badge. Questo documento raccoglie le regole per l'agenzia, con esempi visivi e codice pronto. Include la <strong>mappa completa della card</strong> (§4), così si vede subito come badge, cuore preferiti e “Articoli simili” convivono senza sovrapporsi.</p>
 
   <h2>1. I quattro badge principali</h2>
 
@@ -1380,6 +1384,8 @@
   <h2>8. Note per l'agenzia</h2>
 
   <p><strong>Nel sito attuale Doppelgänger</strong> i badge compaiono su alcune card nelle pagine di collezione (Bestseller) e nell'Outlet — dove il badge <code>Outlet</code> è l'eccezione alla regola 'niente badge su pagine scontate': è un'etichetta di sezione, non di sconto. Sulla home non ci sono, per non spezzare il ritmo editoriale delle sezioni.</p>
+
+  <p><strong>Stato (3 novembre 2026).</strong> I badge sono attivi in demo su 4 pagine di collezione: Cerimonia (<code>new-in</code>, <code>sale</code>, <code>ultimi</code>), Autunno/Inverno 2026 (<code>bestseller</code>, <code>new-in</code>, <code>ultimi</code>), Essential (<code>bestseller</code>, <code>esclusiva</code>, <code>new-in</code>), Outlet (<code>outlet</code>). Il criterio è manuale, come da raccomandazione sotto.</p>
 
   <p><strong>Da decidere con il cliente:</strong> su quali pagine attivare i badge, e con che criterio. Le opzioni sono due:</p>
 
