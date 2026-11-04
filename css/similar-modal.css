@@ -35,6 +35,7 @@
   position: absolute;
   top: 20px;
   right: 20px;
+  z-index: 1; /* sopra l'h2 che, con position:relative, coprirebbe metà del pulsante */
   display: flex;
   align-items: center;
   justify-content: center;
