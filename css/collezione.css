@@ -94,10 +94,8 @@
 .products-grid[data-cols="3"] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .products-grid[data-cols="4"] { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 
-/* 1 colonna: la card è a tutta larghezza, quindi cuore e badge tornano
-   ai valori del desktop (22px, 11/27px) per restare proporzionati.
-   Riusa i valori esistenti, nessun numero nuovo. */
-.products-grid[data-cols="1"] .wish svg { width: 22px; height: 22px; }
+/* 1 colonna: la card è a tutta larghezza, quindi il badge torna
+   ai valori del desktop (11/27px). Il cuore si scala da solo (base.css). */
 .products-grid[data-cols="1"] .product-card .badge {
   font-size: var(--fs-11);
   letter-spacing: 1.8px;

@@ -366,39 +366,7 @@
 }
 .vt-card .plus:hover { opacity: .5; }
 
-/* Cuore: piccolo, in alto a destra sulla foto */
-.vt-card .wish {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  width: 32px;
-  height: 32px;
-  min-width: 32px;
-  min-height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  z-index: 3;
-}
-.vt-card .wish svg {
-  width: 18px;
-  height: 18px;
-  stroke: #fff;
-  fill: none;
-  stroke-width: 1.5;
-  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, .5));
-}
-.vt-card .wish.active svg {
-  fill: var(--gold);
-  stroke: var(--gold);
-}
-@media (hover: hover) {
-  .vt-card .wish { opacity: 0; }
-  .vt-card:hover .wish { opacity: 1; }
-}
+/* Il cuore (.wish) è il componente condiviso di base.css: stessa posizione in scala */
 
 /* "Vedi tutti" sotto la galleria, centrato con aria sopra */
 .vt-products-more {
