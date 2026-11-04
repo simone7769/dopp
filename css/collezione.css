@@ -482,14 +482,19 @@
 
 /* ==========================================
    MOBILE (<=640px): card prodotto
-   - niente pannellino quick-add: il + è nascosto, la card porta alla scheda
+   - niente pannellino quick-add: il + è nascosto (tranne a 1 colonna), la card porta alla scheda
    - "Articoli simili" nascosto
    - badge più piccoli e discreti
    - prezzi scontati proporzionati alla card, in bianco (stanno sopra la foto)
    ========================================== */
 @media (max-width: 640px) {
   .product-card .plus { display: none; }
+  /* A 1 colonna la card è a tutta larghezza: il "+" torna visibile.
+     Segue lo switch colonne (data-cols), non la larghezza dello schermo. */
+  .products-grid[data-cols="1"] .product-card .plus { display: inline-flex; }
   .product-info { padding: 8px 10px 12px; }
+  /* A 1 colonna più spazio sotto il testo: le card sono quasi attaccate (gap 2px) */
+  .products-grid[data-cols="1"] .product-info { padding-bottom: 20px; }
   .product-info .details h3 { margin-bottom: 2px; }
   .product-card .similar { display: none !important; }
   .product-card .price-block {
