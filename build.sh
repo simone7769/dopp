@@ -40,8 +40,7 @@ zip -rq "$OUT/Doppelganger_demo_AGENZIA_$DATE.zip" "$FOLDER" \
   -x "**/test-*.html" \
   -x "$FOLDER/backup/*" \
   -x "$FOLDER/node_modules/*" \
-  -x "$FOLDER/images/*" \
-  -x "$FOLDER/documents/*"
+  -x "$FOLDER/images/*"
 echo "  ✅ Fatto: Doppelganger_demo_AGENZIA_$DATE.zip"
 echo ""
 

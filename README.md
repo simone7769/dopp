@@ -29,7 +29,7 @@ Sul telefono, l'esperienza è pensata per il pollice: menu a tutto schermo, card
 
 ## Cosa c'è nella demo
 
-35 pagine totali:
+38 pagine totali:
 
 - Home (hero, video showcase, La Selezione, Duo Outlet, Journal)
 - Autunno/Inverno 2026, Cerimonia, Essential (griglie prodotto con filtri)

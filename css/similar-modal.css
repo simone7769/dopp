@@ -177,7 +177,7 @@
 #similarModal .product-card .badge {
   height: 20px;
   padding: 0 8px;
-  font-size: 9px;
+  font-size: var(--fs-10);
   letter-spacing: var(--tr-1);
 }
 #similarModal .product-card .product-info {
