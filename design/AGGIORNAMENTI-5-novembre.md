@@ -217,3 +217,21 @@ Si possono togliere solo cambiando gli script, quindi li lascio all'agenzia insi
 - **`CHANGELOG.html`** e **`DIFF-FILES.html`**: nuova sezione del 5 novembre. Le righe per file sono calcolate confrontando lo zip per l'agenzia di stamattina con la versione attuale.
 
 **Da completare dopo il commit**: gli hash dei commit nella sezione del CHANGELOG (ora segnati «—») e i contatori in testa ai due documenti, che vengono dal repo.
+
+---
+
+## 8. Badge verticali
+
+I badge prodotto sono ora **linguette verticali** lungo il bordo sinistro della card, in alto. Si leggono dal basso verso l'alto, come nel riferimento COS.
+
+- **Colori invariati**: Bestseller ed Esclusiva pieni, gli altri come da linee guida (§ 4).
+- **Scala fluida invariata**: corpo, spaziatura tra lettere e rientri restano in `cqw` sulla larghezza della card. `--badge-h`, che prima era l'altezza, ora è la larghezza della linguetta: da 27 px su una card desktop a ~20 px su una card mobile a 2 colonne. La lunghezza segue il testo.
+- **Tecnica**: `writing-mode: vertical-rl` più `rotate(180deg)`. La rotazione avviene attorno al centro, quindi il riquadro resta nell'angolo e non serve correggere la posizione.
+- **3 colonne su mobile**: il quadratino «%» di Saldi e Outlet torna orizzontale ed è invariato.
+- **Popup «Articoli simili»**: linguetta larga 20 px.
+
+Misure rilevate: a 1440 px «Novità» 27×77 px; a 390 px (2 colonne) 20×58 px; a 820 px (Outlet) 22×62 px.
+
+**Da aggiornare**: le demo e gli esempi in `linee-guida-badge.html` sono ancora orizzontali.
+
+**File**: `css/collezione.css`, `css/similar-modal.css`, questo file.

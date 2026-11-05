@@ -176,8 +176,8 @@
   gap: 4px;
 }
 #similarModal .product-card .badge {
-  height: 20px;
-  padding: 0 8px;
+  width: 20px;          /* badge verticale: la misura fissa è la larghezza */
+  padding: 8px 0;
   font-size: var(--fs-10);
   letter-spacing: var(--tr-1);
 }

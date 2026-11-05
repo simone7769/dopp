@@ -521,10 +521,14 @@
   .products-grid[data-cols="3"] .product-card .badge:not(.sale):not(.outlet) { display: none; }
   .products-grid[data-cols="3"] .product-card .badge.sale,
   .products-grid[data-cols="3"] .product-card .badge.outlet {
+    /* quadratino "%": torna orizzontale */
+    writing-mode: horizontal-tb;
+    transform: none;
     font-size: 0;
     letter-spacing: 0;
     padding: 0;
     width: var(--badge-h);
+    height: var(--badge-h);
     justify-content: center;
   }
   .products-grid[data-cols="3"] .product-card .badge.sale::before,
@@ -564,13 +568,21 @@
   font-weight: 400;
   letter-spacing: clamp(1.1px, calc(0.8px + 0.22cqw), 1.8px);
   text-transform: uppercase;
-  padding: 0 clamp(9px, calc(6px + 1.7cqw), 14px);
+  /* Verticale (5 nov): linguetta lungo il bordo sinistro, si legge dal basso
+     verso l'alto. La rotazione di 180° avviene attorno al centro, quindi il
+     riquadro resta nell'angolo in alto a sinistra. --badge-h, che prima era
+     l'altezza, ora è la larghezza della linguetta: stessa scala fluida. */
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  width: var(--badge-h);
+  padding: clamp(9px, calc(6px + 1.7cqw), 14px) 0;
+  white-space: nowrap;
   border-radius: 0;
   line-height: 1;
   pointer-events: none;
   display: inline-flex;
   align-items: center;
-  height: var(--badge-h);
+  justify-content: center;
   box-sizing: border-box;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
