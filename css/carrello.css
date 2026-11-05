@@ -112,7 +112,7 @@
   background: transparent;
   border: none;
   color: var(--ink);
-  font-size: 18px;
+  font-size: var(--fs-18);
   font-weight: 300;
   cursor: pointer;
   transition: color var(--t-fast) var(--ease);
@@ -211,9 +211,9 @@
   border-top: 1px solid var(--line);
   margin-top: 8px;
   padding-top: 18px;
-  font-weight: 700;
+  font-weight: 600;
 }
-.cp-rows .cp-total dt, .cp-rows .cp-total dd { font-weight: 700; }
+.cp-rows .cp-total dt, .cp-rows .cp-total dd { font-weight: 600; }
 
 .cp-checkout {
   display: flex;
