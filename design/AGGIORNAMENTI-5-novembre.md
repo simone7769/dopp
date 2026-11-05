@@ -146,3 +146,29 @@ Le tinte sono le stesse: cambia solo la luminosità, il minimo necessario per su
 **Documenti da aggiornare** (fase 5): `linee-guida-badge.html` (Bestseller ed Esclusiva) e la tabella colori delle Specifiche.
 
 **File**: `css/tokens.css`, `css/collezione.css`, `css/club.css`, `css/prodotto.css`, `css/carrello.css`, `css/account.css`, `css/base.css`, `css/boutique.css`, `css/conferma.css`, `css/faq.css`, `css/guida-taglie.css`, `css/journal.css`, `css/lavora-con-noi.css`, `css/legale.css`, `css/looks.css`, `css/similar-modal.css`, `css/traccia-ordine.css`, `design/token.json`, questo file.
+
+---
+
+## 5. Pulizia CSS, fase 4: dimensioni delle immagini
+
+Base di lavoro: `Doppelganger_demo_COMPLETO_2026-11-05.zip`, con le fasi 1–3 e le modifiche successive già applicate: hover oro nel footer, totale del checkout a 18 px / 600, `aspect-ratio` sulla galleria della scheda prodotto, etichette «Novità» e «Ultimi» nei badge.
+
+**Cosa è stato fatto**: `width` e `height` reali, letti da ciascun file, aggiunti a tutte le **97** `<img>` che non li avevano (77 file immagine distinti, 89 `.webp` e 8 `.svg`), in 23 pagine. Escluse solo due `<img>` che non sono immagini vere: il modello `' + item.img + '` in `account.html` e un `<img>` vuoto in `vetrina.html`, riempito dagli script.
+
+**Perché in vetrina dava problemi, e come è risolto.** Il 23 ottobre le due immagini del capo in evidenza erano state lasciate senza dimensioni perché allungavano la griglia. Le cause sono due, diverse:
+- **Foto grande** (`.vt-feature-img img`): con `height: 100%` in una griglia, le dimensioni dell'HTML entrano nel calcolo dell'altezza della riga e la foto da 1380×2070 allungava il blocco da 911 a 2.443 px. Ora l'immagine è in `position: absolute; inset: 0` nel suo contenitore, che era già `position: relative`: l'altezza la decidono testo e still-life, come previsto dal commento originale. Sotto 900 px torna `position: static` con il suo 4:5.
+- **Still-life** (`.vt-feature-still img`): aveva `aspect-ratio: 4 / 5` ma nessuna `height`, quindi l'attributo `height="2070"` dell'HTML vinceva sull'aspect-ratio. Aggiunto `height: auto`.
+
+**Altro caso**: la copertina del drawer «Prova virtuale» in scheda prodotto non aveva CSS e prendeva la larghezza dall'attributo (960 px invece dei 428 del pannello). Aggiunto `.pv-cover-img { width: 100%; height: auto; }` in `prodotto.css`.
+
+**Verifica** (tutte le 38 pagine, immagini caricate per intero)
+- A 1440, 820 e 390 px ogni immagine ha la stessa misura e la stessa posizione di prima, e ogni pagina la stessa altezza.
+- Spostamenti al caricamento, misurati confrontando la pagina con le immagini bloccate e con le immagini caricate, a 1440 e 390 px: **22 immagini → 0**, circa 8.300 px di spostamenti totali eliminati. Le altre stavano già in contenitori con proporzioni fisse. Le pagine più colpite erano gli articoli del journal, club, lavora con noi e la scheda prodotto.
+
+**Nota sul conteggio**: dei 99 casi segnalati, solo 22 spostavano davvero la pagina. Gli attributi ora ci sono comunque ovunque, così la regola è semplice: ogni `<img>` nell'HTML ha `width` e `height`.
+
+**Fuori da questa fase**
+- **Immagini create dagli script** (journal in home, drawer, risultati di ricerca): non hanno attributi, ma nella misura non spostano la pagina.
+- **Code-splitting di `nav.js` / `layout.js`**: lasciato all'agenzia, come indicato nelle Specifiche.
+
+**File**: le 23 pagine HTML modificate, `css/vetrina.css`, `css/prodotto.css`, questo file.

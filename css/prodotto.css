@@ -33,6 +33,9 @@
   background: var(--paper);
 }
 
+/* Copertina del drawer Prova virtuale: larga quanto il pannello */
+.pv-cover-img { width: 100%; height: auto; }
+
 /* Ratio esplicito per le immagini della gallery: evita CLS su lazy load (Lighthouse) */
 .pdp-gallery img {
   aspect-ratio: 2 / 3; /* 1380 x 2070 */

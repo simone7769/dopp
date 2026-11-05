@@ -225,15 +225,21 @@
 }
 
 .vt-feature-img img {
+  /* Fuori dal flusso: l'altezza la decidono testo e still-life, non la foto.
+     Così width/height nell'HTML riservano lo spazio senza allungare la griglia
+     (prima erano stati tolti per questo motivo: vedi AGGIORNAMENTI-23-ottobre). */
+  position: absolute;
+  inset: 0;
   display: block;
   width: 100%;
-  height: 100%;          /* l'immagine si adatta all'altezza di testo + still-life */
+  height: 100%;
   object-fit: cover;
   background: var(--paper-alt);
 }
 .vt-feature-still img {
   display: block;
   width: 100%;
+  height: auto;          /* senza, l'attributo height dell'HTML vincerebbe sull'aspect-ratio */
   aspect-ratio: 4 / 5;
   object-fit: cover;
   background: var(--paper-alt);
@@ -590,7 +596,7 @@
     grid-row: auto;
   }
   .vt-feature-img { height: auto; }
-  .vt-feature-img img { height: auto; aspect-ratio: 4 / 5; object-position: center top; }
+  .vt-feature-img img { position: static; height: auto; aspect-ratio: 4 / 5; object-position: center top; }
 
   /* Prodotti: scorrimento orizzontale, 2 card e un pezzo della terza */
   .vt-grid {
