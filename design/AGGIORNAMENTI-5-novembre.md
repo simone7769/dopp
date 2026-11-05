@@ -235,3 +235,57 @@ Misure rilevate: a 1440 px «Novità» 27×77 px; a 390 px (2 colonne) 20×58 px
 **Da aggiornare**: le demo e gli esempi in `linee-guida-badge.html` sono ancora orizzontali.
 
 **File**: `css/collezione.css`, `css/similar-modal.css`, questo file.
+
+---
+
+## 9. Slider con frecce sulle card
+
+Sulle card con una **scheda prodotto collegata**, le foto della galleria della scheda si sfogliano direttamente nella card, come nel riferimento COS.
+
+**Quali card**: 5 in tutto, quelle che oggi hanno un link vero.
+- `ai-2026.html`: 3 card, verso `prodotto1`, `prodotto` e `prodotto2`.
+- `cerimonia.html`: 1 card, verso `prodotto-saldi`.
+- `outlet-abbigliamento.html`: 1 card, verso `prodotto-saldi`.
+
+Le card con `href="#"` restano come prima, con la seconda foto al passaggio del mouse. Quando l'agenzia collegherà le altre schede, basta aggiungere `data-slides` alla card.
+
+**Foto**: la prima è quella della card. Seguono le foto della galleria della scheda, esclusa la prima (equivale alla foto della card) ed esclusi i video. Sono scritte nell'HTML della card, con le loro dimensioni:
+`<div class="img-wrap" data-slides="images/b.webp 1380x2070, images/d.webp 1380x2070, …">`
+
+**Comportamento**
+- **Desktop**: al passaggio del mouse compaiono le frecce e una barretta di avanzamento in fondo alla foto. La foto non cambia più da sola: si scorre con le frecce, come deciso. Con la tastiera, frecce e barretta compaiono quando il focus è nella card.
+- **Touch**: si scorre col dito. Resta visibile solo la freccia «avanti», come nello screenshot COS mobile; la barretta indica la posizione.
+- **3 colonne su mobile**: niente frecce né barretta, resta lo scorrimento.
+- **Ai bordi**: la freccia «indietro» non c'è sulla prima foto, «avanti» non c'è sull'ultima. Non si ricomincia dall'inizio.
+- **Riduzione del movimento**: lo scorrimento con le frecce diventa immediato.
+
+**Tecnica** (`js/card-slider.js`, nuovo, caricato prima di `nav.js` nelle 3 pagine)
+- La foto della card e quelle della scheda diventano una striscia orizzontale con `scroll-snap`, quindi lo scorrimento col dito è quello nativo del browser.
+- Le foto aggiunte sono `loading="lazy"`, con `width`/`height`.
+- La foto della card resta `.img-main`, quindi `nav.js`, `quick-add.js` e il popup «Articoli simili» continuano a trovarla.
+- La still-life `.img-hover` resta nel DOM ma nascosta, perché il popup «Articoli simili» la usa ancora. Nel popup frecce e barretta sono nascoste.
+- Frecce: chevron bianco con ombra, come il cuore preferiti; misura in `cqw` sulla card; area di tocco 44 px.
+
+**Verifica** a 1440 e 390 px su `ai-2026`, `cerimonia` e `outlet-abbigliamento`:
+- posizione e misura di tutte le card, immagini e didascalie sono identiche a prima;
+- clic sulla freccia: la striscia avanza di una foto esatta, la barretta si aggiorna, compare la freccia «indietro»;
+- nessun errore JavaScript.
+
+**File**: `js/card-slider.js` (nuovo), `css/collezione.css`, `ai-2026.html`, `cerimonia.html`, `outlet-abbigliamento.html`, questo file.
+
+### 9 bis. Slider: tutte le card, foto 3:4 (aggiornamento)
+
+- **Tutte le card prodotto hanno lo slider**: 44 su 44, nelle 4 pagine collezione (`essential.html` ora carica `card-slider.js`).
+  - Le 5 card con scheda collegata scorrono le foto della scheda.
+  - Le altre scorrono la foto e la still-life, le stesse due foto che prima si alternavano al passaggio del mouse.
+  - Frecce, barretta e comportamento sono uguali ovunque, e nessuna card cambia foto da sola al passaggio del mouse.
+- **Foto della scheda in 3:4**: le card con scheda usano 11 nuovi file 1536×2048 forniti da Simone (`b11`, `d11`, `e11`, `f11`, `bb11`, `dd11`, `gg11`, `ff11`, `vv11`, `yy11`, `ww11`). Le foto della scheda prodotto restano invariate in 2:3.
+  - Prima, le foto 2:3 nel riquadro 3:4 venivano ingrandite di circa il 12% e tagliate sopra e sotto, con testa e piedi dei modelli fuori campo.
+  - Quattro file sono stati ricompressi (WebP qualità 80), senza differenze visibili al 100%: `dd11` da 1.142 a 350 KB, `gg11` da 429 a 136 KB, `ff11` da 424 a 133 KB, `bb11` da 372 a 70 KB.
+- **Still-life delle altre card**: 20 file in 2:3, tagliati come lo erano già al passaggio del mouse. Se servono interi, vanno portati in 3:4 come gli 11 sopra.
+- **Bordo di 1 px**: con card di larghezza non intera (474,66 px a 1440) lo scorrimento si fermava su px interi e restava visibile 1 px della foto vicina. Ora la striscia è larga un numero intero di px, arrotondato per eccesso, e il riquadro taglia la frazione. Verificato su 45 passaggi di foto in 4 pagine a 1440, 1280 e 390 px: nessun bordo estraneo.
+- **Popup «Articoli simili»**: mostra ancora la still-life, senza frecce.
+
+**File**: `js/card-slider.js`, `css/collezione.css`, `ai-2026.html`, `cerimonia.html`, `essential.html`, `outlet-abbigliamento.html`, 11 immagini in `images/`, questo file.
+
+**Correzione (switch colonne)**: la larghezza della striscia delle foto era calcolata all'apertura della pagina e aggiornata solo al ridimensionamento della finestra. Cambiando colonne la card si restringe ma la finestra no, quindi le foto restavano larghe come prima: risultavano ingrandite e tagliate. Ora `card-slider.js` segue la larghezza della card con `ResizeObserver` e, dove manca, ripiega sul ridimensionamento della finestra. La foto visibile resta la stessa. Verificato a 1440 px (3 ↔ 4 colonne) e 390 px (1 ↔ 2 ↔ 3 colonne): striscia e foto sempre larghe quanto la card, posizione allineata, nessun errore.
