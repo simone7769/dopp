@@ -218,15 +218,15 @@
 
   <div class="meta">
     <div>
-      <span class="val">673</span>
+      <span class="val">674</span>
       <span class="lbl">Commit</span>
     </div>
     <div>
-      <span class="val">447</span>
+      <span class="val">453</span>
       <span class="lbl">File modificati</span>
     </div>
     <div>
-      <span class="val">54713</span>
+      <span class="val">54737</span>
       <span class="lbl">Righe aggiunte</span>
     </div>
   </div>
@@ -250,8 +250,9 @@
     <li><strong>Token:</strong> <code>--fs-card-title: 15px</code> e <code>--fs-card-price: 13px</code> in <code>tokens.css</code>; allineati in <code>token.json</code>. Tablet e mobile restano 14/12.</li>
     <li><strong>index.html:</strong> rimossa la copia inline di <code>tokens.css</code> (circa 213 righe). Ora la home carica <code>css/tokens.css</code> come le altre pagine. Effetto: il Must Have in home non mostra più 15/14 su mobile ma 14/12, e <code>--t-page</code> (prima indefinito in home) vale 0,1 s.</li>
     <li><strong>Documenti:</strong> <code>AGGIORNAMENTI-5-novembre.md</code> (nuovo, 5 note), <code>LEGGIMI-AGENZIA.md</code> (2 sezioni corrette), <code>Doppelganger_Specifiche_per_agenzia.html</code> (p5, p7, p15).</li>
+    <li><strong>Correzione interlinea:</strong> il prezzo è uno <code>&lt;span&gt;</code> inline dentro <code>.details</code>: ereditava l'interlinea 1,6 del body (~25px) e la sua riga restava alta anche con <code>line-height</code> esplicito. Ora <code>.price</code> è <code>display: block</code> in <code>collezione.css</code>, <code>vetrina.css</code>, <code>account.css</code>. Interlinea 1,28 (era 1,3), spazio titolo-prezzo 2px (era 4px). Vale anche per correlati PDP, popup simili, Must Have in home.</li>
   </ul>
-  <p class="note"><b>Nota.</b> Il commit di aggiornamento documentale di questo file è escluso (pattern già usato). Il conteggio reale del repo al momento di questo aggiornamento è 673 (a <code>8b258b5</code>, escluso il commit docs di oggi).</p>
+  <p class="note"><b>Nota.</b> Il commit di aggiornamento documentale di questo file è escluso (pattern già usato). Il conteggio reale del repo al momento di questo aggiornamento è 674 (a <code>7b215b0</code>, escluso il commit docs di oggi).</p>
 </div>
 
 <div class="commit">
