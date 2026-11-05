@@ -172,3 +172,48 @@ Base di lavoro: `Doppelganger_demo_COMPLETO_2026-11-05.zip`, con le fasi 1–3 e
 - **Code-splitting di `nav.js` / `layout.js`**: lasciato all'agenzia, come indicato nelle Specifiche.
 
 **File**: le 23 pagine HTML modificate, `css/vetrina.css`, `css/prodotto.css`, questo file.
+
+---
+
+## 6. Pulizia CSS, fase 4: `!important`
+
+**Da 31 a 14.** Il conteggio iniziale (18) contava solo `base.css` e `vetrina.css`: nel progetto erano 31.
+
+| File | Prima | Dopo | Come |
+|---|---|---|---|
+| `base.css`, header scrollato | 7 | 0 | Le regole `header.scrolled …` vincevano già per specificità. L'unico conflitto reale era con `header.menu-open .topbar-message`, che ha la stessa specificità ed è più in basso: ora il selettore è `header.scrolled .topbar .topbar-message`. |
+| `base.css`, header chiaro (logo) | 1 | 0 | Non c'era conflitto. |
+| `base.css`, «Vedi tutti» nel megamenu | 4 | 0 | Il conflitto era con le regole `#megaAbbigliamento / #megaAccessori / #megaOutlet`, che usano gli id. Ora il selettore porta gli stessi id tramite `:is(…)`. |
+| `base.css`, filo oro della topbar su mobile | 1 | **1** | Resta, con un commento. Su mobile il filo deve restare anche quando `home.css` chiude la topbar allo scroll con `border: none`. Senza `!important` il filo spariva, come confermato dalla verifica. |
+| `lavora-con-noi.css`, nota di conferma | 4 | 0 | Perdeva contro `.lavora-success p`: ora il selettore è `.lavora-success .lavora-success-note`. |
+| `guida-taglie.css`, unità e CTA nascoste | 1 | 0 | È l'ultima regola con quei selettori, quindi vince già per ordine. |
+
+**Restano 13 `!important` giustificati**, non toccati:
+- `vetrina.css` (4): la regola globale per la riduzione del movimento, unico uso standard.
+- `home.css` (3): frecce dei carousel, che devono battere gli stili inline scritti da `nav.js`.
+- `category.css` (3) e `collezione.css` (2): card in evidenza e «Articoli simili», mostrati e nascosti anche da `filtri.js`.
+- `prodotto.css` (1): frecce dei correlati su touch.
+
+Si possono togliere solo cambiando gli script, quindi li lascio all'agenzia insieme al code-splitting.
+
+**Verifica**
+- Stili calcolati di tutte le 38 pagine a 1440 e 390 px: identici.
+- Header in quattro stati (in cima, scrollato, menu aperto, scrollato con menu aperto) su home, FAQ, scheda prodotto, vetrina, lavora con noi e guida taglie, a 1440 e 390 px: identici.
+- Il passaggio del mouse su «Vedi tutti» non si può misurare da fermo: è stato verificato sulla specificità dei selettori.
+
+**Proposta, non applicata**: la regola di riduzione del movimento oggi vale solo in vetrina. Spostarla in `base.css` la estenderebbe a tutto il sito, migliorando l'accessibilità per chi riduce le animazioni. Cambia il comportamento delle altre pagine, quindi va deciso.
+
+**File**: `css/base.css`, `css/lavora-con-noi.css`, `css/guida-taglie.css`, questo file.
+
+---
+
+## 7. Fase 5: documentazione
+
+- **`linee-guida-badge.html`**: Bestseller (oro pieno, testo inchiostro) ed Esclusiva (bronzo pieno) nella demo, nella tabella e nel CSS di riferimento. Etichette rinominate come nel sito: «Novità» e «Ultimi». Aggiunta la nota di aggiornamento del 5 novembre.
+- **`Doppelganger_Specifiche_per_agenzia.html`**, pagina colori:
+  - sabbia #8A7D63 → #7A6D54;
+  - prezzo barrato #999999 → #6F6F6F;
+  - regola dell'oro: mai per testo, con i due token `--gold-text` e `--gold-text-large`.
+- **`CHANGELOG.html`** e **`DIFF-FILES.html`**: nuova sezione del 5 novembre. Le righe per file sono calcolate confrontando lo zip per l'agenzia di stamattina con la versione attuale.
+
+**Da completare dopo il commit**: gli hash dei commit nella sezione del CHANGELOG (ora segnati «—») e i contatori in testa ai due documenti, che vengono dal repo.

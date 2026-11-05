@@ -306,5 +306,5 @@
    dell'implementazione reale (placeholder nella demo). */
 .size-modal-units,
 .size-modal-cta {
-  display: none !important;
+  display: none; /* ultima regola con questi selettori: vince per ordine */
 }

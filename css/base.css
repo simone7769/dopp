@@ -113,29 +113,30 @@ header.scrolled {
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
 }
 header.scrolled .logo {
-  filter: brightness(0) saturate(100%) !important;
+  filter: brightness(0) saturate(100%);
 }
 header.scrolled .nav-center a {
-  color: var(--ink) !important;
+  color: var(--ink);
   font-size: var(--fs-13);
 }
 header.scrolled .nav-center a.active {
-  color: var(--gold-text) !important;
+  color: var(--gold-text);
 }
 header.scrolled .nav-icon-link {
-  color: var(--ink) !important;
+  color: var(--ink);
 }
-header.scrolled .topbar-message {
-  color: var(--paper) !important;
+/* .topbar in più: deve vincere su header.menu-open .topbar-message (stessa specificità, più in basso) */
+header.scrolled .topbar .topbar-message {
+  color: var(--paper);
 }
 header.scrolled .nav-burger {
-  color: var(--ink) !important;
+  color: var(--ink);
 }
 header.scrolled .nav-left a,
 header.scrolled .nav-right a,
 header.scrolled .header-left a,
 header.scrolled .header-actions a {
-  color: var(--ink) !important;
+  color: var(--ink);
 }
 header.scrolled .nav {
   padding: 12px var(--nav-pad) 12px;
@@ -1658,6 +1659,8 @@ footer {
   .footer-bottom-right { flex-wrap: wrap; }
   .footer-legal { justify-content: center; }
 
+  /* !important voluto: su mobile il filo oro resta anche quando i fogli di pagina
+     (home.css, vetrina) chiudono la topbar allo scroll con border: none */
   header .topbar { border-bottom: 1px solid var(--gold) !important; }
 
   .country-drawer, .stores-drawer, .contact-drawer,
@@ -1806,13 +1809,17 @@ footer {
   color: var(--gold-text);
 }
 
-.mm-see-all {
+/* «Vedi tutti»: il selettore porta gli stessi id dei megamenu, così vince
+   sulle regole #megaAbbigliamento/#megaAccessori/#megaOutlet per specificità, non per priorità forzata */
+.megamenu-col ul a.mm-see-all,
+:is(#megaAbbigliamento, #megaAccessori, #megaOutlet) .megamenu-col ul a.mm-see-all {
   margin-top: 20px;
-  color: var(--gold-text) !important;
-  font-weight: 500 !important;
-  letter-spacing: var(--tr-1) !important;
+  color: var(--gold-text);
+  font-weight: 500;
+  letter-spacing: var(--tr-1);
 }
-.mm-see-all:hover { color: var(--ink) !important; }
+.megamenu-col ul a.mm-see-all:hover,
+:is(#megaAbbigliamento, #megaAccessori, #megaOutlet) .megamenu-col ul a.mm-see-all:hover { color: var(--ink); }
 
 
 @media (max-width: 1200px) {
@@ -2093,7 +2100,7 @@ footer {
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
 }
 :where(body.header-light) header .logo {
-  filter: brightness(0) saturate(100%) !important;
+  filter: brightness(0) saturate(100%);
 }
 :where(body.header-light) header .nav-center a { color: var(--ink); }
 :where(body.header-light) header .nav-center a.active { color: var(--gold-text); }
