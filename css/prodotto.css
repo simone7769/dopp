@@ -32,6 +32,11 @@
   display: block;
   background: var(--paper);
 }
+
+/* Ratio esplicito per le immagini della gallery: evita CLS su lazy load (Lighthouse) */
+.pdp-gallery img {
+  aspect-ratio: 2 / 3; /* 1380 x 2070 */
+}
 /* Prima immagine grande a tutta larghezza */
 .pdp-gallery > :first-child { grid-column: 1 / -1; }
 /* Se l'ultimo elemento resta solo in una riga, occupa tutta la larghezza */
