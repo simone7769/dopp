@@ -128,13 +128,13 @@ Il blocco `.collection` non ha `padding-top` su tablet e mobile (allineato al de
 Nella home (`.must-have`), i contenitori `.product h3` e `.product-price` hanno `padding: 0 12px` per allineare il testo al margine delle immagini, esattamente come avviene su `.product-info` nelle pagine di collezione.
 
 ### Dimensioni card (Titolo e Prezzo)
-I token `--fs-card-title` e `--fs-card-price` sono stati portati rispettivamente a 15px e 14px per garantire una migliore leggibilità delle didascalie prodotto. Su mobile restano a 14px e 12px.
+I token `--fs-card-title` e `--fs-card-price` sono stati portati rispettivamente a 15px e 13px (vedi anche l'aggiornamento del 5 novembre: prezzo a peso 500, interlinea 1,3). Su tablet e mobile restano a 14px e 12px.
 
 ### Refactoring collezione.css
 Il file `collezione.css` è stato ripulito dai duplicati. Inoltre, il pulsante "+" (`.product-info .plus`) ha ora un'area di tocco di 44x44px (WCAG) per migliorare l'accessibilità su touch.
 
 ### Dettagli prodotto (Prezzo e Pulsante "+")
-Il prezzo nelle card (Home e Collezioni) ha ora un peso di 600 (invece di 700) per un aspetto più elegante e meno "urlato". Il pulsante "+" (Quick Add) è stato ingrandito per essere più visibile e facilmente cliccabile su touch.
+Il prezzo nelle card (Home e Collezioni) ha ora un peso di 500 (invece di 700) per un aspetto più elegante e meno "urlato" (vedi anche l'aggiornamento del 5 novembre). Il pulsante "+" (Quick Add) è stato ingrandito per essere più visibile e facilmente cliccabile su touch.
 
 
 ### Hero (Immagine statica)
@@ -155,7 +155,7 @@ Riferimento: `CHANGELOG.html` e `DIFF-FILES.html`, sezione 44.
 |---|---|---|---|
 | Gap (righe / colonne) | 16 / 8px | 12 / 6px | 2 / 2px |
 | Padding `.products-wrap` (sopra / sotto) | 4 / 90px | 6 / 50px | 6 / 30px |
-| Font card (titolo / prezzo) | 15 / 14px | 14 / 13px | 14 / 12px |
+| Font card (titolo / prezzo) | 16 / 14px | 14 / 12px | 14 / 12px |
 
 I font card sono token (`--fs-card-title`, `--fs-card-price` in `tokens.css`): prima tablet e desktop erano identici.
 
@@ -281,3 +281,20 @@ Le card della vetrina (`vetrina.html`) sono state allineate a quelle delle colle
 - `focus-visible` (outline `1px solid var(--ink)`, `outline-offset: -4px`) aggiunto a: drawer (country, cart, login, wishlist, stores, contact), search, filters, PV, size modal. Prima mancava.
 - Similar modal: `font-size` del `×` da 32 a 26px, per coerenza con gli altri pulsanti testuali.
 - Similar modal: `z-index: 1` su `.similar-modal-close`. L'`h2` con `position: relative` copriva metà pulsante e catturava i click (area cliccabile spostata rispetto alla `×`).
+
+## Aggiornamento del 5 novembre 2026
+
+Riferimento: `AGGIORNAMENTI-5-novembre.md`.
+
+### Didascalie delle card prodotto (scala, pesi, interlinea)
+
+| | Desktop ≥1025 | Tablet 641–1024 | Mobile ≤640 |
+|---|---|---|---|
+| Titolo (`--fs-card-title`), peso 400 | 16px | 14px | 14px |
+| Prezzo (`--fs-card-price`), peso `--fw-card-price` (500) | 14px | 12px | 12px |
+
+- Prezzo a peso **500** ovunque (prima 600 in collezioni, home e vetrina, 700 in account, correlati e popup simili). Nuovo token `--fw-card-price`.
+- Prezzo scontato (`.price-now`, `.price-off`) allo stesso peso (era 700); il rosso e il barrato bastano a distinguerlo. `.price-old` resta 300.
+- Interlinea 1,3 (era 1,4 sul titolo e 1,6 ereditata dal prezzo); spazio titolo–prezzo 2px (era 4px su desktop e tablet).
+- Rimossi i valori 13/11 a ≤380px e l'override a 11px a ≤340px: sotto i 640px la scala resta 14/12.
+- Il token è condiviso da collezioni, vetrina, home (Must Have), preferiti dell'account, correlati della scheda prodotto e popup simili: tutte seguono la stessa scala.

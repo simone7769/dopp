@@ -167,7 +167,7 @@
 #similarModal .product-card .price-block {
   font-family: var(--sans);
   font-size: var(--fs-card-price);
-  font-weight: var(--fw-bold);
+  font-weight: var(--fw-card-price);
   color: var(--ink);
   margin: 0;
   line-height: 1.3;

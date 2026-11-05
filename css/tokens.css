@@ -77,8 +77,9 @@
   --fs-26: 26px;   /* titoli sezione Must Have, carrello, correlati (spostato da base.css) */
 
   /* Ruoli specifici */
-  --fs-card-title: 15px;
-  --fs-card-price: 14px;
+  --fs-card-title: 15px;   /* desktop ≥1025px */
+  --fs-card-price: 13px;
+  --fw-card-price: var(--fw-medium); /* prezzo: 500, la gerarchia col nome è data da misura e peso */
   --fs-pdp-title:  clamp(27px, 2vw, 30px);
   --fs-pdp-price:  17px;
   --fs-related:    26px;                     /* serif, "Potrebbero piacerti" */
@@ -190,11 +191,11 @@
   }
 }
 
-/* Tablet (641–1024px): card a 3 colonne, scala intermedia tra desktop (15/14) e mobile (14/12) */
+/* Tablet (641–1024px): stessa scala del mobile (14/12) */
 @media (min-width: 641px) and (max-width: 1024px) {
   :root {
     --fs-card-title:  14px;
-    --fs-card-price:  13px;
+    --fs-card-price:  12px;
   }
 }
 
@@ -203,7 +204,7 @@
     --btn-width:      170px;
     --btn-height:     44px;
     --drawer-title-h: 56px;
-    --fs-card-title:  14px; /* Scala mobile proporzionale al desktop */
+    --fs-card-title:  14px;
     --fs-card-price:  12px;
   }
 }
@@ -211,14 +212,6 @@
 @media (max-width: 520px) {
   :root {
     --drawer-title-h: 56px;
-  }
-}
-
-/* iPhone SE e schermi molto stretti (≤380px) */
-@media (max-width: 380px) {
-  :root {
-    --fs-card-title: 13px;
-    --fs-card-price: 11px;
   }
 }
 

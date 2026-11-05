@@ -708,10 +708,10 @@ header.scrolled .topbar {
   font-size: var(--fs-card-title);
   font-weight: 400;
   letter-spacing: var(--tr-03);
-  line-height: 1.4;
+  line-height: 1.3;
   color: var(--ink);
   text-align: left;
-  margin: 0 0 4px;
+  margin: 0 0 2px;
   max-width: 100%;
   padding: 0 12px;
 }
@@ -721,7 +721,7 @@ header.scrolled .topbar {
   margin: 0;
   font-family: var(--sans);
   font-size: var(--fs-card-price);
-  font-weight: 600;
+  font-weight: var(--fw-card-price);
   letter-spacing: var(--tr-03);
   color: var(--ink);
   text-align: left;

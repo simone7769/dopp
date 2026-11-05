@@ -229,15 +229,16 @@
   font-size: var(--fs-card-title);
   font-weight: 400;
   letter-spacing: var(--tr-03);
-  line-height: 1.4;
+  line-height: 1.3;
   color: var(--ink);
-  margin: 0 0 4px;
+  margin: 0 0 2px;
 }
 .account-preferiti-grid .product-info .details .price {
   font-family: var(--sans);
   font-size: var(--fs-card-price);
-  font-weight: 700;
+  font-weight: var(--fw-card-price);
   letter-spacing: var(--tr-03);
+  line-height: 1.3;
   color: var(--ink);
 }
 

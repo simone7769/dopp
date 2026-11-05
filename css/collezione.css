@@ -154,15 +154,16 @@
   font-size: var(--fs-card-title);
   font-weight: 400;
   letter-spacing: var(--tr-03);
-  line-height: 1.4;
+  line-height: 1.3;
   color: var(--ink);
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
 .product-info .details .price {
   font-family: var(--sans);
   font-size: var(--fs-card-price);
-  font-weight: 600;
+  font-weight: var(--fw-card-price);
   letter-spacing: var(--tr-03);
+  line-height: 1.3;
   color: var(--ink);
 }
 .product-info .plus {
@@ -255,12 +256,6 @@
   .products-wrap .load-more-wrap {
     padding: 40px 16px 10px;
   }
-}
-
-/* Schermi molto stretti (< 340px): ancora più compatto */
-@media (max-width: 340px) {
-  .product-info .details h3,
-  .product-info .details .price { font-size: var(--fs-11); }
 }
 
 
@@ -465,8 +460,8 @@
   display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; margin-top: 4px;
 }
 .product-card .price-old { font-size: var(--fs-card-price); font-weight: 300; color: var(--ink-soft); text-decoration: line-through; }
-.product-card .price-now { font-size: var(--fs-card-price); font-weight: 700; color: var(--danger); }
-.product-card .price-off { font-size: var(--fs-card-price); letter-spacing: 1px; color: var(--danger); }
+.product-card .price-now { font-size: var(--fs-card-price); font-weight: var(--fw-card-price); color: var(--danger); }
+.product-card .price-off { font-size: var(--fs-card-price); font-weight: var(--fw-card-price); letter-spacing: 1px; color: var(--danger); }
 
 /* Fix per far stare titolo e prezzo uno sotto l'altro */
 .product-card .details { display: flex; flex-direction: column; }
@@ -554,7 +549,6 @@
     font-size: var(--badge-fs);
     line-height: 1;
   }
-  .product-info .details h3 { margin-bottom: 2px; }
   .product-card .similar { display: none !important; }
   .product-card .price-block {
     display: flex;
