@@ -130,6 +130,12 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .app-cta { padding: 0 24px 80px; }
+}
+/* Soglia di contenuto 900px: qui il layout passa a meno colonne.
+   Resta a 900 perché a 901–1024px (iPad orizzontale) c'è ancora spazio
+   per la versione desktop. Vedi tokens.css, PREFERENZE DEL DISPOSITIVO. */
 @media (max-width: 900px) {
   .app-sections {
     flex-direction: column;
@@ -138,7 +144,6 @@
     padding: 80px 24px 40px;
   }
   .app-section-image { max-width: 320px; }
-  .app-cta { padding: 0 24px 80px; }
 }
 
 @media (max-width: 640px) {

@@ -77,7 +77,7 @@
   margin-bottom: 40px;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .legale-wrap { padding: 20px 24px 70px; }
 }
 @media (max-width: 640px) {

@@ -277,6 +277,9 @@
 }
 
 /* --- Responsive --- */
+/* Soglia di contenuto 900px: qui il layout passa a meno colonne.
+   Resta a 900 perché a 901–1024px (iPad orizzontale) c'è ancora spazio
+   per la versione desktop. Vedi tokens.css, PREFERENZE DEL DISPOSITIVO. */
 @media (max-width: 900px) {
   .size-modal-body {
     grid-template-columns: 1fr;

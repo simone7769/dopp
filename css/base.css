@@ -2227,7 +2227,7 @@ footer {
 
 /* Desktop con mouse: il cuore compare solo al passaggio sulla card
    (resta visibile se già salvato o con il focus da tastiera) */
-@media (hover: hover) and (min-width: 901px) {
+@media (hover: hover) and (min-width: 1025px) {
   .wish { opacity: 0; }
   .product-card:hover .wish,
   .product:hover .wish,

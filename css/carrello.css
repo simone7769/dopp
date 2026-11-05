@@ -211,9 +211,9 @@
   border-top: 1px solid var(--line);
   margin-top: 8px;
   padding-top: 18px;
-  font-weight: 600;
+  font-weight: 700;
 }
-.cp-rows .cp-total dt, .cp-rows .cp-total dd { font-weight: 600; }
+.cp-rows .cp-total dt, .cp-rows .cp-total dd { font-weight: 700; }
 
 .cp-checkout {
   display: flex;
@@ -253,8 +253,13 @@
   .cp-wrap { padding: calc(var(--header-h, 170px) + 20px) 30px 70px; }
   .cp-layout { gap: 50px; }
 }
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .cp-wrap { padding: calc(var(--header-h, 170px) + 10px) 20px 60px; }
+}
+/* Soglia di contenuto 900px: qui il layout passa a meno colonne.
+   Resta a 900 perché a 901–1024px (iPad orizzontale) c'è ancora spazio
+   per la versione desktop. Vedi tokens.css, PREFERENZE DEL DISPOSITIVO. */
+@media (max-width: 900px) {
   .cp-layout { grid-template-columns: 1fr; gap: 36px; }
   .cp-summary { position: static; }
 }
@@ -297,6 +302,9 @@
   color: #4a463f;
 }
 @media (max-width: 1200px) { .cp-benefits { padding: 0 30px 70px; gap: 36px; } }
+/* Soglia di contenuto 900px: qui il layout passa a meno colonne.
+   Resta a 900 perché a 901–1024px (iPad orizzontale) c'è ancora spazio
+   per la versione desktop. Vedi tokens.css, PREFERENZE DEL DISPOSITIVO. */
 @media (max-width: 900px) {
   .cp-benefits { grid-template-columns: 1fr; padding: 0 20px 60px; gap: 0; }
   .cp-benefits > div { padding: 28px 0; }

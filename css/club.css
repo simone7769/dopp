@@ -52,6 +52,9 @@
   color: var(--ink);
 }
 
+/* Soglia di contenuto 900px: qui il layout passa a meno colonne.
+   Resta a 900 perché a 901–1024px (iPad orizzontale) c'è ancora spazio
+   per la versione desktop. Vedi tokens.css, PREFERENZE DEL DISPOSITIVO. */
 @media (max-width: 900px) {
   .club-tiers { grid-template-columns: repeat(2, 1fr); }
   .club-tier:nth-child(2) { border-right: none; }
@@ -203,7 +206,7 @@
 }
 .club-faq-body p { margin: 0; }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .club-faq { padding: 0 24px; margin-bottom: 70px; }
 }
 @media (max-width: 640px) {

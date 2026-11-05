@@ -181,7 +181,11 @@
 
 /* ============================================================
    PREFERENZE DEL DISPOSITIVO
-   Breakpoints principali: 1200 / 1024 / 900 / 640 / 520 / 380.
+   Breakpoints principali: 1200 / 1024 / 640 / 520 / 380.
+   Soglia di contenuto: 900px, solo dove il layout passa a meno colonne
+   (scheda prodotto, vetrina, carrello, journal, ecc.): fino a 1024px
+   c'è ancora spazio per la versione desktop. Spaziature, carousel e
+   dettagli seguono invece la soglia tablet 1024 (5 nov).
    ============================================================ */
 
 @media (prefers-reduced-motion: reduce) {

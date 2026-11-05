@@ -32,11 +32,6 @@
   display: block;
   background: var(--paper);
 }
-
-/* Ratio esplicito per le immagini della gallery: evita CLS su lazy load (Lighthouse) */
-.pdp-gallery img {
-  aspect-ratio: 2 / 3; /* 1380 x 2070 */
-}
 /* Prima immagine grande a tutta larghezza */
 .pdp-gallery > :first-child { grid-column: 1 / -1; }
 /* Se l'ultimo elemento resta solo in una riga, occupa tutta la larghezza */
@@ -445,7 +440,7 @@ body.pdp-lightbox-open { overflow: hidden; }
 @media (max-width: 1024px) {
   .pdp-track-wrap { --pdp-visible: 2.5; --pdp-gaps: 2; --pdp-gap: 32px; }
 }
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .pdp-track-wrap { --pdp-visible: 2.3; --pdp-gaps: 2; --pdp-gap: 20px; }
 }
 @media (max-width: 640px) {
@@ -456,10 +451,15 @@ body.pdp-lightbox-open { overflow: hidden; }
   .pdp-wrap { padding: calc(var(--header-h, 170px) + 20px) 30px 70px; gap: 50px; }
 }
 
+@media (max-width: 1024px) {
+  .pdp-related { padding: 10px 20px 60px; }
+}
+/* Soglia di contenuto 900px: qui il layout passa a meno colonne.
+   Resta a 900 perché a 901–1024px (iPad orizzontale) c'è ancora spazio
+   per la versione desktop. Vedi tokens.css, PREFERENZE DEL DISPOSITIVO. */
 @media (max-width: 900px) {
   .pdp-wrap { grid-template-columns: 1fr; padding: calc(var(--header-h, 170px) + 10px) 20px 60px; gap: 30px; }
   .pdp-info { position: static; }
-  .pdp-related { padding: 10px 20px 60px; }
   /* ← su mobile torna al comportamento normale */
   .pdp-actions { position: static; padding: 0; box-shadow: none; }
 }

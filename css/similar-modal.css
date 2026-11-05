@@ -186,6 +186,9 @@
 }
 
 /* Griglia 4 colonne su desktop */
+/* Soglia di contenuto 900px: qui il layout passa a meno colonne.
+   Resta a 900 perché a 901–1024px (iPad orizzontale) c'è ancora spazio
+   per la versione desktop. Vedi tokens.css, PREFERENZE DEL DISPOSITIVO. */
 @media (min-width: 901px) {
   #similarModal .similar-modal-grid {
     grid-template-columns: repeat(4, 1fr);
@@ -196,6 +199,9 @@
   #similarModal .product-card .price-now,
   #similarModal .product-card .price-off { font-size: var(--fs-11); }
 }
+/* Soglia di contenuto 900px: qui il layout passa a meno colonne.
+   Resta a 900 perché a 901–1024px (iPad orizzontale) c'è ancora spazio
+   per la versione desktop. Vedi tokens.css, PREFERENZE DEL DISPOSITIVO. */
 @media (max-width: 900px) and (min-width: 641px) {
   #similarModal .similar-modal-grid {
     grid-template-columns: repeat(3, 1fr);

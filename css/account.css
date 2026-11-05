@@ -241,9 +241,14 @@
 }
 .account-login-link a:hover { color: var(--gold); }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .account-wrap { padding: 20px 24px 70px; }
   .account-tabs { gap: 24px; }
+}
+/* Soglia di contenuto 900px: qui il layout passa a meno colonne.
+   Resta a 900 perché a 901–1024px (iPad orizzontale) c'è ancora spazio
+   per la versione desktop. Vedi tokens.css, PREFERENZE DEL DISPOSITIVO. */
+@media (max-width: 900px) {
   .address-grid { grid-template-columns: 1fr; }
   .account-preferiti-grid { grid-template-columns: repeat(2, 1fr); }
 }

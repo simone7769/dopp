@@ -108,7 +108,7 @@
   .looks-intro { margin: 36px auto; }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .hero { padding: 13px 24px 14px; }
   .looks-wrap { padding: 8px 24px 60px; }
   .looks-grid { gap: 50px 24px; }
@@ -172,7 +172,7 @@
   text-align: center;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .article-image { margin-bottom: 36px; }
   .article-text { margin-bottom: 36px; }
 }
@@ -245,6 +245,9 @@
   text-align: left;
 }
 
+/* Soglia di contenuto 900px: qui il layout passa a meno colonne.
+   Resta a 900 perché a 901–1024px (iPad orizzontale) c'è ancora spazio
+   per la versione desktop. Vedi tokens.css, PREFERENZE DEL DISPOSITIVO. */
 @media (max-width: 900px) {
   .article-split {
     grid-template-columns: 1fr;
@@ -301,7 +304,7 @@
   z-index: 5;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .article-cta-image { margin-bottom: 60px; }
   .article-cta-image .cta-phrase { letter-spacing: var(--tr-4); }
 }
@@ -431,7 +434,7 @@
 }
 
 /* Responsive */
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .sartoria-section {
     padding: 0 24px;
     margin-bottom: 70px;
@@ -441,6 +444,19 @@
     margin-bottom: 36px;
     padding-bottom: 18px;
   }
+
+  .sartoria-cta-wrap {
+    margin-top: 14px;
+    margin-bottom: 60px;
+  }
+  .sartoria-cta-wrap p {
+    margin-bottom: 44px;
+  }
+}
+/* Soglia di contenuto 900px: qui il layout passa a meno colonne.
+   Resta a 900 perché a 901–1024px (iPad orizzontale) c'è ancora spazio
+   per la versione desktop. Vedi tokens.css, PREFERENZE DEL DISPOSITIVO. */
+@media (max-width: 900px) {
 
   .sartoria-steps {
     grid-template-columns: 1fr;
@@ -462,14 +478,6 @@
   .sartoria-step-number {
     font-size: 44px;
     margin-bottom: 14px;
-  }
-
-  .sartoria-cta-wrap {
-    margin-top: 14px;
-    margin-bottom: 60px;
-  }
-  .sartoria-cta-wrap p {
-    margin-bottom: 44px;
   }
 }
 
@@ -507,7 +515,7 @@
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .sartoria-hero-image {
     margin-bottom: 56px;
   }
@@ -552,6 +560,9 @@
   }
 }
 /* Chi Siamo — su mobile testo e didascalia a sinistra (come desktop) */
+/* Soglia di contenuto 900px: qui il layout passa a meno colonne.
+   Resta a 900 perché a 901–1024px (iPad orizzontale) c'è ancora spazio
+   per la versione desktop. Vedi tokens.css, PREFERENZE DEL DISPOSITIVO. */
 @media (max-width: 900px) {
   .article-split-text p { text-align: left; }
   .article-split-media figcaption { text-align: left; }

@@ -31,7 +31,7 @@
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   /* la toolbar qui è più alta: il titolo scende di qualche px per restare al centro */
   .hero { padding: 19px 30px 0; }
 }

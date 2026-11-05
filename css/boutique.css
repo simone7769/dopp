@@ -183,7 +183,7 @@
 }
 
 /* --- Responsive --- */
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .boutique-wrap { padding: 12px 24px 70px; }
   .boutique-count { text-align: left; margin-bottom: 24px; }
 }

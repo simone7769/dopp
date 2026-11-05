@@ -72,3 +72,38 @@ Il **totale** del checkout resta a 700: è un riepilogo, non il prezzo di un art
 Carrello, preferiti e checkout sono generati al momento e nella demo statica partono vuoti: il passaggio da 700 a 500 è verificato sul CSS, non a schermo. Nessun'altra proprietà cambia su nessuna pagina.
 
 **File**: `css/tokens.css`, `css/base.css`, `css/collezione.css`, `css/vetrina.css`, `css/account.css`, `css/home.css`, `css/prodotto.css`, `css/checkout.css`, `css/carrello.css`, `css/boutique.css`, `css/filtri.css`, `css/similar-modal.css`, `design/token.json`, questo file.
+
+---
+
+## 3. Pulizia CSS, fase 2: breakpoint
+
+**Regola** (scritta anche in `css/tokens.css`, sezione «Preferenze del dispositivo»)
+
+- **1024 / 640** per tutto: spaziature, rientri, carousel, cuore preferiti, dettagli tipografici.
+- **900 px solo come soglia di contenuto**, nei blocchi in cui il layout passa a meno colonne. Ognuno è preceduto da un commento che lo spiega.
+
+**Perché non tutto a 1024.** Portando tutte le 29 media query a 1024, a 901–1024 px (iPad orizzontale) la scheda prodotto diventava una colonna sola, con «Aggiungi al carrello» a metà pagina. La vetrina impilava capitoli e capo in evidenza con immagini a tutta larghezza (+2.400 px di pagina). Il journal passava a 2 colonne giganti, con un articolo da solo in fondo. In quella fascia c'è ancora spazio per la versione desktop.
+
+**Come è stato fatto.** Ogni blocco `max-width: 900px` è stato diviso in due:
+
+| Va a 1024 | Resta a 900 (cambio di colonne) |
+|---|---|
+| Rientri di pagina (account, boutique, club, FAQ, legali, journal, looks, lavora con noi, riciclo, carrello) | Scheda prodotto: due colonne, info sticky, azioni |
+| Carousel Must Have, Journal e correlati in scheda (2,3 card visibili) | Vetrina: capitoli, capo in evidenza, griglia prodotti a scorrimento, rientro del manifesto |
+| Frecce dei carousel a 44 px | Carrello: riepilogo sotto, vantaggi in colonna |
+| Titolo della collezione (segue la toolbar tablet, già a 1024) | Journal 3→2 colonne, Club 4→2 fasce, app, traccia ordine, guida taglie, form lavora con noi, indirizzi e preferiti in account, articoli di looks |
+| Cuore preferiti sempre visibile sotto 1025 px (prima sotto 901) | Popup «Articoli simili» 4 / 3 colonne |
+
+In totale: 29 media query, di cui 13 interamente a 1024, 8 interamente a 900 e 8 divise.
+
+**Verifica**
+
+- Stili calcolati di tutte le 38 pagine a 1440, 820, 700 e 390 px: identici a prima.
+- Cambia solo la fascia 901–1024 px, controllata a schermo a 960 e 1024 px. Le pagine si accorciano di 20–180 px per i rientri tablet. Le schede prodotto si allungano di circa 60 px per il carousel dei correlati a 2,3 card, come in home.
+- In vetrina il rientro del manifesto è stato riportato a 900 dopo il controllo a schermo: a 1024 si disallineava dai capitoli, che restano a due colonne.
+
+**Restano a mano** le cinque larghezze massime a 900 px (`app.css`, `club.css`, `faq.css` ×2, `looks.css` ×3): sono misure di contenitore, non breakpoint.
+
+**Da decidere in seguito**: eliminare anche la soglia 900 richiede un layout tablet progettato per quelle pagine (per esempio la scheda prodotto a due colonne strette tra 641 e 1024 px). È lavoro di progettazione, non di pulizia.
+
+**File**: `css/tokens.css`, `css/base.css`, `css/account.css`, `css/app.css`, `css/boutique.css`, `css/carrello.css`, `css/club.css`, `css/collezione.css`, `css/faq.css`, `css/guida-taglie.css`, `css/home.css`, `css/journal.css`, `css/lavora-con-noi.css`, `css/legale.css`, `css/looks.css`, `css/prodotto.css`, `css/riciclo.css`, `css/similar-modal.css`, `css/traccia-ordine.css`, `css/vetrina.css`, questo file.

@@ -389,8 +389,13 @@
 .lavora-footer-note a:hover { color: var(--gold); }
 
 /* --- Responsive --- */
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .lavora-tabs { margin-bottom: 40px; }
+}
+/* Soglia di contenuto 900px: qui il layout passa a meno colonne.
+   Resta a 900 perché a 901–1024px (iPad orizzontale) c'è ancora spazio
+   per la versione desktop. Vedi tokens.css, PREFERENZE DEL DISPOSITIVO. */
+@media (max-width: 900px) {
   .lavora-form-grid { grid-template-columns: 1fr; gap: 28px; }
   .lavora-submit { align-self: stretch; min-width: 0; }
 }

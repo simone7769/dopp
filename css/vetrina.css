@@ -566,8 +566,14 @@
   .vt { --vt-gap: 108px; --vt-side: var(--pad-tablet); }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .vt { --vt-gap: 72px; }
+}
+/* Soglia di contenuto 900px: qui il layout passa a meno colonne.
+   Resta a 900 perché a 901–1024px (iPad orizzontale) c'è ancora spazio
+   per la versione desktop. Vedi tokens.css, PREFERENZE DEL DISPOSITIVO. */
+@media (max-width: 900px) {
+  /* il manifesto perde il rientro sulla griglia solo quando i capitoli vanno in colonna */
   .vt-manifesto { margin: 48px 0; }
 
   .vt-chapter { grid-template-columns: 1fr; row-gap: 32px; }
