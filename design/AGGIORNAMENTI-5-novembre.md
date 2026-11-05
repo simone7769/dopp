@@ -17,7 +17,7 @@ Le note che seguono integrano o modificano le specifiche originali; la tabella d
 | Titolo e prezzo ≤340 px | entrambi 11 px | rimosso |
 | Peso prezzo | 600 (account, correlati, popup simili: 700) | **500**, token `--fw-card-price` |
 | Prezzo scontato (`.price-now`, `.price-off`) | 700 / nessun peso | 500 (rosso e barrato lo distinguono) |
-| Interlinea titolo / prezzo | 1,4 / 1,6 ereditata | **1,3 / 1,3** |
+| Interlinea titolo / prezzo | 1,4 / 1,6 ereditata | **1,28 / 1,28** |
 | Spazio titolo–prezzo | 4 px (2 px su mobile) | **2 px** ovunque |
 
 **Perché**: scala più netta tra nome e prezzo (2 px invece di 1 px su desktop), prezzo meno pesante del nome, niente valori fuori scala a schermi stretti, righe di testo più compatte.
@@ -25,6 +25,8 @@ Le note che seguono integrano o modificano le specifiche originali; la tabella d
 **File**: `css/tokens.css` (token e breakpoint), `css/collezione.css`, `css/vetrina.css`, `css/home.css`, `css/account.css`, `css/prodotto.css`, `css/similar-modal.css`, `design/token.json`, `index.html` (vedi sotto).
 
 **Non toccato**: prezzi del carrello, dei preferiti nel drawer e del checkout (`.cart-item-price`, `.wishlist-card-price`, `.co-line-price`, peso 700, componenti diversi); prezzo della scheda prodotto (17 px, 600); dimensioni nel popup «Articoli simili» su desktop (12 / 11 px, popup compatto a 4 colonne).
+
+**Causa dell'interlinea larga**: il prezzo è uno `<span>` (inline) dentro `.details`, che eredita l'interlinea 1,6 del body (~25px). Da inline la sua riga restava alta ~25px qualunque `line-height` avesse. Ora `.price` è `display: block` in `collezione.css`, `vetrina.css` e `account.css`. Distanze misurate a 1440 / 820 / 390 px: titolo→prezzo 2 px; immagine→titolo 14 / 14 / 8 px (mobile più stretto, come già in `collezione.css`).
 
 **Attenzione**: nome e prezzo restano basati sul breakpoint, non sulla larghezza della card (a differenza di cuore e badge). A 1 colonna su mobile il prezzo è 12 px su una card da ~390 px: se in agenzia sembra piccolo, alzare `--fs-card-price` a 13 px (come desktop) solo con `[data-cols="1"]`.
 

@@ -160,7 +160,7 @@
   font-family: var(--sans);
   font-size: var(--fs-card-title);
   font-weight: var(--fw-regular);
-  line-height: 1.3;
+  line-height: 1.28;
   color: var(--ink);
 }
 #similarModal .product-card .price,
@@ -170,7 +170,7 @@
   font-weight: var(--fw-card-price);
   color: var(--ink);
   margin: 0;
-  line-height: 1.3;
+  line-height: 1.28;
 }
 #similarModal .product-card .price-block {
   gap: 4px;

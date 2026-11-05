@@ -128,7 +128,7 @@ Il blocco `.collection` non ha `padding-top` su tablet e mobile (allineato al de
 Nella home (`.must-have`), i contenitori `.product h3` e `.product-price` hanno `padding: 0 12px` per allineare il testo al margine delle immagini, esattamente come avviene su `.product-info` nelle pagine di collezione.
 
 ### Dimensioni card (Titolo e Prezzo)
-I token `--fs-card-title` e `--fs-card-price` sono stati portati rispettivamente a 15px e 13px (vedi anche l'aggiornamento del 5 novembre: prezzo a peso 500, interlinea 1,3). Su tablet e mobile restano a 14px e 12px.
+I token `--fs-card-title` e `--fs-card-price` sono stati portati rispettivamente a 15px e 13px (vedi anche l'aggiornamento del 5 novembre: prezzo a peso 500, interlinea 1,28). Su tablet e mobile restano a 14px e 12px.
 
 ### Refactoring collezione.css
 Il file `collezione.css` è stato ripulito dai duplicati. Inoltre, il pulsante "+" (`.product-info .plus`) ha ora un'area di tocco di 44x44px (WCAG) per migliorare l'accessibilità su touch.

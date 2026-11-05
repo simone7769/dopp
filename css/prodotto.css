@@ -409,7 +409,7 @@ body.pdp-lightbox-open { overflow: hidden; }
   font-size: var(--fs-card-title);
   font-weight: 400;
   letter-spacing: var(--tr-03);
-  line-height: 1.3;
+  line-height: 1.28;
   color: var(--ink);
   margin: 0 0 2px;
   text-align: left;
@@ -419,7 +419,7 @@ body.pdp-lightbox-open { overflow: hidden; }
   font-size: var(--fs-card-price);
   font-weight: var(--fw-card-price);
   letter-spacing: var(--tr-03);
-  line-height: 1.3;
+  line-height: 1.28;
   color: var(--ink);
   margin: 0;
   text-align: left;
