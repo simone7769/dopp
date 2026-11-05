@@ -244,7 +244,7 @@
   text-underline-offset: 3px;
   transition: color var(--t-fast) var(--ease);
 }
-.track-info-block a:hover { color: var(--gold); }
+.track-info-block a:hover { color: var(--gold-text); }
 
 /* --- Responsive --- */
 /* Soglia di contenuto 900px: qui il layout passa a meno colonne.

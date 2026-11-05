@@ -576,12 +576,12 @@
   -webkit-backdrop-filter: blur(8px);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
 }
-.product-card .badge.bestseller { background: rgba(184, 147, 90, 0.92); color: #fff; }
+.product-card .badge.bestseller { background: var(--gold); color: var(--ink); } /* pieno: contrasto fisso 5:1, non dipende dalla foto */
 .product-card .badge.new-in { background: rgba(43, 43, 43, 0.85); color: #fff; }
 .product-card .badge.sale { background: rgba(163, 38, 56, 0.88); color: #fff; }
 .product-card .badge.outlet { background: rgba(122, 26, 40, 0.88); color: #fff; }
 .product-card .badge.ultimi { background: rgba(74, 70, 63, 0.85); color: #fff; }
-.product-card .badge.esclusiva { background: rgba(140, 111, 66, 0.92); color: #fff; }
+.product-card .badge.esclusiva { background: #8C6F42; color: #fff; } /* pieno: 4,7:1 */
 
 /* ============================================================
    ALLINEAMENTO "FILTRA E ORDINA" ALLE ICONE DELL'HEADER

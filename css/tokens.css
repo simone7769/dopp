@@ -27,19 +27,21 @@
   /* Testo e linee */
   --ink:              #2B2B2B; /* testi e bordi dei bottoni (1) */
   --ink-soft:         #4A463F; /* testo scheda prodotto */
-  --muted:            #8A7D63; /* sabbia: etichette secondarie */
+  --muted:            #7A6D54; /* sabbia: etichette secondarie (era #8A7D63; 4,9:1 su carta, 5 nov) */
   --testo-footer:     #CFCBC4;
   --line:             #E5E2DC; /* bordi sottili, separatori */
   --field-border:     #D8D3C8; /* bordo campi form */
 
   /* Accento */
-  --gold:             #B8935A; /* linee, voce attiva, hover, badge, cuore attivo */
+  --gold:             #B8935A; /* linee, fondi, bordi, icone, cuore attivo, badge Bestseller (non per testo) */
+  --gold-text:        #8C6930; /* oro per testo: occhielli, voce attiva, link al passaggio (4,9:1 su carta) */
+  --gold-text-large:  #AB874E; /* oro per testo grande ≥24px: numeri dei passaggi, ×2 (3,2:1) */
 
   /* Stati e avvisi */
   --danger:           #A32638; /* avviso "scegli una taglia", prezzo in saldo */
   --danger-hover:     #CC0000; /* cestino e cuore preferiti al passaggio */
-  --price-strike:     #999999; /* prezzo barrato */
-  --size-disabled:    #C9C3B8; /* taglia esaurita, barrata */
+  --price-strike:     #6F6F6F; /* prezzo barrato (era #999999; 4,9:1 su carta) */
+  --size-disabled:    #938D83; /* taglia esaurita, barrata (era #C9C3B8; 3,2:1, leggibile ma spenta) */
 
 
   /* ----------------------------------------------------------

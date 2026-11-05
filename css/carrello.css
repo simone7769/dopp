@@ -16,7 +16,7 @@
 }
 .cp-ship {
   border: 1px solid var(--gold);
-  color: var(--gold);
+  color: var(--gold-text);
   text-align: center;
   font-family: var(--sans);
   font-size: var(--fs-12);
@@ -117,7 +117,7 @@
   cursor: pointer;
   transition: color var(--t-fast) var(--ease);
 }
-.cp-qty button:hover:not(:disabled) { color: var(--gold); }
+.cp-qty button:hover:not(:disabled) { color: var(--gold-text); }
 .cp-qty button:disabled { opacity: 0.3; cursor: default; }
 .cp-qty span {
   min-width: 28px;
@@ -173,7 +173,7 @@
   color: var(--ink);
   outline: none;
 }
-.cp-promo input::placeholder { color: #999; }
+.cp-promo input::placeholder { color: var(--muted); }
 .cp-promo button {
   width: 110px;
   height: 48px;

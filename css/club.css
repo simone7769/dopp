@@ -30,8 +30,8 @@
 /* Ogni fascia ha il suo tono, tutti desaturati e coerenti
    con la palette oro/sabbia/notte del sito. */
 .club-tier:nth-child(1) .club-tier-name { color: #955F32; } /* Bronze  */
-.club-tier:nth-child(2) .club-tier-name { color: #A8A5A0; } /* Silver  */
-.club-tier:nth-child(3) .club-tier-name { color: #B8935A; } /* Gold    */
+.club-tier:nth-child(2) .club-tier-name { color: #8F8C87; } /* Silver (era #A8A5A0; 3,3:1) */
+.club-tier:nth-child(3) .club-tier-name { color: var(--gold-text-large); } /* Gold */
 .club-tier:nth-child(4) .club-tier-name { color: #6E6E6E; } /* Platinum */
 .club-tier-range {
   display: block;
@@ -107,7 +107,7 @@
   font-size: 48px;
   line-height: 1;
   letter-spacing: -1px;
-  color: var(--gold);
+  color: var(--gold-text-large);
 }
 
 .club-benefit-text {
@@ -182,8 +182,8 @@
 }
 .club-faq summary::-webkit-details-marker { display: none; }
 .club-faq summary::marker { content: ""; }
-.club-faq summary:hover { color: var(--gold); }
-.club-faq summary:hover::after { color: var(--gold); }
+.club-faq summary:hover { color: var(--gold-text); }
+.club-faq summary:hover::after { color: var(--gold-text); }
 .club-faq summary::after {
   content: '+';
   font-size: var(--fs-22);

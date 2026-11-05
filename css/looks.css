@@ -357,7 +357,7 @@
   font-weight: 400;
   font-size: 56px;
   line-height: 1;
-  color: var(--gold);
+  color: var(--gold-text-large);
   margin-bottom: 20px;
 }
 
@@ -537,7 +537,7 @@
   font-size: var(--fs-13);
   letter-spacing: var(--tr-2);
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-text);
   margin: 0 0 20px;
   padding: 0;
   text-align: left;

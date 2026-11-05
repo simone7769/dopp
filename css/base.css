@@ -120,7 +120,7 @@ header.scrolled .nav-center a {
   font-size: var(--fs-13);
 }
 header.scrolled .nav-center a.active {
-  color: var(--gold) !important;
+  color: var(--gold-text) !important;
 }
 header.scrolled .nav-icon-link {
   color: var(--ink) !important;
@@ -165,7 +165,7 @@ header.menu-open .nav-icon-link {
   color: var(--ink);
 }
 header.menu-open .nav-center a.active {
-  color: var(--gold);
+  color: var(--gold-text);
 }
 header.menu-open .topbar-message {
   color: var(--ink);
@@ -297,14 +297,14 @@ header.menu-open .topbar-message {
 }
 
 .nav-center a:hover {
-  color: var(--gold);
+  color: var(--gold-text);
 }
 .nav-center a:hover::after {
   transform: scaleX(1);
 }
 
 .nav-center a.active {
-  color: var(--gold);
+  color: var(--gold-text);
 }
 .nav-center a.active::after {
   transform: scaleX(1);
@@ -440,7 +440,7 @@ header.menu-open .topbar-message {
   text-decoration: none;
   transition: color var(--t-fast) var(--ease);
 }
-.megamenu-col ul a:hover { color: var(--gold); }
+.megamenu-col ul a:hover { color: var(--gold-text); }
 .megamenu-images {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -536,7 +536,7 @@ header.menu-open .topbar-message {
   text-decoration: none;
   transition: color var(--t-fast) var(--ease), background var(--t-fast) var(--ease);
 }
-.mobile-menu-list > li > a:hover { color: var(--gold); }
+.mobile-menu-list > li > a:hover { color: var(--gold-text); }
 
 .mobile-sub-toggle {
   position: relative;
@@ -555,7 +555,7 @@ header.menu-open .topbar-message {
   text-align: left;
   transition: color var(--t-fast) var(--ease);
 }
-.mobile-sub-toggle:hover { color: var(--gold); }
+.mobile-sub-toggle:hover { color: var(--gold-text); }
 .mobile-sub-toggle svg {
   position: absolute;
   right: 24px;
@@ -595,7 +595,7 @@ header.menu-open .topbar-message {
   text-decoration: none;
   transition: color var(--t-fast) var(--ease);
 }
-.mobile-sub a:hover { color: var(--gold); }
+.mobile-sub a:hover { color: var(--gold-text); }
 .mobile-menu-icons {
   margin-top: auto;
   display: grid;
@@ -616,7 +616,7 @@ header.menu-open .topbar-message {
   height: 44px;
   transition: color var(--t-fast) var(--ease), opacity var(--t-fast) var(--ease);
 }
-.mobile-menu-icons a:hover { color: var(--gold); opacity: 0.85; }
+.mobile-menu-icons a:hover { color: var(--gold-text); opacity: 0.85; }
 .mobile-menu-icons svg { width: 20px; height: 20px; }
 
 /* ============================================================
@@ -970,7 +970,7 @@ header.menu-open .topbar-message {
   margin: 8px 0 0;
   transition: color var(--t-fast) var(--ease);
 }
-.cart-note-link:hover { color: var(--gold); }
+.cart-note-link:hover { color: var(--gold-text); }
 
 /* ============================================================
    LOGIN DRAWER
@@ -1204,7 +1204,7 @@ header.menu-open .topbar-message {
   font-weight: 500;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-text);
   margin: 0;
   padding: 24px 0 8px;
   border-bottom: 0.5px solid var(--gold);
@@ -1230,7 +1230,7 @@ header.menu-open .topbar-message {
   text-underline-offset: 4px;
   transition: color var(--t-fast) var(--ease);
 }
-.stores-actions a:hover { color: var(--gold); }
+.stores-actions a:hover { color: var(--gold-text); }
 .stores-empty { font-size: var(--fs-13); line-height: 1.55; color: #555; padding: 28px 0; margin: 0; }
 .stores-footer {
   flex-shrink: 0;
@@ -1803,12 +1803,12 @@ footer {
 #megaAbbigliamento .megamenu-col ul a:hover,
 #megaAccessori .megamenu-col ul a:hover,
 #megaOutlet .megamenu-col ul a:hover {
-  color: var(--gold);
+  color: var(--gold-text);
 }
 
 .mm-see-all {
   margin-top: 20px;
-  color: var(--gold) !important;
+  color: var(--gold-text) !important;
   font-weight: 500 !important;
   letter-spacing: var(--tr-1) !important;
 }
@@ -2096,7 +2096,7 @@ footer {
   filter: brightness(0) saturate(100%) !important;
 }
 :where(body.header-light) header .nav-center a { color: var(--ink); }
-:where(body.header-light) header .nav-center a.active { color: var(--gold); }
+:where(body.header-light) header .nav-center a.active { color: var(--gold-text); }
 :where(body.header-light) header .nav-icon-link { color: var(--ink); }
 :where(body.header-light) header .topbar-message { color: var(--paper); }
 :where(body.header-light) header .topbar { border-bottom: 1px solid var(--gold); }
@@ -2143,7 +2143,7 @@ footer {
 .mobile-sub a.mobile-sub-highlight {
   font-size: var(--fs-12);
   font-weight: 500;
-  color: var(--gold);
+  color: var(--gold-text);
   text-transform: uppercase;
   letter-spacing: var(--tr-1);
 }
@@ -2506,7 +2506,7 @@ footer {
   transition: color var(--t-fast) var(--ease);
 }
 .mobile-menu-extra a:hover,
-.mobile-menu-extra a:focus-visible { color: var(--gold); }
+.mobile-menu-extra a:focus-visible { color: var(--gold-text); }
 .mobile-menu-extra svg {
   width: 20px;
   height: 20px;
@@ -2532,7 +2532,7 @@ footer {
   text-decoration: none;
   transition: color var(--t-fast) var(--ease);
 }
-.mobile-menu-utility a:hover { color: var(--gold); }
+.mobile-menu-utility a:hover { color: var(--gold-text); }
 
 /* ============================================================
    TOUCH: disabilita hover "appiccicoso" sui link del footer

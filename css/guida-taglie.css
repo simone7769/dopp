@@ -41,7 +41,7 @@
   transition: color var(--t-fast) var(--ease);
 }
 .guide-list button:hover {
-  color: var(--gold);
+  color: var(--gold-text);
 }
 .guide-list button[disabled] {
   color: var(--size-disabled);
@@ -72,7 +72,7 @@
   text-decoration: underline;
   text-underline-offset: 3px;
 }
-.size-note a:hover { color: var(--gold); }
+.size-note a:hover { color: var(--gold-text); }
 
 /* ============================================================
    MODALE

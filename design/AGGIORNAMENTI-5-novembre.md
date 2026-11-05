@@ -107,3 +107,42 @@ In totale: 29 media query, di cui 13 interamente a 1024, 8 interamente a 900 e 8
 **Da decidere in seguito**: eliminare anche la soglia 900 richiede un layout tablet progettato per quelle pagine (per esempio la scheda prodotto a due colonne strette tra 641 e 1024 px). È lavoro di progettazione, non di pulizia.
 
 **File**: `css/tokens.css`, `css/base.css`, `css/account.css`, `css/app.css`, `css/boutique.css`, `css/carrello.css`, `css/club.css`, `css/collezione.css`, `css/faq.css`, `css/guida-taglie.css`, `css/home.css`, `css/journal.css`, `css/lavora-con-noi.css`, `css/legale.css`, `css/looks.css`, `css/prodotto.css`, `css/riciclo.css`, `css/similar-modal.css`, `css/traccia-ordine.css`, `css/vetrina.css`, questo file.
+
+---
+
+## 4. Pulizia CSS, fase 3: contrasto dei colori
+
+Obiettivo: testo informativo almeno a 4,5:1 (WCAG AA), testo grande (≥24 px) almeno a 3:1. I rapporti sono calcolati sullo sfondo carta `#FCFCFB` e verificati anche su crema `#FAF8F5` e grigio `#F5F5F5`; i valori tra parentesi sono sul fondo peggiore.
+
+**Token cambiati o aggiunti** (`css/tokens.css`, `design/token.json`)
+
+| Token | Prima | Dopo | Contrasto su carta |
+|---|---|---|---|
+| `--muted` | #8A7D63 (3,9:1) | **#7A6D54** | 4,9:1 (4,7:1) |
+| `--price-strike` | #999999 (2,8:1) | **#6F6F6F** | 4,9:1 (4,6:1) |
+| `--size-disabled` | #C9C3B8 (1,7:1) | **#938D83** | 3,2:1 (3,0:1) |
+| `--gold-text` (nuovo) | — | **#8C6930** | 4,9:1 (4,6:1) |
+| `--gold-text-large` (nuovo) | — | **#AB874E** | 3,2:1 (3,1:1) |
+| `--gold` | #B8935A | invariato | 2,8:1: solo linee, fondi, bordi, icone |
+
+Le tinte sono le stesse: cambia solo la luminosità, il minimo necessario per superare la soglia.
+
+**L'oro**: `--gold` resta l'accento per tutto ciò che non è testo. Dove l'oro colora un testo ora si usa `--gold-text`: 46 regole tra occhielli (collezione in scheda prodotto, sartoria, conferma ordine), voce di menu attiva, filtri attivi del journal, «Vedi tutto» nel megamenu e link al passaggio del mouse. `--gold-text-large` vale per i numeri dei passaggi in sartoria (56 px), il «×2» del Club (48 px) e il nome della fascia Gold. Restano su `--gold` le 8 regole che colorano icone e segni grafici: cuore e cestino nei preferiti, icone del Club e di traccia ordine, spunta di conferma, stelle di valutazione delle boutique, trattini degli elenchi FAQ, icona «Vedi come ti sta».
+
+**Badge** (`css/collezione.css`): ora sono pieni, non più semitrasparenti, così il contrasto non dipende dalla foto sotto.
+- Bestseller: fondo `--gold` pieno, testo inchiostro `--ink` (5,0:1). Prima era bianco su oro al 92% (2,6:1 su foto chiara).
+- Esclusiva: stesso bronzo #8C6F42, pieno (4,7:1). Prima era al 92% (4,0:1).
+- New in, Saldi, Outlet, Ultimi pezzi superavano già 4,5:1 anche su foto bianca: invariati.
+
+**Altri allineamenti**
+- Taglia esaurita in scheda prodotto: `#c9c3b8` scritto a mano → `var(--size-disabled)`. Prima non seguiva il token.
+- Segnaposto del codice promo nel carrello: `#999` → `var(--muted)`, come negli altri campi.
+- Club, nome della fascia Silver: #A8A5A0 (2,3:1) → #8F8C87 (3,3:1). Bronze e Platinum erano già sopra 3:1.
+
+**Verifica**: stili calcolati di tutte le 38 pagine a 1440 e 390 px. Cambiano solo i colori elencati sopra; nessuna misura, spaziatura o posizione si sposta.
+
+**Ancora da fare in questa fase**: testi informativi sotto i 12 px. Fuori da questa fase: le icone in oro (2,8:1) sono sotto il 3:1 consigliato per gli elementi grafici che portano informazione, come il cuore attivo.
+
+**Documenti da aggiornare** (fase 5): `linee-guida-badge.html` (Bestseller ed Esclusiva) e la tabella colori delle Specifiche.
+
+**File**: `css/tokens.css`, `css/collezione.css`, `css/club.css`, `css/prodotto.css`, `css/carrello.css`, `css/account.css`, `css/base.css`, `css/boutique.css`, `css/conferma.css`, `css/faq.css`, `css/guida-taglie.css`, `css/journal.css`, `css/lavora-con-noi.css`, `css/legale.css`, `css/looks.css`, `css/similar-modal.css`, `css/traccia-ordine.css`, `design/token.json`, questo file.

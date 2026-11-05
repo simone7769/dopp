@@ -50,7 +50,7 @@
   cursor: pointer;
   transition: color var(--t-fast) var(--ease);
 }
-#similarModal .similar-modal-close:hover { color: var(--gold); }
+#similarModal .similar-modal-close:hover { color: var(--gold-text); }
 #similarModal .similar-modal-close:focus-visible {
   outline: 2px solid var(--gold);
   outline-offset: 2px;

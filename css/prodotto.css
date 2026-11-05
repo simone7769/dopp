@@ -32,11 +32,6 @@
   display: block;
   background: var(--paper);
 }
-
-/* Ratio esplicito per le immagini della gallery: evita CLS su lazy load (Lighthouse) */
-.pdp-gallery img {
-  aspect-ratio: 2 / 3; /* 1380 x 2070 */
-}
 /* Prima immagine grande a tutta larghezza */
 .pdp-gallery > :first-child { grid-column: 1 / -1; }
 /* Se l'ultimo elemento resta solo in una riga, occupa tutta la larghezza */
@@ -95,7 +90,7 @@
   cursor: pointer;
   transition: color var(--t-fast) var(--ease), opacity var(--t-fast) var(--ease);
 }
-.pdp-lightbox button:hover { color: var(--gold); }
+.pdp-lightbox button:hover { color: var(--gold-text); }
 .pdp-lightbox button:focus-visible { outline: 1px solid var(--gold); outline-offset: -4px; }
 .pdp-lightbox button svg { width: 26px; height: 26px; stroke: currentColor; fill: none; stroke-width: 1.1; }
 .pdp-lightbox-close { top: 18px; right: 22px; }
@@ -129,7 +124,7 @@ body.pdp-lightbox-open { overflow: hidden; }
   font-size: var(--fs-11);
   letter-spacing: var(--tr-2);
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-text);
   margin-bottom: 14px;
 }
 
@@ -231,7 +226,7 @@ body.pdp-lightbox-open { overflow: hidden; }
 .pdp-sizes button:hover { border-color: var(--ink); }
 .pdp-sizes button.selected { background: var(--ink); border-color: var(--ink); color: #fff; }
 .pdp-sizes button.disabled {
-  color: #c9c3b8;
+  color: var(--size-disabled);
   border-color: var(--line);
   cursor: not-allowed;
   text-decoration: line-through;

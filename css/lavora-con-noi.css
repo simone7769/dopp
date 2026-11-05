@@ -136,7 +136,7 @@
   cursor: pointer;
   transition: color var(--t-fast) var(--ease);
 }
-.lavora-link:hover { color: var(--gold); }
+.lavora-link:hover { color: var(--gold-text); }
 
 /* --- Form candidatura --- */
 .lavora-form-title {
@@ -302,7 +302,7 @@
   text-decoration: underline;
   text-underline-offset: 3px;
 }
-.lavora-privacy a:hover { color: var(--gold); }
+.lavora-privacy a:hover { color: var(--gold-text); }
 
 /* --- Submit --- */
 .lavora-submit {
@@ -386,7 +386,7 @@
   text-decoration: underline;
   text-underline-offset: 3px;
 }
-.lavora-footer-note a:hover { color: var(--gold); }
+.lavora-footer-note a:hover { color: var(--gold-text); }
 
 /* --- Responsive --- */
 @media (max-width: 1024px) {

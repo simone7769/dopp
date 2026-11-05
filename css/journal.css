@@ -55,11 +55,11 @@
   white-space: nowrap;
 }
 .journal-filters a:hover {
-  color: var(--gold);
+  color: var(--gold-text);
   border-bottom-color: var(--gold);
 }
 .journal-filters a.active {
-  color: var(--gold);
+  color: var(--gold-text);
   border-bottom-color: var(--gold);
 }
 

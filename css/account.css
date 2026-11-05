@@ -117,7 +117,7 @@
   font-weight: 500;
   letter-spacing: var(--tr-2);
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-text);
 }
 .order-row {
   display: grid;
@@ -160,7 +160,7 @@
   font-weight: 500;
   letter-spacing: var(--tr-2);
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-text);
   margin: 0 0 14px;
 }
 .address-card p {
@@ -190,7 +190,7 @@
   cursor: pointer;
   padding: 0;
 }
-.address-actions button:hover { color: var(--gold); }
+.address-actions button:hover { color: var(--gold-text); }
 
 /* Tab preferiti: riusa griglia */
 .account-preferiti-grid {
@@ -239,7 +239,7 @@
   text-decoration: underline;
   text-underline-offset: 4px;
 }
-.account-login-link a:hover { color: var(--gold); }
+.account-login-link a:hover { color: var(--gold-text); }
 
 @media (max-width: 1024px) {
   .account-wrap { padding: 20px 24px 70px; }
