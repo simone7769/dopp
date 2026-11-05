@@ -1454,7 +1454,7 @@ footer {
   text-underline-offset: 3px;
   transition: color var(--t-fast) var(--ease);
 }
-.footer-privacy a:hover { color: #fff; }
+.footer-privacy a:hover { color: var(--gold); }
 .footer-col h4 {
   font-family: var(--sans);
   font-size: var(--fs-12);
@@ -1479,7 +1479,7 @@ footer {
   text-transform: none;
   transition: color var(--t-fast) var(--ease);
 }
-.footer-col ul a:hover { color: #fff; }
+.footer-col ul a:hover { color: var(--gold); }
 .footer-bottom {
   max-width: 1600px;
   margin: 40px auto 0;
@@ -1524,7 +1524,7 @@ footer {
   letter-spacing: var(--tr-03);
   transition: color var(--t-fast) var(--ease);
 }
-.footer-legal a:hover { color: #fff; }
+.footer-legal a:hover { color: var(--gold); }
 .footer-copy {
   position: relative;
   max-width: 1600px;
@@ -2441,7 +2441,7 @@ footer {
   letter-spacing: var(--tr-03);
   color: #a8a39b;
 }
-.footer-trust a:hover .ft-text { color: #cfcbc4; }
+.footer-trust a:hover .ft-text { color: var(--gold); }
 
 .footer-pay {
   list-style: none;
