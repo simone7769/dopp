@@ -71,6 +71,7 @@
   --fs-13: 13px;
   --fs-14: 14px;
   --fs-16: 16px;
+  --fs-18: 18px;   /* simboli + / − / × nei controlli, citazione vetrina (5 nov) */
   --fs-20: 20px;   /* totale checkout (spostato da base.css) */
   --fs-22: 22px;   /* titoli checkout e pannelli (spostato da base.css) */
   --fs-24: 24px;   /* fascia info home, hero Club (spostato da base.css) */
@@ -79,7 +80,8 @@
   /* Ruoli specifici */
   --fs-card-title: 15px;   /* desktop ≥1025px */
   --fs-card-price: 13px;
-  --fw-card-price: var(--fw-medium); /* prezzo: 500, la gerarchia col nome è data da misura e peso */
+  --fw-price:      var(--fw-medium); /* prezzo di un articolo, ovunque: card, scheda, carrello, preferiti, checkout (5 nov) */
+  --fw-card-price: var(--fw-price);  /* alias storico, usato dai fogli delle card */
   --fs-pdp-title:  clamp(27px, 2vw, 30px);
   --fs-pdp-price:  17px;
   --fs-related:    26px;                     /* serif, "Potrebbero piacerti" */

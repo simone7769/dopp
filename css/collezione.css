@@ -149,24 +149,7 @@
   gap: 12px;
   padding: 14px 12px 0;
 }
-.product-info .details h3 {
-  font-family: var(--sans);
-  font-size: var(--fs-card-title);
-  font-weight: 400;
-  letter-spacing: var(--tr-03);
-  line-height: 1.28;
-  color: var(--ink);
-  margin-bottom: 2px;
-}
-.product-info .details .price {
-  display: block; /* span in un blocco con interlinea 1,6 del body: da inline la riga restava alta 25px */
-  font-family: var(--sans);
-  font-size: var(--fs-card-price);
-  font-weight: var(--fw-card-price);
-  letter-spacing: var(--tr-03);
-  line-height: 1.28;
-  color: var(--ink);
-}
+/* Nome e prezzo: regola unica in base.css (DIDASCALIA CARD PRODOTTO) */
 .product-info .plus {
   background: transparent;
   border: none;

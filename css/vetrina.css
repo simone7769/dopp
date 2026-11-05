@@ -249,7 +249,7 @@
 .vt-feature-price {
   font-family: var(--sans);
   font-size: var(--fs-pdp-price);
-  font-weight: var(--fw-medium);
+  font-weight: var(--fw-price);
   letter-spacing: var(--tr-03);
   color: var(--ink);
   margin: 0 0 24px;
@@ -335,25 +335,7 @@
   gap: 12px;
   padding: 14px 12px 0; /* allineato alle collezioni (padding orizzontale 12px) */
 }
-/* Nome e prezzo identici alle card di home e collezione */
-.vt-card .details h3 {
-  font-family: var(--sans);
-  font-size: var(--fs-card-title);
-  font-weight: var(--fw-regular);
-  letter-spacing: var(--tr-03);
-  line-height: 1.28;
-  color: var(--ink);
-  margin: 0 0 2px;
-}
-.vt-card .details .price {
-  display: block;
-  font-family: var(--sans);
-  font-size: var(--fs-card-price);
-  font-weight: var(--fw-card-price); /* allineato alle collezioni */
-  letter-spacing: var(--tr-03);
-  line-height: 1.28;
-  color: var(--ink);
-}
+/* Nome e prezzo: regola unica in base.css (DIDASCALIA CARD PRODOTTO) */
 .vt-card .plus {
   background: transparent;
   border: none;
@@ -629,13 +611,15 @@
   .vt-hero img { min-height: 420px; height: 78vh; height: 78svh; }
 
   .vt-grid { grid-auto-columns: 72%; gap: var(--grid-gap-x-mobile); }
+  /* Immagine→titolo 8px come nelle collezioni su mobile (5 nov) */
+  .vt-card .product-info { padding-top: 8px; }
   .vt-products-head { margin-bottom: 40px; }
   /* Come i titoli di sezione della home su mobile */
   .vt-products-head h2, .vt-products-head h3 { font-size: var(--fs-22); letter-spacing: var(--tr-4); }
 
   .vt-sticky { height: 80vh; height: 80svh; min-height: 420px; }
   .vt-sticky-quote-center { padding: 0 24px; }
-  .vt-sticky-quote-center p { font-size: 18px; }
+  .vt-sticky-quote-center p { font-size: var(--fs-18); }
 
   .quick-add { padding: 10px 10px 12px; }
   .quick-add-colors button { width: 26px; height: 20px; }

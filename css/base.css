@@ -751,7 +751,7 @@ header.menu-open .topbar-message {
   border: none;
   background: transparent;
   color: var(--ink);
-  font-size: 26px;
+  font-size: var(--fs-26);
   line-height: 1;
   cursor: pointer;
   display: flex;
@@ -914,7 +914,7 @@ header.menu-open .topbar-message {
 }
 .qty-btn:hover { background: #f5f5f5; }
 .qty-value { min-width: 26px; text-align: center; font-size: var(--fs-13); }
-.cart-item-price { font-size: var(--fs-13); font-weight: 700; margin: 0; white-space: nowrap; }
+.cart-item-price { font-size: var(--fs-13); font-weight: var(--fw-price); margin: 0; white-space: nowrap; }
 .cart-item-remove {
   background: transparent;
   border: none;
@@ -1123,7 +1123,7 @@ header.menu-open .topbar-message {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.wishlist-card-price { font-size: var(--fs-12); font-weight: 700; color: var(--ink); margin: 0 0 6px; }
+.wishlist-card-price { font-size: var(--fs-12); font-weight: var(--fw-price); color: var(--ink); margin: 0 0 6px; }
 .wishlist-add-cart {
   width: 100%;
   padding: 7px 8px;
@@ -1332,7 +1332,7 @@ button.contact-btn { display: block; }
   border-radius: 0;
   cursor: pointer;
   font-family: var(--sans);
-  font-size: 18px;
+  font-size: var(--fs-18);
   font-weight: 500;
   transition: border-color var(--t-base) var(--ease), background-color var(--t-base) var(--ease);
 }
@@ -1909,7 +1909,7 @@ footer {
   border: none;
   background: transparent;
   color: var(--ink);
-  font-size: 26px;
+  font-size: var(--fs-26);
   line-height: 1;
   cursor: pointer;
   display: flex;
@@ -1955,7 +1955,7 @@ footer {
   padding: 4px 0;
 }
 @media (max-width: 640px) {
-  .search-drawer-bar input { font-size: 16px; }
+  .search-drawer-bar input { font-size: var(--fs-16); }
 }
 .search-drawer-bar input::placeholder { color: #666; }
 
@@ -2242,6 +2242,41 @@ footer {
 .pdp-wish-btn.active svg {
   fill: var(--gold);
   stroke: var(--gold);
+}
+
+/* ============================================================
+   DIDASCALIA CARD PRODOTTO — nome e prezzo, fonte unica (5 nov)
+   Usata da: collezioni e preferiti in account (.product-info),
+   vetrina (.vt-card .product-info), Must Have in home
+   (.must-have .product), correlati in scheda prodotto (.pdp-item).
+   I fogli di pagina aggiungono solo ciò che cambia (padding,
+   allineamento). Escluso: popup «Articoli simili», che ha una scala
+   compatta propria (similar-modal.css).
+   Il prezzo è display: block perché spesso è uno <span>: da inline
+   la sua riga restava alta quanto l'interlinea 1,6 del body.
+   ============================================================ */
+.product-info .details h3,
+.must-have .product h3,
+.pdp-item h3 {
+  font-family: var(--sans);
+  font-size: var(--fs-card-title);
+  font-weight: var(--fw-regular);
+  letter-spacing: var(--tr-03);
+  line-height: 1.28;
+  color: var(--ink);
+  margin: 0 0 2px;
+}
+.product-info .details .price,
+.must-have .product-price,
+.pdp-item-price {
+  display: block;
+  font-family: var(--sans);
+  font-size: var(--fs-card-price);
+  font-weight: var(--fw-card-price);
+  letter-spacing: var(--tr-03);
+  line-height: 1.28;
+  color: var(--ink);
+  margin: 0;
 }
 
 /* ============================================================
@@ -2535,7 +2570,7 @@ footer {
   .contact-field textarea,
   .stores-search-field input,
   .footer-form input,
-  .search-drawer-bar input { font-size: 16px; }
+  .search-drawer-bar input { font-size: var(--fs-16); }
 
   /* Menu mobile: 14px, restano in stile brand */
   .mobile-menu-list > li > a,

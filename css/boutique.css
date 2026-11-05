@@ -195,5 +195,5 @@
 
 /* Fix iOS anti-zoom: input di ricerca a 16px su mobile/tablet */
 @media (max-width: 1024px) {
-  .boutique-search input { font-size: 16px; }
+  .boutique-search input { font-size: var(--fs-16); }
 }
