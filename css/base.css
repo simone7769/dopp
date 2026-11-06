@@ -115,13 +115,6 @@ header.scrolled {
 header.scrolled .logo {
   filter: brightness(0) saturate(100%);
 }
-header.scrolled .nav-center a {
-  color: var(--ink);
-  font-size: var(--fs-13);
-}
-header.scrolled .nav-center a.active {
-  color: var(--gold-text);
-}
 header.scrolled .nav-icon-link {
   color: var(--ink);
 }
@@ -161,12 +154,8 @@ header.menu-open .header-main {
 header.menu-open .logo {
   filter: brightness(0) saturate(100%);
 }
-header.menu-open .nav-center a,
 header.menu-open .nav-icon-link {
   color: var(--ink);
-}
-header.menu-open .nav-center a.active {
-  color: var(--gold-text);
 }
 header.menu-open .topbar-message {
   color: var(--ink);
@@ -263,54 +252,6 @@ header.menu-open .topbar-message {
 }
 .nav-left { display: flex; align-items: center; gap: 18px; }
 .nav-right { display: flex; align-items: center; justify-content: flex-end; gap: 18px; }
-.nav-center {
-  display: flex;
-  list-style: none;
-  gap: 30px;
-  align-items: center;
-  justify-content: center;
-}
-.nav-center a {
-  position: relative;
-  text-decoration: none;
-  color: #fff;
-  font-family: var(--sans);
-  font-size: var(--fs-13);
-  font-weight: 400;
-  letter-spacing: var(--tr-1);
-  text-transform: uppercase;
-  white-space: nowrap;
-  padding-bottom: 2px;
-  transition: color 0.15s var(--ease);
-}
-
-.nav-center a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 1px;
-  background: var(--gold);
-  transform: scaleX(0);
-  transform-origin: center;
-  transition: transform 0.2s var(--ease-out);
-}
-
-.nav-center a:hover {
-  color: var(--gold-text);
-}
-.nav-center a:hover::after {
-  transform: scaleX(1);
-}
-
-.nav-center a.active {
-  color: var(--gold-text);
-}
-.nav-center a.active::after {
-  transform: scaleX(1);
-}
-
 .nav-icon-link {
   position: relative;
   display: inline-flex;
@@ -377,35 +318,21 @@ header.menu-open .topbar-message {
 /* ============================================================
    MEGAMENU
    ============================================================ */
+/* I tre megamenu sono i pannelli dei tab dentro .mm-fixed (7 nov):
+   niente più dropdown assoluto aperto al passaggio del mouse. */
 .megamenu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  background-color: var(--crema-pannelli);
-  border-top: 1px solid var(--line);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.06);
-  padding: 50px 0 55px;
-  z-index: 999;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-8px);
-  transition: opacity var(--t-base) var(--ease), transform var(--t-base) var(--ease), visibility var(--t-base) var(--ease);
+  position: static;
   color: var(--ink);
-  min-height: 480px;
 }
-.megamenu.open {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
+.megamenu[hidden] { display: none; }
+.megamenu:focus-visible { outline: 1px solid var(--ink); outline-offset: 8px; }
 
 /* Overlay scuro sotto il megamenu (coerente con drawer/popup) */
 .megamenu-overlay {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.45);
-  z-index: 998;
+  z-index: 1200;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -414,8 +341,9 @@ header.menu-open .topbar-message {
 .megamenu-overlay.active {
   opacity: 1;
   visibility: visible;
+  pointer-events: auto;
 }
-.megamenu-inner { max-width: 1600px; margin: 0 auto; padding: 0 50px; }
+.megamenu-inner { max-width: 1600px; margin: 0; padding: 0; }
 
 .megamenu-col h4 {
   font-family: var(--sans);
@@ -467,6 +395,155 @@ header.menu-open .topbar-message {
   text-align: center;
   color: var(--ink);
 }
+
+/* ============================================================
+   MENU FISSO STILE BOTTEGA VENETA (7 nov)
+   Desktop: [MENU] ... logo ... [icone] su una riga; MENU apre
+   un pannello laterale con tab Abbigliamento | Accessori | Outlet.
+   ============================================================ */
+.nav-menu-btn {
+  display: inline-flex;
+  align-items: center;
+  height: 44px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  font-family: var(--sans);
+  font-size: var(--fs-13);
+  font-weight: 400;
+  letter-spacing: var(--tr-1);
+  text-transform: uppercase;
+  transition: opacity var(--t-fast) var(--ease);
+}
+.nav-menu-btn:hover { opacity: 0.65; }
+.nav-menu-btn:focus-visible { outline: 1px solid currentColor; outline-offset: 4px; }
+
+/* Due loghi: quello in .nav vale su desktop, quello in .header-main su mobile */
+.logo-link--nav { justify-self: center; }
+
+@media (min-width: 1025px) {
+  .header-main { display: none; }
+}
+
+.mm-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: min(1200px, 85vw);
+  z-index: 1201;
+  display: flex;
+  flex-direction: column;
+  background: var(--crema-pannelli);
+  color: var(--ink);
+  visibility: hidden;
+  transform: translateX(-100%);
+  transition: transform var(--t-base) var(--ease-out), visibility var(--t-base) var(--ease-out);
+}
+.mm-fixed.open {
+  visibility: visible;
+  transform: translateX(0);
+  /* visibile subito all'apertura, così il focus può entrare nel pannello */
+  transition: transform var(--t-base) var(--ease-out), visibility 0s;
+}
+
+.mm-fixed-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 12px var(--nav-pad) 0;
+  border-bottom: 1px solid var(--line);
+  flex-shrink: 0;
+}
+.mm-nav { display: flex; align-items: center; gap: 40px; }
+.mm-tabs { display: flex; gap: 40px; }
+/* Nuovi Arrivi e Journal: link nella stessa riga dei tab, stesso aspetto */
+.mm-nav-link,
+.mm-tab {
+  position: relative;
+  display: inline-block;
+  line-height: 1.2;
+  padding: 16px 0 14px;
+  background: transparent;
+  border: 0;
+  color: var(--ink);
+  cursor: pointer;
+  font-family: var(--sans);
+  font-size: var(--fs-13);
+  font-weight: 400;
+  letter-spacing: var(--tr-1);
+  text-transform: uppercase;
+  transition: color var(--t-fast) var(--ease);
+}
+.mm-nav-link::after,
+.mm-tab::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transition: transform 0.2s var(--ease-out);
+}
+.mm-nav-link:hover,
+.mm-tab:hover { color: var(--gold-text); }
+.mm-nav-link { text-decoration: none; }
+.mm-nav-link:hover::after,
+.mm-nav-link[aria-current="page"]::after { transform: scaleX(1); }
+.mm-tab[aria-selected="true"] { color: var(--gold-text); }
+.mm-tab[aria-selected="true"]::after { transform: scaleX(1); }
+.mm-nav-link:focus-visible,
+.mm-tab:focus-visible { outline: 1px solid var(--ink); outline-offset: 4px; }
+
+.mm-fixed-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-right: -12px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  color: var(--ink);
+  cursor: pointer;
+  transition: opacity var(--t-fast) var(--ease);
+}
+.mm-fixed-close svg { width: 20px; height: 20px; display: block; }
+.mm-fixed-close:hover { opacity: 0.6; }
+.mm-fixed-close:focus-visible { outline: 1px solid var(--ink); outline-offset: -4px; }
+
+.mm-fixed-body {
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 48px var(--nav-pad) 40px;
+}
+
+.mm-fixed-foot {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  gap: 24px;
+  padding: 20px var(--nav-pad) 28px;
+  border-top: 1px solid var(--line);
+  flex-shrink: 0;
+}
+.mm-fixed-service { list-style: none; display: flex; gap: 28px; margin: 0; padding: 0; }
+.mm-fixed-foot a {
+  font-family: var(--sans);
+  font-size: var(--fs-13);
+  letter-spacing: var(--tr-05);
+  color: var(--ink);
+  text-decoration: none;
+  transition: color var(--t-fast) var(--ease);
+}
+.mm-fixed-foot a:hover { color: var(--gold-text); }
 
 /* ============================================================
    MENU MOBILE
@@ -1573,8 +1650,6 @@ footer {
     gap: 40px;
   }
   .footer-newsletter { grid-column: 1 / -1; }
-  .nav-center { gap: 20px; }
-  .nav-center a { font-size: var(--fs-13); }
   .nav { padding: 12px var(--nav-pad) 12px; }
   .nav-left { gap: 14px; }
   .nav-right { gap: 14px; }
@@ -1582,7 +1657,6 @@ footer {
 }
 
 @media (min-width: 1025px) and (max-width: 1200px) {
-  .nav-center { gap: 14px; }
   .topbar-messages { min-width: 400px; }
 }
 
@@ -1628,7 +1702,6 @@ footer {
   .header-actions .cart-badge { top: 4px; right: 2px; }
 
   .nav,
-  .nav-center,
   .nav-left,
   .nav-right { display: none; }
 
@@ -1647,7 +1720,7 @@ footer {
   .mobile-menu-list { margin-bottom: 32px; }
 
 
-  .megamenu { display: none; }
+  .mm-fixed { display: none; }
 
   footer { padding: 60px 24px 24px; min-height: auto; }
   .footer-main { grid-template-columns: 1fr 1fr 1fr; gap: 30px; padding-bottom: 40px; }
@@ -2083,8 +2156,6 @@ footer {
 :where(body.header-light) header .logo {
   filter: brightness(0) saturate(100%);
 }
-:where(body.header-light) header .nav-center a { color: var(--ink); }
-:where(body.header-light) header .nav-center a.active { color: var(--gold-text); }
 :where(body.header-light) header .nav-icon-link { color: var(--ink); }
 :where(body.header-light) header .topbar-message { color: var(--paper); }
 :where(body.header-light) header .topbar { border-bottom: 1px solid var(--gold); }
@@ -2704,22 +2775,3 @@ p a, span a, li a, .footer-privacy a, .footer-consent a,
   .products-grid[data-cols="3"] .product-card .card-arrow,
   .products-grid[data-cols="3"] .product-card .card-progress { display: none; }
 }
-
-/* ============================================================
-   BOTTONE MENU (header desktop, sinistra)
-   ============================================================ */
-.nav-menu-btn {
-  background: transparent;
-  border: 0;
-  padding: 0;
-  font-family: var(--sans);
-  font-size: var(--fs-13);
-  font-weight: 400;
-  letter-spacing: var(--tr-1);
-  text-transform: uppercase;
-  color: currentColor;
-  cursor: pointer;
-  transition: opacity var(--t-fast) var(--ease);
-}
-.nav-menu-btn:hover { opacity: 0.6; }
-.nav-menu-btn:focus-visible { outline: 1px solid currentColor; outline-offset: 4px; }

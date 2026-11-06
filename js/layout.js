@@ -49,15 +49,11 @@
   </div>\
   <nav class="nav">\
     <div class="nav-left">\
-      <button class="nav-menu-btn" id="navMenuBtn" type="button" aria-label="Apri menu" aria-expanded="false">Menu</button>\
+      <button type="button" class="nav-menu-btn" id="navMenuBtn" aria-haspopup="dialog" aria-expanded="false" aria-controls="megamenuFixed">Menu</button>\
     </div>\
-    <ul class="nav-center">\
-      <li><a href="ai-2026.html">Nuovi Arrivi</a></li>\
-      <li><a href="#" id="linkAbbigliamento" aria-haspopup="true" aria-expanded="false">Abbigliamento</a></li>\
-      <li><a href="#" id="linkAccessori" aria-haspopup="true" aria-expanded="false">Accessori</a></li>\
-      <li><a href="#" id="linkOutlet" aria-haspopup="true" aria-expanded="false">Outlet</a></li>\
-      <li><a href="journal.html">Journal</a></li>\
-    </ul>\
+    <a href="' + LOGO_HREF + '" class="logo-link logo-link--nav" aria-label="Home">\
+      <img src="images/logo_page.svg" alt="Doppelgänger" class="logo">\
+    </a>\
     <div class="nav-right">\
       <a href="#" class="nav-icon-link" aria-label="Cerca"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></a>\
       <a href="#" class="nav-icon-link" aria-label="Preferiti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg><span class="wishlist-badge" hidden>0</span></a>\
@@ -65,13 +61,13 @@
       <a href="#" class="nav-icon-link" aria-label="Carrello"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg><span class="cart-badge" hidden>0</span></a>\
     </div>\
   </nav>\
-  ' + MEGAMENUS() + '\
 </header>\
-<div class="megamenu-overlay" id="megamenuOverlay"></div>';
+<div class="megamenu-overlay" id="megamenuOverlay"></div>\
+' + MENU_PANEL();
 
   function MEGAMENUS() {
     return '\
-<div class="megamenu" id="megaAbbigliamento"><div class="megamenu-inner">\
+<div class="megamenu" id="megaAbbigliamento" role="tabpanel" aria-labelledby="tabAbbigliamento" data-tab-panel="abbigliamento" tabindex="0"><div class="megamenu-inner">\
   <div class="megamenu-col"><h4>Abbigliamento</h4><ul>\
     <li><a href="#">Cappotti</a></li><li><a href="#">Giacche</a></li><li><a href="#">Abiti</a></li>\
     <li><a href="#">Maglieria</a></li><li><a href="#">Camicie</a></li><li><a href="#">T-shirt &amp; Polo</a></li>\
@@ -83,7 +79,7 @@
     <a href="essential.html" class="mm-card"><div class="thumb"><img src="images/bm.webp" alt="Essential"></div><h5>Essential</h5></a>\
     <a href="cerimonia.html" class="mm-card"><div class="thumb"><img src="images/ceri.webp" alt="Cerimonia"></div><h5>Cerimonia</h5></a>\
   </div></div></div>\
-<div class="megamenu" id="megaAccessori"><div class="megamenu-inner">\
+<div class="megamenu" id="megaAccessori" role="tabpanel" aria-labelledby="tabAccessori" data-tab-panel="accessori" tabindex="0" hidden><div class="megamenu-inner">\
   <div class="megamenu-col"><h4>Accessori</h4><ul>\
     <li><a href="#">Scarpe</a></li><li><a href="#">Cinture</a></li><li><a href="#">Cravatte &amp; Pochette</a></li>\
     <li><a href="#">Pelletteria</a></li><li><a href="#">Gemelli &amp; Dettagli</a></li><li><a href="#">Profumi</a></li>\
@@ -93,7 +89,7 @@
     <a href="#" class="mm-card"><div class="thumb"><img src="images/ac2.webp" alt="Must Have"></div><h5>Must Have</h5></a>\
     <a href="#" class="mm-card"><div class="thumb"><img src="images/ac3.webp" alt="Best Seller"></div><h5>Best Seller</h5></a>\
   </div></div></div>\
-<div class="megamenu" id="megaOutlet"><div class="megamenu-inner">\
+<div class="megamenu" id="megaOutlet" role="tabpanel" aria-labelledby="tabOutlet" data-tab-panel="outlet" tabindex="0" hidden><div class="megamenu-inner">\
   <div class="megamenu-col megamenu-col-outlet"><h4>Outlet</h4><ul>\
     <li><a href="outlet-abbigliamento.html" class="mm-see-all">Vedi tutto l\'outlet</a></li></ul></div>\
   <div class="megamenu-images">\
@@ -102,6 +98,37 @@
     <a href="outlet-abbigliamento.html" class="mm-card"><div class="thumb"><img src="images/a80.webp" alt="Accessori"></div><h5>Accessori</h5></a>\
     <a href="outlet-abbigliamento.html" class="mm-card"><div class="thumb"><img src="images/ls1.webp" alt="Ultimi Pezzi"></div><h5>Ultimi Pezzi</h5></a>\
   </div></div></div>';
+  }
+
+  /* ---------------- MENU FISSO (stile Bottega Veneta) ----------------
+     Fuori da <header>: l'header ha z-index 1000 e crea un contesto di
+     sovrapposizione; qui pannello (1201) e overlay (1200) stanno sopra a tutto. */
+  function MENU_PANEL() {
+    return '\
+<div class="mm-fixed" id="megamenuFixed" role="dialog" aria-modal="true" aria-label="Menu principale">\
+  <div class="mm-fixed-head">\
+    <div class="mm-nav">\
+    <a href="ai-2026.html" class="mm-nav-link">Nuovi Arrivi</a>\
+    <div class="mm-tabs" role="tablist" aria-label="Categorie">\
+      <button type="button" class="mm-tab" role="tab" id="tabAbbigliamento" aria-selected="true" aria-controls="megaAbbigliamento">Abbigliamento</button>\
+      <button type="button" class="mm-tab" role="tab" id="tabAccessori" aria-selected="false" aria-controls="megaAccessori" tabindex="-1">Accessori</button>\
+      <button type="button" class="mm-tab" role="tab" id="tabOutlet" aria-selected="false" aria-controls="megaOutlet" tabindex="-1">Outlet</button>\
+    </div>\
+    <a href="journal.html" class="mm-nav-link">Journal</a>\
+    </div>\
+    <button type="button" class="mm-fixed-close" id="megamenuClose" aria-label="Chiudi menu">\
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg>\
+    </button>\
+  </div>\
+  <div class="mm-fixed-body">' + MEGAMENUS() + '</div>\
+  <div class="mm-fixed-foot">\
+    <ul class="mm-fixed-service">\
+      <li><a href="#" data-open-contact>Contattaci</a></li>\
+      <li><a href="#" data-open-stores>Boutique</a></li>\
+      <li><a href="#" data-open-country>Italia (Italiano)</a></li>\
+    </ul>\
+  </div>\
+</div>';
   }
 
   /* ---------------- MOBILE MENU + DRAWERS ---------------- */
@@ -517,6 +544,12 @@
   document.querySelectorAll('[data-layout]').forEach(function (ph) {
     var key = ph.getAttribute('data-layout');
     if (blocks[key]) ph.outerHTML = blocks[key];
+  });
+
+  /* Voce del menu della pagina corrente (Nuovi Arrivi, Journal) */
+  var here = location.pathname.split('/').pop();
+  document.querySelectorAll('.mm-nav-link').forEach(function (a) {
+    if (a.getAttribute('href') === here) a.setAttribute('aria-current', 'page');
   });
 
   /* Footer a tendina (attivo solo su mobile: vedi base.css) */

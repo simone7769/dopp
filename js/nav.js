@@ -59,242 +59,109 @@ function releaseHeaderIfFree() {
   header.classList.toggle('scrolled', window.scrollY > 20);
 }
 
-const MEGA_MENUS = [
-  { link: 'linkAbbigliamento', panel: 'megaAbbigliamento' },
-  { link: 'linkAccessori',     panel: 'megaAccessori' },
-  { link: 'linkOutlet',        panel: 'megaOutlet' }
-].map((m) => ({
-  link: document.getElementById(m.link),
-  panel: document.getElementById(m.panel)
-})).filter((m) => m.link && m.panel);
-
-const HOVER_ONLY_LINKS = [
-  '.nav-center a[href="#"]',
-  '.nav-left .nav-icon-link',
-  '.nav-right .nav-icon-link',
-  '.header-actions .nav-icon-link'
-].flatMap(sel => Array.from(document.querySelectorAll(sel)))
- .filter(a => !MEGA_MENUS.some(m => m.link === a));
-
-if (header && (MEGA_MENUS.length || HOVER_ONLY_LINKS.length)) {
-
-  let hideTimer;
-  let openTimer;
-  let pendingTarget = null;
-  let current = null;
-  const OPEN_DELAY = 150;   /* ms di sosta sul link prima che il menu si apra */
-  const CLOSE_DELAY = 120;
-  const TOLERANCE = 12;
-  const TAP_ECHO_WINDOW = 500;
-
-  function isSearchOpen() {
-    const s = document.getElementById('searchDrawer');
-    return !!(s && s.classList.contains('open'));
-  }
-
-  function accendi(m) {
-    m.panel.classList.add('open');
-    m.link.classList.add('active');
-    m.link.setAttribute('aria-expanded', 'true');
-  }
-
-  function spegni(m) {
-    m.panel.classList.remove('open');
-    m.link.classList.remove('active');
-    m.link.setAttribute('aria-expanded', 'false');
-  }
-
-  function annullaApertura() {
-    clearTimeout(openTimer);
-    pendingTarget = null;
-  }
-
-  /* Il timer parte una sola volta per bersaglio: i piccoli movimenti
-     del mouse sopra lo stesso elemento non lo fanno ripartire. */
-  function programmaApertura(target, fn) {
-    if (pendingTarget === target) return;
-    clearTimeout(openTimer);
-    pendingTarget = target;
-    openTimer = setTimeout(() => { pendingTarget = null; fn(); }, OPEN_DELAY);
-  }
-
-  function apriMenu(m) {
-    clearTimeout(hideTimer);
-    annullaApertura();
-    if (current === m) return;
-    if (isSearchOpen()) return;
-    if (current) spegni(current);
-    current = m;
-    accendi(m);
-    header.classList.add('menu-open');
-    var ov = document.getElementById('megamenuOverlay');
-    if (ov) ov.classList.add('active');
-  }
-
-  function chiudiPannelloMaTieniHeader() {
-    clearTimeout(hideTimer);
-    if (current) spegni(current);
-    current = null;
-    var ov = document.getElementById('megamenuOverlay');
-    if (ov) ov.classList.remove('active');
-  }
-
-  function chiudiTuttoOra() {
-    clearTimeout(hideTimer);
-    annullaApertura();
-    if (current) spegni(current);
-    current = null;
-    var ov = document.getElementById('megamenuOverlay');
-    if (ov) ov.classList.remove('active');
-    if (!isSearchOpen() && headerHolds.size === 0) {
-      header.classList.remove('menu-open');
-      header.classList.toggle('scrolled', window.scrollY > 20);
-    }
-  }
-
-  const closeOtherPanels = PanelManager.register(chiudiTuttoOra);
-
-  function puntatoreDentroAreeSicure(x, y) {
-    if (current) {
-      const r1 = current.link.getBoundingClientRect();
-      const r2 = current.panel.getBoundingClientRect();
-      const dentroLink = x >= r1.left - TOLERANCE && x <= r1.right + TOLERANCE &&
-                         y >= r1.top - TOLERANCE && y <= r1.bottom + TOLERANCE;
-      const dentroMega = x >= r2.left && x <= r2.right &&
-                         y >= r2.top - TOLERANCE && y <= r2.bottom + TOLERANCE;
-      if (dentroLink || dentroMega) return true;
-    }
-    for (const a of HOVER_ONLY_LINKS) {
-      const r = a.getBoundingClientRect();
-      if (x >= r.left - TOLERANCE && x <= r.right + TOLERANCE &&
-          y >= r.top - TOLERANCE && y <= r.bottom + TOLERANCE) return true;
-    }
-    const navAreas = [
-      document.querySelector('.nav-left'),
-      document.querySelector('.nav-center'),
-      document.querySelector('.nav-right')
-    ].filter(Boolean);
-    for (const area of navAreas) {
-      const r = area.getBoundingClientRect();
-      const t = 24;
-      if (x >= r.left - t && x <= r.right + t &&
-          y >= r.top - t && y <= r.bottom + t) return true;
-    }
-    return false;
-  }
-
-  function programmaChiusura() {
-    clearTimeout(hideTimer);
-    hideTimer = setTimeout(() => {
-      if (!puntatoreDentroAreeSicure(mouseX, mouseY)) chiudiTuttoOra();
-    }, CLOSE_DELAY);
-  }
-
-  let mouseX = -1, mouseY = -1;
-
-  document.addEventListener('mousemove', (e) => {
-    if (isSearchOpen()) return;
-    if (document.body.style.overflow === 'hidden') return;
-
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-
-    const hover = MEGA_MENUS.find((m) => {
-      const r = m.link.getBoundingClientRect();
-      return e.clientX >= r.left && e.clientX <= r.right &&
-             e.clientY >= r.top && e.clientY <= r.bottom;
-    });
-    if (hover) {
-      if (hover === current) {
-        clearTimeout(hideTimer);
-        annullaApertura();
-      } else if (current) {
-        /* un pannello è già aperto: il cambio tra link resta immediato */
-        apriMenu(hover);
-      } else {
-        /* nessun pannello aperto: apre solo se il mouse resta sul link */
-        programmaApertura(hover, () => apriMenu(hover));
-      }
-      return;
-    }
-
-    const hoverOnly = HOVER_ONLY_LINKS.find((a) => {
-      const r = a.getBoundingClientRect();
-      return e.clientX >= r.left && e.clientX <= r.right &&
-             e.clientY >= r.top && e.clientY <= r.bottom;
-    });
-    if (hoverOnly) {
-      if (current || header.classList.contains('menu-open')) {
-        /* header già chiaro: cambio immediato */
-        annullaApertura();
-        chiudiPannelloMaTieniHeader();
-        header.classList.add('menu-open');
-      } else {
-        /* barra a riposo: l'header si schiarisce solo se il mouse resta */
-        programmaApertura(hoverOnly, () => header.classList.add('menu-open'));
-      }
-      return;
-    }
-
-    /* il puntatore non è su nessun elemento della nav: annulla aperture in attesa */
-    annullaApertura();
-
-    if (puntatoreDentroAreeSicure(e.clientX, e.clientY)) {
-      clearTimeout(hideTimer);
-      return;
-    }
-
-    if (!current && !header.classList.contains('menu-open')) return;
-    programmaChiusura();
-  }, { passive: true });
-
-  MEGA_MENUS.forEach((m) => {
-
-    let lastPointerDownWasTouch = 0;
-
-    m.link.addEventListener('click', (e) => {
-      if (Date.now() - lastPointerDownWasTouch < TAP_ECHO_WINDOW) {
-        e.preventDefault();
-        return;
-      }
-      e.preventDefault();
-      clearTimeout(hideTimer);
-      if (current === m) chiudiTuttoOra();
-      else apriMenu(m);
-    });
-
-    m.link.addEventListener('pointerdown', (e) => {
-      if (e.pointerType === 'touch' || e.pointerType === 'pen') {
-        lastPointerDownWasTouch = Date.now();
-        e.preventDefault();
-        clearTimeout(hideTimer);
-        if (current === m) chiudiTuttoOra();
-        else apriMenu(m);
-      }
-    }, { passive: false });
-
-    m.link.addEventListener('focus', () => {
-      if (m.link.matches(':focus-visible')) apriMenu(m);
-    });
-
-  });
-
-  document.addEventListener('click', (e) => {
-    if (!header.contains(e.target)) chiudiTuttoOra();
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') chiudiTuttoOra();
-  });
-
+/* Header scrollato: resta com'era (la parte hover del vecchio megamenu è
+   stata tolta il 7 nov, il menu ora si apre solo con il bottone MENU). */
+if (header) {
   header.classList.toggle('scrolled', window.scrollY > 20);
-
   window.addEventListener('scroll', () => {
-    if (current || header.classList.contains('menu-open')) return;
+    if (header.classList.contains('menu-open')) return;
     if (window.scrollY > 20) header.classList.add('scrolled');
     else header.classList.remove('scrolled');
   });
 }
+
+/* ============================================================
+   MENU FISSO STILE BOTTEGA VENETA (7 nov)
+   Bottone MENU → pannello laterale con tab Abbigliamento | Accessori | Outlet.
+   Chiusura: X, Esc, clic sull'overlay, apertura di un altro pannello,
+   passaggio sotto 1025px. Focus trap e ritorno del focus su MENU.
+   ============================================================ */
+(function () {
+  const btn = document.querySelector('.nav-menu-btn');
+  const panel = document.getElementById('megamenuFixed');
+  if (!btn || !panel) return;
+
+  const overlay = document.getElementById('megamenuOverlay');
+  const closeBtn = document.getElementById('megamenuClose');
+  const tabs = Array.from(panel.querySelectorAll('[role="tab"]'));
+  const panes = Array.from(panel.querySelectorAll('[data-tab-panel]'));
+  const desktop = window.matchMedia('(min-width: 1025px)');
+  let isOpen = false;
+
+  function selectTab(tab, moveFocus) {
+    tabs.forEach((t) => {
+      const on = t === tab;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
+    });
+    panes.forEach((p) => { p.hidden = p.id !== tab.getAttribute('aria-controls'); });
+    if (moveFocus) tab.focus();
+  }
+
+  function focusables() {
+    return Array.from(panel.querySelectorAll('a[href], button:not([disabled]), [tabindex]'))
+      .filter((el) => el.tabIndex >= 0 && el.offsetParent !== null);
+  }
+
+  function open() {
+    if (isOpen) return;
+    closeOtherPanels();
+    isOpen = true;
+    panel.classList.add('open');
+    if (overlay) overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    btn.setAttribute('aria-expanded', 'true');
+    const active = tabs.find((t) => t.getAttribute('aria-selected') === 'true') || tabs[0];
+    requestAnimationFrame(() => { if (isOpen && active) active.focus(); });
+  }
+
+  function close(returnFocus) {
+    if (!isOpen) return;
+    isOpen = false;
+    panel.classList.remove('open');
+    if (overlay) overlay.classList.remove('active');
+    document.body.style.overflow = '';
+    btn.setAttribute('aria-expanded', 'false');
+    if (returnFocus) btn.focus();
+  }
+
+  /* Se si apre un altro pannello (carrello, ricerca, boutique…) questo si chiude */
+  const closeOtherPanels = PanelManager.register(() => close(false));
+
+  btn.addEventListener('click', () => { if (isOpen) close(true); else open(); });
+  if (closeBtn) closeBtn.addEventListener('click', () => close(true));
+  if (overlay) overlay.addEventListener('click', () => close(true));
+
+  tabs.forEach((tab, i) => {
+    tab.addEventListener('click', () => selectTab(tab, false));
+    tab.addEventListener('keydown', (e) => {
+      let next = null;
+      if (e.key === 'ArrowRight') next = tabs[(i + 1) % tabs.length];
+      else if (e.key === 'ArrowLeft') next = tabs[(i - 1 + tabs.length) % tabs.length];
+      else if (e.key === 'Home') next = tabs[0];
+      else if (e.key === 'End') next = tabs[tabs.length - 1];
+      if (next) { e.preventDefault(); selectTab(next, true); }
+    });
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (!isOpen) return;
+    if (e.key === 'Escape') { close(true); return; }
+    if (e.key !== 'Tab') return;
+    const f = focusables();
+    if (!f.length) return;
+    const first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && (document.activeElement === first || !panel.contains(document.activeElement))) {
+      e.preventDefault(); last.focus();
+    } else if (!e.shiftKey && (document.activeElement === last || !panel.contains(document.activeElement))) {
+      e.preventDefault(); first.focus();
+    }
+  });
+
+  const onBreakpoint = () => { if (!desktop.matches) close(false); };
+  if (desktop.addEventListener) desktop.addEventListener('change', onBreakpoint);
+  else if (desktop.addListener) desktop.addListener(onBreakpoint);
+})();
 
 /* ============================================================
    CAROSELLO TOPBAR
