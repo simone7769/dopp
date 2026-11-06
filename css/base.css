@@ -2077,24 +2077,6 @@ footer {
 }
 
 /* ============================================================
-   SCROLL PROGRESS
-   ============================================================ */
-#scrollProgress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 2px;
-  width: 0%;
-  background-color: var(--gold);
-  z-index: 2000;
-  transition: width 0.1s linear;
-  pointer-events: none;
-}
-@media (prefers-reduced-motion: reduce) {
-  #scrollProgress { transition: none; }
-}
-
-/* ============================================================
    HEADER CHIARO — pagine interne
    ============================================================ */
 :where(body.header-light) header {

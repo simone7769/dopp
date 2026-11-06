@@ -1464,33 +1464,6 @@ function creaJournalCard(articolo, variante) {
 })();
 
 /* ============================================================
-   SCROLL PROGRESS
-   ============================================================ */
-(function () {
-  const bar = document.createElement('div');
-  bar.id = 'scrollProgress';
-  bar.setAttribute('aria-hidden', 'true');
-  document.body.appendChild(bar);
-
-  let raf = null;
-  function update() {
-    raf = null;
-    const doc = document.documentElement;
-    const max = doc.scrollHeight - doc.clientHeight;
-    const pct = max > 0 ? (doc.scrollTop / max) * 100 : 0;
-    bar.style.width = pct + '%';
-  }
-  function schedule() {
-    if (raf) return;
-    raf = requestAnimationFrame(update);
-  }
-
-  update();
-  window.addEventListener('scroll', schedule, { passive: true });
-  window.addEventListener('resize', schedule, { passive: true });
-})();
-
-/* ============================================================
    ALTEZZA HEADER DINAMICA
    Espone --header-h = altezza reale dell'header visibile.
 
