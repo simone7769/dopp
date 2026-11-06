@@ -646,6 +646,6 @@
      ignorano il padding destro di un contenitore che scorre. */
   .category-bar-track::after { content: ""; flex: 0 0 6px; height: 1px; }
   .category-bar-arrow { width: 56px; }
-  .category-bar-arrow--next { padding-right: 18px; }
-  .category-bar-arrow--prev { padding-left: 18px; }
+  .category-bar-arrow--next { padding-right: 25px; }
+  .category-bar-arrow--prev { padding-left: 24px; }
 }
