@@ -7,14 +7,14 @@
 .hero {
   position: relative;
   z-index: 1;
-  padding: 45px 50px 6px;
-  text-align: center;
+  padding: 27px var(--hero-gutter) 6px;
+  text-align: left;
   background-color: var(--paper);
   color: var(--ink);
 }
 .hero-inner {
-  margin: 0 auto;
-  max-width: 900px;
+  margin: 0;
+  max-width: none;
 }
 .hero h1 {
   font-family: var(--serif);
@@ -101,7 +101,7 @@
 
 /* --- RESPONSIVE --- */
 @media (max-width: 1200px) {
-  .hero { padding: 16px 30px 18px; }
+  .hero { padding: 16px var(--hero-gutter) 18px; }
   .looks-wrap { padding: 10px 30px 80px; }
   .looks-grid { gap: 60px 36px; }
   .looks-grid + .looks-grid { margin-top: 40px; }
@@ -109,7 +109,7 @@
 }
 
 @media (max-width: 1024px) {
-  .hero { padding: 13px 24px 14px; }
+  .hero { padding: 13px var(--hero-gutter) 14px; }
   .looks-wrap { padding: 8px 24px 60px; }
   .looks-grid { gap: 50px 24px; }
   .looks-grid + .looks-grid { margin-top: 30px; }
@@ -118,7 +118,7 @@
 
 @media (max-width: 640px) {
   /* Margine laterale mobile uniforme: 16px (come la home) */
-  .hero,
+  .hero { padding-left: var(--hero-gutter); padding-right: var(--hero-gutter); }
   .looks-wrap { padding-left: 16px; padding-right: 16px; }
   /* Titolo su mobile: 21px sopra / 10px sotto (uguale a collezioni e Journal) */
   .hero { padding-top: 21px; padding-bottom: 10px; }

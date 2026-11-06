@@ -5,9 +5,9 @@
 
 /* --- Hero --- */
 .app-hero .hero-inner {
-  max-width: 900px;
-  margin: 0 auto;
-  text-align: center;
+  max-width: none;
+  margin: 0;
+  text-align: left;
 }
 
 

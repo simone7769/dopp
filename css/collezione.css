@@ -6,8 +6,8 @@
   z-index: 1;
   min-height: auto;
   display: block;
-  padding: 20px 50px 6px;   /* titolo centrato otticamente tra header e toolbar (misurato sull'inchiostro) */
-  text-align: center;
+  padding: 20px var(--hero-gutter) 6px;   /* titolo a sinistra come MENU */
+  text-align: left;
   background-color: var(--paper);
   color: var(--ink);
 }
@@ -29,19 +29,19 @@
 
 @media (max-width: 1100px) {
   .hero {
-    padding: 17px 30px 2px;
+    padding: 17px var(--hero-gutter) 2px;
     min-height: auto;
   }
 }
 
 @media (max-width: 1024px) {
   /* la toolbar qui è più alta: il titolo scende di qualche px per restare al centro */
-  .hero { padding: 19px 30px 0; }
+  .hero { padding: 19px var(--hero-gutter) 0; }
   .hero h1 { top: 2px; }   /* ~27px sopra e sotto (prima 40 / 13) */
 }
 
 @media (max-width: 640px) {
-  .hero { padding: 10px 16px 6px; }
+  .hero { padding: 10px var(--hero-gutter) 6px; }
   /* Su mobile il titolo torna nascosto */
   .hero h1 {
     width: 1px;

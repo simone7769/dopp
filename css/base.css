@@ -238,6 +238,13 @@ header.menu-open .topbar-message {
 :root {
   --nav-pad: 50px;   /* header, desktop */
   --wrap-pad: 0px;   /* griglia prodotti (edge-to-edge pieno) */
+  /* Margine sinistro dei titoli di pagina (.hero h1): stessa x del bottone MENU,
+     che sta dentro .nav (max-width 1600px centrato, padding --nav-pad).
+     Le % si risolvono sulla larghezza dell'elemento che lo usa (.hero, a tutta larghezza). */
+  --hero-gutter: max(var(--nav-pad), calc((100% - 1600px) / 2 + var(--nav-pad)));
+}
+@media (max-width: 1024px) {
+  :root { --hero-gutter: 28px; }
 }
 @media (max-width: 1200px) {
   :root { --nav-pad: 24px; }
