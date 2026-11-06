@@ -429,7 +429,7 @@ header.menu-open .topbar-message {
 
 .mm-fixed {
   position: fixed;
-  top: 0;
+  top: var(--topbar-h);
   left: 0;
   bottom: 0;
   width: min(1200px, 85vw);
@@ -454,6 +454,7 @@ header.menu-open .topbar-message {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
+  margin-top: -1px;
   padding: 24px var(--nav-pad) 0;
   border-top: 1px solid var(--gold);
   border-bottom: 1px solid var(--line);
