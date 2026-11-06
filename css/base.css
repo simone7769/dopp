@@ -179,7 +179,7 @@ header.menu-open .topbar-message {
   align-items: center;
   justify-content: center;
   gap: 40px;
-  padding: 4px 20px 8px;
+  padding: 7px 20px 8px;
   position: relative;
   transition: background var(--t-base) var(--ease), color var(--t-base) var(--ease), border-color var(--t-base) var(--ease), height var(--t-base) var(--ease), padding var(--t-base) var(--ease), opacity var(--t-base) var(--ease);
   color: var(--paper);
@@ -203,7 +203,7 @@ header.menu-open .topbar-message {
   justify-content: center;
   font-family: var(--sans);
   font-size: var(--fs-12);
-  font-weight: 300;
+  font-weight: 400;
   letter-spacing: var(--tr-03);
   text-align: center;
   white-space: nowrap;
