@@ -18,14 +18,14 @@
 .filters-drawer {
   position: fixed;
   top: 0;
-  right: 0;
+  left: 0;
   height: 100vh;
   height: 100dvh;
   width: 440px;
   max-width: 94vw;
   background: var(--crema-pannelli);
   z-index: 1300;
-  transform: translateX(100%);
+  transform: translateX(-100%);
   transition: transform var(--t-base) var(--ease-out);
   display: flex;
   flex-direction: column;
