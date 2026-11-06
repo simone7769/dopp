@@ -1786,7 +1786,10 @@ window.WishlistStore = (function () {
               window.matchMedia('(pointer: coarse)').matches;
   if (!touch) return;
   function rimuovi() {
-    document.querySelectorAll('.img-hover').forEach(function (el) { el.remove(); });
+    /* Su touch nasconde .img-hover con display:none invece di rimuoverla:
+       così il drawer del «+» la trova nel DOM e mostra sempre 2 foto.
+       Visivamente è identico (nascosta), ma resta disponibile al drawer. */
+    document.querySelectorAll('.img-hover').forEach(function (el) { el.style.display = 'none'; });
   }
   rimuovi();
   window.dgTouchNoHover = rimuovi;
