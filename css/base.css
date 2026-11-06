@@ -517,12 +517,8 @@ header.menu-open .topbar-message {
   text-align: center;
   margin: 0 0 20px;
   width: 100%;
-  border-top: 0.5px solid var(--gold);
-  border-bottom: 0.5px solid var(--gold);
   flex-shrink: 0;
 }
-.mobile-menu-list li { border-bottom: 0.5px solid var(--gold); }
-.mobile-menu-list li:last-child { border-bottom: none; }
 
 .mobile-menu-list > li > a {
   display: block;
