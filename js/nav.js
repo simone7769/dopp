@@ -62,12 +62,46 @@ function releaseHeaderIfFree() {
 /* Header scrollato: resta com'era (la parte hover del vecchio megamenu è
    stata tolta il 7 nov, il menu ora si apre solo con il bottone MENU). */
 if (header) {
-  header.classList.toggle('scrolled', window.scrollY > 20);
+  let lastScroll = 0;
+  let ticking = false;
+  const THRESHOLD = 10; // px di movimento minimo per cambiare stato
+
+  function onScroll() {
+    const currentScroll = window.scrollY;
+
+    // Classe scrolled (cambia colore sfondo/icone)
+    if (currentScroll > 20) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+
+    // Hide-on-scroll
+    // Non nascondere se un pannello/drawer/modale è aperto
+    const isModalOpen = document.body.style.overflow === 'hidden' || header.classList.contains('menu-open');
+    
+    if (!isModalOpen) {
+      const delta = currentScroll - lastScroll;
+      if (Math.abs(delta) > THRESHOLD) {
+        if (currentScroll > 100 && delta > 0) {
+          // Scroll in giù: nascondi
+          header.classList.add('hidden');
+        } else if (delta < 0 || currentScroll < 50) {
+          // Scroll in su o in cima: mostra
+          header.classList.remove('hidden');
+        }
+        lastScroll = currentScroll;
+      }
+    }
+    ticking = false;
+  }
+
   window.addEventListener('scroll', () => {
-    if (header.classList.contains('menu-open')) return;
-    if (window.scrollY > 20) header.classList.add('scrolled');
-    else header.classList.remove('scrolled');
-  });
+    if (!ticking) {
+      window.requestAnimationFrame(onScroll);
+      ticking = true;
+    }
+  }, { passive: true });
 }
 
 /* ============================================================
