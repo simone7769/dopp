@@ -1,0 +1,299 @@
+/* ============================================================
+   QUICK ADD — drawer del «+» sulle card (6 nov)
+   ------------------------------------------------------------
+   Sostituisce il pannellino dentro la card. Una sola fonte per
+   collezioni e vetrina (prima la regola era copiata in
+   collezione.css e vetrina.css).
+
+   Desktop (>900px): drawer da destra, largo circa metà schermo
+     (min 720px, max 960px), a due colonne come COS:
+     · sinistra  .quick-add-gallery  foto della scheda, scorrono in verticale
+     · destra    .quick-add-info     titolo, prezzo, colore, taglie, CTA,
+                                     «Dettagli del prodotto»; scorre da sola
+   Tablet e mobile (<=900px): tutta larghezza, una colonna
+     (foto in striscia orizzontale sopra, info sotto).
+
+   Il drawer è creato e distrutto da js/quick-add.js, che lo appende
+   al <body>: così nessun antenato della card (transform, overflow,
+   z-index) può tagliarlo. Carrello e login restano com'erano.
+   ============================================================ */
+
+.quick-add-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--t-base) var(--ease), visibility var(--t-base) var(--ease);
+  z-index: 1200;
+}
+.quick-add-overlay.active { opacity: 1; visibility: visible; }
+
+.quick-add {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1300;
+  box-sizing: border-box;
+  width: clamp(720px, 50vw, 960px);
+  max-width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  background: var(--crema-pannelli);
+  color: var(--ink);
+  font-family: var(--sans);
+  overflow: hidden;
+  transform: translateX(100%);
+  transition: transform var(--t-base) var(--ease-out);
+}
+.quick-add.open { transform: translateX(0); }
+
+/* Corpo: due colonne a tutta altezza, ognuna con il proprio scroll */
+.quick-add-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  height: 100%;
+  min-height: 0;
+}
+
+/* ---------- Colonna sinistra: foto ---------- */
+.quick-add-gallery {
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+  background: var(--paper-alt);
+}
+.quick-add-gallery::-webkit-scrollbar { display: none; }
+.quick-add-gallery:focus-visible { outline: 1px solid var(--ink); outline-offset: -4px; }
+.quick-add-gallery img,
+.quick-add-gallery video {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: var(--paper-alt);
+}
+/* Spazio verticale tra una foto e l'altra (nessun padding laterale) */
+.quick-add-gallery img + img,
+.quick-add-gallery img + video,
+.quick-add-gallery video + img {
+  margin-top: 6px;
+}
+
+/* ---------- Colonna destra: informazioni ---------- */
+.quick-add-info {
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 28px 32px 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+.quick-add-title {
+  margin: 0 0 12px;
+  padding-right: var(--touch-target, 44px); /* spazio per la × */
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: var(--fs-24);
+  line-height: 1.3;
+  color: var(--ink);
+}
+.quick-add-price {
+  margin: 0 0 24px;
+  font-family: var(--sans);
+  font-size: var(--fs-pdp-price);
+  font-weight: var(--fw-price);
+  letter-spacing: var(--tr-03);
+  color: var(--ink);
+}
+/* Prezzo scontato (outlet): stessi colori delle card */
+.quick-add-price .price-block { display: flex; align-items: baseline; gap: 12px; margin: 0; flex-wrap: wrap; }
+.quick-add-price .price-old { font-family: var(--sans); font-size: var(--fs-16); font-weight: 300; color: var(--ink-soft); text-decoration: line-through; }
+.quick-add-price .price-now { font-family: var(--sans); font-size: var(--fs-pdp-price); font-weight: var(--fw-price); color: var(--danger); letter-spacing: var(--tr-03); }
+.quick-add-price .price-off { font-family: var(--sans); font-size: var(--fs-14); font-weight: 400; color: var(--danger); letter-spacing: 1px; }
+
+.quick-add-label {
+  margin: 36px 0 10px;
+  font-family: var(--sans);
+  font-size: var(--fs-11);
+  font-weight: 400;
+  letter-spacing: var(--tr-1);
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+/* Colore */
+.quick-add-colors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.quick-add-colors button {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 36px;
+  padding: 2px;
+  border: 1px solid transparent;
+  border-radius: 0;
+  background: transparent;
+  cursor: pointer;
+  transition: border-color var(--t-fast) var(--ease);
+}
+.quick-add-colors button span { display: block; width: 100%; height: 100%; }
+.quick-add-colors button.selected { border-color: var(--ink); }
+.quick-add-colors button:focus-visible { outline: 1px solid var(--ink); outline-offset: 2px; }
+@media (hover: hover) {
+  .quick-add-colors button:hover { border-color: var(--ink); }
+}
+
+/* Taglie: griglia a 4 colonne con filetti, come COS */
+.quick-add-sizes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.quick-add-sizes li { display: block; }
+.quick-add-sizes button {
+  min-width: var(--touch-target, 44px);
+  min-height: var(--touch-target, 44px);
+  padding: 0 10px;
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: var(--fs-12);
+  cursor: pointer;
+}
+.quick-add-sizes button:focus-visible { outline: 1px solid var(--ink); outline-offset: -4px; }
+.quick-add-sizes button.selected { background: var(--ink); color: #fff; }
+@media (hover: hover) {
+  .quick-add-sizes button:not(.selected):hover { background: rgba(0, 0, 0, 0.04); }
+}
+.quick-add-sizes.has-error { border-color: var(--danger); }
+.quick-add-sizes.has-error button { border-color: var(--danger); }
+.quick-add-error {
+  margin: 8px 0 0;
+  font-size: var(--fs-12);
+  color: var(--danger);
+}
+
+/* CTA e link alla scheda */
+.quick-add-cta {
+  width: 100%;
+  height: 52px;
+  margin-top: 36px;
+  border: 1px solid var(--ink);
+  border-radius: 0;
+  background: var(--ink);
+  color: #fff;
+  font-family: var(--sans);
+  font-size: var(--fs-12);
+  font-weight: 400;
+  letter-spacing: var(--tr-15);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background var(--t-fast) var(--ease), color var(--t-fast) var(--ease);
+}
+.quick-add-cta:hover:not(:disabled) { background: transparent; color: var(--ink); }
+.quick-add-cta:focus-visible { outline: 1px solid var(--ink); outline-offset: 3px; }
+.quick-add-cta:disabled { cursor: default; }
+
+.quick-add-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 24px;
+  padding: 18px 2px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  font-family: var(--sans);
+  font-size: var(--fs-12);
+  letter-spacing: var(--tr-1);
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+}
+.quick-add-details::after { content: "\2009\203A"; }
+.quick-add-details:hover { text-decoration: underline; text-underline-offset: 4px; }
+.quick-add-details:focus-visible { outline: 1px solid var(--ink); outline-offset: 3px; }
+
+/* ---------- Chiudi (×) ---------- */
+.quick-add-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--touch-target, 44px);
+  height: var(--touch-target, 44px);
+  padding: 0;
+  border: none;
+  background: transparent;
+  font-family: var(--sans);
+  font-size: var(--fs-26);
+  font-weight: 300;
+  line-height: 1;
+  color: var(--ink);
+  cursor: pointer;
+  transition: opacity var(--t-fast) var(--ease);
+}
+.quick-add-close:hover { opacity: 0.5; }
+.quick-add-close:focus-visible { outline: 1px solid var(--ink); outline-offset: -6px; }
+
+/* ============================================================
+   TABLET E MOBILE (<=900px): una colonna, a tutta larghezza
+   Foto in striscia orizzontale sopra, info sotto; scorre tutto il corpo.
+   ============================================================ */
+@media (max-width: 900px) {
+  .quick-add { width: 100vw; }
+  .quick-add-body {
+    display: block;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+  .quick-add-gallery {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  .quick-add-gallery img,
+  .quick-add-gallery video {
+    flex: 0 0 86%;
+    width: 86%;
+    scroll-snap-align: start;
+  }
+  .quick-add-info {
+    overflow: visible;
+    padding: 24px 20px max(28px, env(safe-area-inset-bottom));
+  }
+  .quick-add-label { margin-top: 28px; }
+  .quick-add-cta { margin-top: 28px; }
+  /* La × sta sopra le foto: serve uno sfondo per vederla */
+  .quick-add-close {
+    top: 8px;
+    right: 8px;
+    border-radius: 50%;
+    background: rgba(250, 248, 245, 0.9);
+  }
+}
+
+/* Una sola foto: a tutta larghezza anche in striscia */
+@media (max-width: 900px) {
+  .quick-add-gallery--single img,
+  .quick-add-gallery--single video { flex-basis: 100%; width: 100%; }
+}
