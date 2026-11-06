@@ -454,8 +454,10 @@ header.menu-open .topbar-message {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
+  margin-top: calc(var(--topbar-h) - 1px);
   padding: 24px var(--nav-pad) 0;
-  border-bottom: 1px solid var(--line);
+  border-top: 1px solid var(--gold);
+  border-bottom: none;
   flex-shrink: 0;
 }
 .mm-nav { display: flex; align-items: center; gap: 40px; }
