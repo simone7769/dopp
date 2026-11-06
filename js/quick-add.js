@@ -79,7 +79,11 @@
       el.setAttribute('playsinline', '');
       el.setAttribute('aria-label', f.alt || nome);
     } else {
-      if (f.w && f.h) { el.width = +f.w; el.height = +f.h; }
+      if (f.w && f.h) {
+        el.setAttribute('width', f.w);
+        el.setAttribute('height', f.h);
+        el.style.aspectRatio = f.w + ' / ' + f.h;
+      }
       el.alt = f.alt || (nome + ' \u2013 foto ' + (i + 1));
       el.decoding = 'async';
       if (i > 0) el.loading = 'lazy';
