@@ -399,3 +399,12 @@ Colori nelle card = chip nel drawer (6: beige, bianco, blu, grigio, marrone, ner
 ### Drawer quick-add: padding interni rivisti
 
 Mobile e tablet (≤900px): titolo margin 6→10, prezzo 12→16, label (gap prezzo-colore) 16→6, dettagli 16→20, CTA height 60→56. Tablet: info padding top 20→24. Il drawer resta 80vh (mobile) e 90vh (tablet), l'altezza è invariata.
+
+### Gerarchia tipografica toolbar collezioni
+
+Su desktop (1440px) la toolbar delle collezioni ora ha:
+- **Menu principale** (nav): 13px
+- **Categorie** (`category-bar-item`): 13px (allineate al menu)
+- **"Filtra e ordina"**: 12px (azione utility, un gradino sotto)
+
+Anche la pagina **Looks** ha il titolo con tracking 2px (allineato a collezioni e articoli Journal). Il Journal indice ha il titolo nascosto (solo SEO), quindi non impatta visivamente.

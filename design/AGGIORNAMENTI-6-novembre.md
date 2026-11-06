@@ -125,3 +125,17 @@ Rivisti i padding interni su mobile e tablet (≤900px):
 L'altezza del drawer è invariata: 80vh mobile, 90vh tablet. Solo il respiro interno è cambiato.
 
 **File**: `css/quick-add.css`.
+
+---
+
+## Gerarchia tipografica toolbar collezioni
+
+**Modifica**: `.category-bar-item` da 14px a 13px, `.filtri-bar` da 14px a 12px. Anche `.hero h1` in `looks.css` allineato a tracking 2px (era 4px).
+
+| Elemento | Font-size | Ruolo |
+|---|---|---|
+| Menu principale | 13px | Navigazione top-level |
+| Categorie | 13px | Contenuto (navigazione filtro) |
+| "Filtra e ordina" | 12px | Azione utility |
+
+**File**: `css/collezione.css` (2 righe), `css/looks.css` (1 riga).
