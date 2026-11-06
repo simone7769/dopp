@@ -186,7 +186,7 @@
       const disponibile = card.dataset.available !== 'false';
       const taglie = (card.dataset.size || '').split(/\s+/).filter(Boolean);
       const colori = (card.dataset.color || '').split(/\s+/).filter(Boolean);
-      const tipi = (card.dataset.type || '').split(/\s+/).filter(Boolean);
+      const tipi = card.dataset.type ? [card.dataset.type] : [];
 
       let ok = true;
       if (stato.availableOnly && !disponibile) ok = false;
