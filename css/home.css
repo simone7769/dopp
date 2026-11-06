@@ -155,7 +155,6 @@ html { scroll-snap-type: y proximity; scroll-padding-top: var(--header-h, 170px)
   display: flow-root;
   padding: 0;
   text-align: center;
-  border-bottom: 2px solid var(--gold, #B8935A);
 }
 
 /* Frame a tutta larghezza, proporzione identica alla foto (1616x899) */
