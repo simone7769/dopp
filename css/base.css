@@ -2704,3 +2704,22 @@ p a, span a, li a, .footer-privacy a, .footer-consent a,
   .products-grid[data-cols="3"] .product-card .card-arrow,
   .products-grid[data-cols="3"] .product-card .card-progress { display: none; }
 }
+
+/* ============================================================
+   BOTTONE MENU (header desktop, sinistra)
+   ============================================================ */
+.nav-menu-btn {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  font-family: var(--sans);
+  font-size: var(--fs-13);
+  font-weight: 400;
+  letter-spacing: var(--tr-1);
+  text-transform: uppercase;
+  color: currentColor;
+  cursor: pointer;
+  transition: opacity var(--t-fast) var(--ease);
+}
+.nav-menu-btn:hover { opacity: 0.6; }
+.nav-menu-btn:focus-visible { outline: 1px solid currentColor; outline-offset: 4px; }

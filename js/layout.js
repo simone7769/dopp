@@ -48,7 +48,9 @@
     </div>\
   </div>\
   <nav class="nav">\
-    <div class="nav-left"></div>\
+    <div class="nav-left">\
+      <button class="nav-menu-btn" id="navMenuBtn" type="button" aria-label="Apri menu" aria-expanded="false">Menu</button>\
+    </div>\
     <ul class="nav-center">\
       <li><a href="ai-2026.html">Nuovi Arrivi</a></li>\
       <li><a href="#" id="linkAbbigliamento" aria-haspopup="true" aria-expanded="false">Abbigliamento</a></li>\
