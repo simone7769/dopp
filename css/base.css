@@ -2637,9 +2637,11 @@ footer {
   .mobile-menu-extra a { font-size: var(--fs-14); }
 }
 
-/* Correzione ottica allineamento verticale logo (compensa spazio SVG e padding menu) */
+/* Logo in .nav: allineato alle icone (align-items: center del grid).
+   Il vecchio translateY(10px) serviva al logo in .header-main, che su
+   desktop è nascosto (display: none) e non ha più bisogno della compensazione. */
 @media (min-width: 1025px) {
-  .logo { transform: translateY(10px); }
+  .logo-link--nav .logo { transform: none; }
 }
 
 
