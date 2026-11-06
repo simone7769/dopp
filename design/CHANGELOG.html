@@ -218,15 +218,15 @@
 
   <div class="meta">
     <div>
-      <span class="val">674</span>
+      <span class="val">691</span>
       <span class="lbl">Commit</span>
     </div>
     <div>
-      <span class="val">453</span>
+      <span class="val">492</span>
       <span class="lbl">File modificati</span>
     </div>
     <div>
-      <span class="val">54737</span>
+      <span class="val">55777</span>
       <span class="lbl">Righe aggiunte</span>
     </div>
   </div>
@@ -425,6 +425,67 @@
     <li>Corretto tracking su Info Bar (Sartoria) per coerenza tipografica.</li>
   </ul>
 </div>
+
+  <h2>33. Aggiornamento del 6 novembre 2026 (drawer, articoli simili, oro) <span class="count">17 commit</span></h2>
+
+  <p style="font-size: 13px; color: var(--ink-soft); text-align: center; margin-bottom: 10px;">6 novembre 2026 · 39 file, +1040 / −1225</p>
+
+  <div class="commit">
+    <code>fafc953</code><span class="msg">Style badge: badge verticali stile COS (scala fluida, colori semantici, popup simili)</span>
+  </div>
+  <div class="commit">
+    <code>29755cc</code><span class="msg">Feat slider: slider su tutte le card delle collezioni, ResizeObserver per switch colonne, 11 immagini 3:4</span>
+  </div>
+  <div class="commit">
+    <code>eb410fc</code><span class="msg">Feat quick-add: drawer a 2 colonne, CSS centralizzato, titolo serif e taglie allineate a PDP</span>
+  </div>
+  <div class="commit">
+    <code>e9ba473</code><span class="msg">Refactor: eliminato completamente il pulsante e il popup Articoli Simili (HTML+CSS+JS) — 3 file cancellati</span>
+  </div>
+  <div class="commit">
+    <code>e96eafd</code><span class="msg">Fix quick-add: width/height espliciti e aspect-ratio inline sulle immagini del drawer (CLS)</span>
+  </div>
+  <div class="commit">
+    <code>3644880</code><span class="msg">Style quick-add: drawer mobile+tablet definitivo (bottom sheet, grid 50/50, aspect-ratio 4/3 tablet, X pulita, CTA fisso)</span>
+  </div>
+  <div class="commit">
+    <code>be2f2b0</code><span class="msg">Chore quick-add: pulizia CSS (rimossi !important, aggiunta regola per foto singola)</span>
+  </div>
+  <div class="commit">
+    <code>e2fe58a</code><span class="msg">Feat vetrina: slider condiviso (CSS in base.css), card uniformate alle collezioni</span>
+  </div>
+  <div class="commit">
+    <code>3476267</code><span class="msg">Fix quick-add: allinea le due foto affiancate (reset margin-top globale)</span>
+  </div>
+  <div class="commit">
+    <code>23fd45d</code><span class="msg">Fix quick-add: desktop mostra tutte le immagini della galleria, mobile solo still-life</span>
+  </div>
+  <div class="commit">
+    <code>45bb4f2</code><span class="msg">Fix nav: su touch nasconde .img-hover invece di rimuoverla (drawer mostra sempre 2 foto)</span>
+  </div>
+  <div class="commit">
+    <code>d60b0f1</code><span class="msg">Fix vetrina: T-shirt mostra il fronte come prima foto (cap1↔cap2)</span>
+  </div>
+  <div class="commit">
+    <code>58fda83</code><span class="msg">Style: ridotto uso dell'oro (13 linee decorative → grigio neutro, focus/link/attivi restano oro)</span>
+  </div>
+  <div class="commit">
+    <code>511bdc3</code><span class="msg">Refactor: rimossa barra di progresso scroll (#scrollProgress), non usata</span>
+  </div>
+  <div class="commit">
+    <code>952b6a0</code><span class="msg">Style home: rimossa linea oro sotto la boiserie (.collection)</span>
+  </div>
+  <div class="commit">
+    <code>194b1cb</code><span class="msg">Style menu: rimosse le 3 linee oro dal menu mobile (principali pulite, secondarie con linee grigie)</span>
+  </div>
+  <div class="commit">
+    <code>099621d</code><span class="msg">Style topbar: altezza 36px (33→36), testo 12px weight 400, centratura perfetta</span>
+  </div>
+
+  <div style="margin-top: 24px; padding: 16px 0; border-top: 1px solid var(--line); font-size: 13px; color: var(--ink-soft);">
+    <strong>Eliminati:</strong> <code>css/cerimonia.css</code>, <code>css/similar-modal.css</code>, <code>js/similar-popup.js</code><br>
+    <strong>Nuovi:</strong> <code>css/quick-add.css</code>, <code>js/card-slider.js</code>, <code>design/AGGIORNAMENTI-6-novembre.md</code>, 11 immagini <code>images/*11.webp</code>
+  </div>
 
   <h2>32. Aggiornamento del 5 novembre 2026 (pulizia CSS) <span class="count">11 voci</span></h2>
 
