@@ -108,9 +108,9 @@ header {
 }
 
 header.scrolled {
-  background-color: var(--crema-pannelli);
+  background-color: var(--paper);
   color: var(--ink);
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: none;
 }
 header.scrolled .logo {
   filter: brightness(0) saturate(100%);
@@ -2190,7 +2190,7 @@ footer {
 :where(body.header-light) header {
   background-color: var(--crema-pannelli);
   color: var(--ink);
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: none;
 }
 :where(body.header-light) header .logo {
   filter: brightness(0) saturate(100%);

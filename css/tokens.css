@@ -21,7 +21,7 @@
   /* Fondi */
   --paper:            #FCFCFB; /* sfondo di ogni pagina, segnaposto immagini */
   --paper-alt:        #F5F5F5; /* segnaposto carrello e preferiti */
-  --crema-pannelli:   #FAF8F5; /* header scrollato, menu, pannelli laterali */
+  --crema-pannelli:   #FCFCFB; /* allineato a --paper (7 nov) */
   --notte:            #1F1F1F; /* footer, sfondo prima del caricamento */
 
   /* Testo e linee */

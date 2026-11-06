@@ -26,7 +26,7 @@
   max-width: 616px;
   padding: 40px 56px 70px 20px;
 }
-.co-side { background: var(--crema-pannelli); border-left: 1px solid var(--line); }
+.co-side { background: var(--paper-alt); border-left: 1px solid var(--line); }
 .co-side-in {
   position: sticky;
   top: 0;
@@ -113,7 +113,7 @@
 .co-pay-opt > label span { flex: 1; font-weight: 400; }
 .co-pay-opt > label em { font-style: normal; font-size: var(--fs-11); letter-spacing: var(--tr-05); color: var(--muted); }
 .co-pay-opt input[type="radio"] { accent-color: var(--ink); width: 16px; height: 16px; }
-.co-card { display: none; padding: 4px 16px 6px; background: var(--crema-pannelli); border-top: 1px solid var(--line); }
+.co-card { display: none; padding: 4px 16px 6px; background: var(--paper-alt); border-top: 1px solid var(--line); }
 .co-card .co-field:first-child { margin-top: 14px; }
 .co-pay-opt.open .co-card { display: block; }
 .co-demo { margin-top: 10px; font-size: var(--fs-12); color: var(--muted); }
