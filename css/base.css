@@ -420,6 +420,7 @@ header.menu-open .topbar-message {
   height: 44px;
   width: fit-content;
   padding: 0;
+  position: relative;
   background: transparent;
   border: 0;
   color: inherit;
