@@ -501,17 +501,17 @@
   .products-toolbar.products-toolbar--cos {
     /* +6px padding icona header + ~2px margine nel disegno, meno i 2,2px
        di vuoto a sinistra dell'icona filtro */
-    padding-left:  calc(var(--nav-pad) - var(--wrap-pad));
+    padding-left:  calc(var(--nav-pad) - var(--wrap-pad) - 2px);
     /* l'icona griglia ha 14px di vuoto nel suo bottone da 44px:
        il suo bordo destro cade sul segno del carrello */
-    padding-right: calc(var(--nav-pad) - var(--wrap-pad) - 3px);
+    padding-right: calc(var(--nav-pad) - var(--wrap-pad) - 5px);
   }
 }
 @media (max-width: 1024px) {
   .products-toolbar.products-toolbar--cos {
     /* icona filtro sull'hamburger (28px), griglia sul carrello (29px dal bordo) */
-    padding-left:  25.3px;
-    padding-right: 15px;
+    padding-left:  26.3px;
+    padding-right: 13px;
   }
 }
 
