@@ -425,6 +425,7 @@
         <div class="filters-colors" id="filtersColors">\
           <button type="button" data-color="blu" aria-label="Blu" aria-pressed="false"><span style="background:#2b3546"></span></button>\
           <button type="button" data-color="nero" aria-label="Nero" aria-pressed="false"><span style="background:#2b2b2b"></span></button>\
+          <button type="button" data-color="bianco" aria-label="Bianco" aria-pressed="false"><span style="background:#f5f5f5;border:1px solid #ddd"></span></button>\
           <button type="button" data-color="grigio" aria-label="Grigio" aria-pressed="false"><span style="background:#8a8680"></span></button>\
           <button type="button" data-color="marrone" aria-label="Marrone" aria-pressed="false"><span style="background:#5a4633"></span></button>\
           <button type="button" data-color="beige" aria-label="Beige" aria-pressed="false"><span style="background:#c9b898"></span></button>\
