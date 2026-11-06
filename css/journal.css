@@ -43,24 +43,19 @@
 }
 .journal-filters a {
   font-family: var(--sans);
-  font-size: var(--fs-11);
+  font-size: var(--fs-12);
   font-weight: 400;
-  letter-spacing: var(--tr-3);
+  letter-spacing: var(--tr-15);
   text-transform: uppercase;
   color: var(--ink);
+  opacity: 0.55;
   text-decoration: none;
-  padding-bottom: 2px;
-  border-bottom: 1px solid transparent;
-  transition: color var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
   white-space: nowrap;
+  transition: opacity var(--t-fast) var(--ease);
 }
-.journal-filters a:hover {
-  color: var(--gold-text);
-  border-bottom-color: var(--gold);
-}
+.journal-filters a:hover,
 .journal-filters a.active {
-  color: var(--gold-text);
-  border-bottom-color: var(--gold);
+  opacity: 1;
 }
 
 /* --- GRIGLIA 4 COLONNE --- */
