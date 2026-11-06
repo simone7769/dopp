@@ -21,7 +21,10 @@
   color: var(--ink);
   margin: 0;
   position: relative;
-  top: 15px;   /* abbassa otticamente il titolo senza cambiare l'altezza della sezione */
+  /* Centro ottico tra la riga dell'header e il testo della toolbar, misurato
+     sull'inchiostro: ~31px sopra e ~30px sotto (prima 42 / 19).
+     top relativo: sposta solo il titolo, header, toolbar e griglia restano fermi. */
+  top: 4px;
 }
 
 @media (max-width: 1100px) {
@@ -34,6 +37,7 @@
 @media (max-width: 1024px) {
   /* la toolbar qui è più alta: il titolo scende di qualche px per restare al centro */
   .hero { padding: 19px 30px 0; }
+  .hero h1 { top: 2px; }   /* ~27px sopra e sotto (prima 40 / 13) */
 }
 
 @media (max-width: 640px) {
@@ -470,3 +474,178 @@
   margin-right: auto;
 }
 
+
+/* ============================================================
+   TOOLBAR STILE COS — .products-toolbar--cos (per ora solo ai-2026.html)
+   [≡ FILTRA E ORDINA] — [categorie …  ›] — [icone griglia]
+   Il contatore "15 prodotti" resta nel DOM solo per gli screen reader
+   (classe visually-hidden + aria-live): filtri.js continua ad aggiornarlo.
+   Le regole valgono solo con la classe --cos: le pagine con la toolbar
+   vecchia non cambiano.
+   Allineamenti (misurati sull'inchiostro, non sui riquadri):
+   - icona del filtro  = prima icona dell'header (globo / hamburger)
+   - ultima icona griglia = carrello
+   ============================================================ */
+.products-wrap .products-toolbar--cos .filtri-bar {
+  order: 0;
+  flex-direction: row;          /* icona prima del testo, come COS */
+  justify-content: flex-start;
+  margin-left: 0;
+  padding-left: 0;
+  padding-right: 0;
+  border-left: none;
+}
+.products-toolbar--cos .grid-switch { margin-left: auto; }
+
+@media (min-width: 1025px) {
+  .products-toolbar.products-toolbar--cos {
+    /* +6px padding icona header + ~2px margine nel disegno, meno i 2,2px
+       di vuoto a sinistra dell'icona filtro */
+    padding-left:  calc(var(--nav-pad) - var(--wrap-pad) + 5.8px);
+    /* l'icona griglia ha 14px di vuoto nel suo bottone da 44px:
+       il suo bordo destro cade sul segno del carrello */
+    padding-right: calc(var(--nav-pad) - var(--wrap-pad) - 3px);
+  }
+}
+@media (max-width: 1024px) {
+  .products-toolbar.products-toolbar--cos {
+    /* icona filtro sull'hamburger (28px), griglia sul carrello (29px dal bordo) */
+    padding-left:  25.3px;
+    padding-right: 15px;
+  }
+}
+
+/* ============================================================
+   BARRA CATEGORIE NELLA TOOLBAR (stile COS) — js/category-bar.js
+   [15 PRODOTTI] — [voci …  ›] — [icone] | [FILTRA E ORDINA]
+   Non tocca .products-count, .grid-switch, .filtri-bar né i padding
+   della toolbar: la barra è un elemento flex: 1 che prende lo spazio
+   libero tra contatore e icone (min-width: 0 = può restringersi e
+   scorrere invece di allargare la toolbar).
+   ============================================================ */
+.category-bar {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  height: 44px;               /* = altezza dello switch: la toolbar non cresce */
+  margin: 0 24px;
+  display: flex;
+  align-items: center;
+}
+.category-bar-track {
+  position: relative;         /* riferimento per offsetLeft in category-bar.js */
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  width: 100%;
+  height: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+}
+.category-bar-track::-webkit-scrollbar { display: none; }
+/* Voci centrate quando c'è spazio, allineate a sinistra quando scorrono */
+.category-bar-track > :first-child { margin-left: auto; }
+.category-bar-track > :last-child  { margin-right: auto; }
+
+.category-bar-item {
+  flex: 0 0 auto;
+  height: 100%;
+  padding: 0;
+  background: transparent;
+  border: none;
+  font-family: var(--sans);
+  font-size: var(--fs-14);
+  font-weight: 400;
+  letter-spacing: var(--tr-1);
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--ink);
+  opacity: 0.55;
+  cursor: pointer;
+  transition: opacity var(--t-fast) var(--ease);
+  -webkit-tap-highlight-color: transparent;
+}
+.category-bar-item[aria-pressed="true"] { opacity: 1; }
+.category-bar-item:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: -2px;
+  opacity: 1;
+}
+@media (hover: hover) {
+  .category-bar-item:hover { opacity: 1; }
+}
+
+/* Frecce: compaiono solo se la barra trabocca da quel lato (JS) */
+.category-bar-arrow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  width: 48px;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  border: none;
+  color: var(--ink);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.category-bar-arrow[hidden] { display: none; }
+.category-bar-arrow svg { width: 14px; height: 14px; display: block; }
+.category-bar-arrow--next {
+  right: 0;
+  justify-content: flex-end;
+  background: linear-gradient(to left, var(--paper) 55%, rgba(252, 252, 251, 0));
+}
+.category-bar-arrow--prev {
+  left: 0;
+  justify-content: flex-start;
+  background: linear-gradient(to right, var(--paper) 55%, rgba(252, 252, 251, 0));
+}
+@media (hover: hover) {
+  .category-bar-arrow:hover { opacity: 0.6; }
+}
+
+@media (max-width: 1024px) {
+  .category-bar { margin: 0 16px; }
+}
+
+/* ≤900px (stile COS): le categorie vanno SOPRA, su una riga a sé;
+   sotto restano "Filtra e ordina" a sinistra e le icone a destra.
+   La barra è fuori dal flusso flex (position: absolute) e lo spazio si
+   riserva con margin-top: così la riga filtro + icone resta identica,
+   anche a 390px dove un flex-wrap manderebbe a capo il filtro.
+   La barra scorre da bordo a bordo; il testo parte a 28px, allineato
+   all'icona del filtro e all'hamburger dell'header. */
+@media (max-width: 900px) {
+  .products-toolbar {
+    position: relative;
+    margin-top: 40px;         /* = altezza della barra */
+  }
+  .category-bar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 100%;
+    height: 40px;
+    margin: 0;
+  }
+  .category-bar-track {
+    gap: 22px;
+    padding: 0 0 0 28px;
+    box-sizing: border-box;
+  }
+  /* Voci centrate quando ci stanno (tablet), da sinistra con scorrimento
+     quando non ci stanno (telefono): lo fanno i margin auto definiti sopra.
+     28px a sinistra (padding) e 28px a destra (gap 22 + 6 del ::after):
+     il centro è esatto. ::after è un elemento vero perché alcuni browser
+     ignorano il padding destro di un contenitore che scorre. */
+  .category-bar-track::after { content: ""; flex: 0 0 6px; height: 1px; }
+  .category-bar-item { font-size: var(--fs-13); }
+  .category-bar-arrow { width: 56px; }
+  .category-bar-arrow--next { padding-right: 18px; }
+  .category-bar-arrow--prev { padding-left: 18px; }
+}

@@ -213,6 +213,8 @@
     aggiornaBadge(stato);
     aggiornaConteggio();
     closeDrawer();
+    /* Avvisa chi deve seguire lo stato dei filtri (es. js/category-bar.js) */
+    document.dispatchEvent(new CustomEvent('dg:filtri-applicati', { detail: stato }));
   }
 
   function reset() {
@@ -264,6 +266,9 @@
       badge.hidden = n === 0;
     });
   }
+
+  /* API pubblica: usata da js/category-bar.js */
+  window.DGFiltri = { applica: applica, reset: reset, stato: leggiStato };
 
   applyBtn.addEventListener('click', applica);
   resetBtn.addEventListener('click', reset);
