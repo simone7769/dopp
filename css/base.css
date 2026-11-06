@@ -261,7 +261,20 @@ header.menu-open .topbar-message {
   text-decoration: none;
   transition: color var(--t-fast) var(--ease), opacity var(--t-fast) var(--ease);
 }
-.nav-icon-link:hover { opacity: 0.65; }
+.nav-icon-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.2s var(--ease-out);
+}
+.nav-icon-link:hover { color: var(--gold-text); }
+.nav-icon-link:hover::after { transform: scaleX(1); }
 .nav-icon-link svg { width: 20px; height: 20px; display: block; }
 
 .wishlist-badge,
@@ -417,7 +430,20 @@ header.menu-open .topbar-message {
   text-transform: uppercase;
   transition: opacity var(--t-fast) var(--ease);
 }
-.nav-menu-btn:hover { opacity: 0.65; }
+.nav-menu-btn::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 8px;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.2s var(--ease-out);
+}
+.nav-menu-btn:hover { color: var(--gold-text); }
+.nav-menu-btn:hover::after { transform: scaleX(1); }
 .nav-menu-btn:focus-visible { outline: 1px solid currentColor; outline-offset: 4px; }
 
 /* Due loghi: quello in .nav vale su desktop, quello in .header-main su mobile */
