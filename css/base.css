@@ -863,6 +863,16 @@ header.menu-open .topbar-message {
   justify-content: center;
   transition: opacity var(--t-fast) var(--ease);
 }
+
+.country-close svg,
+.cart-close svg,
+.login-close svg,
+.wishlist-close svg,
+.stores-close svg,
+.contact-close svg,
+.quick-add-close svg,
+.filters-close svg,
+.search-close svg { width: 20px; height: 20px; display: block; }
 .country-close:hover,
 .cart-close:hover,
 .login-close:hover,

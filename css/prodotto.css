@@ -573,6 +573,7 @@ body.pdp-lightbox-open { overflow: hidden; }
   justify-content: center;
   transition: opacity var(--t-fast) var(--ease);
 }
+.pv-close svg { width: 20px; height: 20px; display: block; }
 .pv-close:hover { opacity: 0.6; }
 .pv-close:focus-visible { outline: 1px solid var(--ink); outline-offset: -4px; }
 

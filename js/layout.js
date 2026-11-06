@@ -192,7 +192,7 @@
   <div class="country-header"><div class="country-header-title">\
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 3 2.5 15 0 18M12 3c-2.5 3-2.5 15 0 18"/></svg>\
     <h3>Cambia Paese/Lingua</h3></div>\
-    <button type="button" class="country-close" id="closeCountryDrawer" aria-label="Chiudi">&times;</button>\
+    <button type="button" class="country-close" id="closeCountryDrawer" aria-label="Chiudi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg></button>\
   </div>\
   <div class="country-drawer-hero"><img src="images/drawer-country.webp" alt="Cambia Paese/Lingua"></div>\
   <div class="country-drawer-content">\
@@ -237,7 +237,7 @@
   <div class="cart-header"><div class="cart-header-title">\
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg>\
     <h3>La tua selezione (<span id="cartCount">0</span>)</h3></div>\
-    <button type="button" class="cart-close" id="closeCartDrawer" aria-label="Chiudi">&times;</button>\
+    <button type="button" class="cart-close" id="closeCartDrawer" aria-label="Chiudi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg></button>\
   </div>\
   <div class="cart-body">\
     <p class="cart-empty">Il carrello è una demo. Il sito ufficiale è Doppelganger.</p>\
@@ -258,7 +258,7 @@
   <div class="login-header"><div class="login-header-title">\
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6"/></svg>\
     <h3>Effettua il login</h3></div>\
-    <button type="button" class="login-close" id="closeLoginDrawer" aria-label="Chiudi">&times;</button>\
+    <button type="button" class="login-close" id="closeLoginDrawer" aria-label="Chiudi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg></button>\
   </div>\
   <div class="login-body">\
     <form class="login-form" onsubmit="event.preventDefault();">\
@@ -289,7 +289,7 @@
   <div class="wishlist-header"><div class="wishlist-header-title">\
     <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg>\
     <h3>I tuoi preferiti (<span id="wishlistCount">0</span>)</h3></div>\
-    <button type="button" class="wishlist-close" id="closeWishlistDrawer" aria-label="Chiudi">&times;</button>\
+    <button type="button" class="wishlist-close" id="closeWishlistDrawer" aria-label="Chiudi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg></button>\
   </div>\
   <div class="wishlist-body" id="wishlistBody"></div>\
   <div class="wishlist-empty" id="wishlistEmpty">\
@@ -305,7 +305,7 @@
   <div class="search-header"><div class="search-header-title">\
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>\
     <h3>Cerca</h3></div>\
-    <button type="button" class="search-close" id="closeSearchDrawer" aria-label="Chiudi">&times;</button>\
+    <button type="button" class="search-close" id="closeSearchDrawer" aria-label="Chiudi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg></button>\
   </div>\
   <div class="search-drawer-body">\
     <div class="search-drawer-bar">\
@@ -326,7 +326,7 @@
   <div class="stores-header"><div class="stores-header-title">\
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 22s7-6.4 7-12a7 7 0 10-14 0c0 5.6 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg>\
     <h3>Boutique</h3></div>\
-    <button type="button" class="stores-close" id="closeStoresDrawer" aria-label="Chiudi">&times;</button>\
+    <button type="button" class="stores-close" id="closeStoresDrawer" aria-label="Chiudi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg></button>\
   </div>\
   <div class="stores-search"><div class="stores-search-field">\
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>\
@@ -342,7 +342,7 @@
   <div class="contact-header"><div class="contact-header-title">\
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M4 14v-2a8 8 0 0116 0v2"/><rect x="3" y="14" width="4" height="6" rx="1"/><rect x="17" y="14" width="4" height="6" rx="1"/><path d="M20 20a4 4 0 01-4 3h-3"/></svg>\
     <h3>Contattaci</h3></div>\
-    <button type="button" class="contact-close" id="closeContactDrawer" aria-label="Chiudi">&times;</button>\
+    <button type="button" class="contact-close" id="closeContactDrawer" aria-label="Chiudi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg></button>\
   </div>\
   <div class="contact-body">\
     <div class="contact-intro"><h4>Possiamo aiutarti?</h4>\
@@ -387,7 +387,7 @@
   <div class="filters-header"><div class="filters-header-title">\
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"><path d="M4 6h16M7 12h10M10 18h4"/></svg>\
     <h3>Filtri e ordina</h3></div>\
-    <button type="button" class="filters-close" id="closeFiltersDrawer" aria-label="Chiudi">&times;</button>\
+    <button type="button" class="filters-close" id="closeFiltersDrawer" aria-label="Chiudi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg></button>\
   </div>\
   <div class="filters-body">\
     <details class="filters-section" open>\

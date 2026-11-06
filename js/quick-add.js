@@ -112,7 +112,7 @@
     x.type = 'button';
     x.className = 'quick-add-close';
     x.setAttribute('aria-label', 'Chiudi');
-    x.innerHTML = '&times;';
+    x.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg>';
     p.appendChild(x);
 
     var body = document.createElement('div');
