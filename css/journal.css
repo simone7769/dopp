@@ -18,7 +18,7 @@
 .journal-hero h1 {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: var(--fs-12);
+  font-size: var(--fs-13);
   letter-spacing: var(--tr-4);
   text-transform: uppercase;
   color: var(--ink);
@@ -43,7 +43,7 @@
 }
 .journal-filters a {
   font-family: var(--sans);
-  font-size: var(--fs-12);
+  font-size: var(--fs-13);
   font-weight: 400;
   letter-spacing: var(--tr-15);
   text-transform: uppercase;
