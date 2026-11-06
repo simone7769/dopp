@@ -745,7 +745,8 @@ header.menu-open .topbar-message {
 .login-close,
 .wishlist-close,
 .stores-close,
-.contact-close {
+.contact-close,
+.quick-add-close {
   /* ← FIX touch target: 44px minimo WCAG (era 36px) */
   min-width: var(--touch-target, 44px);
   min-height: var(--touch-target, 44px);
@@ -765,13 +766,15 @@ header.menu-open .topbar-message {
 .login-close:hover,
 .wishlist-close:hover,
 .stores-close:hover,
-.contact-close:hover { opacity: 0.6; }
+.contact-close:hover,
+.quick-add-close:hover { opacity: 0.6; }
 .country-close:focus-visible,
 .cart-close:focus-visible,
 .login-close:focus-visible,
 .wishlist-close:focus-visible,
 .stores-close:focus-visible,
-.contact-close:focus-visible { outline: 1px solid var(--ink); outline-offset: -4px; }
+.contact-close:focus-visible,
+.quick-add-close:focus-visible { outline: 1px solid var(--ink); outline-offset: -4px; }
 
 /* ============================================================
    COUNTRY DRAWER

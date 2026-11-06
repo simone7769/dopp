@@ -229,71 +229,176 @@
 .quick-add-details:focus-visible { outline: 1px solid var(--ink); outline-offset: 3px; }
 
 /* ---------- Chiudi (×) ---------- */
+
+
+
+
+/* ---------- Chiudi (×) — identico al + delle card ---------- */
 .quick-add-close {
   position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 2;
+  top: 12px;
+  right: 12px;
+  z-index: 30;
+  background: transparent;
+  border: none;
+  color: var(--ink);
+  font-size: var(--fs-26);
+  font-weight: 300;
+  font-family: var(--sans);
+  line-height: 1;
+  cursor: pointer;
+  min-width: var(--touch-target, 44px);
+  min-height: var(--touch-target, 44px);
   display: flex;
   align-items: center;
   justify-content: center;
-  width: var(--touch-target, 44px);
-  height: var(--touch-target, 44px);
   padding: 0;
-  border: none;
-  background: transparent;
-  font-family: var(--sans);
-  font-size: var(--fs-26);
-  font-weight: 300;
-  line-height: 1;
-  color: var(--ink);
-  cursor: pointer;
   transition: opacity var(--t-fast) var(--ease);
 }
 .quick-add-close:hover { opacity: 0.5; }
-.quick-add-close:focus-visible { outline: 1px solid var(--ink); outline-offset: -6px; }
+.quick-add-close:focus-visible { outline: 1px solid var(--ink); outline-offset: -4px; }
 
 /* ============================================================
-   TABLET E MOBILE (<=900px): una colonna, a tutta larghezza
-   Foto in striscia orizzontale sopra, info sotto; scorre tutto il corpo.
+   TABLET E MOBILE (<=900px): Layout definitivo
    ============================================================ */
 @media (max-width: 900px) {
-  .quick-add { width: 100vw; }
-  .quick-add-body {
-    display: block;
-    overflow-y: auto;
-    overscroll-behavior: contain;
-  }
-  .quick-add-gallery {
+  .quick-add {
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    height: 80vh;
+    max-height: 80vh;
+    transform: translateY(100%);
+    border-radius: 0;
+    border-top: none;
     display: flex;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
+    flex-direction: column;
+    background: var(--paper);
+    box-shadow: 0 -8px 24px rgba(0,0,0,0.15);
   }
+  .quick-add.open { transform: translateY(0); }
+
+  .quick-add-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1; 
+    min-height: 0;
+  }
+
+  /* LE DUE FOTO AFFIANCATE CON GRID (Allineamento Perfetto) */
+  .quick-add-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Split esatto 50/50 */
+    height: 35vh;
+    flex-shrink: 0;
+    background: var(--paper-alt);
+    gap: 0;
+    padding: 0;
+  }
+  
   .quick-add-gallery img,
   .quick-add-gallery video {
-    flex: 0 0 86%;
-    width: 86%;
-    scroll-snap-align: start;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    display: block;
   }
+
+  /* INFO: Padding in alto (24px) e spazio in fondo per il bottone */
   .quick-add-info {
-    overflow: visible;
-    padding: 24px 20px max(28px, env(safe-area-inset-bottom));
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 20px 80px;
   }
-  .quick-add-label { margin-top: 28px; }
-  .quick-add-cta { margin-top: 28px; }
-  /* La × sta sopra le foto: serve uno sfondo per vederla */
+
+  .quick-add-title { margin-bottom: 6px; }
+  .quick-add-price { margin-bottom: 12px; }
+  .quick-add-label { margin-top: 12px; margin-bottom: 6px; }
+  
+  .quick-add-details {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    padding: 12px 2px;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    font-size: var(--fs-12);
+    text-transform: uppercase;
+    letter-spacing: var(--tr-1);
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  /* BOTTONE FISSO IN FONDO */
+  .quick-add-cta {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    margin: 0;
+    z-index: 10;
+    border-radius: 0;
+  }
+
+  /* LA X (Identica al + delle card) */
   .quick-add-close {
-    top: 8px;
-    right: 8px;
-    border-radius: 50%;
-    background: rgba(250, 248, 245, 0.9);
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 30;
+    background: transparent;
+    border: none;
+    color: var(--ink);
+    font-size: var(--fs-26);
+    font-weight: 300;
+    font-family: var(--sans);
+    line-height: 1;
+    cursor: pointer;
+    min-width: var(--touch-target, 44px);
+    min-height: var(--touch-target, 44px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: opacity var(--t-fast) var(--ease);
   }
+  .quick-add-close:hover { opacity: 0.5; }
 }
 
-/* Una sola foto: a tutta larghezza anche in striscia */
-@media (max-width: 900px) {
-  .quick-add-gallery--single img,
-  .quick-add-gallery--single video { flex-basis: 100%; width: 100%; }
+/* ============================================================
+   TABLET (641px - 900px): Foto intere senza tagli verticali
+   ============================================================ */
+@media (min-width: 641px) and (max-width: 900px) {
+  /* Alza il drawer per far stare tutto */
+  .quick-add {
+    height: 90vh;
+    max-height: 90vh;
+  }
+
+  /* La galleria prende l'altezza ideale per mostrare le due foto intere */
+  .quick-add-gallery {
+    height: auto;
+    aspect-ratio: 4 / 3; /* larghezza : altezza = 4:3 -> altezza = 0.75 * larghezza */
+  }
+  
+  /* Le immagini rimangono al 50% e riempiono il contenitore */
+  .quick-add-gallery img,
+  .quick-add-gallery video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* riempie il suo 50% senza deformarsi */
+  }
+
+  /* Riduciamo un po' i padding per far stare più contenuto */
+  .quick-add-info {
+    padding: 20px 20px 80px;
+  }
 }

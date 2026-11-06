@@ -65,6 +65,11 @@
       viste[src] = true;
       out.push({ src: src, alt: el.getAttribute('alt') || '', w: el.getAttribute('width'), h: el.getAttribute('height') });
     });
+    
+    // Mostra solo le ultime due immagini (gli still life), scartando i modelli
+    if (out.length > 2) {
+      return out.slice(-2);
+    }
     return out;
   }
 
@@ -192,12 +197,6 @@
     err.textContent = 'Seleziona una taglia';
     info.appendChild(err);
 
-    var cta = document.createElement('button');
-    cta.type = 'button';
-    cta.className = 'quick-add-cta';
-    cta.textContent = 'Aggiungi al carrello';
-    info.appendChild(cta);
-
     var link = card.querySelector('a.details[href], .product-link[href], a[href]');
     var href = link ? link.getAttribute('href') : '';
     if (href) {
@@ -207,6 +206,12 @@
       det.textContent = 'Dettagli del prodotto';
       info.appendChild(det);
     }
+
+    var cta = document.createElement('button');
+    cta.type = 'button';
+    cta.className = 'quick-add-cta';
+    cta.textContent = 'Aggiungi al carrello';
+    info.appendChild(cta);
 
     return p;
   }
