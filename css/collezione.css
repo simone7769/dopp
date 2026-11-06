@@ -244,9 +244,6 @@
   .products-grid[data-cols="3"] .product-card .card-arrow,
   .products-grid[data-cols="3"] .product-card .card-progress { display: none; }
 }
-/* Popup «Articoli simili»: la card clonata mostra solo la still-life */
-#similarModal .card-arrow,
-#similarModal .card-progress { display: none; }
 
 /* Il cuore preferiti (.wish) è un componente condiviso: vedi base.css */
 .product-info {
@@ -416,38 +413,8 @@
 /* Fix per far stare titolo e prezzo uno sotto l'altro */
 .product-card .details { display: flex; flex-direction: column; }
 
-/* ==========================================
-   DA PDF: PULSANTE ARTICOLI SIMILI (§5)
-   ========================================== */
-.product-card .similar {
-  position: absolute; left: 0; bottom: 0; z-index: 4;
-  display: inline-flex; align-items: center; gap: 6px;
-  height: 27px; padding: 0 14px;
-  background: rgba(252, 252, 251, 0.92); color: var(--ink);
-  border: 0; border-radius: 0; font-family: var(--sans);
-  font-size: var(--fs-11); font-weight: 400; letter-spacing: 1.8px;
-  text-transform: uppercase; line-height: 1; cursor: pointer;
-  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-  transition: opacity var(--t-base) var(--ease);
-}
-
-/* Coerenza con il cuore (.wish): hover su desktop, sempre visibile su touch */
-@media (hover: hover) {
-  .product-card .similar {
-    opacity: 0;
-    pointer-events: none; /* Evita click accidentali quando invisibile */
-  }
-  .product-card:hover .similar,
-  .product-card:focus-within .similar {
-    opacity: 1;
-    pointer-events: auto;
-  }
-}
-.product-card .similar svg { width: 12px; height: 12px; display: block; stroke: currentColor; fill: none; stroke-width: 1.5; }
 @media (max-width: 520px) {
-  .product-card .similar { height: 22px; padding: 0 10px; font-size: var(--fs-10); letter-spacing: 1.5px; gap: 5px; }
-  .product-card .similar svg { width: 10px; height: 10px; }
-}
+  }
 
 
 /* ==========================================
@@ -503,7 +470,6 @@
     font-size: var(--badge-fs);
     line-height: 1;
   }
-  .product-card .similar { display: none !important; }
   .product-card .price-block {
     display: flex;
     flex-wrap: wrap;
@@ -595,9 +561,6 @@
 
 /* Nascondi "Articoli simili" su tutti i dispositivi touch (iPad, iPhone, Android) */
 @media (hover: none) {
-  .product-card .similar {
-    display: none !important;
-  }
 }
 
 /* Contatore prodotti nella toolbar */

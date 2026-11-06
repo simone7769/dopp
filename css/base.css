@@ -2257,8 +2257,7 @@ footer {
    vetrina (.vt-card .product-info), Must Have in home
    (.must-have .product), correlati in scheda prodotto (.pdp-item).
    I fogli di pagina aggiungono solo ciò che cambia (padding,
-   allineamento). Escluso: popup «Articoli simili», che ha una scala
-   compatta propria (similar-modal.css).
+   allineamento).
    Il prezzo è display: block perché spesso è uno <span>: da inline
    la sua riga restava alta quanto l'interlinea 1,6 del body.
    ============================================================ */
