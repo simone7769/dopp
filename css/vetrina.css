@@ -308,7 +308,7 @@
   display: flex;
   flex-direction: column;
 }
-.vt-card > a {
+.vt-card .product-link {
   display: block;
   color: inherit;
   text-decoration: none;
@@ -328,11 +328,7 @@
   object-fit: cover;
   transition: opacity var(--t-base) var(--ease);
 }
-/* Seconda foto al passaggio, solo se presente e solo con il mouse */
-.vt-card-img img + img { opacity: 0; }
-@media (hover: hover) {
-  .vt-card > a:hover .vt-card-img img + img { opacity: 1; }
-}
+/* Hover rimosso: ora usa lo slider condiviso (card-slider.js) */
 
 .vt-card .product-info {
   display: grid;
