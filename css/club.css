@@ -19,8 +19,9 @@
 
 .club-tier-name {
   display: block;
-  font-family: var(--serif);
-  font-weight: 500;
+  font-family: var(--sans);
+  font-size: 0.95em;
+  font-weight: 300;
   font-size: var(--fs-24);
   letter-spacing: var(--tr-4);
   text-transform: uppercase;
@@ -197,9 +198,9 @@
 .club-faq-body {
   padding: 0 4px 24px;
   max-width: 900px;
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: var(--fs-body-editorial);
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: var(--fs-16);
   letter-spacing: 0.01em;
   line-height: 1.7;
   color: var(--ink);
@@ -271,7 +272,9 @@
   text-underline-offset: 2px;
 }
 .club-newsletter-success {
-  font-family: var(--serif);
+  font-family: var(--sans);
+  font-size: 0.95em;
+  font-weight: 300;
   font-size: var(--vt-body, 18px);
   font-style: italic;
   color: var(--ink);

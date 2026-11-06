@@ -89,9 +89,9 @@
   text-align: left;
 }
 .looks-intro p {
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: var(--fs-body-editorial);
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: var(--fs-16);
   letter-spacing: 0.01em;
   line-height: 1.75;
   color: var(--ink);
@@ -150,9 +150,9 @@
   text-align: left;
 }
 .article-text p {
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: var(--fs-body-editorial);
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: var(--fs-16);
   letter-spacing: 0.01em;
   line-height: 1.75;
   color: var(--ink);
@@ -206,9 +206,9 @@
   margin: 0 0 32px;
 }
 .article-split-text p {
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: var(--fs-body-editorial);
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: var(--fs-16);
   letter-spacing: 0.01em;
   line-height: 1.75;
   color: var(--ink);
@@ -384,8 +384,9 @@
 }
 
 .sartoria-step p {
-  font-family: var(--serif);
-  font-weight: 400;
+  font-family: var(--sans);
+  font-size: 0.95em;
+  font-weight: 300;
   font-size: var(--fs-14);
   letter-spacing: 0.01em;
   line-height: 1.6;
@@ -403,8 +404,9 @@
 }
 
 .sartoria-cta-wrap p {
-  font-family: var(--serif);
-  font-weight: 400;
+  font-family: var(--sans);
+  font-size: 0.95em;
+  font-weight: 300;
   font-size: var(--fs-16);
   letter-spacing: 0.01em;
   line-height: 1.65;

@@ -95,8 +95,9 @@
 }
 
 .app-cta-sub {
-  font-family: var(--serif);
-  font-weight: 400;
+  font-family: var(--sans);
+  font-size: 0.95em;
+  font-weight: 300;
   font-size: clamp(18px, 1.6vw, 22px);
   line-height: 1.6;
   color: var(--ink);

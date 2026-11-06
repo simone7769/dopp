@@ -14,8 +14,9 @@
 
 /* --- Colonna form --- */
 .track-heading {
-  font-family: var(--serif);
-  font-weight: 400;
+  font-family: var(--sans);
+  font-size: 0.95em;
+  font-weight: 300;
   font-size: var(--fs-22);
   letter-spacing: var(--tr-05);
   color: var(--ink);
@@ -24,8 +25,9 @@
   border-bottom: 1px solid var(--line);
 }
 .track-intro {
-  font-family: var(--serif);
-  font-weight: 400;
+  font-family: var(--sans);
+  font-size: 0.95em;
+  font-weight: 300;
   font-size: var(--fs-16);
   line-height: 1.7;
   color: var(--ink);
@@ -109,8 +111,9 @@
   flex-shrink: 0;
 }
 .track-result-header h3 {
-  font-family: var(--serif);
-  font-weight: 500;
+  font-family: var(--sans);
+  font-size: 0.95em;
+  font-weight: 300;
   font-size: var(--fs-20);
   letter-spacing: var(--tr-05);
   color: var(--ink);
@@ -175,9 +178,10 @@
   margin-bottom: 4px;
 }
 .track-steps li p {
-  font-family: var(--serif);
+  font-family: var(--sans);
+  font-size: 0.95em;
+  font-weight: 300;
   font-size: var(--fs-16);
-  font-weight: 400;
   line-height: 1.55;
   color: var(--ink);
   margin: 0;
@@ -231,8 +235,9 @@
   margin: 0 0 10px;
 }
 .track-info-block p {
-  font-family: var(--serif);
-  font-weight: 400;
+  font-family: var(--sans);
+  font-size: 0.95em;
+  font-weight: 300;
   font-size: var(--fs-16);
   line-height: 1.7;
   color: var(--ink);

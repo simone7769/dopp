@@ -12,8 +12,9 @@
   margin-bottom: 12px;
 }
 .cf-title {
-  font-family: var(--serif);
-  font-weight: 400;
+  font-family: var(--sans);
+  font-size: 0.95em;
+  font-weight: 300;
   font-size: clamp(24px, 2.2vw, 32px);
   line-height: 1.25;
   margin-bottom: 18px;

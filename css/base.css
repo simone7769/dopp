@@ -1278,9 +1278,10 @@ header.menu-open .topbar-message {
 }
 .wishlist-empty svg { width: 40px; height: 40px; color: var(--muted); margin-bottom: 6px; }
 .wishlist-empty h4 {
-  font-family: var(--serif);
+  font-family: var(--sans);
+  font-size: 0.95em;
+  font-weight: 300;
   font-size: var(--fs-22);
-  font-weight: 400;
   letter-spacing: var(--tr-1);
   color: var(--ink);
 }
@@ -1499,9 +1500,10 @@ footer {
   padding-bottom: 70px;
 }
 .footer-newsletter h3 {
-  font-family: var(--serif);
+  font-family: var(--sans);
+  font-size: 0.95em;
+  font-weight: 300;
   font-size: var(--fs-22);
-  font-weight: 400;
   letter-spacing: var(--tr-1);
   color: #fff;
   margin-bottom: 14px;
@@ -2704,8 +2706,9 @@ footer {
 }
 
 .footer-newsletter-success {
-  font-family: var(--serif);
-  font-size: var(--fs-body-editorial);
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: var(--fs-16);
   font-style: italic;
   font-weight: var(--fw-regular);
   color: #cfcbc4;

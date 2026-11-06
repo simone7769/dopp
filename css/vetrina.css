@@ -77,7 +77,9 @@
 
 /* Didascalie: corsivo piccolo, come nelle riviste */
 .vt-caption {
-  font-family: var(--serif);
+  font-family: var(--sans);
+  font-size: 0.95em;
+  font-weight: 300;
   font-style: italic;
   font-size: var(--fs-16);
   line-height: 1.4;
@@ -184,7 +186,9 @@
   margin: 0 0 28px;
 }
 .vt-chapter-text p {
-  font-family: var(--serif);
+  font-family: var(--sans);
+  font-size: 0.95em;
+  font-weight: 300;
   font-size: var(--vt-body);
   line-height: var(--lh-editorial);
   max-width: var(--measure-max);
@@ -261,7 +265,9 @@
   margin: 0 0 24px;
 }
 .vt-feature-desc {
-  font-family: var(--serif);
+  font-family: var(--sans);
+  font-size: 0.95em;
+  font-weight: 300;
   font-size: var(--vt-body);
   line-height: var(--lh-editorial);
   max-width: var(--measure-max);

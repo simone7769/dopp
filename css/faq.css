@@ -31,8 +31,9 @@
 }
 
 .faq-group-title {
-  font-family: var(--serif);
-  font-weight: 400;
+  font-family: var(--sans);
+  font-size: 0.95em;
+  font-weight: 300;
   font-size: var(--fs-22);
   letter-spacing: var(--tr-1);
   color: var(--ink);
@@ -91,9 +92,9 @@
   max-width: 900px;
 }
 .faq-body p {
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: var(--fs-body-editorial);
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: var(--fs-16);
   line-height: 1.7;
   color: var(--ink);
   margin: 0 0 1em;
@@ -117,8 +118,9 @@
 .faq-list li {
   position: relative;
   padding: 4px 0 4px 16px;
-  font-family: var(--serif);
-  font-weight: 400;
+  font-family: var(--sans);
+  font-size: 0.95em;
+  font-weight: 300;
   font-size: var(--fs-16);
   line-height: 1.7;
   color: var(--ink);
@@ -154,9 +156,9 @@
 
 /* --- CTA finale --- */
 .faq-cta {
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: var(--fs-body-editorial);
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: var(--fs-16);
   line-height: 1.7;
   color: var(--ink);
   text-align: center;

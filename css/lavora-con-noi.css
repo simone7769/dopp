@@ -48,9 +48,9 @@
 .lavora-panel.active { display: block; }
 
 .lavora-intro {
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: var(--fs-body-editorial);
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: var(--fs-16);
   line-height: 1.7;
   color: var(--ink);
   max-width: 780px;
@@ -117,8 +117,9 @@
 }
 
 .lavora-note {
-  font-family: var(--serif);
-  font-weight: 400;
+  font-family: var(--sans);
+  font-size: 0.95em;
+  font-weight: 300;
   font-size: var(--fs-16);
   line-height: 1.7;
   color: var(--ink);
@@ -140,9 +141,10 @@
 
 /* --- Form candidatura --- */
 .lavora-form-title {
-  font-family: var(--serif);
+  font-family: var(--sans);
+  font-size: 0.95em;
+  font-weight: 300;
   font-size: var(--fs-section-title);
-  font-weight: 400;
   letter-spacing: var(--tr-1);
   text-transform: uppercase;
   color: var(--ink);
@@ -347,16 +349,17 @@
 }
 .lavora-success[hidden] { display: none; }
 .lavora-success h3 {
-  font-family: var(--serif);
-  font-weight: 500;
+  font-family: var(--sans);
+  font-size: 0.95em;
+  font-weight: 300;
   font-size: var(--fs-26);
   color: var(--ink);
   margin: 0 0 16px;
 }
 .lavora-success p {
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: var(--fs-body-editorial);
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: var(--fs-16);
   line-height: 1.7;
   color: var(--ink);
   margin: 0 0 12px;
@@ -373,8 +376,9 @@
 
 /* --- Nota finale --- */
 .lavora-footer-note {
-  font-family: var(--serif);
-  font-weight: 400;
+  font-family: var(--sans);
+  font-size: 0.95em;
+  font-weight: 300;
   font-size: var(--fs-16);
   line-height: 1.7;
   color: var(--ink);
