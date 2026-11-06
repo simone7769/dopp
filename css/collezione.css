@@ -72,7 +72,7 @@
   gap: 10px;
   padding-bottom: 24px;
   font-family: var(--sans);
-  font-size: var(--fs-14);
+  font-size: var(--fs-12);
   font-weight: 400;
   letter-spacing: var(--tr-1);
   text-transform: uppercase;
@@ -557,7 +557,7 @@
   background: transparent;
   border: none;
   font-family: var(--sans);
-  font-size: var(--fs-14);
+  font-size: var(--fs-13);
   font-weight: 400;
   letter-spacing: var(--tr-1);
   text-transform: uppercase;
@@ -644,7 +644,6 @@
      il centro è esatto. ::after è un elemento vero perché alcuni browser
      ignorano il padding destro di un contenitore che scorre. */
   .category-bar-track::after { content: ""; flex: 0 0 6px; height: 1px; }
-  .category-bar-item { font-size: var(--fs-13); }
   .category-bar-arrow { width: 56px; }
   .category-bar-arrow--next { padding-right: 18px; }
   .category-bar-arrow--prev { padding-left: 18px; }
