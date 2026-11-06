@@ -356,3 +356,28 @@ Totale: **-814 righe** di codice rimosso.
 - `952b6a0` style(home): rimossa linea oro boiserie
 - `194b1cb` style(menu): rimosse linee oro mobile
 - `099621d` style(topbar): altezza 36px, testo centrato
+
+### Barra categorie nella toolbar (stile COS)
+
+Nelle quattro collezioni (`ai-2026.html`, `cerimonia.html`, `essential.html`, `outlet-abbigliamento.html`) la toolbar ora ha la classe `.products-toolbar--cos` e mostra in linea:
+- `[≡ Filtra e ordina]` a sinistra
+- `[Abbigliamento | Cappotti | Giacche | ...]` al centro (voci generate da `js/category-bar.js` in base ai tipi presenti in pagina)
+- `[icone griglia]` a destra
+
+Il contatore "15 prodotti" resta nel DOM ma è `.visually-hidden` (visibile solo a screen reader). Su tablet le categorie sono centrate, su smartphone vanno sopra la riga filtro+icone. Le frecce `‹ ›` compaiono quando la barra trabocca.
+
+**Comportamento**: cliccare una categoria attiva solo quel tipo nel drawer `#filtersTypes` e chiama `window.DGFiltri.applica()`. Gli altri filtri (taglia, prezzo, colore) restano attivi. La prima voce (label configurabile via `data-reset-label`) resetta il filtro tipo.
+
+**File**: `js/category-bar.js` (nuovo), `css/collezione.css` (blocco `.products-toolbar--cos`), 4 HTML (classe + script).
+
+### Filtro colore (data-colors)
+
+Due bug risolti:
+1. `filtri.js` leggeva `card.dataset.color` (singolare), ma le card hanno `data-colors` (plurale). Ora il filtro colore funziona.
+2. `card.dataset.type` veniva splittato con `.split(/\s+/)`, spezzando "T-shirt & Polo" in tre parti. Ora è trattato come valore singolo.
+
+Aggiunti i `data-colors` mancanti (12 card su 15 in `ai-2026.html`), uniformato "cammello" → "beige", aggiunto chip "bianco" nel drawer. Colori nelle card e chip nel drawer ora coincidono (6 per parte).
+
+### Toolbar più vicina alla griglia
+
+`padding-bottom` di `.products-toolbar`: 24px → 10px (desktop), 14px → 6px (tablet), 10px → 4px (mobile). Solo CSS, nessun cambio strutturale.

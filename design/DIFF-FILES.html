@@ -171,15 +171,15 @@
 
   <div class="meta">
     <div>
-      <span class="val">562</span>
+      <span class="val">571</span>
       <span class="lbl">File toccati</span>
     </div>
     <div>
-      <span class="val">56607</span>
+      <span class="val">57021</span>
       <span class="lbl">Righe aggiunte</span>
     </div>
     <div>
-      <span class="val">3582</span>
+      <span class="val">3617</span>
       <span class="lbl">Righe rimosse</span>
     </div>
   </div>
@@ -381,6 +381,23 @@
     <tr><td>index.html</td><td>+1 / 0</td></tr>
   </table>
 </div>
+
+<h2>34. Aggiornamento del 6 novembre 2026 (barra categorie, filtro colore) <span class="count">9 file</span></h2>
+
+  <p style="font-size: 13px; color: var(--ink-soft); text-align: center; margin-bottom: 10px;">6 novembre 2026 · 9 file, +414 / −35</p>
+
+  <table>
+    <tr><th>File</th><th class="n">+</th><th class="n">−</th><th>Descrizione</th></tr>
+    <tr><td class="file">js/category-bar.js</td><td class="n">+184</td><td class="n">−0</td><td class="note"><strong>NUOVO.</strong> Barra orizzontale categorie (stile COS) dentro la toolbar. Sincronizza con il drawer #filtersTypes, frecce ‹ ›, aggiornamento su evento dg:filtri-applicati.</td></tr>
+    <tr><td class="file">css/collezione.css</td><td class="n">+183</td><td class="n">−4</td><td class="note">Blocco TOOLBAR STILE COS (.products-toolbar--cos): ordine filtri-categorie-griglia, allineamenti a header, contatore visually-hidden, gestione mobile (categorie sopra). Titolo centrato (top 15→4, 2 sotto 1100px). Toolbar più vicina alla griglia (padding 24/14/10 → 10/6/4).</td></tr>
+    <tr><td class="file">ai-2026.html</td><td class="n">+18</td><td class="n">−16</td><td class="note">Toolbar con classe --cos; div .category-bar; script category-bar.js. +12 card con data-colors (mancavano). 'cammello' → 'beige'.</td></tr>
+    <tr><td class="file">cerimonia.html</td><td class="n">+7</td><td class="n">−4</td><td class="note">Toolbar --cos + script category-bar.js.</td></tr>
+    <tr><td class="file">essential.html</td><td class="n">+7</td><td class="n">−4</td><td class="note">Toolbar --cos + script category-bar.js.</td></tr>
+    <tr><td class="file">outlet-abbigliamento.html</td><td class="n">+6</td><td class="n">−4</td><td class="note">Toolbar --cos + script category-bar.js. 'cammello' → 'beige'.</td></tr>
+    <tr><td class="file">js/filtri.js</td><td class="n">+7</td><td class="n">−2</td><td class="note">window.DGFiltri { applica, reset, stato }. Evento dg:filtri-applicati. Fix: card.dataset.colors (plurale). Fix: card.dataset.type come valore singolo (T-shirt &amp; Polo).</td></tr>
+    <tr><td class="file">js/layout.js</td><td class="n">+1</td><td class="n">−0</td><td class="note">Chip "bianco" nel drawer colori (dopo "nero").</td></tr>
+    <tr><td class="file">css/base.css</td><td class="n">+1</td><td class="n">−1</td><td class="note">.stores-country: bordo 0.5px → 1px (coerenza con le altre linee oro).</td></tr>
+  </table>
 
 <h2>33. Aggiornamento del 6 novembre 2026 (drawer, articoli simili, oro) <span class="count">39 file</span></h2>
 

@@ -23,3 +23,60 @@ Postilla a `Doppelganger_Specifiche_per_agenzia.html` (fermo al 4 novembre) e a 
 **Invariato**: `Cart.add()` e il formato dell'articolo, `data-colors`, lettura di nome, prezzo e foto dalla card, `.img-main` per `card-slider.js` e popup «Articoli simili». Carrello, login e gli altri drawer non cambiano. Il «+» resta nascosto a 2 e 3 colonne su mobile (≤640px) e visibile a 1 colonna, dove il drawer è a una colonna.
 
 **File**: `css/quick-add.css` (nuovo, unica fonte), `js/quick-add.js` (riscritto), `css/collezione.css` e `css/vetrina.css` (tolte le regole `.quick-add*` copiate in entrambi), `<link>` a `quick-add.css` in `ai-2026.html`, `cerimonia.html`, `essential.html`, `outlet-abbigliamento.html`, `vetrina.html`.
+
+---
+
+## Barra categorie nella toolbar (stile COS)
+
+**Cosa è cambiato**
+
+| | Prima | Dopo |
+|---|---|---|
+| Toolbar collezioni | `[15 prodotti] [icone] \| [Filtra e ordina]` | `[≡ Filtra e ordina] — [categorie] — [icone]` (classe `.products-toolbar--cos`) |
+| Contatore "15 prodotti" | Visibile a sinistra | Solo screen reader (`.visually-hidden`), `filtri.js` continua ad aggiornarlo |
+| Categorie | Solo nel drawer `#filtersTypes` | In linea, tra filtro e icone, generate da `js/category-bar.js` |
+| Frecce `‹ ›` | — | Compaiono quando la barra trabocca, scorrono il contenuto |
+| Tablet | — | Categorie centrate quando entrano tutte |
+| Smartphone | — | Categorie su riga sopra, `[≡ Filtra e ordina]` + icone sotto |
+
+**Comportamento**: click su una categoria → attiva solo quel tipo nel drawer e chiama `window.DGFiltri.applica()`. Gli altri filtri restano attivi. Prima voce (label via `data-reset-label`) resetta il filtro tipo. La barra si sincronizza anche quando i filtri vengono cambiati dal drawer (evento `dg:filtri-applicati`).
+
+**Allineamenti** (misurati sull'inchiostro delle icone):
+- Icona filtro = prima icona header (globo/hamburger)
+- Ultima icona griglia = carrello
+
+**File**: `js/category-bar.js` (nuovo, 184 righe), `css/collezione.css` (blocco `.products-toolbar--cos`), `ai-2026.html`, `cerimonia.html`, `essential.html`, `outlet-abbigliamento.html` (classe + script), `js/filtri.js` (`window.DGFiltri`, evento `dg:filtri-applicati`).
+
+---
+
+## Filtro colore (data-colors)
+
+**Bug risolti**
+
+1. `filtri.js` leggeva `card.dataset.color` (singolare) → le card hanno `data-colors` (plurale). Il filtro era inerte (nessun colore veniva mai nascosto).
+2. `card.dataset.type` veniva splittato con `.split(/\s+/)` → "T-shirt & Polo" diventava `["T-shirt", "&", "Polo"]`. Ora è `[card.dataset.type]` (valore singolo).
+
+**Dati completati**
+
+- 12 card in `ai-2026.html` senza `data-colors` → aggiunti.
+- "cammello" → "beige" (uniforme al chip del drawer).
+- Chip "bianco" aggiunto in `js/layout.js`.
+- Colori nelle card (6: beige, bianco, blu, grigio, marrone, nero) = chip nel drawer (6).
+
+**File**: `js/filtri.js` (2 righe: `dataset.colors`, `dataset.type`), `js/layout.js` (1 chip), `ai-2026.html` (12 data-colors + 1 rename), `outlet-abbigliamento.html` (1 rename).
+
+---
+
+## Toolbar più vicina alla griglia
+
+**Modifica**: `padding-bottom` di `.products-toolbar` ridotto.
+
+| Breakpoint | Prima | Dopo |
+|---|---|---|
+| Desktop (>1024px) | 24px | 10px |
+| Tablet (≤1024px) | 14px | 6px |
+| Mobile (≤640px) | 10px | 4px |
+
+Solo CSS, nessun cambio strutturale. La griglia è più vicina alla barra categorie, la pagina è più compatta.
+
+**File**: `css/collezione.css`.
