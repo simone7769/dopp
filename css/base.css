@@ -454,7 +454,8 @@ header.menu-open .topbar-message {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  padding: 12px var(--nav-pad) 0;
+  padding: 24px var(--nav-pad) 0;
+  border-top: 1px solid var(--gold);
   border-bottom: 1px solid var(--line);
   flex-shrink: 0;
 }
