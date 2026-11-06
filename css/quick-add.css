@@ -309,6 +309,12 @@
     border: none;
     display: block;
   }
+  /* Reset del margin-top globale (img + img) che disallineava la 2ª foto */
+  .quick-add-gallery img + img,
+  .quick-add-gallery img + video,
+  .quick-add-gallery video + img {
+    margin-top: 0;
+  }
 
   /* Se c'è una sola foto, occupa tutto lo spazio (evita metà vuota) */
   .quick-add-gallery--single {
