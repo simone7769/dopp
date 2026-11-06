@@ -80,3 +80,48 @@ Postilla a `Doppelganger_Specifiche_per_agenzia.html` (fermo al 4 novembre) e a 
 Solo CSS, nessun cambio strutturale. La griglia è più vicina alla barra categorie, la pagina è più compatta.
 
 **File**: `css/collezione.css`.
+
+---
+
+## Filtro colore completato su tutte le collezioni
+
+**Dati completati**
+
+| Pagina | Card con data-colors |
+|---|---|
+| `ai-2026.html` | 15 / 15 (già fatto) |
+| `cerimonia.html` | 7 / 7 (nuovi) |
+| `essential.html` | 7 / 7 (nuovi) |
+| `outlet-abbigliamento.html` | 15 / 15 (12 nuovi) |
+
+Colori nelle card (6: beige, bianco, blu, grigio, marrone, nero) = chip nel drawer (6). Nessun colore orfano.
+
+**File**: `cerimonia.html` (7 data-colors), `essential.html` (7), `outlet-abbigliamento.html` (12).
+
+---
+
+## Titolo hero collezioni: letter-spacing ridotto
+
+`.hero h1`: `letter-spacing: var(--tr-4)` → `var(--tr-2)` (4px → 2px). Il titolo resta serif, centrato, uppercase, ma meno "barocco". Coerente con la scala dei tracking del sito (bottoni `--tr-15`, badge `--tr-1`).
+
+**File**: `css/collezione.css`.
+
+---
+
+## Drawer quick-add: padding interni mobile/tablet
+
+Rivisti i padding interni su mobile e tablet (≤900px):
+
+| Elemento | Prima | Dopo |
+|---|---|---|
+| Title margin-bottom | 6px | 10px |
+| Price margin-bottom | 12px | 16px |
+| Label margin-top (gap prezzo→colore) | 16px | 6px |
+| Label margin-bottom | 6px | 8px |
+| Details margin | 16px | 20px |
+| CTA height | 60px | 56px |
+| Info padding top (tablet) | 20px | 24px |
+
+L'altezza del drawer è invariata: 80vh mobile, 90vh tablet. Solo il respiro interno è cambiato.
+
+**File**: `css/quick-add.css`.

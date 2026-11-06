@@ -381,3 +381,21 @@ Aggiunti i `data-colors` mancanti (12 card su 15 in `ai-2026.html`), uniformato 
 ### Toolbar più vicina alla griglia
 
 `padding-bottom` di `.products-toolbar`: 24px → 10px (desktop), 14px → 6px (tablet), 10px → 4px (mobile). Solo CSS, nessun cambio strutturale.
+
+### Filtro colore su tutte le collezioni
+
+I `data-colors` sono stati completati su tutte le card:
+- `ai-2026.html`: 15/15 (fatto prima)
+- `cerimonia.html`: 7/7
+- `essential.html`: 7/7
+- `outlet-abbigliamento.html`: 15/15 (12 aggiunti)
+
+Colori nelle card = chip nel drawer (6: beige, bianco, blu, grigio, marrone, nero). Nessun colore orfano. Il filtro colore ora nasconde davvero le card quando si seleziona un colore nel drawer.
+
+### Titolo collezioni: letter-spacing ridotto
+
+`.hero h1` (titolo pagina collezioni): `letter-spacing: var(--tr-4)` → `var(--tr-2)` (4px → 2px). Resta serif (Cormorant), centrato, uppercase, ma meno "barocco" e più leggibile. Coerente con i bottoni (`--tr-15`) e i badge (`--tr-1`).
+
+### Drawer quick-add: padding interni rivisti
+
+Mobile e tablet (≤900px): titolo margin 6→10, prezzo 12→16, label (gap prezzo-colore) 16→6, dettagli 16→20, CTA height 60→56. Tablet: info padding top 20→24. Il drawer resta 80vh (mobile) e 90vh (tablet), l'altezza è invariata.
