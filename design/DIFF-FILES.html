@@ -171,15 +171,15 @@
 
   <div class="meta">
     <div>
-      <span class="val">523</span>
+      <span class="val">562</span>
       <span class="lbl">File toccati</span>
     </div>
     <div>
-      <span class="val">55567</span>
+      <span class="val">56607</span>
       <span class="lbl">Righe aggiunte</span>
     </div>
     <div>
-      <span class="val">2357</span>
+      <span class="val">3582</span>
       <span class="lbl">Righe rimosse</span>
     </div>
   </div>
@@ -381,6 +381,45 @@
     <tr><td>index.html</td><td>+1 / 0</td></tr>
   </table>
 </div>
+
+<h2>33. Aggiornamento del 6 novembre 2026 (drawer, articoli simili, oro) <span class="count">39 file</span></h2>
+
+  <p style="font-size: 13px; color: var(--ink-soft); text-align: center; margin-bottom: 10px;">6 novembre 2026 · 39 file, +1040 / −1225</p>
+
+  <table>
+    <tr><th>File</th><th class="n">+</th><th class="n">−</th><th>Descrizione</th></tr>
+    <tr><td class="file">design/CHANGELOG.html</td><td class="n">+44</td><td class="n">−0</td><td class="note">Sezione 33 (6 novembre, 17 commit); contatori aggiornati.</td></tr>
+    <tr><td class="file">design/DIFF-FILES.html</td><td class="n">+65</td><td class="n">−0</td><td class="note">Questa sezione (33).</td></tr>
+    <tr><td class="file">design/AGGIORNAMENTI-6-novembre.md</td><td class="n">+25</td><td class="n">−0</td><td class="note">Postilla del giorno: drawer, articoli simili eliminati, oro ridotto.</td></tr>
+    <tr><td class="file">design/AGGIORNAMENTI-5-novembre.md</td><td class="n">+72</td><td class="n">−0</td><td class="note">Sezioni §8 (badge verticali) e §9 (slider card).</td></tr>
+    <tr><td class="file">css/quick-add.css</td><td class="n">+415</td><td class="n">−0</td><td class="note"><strong>NUOVO.</strong> Drawer del «+» a 2 colonne (desktop), bottom sheet (mobile/tablet). Titolo serif, taglie 44×44, CTA 52px, X coerente con il «+».</td></tr>
+    <tr><td class="file">css/base.css</td><td class="n">+111</td><td class="n">−29</td><td class="note">CSS slider spostato da collezione.css (condiviso vetrina); linee oro rimosse da menu mobile; topbar 36px + centratura; .quick-add-close aggiunto alle regole comuni delle X.</td></tr>
+    <tr><td class="file">css/collezione.css</td><td class="n">+16</td><td class="n">−179</td><td class="note">CSS slider rimosso (in base.css); regole .similar eliminate; drawer quick-add rimosso (in quick-add.css).</td></tr>
+    <tr><td class="file">css/vetrina.css</td><td class="n">+3</td><td class="n">−140</td><td class="note">Hover opacity rimosso; drawer quick-add rimosso (in quick-add.css).</td></tr>
+    <tr><td class="file">css/home.css</td><td class="n">+0</td><td class="n">−1</td><td class="note">Linea oro sotto la boiserie (.collection) rimossa.</td></tr>
+    <tr><td class="file">css/tokens.css</td><td class="n">+1</td><td class="n">−1</td><td class="note">--topbar-h 33 → 36px.</td></tr>
+    <tr><td class="file">css/cerimonia.css</td><td class="n">+0</td><td class="n">−62</td><td class="note"><strong>ELIMINATO</strong> (contiene solo filtri del popup Articoli Simili).</td></tr>
+    <tr><td class="file">css/similar-modal.css</td><td class="n">+0</td><td class="n">−228</td><td class="note"><strong>ELIMINATO</strong> (popup Articoli Simili rimosso).</td></tr>
+    <tr><td class="file">css/club.css</td><td class="n">+2</td><td class="n">−2</td><td class="note">Linee Q&amp;A oro → grigio.</td></tr>
+    <tr><td class="file">css/faq.css</td><td class="n">+2</td><td class="n">−2</td><td class="note">Linee Q&amp;A oro → grigio.</td></tr>
+    <tr><td class="file">css/boutique.css</td><td class="n">+2</td><td class="n">−2</td><td class="note">Titoli sezione oro → grigio.</td></tr>
+    <tr><td class="file">css/lavora-con-noi.css</td><td class="n">+2</td><td class="n">−2</td><td class="note">Titoli sezione oro → grigio.</td></tr>
+    <tr><td class="file">css/legale.css</td><td class="n">+1</td><td class="n">−1</td><td class="note">Titolo oro → grigio.</td></tr>
+    <tr><td class="file">css/riciclo.css</td><td class="n">+1</td><td class="n">−1</td><td class="note">Titolo oro → grigio.</td></tr>
+    <tr><td class="file">css/guida-taglie.css</td><td class="n">+1</td><td class="n">−1</td><td class="note">Titolo oro → grigio.</td></tr>
+    <tr><td class="file">css/traccia-ordine.css</td><td class="n">+1</td><td class="n">−1</td><td class="note">Titolo oro → grigio (step attivo resta oro).</td></tr>
+    <tr><td class="file">css/outlet-abbigliamento.css</td><td class="n">+0</td><td class="n">−1</td><td class="note">Commento aggiornato (popup rimosso).</td></tr>
+    <tr><td class="file">js/card-slider.js</td><td class="n">+137</td><td class="n">−0</td><td class="note"><strong>NUOVO.</strong> Slider card condiviso (frecce, barretta, swipe, ResizeObserver).</td></tr>
+    <tr><td class="file">js/quick-add.js</td><td class="n">+207</td><td class="n">−34</td><td class="note">Drawer del «+» (apertura, taglie, colore, aggiunta al carrello). Usa img-main + img-hover.</td></tr>
+    <tr><td class="file">js/similar-popup.js</td><td class="n">+0</td><td class="n">−64</td><td class="note"><strong>ELIMINATO</strong> (non linkato, codice morto).</td></tr>
+    <tr><td class="file">js/nav.js</td><td class="n">+4</td><td class="n">−28</td><td class="note">Barra scroll rimossa; .img-hover nascosto (display:none) invece di rimosso su touch.</td></tr>
+    <tr><td class="file">ai-2026.html</td><td class="n">+5</td><td class="n">−111</td><td class="note">Modal Articoli Simili rimosso; data-slides su 3 card; card-slider.js linkato.</td></tr>
+    <tr><td class="file">cerimonia.html</td><td class="n">+4</td><td class="n">−104</td><td class="note">Modal Articoli Simili rimosso; card-slider.js linkato; cerimonia.css rimosso.</td></tr>
+    <tr><td class="file">essential.html</td><td class="n">+3</td><td class="n">−101</td><td class="note">Modal Articoli Simili rimosso; card-slider.js linkato.</td></tr>
+    <tr><td class="file">outlet-abbigliamento.html</td><td class="n">+3</td><td class="n">−110</td><td class="note">Modal Articoli Simili rimosso; card-slider.js linkato.</td></tr>
+    <tr><td class="file">vetrina.html</td><td class="n">+22</td><td class="n">−20</td><td class="note">Struttura card uniformata alle collezioni; card-slider.js linkato; T-shirt invertita (fronte/retro).</td></tr>
+    <tr><td class="file">images/b11.webp, bb11.webp, d11.webp, dd11.webp, e11.webp, f11.webp, ff11.webp, gg11.webp, vv11.webp, ww11.webp, yy11.webp</td><td class="n">+</td><td class="n">−</td><td class="note"><strong>NUOVI.</strong> 11 immagini still-life 3:4 per lo slider card (ricompresse, senza differenze visibili).</td></tr>
+  </table>
 
 <h2>32. Aggiornamento del 5 novembre 2026 (pulizia CSS) <span class="count">52 file</span></h2>
 
