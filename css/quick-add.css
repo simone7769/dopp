@@ -327,16 +327,16 @@
     overflow-y: auto;
     display: flex;
     flex-direction: column;
-    padding: 24px 20px 80px;
+    padding: 24px 20px 100px;
   }
 
-  .quick-add-title { margin-bottom: 6px; }
-  .quick-add-price { margin-bottom: 12px; }
-  .quick-add-label { margin-top: 12px; margin-bottom: 6px; }
+  .quick-add-title { margin-bottom: 10px; }
+  .quick-add-price { margin-bottom: 16px; }
+  .quick-add-label { margin-top: 6px; margin-bottom: 8px; }
   
   .quick-add-details {
-    margin-top: 16px;
-    margin-bottom: 16px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     padding: 12px 2px;
     border-top: 1px solid var(--line);
     border-bottom: 1px solid var(--line);
@@ -347,13 +347,14 @@
     text-decoration: none;
   }
 
-  /* BOTTONE FISSO IN FONDO */
+  /* BOTTONE FISSO IN FONDO — con margini laterali coerenti con il contenuto (20px) */
   .quick-add-cta {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 60px;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    width: auto;
+    height: 56px;
     margin: 0;
     z-index: 10;
     border-radius: 0;
@@ -410,6 +411,6 @@
 
   /* Riduciamo un po' i padding per far stare più contenuto */
   .quick-add-info {
-    padding: 20px 20px 80px;
+    padding: 24px 20px 100px;
   }
 }
