@@ -16,7 +16,7 @@
   font-family: var(--serif);
   font-weight: 500;
   font-size: clamp(18px, 1.4vw, 22px);
-  letter-spacing: var(--tr-4);
+  letter-spacing: var(--tr-2);
   text-transform: uppercase;
   color: var(--ink);
   margin: 0;
