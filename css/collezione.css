@@ -24,7 +24,7 @@
   /* Centro ottico tra la riga dell'header e il testo della toolbar, misurato
      sull'inchiostro: ~31px sopra e ~30px sotto (prima 42 / 19).
      top relativo: sposta solo il titolo, header, toolbar e griglia restano fermi. */
-  top: 4px;
+  top: -8px;  /* 8 nov: centrato sulle righe di testo (MENU sopra, FILTRA E ORDINA sotto) */
 }
 
 @media (max-width: 1100px) {
