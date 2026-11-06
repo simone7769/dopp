@@ -66,8 +66,9 @@
       out.push({ src: src, alt: el.getAttribute('alt') || '', w: el.getAttribute('width'), h: el.getAttribute('height') });
     });
     
-    // Mostra solo le ultime due immagini (gli still life), scartando i modelli
-    if (out.length > 2) {
+    // Su mobile/tablet: solo le ultime 2 (still-life)
+    // Su desktop: tutte le immagini della galleria
+    if (window.matchMedia('(max-width: 900px)').matches && out.length > 2) {
       return out.slice(-2);
     }
     return out;
