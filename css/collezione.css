@@ -254,7 +254,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  padding-bottom: 24px;
+  padding-bottom: 10px;
 }
 .products-wrap .products-toolbar .filtri-bar {
   flex: 0 0 auto;
@@ -287,7 +287,7 @@
 .grid-switch svg { width: 20px; height: 20px; display: block; }
 
 @media (max-width: 1024px) {
-  .products-toolbar { justify-content: space-between; padding-bottom: 14px; }
+  .products-toolbar { justify-content: space-between; padding-bottom: 6px; }
   .products-count { display: none; }
   .filtri-bar { flex-direction: row; justify-content: flex-start; }
   .filtri-bar-count { display: inline; }
@@ -295,7 +295,7 @@
 }
 
 @media (max-width: 640px) {
-  .products-toolbar { padding-bottom: 10px; }
+  .products-toolbar { padding-bottom: 4px; }
 }
 
 /* QUICK ADD: spostato in css/quick-add.css (drawer a due colonne, 6 nov) */
