@@ -298,3 +298,61 @@ Riferimento: `AGGIORNAMENTI-5-novembre.md`.
 - Interlinea 1,3 (era 1,4 sul titolo e 1,6 ereditata dal prezzo); spazio titolo–prezzo 2px (era 4px su desktop e tablet).
 - Rimossi i valori 13/11 a ≤380px e l'override a 11px a ≤340px: sotto i 640px la scala resta 14/12.
 - Il token è condiviso da collezioni, vetrina, home (Must Have), preferiti dell'account, correlati della scheda prodotto e popup simili: tutte seguono la stessa scala.
+
+## Aggiornamento del 6 novembre 2026
+
+Riferimento: `CHANGELOG.html` e `DIFF-FILES.html`, sezione 33.
+
+### Drawer del &laquo;+&raquo; (quick-add)
+Il pannello di aggiunta rapida &egrave; stato completamente ridisegnato:
+- **Desktop (>900px)**: layout a due colonne, larghezza `clamp(720px, 50vw, 960px)`. Foto a sinistra, informazioni a destra con scroll indipendente. Titolo serif, prezzo `--fs-pdp-price`, taglie 44&times;44 con filetti, bottone 52px.
+- **Mobile/Tablet (<=900px)**: bottom sheet dal basso, altezza 85vh. Due foto affiancate (grid 50/50), CTA fisso in fondo. Tablet: `aspect-ratio: 4/3` per non tagliare le foto verticali.
+- **CSS centralizzato** in `css/quick-add.css` (rimosse le copie da `collezione.css` e `vetrina.css`).
+- **Fix CLS**: `width`/`height` espliciti e `aspect-ratio` inline sulle immagini.
+- **X coerente** con il &laquo;+&raquo; delle card (font 26px, weight 300, nessuno sfondo).
+
+### Articoli Simili (eliminato)
+Rimosso completamente:
+- Pulsante `<button class="similar">` da tutte le card.
+- Popup `#similarModal` e overlay da tutti gli HTML.
+- File `css/similar-modal.css`, `css/cerimonia.css`, `js/similar-popup.js`.
+- Regole `.similar` residue in `collezione.css`.
+Totale: **-814 righe** di codice rimosso.
+
+### Vetrina: slider condiviso
+- CSS dello slider spostato da `collezione.css` a `base.css` (disponibile ovunque).
+- Struttura card uniformata: `<a>` dentro `.img-wrap` (come nelle collezioni).
+- Rimosso hover opacity: ora le frecce appaiono su tutte le card.
+- T-shirt: invertite `cap1`↔`cap2` (fronte/retro).
+
+### Riduzione uso oro
+- 13 linee decorative &rarr; `var(--line)` (grigio neutro): FAQ, Club, Lavora con noi, Boutique, Journal, Traccia ordine, Legale, Riciclo, Guida taglie.
+- Rimaste oro: focus input, link, step attivi, header, footer, PDP, filtri, badge Bestseller, carrello.
+- Rimossa barra di progresso scroll (`#scrollProgress`, -45 righe).
+- Rimossa linea oro sotto la boiserie (`.collection`).
+- Menu mobile: rimosse le 3 linee oro (voci principali pulite, secondarie con linee grigie).
+
+### Topbar
+- Altezza: 33px &rarr; 36px (+3px).
+- Padding: `7px 20px 8px` (centratura perfetta).
+- Testo: `--fs-12` weight 400.
+- `--topbar-h` in `tokens.css` aggiornato a 36px per coerenza con drawer/filtri/PDP.
+
+### Commit di riferimento (6 novembre)
+- `fafc953` style(badge): badge verticali stile COS
+- `29755cc` feat(slider): slider su tutte le card delle collezioni
+- `eb410fc` feat(quick-add): drawer a 2 colonne
+- `e9ba473` refactor: eliminato Articoli Simili
+- `e96eafd` fix(quick-add): CLS immagini drawer
+- `3644880` style(quick-add): drawer mobile/tablet definitivo
+- `be2f2b0` chore(quick-add): pulizia CSS
+- `e2fe58a` feat(vetrina): slider condiviso
+- `3476267` fix(quick-add): allineamento foto affiancate
+- `23fd45d` fix(quick-add): desktop tutte le foto, mobile solo 2
+- `45bb4f2` fix(nav): img-hover nascosto invece di rimosso
+- `d60b0f1` fix(vetrina): T-shirt fronte/retro
+- `58fda83` style: ridotto uso oro
+- `511bdc3` refactor: rimossa barra scroll
+- `952b6a0` style(home): rimossa linea oro boiserie
+- `194b1cb` style(menu): rimosse linee oro mobile
+- `099621d` style(topbar): altezza 36px, testo centrato
