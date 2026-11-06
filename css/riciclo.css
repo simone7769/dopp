@@ -75,7 +75,7 @@
   text-transform: uppercase;
   color: var(--ink);
   background-color: var(--crema-pannelli);
-  border-bottom: 1px solid var(--gold);
+  border-bottom: 1px solid var(--line);
 }
 .riciclo-table tbody tr:hover { background-color: var(--crema-pannelli); }
 

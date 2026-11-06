@@ -67,7 +67,7 @@
   color: var(--ink);
   margin: 0 0 28px;
   padding-bottom: 14px;
-  border-bottom: 1px solid var(--gold);
+  border-bottom: 1px solid var(--line);
 }
 
 .lavora-table-wrap {
@@ -148,7 +148,7 @@
   color: var(--ink);
   margin: 0 0 40px;
   padding-bottom: 14px;
-  border-bottom: 1px solid var(--gold);
+  border-bottom: 1px solid var(--line);
 }
 
 .lavora-form {

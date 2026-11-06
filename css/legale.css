@@ -19,7 +19,7 @@
   color: var(--ink);
   margin: 40px 0 18px;
   padding-bottom: 14px;
-  border-bottom: 1px solid var(--gold);
+  border-bottom: 1px solid var(--line);
 }
 @media (max-width: 640px) {
   .legale-wrap h2 {

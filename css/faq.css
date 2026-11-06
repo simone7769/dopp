@@ -44,10 +44,10 @@
   border-bottom: 1px solid var(--line);
 }
 .faq-item:first-of-type {
-  border-top: 1px solid var(--gold);
+  border-top: 1px solid var(--line);
 }
 .faq-item:last-of-type {
-  border-bottom: 1px solid var(--gold);
+  border-bottom: 1px solid var(--line);
 }
 
 .faq-item > summary {
