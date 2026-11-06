@@ -94,23 +94,31 @@
   /* ============================================================
      BADGE
      ============================================================ */
+  /* Badge verticale (6 nov): linguetta lungo il bordo sinistro, si legge
+     dal basso verso l'alto. Scala fluida identica alla produzione. */
   .badge {
+    --badge-fs: clamp(9px, calc(8.2px + 0.6cqw), 11px);
+    --badge-h: clamp(19px, calc(15px + 2.6cqw), 27px);
     position: absolute;
     top: 0;
     left: 0;
     z-index: 3;
     font-family: var(--sans);
-    font-size: clamp(8px, 2.7cqw, 11px);
+    font-size: var(--badge-fs);
     font-weight: 400;
-    letter-spacing: clamp(1px, 0.44cqw, 1.8px);
+    letter-spacing: clamp(1.1px, calc(0.8px + 0.22cqw), 1.8px);
     text-transform: uppercase;
-    padding: 0 clamp(7px, 3.4cqw, 14px);
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    width: var(--badge-h);
+    padding: clamp(9px, calc(6px + 1.7cqw), 14px) 0;
+    white-space: nowrap;
     border-radius: 0;
     line-height: 1;
     pointer-events: none;
     display: inline-flex;
     align-items: center;
-    height: clamp(18px, 6.6cqw, 27px);
+    justify-content: center;
     box-sizing: border-box;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
@@ -710,6 +718,9 @@
 
   <p>Quattro categorie, tutte basate sul sito reale Doppelgänger. Ogni card ha <strong>al massimo un badge</strong>: mai due sovrapposti.</p>
 
+  <p style="background: #F7F3EC; border-left: 3px solid #B8935A; padding: 14px 18px; font-size: 13px; color: #2B2B2B; margin: 20px 0;">
+    <strong>I badge sono verticali.</strong> Dal 6 novembre 2026 ogni badge è una linguetta che corre lungo il bordo sinistro della card, dall'alto verso il basso, e si legge dal basso verso l'alto (come nelle maison di lusso). La larghezza della linguetta scala con la card (27px su desktop, 20px su mobile a 2 colonne), la lunghezza segue il testo. I colori di sfondo non sono cambiati. Nella vista a 3 colonne su mobile, solo i badge «Saldi» e «Outlet» restano visibili, come quadratino con il simbolo <code>%</code>.</p>
+
   <h3>Esempi visivi</h3>
   <div class="badge-grid">
     <div class="product-card">
@@ -860,6 +871,18 @@
       <td>Bianco, maiuscolo</td>
       <td>Solo nelle pagine Outlet</td>
     </tr>
+  </table>
+
+  <h3>Dimensioni e posizionamento</h3>
+  <table>
+    <tr><th>Proprietà</th><th>Valore</th><th>Note</th></tr>
+    <tr><td>Orientamento</td><td><code>writing-mode: vertical-rl</code> + <code>rotate(180deg)</code></td><td>Lettura dal basso verso l'alto</td></tr>
+    <tr><td>Posizione</td><td><code>top: 0; left: 0</code></td><td>Linguetta attaccata all'angolo in alto a sinistra</td></tr>
+    <tr><td>Larghezza (spessore)</td><td><code>clamp(19px, 15px + 2.6cqw, 27px)</code></td><td>Scala con la larghezza della card (<code>container-type: inline-size</code>)</td></tr>
+    <tr><td>Font-size</td><td><code>clamp(9px, 8.2px + 0.6cqw, 11px)</code></td><td>Stessa scala fluida di prima</td></tr>
+    <tr><td>Padding verticale</td><td><code>clamp(9px, 6px + 1.7cqw, 14px) 0</code></td><td>Si adatta alla lunghezza del testo</td></tr>
+    <tr><td>Colori</td><td>Invariati</td><td>Bestseller oro pieno, Novità inchiostro vetro, Saldi rosso, Outlet rosso scuro, Ultimi grigio scuro, Esclusiva bronzo pieno</td></tr>
+    <tr><td>Vista 3 colonne (mobile)</td><td>Solo <code>.sale</code> e <code>.outlet</code> visibili come quadratino <code>%</code></td><td>Gli altri badge sono nascosti</td></tr>
   </table>
 
   <h2>2. Badge opzionali</h2>
