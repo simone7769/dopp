@@ -1207,7 +1207,7 @@ header.menu-open .topbar-message {
   color: var(--gold-text);
   margin: 0;
   padding: 24px 0 8px;
-  border-bottom: 0.5px solid var(--gold);
+  border-bottom: 1px solid var(--gold);
 }
 .stores-item { padding: 20px 0; border-bottom: 1px solid var(--line); }
 .stores-item h5 {
