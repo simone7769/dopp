@@ -304,10 +304,15 @@
     height: 100%;
     object-fit: cover;
     object-position: center;
-    margin: 0 !important;
-    padding: 0 !important;
-    border: none !important;
+    margin: 0;
+    padding: 0;
+    border: none;
     display: block;
+  }
+
+  /* Se c'è una sola foto, occupa tutto lo spazio (evita metà vuota) */
+  .quick-add-gallery--single {
+    grid-template-columns: 1fr;
   }
 
   /* INFO: Padding in alto (24px) e spazio in fondo per il bottone */
