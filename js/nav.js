@@ -86,9 +86,11 @@ if (header) {
         if (currentScroll > 100 && delta > 0) {
           // Scroll in giù: nascondi
           header.classList.add('hidden');
+          document.documentElement.classList.add('header-hidden');
         } else if (delta < 0 || currentScroll < 50) {
           // Scroll in su o in cima: mostra
           header.classList.remove('hidden');
+          document.documentElement.classList.remove('header-hidden');
         }
         lastScroll = currentScroll;
       }
