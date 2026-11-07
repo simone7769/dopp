@@ -135,6 +135,10 @@
   var DRAWERS = '\
 <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>\
 <div class="mobile-menu" id="mobileMenu" aria-hidden="true">\
+  <div class="menu-header">\
+    <button type="button" class="nav-burger" id="closeMobileMenu" aria-label="Chiudi menu" aria-expanded="true"><span></span><span></span><span></span></button>\
+  </div>\
+  <div class="mobile-menu-body">\
   <ul class="mobile-menu-list">\
     <li><a href="ai-2026.html">Nuovi Arrivi</a></li>\
     <li class="has-sub">\
@@ -182,6 +186,7 @@
   </ul>\
   <div class="mobile-menu-utility">\
     <a href="accessibilita.html">Abilita accessibilità</a>\
+  </div>\
   </div>\
 </div>\
 ' + COUNTRY_DRAWER() + CART_DRAWER() + LOGIN_DRAWER() + WISHLIST_DRAWER() + SEARCH_DRAWER() + STORES_DRAWER() + CONTACT_DRAWER();

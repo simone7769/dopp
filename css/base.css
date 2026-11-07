@@ -117,17 +117,17 @@ header.scrolled {
 }
 
 /* Hover sull'header trasparente (home, vetrina): diventa bianco */
-body:not(.header-light) header:not(.scrolled):not(.menu-open):hover {
+body:not(.header-light) header:not(.scrolled):hover {
   background-color: var(--paper);
   color: var(--ink);
 }
-body:not(.header-light) header:not(.scrolled):not(.menu-open):hover .logo {
+body:not(.header-light) header:not(.scrolled):hover .logo {
   filter: brightness(0) saturate(100%);
 }
-body:not(.header-light) header:not(.scrolled):not(.menu-open):hover .nav-icon-link {
+body:not(.header-light) header:not(.scrolled):hover .nav-icon-link {
   color: var(--ink);
 }
-body:not(.header-light) header:not(.scrolled):not(.menu-open):hover .topbar-message {
+body:not(.header-light) header:not(.scrolled):hover .topbar-message {
   color: var(--paper);
 }
 header.scrolled .logo {
@@ -136,7 +136,6 @@ header.scrolled .logo {
 header.scrolled .nav-icon-link {
   color: var(--ink);
 }
-/* .topbar in più: deve vincere su header.menu-open .topbar-message (stessa specificità, più in basso) */
 header.scrolled .topbar .topbar-message {
   color: var(--paper);
 }
@@ -154,29 +153,6 @@ header.scrolled .nav {
   min-height: 0;
   max-height: none;
   height: auto;
-}
-
-header.menu-open,
-header.menu-open .topbar,
-header.menu-open .header-main,
-header.menu-open .nav {
-  background-color: var(--crema-pannelli);
-  color: var(--ink);
-}
-header.menu-open .header-main {
-  height: auto;
-  padding: 22px 20px;
-  opacity: 1;
-  overflow: visible;
-}
-header.menu-open .logo {
-  filter: brightness(0) saturate(100%);
-}
-header.menu-open .nav-icon-link {
-  color: var(--ink);
-}
-header.menu-open .topbar-message {
-  color: var(--ink);
 }
 
 .topbar {
@@ -611,15 +587,36 @@ header.menu-open .topbar-message {
   height: 100vh;
   height: 100dvh;
   background: var(--crema-pannelli);
-  z-index: 999;
+  z-index: 1300;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
-  padding: 165px 0 40px;
   visibility: hidden;
   transform: translateX(-100%);
   transition: transform var(--t-base) var(--ease-out), visibility var(--t-base) var(--ease-out);
+  overflow: hidden;
+  color: var(--ink);
+}
+/* Riga della X: stessa altezza e margini di .header-main (60px, padding 16px) sotto la
+   topbar, così la X cade esattamente dove stava il burger; filo oro come negli altri drawer */
+.menu-header {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  box-sizing: content-box;
+  height: 60px;
+  margin-top: calc(var(--topbar-h) - 1px);
+  padding: 0 16px;
+  border-top: 1px solid var(--gold);
+}
+/* Corpo scorrevole: la riga della X resta ferma, come l'header dei drawer */
+.mobile-menu-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 40px;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
@@ -632,7 +629,7 @@ header.menu-open .topbar-message {
   opacity: 0;
   visibility: hidden;
   transition: opacity var(--t-base) var(--ease), visibility var(--t-base) var(--ease);
-  z-index: 998;
+  z-index: 1200;
   pointer-events: none;
 }
 .mobile-menu-overlay.active {
@@ -1771,18 +1768,7 @@ footer {
   .nav-left,
   .nav-right { display: none; }
 
-  header.menu-open .header-main {
-    min-height: 60px;
-    padding: 0 16px;
-    height: auto;
-    opacity: 1;
-    overflow: visible;
-  }
-
-  .mobile-menu {
-    padding-top: calc(var(--header-h, 117px) + 12px);
-    padding-bottom: calc(28px + env(safe-area-inset-bottom, 0px));
-  }
+  .mobile-menu-body { padding-bottom: calc(28px + env(safe-area-inset-bottom, 0px)); }
   .mobile-menu-list { margin-bottom: 32px; }
 
 

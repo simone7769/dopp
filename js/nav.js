@@ -52,13 +52,6 @@ function cssDurationMs(name, fallbackMs) {
    ============================================================ */
 const header = document.getElementById('header');
 
-const headerHolds = new Set();
-function releaseHeaderIfFree() {
-  if (!header || headerHolds.size > 0) return;
-  header.classList.remove('menu-open');
-  header.classList.toggle('scrolled', window.scrollY > 20);
-}
-
 /* Header scrollato: resta com'era (la parte hover del vecchio megamenu è
    stata tolta il 7 nov, il menu ora si apre solo con il bottone MENU). */
 if (header) {
@@ -78,7 +71,7 @@ if (header) {
 
     // Hide-on-scroll
     // Non nascondere se un pannello/drawer/modale è aperto
-    const isModalOpen = document.body.style.overflow === 'hidden' || header.classList.contains('menu-open');
+    const isModalOpen = document.body.style.overflow === 'hidden';
     
     if (!isModalOpen) {
       const delta = currentScroll - lastScroll;
@@ -226,12 +219,10 @@ if (navBurger && mobileMenu) {
   function closeMobileMenu() { setMobileMenu(false); }
   const closeOtherPanels = PanelManager.register(closeMobileMenu);
 
-  let menuCloseTimer = null;
-
   const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+  const closeMenuBtn = document.getElementById('closeMobileMenu');
 
   function setMobileMenu(willOpen) {
-    const wasOpen = mobileMenu.classList.contains('open');
     mobileMenu.classList.toggle('open', willOpen);
     if (mobileMenuOverlay) mobileMenuOverlay.classList.toggle('active', willOpen);
     navBurger.setAttribute('aria-expanded', String(willOpen));
@@ -241,20 +232,6 @@ if (navBurger && mobileMenu) {
     mobileMenu.setAttribute('aria-hidden', String(!willOpen));
     mobileMenu.inert = !willOpen;
     document.body.style.overflow = willOpen ? 'hidden' : '';
-
-    if (header && willOpen !== wasOpen) {
-      clearTimeout(menuCloseTimer);
-      if (willOpen) {
-        headerHolds.add('menu');
-        header.classList.add('menu-open');
-      } else {
-        menuCloseTimer = setTimeout(() => {
-          if (mobileMenu.classList.contains('open')) return;
-          headerHolds.delete('menu');
-          releaseHeaderIfFree();
-        }, cssDurationMs('--t-base', 400));
-      }
-    }
   }
 
   function toggleMobileMenu(force) {
@@ -264,6 +241,7 @@ if (navBurger && mobileMenu) {
   }
 
   navBurger.addEventListener('click', () => toggleMobileMenu());
+  if (closeMenuBtn) closeMenuBtn.addEventListener('click', () => toggleMobileMenu(false));
   if (mobileMenuOverlay) {
     mobileMenuOverlay.addEventListener('click', () => toggleMobileMenu(false));
   }
