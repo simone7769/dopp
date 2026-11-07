@@ -93,7 +93,7 @@
   --fs-claim: clamp(24px, 2.2vw, 32px);   /* titolo Capsule in home (l'hero non ha più claim dal 3 nov) */
 
   /* Token di riferimento per la tipografia. */
-  --fs-hero-inner:     clamp(20px, 1.6vw, 24px);
+  --fs-hero-inner:     clamp(18px, 1.4vw, 22px);  /* 7 nov: allineato a collezioni */
   --fs-section-title:  18px;
   --fs-body-editorial: 18px;
   --fs-body-legal:     16px;
