@@ -326,6 +326,10 @@ html.header-hidden { scroll-padding-top: 0; }
   transform-origin: center;
   object-position: center 35%;
 }
+/* Video c.mp4: inquadratura più stretta, zoom ridotto per allinearlo ad a.mp4 */
+.product .image video.mh-video--c {
+  transform: scale(1.05) translateY(-10px);
+}
 .mh-arrow,
 .w-arrow {
   position: absolute;
