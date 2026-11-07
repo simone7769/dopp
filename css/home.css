@@ -81,7 +81,7 @@ html.header-hidden { scroll-padding-top: 0; }
 }
 .info-bar h2 {
   font-family: var(--serif);
-  font-size: var(--fs-24);
+  font-size: var(--fs-26);
   font-weight: 400;
   letter-spacing: var(--tr-5);
   text-transform: uppercase;
@@ -245,7 +245,7 @@ html.header-hidden { scroll-padding-top: 0; }
     max-width: none;
   }
   .card-media img { object-position: center 22%; }
-  .card h3 { font-size: clamp(12px, 1.05vw, 17px); }
+  .card h3 { font-size: var(--fs-14); } /* uniformato a 14px (era clamp 12-17) */
 }
 
 /* ============================================================
@@ -721,6 +721,7 @@ header.scrolled .topbar {
   text-align: left;
   max-width: 100%;
   padding: 0 12px;
+  font-size: var(--fs-14); /* uniformato alle card collezione/journal in home */
 }
 .must-have .product-price {
   text-align: left;
