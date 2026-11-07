@@ -52,3 +52,12 @@ Chromium headless, su `index.html`, `ai-2026.html`, `prodotto.html`.
 | 390px | due righe, logo in `.header-main`, il burger apre il menu mobile |
 
 Nessun errore JS in console (solo 404 sulle immagini, assenti nella copia di prova).
+
+## Vetrina (Capsule): titoli, hero e chiusura
+
+- Un solo titolo prima della griglia: tolto "Intorno al bomber", il paragrafo ora sta sotto "Il resto della Capsule" (`.vt-products-head p`). Rimossi gli stili `.vt-intro-section`, non più usati.
+- Hero: link "Scopri la selezione" (stile `.vt-hero-link` già presente) che scende alla griglia (`#selezione`).
+- Banner finale: il bottone "Vedi tutti i capi" è passato dalla fine della griglia al banner (`.vt-btn--light`), con un velo scuro al centro per il contrasto. Rimosso `.vt-products-more`. Il blocco è un `div`, non più un `blockquote`: è una frase di servizio, non una citazione.
+- Capo in evidenza (desktop): le maiuscole del titolo ora partono dal bordo alto della foto (prima 6px sotto); il bordo basso del still-life era già allineato.
+
+**File**: `vetrina.html`, `css/vetrina.css`.

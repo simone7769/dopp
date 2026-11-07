@@ -145,6 +145,8 @@
   text-decoration-thickness: 1px;
 }
 .vt-hero-link:hover { opacity: .8; }
+/* Ancora dalla hero alla selezione: sotto l'header fisso */
+#selezione { scroll-margin-top: 96px; }
 
 /* ---------- 2. MANIFESTO ---------- */
 /* Occhiello: rientrato di circa una colonna, allineato alla griglia a 12 */
@@ -254,7 +256,7 @@
   font-weight: var(--fw-regular);
   font-size: var(--fs-pdp-title);
   line-height: 1.2;
-  margin: 0 0 10px;
+  margin: -0.2em 0 10px;   /* altezza delle maiuscole = bordo alto della foto */
 }
 .vt-feature-price {
   font-family: var(--sans);
@@ -287,6 +289,15 @@
   margin-bottom: 64px;
 }
 /* Come i titoli di sezione della home (Must Have) */
+.vt-products-head p {
+  max-width: 700px;
+  margin: 0;
+  padding: 0 20px;
+  font-family: var(--sans);
+  font-size: var(--fs-16);
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
 .vt-products-head h2,
 .vt-products-head h3 {
   font-family: var(--serif);
@@ -366,12 +377,6 @@
 
 /* Il cuore (.wish) è il componente condiviso di base.css: stessa posizione in scala */
 
-/* "Vedi tutti" sotto la galleria, centrato con aria sopra */
-.vt-products-more {
-  text-align: center;
-  margin-top: 56px;
-}
-
 /* QUICK ADD: spostato in css/quick-add.css (drawer a due colonne, 6 nov) */
 
 /* ---------- 6. CITAZIONE A TUTTA LARGHEZZA ---------- */
@@ -404,11 +409,25 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 36px;
   padding: 0 40px;
   margin: 0;
   text-align: center;
   pointer-events: none;
 }
+.vt-sticky-quote-center .vt-btn { pointer-events: auto; }
+/* Velo scuro al centro: più contrasto per testo e bottone sulla foto */
+.vt-sticky-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, .38) 0%, rgba(0, 0, 0, 0) 70%);
+  pointer-events: none;
+}
+.vt-sticky-quote-center { z-index: 1; }
+/* Bottone bordato chiaro, per sfondi scuri */
+.vt-btn--light { border-color: #fff; color: #fff; }
+.vt-btn--light:hover { background: #fff; color: var(--ink); }
 .vt-sticky-quote-center p {
   font-family: var(--serif);
   font-style: italic;
@@ -468,6 +487,7 @@
     grid-row: auto;
   }
   .vt-feature-img { height: auto; }
+  .vt-feature-text h2 { margin-top: 0; }   /* a colonna singola il titolo segue la foto */
   .vt-feature-img img { position: static; height: auto; aspect-ratio: 4 / 5; object-position: center top; }
 
   /* Prodotti: scorrimento orizzontale, 2 card e un pezzo della terza */
@@ -531,26 +551,4 @@
   font-weight: 300;
   letter-spacing: 0.05em;
   opacity: 0.9;
-}
-
-.vt-intro-section {
-  max-width: 700px;
-  margin: 0 auto 60px;
-  text-align: center;
-  padding: 0 20px;
-}
-
-.vt-intro-section h2 {
-  font-family: var(--serif);
-  font-size: clamp(28px, 3vw, 36px);
-  font-weight: var(--fw-regular);
-  color: var(--ink);
-  margin-bottom: 16px;
-}
-
-.vt-intro-section p {
-  font-family: var(--sans);
-  font-size: var(--fs-16);
-  line-height: 1.6;
-  color: var(--ink-soft);
 }
