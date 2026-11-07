@@ -764,8 +764,8 @@ header.scrolled .topbar {
   background-color: var(--paper);
   overflow: hidden;
   /* Usa il rapporto naturale dell'immagine (2833x1322) */
-  aspect-ratio: 2833 / 1322;
-  max-height: 85vh;
+  aspect-ratio: 16 / 9;
+  max-height: 90vh;
 }
 
 .outlet-hero img {
@@ -925,8 +925,8 @@ header.scrolled .topbar {
   position: relative;
   display: block;
   width: 100%;
-  aspect-ratio: 2833 / 1322; /* stesso rapporto dell'Outlet: altezze identiche */
-  max-height: 85vh;          /* stesso limite dell'Outlet */
+  aspect-ratio: 16 / 9; /* stesso rapporto dell'Outlet: altezze identiche */
+  max-height: 90vh;          /* stesso limite dell'Outlet */
   min-height: auto;
   overflow: hidden;
   background-color: #faf8f5;
