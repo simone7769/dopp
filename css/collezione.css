@@ -330,7 +330,7 @@
   /* A 1 colonna la card è a tutta larghezza: il "+" torna visibile.
      Segue lo switch colonne (data-cols), non la larghezza dello schermo. */
   .products-grid[data-cols="1"] .product-card .plus { display: inline-flex; }
-  .product-info { padding: 8px 10px 12px; }
+  .product-info { padding: 8px 12px 0; } /* allineato a home/vetrina (9 nov) */
   /* A 1 colonna più spazio sotto il testo: le card sono quasi attaccate (gap 2px) */
   .products-grid[data-cols="1"] .product-info { padding-bottom: 20px; }
 

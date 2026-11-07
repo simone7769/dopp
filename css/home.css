@@ -305,7 +305,7 @@ html.header-hidden { scroll-padding-top: 0; }
   background-color: var(--paper);
   position: relative;
   overflow: hidden;
-  margin-bottom: 18px;
+  margin-bottom: 14px; /* allineato a collezioni/vetrina (desktop) */
 }
 .product .image img {
   width: 100%;
@@ -642,6 +642,8 @@ header.scrolled .topbar {
 }
 
 @media (max-width: 640px) {
+  /* Immagine→titolo 8px come collezioni/vetrina (9 nov) */
+  .product .image { margin-bottom: 8px; }
   /* Mobile: niente boiserie. Cerimonia ed Essential diventano due card
      a tutta larghezza (a filo schermo, come il Duo),
      una sotto l'altra, con la proporzione 4/5 (come Journal e Looks). */
