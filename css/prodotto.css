@@ -40,6 +40,8 @@
 .pdp-gallery img {
   aspect-ratio: 2 / 3; /* 1380 x 2070 */
 }
+/* Gift card: foto orizzontale 860x500, non va forzata in 2:3 */
+.pdp-gallery img.gift-card-img { aspect-ratio: 860 / 500; }
 /* Prima immagine grande a tutta larghezza */
 .pdp-gallery > :first-child { grid-column: 1 / -1; }
 /* Se l'ultimo elemento resta solo in una riga, occupa tutta la larghezza */

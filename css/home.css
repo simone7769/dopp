@@ -159,7 +159,7 @@ html.header-hidden { scroll-padding-top: 0; }
   text-align: center;
 }
 
-/* Frame a tutta larghezza, proporzione identica alla foto (1616x899) */
+/* Frame a tutta larghezza, proporzione del frame (1616x777) */
 .collection-frame {
   position: relative;
   width: 100%;
