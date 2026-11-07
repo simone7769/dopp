@@ -254,7 +254,7 @@ html.header-hidden { scroll-padding-top: 0; }
 .must-have {
   --mh-pad: max(50px, calc((100vw - 1600px) / 2));
   --mh-gap: 40px;
-  --mh-visible: 3.2;  /* 3 card piene + un pezzo della quarta (9 nov) */
+  --mh-visible: 3.2;  /* card un po' più grandi */
   --mh-gaps: 3;
   padding: 90px 0;
   position: relative;
@@ -466,7 +466,7 @@ html.header-hidden { scroll-padding-top: 0; }
 .world {
   --w-pad: max(50px, calc((100vw - 1600px) / 2));
   --w-gap: 40px;
-  --w-visible: 3.2;  /* 3 card piene + un pezzo della quarta (9 nov) */
+  --w-visible: 3.2;  /* card un po' più grandi */
   --w-gaps: 3;
   padding: 90px 0;
   position: relative;
@@ -573,12 +573,13 @@ header.scrolled .topbar {
 }
 
 @media (max-width: 1200px) {
-  .world { --w-visible: 3.2; --w-gaps: 2; } /* allineato a Selezione (9 nov) */
+  .must-have { --mh-visible: 2.2; --mh-gaps: 2; }
+  .world { --w-visible: 2.2; --w-gaps: 2; }
 }
 
 @media (max-width: 1024px) {
-  .must-have { --mh-visible: 2.5; --mh-gaps: 2; --mh-gap: 32px; }
-  .world { --w-visible: 2.5; --w-gaps: 2; --w-gap: 32px; }
+  .must-have { --mh-visible: 2.2; --mh-gaps: 2; --mh-gap: 32px; }
+  .world { --w-visible: 2.2; --w-gaps: 2; --w-gap: 32px; }
   .duo { height: 100vh; height: 100svh; min-height: 500px; }
   /* Tablet verticale: boiserie e duo come su mobile (card impilate 4/5) */
   .collection { padding: 0; }
@@ -603,7 +604,7 @@ header.scrolled .topbar {
   .must-have {
     --mh-pad: 24px;
     --mh-gap: 20px;
-    --mh-visible: 2.3;
+    --mh-visible: 2.2;
     --mh-gaps: 2;
     padding: 60px 0;
   }
@@ -612,7 +613,7 @@ header.scrolled .topbar {
   .world {
     --w-pad: 24px;
     --w-gap: 20px;
-    --w-visible: 2.3;
+    --w-visible: 2.2;
     --w-gaps: 2;
     padding: 60px 0;
   }
@@ -639,6 +640,11 @@ header.scrolled .topbar {
   .duo { grid-template-columns: 1fr; height: auto; min-height: auto; }
   .duo-item { width: 100%; height: auto; min-height: 0; aspect-ratio: 3 / 2; }
   .duo-content h3 { letter-spacing: var(--tr-4); }
+}
+
+@media (max-width: 900px) {
+  .must-have { --mh-visible: 1.44; --mh-gaps: 2; --mh-gap: 32px; }
+  .world { --w-visible: 1.44; --w-gaps: 2; --w-gap: 32px; }
 }
 
 @media (max-width: 640px) {
@@ -686,8 +692,8 @@ header.scrolled .topbar {
     line-height: 1.35;
   }
 
-  .must-have { --mh-gap: 14px; --mh-visible: 1.1; --mh-gaps: 1; --mh-pad: 16px; }
-  .world { --w-gap: 14px; --w-visible: 1.1; --w-gaps: 1; --w-pad: 16px; }
+  .must-have { --mh-gap: 14px; --mh-visible: 1.15; --mh-gaps: 1; --mh-pad: 16px; }
+  .world { --w-gap: 14px; --w-visible: 1.15; --w-gaps: 1; --w-pad: 16px; }
   .card h3 { font-size: var(--fs-11); letter-spacing: 0.05em; }
 
   /* Mobile: le 4 card impilate (Cerimonia, Essential, Outlet,
