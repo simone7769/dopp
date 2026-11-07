@@ -254,7 +254,7 @@ html.header-hidden { scroll-padding-top: 0; }
 .must-have {
   --mh-pad: max(50px, calc((100vw - 1600px) / 2));
   --mh-gap: 40px;
-  --mh-visible: 3.5;
+  --mh-visible: 3.2;  /* 3 card piene + un pezzo della quarta (9 nov) */
   --mh-gaps: 3;
   padding: 90px 0;
   position: relative;
@@ -466,7 +466,7 @@ html.header-hidden { scroll-padding-top: 0; }
 .world {
   --w-pad: max(50px, calc((100vw - 1600px) / 2));
   --w-gap: 40px;
-  --w-visible: 4;
+  --w-visible: 3.2;  /* 3 card piene + un pezzo della quarta (9 nov) */
   --w-gaps: 3;
   padding: 90px 0;
   position: relative;
@@ -573,7 +573,7 @@ header.scrolled .topbar {
 }
 
 @media (max-width: 1200px) {
-  .world { --w-visible: 3; --w-gaps: 2; }
+  .world { --w-visible: 3.2; --w-gaps: 2; } /* allineato a Selezione (9 nov) */
 }
 
 @media (max-width: 1024px) {
