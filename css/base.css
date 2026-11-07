@@ -115,6 +115,21 @@ header.scrolled {
   color: var(--ink);
   box-shadow: none;
 }
+
+/* Hover sull'header trasparente (home, vetrina): diventa bianco */
+body:not(.header-light) header:not(.scrolled):not(.menu-open):hover {
+  background-color: var(--paper);
+  color: var(--ink);
+}
+body:not(.header-light) header:not(.scrolled):not(.menu-open):hover .logo {
+  filter: brightness(0) saturate(100%);
+}
+body:not(.header-light) header:not(.scrolled):not(.menu-open):hover .nav-icon-link {
+  color: var(--ink);
+}
+body:not(.header-light) header:not(.scrolled):not(.menu-open):hover .topbar-message {
+  color: var(--paper);
+}
 header.scrolled .logo {
   filter: brightness(0) saturate(100%);
 }
