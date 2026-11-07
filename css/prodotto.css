@@ -399,7 +399,7 @@ body.pdp-lightbox-open { overflow: hidden; }
 }
 .pdp-item-image {
   width: 100%;
-  aspect-ratio: 3 / 4.5;
+  aspect-ratio: var(--ratio-card);
   background-color: var(--paper);
   overflow: hidden;
   margin-bottom: 18px;

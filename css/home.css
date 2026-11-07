@@ -301,7 +301,7 @@ html.header-hidden { scroll-padding-top: 0; }
 }
 .product .image {
   width: 100%;
-  aspect-ratio: 3 / 4.5;
+  aspect-ratio: var(--ratio-card);
   background-color: var(--paper);
   position: relative;
   overflow: hidden;
