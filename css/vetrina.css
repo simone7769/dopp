@@ -491,21 +491,19 @@
   .vt-feature-img img { position: static; height: auto; aspect-ratio: 4 / 5; object-position: center top; }
 
   /* Prodotti: scorrimento orizzontale, 2 card e un pezzo della terza */
+  /* 8 nov: griglia verticale a 2 colonne (niente più carosello orizzontale,
+     che entrava in conflitto con lo slider interno delle card) */
   .vt-grid {
     max-width: none;
-    grid-template-columns: none;
-    grid-auto-flow: column;
-    grid-auto-columns: 42%;
-    gap: var(--grid-gap-x-tablet);
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    margin: 0 calc(-1 * var(--vt-side));
-    padding: 0 var(--vt-side);
-    scroll-padding: 0 var(--vt-side);
-    scrollbar-width: none;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-flow: row;
+    gap: 32px var(--grid-gap-x-tablet);
+    overflow-x: visible;
+    scroll-snap-type: none;
+    margin: 0;
+    padding: 0;
   }
-  .vt-grid::-webkit-scrollbar { display: none; }
-  .vt-card { scroll-snap-align: start; }
+  .vt-card { scroll-snap-align: none; }
 }
 
 @media (max-width: 640px) {
@@ -514,7 +512,8 @@
   .vt-hero video,
   .vt-hero img { min-height: 420px; height: 78vh; height: 78svh; }
 
-  .vt-grid { grid-auto-columns: 72%; gap: var(--grid-gap-x-mobile); }
+  /* 8 nov: griglia a 1 colonna su mobile */
+  .vt-grid { grid-template-columns: 1fr; gap: 40px; }
   /* Immagine→titolo 8px come nelle collezioni su mobile (5 nov) */
   .vt-card .product-info { padding-top: 8px; }
   .vt-products-head { margin-bottom: 40px; }
