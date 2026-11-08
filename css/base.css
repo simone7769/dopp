@@ -2219,7 +2219,7 @@ footer {
   .header-main { padding: 20px 20px; }
   .nav,
   header.scrolled .nav { padding: 4px var(--nav-pad) 8px; }
-  .topbar { padding: 4px 20px 4px; }
+  /* topbar uniforme a 36px anche su iPad (8 nov: era 4px, creava disallineamento linea oro) */
 }
 
 @media (min-width: 1025px) {
