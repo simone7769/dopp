@@ -1291,7 +1291,6 @@ header.scrolled .nav {
 .wishlist-empty svg { width: 40px; height: 40px; color: var(--muted); margin-bottom: 6px; }
 .wishlist-empty h4 {
   font-family: var(--sans);
-  font-size: 0.95em;
   font-weight: 300;
   font-size: var(--fs-22);
   letter-spacing: var(--tr-1);
@@ -1513,7 +1512,6 @@ footer {
 }
 .footer-newsletter h3 {
   font-family: var(--sans);
-  font-size: 0.95em;
   font-weight: 300;
   font-size: var(--fs-22);
   letter-spacing: var(--tr-1);

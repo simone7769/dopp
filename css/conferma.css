@@ -13,7 +13,6 @@
 }
 .cf-title {
   font-family: var(--sans);
-  font-size: 0.95em;
   font-weight: 300;
   font-size: clamp(24px, 2.2vw, 32px);
   line-height: 1.25;

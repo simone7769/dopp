@@ -94,7 +94,6 @@
   margin: 0 0 12px;
   padding-right: var(--touch-target, 44px); /* spazio per la × */
   font-family: var(--sans);
-  font-size: 0.95em;
   font-weight: 300;
   font-size: var(--fs-24);
   line-height: 1.3;

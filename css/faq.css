@@ -32,7 +32,6 @@
 
 .faq-group-title {
   font-family: var(--sans);
-  font-size: 0.95em;
   font-weight: 300;
   font-size: var(--fs-22);
   letter-spacing: var(--tr-1);
@@ -119,7 +118,6 @@
   position: relative;
   padding: 4px 0 4px 16px;
   font-family: var(--sans);
-  font-size: 0.95em;
   font-weight: 300;
   font-size: var(--fs-16);
   line-height: 1.7;

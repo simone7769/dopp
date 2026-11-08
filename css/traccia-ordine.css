@@ -15,7 +15,6 @@
 /* --- Colonna form --- */
 .track-heading {
   font-family: var(--sans);
-  font-size: 0.95em;
   font-weight: 300;
   font-size: var(--fs-22);
   letter-spacing: var(--tr-05);
@@ -26,7 +25,6 @@
 }
 .track-intro {
   font-family: var(--sans);
-  font-size: 0.95em;
   font-weight: 300;
   font-size: var(--fs-16);
   line-height: 1.7;
@@ -112,7 +110,6 @@
 }
 .track-result-header h3 {
   font-family: var(--sans);
-  font-size: 0.95em;
   font-weight: 300;
   font-size: var(--fs-20);
   letter-spacing: var(--tr-05);
@@ -179,7 +176,6 @@
 }
 .track-steps li p {
   font-family: var(--sans);
-  font-size: 0.95em;
   font-weight: 300;
   font-size: var(--fs-16);
   line-height: 1.55;
@@ -236,7 +232,6 @@
 }
 .track-info-block p {
   font-family: var(--sans);
-  font-size: 0.95em;
   font-weight: 300;
   font-size: var(--fs-16);
   line-height: 1.7;

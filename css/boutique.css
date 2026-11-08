@@ -98,7 +98,6 @@
 }
 .boutique-item h3 {
   font-family: var(--sans);
-  font-size: 0.95em;
   font-weight: 300;
   font-size: var(--fs-20);
   letter-spacing: var(--tr-05);

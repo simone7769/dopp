@@ -118,7 +118,6 @@
 
 .lavora-note {
   font-family: var(--sans);
-  font-size: 0.95em;
   font-weight: 300;
   font-size: var(--fs-16);
   line-height: 1.7;
@@ -142,7 +141,6 @@
 /* --- Form candidatura --- */
 .lavora-form-title {
   font-family: var(--sans);
-  font-size: 0.95em;
   font-weight: 300;
   font-size: var(--fs-section-title);
   letter-spacing: var(--tr-1);
@@ -350,7 +348,6 @@
 .lavora-success[hidden] { display: none; }
 .lavora-success h3 {
   font-family: var(--sans);
-  font-size: 0.95em;
   font-weight: 300;
   font-size: var(--fs-26);
   color: var(--ink);
@@ -377,7 +374,6 @@
 /* --- Nota finale --- */
 .lavora-footer-note {
   font-family: var(--sans);
-  font-size: 0.95em;
   font-weight: 300;
   font-size: var(--fs-16);
   line-height: 1.7;

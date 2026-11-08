@@ -390,7 +390,6 @@
 
 .sartoria-step p {
   font-family: var(--sans);
-  font-size: 0.95em;
   font-weight: 300;
   font-size: var(--fs-14);
   letter-spacing: 0.01em;
@@ -410,7 +409,6 @@
 
 .sartoria-cta-wrap p {
   font-family: var(--sans);
-  font-size: 0.95em;
   font-weight: 300;
   font-size: var(--fs-16);
   letter-spacing: 0.01em;

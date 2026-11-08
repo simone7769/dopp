@@ -20,7 +20,6 @@
 .club-tier-name {
   display: block;
   font-family: var(--sans);
-  font-size: 0.95em;
   font-weight: 300;
   font-size: var(--fs-24);
   letter-spacing: var(--tr-4);
@@ -273,7 +272,6 @@
 }
 .club-newsletter-success {
   font-family: var(--sans);
-  font-size: 0.95em;
   font-weight: 300;
   font-size: var(--vt-body, 18px);
   font-style: italic;
