@@ -393,7 +393,7 @@ header.scrolled .nav {
 .mm-card { text-decoration: none; color: var(--ink); display: block; width: 100%; min-width: 0; }
 .mm-card .thumb {
   width: 100%;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: var(--ratio-card);
   background-color: var(--paper);
   position: relative;
   overflow: hidden;
@@ -1010,7 +1010,7 @@ header.scrolled .nav {
 }
 .cart-item-image {
   width: 90px;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: var(--ratio-card);
   background: transparent;
   overflow: hidden;
 }
@@ -1215,7 +1215,7 @@ header.scrolled .nav {
 .wishlist-card-image {
   position: relative;
   width: 100%;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: var(--ratio-card);
   background: #f5f5f5;
   overflow: hidden;
   margin-bottom: 10px;
@@ -2136,7 +2136,7 @@ footer {
 
 .search-result-thumb {
   width: 100%;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: var(--ratio-card);
   overflow: hidden;
   background: var(--paper);
   margin-bottom: 10px;

@@ -82,7 +82,7 @@
 
 .journal-card-image {
   width: 100%;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: var(--ratio-card);
   overflow: hidden;
   background: var(--paper);
   margin-bottom: 16px;
@@ -149,7 +149,7 @@
   /* Titolo su mobile: 21px sopra (uguale a collezioni e Looks) */
   .journal-hero { padding-top: 21px; }
   .journal-grid { grid-template-columns: 1fr; gap: 32px; }
-  .journal-card-image { aspect-ratio: 4 / 5; }
+  .journal-card-image { aspect-ratio: var(--ratio-editorial); }
 }
 
 

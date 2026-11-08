@@ -115,7 +115,7 @@
 .product-card .img-wrap {
   position: relative;
   width: 100%;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: var(--ratio-card);
   background-color: var(--paper);
   overflow: hidden;
 }

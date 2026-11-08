@@ -38,7 +38,7 @@
 
 /* Ratio esplicito per le immagini della gallery: evita CLS su lazy load (Lighthouse) */
 .pdp-gallery img {
-  aspect-ratio: 2 / 3; /* 1380 x 2070 */
+  aspect-ratio: var(--ratio-pdp); /* 1380 x 2070 */
 }
 /* Gift card: foto orizzontale 860x500, non va forzata in 2:3 */
 .pdp-gallery img.gift-card-img { aspect-ratio: 860 / 500; }
@@ -360,7 +360,7 @@ body.pdp-lightbox-open { overflow: hidden; }
 
 /* ============================================================
    PDP — Correlati come carosello (formato Must Have)
-   Immagine 3:4.5, titolo + prezzo a sinistra, cuore preferiti (.wish, vedi base.css), senza +.
+   Immagine 3:4 (--ratio-card), titolo + prezzo a sinistra, cuore preferiti (.wish, vedi base.css), senza +.
    Frecce solo desktop ≥1024px; drag col mouse; swipe su touch.
    ============================================================ */
 .pdp-track-wrap {

@@ -130,9 +130,11 @@
 
   --touch-target: 44px;
 
-  --ratio-card: 3 / 4;
-  --ratio-product:    3 / 4;
-  --ratio-hero:       16 / 9;
+  /* Formati immagine (hero = 100svh, nessun token) */
+  --ratio-card:      3 / 4;    /* card prodotto, thumb, carrello, preferiti */
+  --ratio-pdp:       2 / 3;    /* scheda prodotto (foto 1380x2070) */
+  --ratio-editorial: 4 / 5;    /* looks, journal, home mobile (verticale) */
+  --ratio-banner:    16 / 9;   /* outlet, capsule */
 
   --grid-gap-x-desktop: 24px;
   --grid-gap-y-desktop: 40px;

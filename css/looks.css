@@ -67,7 +67,7 @@
 .look-image {
   position: relative;
   width: 100%;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: var(--ratio-card);
   overflow: hidden;
   background-color: var(--paper);
 }
@@ -129,7 +129,7 @@
   .hero { padding-top: 21px; padding-bottom: 10px; }
   .looks-grid { grid-template-columns: 1fr; gap: 60px; }
   .look-card { width: 100%; }
-  .look-image { aspect-ratio: 4 / 5; }
+  .look-image { aspect-ratio: var(--ratio-editorial); }
   .looks-intro { margin: 24px auto; }
 }
 

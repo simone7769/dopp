@@ -176,7 +176,7 @@
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: var(--ratio-card); /* 4:5 */
+  aspect-ratio: var(--ratio-card);
   object-fit: cover;
   background: var(--paper-alt);
 }
@@ -236,7 +236,7 @@
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: var(--ratio-card);
   object-fit: cover;
   object-position: center top; /* 8 nov: salva la testa */
   background: var(--paper-alt);
@@ -245,7 +245,7 @@
   display: block;
   width: 100%;
   height: auto;          /* senza, l'attributo height dell'HTML vincerebbe sull'aspect-ratio */
-  aspect-ratio: 3 / 4;   /* 8 nov: più allungata (era 4/5) */
+  aspect-ratio: var(--ratio-card);   /* 8 nov: più allungata (era 4/5) */
   object-fit: cover;
   background: var(--paper-alt);
 }
@@ -331,7 +331,7 @@
 }
 .vt-card-img {
   position: relative;
-  aspect-ratio: var(--ratio-card); /* 4:5 */
+  aspect-ratio: var(--ratio-card);
   overflow: hidden;
   background: var(--paper-alt);
   /* margin-bottom rimosso: lo spazio lo dà .product-info (padding-top 14px), come nelle collezioni */
@@ -487,7 +487,7 @@
   }
   .vt-feature-img { height: auto; }
   .vt-feature-text h2 { margin-top: 0; }   /* a colonna singola il titolo segue la foto */
-  .vt-feature-img img { position: static; height: auto; aspect-ratio: 4 / 5; object-position: center top; }
+  .vt-feature-img img { position: static; height: auto; aspect-ratio: var(--ratio-editorial); object-position: center top; }
 
   /* Prodotti: scorrimento orizzontale, 2 card e un pezzo della terza */
   /* 8 nov: griglia verticale a 2 colonne (niente più carosello orizzontale,

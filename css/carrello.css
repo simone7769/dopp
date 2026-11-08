@@ -52,7 +52,7 @@
 }
 .cp-item-img {
   width: 120px;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: var(--ratio-card);
   background: transparent;
   overflow: hidden;
 }

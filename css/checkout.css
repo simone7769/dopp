@@ -141,7 +141,7 @@
 
 /* --- Riepilogo --- */
 .co-line { display: grid; grid-template-columns: 64px 1fr auto; gap: 14px; align-items: center; margin-bottom: 16px; }
-.co-thumb { position: relative; width: 64px; aspect-ratio: 3 / 4; }
+.co-thumb { position: relative; width: 64px; aspect-ratio: var(--ratio-card); }
 .co-thumb img { width: 100%; height: 100%; object-fit: contain; object-position: center top; display: block; }
 .co-thumb b {
   position: absolute;

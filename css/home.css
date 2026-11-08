@@ -199,7 +199,7 @@ html.header-hidden { scroll-padding-top: 0; }
 .card-media {
   position: relative;
   height: 90%;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: var(--ratio-editorial);
   max-width: 100%;
   overflow: hidden;
   display: flex;
@@ -508,7 +508,7 @@ html.header-hidden { scroll-padding-top: 0; }
 }
 .w-item .w-image {
   width: 100%;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: var(--ratio-card);
   background-color: var(--paper);
   position: relative;
   overflow: hidden;
@@ -679,7 +679,7 @@ header.scrolled .topbar {
   .collection .card-media {
     width: 100%;
     height: auto;
-    aspect-ratio: 4 / 5;
+    aspect-ratio: var(--ratio-editorial);
     padding: 18px;
   }
 
@@ -701,8 +701,8 @@ header.scrolled .topbar {
      Il Journal (carousel) e' 4/5 come l'archivio; il Must Have
      resta 2:3 (foto prodotto). Solo <=640px. */
   .duo { gap: 14px; background: transparent; }
-  .duo-item { height: auto; min-height: 0; aspect-ratio: 4 / 5; }
-  .w-item .w-image { aspect-ratio: 4 / 5; }
+  .duo-item { height: auto; min-height: 0; aspect-ratio: var(--ratio-editorial); }
+  .w-item .w-image { aspect-ratio: var(--ratio-editorial); }
 }
 
 /* ============================================================
@@ -777,7 +777,7 @@ header.scrolled .topbar {
   background-color: var(--paper);
   overflow: hidden;
   /* Usa il rapporto naturale dell'immagine (2833x1322) */
-  aspect-ratio: 16 / 9;
+  aspect-ratio: var(--ratio-banner);
   max-height: 90vh;
 }
 
@@ -878,7 +878,7 @@ header.scrolled .topbar {
 /* Tablet e Mobile (include iPad) */
 @media (max-width: 1024px) {
   .outlet-hero {
-    aspect-ratio: 4 / 5; /* formato verticale per il mobile */
+    aspect-ratio: var(--ratio-editorial); /* formato verticale per il mobile */
     max-height: max(85vh, 440px); /* tablet: non più alto dello schermo; 440px = minimo per il testo */
     height: auto;
     display: block;
@@ -938,7 +938,7 @@ header.scrolled .topbar {
   position: relative;
   display: block;
   width: 100%;
-  aspect-ratio: 16 / 9; /* stesso rapporto dell'Outlet: altezze identiche */
+  aspect-ratio: var(--ratio-banner); /* stesso rapporto dell'Outlet: altezze identiche */
   max-height: 90vh;          /* stesso limite dell'Outlet */
   min-height: auto;
   overflow: hidden;
@@ -1002,7 +1002,7 @@ header.scrolled .topbar {
 
 @media (max-width: 1024px) {
   .capsule-section {
-    aspect-ratio: 4 / 5; /* formato verticale su mobile, come Outlet */
+    aspect-ratio: var(--ratio-editorial); /* formato verticale su mobile, come Outlet */
     max-height: max(85vh, 440px); /* tablet: come Outlet */
     min-height: auto;
   }
