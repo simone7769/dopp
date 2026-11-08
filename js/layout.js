@@ -34,7 +34,7 @@
       </a>\
     </div>\
     <a href="' + LOGO_HREF + '" class="logo-link" aria-label="Home">\
-      <img src="images/logo_page.svg" alt="Doppelgänger" class="logo">\
+      <img src="images/logo_page.svg" alt="Doppelgänger" class="logo" width="544" height="49">\
     </a>\
     <div class="header-actions">\
       <a href="#" class="nav-icon-link" aria-label="Preferiti">\
@@ -52,7 +52,7 @@
       <button type="button" class="nav-menu-btn" id="navMenuBtn" aria-haspopup="dialog" aria-expanded="false" aria-controls="megamenuFixed">Menu</button>\
     </div>\
     <a href="' + LOGO_HREF + '" class="logo-link logo-link--nav" aria-label="Home">\
-      <img src="images/logo_page.svg" alt="Doppelgänger" class="logo">\
+      <img src="images/logo_page.svg" alt="Doppelgänger" class="logo" width="544" height="49">\
     </a>\
     <div class="nav-right">\
       <a href="#" class="nav-icon-link" aria-label="Cerca"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></a>\
