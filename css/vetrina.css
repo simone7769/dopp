@@ -207,17 +207,17 @@
   grid-template-rows: auto auto;
   column-gap: var(--grid-gap-x-desktop);
   row-gap: 40px;
-  align-items: stretch;
+  align-items: end;      /* 8 nov: allinea tutto in basso */
   margin-bottom: var(--vt-gap);
 }
 .vt-feature-img {
   grid-column: 7 / 12;
-  grid-row: 1 / 3;       /* occupa entrambe le righe */
+  grid-row: 1 / 3;
   display: block;
   position: relative;
-  overflow: hidden;
   margin: 0;
-  height: 100%;
+  height: auto;          /* non si allunga più */
+  /* align-self rimosso: eredita align-items: end dalla griglia */
 }
 .vt-feature-text {
   grid-column: 2 / 6;
@@ -225,28 +225,27 @@
   align-self: start;
 }
 .vt-feature-still {
-  grid-column: 2 / 6;
+  grid-column: 2 / 5;    /* 3 colonne: più piccola */
   grid-row: 2;
   margin: 0;
 }
 
 .vt-feature-img img {
-  /* Fuori dal flusso: l'altezza la decidono testo e still-life, non la foto.
-     Così width/height nell'HTML riservano lo spazio senza allungare la griglia
-     (prima erano stati tolti per questo motivo: vedi AGGIORNAMENTI-23-ottobre). */
-  position: absolute;
-  inset: 0;
+  /* 8 nov: formato fisso 4/5 (coerente con Looks/Journal editoriali).
+     Non si allunga più, non si taglia. */
   display: block;
   width: 100%;
-  height: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4;
   object-fit: cover;
+  object-position: center top; /* 8 nov: salva la testa */
   background: var(--paper-alt);
 }
 .vt-feature-still img {
   display: block;
   width: 100%;
   height: auto;          /* senza, l'attributo height dell'HTML vincerebbe sull'aspect-ratio */
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 3 / 4;   /* 8 nov: più allungata (era 4/5) */
   object-fit: cover;
   background: var(--paper-alt);
 }
