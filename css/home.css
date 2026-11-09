@@ -532,6 +532,18 @@ header.scrolled .topbar {
   .world { --w-visible: 2.2; --w-gaps: 2; }
 }
 
+/* Collection: sotto 1024px si impilano, come Outlet/Capsule */
+@media (max-width: 1024px) {
+  .collection .grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .collection .card-media {
+    aspect-ratio: 4 / 5;
+    max-height: max(85vh, 440px);
+  }
+}
+
 @media (max-width: 1024px) {
   .must-have { --mh-visible: 2.2; --mh-gaps: 2; --mh-gap: 32px; }
   .world { --w-visible: 2.2; --w-gaps: 2; --w-gap: 32px; }
