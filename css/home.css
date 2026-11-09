@@ -29,8 +29,12 @@ html.header-hidden { scroll-padding-top: 0; }
    ============================================================ */
 .hero {
   position: relative;
-  height: 100vh;
-  height: 100svh;
+  /* Rapporto fisso come Barena (non più 100svh): la foto scala con la larghezza.
+     Desktop: rapporto naturale della foto, mai più alto dello schermo. */
+  height: auto;
+  aspect-ratio: 1650 / 1073;
+  max-height: 100vh;
+  max-height: 100svh;
   width: 100%;
   overflow: hidden;
   display: flex;
@@ -111,8 +115,10 @@ html.header-hidden { scroll-padding-top: 0; }
    ============================================================ */
 .video-showcase {
   position: relative;
-  height: 100vh;
-  height: 100svh;
+  height: auto;
+  aspect-ratio: 1650 / 1073;   /* stesso rapporto dell'hero */
+  max-height: 100vh;
+  max-height: 100svh;
   width: 100%;
   overflow: hidden;
 }
@@ -532,23 +538,41 @@ header.scrolled .topbar {
   .world { --w-visible: 2.2; --w-gaps: 2; }
 }
 
-/* Collection: sotto 1024px si impilano, come Outlet/Capsule */
+/* ------------------------------------------------------------
+   Collection e Duo — 3 fasce (stesso schema di Barena Venezia):
+   > 1024px   desktop: due colonne, collection 1:1, duo a 100svh
+   768–1024   tablet: due colonne affiancate, 4:5, nessun tetto di altezza
+   < 768px    telefono: impilate a tutta larghezza, 4:5
+   ------------------------------------------------------------ */
 @media (max-width: 1024px) {
+  .collection .card-media {
+    aspect-ratio: var(--ratio-editorial);
+  }
+  .duo {
+    grid-template-columns: 1fr 1fr;
+    height: auto;
+    min-height: 0;
+  }
+  .duo-item {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: var(--ratio-editorial);
+  }
+}
+@media (max-width: 767px) {
   .collection .grid {
     grid-template-columns: 1fr;
     gap: 14px;
   }
   .collection .card-media {
-    aspect-ratio: 4 / 5;
     max-height: max(85vh, 440px);
   }
-}
-
-@media (max-width: 1024px) {
-  .must-have { --mh-visible: 2.2; --mh-gaps: 2; --mh-gap: 32px; }
-  .world { --w-visible: 2.2; --w-gaps: 2; --w-gap: 32px; }
-  .duo { height: 100vh; height: 100svh; min-height: 500px; }
-    .duo-item { width: 100%; height: auto; min-height: 0; aspect-ratio: 3 / 2; }
+  .duo {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    background: transparent;
+  }
 }
 
 /* Dispositivi touch (qualsiasi larghezza) e schermi <=1024px: niente frecce,
@@ -560,6 +584,7 @@ header.scrolled .topbar {
 
 @media (max-width: 1024px) {
 
+  /* Caroselli: da 1024 a 901px 2,2 card, gap 20px (prima 20→32→14) */
   .must-have {
     --mh-pad: 24px;
     --mh-gap: 20px;
@@ -578,32 +603,29 @@ header.scrolled .topbar {
   }
   .world h2 { letter-spacing: var(--tr-5); margin-bottom: 36px; }
 
-  /* ← FIX touch target: frecce carousel a 44px (WCAG), non più 36px */
-  .mh-arrow,
-  .w-arrow {
-    opacity: 1 !important;
-    visibility: visible !important;
-    min-width: var(--touch-target, 44px);
-    min-height: var(--touch-target, 44px);
-  }
-  .mh-arrow svg,
-  .w-arrow svg { width: 18px; height: 18px; }
-  .mh-prev,
-  .w-prev { left: 8px; } /* ← FIX: 8px (era 10px) per non coprire le card con frecce più grandi */
-  .mh-next,
-  .w-next { right: 8px; }
+  /* Frecce: nascoste sotto i 1024px dalla regola con !important qui sopra
+     (si scorre col dito). Rimosso il blocco che le riabilitava: era codice morto. */
 
   .card-media { padding: 18px; }
   .card h3 { font-size: var(--fs-12); }
 
-  .duo { grid-template-columns: 1fr; height: auto; min-height: auto; }
-  .duo-item { width: 100%; height: auto; min-height: 0; aspect-ratio: 3 / 2; }
   .duo-content h3 { letter-spacing: var(--tr-4); }
 }
 
+/* Hero e video: il rapporto cambia per fascia, come il banner di Barena
+   (> 1024 orizzontale naturale, 768–1024 4:3, < 768 verticale 4:5). */
+@media (max-width: 1024px) {
+  .hero, .video-showcase { aspect-ratio: 4 / 3; max-height: none; }
+}
+@media (max-width: 767px) {
+  .hero, .video-showcase { aspect-ratio: var(--ratio-editorial); }
+}
+
+/* Caroselli: card visibili come prima (2,2 → 1,44 → 1,15).
+   Unica correzione: il gap resta 20px da 1024 a 641 (prima 20 → 32 → 14). */
 @media (max-width: 900px) {
-  .must-have { --mh-visible: 1.44; --mh-gaps: 2; --mh-gap: 32px; }
-  .world { --w-visible: 1.44; --w-gaps: 2; --w-gap: 32px; }
+  .must-have { --mh-visible: 1.44; --mh-gaps: 2; }
+  .world { --w-visible: 1.44; --w-gaps: 2; }
 }
 
 @media (max-width: 640px) {
@@ -624,12 +646,11 @@ header.scrolled .topbar {
   .world { --w-gap: 14px; --w-visible: 1.15; --w-gaps: 1; --w-pad: 16px; }
   .card h3 { font-size: var(--fs-11); letter-spacing: 0.05em; }
 
-  /* Mobile: le 4 card impilate (Cerimonia, Essential, Outlet,
-     Primavera Estate) sono tutte a tutta larghezza e 4/5.
+  /* Mobile: le card impilate (Cerimonia, Essential, Outlet,
+     Primavera Estate) sono a tutta larghezza e 4/5 (duo e collection
+     da < 768px, vedi sopra).
      Il Journal (carousel) e' 4/5 come l'archivio; il Must Have
      resta 2:3 (foto prodotto). Solo <=640px. */
-  .duo { gap: 14px; background: transparent; }
-  .duo-item { height: auto; min-height: 0; aspect-ratio: var(--ratio-editorial); }
   .w-item .w-image { aspect-ratio: var(--ratio-editorial); }
 }
 
@@ -806,8 +827,8 @@ header.scrolled .topbar {
 /* Tablet e Mobile (include iPad) */
 @media (max-width: 1024px) {
   .outlet-hero {
-    aspect-ratio: var(--ratio-editorial); /* formato verticale per il mobile */
-    max-height: max(85vh, 440px); /* tablet: non più alto dello schermo; 440px = minimo per il testo */
+    aspect-ratio: 4 / 3; /* tablet: rapporto intermedio */
+    max-height: none;
     height: auto;
     display: block;
     background-color: #111;
@@ -856,6 +877,12 @@ header.scrolled .topbar {
   .outlet-hero-content .outlet-hero-btn {
     border-color: #fff;
     color: #fff;
+  }
+}
+@media (max-width: 767px) {
+  .outlet-hero {
+    aspect-ratio: var(--ratio-editorial); /* telefono: verticale */
+    max-height: max(85vh, 440px); /* 440px = minimo per il testo */
   }
 }
 
@@ -930,8 +957,8 @@ header.scrolled .topbar {
 
 @media (max-width: 1024px) {
   .capsule-section {
-    aspect-ratio: var(--ratio-editorial); /* formato verticale su mobile, come Outlet */
-    max-height: max(85vh, 440px); /* tablet: come Outlet */
+    aspect-ratio: 4 / 3; /* tablet: rapporto intermedio, meno taglio della foto */
+    max-height: none;
     min-height: auto;
   }
   .capsule-text {
@@ -942,6 +969,13 @@ header.scrolled .topbar {
   }
   .info-bar {
     padding: 60px 20px; /* allineato a 60px su mobile */
+  }
+}
+
+@media (max-width: 767px) {
+  .capsule-section {
+    aspect-ratio: var(--ratio-editorial); /* telefono: verticale, come Outlet */
+    max-height: max(85vh, 440px);
   }
 }
 
