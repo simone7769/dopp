@@ -541,12 +541,15 @@ header.scrolled .topbar {
 /* ------------------------------------------------------------
    Collection e Duo — 3 fasce (stesso schema di Barena Venezia):
    > 1024px   desktop: due colonne, collection 1:1, duo a 100svh
-   768–1024   tablet: due colonne affiancate, 4:5, nessun tetto di altezza
+   768–1024   tablet: due colonne affiancate, 3:4 (come Barena), nessun tetto
    < 768px    telefono: impilate a tutta larghezza, 4:5
    ------------------------------------------------------------ */
 @media (max-width: 1024px) {
   .collection .card-media {
-    aspect-ratio: var(--ratio-editorial);
+    aspect-ratio: var(--ratio-card); /* 3 / 4 */
+  }
+  .collection .card-media img {
+    object-position: center top; /* Essential (4:5) resta intera */
   }
   .duo {
     grid-template-columns: 1fr 1fr;
@@ -557,7 +560,7 @@ header.scrolled .topbar {
     width: 100%;
     height: auto;
     min-height: 0;
-    aspect-ratio: var(--ratio-editorial);
+    aspect-ratio: var(--ratio-card); /* 3 / 4 */
   }
 }
 @media (max-width: 767px) {
@@ -566,12 +569,19 @@ header.scrolled .topbar {
     gap: 14px;
   }
   .collection .card-media {
+    aspect-ratio: var(--ratio-editorial); /* telefono: 4 / 5 */
     max-height: max(85vh, 440px);
+  }
+  .collection .card-media img {
+    object-position: center;
   }
   .duo {
     grid-template-columns: 1fr;
     gap: 14px;
     background: transparent;
+  }
+  .duo-item {
+    aspect-ratio: var(--ratio-editorial);
   }
 }
 
@@ -988,4 +998,48 @@ header.scrolled .topbar {
 .capsule-text .btn:hover {
   background-color: #fff;
   color: var(--ink);
+}
+
+/* ============================================================
+   OUTLET e CAPSULE (vetrina) — più alti, rapporto graduale
+   Scala ricavata da Barena Venezia (banner largo):
+   ~1,65:1 a 1618px · ~1,45:1 a 990px · ~5:4 a 768px · ~3:4 a 561px.
+   Solo .outlet-hero e .capsule-section: nessun'altra sezione.
+   Va tenuto in fondo al file per vincere sulle regole precedenti.
+   ============================================================ */
+.outlet-hero,
+.capsule-section {
+  aspect-ratio: 33 / 20;            /* > 1400px: 1,65:1 */
+  max-height: 100vh;
+  max-height: 100svh;
+}
+@media (max-width: 1400px) {
+  .outlet-hero, .capsule-section { aspect-ratio: 29 / 20; }   /* 1,45:1 */
+}
+@media (max-width: 1024px) {
+  .outlet-hero, .capsule-section { aspect-ratio: 5 / 4; max-height: none; }
+}
+@media (max-width: 767px) {
+  .outlet-hero, .capsule-section { aspect-ratio: 1 / 1; max-height: none; }
+}
+@media (max-width: 560px) {
+  .outlet-hero, .capsule-section { aspect-ratio: 3 / 4; }
+}
+
+/* ============================================================
+   OUTLET — leggibilità del testo e del bottone su tablet/telefono
+   Il velo uniforme (0,4) non bastava sulla camicia a righe: ora è
+   più scuro in basso, dove stanno testo e bottone, leggero in alto.
+   ============================================================ */
+@media (max-width: 1024px) {
+  .outlet-hero-content {
+    background: linear-gradient(to top,
+      rgba(0, 0, 0, 0.72) 0%,
+      rgba(0, 0, 0, 0.55) 40%,
+      rgba(0, 0, 0, 0.2) 75%,
+      rgba(0, 0, 0, 0.1) 100%);
+  }
+  .outlet-hero-content .outlet-hero-btn {
+    background: rgba(0, 0, 0, 0.25);
+  }
 }
