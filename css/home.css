@@ -1043,3 +1043,17 @@ header.scrolled .topbar {
     background: rgba(0, 0, 0, 0.25);
   }
 }
+
+/* ============================================================
+   OUTLET — inquadratura della foto
+   Tablet: la foto orizzontale resta ancorata a sinistra, così entrambi
+   i soggetti restano nel riquadro 5:4 (prima era centrata e tagliava il
+   primo). Telefono: foto verticale dedicata (images/uno-outlet-mobile.webp);
+   nel riquadro 1:1 (561–767px) si ancora in basso per tenere i volti.
+   ============================================================ */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .outlet-hero img { object-position: left center; }
+}
+@media (max-width: 767px) {
+  .outlet-hero img { object-position: center bottom; }
+}
