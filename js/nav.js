@@ -1182,7 +1182,7 @@ function creaJournalCard(articolo, variante) {
    REVEAL
    ============================================================ */
 (function () {
-  const targets = document.querySelectorAll('.collection, .duo, .reveal, .reveal-scale');
+  const targets = document.querySelectorAll('.duo, .reveal, .reveal-scale');
   if (!targets.length) return;
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {

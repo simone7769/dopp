@@ -150,102 +150,57 @@ html.header-hidden { scroll-padding-top: 0; }
 }
 
 /* ============================================================
-   COLLECTION — boiserie full-bleed con titoli in overlay
+   COLLECTION — due card affiancate (senza boiserie)
    ============================================================ */
 .collection {
-  position: relative;
-  display: flow-root;
-  padding: 0;
-  text-align: center;
+  padding: 40px 0 0;
 }
-
-/* Frame a tutta larghezza, proporzione del frame (1616x777) */
-.collection-frame {
-  position: relative;
-  width: 100%;
+.collection .grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
   max-width: none;
   margin: 0;
-  aspect-ratio: 1616 / 777;
-  background: url("../images/boiserie-bg1.webp") center / cover no-repeat;
-  opacity: 0;
-  transform: scale(1.03);
-  transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+  padding: 0;
 }
-.collection.in-view .collection-frame {
-  opacity: 1;
-  transform: scale(1);
-}
-
-/* Griglia card ancorata ai pannelli della boiserie */
-.grid {
-  position: absolute;
-  inset: 0;
-}
-.card {
-  position: absolute;
-  top: 12.48%;
-  height: 74.39%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.collection .card {
+  position: relative;
+  display: block;
   text-decoration: none;
   color: var(--ink);
 }
-/* Le due card coincidono esattamente con i rettangoli verdi (misurati su 1616x777) */
-.card:nth-child(1) { left: 7.05%;  width: 36.51%; }
-.card:nth-child(2) { left: 57.12%; width: 36.51%; top: 12.36%; }
-
-/* Immagine rettangolare (come prima) centrata dentro al pannello quadrato */
-.card-media {
+.collection .card-media {
   position: relative;
-  height: 90%;
-  aspect-ratio: var(--ratio-editorial);
-  max-width: 100%;
+  width: 100%;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
-  display: flex;
-  align-items: flex-end;
-  padding: 28px;
-  box-sizing: border-box;
-  transition: transform var(--t-base) var(--ease), box-shadow var(--t-base) var(--ease);
+  background: var(--paper-alt);
 }
-.card-media img {
+.collection .card-media img {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
-  transition: transform var(--t-slow) var(--ease);
-  z-index: 0;
 }
-.card h3 {
+.collection .card h3 {
+  position: absolute;
+  bottom: 48px;
+  left: var(--nav-pad); /* allineato al MENU */
+  right: var(--nav-pad);
+  text-align: left;
   font-family: var(--sans);
   font-size: var(--fs-14);
   font-weight: 400;
   letter-spacing: var(--tr-3);
   text-transform: uppercase;
-  position: relative;
-  z-index: 2;
   color: #fff;
   text-shadow: 0 2px 12px rgba(0,0,0,0.5);
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 4px;
-}
-
-/* Desktop/tablet (>=641px): la foto riempie il pannello incassato della
-   boiserie, con un filo di margine uniforme (effetto "incastonata").
-   Il box .card è già calibrato sul pannello; qui cambia solo il media.
-   Mobile (<=640px): invariato, nessuna boiserie. */
-@media (min-width: 641px) {
-  .card-media {
-    width: 100%;
-    height: 100%;
-    aspect-ratio: auto;
-    max-width: none;
-  }
-  .card-media img { object-position: center 22%; }
-  .card h3 { font-size: var(--fs-14); } /* uniformato a 14px (era clamp 12-17) */
+  z-index: 2;
 }
 
 /* ============================================================
@@ -581,15 +536,7 @@ header.scrolled .topbar {
   .must-have { --mh-visible: 2.2; --mh-gaps: 2; --mh-gap: 32px; }
   .world { --w-visible: 2.2; --w-gaps: 2; --w-gap: 32px; }
   .duo { height: 100vh; height: 100svh; min-height: 500px; }
-  /* Tablet verticale: boiserie e duo come su mobile (card impilate 4/5) */
-  .collection { padding: 0; }
-  .collection-frame { aspect-ratio: auto; background: none; transform: none; }
-  .collection.in-view .collection-frame { transform: none; }
-  .collection .grid { position: static; display: flex; flex-direction: column; gap: 14px; }
-  .collection .card:nth-child(1), .collection .card:nth-child(2) { position: static; width: 100%; height: auto; }
-  .collection .card-media { width: 100%; height: auto; aspect-ratio: 3 / 2; padding: 18px; }
-  .duo { grid-template-columns: 1fr; height: auto; min-height: auto; gap: 14px; background: transparent; }
-  .duo-item { width: 100%; height: auto; min-height: 0; aspect-ratio: 3 / 2; }
+    .duo-item { width: 100%; height: auto; min-height: 0; aspect-ratio: 3 / 2; }
 }
 
 /* Dispositivi touch (qualsiasi larghezza) e schermi <=1024px: niente frecce,
@@ -650,42 +597,11 @@ header.scrolled .topbar {
 @media (max-width: 640px) {
   /* Immagine→titolo 8px come collezioni/vetrina (9 nov) */
   .product .image { margin-bottom: 8px; }
-  /* Mobile: niente boiserie. Cerimonia ed Essential diventano due card
-     a tutta larghezza (a filo schermo, come il Duo),
-     una sotto l'altra, con la proporzione 4/5 (come Journal e Looks). */
-  .collection { padding: 0; }
 
   /* Info bar mobile: spaziature riviste per fascia più compatta */
   .info-bar h2 { margin-bottom: 14px; }
   .info-bar .btn { margin-top: 32px; }
-  .collection-frame {
-    aspect-ratio: auto;
-    background: none;
-    transform: none;
-  }
-  .collection.in-view .collection-frame { transform: none; }
-  .collection .grid {
-    position: static;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
-  .collection .card:nth-child(1),
-  .collection .card:nth-child(2) {
-    position: static;
-    width: 100%;
-    height: auto;
-  }
-  .collection .card-media {
-    width: 100%;
-    height: auto;
-    aspect-ratio: var(--ratio-editorial);
-    padding: 18px;
-  }
-
-  /* Video: stessa proporzione 4/5 delle card, non più a schermo intero */
-  .video-showcase { height: 100svh; aspect-ratio: auto; }
-
+  
   .capsule-text h2 {
     font-size: var(--fs-22);
     letter-spacing: var(--tr-3);
