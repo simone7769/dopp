@@ -260,9 +260,8 @@
   flex: 0 0 auto;
   width: auto;
   padding-bottom: 0;
-  margin-left: 16px;
-  padding-left: 16px;
-  border-left: 1px solid var(--line);
+  margin-left: 0;
+  padding-left: 0;
 }
 /* Switch colonne: sempre visibile, i bottoni li genera js/filtri.js */
 .products-count { margin-right: auto; }

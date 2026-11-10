@@ -305,16 +305,16 @@
 
 /* Badge con numero filtri attivi (nel pulsante "Filtra e ordina") */
 .filtri-bar .filtri-count {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 18px;
-  height: 18px;
-  padding: 0 5px;
-  border-radius: 9px;
-  background: var(--gold);
-  color: #fff;
-  font-size: var(--fs-10);
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  min-width: 6px;
+  padding: 0;
+  border-radius: 50%;
+  background: var(--ink);
+  color: transparent;
+  font-size: 0;
+  vertical-align: middle;
   font-weight: 500;
   margin-left: 6px;
 }
@@ -337,8 +337,8 @@ button.filtri-bar {
   width: 100%;
   background: transparent;
   border: none;
-  padding: 0 0 24px 0;
-  text-align: right;
+  padding: 0;
+  text-align: left;
 }
 button.filtri-bar:focus-visible {
   outline: 2px solid var(--gold);
