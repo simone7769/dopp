@@ -536,7 +536,7 @@
         <a href="privacy-cookie.html">Cookie e Privacy</a>\
         <a href="accessibilita.html">Accessibilità</a>\
         <a href="termini.html">Termini di vendita</a>\
-        <a href="riciclo.html">Istruzioni per il riciclo</a>\
+        <a href="riciclo.html">Riciclo</a>\
       </nav>\
     </div>\
   </div>\
