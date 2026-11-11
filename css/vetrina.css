@@ -155,7 +155,7 @@
   margin: 72px 0 72px 8.33%;
   font-family: var(--serif);
   font-weight: var(--fw-light);
-  font-size: 26px;
+  font-size: var(--vt-standfirst);
   line-height: 1.28;
   color: var(--ink);
 }
@@ -258,7 +258,7 @@
 }
 .vt-feature-price {
   font-family: var(--sans);
-  font-size: 17px;
+  font-size: var(--fs-pdp-price);
   font-weight: var(--fw-price);
   letter-spacing: var(--tr-03);
   color: var(--ink);
@@ -515,7 +515,7 @@
   .vt-card .product-info { padding-top: 8px; }
   .vt-products-head { margin-bottom: 40px; }
   /* Come i titoli di sezione della home su mobile */
-  .vt-products-head h2, .vt-products-head h3 { font-size: 22px; letter-spacing: var(--tr-4); }
+  .vt-products-head h2, .vt-products-head h3 { font-size: var(--fs-24); letter-spacing: var(--tr-4); }
 
   .vt-sticky { height: 80vh; height: 80svh; min-height: 420px; }
   .vt-sticky-quote-center { padding: 0 24px; }
@@ -541,7 +541,7 @@
 .vt-subtitle {
   display: block;
   font-family: var(--sans);
-  font-size: 17px;
+  font-size: var(--fs-18);
   color: #fff; /* Bianco perché l'Hero ha sfondo scuro */
   margin-top: 40px;
   font-weight: var(--fw-body);
