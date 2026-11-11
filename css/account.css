@@ -24,7 +24,7 @@
 }
 .account-welcome h2 {
   font-family: var(--sans);
-  font-weight: 300;
+  font-weight: 400;
   font-size: var(--fs-22);
   letter-spacing: var(--tr-4);
   text-transform: uppercase;

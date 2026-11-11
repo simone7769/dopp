@@ -159,7 +159,7 @@
   border: none;
   color: var(--ink);
   font-size: var(--fs-26);
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1;
   /* area toccabile 44x44 (token --touch-target); i margini negativi
      la estendono senza cambiare l'altezza della didascalia */
@@ -305,7 +305,7 @@
 .product-card .price-block {
   display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; margin-top: 4px;
 }
-.product-card .price-old { font-size: var(--fs-card-price); font-weight: 300; color: var(--ink-soft); text-decoration: line-through; }
+.product-card .price-old { font-size: var(--fs-card-price); font-weight: 400; color: var(--ink-soft); text-decoration: line-through; }
 .product-card .price-now { font-size: var(--fs-card-price); font-weight: var(--fw-card-price); color: var(--danger); }
 .product-card .price-off { font-size: var(--fs-card-price); font-weight: var(--fw-card-price); letter-spacing: 1px; color: var(--danger); }
 

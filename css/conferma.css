@@ -13,14 +13,14 @@
 }
 .cf-title {
   font-family: var(--sans);
-  font-weight: 300;
+  font-weight: 400;
   font-size: clamp(24px, 2.2vw, 32px);
   line-height: 1.25;
   margin-bottom: 18px;
 }
 .cf-lead {
   font-size: var(--fs-14);
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.75;
   color: #4a463f;
   margin-bottom: 34px;
@@ -43,8 +43,8 @@
   color: var(--muted);
   padding-top: 2px;
 }
-.cf-info dd { font-size: var(--fs-14); font-weight: 300; line-height: 1.7; }
-.cf-next { font-size: var(--fs-13); font-weight: 300; line-height: 1.75; color: #4a463f; margin-bottom: 34px; }
+.cf-info dd { font-size: var(--fs-14); font-weight: 400; line-height: 1.7; }
+.cf-next { font-size: var(--fs-13); font-weight: 400; line-height: 1.75; color: #4a463f; margin-bottom: 34px; }
 
 .cf-btn {
   display: flex;

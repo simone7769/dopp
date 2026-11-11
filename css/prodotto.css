@@ -159,7 +159,7 @@ body.pdp-lightbox-open { overflow: hidden; }
 .pdp-desc {
   font-family: var(--sans);
   font-size: var(--fs-14);
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.75;
   color: #4a463f;
   max-width: 46ch;
@@ -330,7 +330,7 @@ body.pdp-lightbox-open { overflow: hidden; }
 .pdp-accordion summary::after {
   content: '+';
   font-size: var(--fs-18);
-  font-weight: 300;
+  font-weight: 400;
   color: var(--muted);
 }
 .pdp-accordion details[open] summary::after { content: '–'; }
@@ -338,7 +338,7 @@ body.pdp-lightbox-open { overflow: hidden; }
   padding: 0 2px 20px;
   font-family: var(--sans);
   font-size: var(--fs-13);
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.8;
   color: #4a463f;
 }
@@ -741,7 +741,7 @@ body.pdp-lightbox-open { overflow: hidden; }
 .pdp-price-old {
   font-family: var(--sans);
   font-size: var(--fs-16);
-  font-weight: 300;
+  font-weight: 400;
   color: var(--ink-soft);
   text-decoration: line-through;
 }

@@ -20,7 +20,7 @@
 .club-tier-name {
   display: block;
   font-family: var(--sans);
-  font-weight: 300;
+  font-weight: 400;
   font-size: var(--fs-24);
   letter-spacing: var(--tr-4);
   text-transform: uppercase;
@@ -37,7 +37,7 @@
   display: block;
   font-family: var(--sans);
   font-size: var(--fs-11);
-  font-weight: 300;
+  font-weight: 400;
   letter-spacing: var(--tr-2);
   text-transform: uppercase;
   color: var(--muted);
@@ -113,7 +113,7 @@
 .club-benefit-text {
   font-family: var(--sans);
   font-size: var(--fs-13);
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.6;
   letter-spacing: var(--tr-03);
   color: var(--ink);
@@ -187,7 +187,7 @@
 .club-faq summary::after {
   content: '+';
   font-size: var(--fs-22);
-  font-weight: 300;
+  font-weight: 400;
   color: var(--muted);
   margin-left: 20px;
   flex-shrink: 0;
@@ -198,7 +198,7 @@
   padding: 0 4px 24px;
   max-width: 900px;
   font-family: var(--sans);
-  font-weight: 300;
+  font-weight: 400;
   font-size: var(--fs-16);
   letter-spacing: 0.01em;
   line-height: 1.7;
@@ -272,7 +272,7 @@
 }
 .club-newsletter-success {
   font-family: var(--sans);
-  font-weight: 300;
+  font-weight: 400;
   font-size: var(--vt-body, 18px);
   font-style: italic;
   color: var(--ink);

@@ -79,7 +79,7 @@
 .vt-caption {
   font-family: var(--sans);
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 400;
   font-style: italic;
   font-size: 16px;
   line-height: 1.4;
@@ -128,7 +128,7 @@
 .vt-hero-text h1 {
   font-family: var(--serif);
   font-style: italic;
-  font-weight: var(--fw-light);
+  font-weight: var(--fw-regular);
   font-size: clamp(40px, 3.8vw, 52px);
   line-height: 1;
   letter-spacing: -0.005em;
@@ -154,7 +154,7 @@
   max-width: 50ch;
   margin: 72px 0 72px 8.33%;
   font-family: var(--serif);
-  font-weight: var(--fw-light);
+  font-weight: var(--fw-regular);
   font-size: 26px;
   line-height: 1.28;
   color: var(--ink);
@@ -182,7 +182,7 @@
 }
 .vt-chapter-text h2 {
   font-family: var(--serif);
-  font-weight: var(--fw-light);
+  font-weight: var(--fw-regular);
   font-size: clamp(36px, 3.2vw, 44px);
   line-height: 1.05;
   margin: 0 0 28px;
@@ -190,7 +190,7 @@
 .vt-chapter-text p {
   font-family: var(--sans);
   font-size: 17px;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 17px;
   line-height: var(--lh-editorial);
   max-width: var(--measure-max);
@@ -268,7 +268,7 @@
 .vt-feature-desc {
   font-family: var(--sans);
   font-size: 17px;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 17px;
   line-height: var(--lh-editorial);
   max-width: var(--measure-max);
@@ -360,7 +360,7 @@
   color: var(--ink);
   font-family: var(--sans);
   font-size: var(--fs-26);
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1;
   display: inline-flex;
   align-items: center;
@@ -430,7 +430,7 @@
 .vt-sticky-quote-center p {
   font-family: var(--serif);
   font-style: italic;
-  font-weight: var(--fw-light);
+  font-weight: var(--fw-regular);
   font-size: 28px;
   line-height: 1.45;
   color: #fff;
@@ -546,7 +546,7 @@
   font-size: 17px;
   color: #fff; /* Bianco perché l'Hero ha sfondo scuro */
   margin-top: 40px;
-  font-weight: 300;
+  font-weight: 400;
   letter-spacing: 0.05em;
   opacity: 0.9;
 }

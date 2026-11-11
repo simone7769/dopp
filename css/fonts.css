@@ -5,10 +5,20 @@
    ============================================================ */
 
 /* --- Cormorant Garamond (serif, titoli) --- */
+
+/* --- Work Sans (variable, 100-900), font unico per la UI --- */
+@font-face {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('../fonts/work-sans-latin-wght-normal.woff2') format('woff2');
+}
+
 @font-face {
   font-family: 'Cormorant Garamond';
   font-style: normal;
-  font-weight: 300;
+  font-weight: 400;
   font-display: swap;
   src: url('../fonts/cormorant-garamond-v21-latin_latin-ext-300.woff2') format('woff2');
 }
@@ -31,7 +41,7 @@
 @font-face {
   font-family: 'Jost';
   font-style: normal;
-  font-weight: 300;
+  font-weight: 400;
   font-display: swap;
   src: url('../fonts/jost-v20-latin_latin-ext-300.woff2') format('woff2');
 }

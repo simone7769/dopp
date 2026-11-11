@@ -13,7 +13,7 @@
 /* --- Sottotitolo introduttivo --- */
 .boutique-subtitle {
   font-family: var(--sans);
-  font-weight: 300;
+  font-weight: 400;
   font-size: var(--fs-16);
   line-height: 1.7;
   letter-spacing: 0.01em;
@@ -74,7 +74,7 @@
   background: transparent;
   font-family: var(--sans);
   font-size: var(--fs-13);
-  font-weight: 300;
+  font-weight: 400;
   color: var(--ink);
   outline: none;
 }
@@ -98,7 +98,7 @@
 }
 .boutique-item h3 {
   font-family: var(--sans);
-  font-weight: 300;
+  font-weight: 400;
   font-size: var(--fs-20);
   letter-spacing: var(--tr-05);
   color: var(--ink);
@@ -124,14 +124,14 @@
 .boutique-rating-reviews {
   font-family: var(--sans);
   font-size: var(--fs-12);
-  font-weight: 300;
+  font-weight: 400;
   color: var(--muted);
 }
 .boutique-address,
 .boutique-city {
   font-family: var(--sans);
   font-size: var(--fs-13);
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.55;
   color: var(--ink);
   margin: 0;
@@ -139,7 +139,7 @@
 .boutique-hours {
   font-family: var(--sans);
   font-size: var(--fs-12);
-  font-weight: 300;
+  font-weight: 400;
   color: var(--ink-soft);
   margin: 8px 0 0;
 }
@@ -153,7 +153,7 @@
 .boutique-payments {
   font-family: var(--sans);
   font-size: var(--fs-12);
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.5;
   color: var(--muted);
   margin: 8px 0 0;
@@ -174,7 +174,7 @@
 
 .boutique-empty {
   font-family: var(--sans);
-  font-weight: 300;
+  font-weight: 400;
   font-size: var(--fs-16);
   line-height: 1.7;
   color: var(--muted);

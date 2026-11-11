@@ -44,7 +44,7 @@
 
 .app-section-text {
   font-family: var(--sans);
-  font-weight: 300;
+  font-weight: 400;
   font-size: var(--fs-16);
   line-height: 1.7;
   color: var(--ink-soft);
@@ -96,7 +96,7 @@
 
 .app-cta-sub {
   font-family: var(--sans);
-  font-weight: 300;
+  font-weight: 400;
   font-size: clamp(18px, 1.6vw, 22px);
   line-height: 1.6;
   color: var(--ink);

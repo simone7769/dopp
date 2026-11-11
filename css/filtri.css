@@ -109,7 +109,7 @@
 .filters-section summary::after {
   content: '+';
   font-size: var(--fs-20);
-  font-weight: 300;
+  font-weight: 400;
   color: var(--muted);
   transition: transform var(--t-base) var(--ease);
 }
@@ -129,7 +129,7 @@
   gap: 12px;
   font-family: var(--sans);
   font-size: var(--fs-13);
-  font-weight: 300;
+  font-weight: 400;
   color: var(--ink);
   cursor: pointer;
   min-height: var(--touch-target, 44px);
@@ -161,7 +161,7 @@
   gap: 12px;
   font-family: var(--sans);
   font-size: var(--fs-13);
-  font-weight: 300;
+  font-weight: 400;
   color: var(--ink);
 }
 .filters-switch input { display: none; }

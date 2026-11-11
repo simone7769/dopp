@@ -11,7 +11,7 @@
 
 .legale-wrap h2 {
   font-family: var(--sans);
-  font-weight: 300;
+  font-weight: 400;
   font-size: var(--fs-section-title);
   line-height: 1.3;
   letter-spacing: var(--tr-1);
@@ -41,7 +41,7 @@
 
 .legale-wrap p {
   font-family: var(--sans);
-  font-weight: 300;
+  font-weight: 400;
   font-size: 15px;
   letter-spacing: 0.01em;
   line-height: 1.7;
@@ -51,7 +51,7 @@
 
 .legale-wrap ul {
   font-family: var(--sans);
-  font-weight: 300;
+  font-weight: 400;
   font-size: 15px;
   line-height: 1.7;
   color: var(--ink);
