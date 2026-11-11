@@ -1633,17 +1633,19 @@ footer {
   letter-spacing: var(--tr-03);
 }
 .footer-bottom-center { text-align: center; }
-.footer-logo-text {
-  font-family: var(--serif);
-  font-size: var(--fs-20);
-  letter-spacing: var(--tr-5);
-  color: #fff;
-  font-weight: 400;
-  text-decoration: none;
+.footer-logo {
   display: inline-block;
+  text-decoration: none;
   transition: opacity var(--t-fast) var(--ease);
 }
-.footer-logo-text:hover { opacity: 0.75; }
+.footer-logo img {
+  display: block;
+  height: 18px;
+  width: auto;
+  /* Il logo SVG ha fill nero: nel footer scuro lo rendiamo bianco via filtro */
+  filter: brightness(0) invert(1);
+}
+.footer-logo:hover { opacity: 0.75; }
 .footer-bottom-right {
   display: flex;
   justify-content: flex-end;

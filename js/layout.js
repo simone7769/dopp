@@ -528,7 +528,7 @@
       <button type="button" class="country-trigger" id="openCountryDrawerFooter"><span id="countryLabel">Italia (Italiano)</span></button>\
     </div>\
     <div class="footer-bottom-center">\
-      <a href="' + FOOTER_LOGO_HREF + '" class="footer-logo-text" aria-label="Torna alla home">DOPPELGÄNGER</a>\
+      <a href="' + FOOTER_LOGO_HREF + '" class="footer-logo" aria-label="Torna alla home"><img src="images/logo_page.svg" alt="Doppelgänger" width="544" height="49"></a>\
     </div>\
     <div class="footer-bottom-right">\
       <nav class="footer-legal" aria-label="Informazioni legali">\
