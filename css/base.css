@@ -1494,7 +1494,7 @@ button.contact-btn { display: block; }
 footer {
   background-color: var(--notte);
   color: #cfcbc4;
-  padding: 80px 50px 30px;
+  padding: 60px 50px 24px;
   font-family: var(--sans);
   font-weight: 400;
 }
@@ -1507,20 +1507,20 @@ footer {
   grid-template-columns: minmax(260px, 380px) repeat(3, minmax(0, max-content));
   justify-content: space-between;
   column-gap: 40px;
-  row-gap: 60px;
-  padding-bottom: 70px;
+  row-gap: 44px;
+  padding-bottom: 50px;
 }
 .footer-newsletter h3 {
   font-family: var(--sans);
   font-weight: 400;
-  font-size: var(--fs-22);
+  font-size: var(--fs-20);
   letter-spacing: var(--tr-1);
   color: #fff;
   margin-bottom: 14px;
   text-transform: none;
 }
 .footer-newsletter > p {
-  font-size: var(--fs-13);
+  font-size: var(--fs-12);
   line-height: 1.7;
   color: #cfcbc4;
   margin-bottom: 26px;
@@ -1599,17 +1599,17 @@ footer {
   font-weight: 400;
   letter-spacing: var(--tr-05);
   color: #fff;
-  margin-bottom: 22px;
+  margin-bottom: 18px;
   text-transform: none;
 }
 .footer-col ul {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 .footer-col ul a {
-  font-size: var(--fs-13);
+  font-size: var(--fs-11);
   font-weight: 400;
   letter-spacing: var(--tr-03);
   color: #cfcbc4;
@@ -1620,7 +1620,7 @@ footer {
 .footer-col ul a:hover { color: var(--gold); }
 .footer-bottom {
   max-width: 1600px;
-  margin: 40px auto 0;
+  margin: 30px auto 0;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
@@ -1654,7 +1654,7 @@ footer {
 .footer-legal {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px 22px;
+  gap: 10px 14px;
   justify-content: flex-end;
 }
 .footer-legal a {
@@ -1668,8 +1668,8 @@ footer {
 .footer-copy {
   position: relative;
   max-width: 1600px;
-  margin: 20px auto 0;
-  padding-top: 20px;
+  margin: 16px auto 0;
+  padding-top: 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
