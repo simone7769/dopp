@@ -287,7 +287,7 @@ header.scrolled .nav {
   height: 15px;
   padding: 0 3px;
   border-radius: 50%;
-  background-color: var(--gold);
+  background-color: var(--ink);
   color: #fff;
   font-family: var(--sans);
   font-size: var(--fs-10);
