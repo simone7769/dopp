@@ -185,7 +185,7 @@ header.scrolled .nav {
   align-items: center;
   justify-content: center;
   font-family: var(--sans);
-  font-size: var(--fs-12);
+  font-size: var(--fs-11);  /* = 11px dal token, era var(--fs-12) = 12px */
   font-weight: 400;
   letter-spacing: var(--tr-03);
   text-align: center;

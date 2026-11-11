@@ -414,9 +414,13 @@ body.pdp-lightbox-open { overflow: hidden; }
 }
 .pdp-item:hover .pdp-item-image img { transform: scale(1.03); }
 
-/* Nome e prezzo: regola unica in base.css (DIDASCALIA CARD PRODOTTO) */
+/* Nome e prezzo: regola unica in base.css (DIDASCALIA CARD PRODOTTO).
+   Padding allineato a home (.must-have) e collezioni (.product-info). */
 .pdp-item h3,
-.pdp-item-price { text-align: left; }
+.pdp-item-price {
+  text-align: left;
+  padding: 0 12px;
+}
 
 .pdp-arrow {
   position: absolute;

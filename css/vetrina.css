@@ -189,9 +189,8 @@
 }
 .vt-chapter-text p {
   font-family: var(--sans);
-  font-size: 17px;
+  font-size: var(--fs-16);  /* = 15px dal token, era 17px hardcoded */
   font-weight: var(--fw-body);
-  font-size: 17px;
   line-height: var(--lh-editorial);
   max-width: var(--measure-max);
   margin: 0 0 1.2em;
@@ -267,9 +266,8 @@
 }
 .vt-feature-desc {
   font-family: var(--sans);
-  font-size: 17px;
+  font-size: var(--fs-16);  /* = 15px dal token, era 17px hardcoded */
   font-weight: var(--fw-body);
-  font-size: 17px;
   line-height: var(--lh-editorial);
   max-width: var(--measure-max);
   margin: 0 0 32px;
