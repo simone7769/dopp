@@ -680,7 +680,7 @@ header.scrolled .topbar {
   text-align: left;
   max-width: 100%;
   padding: 0 12px;
-  font-size: var(--fs-14); /* uniformato alle card collezione/journal in home */
+  /* font-size ereditato da --fs-card-title in base.css (14px desktop) */
 }
 .must-have .product-price {
   text-align: left;

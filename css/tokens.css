@@ -80,7 +80,7 @@
   --fs-26: 26px;   /* titoli sezione Must Have, carrello, correlati (spostato da base.css) */
 
   /* Ruoli specifici */
-  --fs-card-title: 15px;   /* desktop ≥1025px */
+  --fs-card-title: 14px;   /* desktop ≥1025px */
   --fs-card-price: 13px;
   --fw-price:      var(--fw-medium); /* prezzo di un articolo, ovunque: card, scheda, carrello, preferiti, checkout (5 nov) */
   --fw-card-price: var(--fw-price);  /* alias storico, usato dai fogli delle card */
@@ -204,7 +204,7 @@
 /* Tablet (641–1024px): stessa scala del mobile (14/12) */
 @media (min-width: 641px) and (max-width: 1024px) {
   :root {
-    --fs-card-title:  14px;
+    --fs-card-title:  13px;
     --fs-card-price:  12px;
   }
 }
@@ -214,7 +214,7 @@
     --btn-width:      170px;
     --btn-height:     44px;
     --drawer-title-h: 56px;
-    --fs-card-title:  14px;
+    --fs-card-title:  13px;
     --fs-card-price:  12px;
   }
 }
