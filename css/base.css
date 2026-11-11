@@ -52,7 +52,7 @@ body {
   color: var(--ink);
   background-color: var(--paper);
   line-height: 1.6;
-  font-weight: 300;
+  font-weight: var(--fw-body);
   -webkit-font-smoothing: antialiased;
   animation: page-enter var(--t-page) var(--ease) backwards;
 }
@@ -713,7 +713,7 @@ header.scrolled .nav {
   text-align: left;
   font-family: var(--sans);
   font-size: var(--fs-12);
-  font-weight: 300;
+  font-weight: var(--fw-ui);
   letter-spacing: var(--tr-1);
   text-transform: none;
   color: #555;
@@ -1496,7 +1496,7 @@ footer {
   color: #cfcbc4;
   padding: 80px 50px 30px;
   font-family: var(--sans);
-  font-weight: 300;
+  font-weight: var(--fw-body);
 }
 .footer-main {
   max-width: 1600px;
@@ -1609,8 +1609,8 @@ footer {
   gap: 12px;
 }
 .footer-col ul a {
-  font-size: var(--fs-13);
-  font-weight: 300;
+  font-size: var(--fs-11);
+  font-weight: var(--fw-ui);
   letter-spacing: var(--tr-03);
   color: #cfcbc4;
   text-decoration: none;
@@ -1923,7 +1923,7 @@ footer {
   text-transform: uppercase;
   letter-spacing: var(--tr-05);
   font-size: var(--fs-11);
-  font-weight: 300;
+  font-weight: var(--fw-ui);
   color: var(--ink);
 }
 
@@ -2086,7 +2086,7 @@ footer {
   padding: 4px 0;
 }
 @media (max-width: 640px) {
-  .search-drawer-bar input { font-size: var(--fs-16); }
+  .search-drawer-bar input { font-size: 16px; }
 }
 .search-drawer-bar input::placeholder { color: #666; }
 
@@ -2173,7 +2173,7 @@ footer {
 .search-results-empty {
   font-family: var(--sans);
   font-size: var(--fs-12);
-  font-weight: 300;
+  font-weight: var(--fw-ui);
   color: #666;
   text-align: center;
   padding: 40px 20px;
@@ -2268,7 +2268,7 @@ footer {
 .cart-empty {
   font-family: var(--sans);
   font-size: var(--fs-13);
-  font-weight: 300;
+  font-weight: var(--fw-body);
   color: #666;
   text-align: center;
   padding: 40px 0;
@@ -2680,7 +2680,7 @@ footer {
   .contact-field textarea,
   .stores-search-field input,
   .footer-form input,
-  .search-drawer-bar input { font-size: var(--fs-16); }
+  .search-drawer-bar input { font-size: 16px; }
 
   /* Menu mobile: 14px, restano in stile brand */
   .mobile-menu-list > li > a,
@@ -2708,7 +2708,7 @@ footer {
 
 .footer-newsletter-success {
   font-family: var(--sans);
-  font-weight: 300;
+  font-weight: var(--fw-body);
   font-size: var(--fs-16);
   font-style: italic;
   font-weight: var(--fw-regular);

@@ -75,7 +75,7 @@
 .cp-item-attr {
   font-family: var(--sans);
   font-size: var(--fs-13);
-  font-weight: 300;
+  font-weight: var(--fw-body);
   color: #4a463f;
   line-height: 1.7;
 }
@@ -97,7 +97,7 @@
 .cp-val {
   font-family: var(--sans);
   font-size: var(--fs-14);
-  font-weight: 300;
+  font-weight: var(--fw-ui);
 }
 .cp-val strong { font-weight: 700; }
 
@@ -204,7 +204,7 @@
   font-family: var(--sans);
   font-size: var(--fs-14);
 }
-.cp-rows dt { font-weight: 300; }
+.cp-rows dt { font-weight: var(--fw-ui); }
 .cp-rows dd { font-weight: 400; }
 .cp-rows .cp-iva { font-size: var(--fs-12); color: var(--muted); padding-top: 0; }
 .cp-rows .cp-total {
@@ -298,7 +298,7 @@
   margin: 0 auto;
   font-family: var(--sans);
   font-size: var(--fs-13);
-  font-weight: 300;
+  font-weight: var(--fw-body);
   line-height: 1.75;
   color: #4a463f;
 }

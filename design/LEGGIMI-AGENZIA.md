@@ -9,7 +9,7 @@ Documento di accompagnamento al pacchetto demo + specifiche. Per chi svilupperà
 | `*.html`, `css/`, `js/` | Demo statica navigabile (**38 pagine**) |
 | `images/` | Immagini del sito (WebP ottimizzate) |
 | `images/guida-taglie/` | **18 immagini** per la guida taglie (WebP, ~3,4 MB totali) |
-| `fonts/` | Font self-hosted (Cormorant Garamond + Jost) |
+| `fonts/` | Font self-hosted (Cormorant Garamond + Work Sans (variable, pesi 100–900 in un file per subset latin / latin-ext)) |
 | `js/quick-add.js` | Pannellino quick-add sul «+» delle card: colore + taglia, aggiunge al carrello demo |
 | `../Doppelganger-Proposta-nuovo-sito.pdf` | Direzione strategica del progetto (fuori dal repo, in `doppelganger-sito PROVA/`) |
 | `design/Doppelganger_Specifiche_per_agenzia.html` | Specifiche tecniche dettagliate (sorgente HTML editabile) |

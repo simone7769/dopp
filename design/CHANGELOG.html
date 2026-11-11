@@ -218,11 +218,11 @@
 
   <div class="meta">
     <div>
-      <span class="val">752</span>
+      <span class="val">753</span>
       <span class="lbl">Commit</span>
     </div>
     <div>
-      <span class="val">533</span>
+      <span class="val">555</span>
       <span class="lbl">File modificati</span>
     </div>
     <div>
@@ -238,6 +238,18 @@
   <p style="font-size: 13px; color: var(--ink-soft); text-align: center; margin-bottom: 40px;">
     Da <code>de268ba</code> a <code>8b258b5</code> — 8 ottobre–5 novembre 2026
   </p>
+
+<div class="commit">
+  <h2>58. Aggiornamento dell'11 novembre 2026 (Migrazione Work Sans) <span class="count">1 commit</span></h2>
+  <p><strong>Migrazione tipografica Jost → Work Sans</strong> (il serif Cormorant Garamond resta invariato).</p>
+  <ul>
+    <li><strong>Font:</strong> Work Sans variable self-hosted (<code>fonts/work-sans-latin-wght-normal.woff2</code> e <code>…-latin-ext-…</code>, licenza OFL). Rimossi i 5 file Jost. <code>--sans</code> in <code>tokens.css</code>; <code>@font-face</code> in <code>fonts.css</code> e nella copia inline di <code>index.html</code>; preload aggiornato.</li>
+    <li><strong>Sistema pesi per zona:</strong> nuovi token <code>--fw-body: 350</code> (body, paragrafi, testi lunghi), <code>--fw-ui: 400</code> (menu, footer, form, tabelle, prezzi barrati), <code>--fw-emphasis: 500</code>. I 300 su testo corrente passano a 350 (56 regole) o 400 (20 regole UI); i 300 su titoli sans ≥18px restano 300 (27 regole). Nessun forcing globale a 400.</li>
+    <li><strong>Scala dimensioni (−1/−2px, compensa l'x-height maggiore):</strong> <code>--fs-13</code> 12, <code>--fs-14</code> 13, <code>--fs-16</code> 15, <code>--fs-18</code> 17, <code>--fs-20</code> 18, <code>--fs-22</code> 20, <code>--fs-24</code> 22, <code>--fs-26</code> 24; <code>--fs-section-title</code> e <code>--fs-body-editorial</code> 17. Titolo card 14 desktop, 13 tablet/mobile. Link footer 11.</li>
+    <li><strong>Eccezioni:</strong> i campi form che usavano <code>--fs-16</code> (anti-zoom iOS) ora hanno <code>16px</code> fisso (4 regole in <code>base.css</code>, <code>boutique.css</code>, <code>checkout.css</code>). Token serif (<code>--fs-claim</code>, <code>--fs-hero-inner</code>, <code>--fs-related</code>) non toccati.</li>
+    <li><strong>Documenti:</strong> <code>token.json</code>, <code>LEGGIMI-AGENZIA.md</code>, <code>Doppelganger_Specifiche_per_agenzia.html</code> (p4), <code>NOVITA-SITO.html</code>.</li>
+  </ul>
+</div>
 
 <div class="commit">
   <h2>Sezione 46 — 5 novembre 2026</h2>

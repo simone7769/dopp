@@ -305,7 +305,7 @@
 .product-card .price-block {
   display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; margin-top: 4px;
 }
-.product-card .price-old { font-size: var(--fs-card-price); font-weight: 300; color: var(--ink-soft); text-decoration: line-through; }
+.product-card .price-old { font-size: var(--fs-card-price); font-weight: var(--fw-ui); color: var(--ink-soft); text-decoration: line-through; }
 .product-card .price-now { font-size: var(--fs-card-price); font-weight: var(--fw-card-price); color: var(--danger); }
 .product-card .price-off { font-size: var(--fs-card-price); font-weight: var(--fw-card-price); letter-spacing: 1px; color: var(--danger); }
 

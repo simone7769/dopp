@@ -44,7 +44,7 @@
 
 .app-section-text {
   font-family: var(--sans);
-  font-weight: 300;
+  font-weight: var(--fw-body);
   font-size: var(--fs-16);
   line-height: 1.7;
   color: var(--ink-soft);

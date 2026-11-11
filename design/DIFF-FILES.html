@@ -171,7 +171,7 @@
 
   <div class="meta">
     <div>
-      <span class="val">661</span>
+      <span class="val">684</span>
       <span class="lbl">File toccati</span>
     </div>
     <div>
@@ -187,6 +187,20 @@
   <p style="font-size: 13px; color: var(--ink-soft); text-align: center; margin-bottom: 40px;">
     Da <code>de268ba</code> a <code>8b258b5</code> — 8 ottobre–5 novembre 2026
   </p>
+
+<div class="commit">
+  <h3>Sezione 47 — 11 novembre 2026</h3>
+  <table>
+    <tr><th scope="col">File</th><th scope="col">Variazione</th></tr>
+    <tr><td>css/tokens.css</td><td>token <code>--sans</code>, pesi, scala dimensioni</td></tr>
+    <tr><td>css/fonts.css, index.html</td><td>@font-face Work Sans; preload</td></tr>
+    <tr><td>fonts/work-sans-*.woff2</td><td>nuovi (2)</td></tr>
+    <tr><td>fonts/jost-*.woff2</td><td>rimossi (5)</td></tr>
+    <tr><td>css/*.css (22 fogli)</td><td>font-weight 300 → 350/400 per zona</td></tr>
+    <tr><td>css/base.css, boutique.css, checkout.css</td><td>campi form a 16px fisso; link footer 11px</td></tr>
+    <tr><td>design/token.json, LEGGIMI-AGENZIA.md, Specifiche, NOVITA-SITO.html</td><td>tipografia aggiornata</td></tr>
+  </table>
+</div>
 
 <div class="commit">
   <h3>Sezione 46 — 5 novembre 2026</h3>
@@ -382,6 +396,18 @@
   </table>
 </div>
 
+<h2>58. Aggiornamento dell'11 novembre 2026 (Migrazione Work Sans) <span class="count">23 file</span></h2>
+  <p style="font-size: 13px; color: var(--ink-soft); text-align: center; margin-bottom: 10px;">11 novembre 2026 · 23 file</p>
+  <table>
+    <tr><th scope="col">File</th><th scope="col">Variazione</th></tr>
+    <tr><td class="file">css/tokens.css</td><td class="note">Token --sans: Work Sans. Nuovi token pesi --fw-body: 350, --fw-ui: 400, --fw-emphasis: 500. Scala ridotta: --fs-13/14/16/18/20/22/24/26 -1/-2px.</td></tr>
+    <tr><td class="file">css/fonts.css, index.html</td><td class="note">@font-face Work Sans variable (latin + latin-ext). Preload aggiornato. Rimossi 5 file Jost.</td></tr>
+    <tr><td class="file">fonts/work-sans-latin-wght-normal.woff2, fonts/work-sans-latin-ext-wght-normal.woff2</td><td class="note">Nuovi: 2 file variable font Work Sans, licenza OFL.</td></tr>
+    <tr><td class="file">fonts/jost-*.woff2 (5 file)</td><td class="note">Rimossi: Jost non più usato.</td></tr>
+    <tr><td class="file">css/*.css (21 fogli)</td><td class="note">Sostituzione font-weight per zona: 300→350 (testi) o 400 (UI). Titoli sans ≥18px restano 300.</td></tr>
+    <tr><td class="file">css/base.css, boutique.css, checkout.css</td><td class="note">Campi form a 16px fisso (anti-zoom iOS). Link footer 11px.</td></tr>
+    <tr><td class="file">design/token.json, LEGGIMI-AGENZIA.md, Doppelganger_Specifiche_per_agenzia.html, NOVITA-SITO.html, linee-guida-badge.html</td><td class="note">Tipografia aggiornata nel design system per l'agenzia.</td></tr>
+  </table>
 <h2>57. Aggiornamento del 10 novembre 2026 (Toolbar: layout a griglia e badge filtri) <span class="count">6 file</span></h2>
   <p style="font-size: 13px; color: var(--ink-soft); text-align: center; margin-bottom: 10px;">10 novembre 2026 · 6 file, +66 / −25</p>
   <table>

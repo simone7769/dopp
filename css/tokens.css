@@ -52,7 +52,7 @@
 
   /* Famiglie */
   --serif: 'Cormorant Garamond', Georgia, serif;
-  --sans:  'Jost', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --sans:  'Work Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
   /* Pesi caricati */
   --fw-light:    300;
@@ -60,6 +60,11 @@
   --fw-medium:   500;
   --fw-semibold: 600;
   --fw-bold:     700;
+
+  /* Sistema pesi per zona (Work Sans variable, valori intermedi ammessi) */
+  --fw-body:     350;  /* corpo dei testi, paragrafi, testi lunghi */
+  --fw-ui:       400;  /* interfaccia: menu, nav, footer, bottoni, form, tab */
+  --fw-emphasis: 500;  /* prezzi, tab attivi, titoli piccoli UI */
 
   /* Corpo */
   --lh-body:      1.6;
@@ -70,17 +75,17 @@
   --fs-10: 10px;
   --fs-11: 11px;
   --fs-12: 12px;
-  --fs-13: 13px;
-  --fs-14: 14px;
-  --fs-16: 16px;
-  --fs-18: 18px;   /* simboli + / − / × nei controlli, citazione vetrina (5 nov) */
-  --fs-20: 20px;   /* totale checkout (spostato da base.css) */
-  --fs-22: 22px;   /* titoli checkout e pannelli (spostato da base.css) */
-  --fs-24: 24px;   /* fascia info home, hero Club (spostato da base.css) */
-  --fs-26: 26px;   /* titoli sezione Must Have, carrello, correlati (spostato da base.css) */
+  --fs-13: 12px;
+  --fs-14: 13px;
+  --fs-16: 15px;
+  --fs-18: 17px;   /* simboli + / − / × nei controlli, citazione vetrina (5 nov) */
+  --fs-20: 18px;   /* totale checkout (spostato da base.css) */
+  --fs-22: 20px;   /* titoli checkout e pannelli (spostato da base.css) */
+  --fs-24: 22px;   /* fascia info home, hero Club (spostato da base.css) */
+  --fs-26: 24px;   /* titoli sezione Must Have, carrello, correlati (spostato da base.css) */
 
   /* Ruoli specifici */
-  --fs-card-title: 15px;   /* desktop ≥1025px */
+  --fs-card-title: 14px;   /* desktop ≥1025px (Work Sans: -1px) */
   --fs-card-price: 13px;
   --fw-price:      var(--fw-medium); /* prezzo di un articolo, ovunque: card, scheda, carrello, preferiti, checkout (5 nov) */
   --fw-card-price: var(--fw-price);  /* alias storico, usato dai fogli delle card */
@@ -94,8 +99,8 @@
 
   /* Token di riferimento per la tipografia. */
   --fs-hero-inner:     clamp(18px, 1.4vw, 22px);  /* 7 nov: allineato a collezioni */
-  --fs-section-title:  18px;
-  --fs-body-editorial: 18px;
+  --fs-section-title:  17px;
+  --fs-body-editorial: 17px;
   --fs-body-legal:     16px;
   --fs-h1-legal:       24px;
 
@@ -204,7 +209,7 @@
 /* Tablet (641–1024px): stessa scala del mobile (14/12) */
 @media (min-width: 641px) and (max-width: 1024px) {
   :root {
-    --fs-card-title:  14px;
+    --fs-card-title:  13px;
     --fs-card-price:  12px;
   }
 }
@@ -214,7 +219,7 @@
     --btn-width:      170px;
     --btn-height:     44px;
     --drawer-title-h: 56px;
-    --fs-card-title:  14px;
+    --fs-card-title:  13px;
     --fs-card-price:  12px;
   }
 }

@@ -8,7 +8,7 @@
   text-align: center;
   font-family: var(--sans);
   font-size: var(--fs-13);
-  font-weight: 300;
+  font-weight: var(--fw-body);
   letter-spacing: var(--tr-05);
   color: var(--muted);
   margin: 0 0 48px;
@@ -61,7 +61,7 @@
 .size-note {
   font-family: var(--sans);
   font-size: var(--fs-12);
-  font-weight: 300;
+  font-weight: var(--fw-body);
   line-height: 1.6;
   color: var(--muted);
   padding-top: 24px;
@@ -184,7 +184,7 @@
 .size-modal-subtitle {
   font-family: var(--sans);
   font-size: var(--fs-13);
-  font-weight: 300;
+  font-weight: var(--fw-body);
   color: var(--muted);
   margin: 0 0 32px;
 }
@@ -200,7 +200,7 @@
   border-collapse: collapse;
   font-family: var(--sans);
   font-size: var(--fs-13);
-  font-weight: 300;
+  font-weight: var(--fw-ui);
   color: var(--ink);
   table-layout: auto;
 }

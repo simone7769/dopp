@@ -158,7 +158,7 @@
   text-align: center;
   font-family: var(--sans);
   font-size: var(--fs-14);
-  font-weight: 300;
+  font-weight: var(--fw-body);
   color: #777;
   padding: 60px 20px;
   margin: 0;
