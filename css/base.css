@@ -259,10 +259,12 @@ header.scrolled .nav {
   justify-content: center;
   color: #fff;
   text-decoration: none;
+  opacity: 0.7;
   transition: color var(--t-fast) var(--ease), opacity var(--t-fast) var(--ease);
 }
+
 /* Icone header: nessun effetto hover (cambiano colore da sole con header scrolled) */
-.nav-icon-link:hover { color: var(--ink); }
+.nav-icon-link:hover { color: var(--ink); opacity: 1; }
 
 .nav-icon-link svg { width: 20px; height: 20px; display: block; }
 
@@ -363,6 +365,7 @@ header.scrolled .nav {
   gap: 8px;
 }
 .megamenu-col ul a {
+  position: relative;
   font-family: var(--sans);
   font-size: var(--fs-14);
   font-weight: 400;
@@ -371,7 +374,7 @@ header.scrolled .nav {
   text-decoration: none;
   transition: color var(--t-fast) var(--ease);
 }
-.megamenu-col ul a:hover { color: var(--ink); font-weight: 500; }
+.megamenu-col ul a:hover { color: var(--ink); }
 .megamenu-images {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -554,6 +557,7 @@ header.scrolled .nav {
 }
 .mm-fixed-service { list-style: none; display: flex; gap: 28px; margin: 0; padding: 0; }
 .mm-fixed-foot a {
+  position: relative;
   font-family: var(--sans);
   font-size: var(--fs-13);
   letter-spacing: var(--tr-05);
@@ -561,7 +565,7 @@ header.scrolled .nav {
   text-decoration: none;
   transition: color var(--t-fast) var(--ease);
 }
-.mm-fixed-foot a:hover { color: var(--ink); font-weight: 500; }
+.mm-fixed-foot a:hover { color: var(--ink); }
 
 /* ============================================================
    MENU MOBILE
@@ -649,7 +653,7 @@ header.scrolled .nav {
   text-decoration: none;
   transition: color var(--t-fast) var(--ease), background var(--t-fast) var(--ease);
 }
-.mobile-menu-list > li > a:hover { color: var(--ink); font-weight: 500; }
+.mobile-menu-list > li > a:hover { color: var(--ink); }
 
 .mobile-sub-toggle {
   position: relative;
@@ -668,7 +672,7 @@ header.scrolled .nav {
   text-align: left;
   transition: color var(--t-fast) var(--ease);
 }
-.mobile-sub-toggle:hover { color: var(--ink); font-weight: 500; }
+.mobile-sub-toggle:hover { color: var(--ink); }
 .mobile-sub-toggle svg {
   position: absolute;
   right: 24px;
@@ -708,7 +712,7 @@ header.scrolled .nav {
   text-decoration: none;
   transition: color var(--t-fast) var(--ease);
 }
-.mobile-sub a:hover { color: var(--ink); font-weight: 500; }
+.mobile-sub a:hover { color: var(--ink); }
 .mobile-menu-icons {
   margin-top: auto;
   display: grid;
@@ -1919,7 +1923,6 @@ footer {
 #megaAccessori .megamenu-col ul a:hover,
 #megaOutlet .megamenu-col ul a:hover {
   color: var(--ink);
-  font-weight: 500;
 }
 
 /* «Vedi tutti»: il selettore porta gli stessi id dei megamenu, così vince
@@ -2626,7 +2629,7 @@ footer {
   text-decoration: none;
   transition: color var(--t-fast) var(--ease);
 }
-.mobile-menu-utility a:hover { color: var(--ink); font-weight: 500; }
+.mobile-menu-utility a:hover { color: var(--ink); }
 
 /* ============================================================
    TOUCH: disabilita hover "appiccicoso" sui link del footer
@@ -2814,3 +2817,33 @@ p a, span a, li a, .footer-privacy a, .footer-consent a,
   .products-grid[data-cols="3"] .product-card .card-arrow,
   .products-grid[data-cols="3"] .product-card .card-progress { display: none; }
 }
+
+
+/* ============================================================
+   SOTTOLINEATURA HOVER ANIMATA (12 nov 2026)
+   Solo desktop e menu (megamenu, Contattaci/Boutique/Italia).
+   Mobile escluso (niente hover su touch, tap ha già il feedback).
+   Stesso pattern del MENU: linea che entra da sinistra.
+   ============================================================ */
+
+/* 1. Linea 3px sotto il testo (desktop) */
+.megamenu-col ul a::after,
+.mm-fixed-foot a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -3px;
+  height: 1px;
+  background: var(--ink);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.2s var(--ease-out);
+}
+
+/* 2. Trigger al hover (desktop) */
+.megamenu-col ul a:hover::after,
+.mm-fixed-foot a:hover::after {
+  transform: scaleX(1);
+}
+
