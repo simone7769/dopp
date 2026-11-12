@@ -550,8 +550,7 @@ header.scrolled .nav {
   justify-content: flex-start;
   align-items: flex-end;
   gap: 24px;
-  padding: 20px var(--nav-pad) 28px;
-  border-top: 1px solid var(--line);
+  padding: 28px var(--nav-pad) 28px;
   flex-shrink: 0;
 }
 .mm-fixed-service { list-style: none; display: flex; gap: 28px; margin: 0; padding: 0; }
@@ -2583,16 +2582,14 @@ footer {
    Sostituisce la griglia icone e i link in linea.
    ============================================================ */
 .mobile-menu-extra {
-  margin: 24px 0 0;
+  margin: 36px 0 0;
   padding: 0;
   list-style: none;
   width: 100%;
-  border-top: 0.5px solid var(--line);
 }
 .mobile-menu-extra li {
-  border-bottom: 0.5px solid var(--line);
+  /* nessuna linea di separazione */
 }
-.mobile-menu-extra li:last-child { border-bottom: none; }
 .mobile-menu-extra a {
   display: flex;
   align-items: center;
