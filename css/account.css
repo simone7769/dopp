@@ -190,7 +190,7 @@
   cursor: pointer;
   padding: 0;
 }
-.address-actions button:hover { color: var(--gold-text); }
+.address-actions button:hover { color: var(--ink); }
 
 /* Tab preferiti: riusa griglia */
 .account-preferiti-grid {
@@ -237,9 +237,9 @@
 .account-login-link a {
   color: var(--ink);
   text-decoration: underline;
-  text-underline-offset: 4px;
+  text-underline-offset: 3px;
 }
-.account-login-link a:hover { color: var(--gold-text); }
+.account-login-link a:hover { color: var(--ink); }
 
 @media (max-width: 1024px) {
   .account-wrap { padding: 20px 24px 70px; }
