@@ -170,7 +170,7 @@
   padding-bottom: 2px;
   transition: color var(--t-fast) var(--ease);
 }
-.boutique-phone:hover { color: var(--gold-text); }
+.boutique-phone:hover { color: var(--ink); }
 
 .boutique-empty {
   font-family: var(--sans);

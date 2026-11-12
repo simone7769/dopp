@@ -100,7 +100,7 @@
   cursor: pointer;
   transition: color var(--t-fast) var(--ease), opacity var(--t-fast) var(--ease);
 }
-.pdp-lightbox button:hover { color: var(--gold-text); }
+.pdp-lightbox button:hover { color: var(--ink); }
 .pdp-lightbox button:focus-visible { outline: 1px solid var(--gold); outline-offset: -4px; }
 .pdp-lightbox button svg { width: 26px; height: 26px; stroke: currentColor; fill: none; stroke-width: 1.1; }
 .pdp-lightbox-close { top: 18px; right: 22px; }

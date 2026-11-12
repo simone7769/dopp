@@ -70,7 +70,7 @@
 }
 .faq-item > summary::-webkit-details-marker { display: none; }
 .faq-item > summary::marker { content: ""; }
-.faq-item > summary:hover { color: var(--gold-text); }
+.faq-item > summary:hover { color: var(--ink); }
 
 /* "+" a destra */
 .faq-item > summary::after {
@@ -83,7 +83,7 @@
   transition: color var(--t-fast) var(--ease);
 }
 .faq-item[open] > summary::after { content: '−'; }
-.faq-item > summary:hover::after { color: var(--gold-text); }
+.faq-item > summary:hover::after { color: var(--ink); }
 
 /* --- Contenuto della risposta --- */
 .faq-body {
@@ -106,7 +106,7 @@
   text-underline-offset: 3px;
   transition: color var(--t-fast) var(--ease);
 }
-.faq-body a:hover { color: var(--gold-text); }
+.faq-body a:hover { color: var(--ink); }
 
 /* Liste dentro le risposte (es. costi di spedizione) */
 .faq-list {
@@ -170,7 +170,7 @@
   text-underline-offset: 3px;
   transition: color var(--t-fast) var(--ease);
 }
-.faq-cta a:hover { color: var(--gold-text); }
+.faq-cta a:hover { color: var(--ink); }
 
 /* --- Responsive --- */
 @media (max-width: 1024px) {

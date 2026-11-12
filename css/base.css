@@ -1098,7 +1098,7 @@ header.scrolled .nav {
   margin: 8px 0 0;
   transition: color var(--t-fast) var(--ease);
 }
-.cart-note-link:hover { color: var(--gold-text); }
+.cart-note-link:hover { color: var(--ink); }
 
 /* ============================================================
    LOGIN DRAWER
@@ -1358,7 +1358,7 @@ header.scrolled .nav {
   text-underline-offset: 4px;
   transition: color var(--t-fast) var(--ease);
 }
-.stores-actions a:hover { color: var(--gold-text); }
+.stores-actions a:hover { color: var(--ink); }
 .stores-empty { font-size: var(--fs-13); line-height: 1.55; color: #555; padding: 28px 0; margin: 0; }
 .stores-footer {
   flex-shrink: 0;

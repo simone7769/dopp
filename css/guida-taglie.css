@@ -72,7 +72,7 @@
   text-decoration: underline;
   text-underline-offset: 3px;
 }
-.size-note a:hover { color: var(--gold-text); }
+.size-note a:hover { color: var(--ink); }
 
 /* ============================================================
    MODALE

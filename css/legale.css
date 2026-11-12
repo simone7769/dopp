@@ -66,7 +66,7 @@
   text-underline-offset: 3px;
   transition: color var(--t-fast) var(--ease);
 }
-.legale-wrap a:hover { color: var(--gold-text); }
+.legale-wrap a:hover { color: var(--ink); }
 
 .legale-updated {
   font-family: var(--sans);

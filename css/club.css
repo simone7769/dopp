@@ -182,8 +182,8 @@
 }
 .club-faq summary::-webkit-details-marker { display: none; }
 .club-faq summary::marker { content: ""; }
-.club-faq summary:hover { color: var(--gold-text); }
-.club-faq summary:hover::after { color: var(--gold-text); }
+.club-faq summary:hover { color: var(--ink); }
+.club-faq summary:hover::after { color: var(--ink); }
 .club-faq summary::after {
   content: '+';
   font-size: var(--fs-22);
