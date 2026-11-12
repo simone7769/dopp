@@ -2244,12 +2244,9 @@ footer {
 .mobile-sub a.mobile-sub-highlight {
   font-size: var(--fs-12);
   font-weight: 500;
-  color: var(--gold-text);
+  color: var(--ink);
   text-transform: uppercase;
   letter-spacing: var(--tr-1);
-}
-.mobile-sub a.mobile-sub-highlight:hover {
-  color: var(--ink);
 }
 
 
