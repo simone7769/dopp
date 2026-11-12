@@ -53,7 +53,6 @@ body {
   background-color: var(--paper);
   line-height: 1.6;
   font-weight: var(--fw-body);
-  -webkit-font-smoothing: antialiased;
   animation: page-enter var(--t-page) var(--ease) backwards;
 }
 
