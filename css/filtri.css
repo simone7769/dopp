@@ -237,6 +237,7 @@
   background: var(--ink);
   border-color: var(--ink);
   color: #fff;
+  font-weight: 500;
 }
 
 /* Colori */

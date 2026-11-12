@@ -262,20 +262,9 @@ header.scrolled .nav {
   text-decoration: none;
   transition: color var(--t-fast) var(--ease), opacity var(--t-fast) var(--ease);
 }
-.nav-icon-link::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -4px;
-  height: 1px;
-  background: var(--gold);
-  transform: scaleX(0);
-  transform-origin: center;
-  transition: transform 0.2s var(--ease-out);
-}
-.nav-icon-link:hover { color: var(--gold-text); }
-.nav-icon-link:hover::after { transform: scaleX(1); }
+/* Icone header: nessun effetto hover (cambiano colore da sole con header scrolled) */
+.nav-icon-link:hover { color: var(--ink); }
+
 .nav-icon-link svg { width: 20px; height: 20px; display: block; }
 
 .wishlist-badge,
@@ -383,7 +372,7 @@ header.scrolled .nav {
   text-decoration: none;
   transition: color var(--t-fast) var(--ease);
 }
-.megamenu-col ul a:hover { color: var(--gold-text); }
+.megamenu-col ul a:hover { color: var(--ink); font-weight: 500; }
 .megamenu-images {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -438,14 +427,14 @@ header.scrolled .nav {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 8px;
+  bottom: 12px;
   height: 1px;
-  background: var(--gold);
+  background: var(--ink);
   transform: scaleX(0);
-  transform-origin: center;
+  transform-origin: left;
   transition: transform 0.2s var(--ease-out);
 }
-.nav-menu-btn:hover { color: var(--gold-text); }
+.nav-menu-btn:hover { color: var(--ink); }
 .nav-menu-btn:hover::after { transform: scaleX(1); }
 .nav-menu-btn:focus-visible { outline: 1px solid currentColor; outline-offset: 4px; }
 
@@ -515,17 +504,18 @@ header.scrolled .nav {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: -1px;
+  bottom: 14px;
   height: 1px;
-  background: var(--gold);
+  background: var(--ink);
   transform: scaleX(0);
+  transform-origin: left;
   transition: transform 0.2s var(--ease-out);
 }
 .mm-nav-link:hover,
-.mm-tab:hover { color: var(--gold-text); }
+.mm-tab:hover { color: var(--ink); }
 .mm-nav-link { text-decoration: none; }
 .mm-nav-link:hover::after { transform: scaleX(1); }
-.mm-tab[aria-selected="true"] { color: var(--gold-text); }
+.mm-tab[aria-selected="true"] { color: var(--ink); }
 .mm-tab[aria-selected="true"]::after { transform: scaleX(1); }
 .mm-nav-link:focus-visible,
 .mm-tab:focus-visible { outline: 1px solid var(--ink); outline-offset: 4px; }
@@ -573,7 +563,7 @@ header.scrolled .nav {
   text-decoration: none;
   transition: color var(--t-fast) var(--ease);
 }
-.mm-fixed-foot a:hover { color: var(--gold-text); }
+.mm-fixed-foot a:hover { color: var(--ink); font-weight: 500; }
 
 /* ============================================================
    MENU MOBILE
@@ -661,7 +651,7 @@ header.scrolled .nav {
   text-decoration: none;
   transition: color var(--t-fast) var(--ease), background var(--t-fast) var(--ease);
 }
-.mobile-menu-list > li > a:hover { color: var(--gold-text); }
+.mobile-menu-list > li > a:hover { color: var(--ink); font-weight: 500; }
 
 .mobile-sub-toggle {
   position: relative;
@@ -680,7 +670,7 @@ header.scrolled .nav {
   text-align: left;
   transition: color var(--t-fast) var(--ease);
 }
-.mobile-sub-toggle:hover { color: var(--gold-text); }
+.mobile-sub-toggle:hover { color: var(--ink); font-weight: 500; }
 .mobile-sub-toggle svg {
   position: absolute;
   right: 24px;
@@ -720,7 +710,7 @@ header.scrolled .nav {
   text-decoration: none;
   transition: color var(--t-fast) var(--ease);
 }
-.mobile-sub a:hover { color: var(--gold-text); }
+.mobile-sub a:hover { color: var(--ink); font-weight: 500; }
 .mobile-menu-icons {
   margin-top: auto;
   display: grid;
@@ -741,7 +731,7 @@ header.scrolled .nav {
   height: 44px;
   transition: color var(--t-fast) var(--ease), opacity var(--t-fast) var(--ease);
 }
-.mobile-menu-icons a:hover { color: var(--gold-text); opacity: 0.85; }
+.mobile-menu-icons a:hover { color: var(--ink); opacity: 0.85; }
 .mobile-menu-icons svg { width: 20px; height: 20px; }
 
 /* ============================================================
@@ -1592,7 +1582,7 @@ footer {
   text-underline-offset: 3px;
   transition: color var(--t-fast) var(--ease);
 }
-.footer-privacy a:hover { color: var(--gold); }
+.footer-privacy a:hover { color: #fff; }
 .footer-col h4 {
   font-family: var(--sans);
   font-size: var(--fs-12);
@@ -1617,7 +1607,7 @@ footer {
   text-transform: none;
   transition: color var(--t-fast) var(--ease);
 }
-.footer-col ul a:hover { color: var(--gold); }
+.footer-col ul a:hover { color: #fff; }
 .footer-bottom {
   max-width: 1600px;
   margin: 40px auto 0;
@@ -1664,7 +1654,7 @@ footer {
   letter-spacing: var(--tr-03);
   transition: color var(--t-fast) var(--ease);
 }
-.footer-legal a:hover { color: var(--gold); }
+.footer-legal a:hover { color: #fff; }
 .footer-copy {
   position: relative;
   max-width: 1600px;
@@ -1930,7 +1920,8 @@ footer {
 #megaAbbigliamento .megamenu-col ul a:hover,
 #megaAccessori .megamenu-col ul a:hover,
 #megaOutlet .megamenu-col ul a:hover {
-  color: var(--gold-text);
+  color: var(--ink);
+  font-weight: 500;
 }
 
 /* «Vedi tutti»: il selettore porta gli stessi id dei megamenu, così vince
@@ -1938,7 +1929,7 @@ footer {
 .megamenu-col ul a.mm-see-all,
 :is(#megaAbbigliamento, #megaAccessori, #megaOutlet) .megamenu-col ul a.mm-see-all {
   margin-top: 20px;
-  color: var(--gold-text);
+  color: var(--ink);
   font-weight: 500;
   letter-spacing: var(--tr-1);
 }
@@ -2551,7 +2542,7 @@ footer {
   letter-spacing: var(--tr-03);
   color: #a8a39b;
 }
-.footer-trust a:hover .ft-text { color: var(--gold); }
+.footer-trust a:hover .ft-text { color: #fff; }
 
 .footer-pay {
   list-style: none;
@@ -2616,7 +2607,7 @@ footer {
   transition: color var(--t-fast) var(--ease);
 }
 .mobile-menu-extra a:hover,
-.mobile-menu-extra a:focus-visible { color: var(--gold-text); }
+.mobile-menu-extra a:focus-visible { color: var(--ink); }
 .mobile-menu-extra svg {
   width: 20px;
   height: 20px;
@@ -2642,7 +2633,7 @@ footer {
   text-decoration: none;
   transition: color var(--t-fast) var(--ease);
 }
-.mobile-menu-utility a:hover { color: var(--gold-text); }
+.mobile-menu-utility a:hover { color: var(--ink); font-weight: 500; }
 
 /* ============================================================
    TOUCH: disabilita hover "appiccicoso" sui link del footer

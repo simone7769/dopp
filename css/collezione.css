@@ -610,14 +610,14 @@
   transition: opacity var(--t-fast) var(--ease);
   -webkit-tap-highlight-color: transparent;
 }
-.category-bar-item[aria-pressed="true"] { opacity: 1; }
+.category-bar-item[aria-pressed="true"] { opacity: 1; font-weight: 500; }
 .category-bar-item:focus-visible {
   outline: 2px solid var(--gold);
   outline-offset: -2px;
   opacity: 1;
 }
 @media (hover: hover) {
-  .category-bar-item:hover { opacity: 1; }
+  .category-bar-item:hover { opacity: 1; font-weight: 500; }
 }
 
 /* Frecce: compaiono solo se la barra trabocca da quel lato (JS) */
