@@ -1,31 +1,8 @@
 /* ============================================================
-   FONTS.CSS — Font self-hosted (Cormorant Garamond + Work Sans)
+   FONTS.CSS — Font self-hosted (solo Work Sans, dal 14 nov)
    Sostituisce il caricamento da Google Fonts CDN.
    File .woff2 in /fonts/
    ============================================================ */
-
-/* --- Cormorant Garamond (serif, titoli) --- */
-@font-face {
-  font-family: 'Cormorant Garamond';
-  font-style: normal;
-  font-weight: 300;
-  font-display: swap;
-  src: url('../fonts/cormorant-garamond-v21-latin_latin-ext-300.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Cormorant Garamond';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('../fonts/cormorant-garamond-v21-latin_latin-ext-regular.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Cormorant Garamond';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url('../fonts/cormorant-garamond-v21-latin_latin-ext-500.woff2') format('woff2');
-}
 
 /* --- Work Sans (sans, tutto il resto) — variable font, pesi 100-900 in un file ---
    Due subset: latin e latin-ext, scelti dal browser tramite unicode-range. */

@@ -352,7 +352,7 @@ header.scrolled .nav {
 .megamenu-col h4 {
   font-family: var(--sans);
   font-size: var(--fs-12);
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: var(--tr-2);
   text-transform: uppercase;
   color: var(--ink);
@@ -852,7 +852,7 @@ header.scrolled .nav {
   font-family: var(--sans);
   font-size: var(--fs-14);
   font-weight: 500;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   margin: 0;
 }
@@ -869,7 +869,7 @@ header.scrolled .nav {
   border: none;
   background: transparent;
   color: var(--ink);
-  font-size: var(--fs-26);
+  font-size: 20px;
   line-height: 1;
   cursor: pointer;
   display: flex;
@@ -1074,7 +1074,7 @@ header.scrolled .nav {
   align-items: center;
   font-size: var(--fs-14);
   font-weight: 500;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 .cart-footer {
@@ -1176,7 +1176,7 @@ header.scrolled .nav {
   font-family: var(--sans);
   font-size: var(--fs-14);
   font-weight: 500;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
   margin: 0;
 }
@@ -1283,7 +1283,7 @@ header.scrolled .nav {
 .wishlist-empty svg { width: 40px; height: 40px; color: var(--muted); margin-bottom: 6px; }
 .wishlist-empty h4 {
   font-family: var(--sans);
-  font-weight: 300;
+  font-weight: 400;
   font-size: var(--fs-22);
   letter-spacing: var(--tr-1);
   color: var(--ink);
@@ -1332,7 +1332,7 @@ header.scrolled .nav {
   font-family: var(--sans);
   font-size: var(--fs-11);
   font-weight: 500;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--gold-text);
   margin: 0;
@@ -1344,7 +1344,7 @@ header.scrolled .nav {
   font-family: var(--sans);
   font-size: var(--fs-13);
   font-weight: 500;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   margin: 0 0 8px;
 }
@@ -1353,7 +1353,7 @@ header.scrolled .nav {
 .stores-actions { display: flex; gap: 22px; margin-top: 14px; }
 .stores-actions a {
   font-size: var(--fs-11);
-  letter-spacing: 0.14em;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
   color: var(--ink);
   text-decoration: underline;
@@ -1391,7 +1391,7 @@ header.scrolled .nav {
   font-family: var(--sans);
   font-size: var(--fs-14);
   font-weight: 500;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
   margin: 0 0 10px;
 }
@@ -1601,7 +1601,7 @@ footer {
   gap: 12px;
 }
 .footer-col ul a {
-  font-size: var(--fs-11);
+  font-size: var(--fs-12);
   font-weight: var(--fw-ui);
   letter-spacing: var(--tr-03);
   color: #cfcbc4;
@@ -1650,7 +1650,7 @@ footer {
   justify-content: flex-end;
 }
 .footer-legal a {
-  font-size: var(--fs-11);
+  font-size: var(--fs-12);
   color: #a8a49c;
   text-decoration: none;
   letter-spacing: var(--tr-03);
@@ -1667,7 +1667,7 @@ footer {
   justify-content: space-between;
   gap: 16px 32px;
   flex-wrap: wrap;
-  font-size: var(--fs-11);
+  font-size: var(--fs-12);
   color: #a8a49c;
   letter-spacing: var(--tr-05);
 }
@@ -2021,7 +2021,7 @@ footer {
   font-family: var(--sans);
   font-size: var(--fs-14);
   font-weight: 500;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   margin: 0;
 }
@@ -2032,7 +2032,7 @@ footer {
   border: none;
   background: transparent;
   color: var(--ink);
-  font-size: var(--fs-26);
+  font-size: 20px;
   line-height: 1;
   cursor: pointer;
   display: flex;
@@ -2529,7 +2529,7 @@ footer {
 .footer-trust .ft-copy { display: flex; flex-direction: column; gap: 6px; }
 .footer-trust .ft-title {
   font-size: var(--fs-12);
-  letter-spacing: 0.14em;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
   font-weight: 400;
   color: #fff;
@@ -2697,7 +2697,6 @@ footer {
   font-family: var(--sans);
   font-weight: var(--fw-body);
   font-size: var(--fs-16);
-  font-style: italic;
   font-weight: var(--fw-regular);
   color: #cfcbc4;
   text-align: left;

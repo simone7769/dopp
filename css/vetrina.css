@@ -3,9 +3,10 @@
    Usa solo i token di tokens.css e le classi di base.css.
    Non dipende da looks.css né da prodotto.css.
 
-   Regola tipografica della pagina:
-   - il racconto (manifesto, Scegliere, citazione, chiusura) è in
-     Cormorant tondo o corsivo: è la parte editoriale;
+   Regola tipografica della pagina (aggiornata 14 nov 2026):
+   - solo sans (Work Sans): il serif è stato rimosso dal sito il 14 nov.
+   - il racconto (manifesto, Scegliere, citazione, chiusura) usa Work Sans
+     con peso e dimensioni editoriali;
    - lo shop (capo in evidenza, griglia, prezzi, bottoni) usa gli
      stessi stili delle pagine del sito: home, collezione, scheda.
 
@@ -21,8 +22,8 @@
   /* Scala del racconto */
   --vt-title:      clamp(40px, 4.2vw, 64px);  /* titolo di capitolo */
   --vt-cover:      clamp(32px, 3.9vw, 56px);  /* titolo dell'hero, come una copertina */
-  --vt-standfirst: clamp(20px, 1.7vw, 26px);  /* manifesto, come l'occhiello di una rivista */
-  --vt-body:       var(--fs-body-editorial);  /* 18px, come il Journal */
+  --vt-standfirst: clamp(18px, 1.5vw, 22px);  /* manifesto, come l'occhiello di una rivista */
+  --vt-body:       var(--fs-body-editorial);  /* 15px, come il Journal */
 
   /* Etichetta in maiuscolo: una sola misura per tutta la pagina */
   --vt-label-size: var(--fs-12);
@@ -46,7 +47,9 @@
 
 /* Titoli e frasi brevi vanno a capo in modo equilibrato,
    i paragrafi senza parole sole in fondo */
-.vt h1, .vt h2, .vt-manifesto, .vt-quote p { text-wrap: balance; }
+.vt h1, .vt h2, .vt-manifesto, .vt-quote p { text-wrap: balance;
+  font-weight: var(--fw-regular);
+}
 .vt p { text-wrap: pretty; }
 
 /* Contenitore a larghezza sito */
@@ -78,10 +81,8 @@
 /* Didascalie: corsivo piccolo, come nelle riviste */
 .vt-caption {
   font-family: var(--sans);
-  font-size: 16px;
+  font-size: 14px;
   font-weight: var(--fw-body);
-  font-style: italic;
-  font-size: 16px;
   line-height: 1.4;
   color: var(--muted);
   margin-top: 12px;
@@ -126,12 +127,11 @@
 
 /* Titolo da copertina: corsivo. Qui la pagina si stacca dalla home */
 .vt-hero-text h1 {
-  font-family: var(--serif);
-  font-style: italic;
-  font-weight: var(--fw-light);
-  font-size: clamp(40px, 3.8vw, 52px);
-  line-height: 1;
-  letter-spacing: -0.005em;
+  font-family: var(--sans);
+  font-weight: var(--fw-medium);
+  font-size: var(--text-display);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
   margin: 0;
   text-shadow: 0 1px 2px rgba(0, 0, 0, .55), 0 2px 24px rgba(0, 0, 0, .5);
 
@@ -153,8 +153,8 @@
 .vt-manifesto {
   max-width: 50ch;
   margin: 72px 0 72px 8.33%;
-  font-family: var(--serif);
-  font-weight: var(--fw-light);
+  font-family: var(--sans);
+  font-weight: var(--fw-body);
   font-size: var(--vt-standfirst);
   line-height: 1.28;
   color: var(--ink);
@@ -181,10 +181,10 @@
   background: var(--paper-alt);
 }
 .vt-chapter-text h2 {
-  font-family: var(--serif);
-  font-weight: var(--fw-light);
-  font-size: clamp(36px, 3.2vw, 44px);
-  line-height: 1.05;
+  font-family: var(--sans);
+  font-weight: var(--fw-regular);
+  font-size: var(--text-title);
+  line-height: 1.2;
   margin: 0 0 28px;
 }
 .vt-chapter-text p {
@@ -250,10 +250,10 @@
 }
 
 .vt-feature-text h2 {
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-weight: var(--fw-regular);
-  font-size: 28px;
-  line-height: 1.2;
+  font-size: var(--text-lead);
+  line-height: 1.25;
   margin: -0.2em 0 10px;   /* altezza delle maiuscole = bordo alto della foto */
 }
 .vt-feature-price {
@@ -297,13 +297,12 @@
 }
 .vt-products-head h2,
 .vt-products-head h3 {
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-weight: var(--fw-regular);
-  font-size: var(--fs-26);
-  letter-spacing: var(--tr-6);
-  text-transform: uppercase;
-  line-height: 1.3;
+  font-size: var(--text-title);
+  line-height: 1.2;
   margin: 0;
+  letter-spacing: -0.005em;
 }
 
 .vt-grid {
@@ -357,8 +356,8 @@
   border: none;
   color: var(--ink);
   font-family: var(--sans);
-  font-size: var(--fs-26);
-  font-weight: 300;
+  font-size: 20px;
+  font-weight: 400;
   line-height: 1;
   display: inline-flex;
   align-items: center;
@@ -426,11 +425,10 @@
 .vt-btn--light { border-color: #fff; color: #fff; }
 .vt-btn--light:hover { background: #fff; color: var(--ink); }
 .vt-sticky-quote-center p {
-  font-family: var(--serif);
-  font-style: italic;
-  font-weight: var(--fw-light);
-  font-size: 28px;
-  line-height: 1.45;
+  font-family: var(--sans);
+  font-weight: var(--fw-regular);
+  font-size: var(--text-lead);
+  line-height: 1.5;
   color: #fff;
   max-width: 800px;
   margin: 0;
@@ -545,6 +543,6 @@
   color: #fff; /* Bianco perché l'Hero ha sfondo scuro */
   margin-top: 40px;
   font-weight: var(--fw-body);
-  letter-spacing: 0.05em;
+  letter-spacing: 0.03em;
   opacity: 0.9;
 }

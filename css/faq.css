@@ -32,7 +32,7 @@
 
 .faq-group-title {
   font-family: var(--sans);
-  font-weight: 300;
+  font-weight: 400;
   font-size: var(--fs-22);
   letter-spacing: var(--tr-1);
   color: var(--ink);
@@ -77,7 +77,7 @@
   content: '+';
   font-family: var(--sans);
   font-size: var(--fs-22);
-  font-weight: 300;
+  font-weight: 400;
   color: var(--muted);
   flex-shrink: 0;
   transition: color var(--t-fast) var(--ease);
@@ -147,7 +147,6 @@
   font-family: var(--sans);
   font-size: var(--fs-12);
   font-weight: var(--fw-body);
-  font-style: italic;
   color: var(--muted);
   margin: 0;
 }

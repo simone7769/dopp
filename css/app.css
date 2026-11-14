@@ -34,12 +34,13 @@
 }
 
 .app-section-title {
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-weight: 500;
-  font-size: clamp(20px, 1.8vw, 26px);
-  letter-spacing: var(--tr-05);
+  font-size: var(--text-title);
+  letter-spacing: -0.005em;
   color: var(--ink);
   margin: 0 0 16px;
+  line-height: 1.2;
 }
 
 .app-section-text {
@@ -96,9 +97,9 @@
 
 .app-cta-sub {
   font-family: var(--sans);
-  font-weight: 300;
-  font-size: clamp(18px, 1.6vw, 22px);
-  line-height: 1.6;
+  font-weight: 400;
+  font-size: var(--text-lead);
+  line-height: 1.5;
   color: var(--ink);
   text-align: center;
   max-width: 600px;

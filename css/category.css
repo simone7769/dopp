@@ -59,7 +59,7 @@
   font-family: var(--sans);
   font-weight: 500;
   font-size: var(--fs-13);
-  letter-spacing: 0.1em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   line-height: 1.6;
   margin: 0 0 14px;

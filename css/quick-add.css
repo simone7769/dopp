@@ -94,7 +94,7 @@
   margin: 0 0 12px;
   padding-right: var(--touch-target, 44px); /* spazio per la × */
   font-family: var(--sans);
-  font-weight: 300;
+  font-weight: 400;
   font-size: var(--fs-24);
   line-height: 1.3;
   color: var(--ink);
@@ -111,7 +111,7 @@
 .quick-add-price .price-block { display: flex; align-items: baseline; gap: 12px; margin: 0; flex-wrap: wrap; }
 .quick-add-price .price-old { font-family: var(--sans); font-size: var(--fs-16); font-weight: var(--fw-ui); color: var(--ink-soft); text-decoration: line-through; }
 .quick-add-price .price-now { font-family: var(--sans); font-size: var(--fs-pdp-price); font-weight: var(--fw-price); color: var(--danger); letter-spacing: var(--tr-03); }
-.quick-add-price .price-off { font-family: var(--sans); font-size: var(--fs-14); font-weight: 400; color: var(--danger); letter-spacing: 1px; }
+.quick-add-price .price-off { font-family: var(--sans); font-size: var(--fs-14); font-weight: 400; color: var(--danger); letter-spacing: 0.4px; }
 
 .quick-add-label {
   margin: 36px 0 10px;
@@ -242,8 +242,8 @@
   background: transparent;
   border: none;
   color: var(--ink);
-  font-size: var(--fs-26);
-  font-weight: 300;
+  font-size: 20px;
+  font-weight: 400;
   font-family: var(--sans);
   line-height: 1;
   cursor: pointer;
@@ -369,8 +369,8 @@
     background: transparent;
     border: none;
     color: var(--ink);
-    font-size: var(--fs-26);
-    font-weight: 300;
+    font-size: 20px;
+    font-weight: 400;
     font-family: var(--sans);
     line-height: 1;
     cursor: pointer;

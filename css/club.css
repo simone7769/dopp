@@ -20,7 +20,7 @@
 .club-tier-name {
   display: block;
   font-family: var(--sans);
-  font-weight: 300;
+  font-weight: 400;
   font-size: var(--fs-24);
   letter-spacing: var(--tr-4);
   text-transform: uppercase;
@@ -95,18 +95,18 @@
   display: block;
 }
 
-/* "Doppi punti" — variante testuale ×2 in serif, oro */
+/* "Doppi punti" — variante testuale ×2 in sans, oro */
 .club-benefit-icon--x2 {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .club-benefit-icon--x2 span {
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-weight: 500;
-  font-size: 48px;
+  font-size: var(--text-display);
   line-height: 1;
-  letter-spacing: -1px;
+  letter-spacing: -0.01em;
   color: var(--gold-text-large);
 }
 
@@ -138,8 +138,8 @@
    (che è 14px e funziona per Sartoria, ma qui è troppo piccolo) */
 .club-benefits-title,
 .club-tiers-title {
-  font-family: var(--serif);
-  font-weight: 400;
+  font-family: var(--sans);
+  font-weight: 500;
   font-size: var(--fs-section-title);
   letter-spacing: var(--tr-4);
   text-transform: uppercase;
@@ -187,7 +187,7 @@
 .club-faq summary::after {
   content: '+';
   font-size: var(--fs-22);
-  font-weight: 300;
+  font-weight: 400;
   color: var(--muted);
   margin-left: 20px;
   flex-shrink: 0;
@@ -272,9 +272,8 @@
 }
 .club-newsletter-success {
   font-family: var(--sans);
-  font-weight: 300;
-  font-size: var(--vt-body, 18px);
-  font-style: italic;
+  font-weight: 400;
+  font-size: var(--vt-body, 15px);
   color: var(--ink);
   text-align: center;
   max-width: 400px;

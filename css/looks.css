@@ -17,7 +17,7 @@
   max-width: none;
 }
 .hero h1 {
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-weight: 500;
   font-size: var(--fs-hero-inner);
   letter-spacing: var(--tr-2);
@@ -289,7 +289,7 @@
   z-index: 2;
   width: calc(100% - 80px);
   text-align: center;
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: var(--fs-duo);
   font-weight: 400;
   letter-spacing: var(--tr-6);
@@ -329,10 +329,10 @@
 }
 
 .sartoria-title {
-  font-family: var(--serif);
-  font-weight: 400;
+  font-family: var(--sans);
+  font-weight: 500;
   font-size: var(--fs-section-title);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--ink);
   text-align: center;
@@ -358,9 +358,9 @@
 
 .sartoria-step-number {
   display: block;
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-weight: 400;
-  font-size: 56px;
+  font-size: var(--text-display);
   line-height: 1;
   color: var(--gold-text-large);
   margin-bottom: 20px;
@@ -481,7 +481,7 @@
   }
 
   .sartoria-step-number {
-    font-size: 44px;
+    font-size: 30px;
     margin-bottom: 14px;
   }
 }
@@ -492,7 +492,7 @@
   }
 
   .sartoria-step-number {
-    font-size: 38px;
+    font-size: 28px;
   }
 }
 

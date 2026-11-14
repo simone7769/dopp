@@ -60,14 +60,13 @@ html.header-hidden { scroll-padding-top: 0; }
   background: linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0.5) 100%);
   z-index: -1;
 }
-/* Claim: titolo serif in maiuscolo spaziato sopra le immagini (hero e capsule) */
+/* Claim: titolo display in frase sopra le immagini (hero e capsule) */
 .capsule-text h2 {
-  font-family: var(--serif);
-  font-size: var(--fs-claim);
+  font-family: var(--sans);
+  font-size: var(--text-display);
   font-weight: var(--fw-medium);
-  letter-spacing: var(--tr-4);
-  line-height: 1.28;
-  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
   margin-bottom: 24px;
   text-shadow: 0 1px 2px rgba(0,0,0,0.55), 0 2px 24px rgba(0,0,0,0.5);
 }
@@ -84,12 +83,12 @@ html.header-hidden { scroll-padding-top: 0; }
   border-bottom: 1px solid var(--line);
 }
 .info-bar h2 {
-  font-family: var(--serif);
-  font-size: var(--fs-26);
-  font-weight: 400;
-  letter-spacing: var(--tr-5);
-  text-transform: uppercase;
+  font-family: var(--sans);
+  font-size: var(--text-title);
+  font-weight: var(--fw-regular);
   margin-bottom: 12px;
+  line-height: 1.2;
+  letter-spacing: -0.005em;
 }
 .info-bar .btn {
   margin-top: 28px;
@@ -221,15 +220,15 @@ html.header-hidden { scroll-padding-top: 0; }
   position: relative;
 }
 .must-have h2 {
-  font-family: var(--serif);
-  font-size: var(--fs-26);
-  font-weight: 400;
-  letter-spacing: var(--tr-6);
-  text-transform: uppercase;
+  font-family: var(--sans);
+  font-size: var(--text-title);
+  font-weight: var(--fw-regular);
   color: var(--ink);
   text-align: center;
   margin-bottom: 56px;
   padding: 0 var(--mh-pad);
+  line-height: 1.2;
+  letter-spacing: -0.005em;
 }
 .mh-track {
   scroll-snap-type: x mandatory;
@@ -388,10 +387,10 @@ html.header-hidden { scroll-padding-top: 0; }
   pointer-events: none;
 }
 .duo-content h3 {
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: var(--fs-duo);
-  font-weight: 400;
-  letter-spacing: var(--tr-6);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--tr-4);
   text-transform: uppercase;
   margin-bottom: 0;
   text-shadow: 0 2px 20px rgba(0,0,0,0.65);
@@ -434,15 +433,15 @@ html.header-hidden { scroll-padding-top: 0; }
   background-color: var(--paper);
 }
 .world h2 {
-  font-family: var(--serif);
-  font-size: var(--fs-26);
-  font-weight: 400;
-  letter-spacing: var(--tr-6);
-  text-transform: uppercase;
+  font-family: var(--sans);
+  font-size: var(--text-title);
+  font-weight: var(--fw-regular);
   color: var(--ink);
   text-align: center;
   margin-bottom: 56px;
   padding: 0 var(--w-pad);
+  line-height: 1.2;
+  letter-spacing: -0.005em;
 }
 .w-track {
   scroll-snap-type: x mandatory;
@@ -647,14 +646,14 @@ header.scrolled .topbar {
   .info-bar .btn { margin-top: 32px; }
   
   .capsule-text h2 {
-    font-size: var(--fs-22);
-    letter-spacing: var(--tr-3);
-    line-height: 1.35;
+    font-size: var(--text-title);
+    letter-spacing: -0.005em;
+    line-height: 1.2;
   }
 
   .must-have { --mh-gap: 14px; --mh-visible: 1.15; --mh-gaps: 1; --mh-pad: 16px; }
   .world { --w-gap: 14px; --w-visible: 1.15; --w-gaps: 1; --w-pad: 16px; }
-  .card h3 { font-size: var(--fs-11); letter-spacing: 0.05em; }
+  .card h3 { font-size: var(--fs-11); letter-spacing: 0.03em; }
 
   /* Mobile: le card impilate (Cerimonia, Essential, Outlet,
      Primavera Estate) sono a tutta larghezza e 4/5 (duo e collection
@@ -691,7 +690,7 @@ header.scrolled .topbar {
 .must-have .product-price del {
   margin-right: 6px;
   color: var(--price-strike);
-  font-weight: var(--fw-light);
+  font-weight: var(--fw-body);
 }
 .must-have .product-price ins {
   text-decoration: none;
@@ -764,10 +763,10 @@ header.scrolled .topbar {
 }
 
 .outlet-hero-content h2 {
-  font-family: var(--serif);
-  font-size: clamp(28px, 3vw, 40px);
-  font-weight: var(--fw-regular);
-  letter-spacing: 0.1em;
+  font-family: var(--sans);
+  font-size: clamp(18px, 1.6vw, 22px);
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.05em;
   margin: 0 0 12px 0;
   line-height: 1.1;
   text-transform: uppercase;
@@ -784,9 +783,9 @@ header.scrolled .topbar {
 }
 
 .outlet-hero-discount {
-  font-family: var(--serif);
-  font-size: clamp(48px, 5vw, 70px);
-  font-weight: var(--fw-light);
+  font-family: var(--sans);
+  font-size: var(--text-display);
+  font-weight: var(--fw-medium);
   line-height: 1;
   margin-bottom: 8px;
   letter-spacing: -0.02em;
@@ -806,7 +805,7 @@ header.scrolled .topbar {
   font-size: var(--fs-14); /* Allineato alla scala */
   font-weight: 400;
   margin: 0 0 32px 0;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.05em;
   color: var(--ink);
   text-transform: lowercase;
 }

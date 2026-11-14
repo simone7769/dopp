@@ -16,7 +16,7 @@
   background-color: var(--paper);
 }
 .journal-hero h1 {
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-weight: 400;
   font-size: var(--fs-13);
   letter-spacing: var(--tr-4);

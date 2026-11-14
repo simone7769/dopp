@@ -46,74 +46,99 @@
 
   /* ----------------------------------------------------------
      2. TIPOGRAFIA
-     Serif per il racconto, sans per tutto il resto.
+     Solo sans (Work Sans). Il serif è stato eliminato il 14 nov.
+     Pesi e dimensioni calibrati su Prada / Barena / COS: scala corta,
+     regular 400 come peso base, poca spaziatura tra le lettere.
      Specifiche, pag. 4.
      ---------------------------------------------------------- */
 
   /* Famiglie */
-  --serif: 'Cormorant Garamond', Georgia, serif;
   --sans:  'Work Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
   /* Pesi caricati */
-  --fw-light:    300;
+  --fw-light:    400;  /* 14 nov: il 300 è sparito, come sui siti di riferimento */
   --fw-regular:  400;
   --fw-medium:   500;
   --fw-semibold: 600;
   --fw-bold:     700;
 
   /* Sistema pesi per zona (Work Sans variable, valori intermedi ammessi) */
-  --fw-body:     350;  /* corpo dei testi, paragrafi, testi lunghi */
+  --fw-body:     400;  /* corpo dei testi, paragrafi, testi lunghi (era 350) */
   --fw-ui:       400;  /* interfaccia: menu, nav, footer, bottoni, form, tab */
-  --fw-emphasis: 500;  /* prezzi, tab attivi, titoli piccoli UI */
+  --fw-emphasis: 500;  /* tab attivi, titoli piccoli UI */
 
   /* Corpo */
   --lh-body:      1.6;
   --lh-editorial: 1.7;
   --measure-max:  46ch;
 
+  /* SCALA A RUOLI (14 nov) — 7 gradini, rapporto ~1,2–1,5, salti sempre visibili.
+     Pensata per Work Sans (larga): niente corpo sotto gli 11 px, 15 px per leggere.
+     Riferimenti (Prada, Barena, COS) usati come spirito, non come valori:
+     piccoli, regolari, poco spaziati, un solo registro grande per pagina.
+
+       caption   11 px  400  tr 0.1px   note, legali, badge
+       label     12 px  400  tr 0.7px   MAIUSCOLO: nav, tab, bottoni, occhielli
+       ui        13 px  400  tr 0.2px   nomi prodotto, prezzi, form, footer
+       body      15 px  400  lh 1.6     paragrafi, descrizioni
+       lead      18 px  400  lh 1.4     sottotitoli, introduzioni, citazioni
+       title     20–24  400  lh 1.2     titoli di sezione e di scheda (frase, non maiuscolo)
+       display   28–38  500  lh 1.1     un solo claim per pagina (hero, vetrina)
+
+     Regola di gerarchia: le MAIUSCOLE spaziate sono solo etichette e piccoli
+     titoli (13–18 px, peso 500). I titoli grandi sono in frase, mai in maiuscolo.
+     Peso: 400 ovunque, 500 per ciò che deve emergere, 600 mai nei titoli. */
+  --text-caption: 11px;
+  --text-label:   12px;
+  --text-ui:      13px;
+  --text-body:    15px;
+  --text-lead:    18px;
+  --text-title:   clamp(20px, 1.7vw, 24px);
+  --text-display: clamp(28px, 2.6vw, 38px);
+
   /* Scala dimensioni — px (riferimento PDF pag. 5) */
-  --fs-10: 10px;
-  --fs-11: 11px;
-  --fs-12: 12px;
-  --fs-13: 12px;
-  --fs-14: 13px;
-  --fs-16: 15px;
-  --fs-18: 17px;   /* simboli + / − / × nei controlli, citazione vetrina (5 nov) */
-  --fs-20: 18px;   /* totale checkout (spostato da base.css) */
-  --fs-22: 20px;   /* titoli checkout e pannelli (spostato da base.css) */
-  --fs-24: 22px;   /* fascia info home, hero Club (spostato da base.css) */
-  --fs-26: 24px;   /* titoli sezione Must Have, carrello, correlati (spostato da base.css) */
+  --fs-10: var(--text-caption);
+  --fs-11: var(--text-caption);
+  --fs-12: var(--text-label);
+  --fs-13: var(--text-ui);
+  --fs-14: var(--text-ui);
+  --fs-16: var(--text-body);
+  --fs-18: var(--text-body);   /* simboli + / − / × nei controlli, citazione vetrina (5 nov) */
+  --fs-20: var(--text-body);   /* totale checkout (spostato da base.css) */
+  --fs-22: var(--text-lead);   /* titoli checkout e pannelli (spostato da base.css) */
+  --fs-24: var(--text-lead);   /* fascia info home, hero Club (spostato da base.css) */
+  --fs-26: var(--text-title);   /* titoli sezione Must Have, carrello, correlati (spostato da base.css) */
 
   /* Ruoli specifici */
-  --fs-card-title: 14px;   /* desktop ≥1025px (Work Sans: -1px) */
-  --fs-card-price: 13px;
-  --fw-price:      var(--fw-medium); /* prezzo di un articolo, ovunque: card, scheda, carrello, preferiti, checkout (5 nov) */
+  --fs-card-title: var(--text-ui);   /* desktop ≥1025px */
+  --fs-card-price: var(--text-ui);
+  --fw-price:      var(--fw-medium); /* prezzo di un articolo, ovunque: card, scheda, carrello, preferiti, checkout (era regular, portato a medium il 14 nov) */
   --fw-card-price: var(--fw-price);  /* alias storico, usato dai fogli delle card */
-  --fs-pdp-title:  clamp(27px, 2vw, 30px);
-  --fs-pdp-price:  17px;
-  --fs-related:    26px;                     /* serif, "Potrebbero piacerti" */
+  --fs-pdp-title:  var(--text-title);
+  --fs-pdp-price:  var(--text-lead);
+  --fs-related:    var(--text-title);                     /* "Potrebbero piacerti" */
 
   /* Titoli fluidi */
-  --fs-duo: clamp(18px, 1.8vw, 22px);
-  --fs-claim: clamp(24px, 2.2vw, 32px);   /* titolo Capsule in home (l'hero non ha più claim dal 3 nov) */
+  --fs-duo: clamp(15px, 1.2vw, 18px);
+  --fs-claim: var(--text-display);   /* titolo Capsule in home (l'hero non ha più claim dal 3 nov) */
 
   /* Token di riferimento per la tipografia. */
-  --fs-hero-inner:     clamp(18px, 1.4vw, 22px);  /* 7 nov: allineato a collezioni */
-  --fs-section-title:  17px;
-  --fs-body-editorial: 17px;
-  --fs-body-legal:     16px;
-  --fs-h1-legal:       24px;
+  --fs-hero-inner:     clamp(16px, 1.2vw, 18px);  /* 7 nov: allineato a collezioni */
+  --fs-section-title:  var(--text-body);
+  --fs-body-editorial: var(--text-body);
+  --fs-body-legal:     var(--text-body);
+  --fs-h1-legal:       var(--text-title);
 
   /* Spaziature tra lettere */
-  --tr-03: 0.3px;
-  --tr-05: 0.5px;
-  --tr-1:  1px;
-  --tr-15: 1.5px;
-  --tr-2:  2px;
-  --tr-3:  3px;
-  --tr-4:  4px;
-  --tr-5:  5px;
-  --tr-6:  6px;
+  --tr-03: 0.1px;
+  --tr-05: 0.2px;
+  --tr-1:  0.4px;
+  --tr-15: 0.6px;
+  --tr-2:  0.7px;
+  --tr-3:  0.9px;
+  --tr-4:  1px;
+  --tr-5:  1.2px;
+  --tr-6:  1.4px;
 
 
   /* ----------------------------------------------------------
@@ -209,7 +234,7 @@
 /* Tablet (641–1024px): stessa scala del mobile (14/12) */
 @media (min-width: 641px) and (max-width: 1024px) {
   :root {
-    --fs-card-title:  13px;
+    --fs-card-title:  12px;
     --fs-card-price:  12px;
   }
 }
@@ -219,7 +244,7 @@
     --btn-width:      170px;
     --btn-height:     44px;
     --drawer-title-h: 56px;
-    --fs-card-title:  13px;
+    --fs-card-title:  12px;
     --fs-card-price:  12px;
   }
 }

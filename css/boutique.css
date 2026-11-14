@@ -98,7 +98,7 @@
 }
 .boutique-item h3 {
   font-family: var(--sans);
-  font-weight: 300;
+  font-weight: 400;
   font-size: var(--fs-20);
   letter-spacing: var(--tr-05);
   color: var(--ink);
@@ -113,7 +113,7 @@
 .boutique-rating-stars {
   color: var(--gold);
   font-size: var(--fs-13);
-  letter-spacing: 1px;
+  letter-spacing: 0.4px;
 }
 .boutique-rating-value {
   font-family: var(--sans);

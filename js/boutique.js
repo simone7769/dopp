@@ -37,7 +37,7 @@
   })();
 
   if (intro && data.length) {
-    intro.textContent = 'Scegli tra le ' + data.length + ' Boutique Doppelgänger — utilizza lo Store Locator per trovare quella più vicina a te.';
+    intro.textContent = 'Scegli tra le ' + data.length + ' Boutique Doppelgänger.';
   }
 
   function norm(s) {

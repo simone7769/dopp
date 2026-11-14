@@ -38,7 +38,7 @@
 .co-sec { margin-bottom: 38px; }
 .co-sec h2 {
   font-family: var(--sans);
-  font-weight: 300;
+  font-weight: 400;
   font-size: var(--fs-22);
   margin-bottom: 16px;
 }
@@ -166,8 +166,8 @@
 .co-rows { margin: 22px 0 18px; border-top: 1px solid var(--line); padding-top: 16px; }
 .co-rows > div { display: flex; justify-content: space-between; padding: 6px 0; font-size: var(--fs-13); }
 .co-rows .co-iva { font-size: var(--fs-12); color: var(--muted); }
-.co-rows .co-total { margin-top: 8px; padding-top: 14px; border-top: 1px solid var(--line); font-size: var(--fs-18); font-weight: 600; }
-.co-rows .co-total dt, .co-rows .co-total dd { font-weight: 600; }
+.co-rows .co-total { margin-top: 8px; padding-top: 14px; border-top: 1px solid var(--line); font-size: var(--fs-18); font-weight: 500; }
+.co-rows .co-total dt, .co-rows .co-total dd { font-weight: 500; }
 .co-edit { font-size: var(--fs-12); color: var(--muted); text-decoration: underline; text-underline-offset: 3px; }
 .co-edit:hover { color: var(--ink); }
 

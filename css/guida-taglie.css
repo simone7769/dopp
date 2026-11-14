@@ -214,7 +214,7 @@
 #sizeModalTable th {
   font-size: var(--fs-11);
   font-weight: 500;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.03em;
   text-transform: uppercase;
   color: var(--muted);
   border-bottom: 1px solid var(--line);

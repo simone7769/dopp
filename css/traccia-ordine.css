@@ -15,7 +15,7 @@
 /* --- Colonna form --- */
 .track-heading {
   font-family: var(--sans);
-  font-weight: 300;
+  font-weight: 400;
   font-size: var(--fs-22);
   letter-spacing: var(--tr-05);
   color: var(--ink);
@@ -110,7 +110,7 @@
 }
 .track-result-header h3 {
   font-family: var(--sans);
-  font-weight: 300;
+  font-weight: 400;
   font-size: var(--fs-20);
   letter-spacing: var(--tr-05);
   color: var(--ink);
