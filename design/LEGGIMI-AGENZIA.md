@@ -9,7 +9,7 @@ Documento di accompagnamento al pacchetto demo + specifiche. Per chi svilupperà
 | `*.html`, `css/`, `js/` | Demo statica navigabile (**38 pagine**) |
 | `images/` | Immagini del sito (WebP ottimizzate) |
 | `images/guida-taglie/` | **18 immagini** per la guida taglie (WebP, ~3,4 MB totali) |
-| `fonts/` | Font self-hosted (Cormorant Garamond + Work Sans (variable, pesi 100–900 in un file per subset latin / latin-ext)) |
+| `fonts/` | Font self-hosted (solo Work Sans variable, pesi 100–900 in un file per subset latin / latin-ext). Cormorant Garamond rimosso il 14 nov 2026. |
 | `js/quick-add.js` | Pannellino quick-add sul «+» delle card: colore + taglia, aggiunge al carrello demo |
 | `../Doppelganger-Proposta-nuovo-sito.pdf` | Direzione strategica del progetto (fuori dal repo, in `doppelganger-sito PROVA/`) |
 | `design/Doppelganger_Specifiche_per_agenzia.html` | Specifiche tecniche dettagliate (sorgente HTML editabile) |
@@ -85,7 +85,7 @@ Da terminale, nella cartella del progetto:
 
 - **Megamenu unificato (3 voci)**: i tre menu (`Abbigliamento`, `Accessori`, `Outlet`) condividono la stessa griglia `1fr 4fr` (voci sx, card dx), card a `1fr` (4 colonne), gap 16px, padding allineato a `nav` (50px). Sopra il menu si apre un **overlay scuro** `rgba(0,0,0,0.45)` (come drawer/popup). `pointer-events: none` perché la chiusura è gestita da `mousemove` + timer (`nav.js`). Abbigliamento: 4 card (La Capsule in 1ª posizione, AI 2026, Essential, Cerimonia). Accessori: 3 card (Novità, Must Have, Best Seller). Outlet: 4 card + link "Vedi tutto" a sinistra.
 - **Pop-up Articoli Simili con still-life**: il popup clona le card della pagina e sostituisce `img-main` (figura intera) con `img-hover` (still-life). CSS in `css/similar-modal.css` (condiviso). Script inline in `cerimonia.html`, `outlet-abbigliamento.html`, `ai-2026.html`, `essential.html`.
-- **Form iscrizione Club**: stesso pattern del form newsletter del footer. Il submit nasconde il form e mostra un messaggio di conferma in serif italic. L'utente riceve un feedback immediato senza ricaricare la pagina.
+- **Form iscrizione Club**: stesso pattern del form newsletter del footer. Il submit nasconde il form e mostra un messaggio di conferma (sans, corsivo rimosso il 14 nov 2026). L'utente riceve un feedback immediato senza ricaricare la pagina.
 - **Checkout standalone**: niente header/footer del sito (pattern standard e-commerce). Il logo è allineato visivamente alle altre pagine via `padding: 65px 20px 67px` (155px totali, come `--header-h`). La riga legale (privacy/termini) è stata rimossa: i link restano accessibili dal footer globale delle altre pagine.
 - **PDP taglia non preselezionata**: nessuna taglia ha `class="selected"` all'apertura. L'utente sceglie; se clicca "Aggiungi" senza taglia, riceve un avviso `.pdp-size-warning`. I colori invece restano preselezionati (colore principale del prodotto, standard e-commerce).
 - **Favicon bianca**: i 3 file (`favicon-16x16.png`, `favicon-32x32.png`, `favicon.ico`) hanno ora sfondo bianco (erano RGBA trasparente). Risultato: −94% di peso (286B vs 6KB), visibile anche nelle tab scure.
@@ -305,7 +305,7 @@ Riferimento: `CHANGELOG.html` e `DIFF-FILES.html`, sezione 33.
 
 ### Drawer del &laquo;+&raquo; (quick-add)
 Il pannello di aggiunta rapida &egrave; stato completamente ridisegnato:
-- **Desktop (>900px)**: layout a due colonne, larghezza `clamp(720px, 50vw, 960px)`. Foto a sinistra, informazioni a destra con scroll indipendente. Titolo serif, prezzo `--fs-pdp-price`, taglie 44&times;44 con filetti, bottone 52px.
+- **Desktop (>900px)**: layout a due colonne, larghezza `clamp(720px, 50vw, 960px)`. Foto a sinistra, informazioni a destra con scroll indipendente. Titolo Work Sans (era serif fino al 14 nov), prezzo `--fs-pdp-price` (500), taglie 44&times;44 con filetti, bottone 52px.
 - **Mobile/Tablet (<=900px)**: bottom sheet dal basso, altezza 85vh. Due foto affiancate (grid 50/50), CTA fisso in fondo. Tablet: `aspect-ratio: 4/3` per non tagliare le foto verticali.
 - **CSS centralizzato** in `css/quick-add.css` (rimosse le copie da `collezione.css` e `vetrina.css`).
 - **Fix CLS**: `width`/`height` espliciti e `aspect-ratio` inline sulle immagini.
@@ -394,7 +394,7 @@ Colori nelle card = chip nel drawer (6: beige, bianco, blu, grigio, marrone, ner
 
 ### Titolo collezioni: letter-spacing ridotto
 
-`.hero h1` (titolo pagina collezioni): `letter-spacing: var(--tr-4)` → `var(--tr-2)` (4px → 2px). Resta serif (Cormorant), centrato, uppercase, ma meno "barocco" e più leggibile. Coerente con i bottoni (`--tr-15`) e i badge (`--tr-1`).
+`.hero h1` (titolo pagina collezioni): Work Sans, con `letter-spacing` ridotto. Dal 14 nov 2026 non è più serif: titolo in frase, non più maiuscolo.
 
 ### Drawer quick-add: padding interni rivisti
 

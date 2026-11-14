@@ -171,15 +171,15 @@
 
   <div class="meta">
     <div>
-      <span class="val">698</span>
+      <span class="val">729</span>
       <span class="lbl">File toccati</span>
     </div>
     <div>
-      <span class="val">57820</span>
+      <span class="val">58146</span>
       <span class="lbl">Righe aggiunte</span>
     </div>
     <div>
-      <span class="val">4167</span>
+      <span class="val">4460</span>
       <span class="lbl">Righe rimosse</span>
     </div>
   </div>
@@ -396,6 +396,17 @@
   </table>
 </div>
 
+<h2>60. Aggiornamento del 14 novembre 2026 (Sistema tipografico v2: solo Work Sans) <span class="count">31 file</span></h2>
+  <p style="font-size: 13px; color: var(--ink-soft); text-align: center; margin-bottom: 10px;">14 novembre 2026 · 31 file, +326 / −293</p>
+  <table>
+    <tr><th>File</th><th class="n">+</th><th class="n">−</th><th>Descrizione</th></tr>
+    <tr><td class="file">css/tokens.css</td><td class="n">+105</td><td class="n">−105</td><td class="note">Nuovo sistema tipografico a 7 livelli (--text-caption … --text-display). Rimossi --serif e --fw-light. --fw-price portato a var(--fw-medium) (500). Alias --fs-NN puntano ai nuovi token.</td></tr>
+    <tr><td class="file">css/fonts.css, index.html, design/token.json</td><td class="n">+30</td><td class="n">−148</td><td class="note">Rimossi @font-face Cormorant, preload Cormorant in index.html, riferimenti a Cormorant in token.json. Work Sans resta unico font.</td></tr>
+    <tr><td class="file">fonts/cormorant-*.woff2 (3 file)</td><td class="n">—</td><td class="n">—</td><td class="note">File Cormorant eliminati da fonts/ (−108 KB).</td></tr>
+    <tr><td class="file">css/base.css, home.css, vetrina.css, collezione.css, prodotto.css, looks.css, journal.css, club.css, faq.css, legale.css, carrello.css, checkout.css, account.css, app.css, boutique.css, category.css, conferma.css, filtri.css, guida-taglie.css, lavora-con-noi.css, quick-add.css, traccia-ordine.css</td><td class="n">+191</td><td class="n">−40</td><td class="note">Font-family e font-weight allineati al sistema v2: solo Work Sans, 400/500. Titoli in frase (non più maiuscolo). Prezzi a 500. Footer link 11→12px. Titoli collezione senza uppercase.</td></tr>
+    <tr><td class="file">js/boutique.js</td><td class="n">+1</td><td class="n">−1</td><td class="note">Sottotitolo boutique accorciato: "Scegli tra le 83 Boutique Doppelgänger." (era ~110 caratteri).</td></tr>
+    <tr><td class="file">design/AGGIORNAMENTI-14-novembre.md</td><td class="n">+36</td><td class="n">—</td><td class="note">Nuova postilla: scala tipografica a 7 livelli, regole, cosa cambia. Documento per l'agenzia.</td></tr>
+  </table>
 <h2>59. Aggiornamento del 12 novembre 2026 (Pulizia oro: menu, footer, hover) <span class="count">14 file</span></h2>
   <p style="font-size: 13px; color: var(--ink-soft); text-align: center; margin-bottom: 10px;">12 novembre 2026 · 14 file, +51 / −58</p>
   <table>
