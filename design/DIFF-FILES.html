@@ -171,15 +171,15 @@
 
   <div class="meta">
     <div>
-      <span class="val">729</span>
+      <span class="val">738</span>
       <span class="lbl">File toccati</span>
     </div>
     <div>
-      <span class="val">58146</span>
+      <span class="val">58828</span>
       <span class="lbl">Righe aggiunte</span>
     </div>
     <div>
-      <span class="val">4460</span>
+      <span class="val">4662</span>
       <span class="lbl">Righe rimosse</span>
     </div>
   </div>
@@ -396,6 +396,20 @@
   </table>
 </div>
 
+<h2>61. Aggiornamento del 16 novembre 2026 (Drawer guida taglie nelle PDP) <span class="count">9 file</span></h2>
+  <p style="font-size: 13px; color: var(--ink-soft); text-align: center; margin-bottom: 10px;">16 novembre 2026 · 9 file, +682 / −202</p>
+  <table>
+    <tr><th>File</th><th class="n">+</th><th class="n">−</th><th>Descrizione</th></tr>
+    <tr><td class="file">js/taglie-drawer.js</td><td class="n">+267</td><td class="n">—</td><td class="note">Nuovo: drawer «Guida alle taglie» creato dinamicamente al click su <code>.pdp-size-guide</code>. Categoria fissa da <code>data-guide</code>, toggle cm/in reale, riga taglia scelta evidenziata, link «Tutte le categorie» in fondo.</td></tr>
+    <tr><td class="file">js/guida-taglie-dati.js</td><td class="n">+202</td><td class="n">—</td><td class="note">Nuovo: dati misure condivisi (<code>window.DG_MISURE</code>). 18 categorie con colonne, righe e immagine. Fonte unica per drawer PDP e pagina <code>guida-taglie.html</code>.</td></tr>
+    <tr><td class="file">js/guida-taglie.js</td><td class="n">—</td><td class="n">−204</td><td class="note">Refactor: rimossa l'IIFE con i dati inline. Ora legge da <code>window.DG_MISURE</code> (stessa fonte del drawer PDP). Ridotto a sola logica del modale.</td></tr>
+    <tr><td class="file">css/prodotto.css</td><td class="n">+194</td><td class="n">—</td><td class="note">Stile drawer (<code>.sg-overlay</code>, <code>.sg-drawer</code>, <code>.sg-header</code>, <code>.sg-close</code>, <code>.sg-body</code>, <code>.sg-table</code>, <code>.sg-note</code>). Layout coerente con <code>.cart-drawer</code>: 480px, slide da destra, header filo oro. Note in fondo con <code>margin-top: auto</code> (flex column).</td></tr>
+    <tr><td class="file">prodotto.html</td><td class="n">+3</td><td class="n">−1</td><td class="note">Aggiunto <code>data-guide="abiti"</code> al bottone. Caricati <code>guida-taglie-dati.js</code> e <code>taglie-drawer.js</code> prima di <code>prodotto.js</code>.</td></tr>
+    <tr><td class="file">prodotto1.html</td><td class="n">+3</td><td class="n">−1</td><td class="note"><code>data-guide="pantaloni"</code>. Script come <code>prodotto.html</code>.</td></tr>
+    <tr><td class="file">prodotto2.html</td><td class="n">+3</td><td class="n">−1</td><td class="note"><code>data-guide="impermeabili"</code>. Script come <code>prodotto.html</code>.</td></tr>
+    <tr><td class="file">prodotto-saldi.html</td><td class="n">+3</td><td class="n">−1</td><td class="note"><code>data-guide="abiti"</code>. Script come <code>prodotto.html</code>.</td></tr>
+    <tr><td class="file">guida-taglie.html</td><td class="n">+1</td><td class="n">—</td><td class="note">Caricato <code>guida-taglie-dati.js</code> prima di <code>guida-taglie.js</code> (stessa fonte dati del drawer PDP).</td></tr>
+  </table>
 <h2>60. Aggiornamento del 14 novembre 2026 (Sistema tipografico v2: solo Work Sans) <span class="count">31 file</span></h2>
   <p style="font-size: 13px; color: var(--ink-soft); text-align: center; margin-bottom: 10px;">14 novembre 2026 · 31 file, +326 / −293</p>
   <table>
