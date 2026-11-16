@@ -766,3 +766,197 @@ body.pdp-lightbox-open { overflow: hidden; }
   color: var(--danger);
   letter-spacing: 0.4px;
 }
+
+
+/* ============================================================
+   GUIDA ALLE TAGLIE — drawer della scheda prodotto (15 nov)
+   ------------------------------------------------------------
+   Creato da js/taglie-drawer.js. Stessa struttura degli altri
+   drawer (Prova Virtuale, carrello): da destra, 480px, header
+   con filo oro, titolo 14px maiuscolo, chiusura 44px.
+   Tabella minimale: solo filetti orizzontali, prima colonna
+   fissa, riga della taglia scelta su fondo --paper-alt.
+   ============================================================ */
+.sg-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--t-base) var(--ease), visibility var(--t-base) var(--ease);
+  z-index: 1200;
+}
+.sg-overlay.active { opacity: 1; visibility: visible; }
+
+.sg-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  height: 100dvh;
+  width: 480px;
+  max-width: 94vw;
+  background: var(--crema-pannelli);
+  z-index: 1300;
+  transform: translateX(100%);
+  transition: transform var(--t-base) var(--ease-out);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: var(--sans);
+  color: var(--ink);
+}
+.sg-drawer.open { transform: translateX(0); }
+
+.sg-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  margin-top: calc(var(--topbar-h) - 1px);
+  height: var(--drawer-title-h);
+  padding: 0 26px;
+  border-top: 1px solid var(--gold);
+  flex-shrink: 0;
+}
+.sg-header h3 {
+  font-family: var(--sans);
+  font-size: var(--fs-14);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0;
+}
+.sg-close {
+  min-width: var(--touch-target, 44px);
+  min-height: var(--touch-target, 44px);
+  border: none;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity var(--t-fast) var(--ease);
+}
+.sg-close svg { width: 20px; height: 20px; display: block; }
+.sg-close:hover { opacity: 0.6; }
+.sg-close:focus-visible { outline: 1px solid var(--ink); outline-offset: -4px; }
+
+.sg-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  padding: 28px 26px max(48px, env(safe-area-inset-bottom));
+  display: flex;
+  flex-direction: column;
+}
+
+/* Titolo categoria + sottotitolo (come .size-modal-table della pagina guida) */
+.sg-cat {
+  font-family: var(--sans);
+  font-size: var(--fs-14);
+  font-weight: 500;
+  letter-spacing: var(--tr-05);
+  color: var(--ink);
+  margin: 0 0 8px;
+}
+.sg-intro { font-size: var(--fs-13); color: var(--muted); line-height: var(--lh-body); margin: 0 0 28px; }
+
+/* Riga sopra la tabella: unità a sinistra, cm / in a destra */
+.sg-tools {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.sg-caption { font-size: var(--fs-12); color: var(--muted); }
+.sg-units { display: flex; align-items: center; gap: 4px; }
+.sg-units button {
+  padding: 8px 14px;
+  border: none;
+  background: transparent;
+  font-family: var(--sans);
+  font-size: var(--fs-12);
+  color: var(--muted);
+  cursor: pointer;
+  transition: color var(--t-fast) var(--ease);
+}
+.sg-units button:hover { color: var(--ink); }
+.sg-units button.active { background: var(--ink); color: #fff; font-weight: 500; }
+.sg-units button:focus-visible { outline: 1px solid var(--ink); outline-offset: 2px; }
+
+/* Tabella: stessa resa di #sizeModalTable (pagina guida) — colonne centrate,
+   intestazioni 11px maiuscole, valori 13px, solo filetti orizzontali */
+.sg-table-wrap {
+  flex-shrink: 0;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
+}
+.sg-table-wrap:focus-visible { outline: 1px solid var(--ink); outline-offset: 2px; }
+.sg-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--fs-13);
+  font-weight: var(--fw-ui);
+  font-variant-numeric: tabular-nums;
+}
+.sg-table tr { background: var(--crema-pannelli); }
+.sg-table th,
+.sg-table td {
+  background: inherit;
+  padding: 12px 6px;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  border-bottom: 1px solid var(--line);
+}
+.sg-table thead th {
+  font-size: var(--fs-11);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: normal;
+  line-height: 1.3;
+}
+.sg-table tbody tr:last-child th,
+.sg-table tbody tr:last-child td { border-bottom: none; }
+/* Prima colonna (taglia): in grassetto e fissa se si scorre di lato */
+.sg-table th:first-child {
+  position: sticky;
+  left: 0;
+  font-weight: 500;
+}
+.sg-table tbody th { color: var(--ink); }
+.sg-table tr.is-current { background: var(--paper-alt); }
+.sg-table tr.is-current td { font-weight: var(--fw-medium); }
+
+.sg-legend { font-size: var(--fs-12); color: var(--muted); margin: 12px 0 0; }
+.sg-legend[hidden] { display: none; }
+
+.sg-note { margin-top: auto; padding-top: 40px; }
+.sg-note p { font-size: var(--fs-12); line-height: var(--lh-body); color: var(--muted); margin: 0 0 16px; }
+.sg-note a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+.sg-note a:hover { text-decoration-thickness: 2px; }
+
+.sg-visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 1024px) {
+  .sg-drawer { width: 100vw; max-width: 100vw; }
+  .sg-header { padding: 0 20px; }
+  .sg-body { padding: 24px 20px max(32px, env(safe-area-inset-bottom)); }
+}
