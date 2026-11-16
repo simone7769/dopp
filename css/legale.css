@@ -3,6 +3,18 @@
    Spedizioni, Accessibilità). Riusa hero e footer di base.
    ============================================================ */
 
+/* Titolo pagina legale: registro più contenuto degli articoli (18px vs 22px).
+   Solo su pagine con .legale-wrap (Privacy, Cookie, Termini, Spedizioni, Accessibilità). */
+.page:has(> .legale-wrap) .hero h1 {
+  font-size: 18px;
+  letter-spacing: var(--tr-2);
+}
+@media (max-width: 640px) {
+  .page:has(> .legale-wrap) .hero h1 {
+    font-size: 16px;
+  }
+}
+
 .legale-wrap {
   max-width: 1100px;
   margin: 0 auto;
@@ -47,6 +59,7 @@
   line-height: 1.7;
   color: var(--ink);
   margin: 0 0 1.4em;
+  max-width: 75ch;
 }
 
 .legale-wrap ul {
@@ -57,6 +70,7 @@
   color: var(--ink);
   padding-left: 24px;
   margin: 0 0 1.4em;
+  max-width: 75ch;
 }
 .legale-wrap li { margin-bottom: 8px; }
 
