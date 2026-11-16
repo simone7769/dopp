@@ -163,7 +163,7 @@ body.pdp-lightbox-open { overflow: hidden; }
   font-weight: var(--fw-body);
   line-height: 1.75;
   color: #4a463f;
-  max-width: 46ch;
+  max-width: 60ch;
   margin-bottom: 18px;
 }
 
