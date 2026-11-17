@@ -559,9 +559,9 @@ header.scrolled .nav {
 .mm-fixed-foot a {
   position: relative;
   font-family: var(--sans);
-  font-size: var(--fs-13);
-  letter-spacing: var(--tr-05);
-  color: var(--ink);
+  font-size: 12px;
+  letter-spacing: 0.4px;
+  color: var(--ink-soft);
   text-decoration: none;
   transition: color var(--t-fast) var(--ease);
 }
