@@ -117,6 +117,7 @@
   --fs-pdp-title:  var(--text-title);
   --fs-pdp-price:  var(--text-lead);
   --fs-related:    var(--text-title);                     /* "Potrebbero piacerti" */
+  --fs-page-title: var(--text-body);   /* titolo pagina h1 uppercase (15px): collezioni e pagine editoriali, 17 nov */
 
   /* Titoli fluidi */
   --fs-duo: clamp(15px, 1.2vw, 18px);

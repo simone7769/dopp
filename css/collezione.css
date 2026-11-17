@@ -15,7 +15,7 @@
 .hero h1 {
   font-family: var(--sans);
   font-weight: 500;
-  font-size: 20px;
+  font-size: var(--fs-page-title);
   letter-spacing: var(--tr-2);
   text-transform: uppercase;
   color: var(--ink);
