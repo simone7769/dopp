@@ -6,6 +6,10 @@
 (function () {
   'use strict';
 
+  /* Dati del menu (js/menu-dati.js, caricato prima di questo file) */
+  var M = window.DG_MENU;
+  var CHEVRON = '<svg class="mm-cat-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>';
+
   // Se la pagina è la home, il logo linka "#top"; altrove "index.html#top".
   var isHome = /(^|\/)index\.html?$/.test(location.pathname) || /\/$/.test(location.pathname);
   var LOGO_HREF = 'index.html';
@@ -65,39 +69,73 @@
 <div class="megamenu-overlay" id="megamenuOverlay"></div>\
 ' + MENU_PANEL();
 
+  /* ---------------- MENU: generato da js/menu-dati.js ----------------
+     Un solo file dati per pannello desktop e menu mobile (17 nov). */
+
+  function esc(t) {
+    return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+  function cardHTML(k) {
+    var c = M.CARD[k];
+    return '<a href="' + esc(c.href) + '" class="mm-card"><div class="thumb"><img src="' + esc(c.img) + '" alt="" loading="lazy"></div><h5>' + esc(c.label) + '</h5></a>';
+  }
+
+  /* Immagini fisse per tab: quelle di tab.cards, nell'ordine dei dati.
+     Non cambiano passando sulle voci. */
   function MEGAMENUS() {
-    return '\
-<div class="megamenu" id="megaAbbigliamento" role="tabpanel" aria-labelledby="tabAbbigliamento" data-tab-panel="abbigliamento" tabindex="0"><div class="megamenu-inner">\
-  <div class="megamenu-col"><h4>Abbigliamento</h4><ul>\
-    <li><a href="#">Cappotti</a></li><li><a href="#">Giacche</a></li><li><a href="#">Abiti</a></li>\
-    <li><a href="#">Maglieria</a></li><li><a href="#">Camicie</a></li><li><a href="#">T-shirt &amp; Polo</a></li>\
-    <li><a href="#">Pantaloni</a></li><li><a href="#">Denim</a></li>\
-    <li><a href="#" class="mm-see-all">Vedi tutti</a></li></ul></div>\
-  <div class="megamenu-images">\
-    <a href="vetrina.html" class="mm-card"><div class="thumb"><img src="images/bomber-capsule.webp" alt="La Capsule"></div><h5>La Capsule</h5></a>\
-    <a href="ai-2026.html" class="mm-card"><div class="thumb"><img src="images/megamenu-ai-2026.webp" alt="Autunno/Inverno 2026"></div><h5>Autunno/Inverno 2026</h5></a>\
-    <a href="essential.html" class="mm-card"><div class="thumb"><img src="images/bm.webp" alt="Essential"></div><h5>Essential</h5></a>\
-    <a href="cerimonia.html" class="mm-card"><div class="thumb"><img src="images/ceri.webp" alt="Cerimonia"></div><h5>Cerimonia</h5></a>\
-  </div></div></div>\
-<div class="megamenu" id="megaAccessori" role="tabpanel" aria-labelledby="tabAccessori" data-tab-panel="accessori" tabindex="0" hidden><div class="megamenu-inner">\
-  <div class="megamenu-col"><h4>Accessori</h4><ul>\
-    <li><a href="#">Scarpe</a></li><li><a href="#">Cinture</a></li><li><a href="#">Cravatte &amp; Pochette</a></li>\
-    <li><a href="#">Pelletteria</a></li><li><a href="#">Gemelli &amp; Dettagli</a></li><li><a href="#">Profumi</a></li>\
-    <li><a href="#" class="mm-see-all">Vedi tutti</a></li></ul></div>\
-  <div class="megamenu-images">\
-    <a href="#" class="mm-card"><div class="thumb"><img src="images/ac1.webp" alt="Novità"></div><h5>Novità</h5></a>\
-    <a href="#" class="mm-card"><div class="thumb"><img src="images/ac2.webp" alt="Must Have"></div><h5>Must Have</h5></a>\
-    <a href="#" class="mm-card"><div class="thumb"><img src="images/ac3.webp" alt="Best Seller"></div><h5>Best Seller</h5></a>\
-  </div></div></div>\
-<div class="megamenu" id="megaOutlet" role="tabpanel" aria-labelledby="tabOutlet" data-tab-panel="outlet" tabindex="0" hidden><div class="megamenu-inner">\
-  <div class="megamenu-col megamenu-col-outlet"><h4>Outlet</h4><ul>\
-    <li><a href="outlet-abbigliamento.html" class="mm-see-all">Vedi tutto l\'outlet</a></li></ul></div>\
-  <div class="megamenu-images">\
-    <a href="outlet-abbigliamento.html" class="mm-card"><div class="thumb"><img src="images/z.webp" alt="Abbigliamento"></div><h5>Abbigliamento</h5></a>\
-    <a href="outlet-abbigliamento.html" class="mm-card"><div class="thumb"><img src="images/bw.webp" alt="Back to Work"></div><h5>Back to Work</h5></a>\
-    <a href="outlet-abbigliamento.html" class="mm-card"><div class="thumb"><img src="images/a80.webp" alt="Accessori"></div><h5>Accessori</h5></a>\
-    <a href="outlet-abbigliamento.html" class="mm-card"><div class="thumb"><img src="images/ls1.webp" alt="Ultimi Pezzi"></div><h5>Ultimi Pezzi</h5></a>\
-  </div></div></div>';
+    if (!M) return '';
+    return M.TABS.map(function (tab, i) {
+      var voci = tab.items.map(function (it) {
+        var subs = '';
+        if (it.subs && it.subs.length) {
+          subs = '<ul class="mm-subs" aria-label="' + esc(it.label) + '">' +
+            '<li><a href="' + esc(it.href) + '">Vedi tutti</a></li>' +
+            it.subs.map(function (s) {
+              return '<li><a href="' + esc(s.href) + '">' + esc(s.label) + '</a></li>';
+            }).join('') + '</ul>';
+        }
+        return '<li class="mm-cat' + (subs ? ' has-subs' : '') + '"><a href="' + esc(it.href) + '" class="mm-cat-link">' +
+          esc(it.label) + (subs ? CHEVRON : '') + '</a>' + subs + '</li>';
+      }).join('');
+      var all = '<li class="mm-cat mm-cat--all"><a href="' + esc(tab.all) + '" class="mm-cat-link mm-see-all">' + esc(tab.allLabel || 'Vedi tutti') + '</a></li>';
+      return '<div class="megamenu mm-grid" id="mega' + tab.id + '" role="tabpanel" aria-labelledby="tab' + tab.id + '" data-tab-panel="' + tab.id.toLowerCase() + '" tabindex="0"' + (i ? ' hidden' : '') + '>' +
+        '<ul class="mm-cats">' + voci + all + '</ul>' +
+        '<div class="mm-images">' + tab.cards.map(cardHTML).join('') + '</div>' +
+        '</div>';
+    }).join('');
+  }
+
+  function TABS_HTML() {
+    if (!M) return '';
+    return M.TABS.map(function (tab, i) {
+      return '<button type="button" class="mm-tab" role="tab" id="tab' + tab.id + '" aria-selected="' + (i ? 'false' : 'true') + '" aria-controls="mega' + tab.id + '"' + (i ? ' tabindex="-1"' : '') + '>' + esc(tab.label) + '</button>';
+    }).join('');
+  }
+
+  /* Menu mobile: stesso albero, accordion a due livelli */
+  function MOBILE_LIST() {
+    if (!M) return '';
+    var freccia = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>';
+    function toggle(label, cls) {
+      return '<button type="button" class="mobile-sub-toggle' + (cls || '') + '" aria-expanded="false"><span>' + esc(label) + '</span>' + freccia + '</button>';
+    }
+    var tabs = M.TABS.map(function (tab) {
+      var voci = tab.items.map(function (it) {
+        if (!it.subs || !it.subs.length) return '<li><a href="' + esc(it.href) + '">' + esc(it.label) + '</a></li>';
+        return '<li class="has-sub">' + toggle(it.label, ' mobile-sub-toggle--l2') +
+          '<ul class="mobile-sub mobile-sub--l2"><li><a href="' + esc(it.href) + '">Vedi tutti</a></li>' +
+          it.subs.map(function (s) { return '<li><a href="' + esc(s.href) + '">' + esc(s.label) + '</a></li>'; }).join('') +
+          '</ul></li>';
+      }).join('');
+      var extra = (tab.mobileHighlights ? tab.cards : []).map(function (k) {
+        var c = M.CARD[k];
+        return '<li><a href="' + esc(c.href) + '" class="mobile-sub-highlight">' + esc(c.label) + '</a></li>';
+      }).join('');
+      return '<li class="has-sub">' + toggle(tab.label) + '<ul class="mobile-sub">' + voci +
+        '<li><a href="' + esc(tab.all) + '" class="mobile-sub-highlight">' + esc(tab.allLabel || 'Vedi tutti') + '</a></li>' + extra + '</ul></li>';
+    }).join('');
+    return '<li><a href="' + esc(M.LINK.nuovi.href) + '">' + esc(M.LINK.nuovi.label) + '</a></li>' + tabs +
+      '<li><a href="' + esc(M.LINK.journal.href) + '">' + esc(M.LINK.journal.label) + '</a></li>';
   }
 
   /* ---------------- MENU FISSO (stile Bottega Veneta) ----------------
@@ -110,9 +148,7 @@
     <div class="mm-nav">\
     <a href="ai-2026.html" class="mm-nav-link">Nuovi Arrivi</a>\
     <div class="mm-tabs" role="tablist" aria-label="Categorie">\
-      <button type="button" class="mm-tab" role="tab" id="tabAbbigliamento" aria-selected="true" aria-controls="megaAbbigliamento">Abbigliamento</button>\
-      <button type="button" class="mm-tab" role="tab" id="tabAccessori" aria-selected="false" aria-controls="megaAccessori" tabindex="-1">Accessori</button>\
-      <button type="button" class="mm-tab" role="tab" id="tabOutlet" aria-selected="false" aria-controls="megaOutlet" tabindex="-1">Outlet</button>\
+' + TABS_HTML() + '\
     </div>\
     <a href="journal.html" class="mm-nav-link">Journal</a>\
     </div>\
@@ -120,13 +156,14 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg>\
     </button>\
   </div>\
-  <div class="mm-fixed-body">' + MEGAMENUS() + '</div>\
+  <div class="mm-fixed-body">' + MEGAMENUS() + '\
   <div class="mm-fixed-foot">\
     <ul class="mm-fixed-service">\
       <li><a href="#" data-open-contact>Contattaci</a></li>\
       <li><a href="#" data-open-stores>Boutique</a></li>\
       <li><a href="#" data-open-country>Italia (Italiano)</a></li>\
     </ul>\
+  </div>\
   </div>\
 </div>';
   }
@@ -140,43 +177,7 @@
   </div>\
   <div class="mobile-menu-body">\
   <ul class="mobile-menu-list">\
-    <li><a href="ai-2026.html">Nuovi Arrivi</a></li>\
-    <li class="has-sub">\
-      <button type="button" class="mobile-sub-toggle" aria-expanded="false">\
-        <span>Abbigliamento</span>\
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M6 9l6 6 6-6"/></svg>\
-      </button>\
-      <ul class="mobile-sub">\
-        <li><a href="#">Cappotti</a></li><li><a href="#">Giacche</a></li><li><a href="#">Abiti</a></li>\
-        <li><a href="#">Maglieria</a></li><li><a href="#">Camicie</a></li><li><a href="#">T-shirt &amp; Polo</a></li>\
-        <li><a href="#">Pantaloni</a></li><li><a href="#">Denim</a></li>\
-        <li><a href="ai-2026.html" class="mobile-sub-highlight">Autunno/Inverno 2026</a></li>\
-        <li><a href="essential.html" class="mobile-sub-highlight">Essential</a></li>\
-        <li><a href="cerimonia.html" class="mobile-sub-highlight">Cerimonia</a></li>\
-        <li><a href="vetrina.html" class="mobile-sub-highlight">La Capsule</a></li>\
-      </ul>\
-    </li>\
-    <li class="has-sub">\
-      <button type="button" class="mobile-sub-toggle" aria-expanded="false">\
-        <span>Accessori</span>\
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M6 9l6 6 6-6"/></svg>\
-      </button>\
-      <ul class="mobile-sub">\
-        <li><a href="#">Scarpe</a></li><li><a href="#">Cinture</a></li><li><a href="#">Cravatte &amp; Pochette</a></li>\
-        <li><a href="#">Pelletteria</a></li><li><a href="#">Gemelli &amp; Dettagli</a></li><li><a href="#">Profumi</a></li>\
-      </ul>\
-    </li>\
-    <li class="has-sub">\
-      <button type="button" class="mobile-sub-toggle" aria-expanded="false">\
-        <span>Outlet</span>\
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M6 9l6 6 6-6"/></svg>\
-      </button>\
-      <ul class="mobile-sub">\
-        <li><a href="outlet-abbigliamento.html">Abbigliamento</a></li><li><a href="outlet-abbigliamento.html">Accessori</a></li>\
-        <li><a href="outlet-abbigliamento.html">Back to Work</a></li><li><a href="outlet-abbigliamento.html">Ultimi Pezzi</a></li>\
-      </ul>\
-    </li>\
-    <li><a href="journal.html">Journal</a></li>\
+' + MOBILE_LIST() + '\
   </ul>\
   <ul class="mobile-menu-extra">\
     <li><a href="#" data-open-login><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6"/></svg><span>Area personale</span></a></li>\

@@ -347,59 +347,113 @@ header.scrolled .nav {
   visibility: visible;
   pointer-events: auto;
 }
-.megamenu-inner { max-width: 1600px; margin: 0; padding: 0; }
-
-.megamenu-col h4 {
-  font-family: var(--sans);
-  font-size: var(--fs-12);
-  font-weight: 500;
-  letter-spacing: var(--tr-2);
-  text-transform: uppercase;
-  color: var(--ink);
-  margin: 0 0 24px;
+/* ---- Pannello a tre colonne (17 nov) ----
+   La griglia è definita una volta sola, su .mm-fixed-body (sotto):
+   ogni tab (.mm-grid) la riusa con subgrid. Le sottocategorie stanno
+   nel DOM subito dopo la loro categoria (ordine giusto per Tab e
+   lettori di schermo); il CSS le porta nella seconda colonna. */
+.mm-grid {
+  grid-row: 1 / -1;
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-template-rows: subgrid;
 }
-.megamenu-col ul {
+.mm-cats {
+  --mm-col: 200px;      /* larghezza colonna categorie */
+  --mm-sub-x: 232px;    /* dove inizia la colonna sottocategorie */
+  --mm-step: 14px;      /* spazio tra le righe: passo ≈ 32px */
+  position: relative;
   list-style: none;
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: var(--mm-step);
+  grid-row: 1;
+  grid-column: 1;
 }
-.megamenu-col ul a {
+.mm-cat { width: var(--mm-col); }
+.mm-cat--all { margin-top: var(--mm-step); }
+
+.mm-cat-link,
+.mm-subs a {
   position: relative;
+  display: inline-block;
   font-family: var(--sans);
-  font-size: var(--fs-14);
-  font-weight: 400;
+  font-size: var(--text-body);
+  font-weight: var(--fw-ui);
+  line-height: 1.2;
   letter-spacing: var(--tr-05);
-  color: #333;
+  color: var(--ink);
   text-decoration: none;
-  transition: color var(--t-fast) var(--ease);
 }
-.megamenu-col ul a:hover { color: var(--ink); }
-.megamenu-images {
+/* La freccia sta fuori dal testo: la sottolineatura resta sulla parola */
+.mm-cat-arrow {
+  position: absolute;
+  top: 50%;
+  right: -20px;
+  width: 12px;
+  height: 12px;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity var(--t-fast) var(--ease);
+}
+.mm-cat.is-active .mm-cat-arrow { opacity: 1; }
+
+.mm-subs {
+  position: absolute;
+  top: 0;
+  left: var(--mm-sub-x);
+  width: var(--mm-col);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--mm-step);
+  visibility: hidden;
+}
+.mm-cat.is-active > .mm-subs { visibility: visible; }
+
+.mm-cat-link:focus-visible,
+.mm-subs a:focus-visible { outline: 1px solid var(--ink); outline-offset: 4px; }
+
+/* Immagini: due colonne, fisse per tab. Occupano tutte e due le
+   righe e si appoggiano in basso a destra: l'ultima didascalia sta
+   sulla stessa linea dei link del piede (Contattaci … Italia).
+   Larghezza = la minore tra lo spazio della colonna e --mm-fit
+   (calcolata sull'altezza del pannello, vedi .mm-fixed-body). */
+.mm-images {
+  grid-row: 1 / -1;
+  grid-column: 2;
+  align-self: end;
+  justify-self: end;
+  width: min(100%, calc(2 * var(--mm-fit) + var(--mm-gap-img)));
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-  align-self: start;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px var(--mm-gap-img);
 }
 .mm-card { text-decoration: none; color: var(--ink); display: block; width: 100%; min-width: 0; }
 .mm-card .thumb {
   width: 100%;
   aspect-ratio: var(--ratio-card);
-  background-color: var(--paper);
+  background-color: var(--paper-alt);
   position: relative;
   overflow: hidden;
-  transition: transform var(--t-slow) var(--ease);
 }
 .mm-card .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .mm-card h5 {
   font-family: var(--sans);
-  font-size: var(--fs-11);
-  font-weight: 400;
-  letter-spacing: var(--tr-03);
-  margin-top: 12px;
-  text-align: center;
+  font-size: var(--text-label);
+  font-weight: var(--fw-ui);
+  line-height: 1.3;
+  letter-spacing: var(--tr-05);
+  margin: 10px 0 0;
+  text-align: left;
   color: var(--ink);
 }
+.mm-card:focus-visible { outline: 1px solid var(--ink); outline-offset: 4px; }
 
 /* ============================================================
    MENU FISSO STILE BOTTEGA VENETA (7 nov)
@@ -540,22 +594,45 @@ header.scrolled .nav {
 .mm-fixed-close:hover { opacity: 0.6; }
 .mm-fixed-close:focus-visible { outline: 1px solid var(--ink); outline-offset: -4px; }
 
+/* Corpo del pannello: griglia 2 colonne × 2 righe, scorre al suo interno.
+     [categorie | sottocategorie]   [immagini]
+     [piede: Contattaci … Italia]   [immagini]
+   Colonna 1: almeno 432px (categorie 200 + sottocategorie da 232).
+   Colonna 2: due immagini. Come Bottega, la loro larghezza segue
+   l'altezza del pannello, così le due righe stanno sempre dentro:
+     2 × (larghezza × 4/3 + didascalia) + 28px = altezza utile
+     → larghezza = (altezza utile − 2 didascalie − 28px) × 3/8
+   100cqh = altezza utile del pannello (container-type: size).
+   Limiti: massimo --mm-card-max, minimo --mm-card-min; sotto il
+   minimo (finestra molto bassa) il pannello scorre.
+   Righe auto + space-between: lo spazio libero va tra le due righe,
+   quindi il piede sta sempre in fondo; se la finestra è bassa le righe
+   crescono con il contenuto e scorre solo il pannello. */
 .mm-fixed-body {
+  --mm-card-max: 280px;    /* larghezza massima di un'immagine */
+  --mm-card-min: 130px;    /* sotto questa il pannello scorre */
+  --mm-caption: 26px;      /* didascalia: 10px sopra + 12px × 1,3 */
+  --mm-gap-img: 14px;
+  --mm-fit: clamp(var(--mm-card-min), (100cqh - 2 * var(--mm-caption) - 28px) * 0.375, var(--mm-card-max));
+  container-type: size;
   flex: 1;
+  min-height: 0;
   overflow-y: auto;
   overscroll-behavior: contain;
-  padding: 48px var(--nav-pad) 40px;
+  display: grid;
+  grid-template-columns: minmax(432px, 1fr) minmax(0, calc(2 * var(--mm-card-max) + var(--mm-gap-img)));
+  grid-template-rows: auto auto;
+  align-content: space-between;
+  gap: 40px 48px;
+  padding: 32px var(--nav-pad) 24px;
 }
 
 .mm-fixed-foot {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-end;
-  gap: 24px;
-  padding: 28px var(--nav-pad) 28px;
-  flex-shrink: 0;
+  grid-row: 2;
+  grid-column: 1;
+  align-self: end;
 }
-.mm-fixed-service { list-style: none; display: flex; gap: 28px; margin: 0; padding: 0; }
+.mm-fixed-service { list-style: none; display: flex; gap: 28px; margin: 0; padding: 0; line-height: 1.3; }
 .mm-fixed-foot a {
   position: relative;
   font-family: var(--sans);
@@ -696,8 +773,21 @@ header.scrolled .nav {
   background: transparent;
 }
 .mobile-sub-toggle[aria-expanded="true"] + .mobile-sub {
-  max-height: 600px;
+  max-height: 1400px;
 }
+/* Secondo livello (Abiti › Monopetto…): stessa voce delle sottovoci,
+   le sottocategorie rientrano di un passo */
+.mobile-sub .mobile-sub-toggle--l2 {
+  padding: 14px 44px 14px 48px;
+  font-size: var(--fs-12);
+  letter-spacing: var(--tr-1);
+  line-height: inherit;
+  text-transform: none;
+  color: #555;
+}
+.mobile-sub .mobile-sub-toggle--l2[aria-expanded="true"] { color: var(--ink); }
+.mobile-sub .mobile-sub-toggle--l2 svg { width: 14px; height: 14px; }
+.mobile-sub .mobile-sub--l2 a { padding-left: 64px; }
 .mobile-sub li { border-bottom: none; }
 .mobile-sub a {
   display: block;
@@ -1843,134 +1933,6 @@ footer {
 }
 
 /* ============================================================
-   NUOVI MEGAMENU — struttura unificata
-   ============================================================ */
-
-#megaAbbigliamento .megamenu-inner {
-  display: grid;
-  grid-template-columns: 1fr 4fr;
-  gap: 60px;
-  align-items: start;
-}
-#megaAbbigliamento .megamenu-images {
-  grid-column: 2;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 16px;
-}
-
-#megaAccessori .megamenu-inner {
-  display: grid;
-  grid-template-columns: 1fr 4fr;
-  gap: 60px;
-  align-items: start;
-}
-#megaAccessori .megamenu-images {
-  grid-column: 2;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 16px;
-}
-
-#megaOutlet .megamenu-inner {
-  display: grid;
-  grid-template-columns: 1fr 4fr;
-  gap: 60px;
-  align-items: start;
-}
-#megaOutlet .megamenu-images {
-  grid-column: 2;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 16px;
-}
-
-/* Outlet: stessa griglia di Abbigliamento (1fr 4fr) per card della stessa dimensione */
-#megaOutlet .megamenu-inner {
-  grid-template-columns: 1fr 4fr;
-  gap: 60px;
-}
-
-
-#megaAbbigliamento .megamenu-col h4,
-#megaAccessori .megamenu-col h4,
-#megaOutlet .megamenu-col h4 {
-  font-family: var(--sans);
-  font-size: var(--fs-11);
-  font-weight: 500;
-  letter-spacing: var(--tr-2);
-  text-transform: uppercase;
-  color: var(--ink);
-  margin: 0 0 20px;
-  padding: 0;
-}
-
-#megaAbbigliamento .megamenu-col ul,
-#megaAccessori .megamenu-col ul,
-#megaOutlet .megamenu-col ul { gap: 14px; }
-
-#megaAbbigliamento .megamenu-col ul a,
-#megaAccessori .megamenu-col ul a,
-#megaOutlet .megamenu-col ul a {
-  text-transform: uppercase;
-  letter-spacing: var(--tr-05);
-  font-size: var(--fs-11);
-  font-weight: var(--fw-ui);
-  color: var(--ink);
-}
-
-#megaAbbigliamento .megamenu-col ul a:hover,
-#megaAccessori .megamenu-col ul a:hover,
-#megaOutlet .megamenu-col ul a:hover {
-  color: var(--ink);
-}
-
-/* «Vedi tutti»: il selettore porta gli stessi id dei megamenu, così vince
-   sulle regole #megaAbbigliamento/#megaAccessori/#megaOutlet per specificità, non per priorità forzata */
-.megamenu-col ul a.mm-see-all,
-:is(#megaAbbigliamento, #megaAccessori, #megaOutlet) .megamenu-col ul a.mm-see-all {
-  margin-top: 20px;
-  color: var(--ink);
-  font-weight: 500;
-  letter-spacing: var(--tr-1);
-}
-.megamenu-col ul a.mm-see-all:hover,
-:is(#megaAbbigliamento, #megaAccessori, #megaOutlet) .megamenu-col ul a.mm-see-all:hover { color: var(--ink); }
-
-
-@media (max-width: 1200px) {
-  #megaAbbigliamento .megamenu-inner {
-    grid-template-columns: 1fr 4fr;
-    gap: 30px;
-  }
-  #megaAbbigliamento .megamenu-images {
-    grid-column: 2;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 12px;
-  }
-
-  #megaAccessori .megamenu-inner {
-    grid-template-columns: 1fr 4fr;
-    gap: 30px;
-  }
-  #megaAccessori .megamenu-images {
-    grid-column: 2;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 12px;
-  }
-
-  #megaOutlet .megamenu-inner {
-    grid-template-columns: 1fr 4fr;
-    gap: 30px;
-  }
-  #megaOutlet .megamenu-images {
-    grid-column: 2;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 12px;
-  }
-}
-
-/* ============================================================
    SEARCH DRAWER (destra su desktop, sinistra su mobile)
    ============================================================ */
 .search-overlay {
@@ -2674,6 +2636,7 @@ footer {
   .mobile-sub-toggle,
   .mobile-sub a,
   .mobile-menu-extra a { font-size: var(--fs-14); }
+  .mobile-sub .mobile-sub-toggle--l2 { font-size: var(--fs-14); }
 }
 
 /* Logo in .nav: allineato alle icone (align-items: center del grid).
@@ -2826,7 +2789,8 @@ p a, span a, li a, .footer-privacy a, .footer-consent a,
    ============================================================ */
 
 /* 1. Linea 3px sotto il testo (desktop) */
-.megamenu-col ul a::after,
+.mm-cat-link::after,
+.mm-subs a::after,
 .mm-fixed-foot a::after {
   content: "";
   position: absolute;
@@ -2841,7 +2805,9 @@ p a, span a, li a, .footer-privacy a, .footer-consent a,
 }
 
 /* 2. Trigger al hover (desktop) */
-.megamenu-col ul a:hover::after,
+.mm-cat-link:hover::after,
+.mm-cat.is-active > .mm-cat-link::after,
+.mm-subs a:hover::after,
 .mm-fixed-foot a:hover::after {
   transform: scaleX(1);
 }

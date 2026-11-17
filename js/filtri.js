@@ -283,4 +283,18 @@
     btn.setAttribute('aria-pressed', pressed ? 'false' : 'true');
     btn.classList.toggle('active', !pressed);
   });
+
+  /* Link dal menu con ?tipo= (17 nov): attiva quel tipo all'arrivo.
+     Se nessuna card della pagina ha quel tipo, la griglia resta intera
+     invece di mostrarsi vuota. */
+  (function () {
+    var t = new URLSearchParams(location.search).get('tipo');
+    if (!t) return;
+    var chip = Array.from(document.querySelectorAll('#filtersTypes button')).find(function (b) { return b.dataset.type === t; });
+    var presente = Array.from(grid.querySelectorAll('.product-card')).some(function (c) { return c.dataset.type === t; });
+    if (!chip || !presente) return;
+    chip.classList.add('active');
+    chip.setAttribute('aria-pressed', 'true');
+    applica();
+  })();
 })();

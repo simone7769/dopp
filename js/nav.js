@@ -123,8 +123,57 @@ if (header) {
       t.setAttribute('aria-selected', on ? 'true' : 'false');
       t.tabIndex = on ? 0 : -1;
     });
-    panes.forEach((p) => { p.hidden = p.id !== tab.getAttribute('aria-controls'); });
+    panes.forEach((p) => {
+      p.hidden = p.id !== tab.getAttribute('aria-controls');
+      resetPane(p);
+    });
     if (moveFocus) tab.focus();
+  }
+
+  /* ---- Categorie e sottocategorie (17 nov) ----
+     Passando su una categoria (o con il focus da tastiera) compaiono
+     le sue sottocategorie nella seconda colonna. Le immagini a destra
+     sono fisse per tab e non cambiano. Col mouse un breve ritardo evita
+     che, andando in diagonale verso la seconda colonna, si attivino
+     le categorie attraversate. */
+  const INTENTO = 120;
+  let timer = 0;
+
+  function attivaCategoria(li) {
+    li.parentElement.querySelectorAll('.mm-cat.is-active').forEach((x) => { if (x !== li) x.classList.remove('is-active'); });
+    li.classList.add('is-active');
+  }
+
+  function resetPane(pane) {
+    clearTimeout(timer);
+    pane.querySelectorAll('.mm-cat.is-active').forEach((x) => x.classList.remove('is-active'));
+  }
+
+  panel.addEventListener('pointerover', (e) => {
+    if (e.pointerType && e.pointerType !== 'mouse') return;
+    if (e.target.closest('.mm-subs')) { clearTimeout(timer); return; }
+    const link = e.target.closest('.mm-cat-link');
+    clearTimeout(timer);
+    if (!link) return;
+    const li = link.closest('.mm-cat');
+    if (li.classList.contains('is-active')) return;
+    const qualcuna = li.parentElement.querySelector('.mm-cat.is-active');
+    if (qualcuna) timer = setTimeout(() => attivaCategoria(li), INTENTO);
+    else attivaCategoria(li);
+  });
+
+  panel.addEventListener('focusin', (e) => {
+    const link = e.target.closest('.mm-cat-link');
+    if (link) attivaCategoria(link.closest('.mm-cat'));
+  });
+
+  /* Alla prima apertura scarica anche le immagini degli altri tab
+     (sono lazy per non pesare sulle pagine): il cambio tab è immediato */
+  let precaricate = false;
+  function precarica() {
+    if (precaricate) return;
+    precaricate = true;
+    panel.querySelectorAll('.mm-images img[loading="lazy"]').forEach((img) => { img.loading = 'eager'; });
   }
 
   function focusables() {
@@ -136,6 +185,8 @@ if (header) {
     if (isOpen) return;
     closeOtherPanels();
     isOpen = true;
+    precarica();
+    panes.forEach(resetPane);
     panel.classList.add('open');
     if (overlay) overlay.classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -267,10 +318,18 @@ if (navBurger && mobileMenu) {
   toggles.forEach((btn) => {
     btn.addEventListener('click', () => {
       const isOpen = btn.getAttribute('aria-expanded') === 'true';
+      /* Chiude solo le voci dello stesso livello: aprendo «Abiti»
+         l'accordion «Abbigliamento» che lo contiene resta aperto */
+      const lista = btn.closest('li').parentElement;
+      const chiudi = (t) => {
+        t.setAttribute('aria-expanded', 'false');
+        t.closest('li').querySelectorAll('.mobile-sub-toggle').forEach((n) => n.setAttribute('aria-expanded', 'false'));
+      };
       toggles.forEach((other) => {
-        if (other !== btn) other.setAttribute('aria-expanded', 'false');
+        if (other !== btn && other.closest('li').parentElement === lista) chiudi(other);
       });
-      btn.setAttribute('aria-expanded', String(!isOpen));
+      if (isOpen) chiudi(btn);
+      else btn.setAttribute('aria-expanded', 'true');
     });
   });
 
