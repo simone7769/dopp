@@ -44,7 +44,7 @@
 .legale-wrap h3 {
   font-family: var(--sans);
   font-weight: 500;
-  font-size: var(--fs-13);
+  font-size: var(--text-ui);
   letter-spacing: var(--tr-1);
   text-transform: uppercase;
   color: var(--ink);
@@ -84,7 +84,7 @@
 
 .legale-updated {
   font-family: var(--sans);
-  font-size: var(--fs-11);
+  font-size: var(--text-caption);
   letter-spacing: var(--tr-1);
   text-transform: uppercase;
   color: var(--muted);

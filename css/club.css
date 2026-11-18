@@ -21,7 +21,7 @@
   display: block;
   font-family: var(--sans);
   font-weight: 400;
-  font-size: var(--fs-24);
+  font-size: var(--text-lead);
   letter-spacing: var(--tr-4);
   text-transform: uppercase;
   margin-bottom: 12px;
@@ -36,7 +36,7 @@
 .club-tier-range {
   display: block;
   font-family: var(--sans);
-  font-size: var(--fs-11);
+  font-size: var(--text-caption);
   font-weight: var(--fw-body);
   letter-spacing: var(--tr-2);
   text-transform: uppercase;
@@ -46,7 +46,7 @@
 .club-tier-benefit {
   display: block;
   font-family: var(--sans);
-  font-size: var(--fs-13);
+  font-size: var(--text-ui);
   font-weight: 400;
   line-height: 1.5;
   color: var(--ink);
@@ -112,7 +112,7 @@
 
 .club-benefit-text {
   font-family: var(--sans);
-  font-size: var(--fs-13);
+  font-size: var(--text-ui);
   font-weight: var(--fw-body);
   line-height: 1.6;
   letter-spacing: var(--tr-03);
@@ -172,7 +172,7 @@
   padding: 22px 4px;
   min-height: var(--touch-target, 44px);
   font-family: var(--sans);
-  font-size: var(--fs-13);
+  font-size: var(--text-ui);
   font-weight: 500;
   letter-spacing: var(--tr-05);
   text-transform: uppercase;
@@ -186,7 +186,7 @@
 .club-faq summary:hover::after { color: var(--ink); }
 .club-faq summary::after {
   content: '+';
-  font-size: var(--fs-22);
+  font-size: var(--text-lead);
   font-weight: 400;
   color: var(--muted);
   margin-left: 20px;
@@ -199,7 +199,7 @@
   max-width: 900px;
   font-family: var(--sans);
   font-weight: var(--fw-body);
-  font-size: var(--fs-16);
+  font-size: var(--text-body);
   letter-spacing: 0.01em;
   line-height: 1.7;
   color: var(--ink);
@@ -211,7 +211,7 @@
 }
 @media (max-width: 640px) {
   .club-faq { padding: 0 16px; margin-bottom: 60px; }
-  .club-faq summary { font-size: var(--fs-12); padding: 18px 4px; }
+  .club-faq summary { font-size: var(--text-label); padding: 18px 4px; }
 }
 
 
@@ -234,7 +234,7 @@
   border-bottom: 1px solid var(--ink);
   color: var(--ink);
   font-family: var(--sans);
-  font-size: var(--fs-14);
+  font-size: var(--text-ui);
   letter-spacing: var(--tr-05);
   padding: 8px 0;
   text-align: center;
@@ -243,7 +243,7 @@
 .club-cta-form input[type="email"]::placeholder {
   color: var(--muted);
   text-transform: uppercase;
-  font-size: var(--fs-11);
+  font-size: var(--text-caption);
   letter-spacing: var(--tr-15);
 }
 .club-cta-form input[type="email"]:focus {
@@ -254,7 +254,7 @@
   align-items: flex-start;
   gap: 8px;
   font-family: var(--sans);
-  font-size: var(--fs-11);
+  font-size: var(--text-caption);
   line-height: 1.5;
   color: var(--muted);
   text-align: left;

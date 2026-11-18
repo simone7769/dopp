@@ -39,16 +39,16 @@
 .co-sec h2 {
   font-family: var(--sans);
   font-weight: 400;
-  font-size: var(--fs-22);
+  font-size: var(--text-lead);
   margin-bottom: 16px;
 }
-.co-note { font-size: var(--fs-12); color: var(--muted); margin: -8px 0 14px; }
+.co-note { font-size: var(--text-label); color: var(--muted); margin: -8px 0 14px; }
 
 .co-field { margin-bottom: 14px; }
 .co-field label {
   display: block;
   font-family: var(--sans);
-  font-size: var(--fs-11);
+  font-size: var(--text-caption);
   letter-spacing: var(--tr-05);
   text-transform: uppercase;
   color: var(--muted);
@@ -92,8 +92,8 @@
   background: #fff;
   transition: border-color var(--t-fast) var(--ease), background var(--t-fast) var(--ease), color var(--t-fast) var(--ease);
 }
-.co-tile strong { display: block; font-family: var(--sans); font-size: var(--fs-13); font-weight: 500; margin-bottom: 4px; }
-.co-tile small { font-size: var(--fs-12); font-weight: var(--fw-body); color: var(--muted); }
+.co-tile strong { display: block; font-family: var(--sans); font-size: var(--text-ui); font-weight: 500; margin-bottom: 4px; }
+.co-tile small { font-size: var(--text-label); font-weight: var(--fw-body); color: var(--muted); }
 .co-tile input:checked + span { background: var(--ink); border-color: var(--ink); color: #fff; }
 .co-tile input:checked + span small { color: rgba(255, 255, 255, 0.7); }
 .co-tile input:focus-visible + span { outline: 1px solid var(--gold); outline-offset: 2px; }
@@ -107,19 +107,19 @@
   gap: 12px;
   min-height: 56px;
   padding: 0 16px;
-  font-size: var(--fs-13);
+  font-size: var(--text-ui);
   cursor: pointer;
 }
 .co-pay-opt > label span { flex: 1; font-weight: 400; }
-.co-pay-opt > label em { font-style: normal; font-size: var(--fs-11); letter-spacing: var(--tr-05); color: var(--muted); }
+.co-pay-opt > label em { font-style: normal; font-size: var(--text-caption); letter-spacing: var(--tr-05); color: var(--muted); }
 .co-pay-opt input[type="radio"] { accent-color: var(--ink); width: 16px; height: 16px; }
 .co-card { display: none; padding: 4px 16px 6px; background: var(--paper-alt); border-top: 1px solid var(--line); }
 .co-card .co-field:first-child { margin-top: 14px; }
 .co-pay-opt.open .co-card { display: block; }
-.co-demo { margin-top: 10px; font-size: var(--fs-12); color: var(--muted); }
+.co-demo { margin-top: 10px; font-size: var(--text-label); color: var(--muted); }
 
 /* --- Invio --- */
-.co-error { font-size: var(--fs-12); color: var(--danger); margin-bottom: 12px; }
+.co-error { font-size: var(--text-label); color: var(--danger); margin-bottom: 12px; }
 .co-submit {
   width: 100%;
   height: 56px;
@@ -127,7 +127,7 @@
   color: #fff;
   border: 1px solid var(--ink);
   font-family: var(--sans);
-  font-size: var(--fs-12);
+  font-size: var(--text-label);
   letter-spacing: var(--tr-15);
   text-transform: uppercase;
   cursor: pointer;
@@ -135,7 +135,7 @@
 }
 .co-submit:hover { background: transparent; color: var(--ink); }
 .co-legal { margin-top: 40px; display: flex; flex-wrap: wrap; gap: 6px 18px; }
-.co-legal a { font-size: var(--fs-12); color: var(--muted); text-decoration: underline; text-underline-offset: 3px; }
+.co-legal a { font-size: var(--text-label); color: var(--muted); text-decoration: underline; text-underline-offset: 3px; }
 .co-legal a:hover { color: var(--ink); }
 
 /* --- Riepilogo --- */
@@ -153,22 +153,22 @@
   background: var(--ink);
   color: #fff;
   font-family: var(--sans);
-  font-size: var(--fs-11);
+  font-size: var(--text-caption);
   font-weight: 500;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.co-line-name { font-size: var(--fs-13); font-weight: 400; line-height: 1.35; }
-.co-line-attr { font-size: var(--fs-12); font-weight: var(--fw-body); color: var(--muted); }
-.co-line-price { font-size: var(--fs-13); font-weight: var(--fw-price); white-space: nowrap; }
+.co-line-name { font-size: var(--text-ui); font-weight: 400; line-height: 1.35; }
+.co-line-attr { font-size: var(--text-label); font-weight: var(--fw-body); color: var(--muted); }
+.co-line-price { font-size: var(--text-ui); font-weight: var(--fw-price); white-space: nowrap; }
 
 .co-rows { margin: 22px 0 18px; border-top: 1px solid var(--line); padding-top: 16px; }
-.co-rows > div { display: flex; justify-content: space-between; padding: 6px 0; font-size: var(--fs-13); }
-.co-rows .co-iva { font-size: var(--fs-12); color: var(--muted); }
-.co-rows .co-total { margin-top: 8px; padding-top: 14px; border-top: 1px solid var(--line); font-size: var(--fs-18); font-weight: 500; }
+.co-rows > div { display: flex; justify-content: space-between; padding: 6px 0; font-size: var(--text-ui); }
+.co-rows .co-iva { font-size: var(--text-label); color: var(--muted); }
+.co-rows .co-total { margin-top: 8px; padding-top: 14px; border-top: 1px solid var(--line); font-size: var(--text-body); font-weight: 500; }
 .co-rows .co-total dt, .co-rows .co-total dd { font-weight: 500; }
-.co-edit { font-size: var(--fs-12); color: var(--muted); text-decoration: underline; text-underline-offset: 3px; }
+.co-edit { font-size: var(--text-label); color: var(--muted); text-decoration: underline; text-underline-offset: 3px; }
 .co-edit:hover { color: var(--ink); }
 
 @media (max-width: 1000px) {

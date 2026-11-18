@@ -14,7 +14,7 @@
 .boutique-subtitle {
   font-family: var(--sans);
   font-weight: var(--fw-body);
-  font-size: var(--fs-16);
+  font-size: var(--text-body);
   line-height: 1.7;
   letter-spacing: 0.01em;
   color: var(--ink);
@@ -41,7 +41,7 @@
 }
 .boutique-country-field label {
   font-family: var(--sans);
-  font-size: var(--fs-11);
+  font-size: var(--text-caption);
   font-weight: 400;
   letter-spacing: var(--tr-2);
   text-transform: uppercase;
@@ -73,7 +73,7 @@
   border: none;
   background: transparent;
   font-family: var(--sans);
-  font-size: var(--fs-13);
+  font-size: var(--text-ui);
   font-weight: var(--fw-ui);
   color: var(--ink);
   outline: none;
@@ -83,7 +83,7 @@
 /* --- Conteggio risultati --- */
 .boutique-count {
   font-family: var(--sans);
-  font-size: var(--fs-11);
+  font-size: var(--text-caption);
   letter-spacing: var(--tr-2);
   text-transform: uppercase;
   color: var(--muted);
@@ -99,7 +99,7 @@
 .boutique-item h3 {
   font-family: var(--sans);
   font-weight: 400;
-  font-size: var(--fs-20);
+  font-size: var(--text-body);
   letter-spacing: var(--tr-05);
   color: var(--ink);
   margin: 0 0 8px;
@@ -112,25 +112,25 @@
 }
 .boutique-rating-stars {
   color: var(--gold);
-  font-size: var(--fs-13);
+  font-size: var(--text-ui);
   letter-spacing: 0.4px;
 }
 .boutique-rating-value {
   font-family: var(--sans);
-  font-size: var(--fs-12);
+  font-size: var(--text-label);
   font-weight: 400;
   color: var(--ink);
 }
 .boutique-rating-reviews {
   font-family: var(--sans);
-  font-size: var(--fs-12);
+  font-size: var(--text-label);
   font-weight: var(--fw-body);
   color: var(--muted);
 }
 .boutique-address,
 .boutique-city {
   font-family: var(--sans);
-  font-size: var(--fs-13);
+  font-size: var(--text-ui);
   font-weight: var(--fw-body);
   line-height: 1.55;
   color: var(--ink);
@@ -138,21 +138,21 @@
 }
 .boutique-hours {
   font-family: var(--sans);
-  font-size: var(--fs-12);
+  font-size: var(--text-label);
   font-weight: var(--fw-body);
   color: var(--ink-soft);
   margin: 8px 0 0;
 }
 .boutique-service {
   font-family: var(--sans);
-  font-size: var(--fs-12);
+  font-size: var(--text-label);
   font-weight: 400;
   color: var(--gold-text);
   margin: 6px 0 0;
 }
 .boutique-payments {
   font-family: var(--sans);
-  font-size: var(--fs-12);
+  font-size: var(--text-label);
   font-weight: var(--fw-body);
   line-height: 1.5;
   color: var(--muted);
@@ -161,7 +161,7 @@
 .boutique-phone {
   display: inline-block;
   font-family: var(--sans);
-  font-size: var(--fs-13);
+  font-size: var(--text-ui);
   font-weight: 400;
   color: var(--ink);
   text-decoration: none;
@@ -175,7 +175,7 @@
 .boutique-empty {
   font-family: var(--sans);
   font-weight: var(--fw-body);
-  font-size: var(--fs-16);
+  font-size: var(--text-body);
   line-height: 1.7;
   color: var(--muted);
   text-align: center;
@@ -190,7 +190,7 @@
 }
 @media (max-width: 640px) {
   .boutique-wrap { padding: 12px 16px 60px; }
-  .boutique-subtitle { font-size: var(--fs-16); margin-bottom: 32px; }
+  .boutique-subtitle { font-size: var(--text-body); margin-bottom: 32px; }
   .boutique-item h3 { font-size: var(--fs-section-title); }
 }
 

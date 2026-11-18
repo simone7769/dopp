@@ -101,7 +101,7 @@ html.header-hidden { scroll-padding-top: 0; }
 }
 .info-bar p {
   font-family: var(--sans);
-  font-size: var(--fs-12);
+  font-size: var(--text-label);
   letter-spacing: var(--tr-1);
   font-weight: 400;
   text-transform: uppercase;
@@ -196,7 +196,7 @@ html.header-hidden { scroll-padding-top: 0; }
   right: var(--nav-pad);
   text-align: left;
   font-family: var(--sans);
-  font-size: var(--fs-14);
+  font-size: var(--text-ui);
   font-weight: 400;
   letter-spacing: var(--tr-3);
   text-transform: uppercase;
@@ -484,7 +484,7 @@ html.header-hidden { scroll-padding-top: 0; }
 }
 .w-item h3 {
   font-family: var(--sans);
-  font-size: var(--fs-14);
+  font-size: var(--text-ui);
   font-weight: 400;
   letter-spacing: var(--tr-2);
   text-transform: uppercase;
@@ -496,7 +496,7 @@ html.header-hidden { scroll-padding-top: 0; }
 }
 .w-item p.w-desc {
   font-family: var(--sans);
-  font-size: var(--fs-13);
+  font-size: var(--text-ui);
   font-weight: 400;
   letter-spacing: var(--tr-03);
   color: var(--ink);
@@ -616,7 +616,7 @@ header.scrolled .topbar {
      (si scorre col dito). Rimosso il blocco che le riabilitava: era codice morto. */
 
   .card-media { padding: 18px; }
-  .card h3 { font-size: var(--fs-12); }
+  .card h3 { font-size: var(--text-label); }
 
   .duo-content h3 { letter-spacing: var(--tr-4); }
 }
@@ -653,7 +653,7 @@ header.scrolled .topbar {
 
   .must-have { --mh-gap: 14px; --mh-visible: 1.15; --mh-gaps: 1; --mh-pad: 16px; }
   .world { --w-gap: 14px; --w-visible: 1.15; --w-gaps: 1; --w-pad: 16px; }
-  .card h3 { font-size: var(--fs-11); letter-spacing: 0.03em; }
+  .card h3 { font-size: var(--text-caption); letter-spacing: 0.03em; }
 
   /* Mobile: le card impilate (Cerimonia, Essential, Outlet,
      Primavera Estate) sono a tutta larghezza e 4/5 (duo e collection
@@ -679,7 +679,7 @@ header.scrolled .topbar {
   text-align: left;
   max-width: 100%;
   padding: 0 12px;
-  font-size: var(--fs-14); /* uniformato alle card collezione/journal in home */
+  font-size: var(--text-ui); /* uniformato alle card collezione/journal in home */
 }
 .must-have .product-price {
   text-align: left;
@@ -774,7 +774,7 @@ header.scrolled .topbar {
 
 .outlet-hero-sub {
   font-family: var(--sans);
-  font-size: var(--fs-12);
+  font-size: var(--text-label);
   font-weight: 500;
   margin: 0 0 8px 0;
   letter-spacing: 0.15em;
@@ -802,7 +802,7 @@ header.scrolled .topbar {
 
 .outlet-hero-note {
   font-family: var(--sans);
-  font-size: var(--fs-14); /* Allineato alla scala */
+  font-size: var(--text-ui); /* Allineato alla scala */
   font-weight: 400;
   margin: 0 0 32px 0;
   letter-spacing: 0.05em;
@@ -821,7 +821,7 @@ header.scrolled .topbar {
   color: var(--ink);
   text-decoration: none; /* Rimuove la sottolineatura del link */
   font-family: var(--sans);
-  font-size: var(--fs-11);
+  font-size: var(--text-caption);
   text-transform: uppercase;
   letter-spacing: var(--tr-2);
   line-height: 1;
@@ -940,7 +940,7 @@ header.scrolled .topbar {
 
 .capsule-eyebrow {
   font-family: var(--sans);
-  font-size: var(--fs-11);
+  font-size: var(--text-caption);
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: var(--tr-15);
@@ -957,7 +957,7 @@ header.scrolled .topbar {
 
 .capsule-desc {
   font-family: var(--sans);
-  font-size: var(--fs-16);
+  font-size: var(--text-body);
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.9);
   max-width: 400px;

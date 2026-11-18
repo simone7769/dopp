@@ -7,7 +7,7 @@
 .guide-intro {
   text-align: center;
   font-family: var(--sans);
-  font-size: var(--fs-13);
+  font-size: var(--text-ui);
   font-weight: var(--fw-body);
   letter-spacing: var(--tr-05);
   color: var(--muted);
@@ -32,7 +32,7 @@
   background: transparent;
   border: none;
   font-family: var(--sans);
-  font-size: var(--fs-13);
+  font-size: var(--text-ui);
   font-weight: 400;
   letter-spacing: var(--tr-1);
   text-transform: uppercase;
@@ -50,7 +50,7 @@
 }
 .guide-list button[disabled]::after {
   content: " — in arrivo";
-  font-size: var(--fs-11);
+  font-size: var(--text-caption);
   text-transform: none;
   letter-spacing: var(--tr-05);
   color: var(--size-disabled);
@@ -60,7 +60,7 @@
 /* --- Nota finale --- */
 .size-note {
   font-family: var(--sans);
-  font-size: var(--fs-12);
+  font-size: var(--text-label);
   font-weight: var(--fw-body);
   line-height: 1.6;
   color: var(--muted);
@@ -156,7 +156,7 @@
   align-items: center;
   justify-content: center;
   font-family: var(--sans);
-  font-size: var(--fs-11);
+  font-size: var(--text-caption);
   font-weight: 400;
   letter-spacing: var(--tr-2);
   text-transform: uppercase;
@@ -175,7 +175,7 @@
 }
 .size-modal-table h2 {
   font-family: var(--sans);
-  font-size: var(--fs-14);
+  font-size: var(--text-ui);
   font-weight: 500;
   letter-spacing: var(--tr-05);
   color: var(--ink);
@@ -183,7 +183,7 @@
 }
 .size-modal-subtitle {
   font-family: var(--sans);
-  font-size: var(--fs-13);
+  font-size: var(--text-ui);
   font-weight: var(--fw-body);
   color: var(--muted);
   margin: 0 0 32px;
@@ -199,7 +199,7 @@
   width: 100%;
   border-collapse: collapse;
   font-family: var(--sans);
-  font-size: var(--fs-13);
+  font-size: var(--text-ui);
   font-weight: var(--fw-ui);
   color: var(--ink);
   table-layout: auto;
@@ -212,7 +212,7 @@
   word-break: break-word;
 }
 #sizeModalTable th {
-  font-size: var(--fs-11);
+  font-size: var(--text-caption);
   font-weight: 500;
   letter-spacing: 0.03em;
   text-transform: uppercase;
@@ -238,7 +238,7 @@
   align-items: center;
   gap: 4px;
   font-family: var(--sans);
-  font-size: var(--fs-12);
+  font-size: var(--text-label);
   color: var(--muted);
 }
 .size-modal-units button {
@@ -263,7 +263,7 @@
   border: 1px solid var(--ink);
   color: #fff;
   font-family: var(--sans);
-  font-size: var(--fs-12);
+  font-size: var(--text-label);
   font-weight: 500;
   letter-spacing: var(--tr-2);
   text-transform: uppercase;

@@ -18,7 +18,7 @@
 .journal-hero h1 {
   font-family: var(--sans);
   font-weight: 400;
-  font-size: var(--fs-13);
+  font-size: var(--text-ui);
   letter-spacing: var(--tr-4);
   text-transform: uppercase;
   color: var(--ink);
@@ -44,7 +44,7 @@
 .journal-filters a {
   position: relative;
   font-family: var(--sans);
-  font-size: var(--fs-13);
+  font-size: var(--text-ui);
   font-weight: 400;
   letter-spacing: var(--tr-15);
   text-transform: uppercase;
@@ -99,7 +99,7 @@
 
 .journal-card h3 {
   font-family: var(--sans);
-  font-size: var(--fs-14);
+  font-size: var(--text-ui);
   font-weight: 400;
   letter-spacing: var(--tr-05);
   text-transform: uppercase;
@@ -109,7 +109,7 @@
 }
 .journal-card p {
   font-family: var(--sans);
-  font-size: var(--fs-13);
+  font-size: var(--text-ui);
   font-weight: 400;
   letter-spacing: var(--tr-03);
   line-height: 1.55;
@@ -158,7 +158,7 @@
   grid-column: 1 / -1;
   text-align: center;
   font-family: var(--sans);
-  font-size: var(--fs-14);
+  font-size: var(--text-ui);
   font-weight: var(--fw-body);
   color: #777;
   padding: 60px 20px;

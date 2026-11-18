@@ -16,7 +16,7 @@
   height: var(--btn-height, 48px);
   padding: 0 16px;
   font-family: var(--sans);
-  font-size: var(--fs-12);
+  font-size: var(--text-label);
   font-weight: 400;
   letter-spacing: var(--tr-15);
   text-transform: uppercase;

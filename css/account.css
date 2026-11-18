@@ -25,7 +25,7 @@
 .account-welcome h2 {
   font-family: var(--sans);
   font-weight: 400;
-  font-size: var(--fs-22);
+  font-size: var(--text-lead);
   letter-spacing: var(--tr-4);
   text-transform: uppercase;
   color: var(--ink);
@@ -33,7 +33,7 @@
 }
 .account-welcome p {
   font-family: var(--sans);
-  font-size: var(--fs-13);
+  font-size: var(--text-ui);
   letter-spacing: var(--tr-05);
   color: var(--muted);
   margin: 0;
@@ -53,7 +53,7 @@
   background: transparent;
   border: none;
   font-family: var(--sans);
-  font-size: var(--fs-12);
+  font-size: var(--text-label);
   font-weight: 400;
   letter-spacing: var(--tr-2);
   text-transform: uppercase;
@@ -99,7 +99,7 @@
 }
 .order-numero {
   font-family: var(--sans);
-  font-size: var(--fs-13);
+  font-size: var(--text-ui);
   font-weight: 500;
   letter-spacing: var(--tr-1);
   color: var(--ink);
@@ -108,12 +108,12 @@
 }
 .order-meta {
   font-family: var(--sans);
-  font-size: var(--fs-12);
+  font-size: var(--text-label);
   color: var(--muted);
 }
 .order-stato {
   font-family: var(--sans);
-  font-size: var(--fs-11);
+  font-size: var(--text-caption);
   font-weight: 500;
   letter-spacing: var(--tr-2);
   text-transform: uppercase;
@@ -134,12 +134,12 @@
 }
 .order-nome {
   font-family: var(--sans);
-  font-size: var(--fs-13);
+  font-size: var(--text-ui);
   color: var(--ink);
 }
 .order-prezzo {
   font-family: var(--sans);
-  font-size: var(--fs-13);
+  font-size: var(--text-ui);
   font-weight: 700;
   color: var(--ink);
 }
@@ -156,7 +156,7 @@
 }
 .address-label {
   font-family: var(--sans);
-  font-size: var(--fs-11);
+  font-size: var(--text-caption);
   font-weight: 500;
   letter-spacing: var(--tr-2);
   text-transform: uppercase;
@@ -165,7 +165,7 @@
 }
 .address-card p {
   font-family: var(--sans);
-  font-size: var(--fs-13);
+  font-size: var(--text-ui);
   line-height: 1.6;
   color: var(--ink);
   margin: 0 0 4px;
@@ -181,7 +181,7 @@
   background: transparent;
   border: none;
   font-family: var(--sans);
-  font-size: var(--fs-11);
+  font-size: var(--text-caption);
   letter-spacing: var(--tr-2);
   text-transform: uppercase;
   color: var(--ink);
@@ -231,7 +231,7 @@
   text-align: center;
   margin-top: 30px;
   font-family: var(--sans);
-  font-size: var(--fs-13);
+  font-size: var(--text-ui);
   color: var(--muted);
 }
 .account-login-link a {
@@ -260,7 +260,7 @@
     overflow-x: auto;
   }
   .account-tabs button {
-    font-size: var(--fs-11);
+    font-size: var(--text-caption);
     letter-spacing: var(--tr-1);
     padding: 14px 4px;
   }

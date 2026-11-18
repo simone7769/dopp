@@ -48,7 +48,7 @@
 
 .product-card.featured .featured-eyebrow {
   font-family: var(--sans);
-  font-size: var(--fs-11);
+  font-size: var(--text-caption);
   letter-spacing: 0.18em;
   text-transform: uppercase;
   opacity: 0.85;
@@ -58,7 +58,7 @@
 .product-card.featured .featured-title {
   font-family: var(--sans);
   font-weight: 500;
-  font-size: var(--fs-13);
+  font-size: var(--text-ui);
   letter-spacing: 0.05em;
   text-transform: uppercase;
   line-height: 1.6;
@@ -117,7 +117,7 @@
   text-align: center;
   padding: 80px 20px;
   font-family: var(--sans);
-  font-size: var(--fs-14);
+  font-size: var(--text-ui);
   color: var(--ink-soft);
   letter-spacing: 0.02em;
 }

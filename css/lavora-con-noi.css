@@ -23,7 +23,7 @@
   background: transparent;
   border: none;
   font-family: var(--sans);
-  font-size: var(--fs-12);
+  font-size: var(--text-label);
   font-weight: 400;
   letter-spacing: var(--tr-2);
   text-transform: uppercase;
@@ -50,7 +50,7 @@
 .lavora-intro {
   font-family: var(--sans);
   font-weight: var(--fw-body);
-  font-size: var(--fs-16);
+  font-size: var(--text-body);
   line-height: 1.7;
   color: var(--ink);
   max-width: 780px;
@@ -60,7 +60,7 @@
 /* --- Posizioni aperte --- */
 .lavora-count-title {
   font-family: var(--sans);
-  font-size: var(--fs-14);
+  font-size: var(--text-ui);
   font-weight: 500;
   letter-spacing: var(--tr-1);
   text-transform: uppercase;
@@ -79,7 +79,7 @@
   width: 100%;
   border-collapse: collapse;
   font-family: var(--sans);
-  font-size: var(--fs-13);
+  font-size: var(--text-ui);
   font-weight: var(--fw-ui);
   color: var(--ink);
   min-width: 640px;
@@ -94,7 +94,7 @@
 .lavora-table tbody tr:last-child td { border-bottom: none; }
 
 .lavora-table th {
-  font-size: var(--fs-11);
+  font-size: var(--text-caption);
   font-weight: 500;
   letter-spacing: var(--tr-1);
   text-transform: uppercase;
@@ -112,14 +112,14 @@
 .lavora-table td:nth-child(3) {
   color: var(--ink-soft);
   text-transform: uppercase;
-  font-size: var(--fs-12);
+  font-size: var(--text-label);
   letter-spacing: var(--tr-05);
 }
 
 .lavora-note {
   font-family: var(--sans);
   font-weight: var(--fw-body);
-  font-size: var(--fs-16);
+  font-size: var(--text-body);
   line-height: 1.7;
   color: var(--ink);
   margin: 32px 0 0;
@@ -170,7 +170,7 @@
 }
 .lavora-field label {
   font-family: var(--sans);
-  font-size: var(--fs-12);
+  font-size: var(--text-label);
   font-weight: 500;
   letter-spacing: var(--tr-05);
   color: var(--ink);
@@ -181,7 +181,7 @@
   width: 100%;
   padding: 12px 0;
   font-family: var(--sans);
-  font-size: var(--fs-14);
+  font-size: var(--text-ui);
   font-weight: var(--fw-ui);
   color: var(--ink);
   background: transparent;
@@ -202,7 +202,7 @@
   width: 100%;
   padding: 12px 40px 12px 14px;
   font-family: var(--sans);
-  font-size: var(--fs-14);
+  font-size: var(--text-ui);
   font-weight: var(--fw-ui);
   color: var(--ink);
   background: var(--paper);
@@ -249,7 +249,7 @@
   flex: 1;
   padding: 12px 14px;
   font-family: var(--sans);
-  font-size: var(--fs-13);
+  font-size: var(--text-ui);
   font-weight: var(--fw-ui);
   color: var(--muted);
   overflow: hidden;
@@ -262,7 +262,7 @@
   background: var(--ink);
   color: #fff;
   font-family: var(--sans);
-  font-size: var(--fs-11);
+  font-size: var(--text-caption);
   font-weight: 500;
   letter-spacing: var(--tr-2);
   text-transform: uppercase;
@@ -270,7 +270,7 @@
 }
 .lavora-file-help {
   font-family: var(--sans);
-  font-size: var(--fs-11);
+  font-size: var(--text-caption);
   font-weight: var(--fw-body);
   line-height: 1.55;
   color: var(--muted);
@@ -283,7 +283,7 @@
   align-items: flex-start;
   gap: 12px;
   font-family: var(--sans);
-  font-size: var(--fs-13);
+  font-size: var(--text-ui);
   font-weight: var(--fw-body);
   line-height: 1.55;
   color: var(--ink);
@@ -311,7 +311,7 @@
   border: 1px solid var(--ink);
   color: #fff;
   font-family: var(--sans);
-  font-size: var(--fs-12);
+  font-size: var(--text-label);
   font-weight: 500;
   letter-spacing: var(--tr-3);
   text-transform: uppercase;
@@ -328,7 +328,7 @@
 /* --- Errore --- */
 .lavora-error {
   font-family: var(--sans);
-  font-size: var(--fs-13);
+  font-size: var(--text-ui);
   font-weight: 400;
   color: var(--danger);
   margin: 0;
@@ -349,14 +349,14 @@
 .lavora-success h3 {
   font-family: var(--sans);
   font-weight: 400;
-  font-size: var(--fs-26);
+  font-size: var(--text-title);
   color: var(--ink);
   margin: 0 0 16px;
 }
 .lavora-success p {
   font-family: var(--sans);
   font-weight: var(--fw-body);
-  font-size: var(--fs-16);
+  font-size: var(--text-body);
   line-height: 1.7;
   color: var(--ink);
   margin: 0 0 12px;
@@ -364,7 +364,7 @@
 /* .lavora-success in più: deve vincere su .lavora-success p */
 .lavora-success .lavora-success-note {
   font-family: var(--sans);
-  font-size: var(--fs-11);
+  font-size: var(--text-caption);
   color: var(--muted);
   margin-top: 20px;
   padding-top: 20px;
@@ -375,7 +375,7 @@
 .lavora-footer-note {
   font-family: var(--sans);
   font-weight: var(--fw-body);
-  font-size: var(--fs-16);
+  font-size: var(--text-body);
   line-height: 1.7;
   color: var(--ink);
   margin: 64px 0 0;
@@ -401,11 +401,11 @@
   .lavora-submit { align-self: stretch; min-width: 0; }
 }
 @media (max-width: 640px) {
-  .lavora-tab { padding: 18px 12px; font-size: var(--fs-11); letter-spacing: var(--tr-1); }
-  .lavora-intro { font-size: var(--fs-16); margin-bottom: 32px; }
-  .lavora-count-title { font-size: var(--fs-13); }
-  .lavora-table th, .lavora-table td { padding: 16px 10px; font-size: var(--fs-12); }
-  .lavora-table td:nth-child(2), .lavora-table td:nth-child(3) { font-size: var(--fs-11); }
+  .lavora-tab { padding: 18px 12px; font-size: var(--text-caption); letter-spacing: var(--tr-1); }
+  .lavora-intro { font-size: var(--text-body); margin-bottom: 32px; }
+  .lavora-count-title { font-size: var(--text-ui); }
+  .lavora-table th, .lavora-table td { padding: 16px 10px; font-size: var(--text-label); }
+  .lavora-table td:nth-child(2), .lavora-table td:nth-child(3) { font-size: var(--text-caption); }
   .lavora-submit { padding: 16px 24px; letter-spacing: var(--tr-2); }
   .lavora-success { padding: 28px 20px; }
 }

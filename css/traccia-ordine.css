@@ -16,7 +16,7 @@
 .track-heading {
   font-family: var(--sans);
   font-weight: 400;
-  font-size: var(--fs-22);
+  font-size: var(--text-lead);
   letter-spacing: var(--tr-05);
   color: var(--ink);
   margin: 0 0 12px;
@@ -26,7 +26,7 @@
 .track-intro {
   font-family: var(--sans);
   font-weight: var(--fw-body);
-  font-size: var(--fs-16);
+  font-size: var(--text-body);
   line-height: 1.7;
   color: var(--ink);
   margin: 0 0 32px;
@@ -44,7 +44,7 @@
 }
 .track-field label {
   font-family: var(--sans);
-  font-size: var(--fs-12);
+  font-size: var(--text-label);
   font-weight: 500;
   letter-spacing: var(--tr-1);
   text-transform: uppercase;
@@ -54,7 +54,7 @@
   width: 100%;
   padding: 14px 16px;
   font-family: var(--sans);
-  font-size: var(--fs-14);
+  font-size: var(--text-ui);
   font-weight: var(--fw-ui);
   color: var(--ink);
   background: var(--paper);
@@ -75,7 +75,7 @@
   border: 1px solid var(--ink);
   color: #fff;
   font-family: var(--sans);
-  font-size: var(--fs-12);
+  font-size: var(--text-label);
   font-weight: 400;
   letter-spacing: var(--tr-2);
   text-transform: uppercase;
@@ -111,14 +111,14 @@
 .track-result-header h3 {
   font-family: var(--sans);
   font-weight: 400;
-  font-size: var(--fs-20);
+  font-size: var(--text-body);
   letter-spacing: var(--tr-05);
   color: var(--ink);
   margin: 0;
 }
 .track-result-number {
   font-family: var(--sans);
-  font-size: var(--fs-12);
+  font-size: var(--text-label);
   font-weight: 400;
   letter-spacing: var(--tr-2);
   text-transform: uppercase;
@@ -151,7 +151,7 @@
   border-radius: 50%;
   border: 1px solid var(--line);
   color: var(--muted);
-  font-size: var(--fs-13);
+  font-size: var(--text-ui);
   font-weight: 500;
   background: var(--paper);
 }
@@ -168,7 +168,7 @@
 .track-steps li strong {
   display: block;
   font-family: var(--sans);
-  font-size: var(--fs-13);
+  font-size: var(--text-ui);
   font-weight: 500;
   letter-spacing: var(--tr-05);
   color: var(--ink);
@@ -177,7 +177,7 @@
 .track-steps li p {
   font-family: var(--sans);
   font-weight: var(--fw-body);
-  font-size: var(--fs-16);
+  font-size: var(--text-body);
   line-height: 1.55;
   color: var(--ink);
   margin: 0;
@@ -189,7 +189,7 @@
 
 .track-result-note {
   font-family: var(--sans);
-  font-size: var(--fs-11);
+  font-size: var(--text-caption);
   font-weight: var(--fw-body);
   line-height: 1.6;
   color: var(--muted);
@@ -208,7 +208,7 @@
 .track-error[hidden] { display: none; }
 .track-error p {
   font-family: var(--sans);
-  font-size: var(--fs-13);
+  font-size: var(--text-ui);
   font-weight: 400;
   color: var(--danger);
   margin: 0;
@@ -223,7 +223,7 @@
 }
 .track-info-block h3 {
   font-family: var(--sans);
-  font-size: var(--fs-12);
+  font-size: var(--text-label);
   font-weight: 500;
   letter-spacing: var(--tr-1);
   text-transform: uppercase;
@@ -233,7 +233,7 @@
 .track-info-block p {
   font-family: var(--sans);
   font-weight: var(--fw-body);
-  font-size: var(--fs-16);
+  font-size: var(--text-body);
   line-height: 1.7;
   color: var(--ink);
   margin: 0;
@@ -266,5 +266,5 @@
   .track-heading { font-size: var(--fs-section-title); }
   .track-result { padding: 22px 18px; }
   .track-steps li { grid-template-columns: 28px 1fr; gap: 12px; }
-  .track-step-icon { width: 24px; height: 24px; font-size: var(--fs-12); }
+  .track-step-icon { width: 24px; height: 24px; font-size: var(--text-label); }
 }

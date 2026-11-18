@@ -5,7 +5,7 @@
 .cf-check { width: 52px; height: 52px; color: var(--gold); margin-bottom: 22px; }
 .cf-kicker {
   font-family: var(--sans);
-  font-size: var(--fs-11);
+  font-size: var(--text-caption);
   letter-spacing: var(--tr-2);
   text-transform: uppercase;
   color: var(--gold-text);
@@ -20,7 +20,7 @@
   letter-spacing: -0.005em;
 }
 .cf-lead {
-  font-size: var(--fs-14);
+  font-size: var(--text-ui);
   font-weight: var(--fw-body);
   line-height: 1.75;
   color: #4a463f;
@@ -38,14 +38,14 @@
 }
 .cf-info dt {
   font-family: var(--sans);
-  font-size: var(--fs-11);
+  font-size: var(--text-caption);
   letter-spacing: var(--tr-05);
   text-transform: uppercase;
   color: var(--muted);
   padding-top: 2px;
 }
-.cf-info dd { font-size: var(--fs-14); font-weight: var(--fw-body); line-height: 1.7; }
-.cf-next { font-size: var(--fs-13); font-weight: var(--fw-body); line-height: 1.75; color: #4a463f; margin-bottom: 34px; }
+.cf-info dd { font-size: var(--text-ui); font-weight: var(--fw-body); line-height: 1.7; }
+.cf-next { font-size: var(--text-ui); font-weight: var(--fw-body); line-height: 1.75; color: #4a463f; margin-bottom: 34px; }
 
 .cf-btn {
   display: flex;
@@ -57,7 +57,7 @@
   border: 1px solid var(--ink);
   text-decoration: none;
   font-family: var(--sans);
-  font-size: var(--fs-12);
+  font-size: var(--text-label);
   letter-spacing: var(--tr-2);
   text-transform: uppercase;
   transition: background var(--t-base) var(--ease), color var(--t-base) var(--ease);

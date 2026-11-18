@@ -51,7 +51,7 @@
 .filters-header-title svg { width: 20px; height: 20px; }
 .filters-header-title h3 {
   font-family: var(--sans);
-  font-size: var(--fs-14);
+  font-size: var(--text-ui);
   font-weight: 500;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -97,7 +97,7 @@
   padding: 22px 0 20px;
   min-height: var(--touch-target, 44px);
   font-family: var(--sans);
-  font-size: var(--fs-12);
+  font-size: var(--text-label);
   font-weight: 500;
   letter-spacing: var(--tr-2);
   text-transform: uppercase;
@@ -108,7 +108,7 @@
 .filters-section summary::-webkit-details-marker { display: none; }
 .filters-section summary::after {
   content: '+';
-  font-size: var(--fs-20);
+  font-size: var(--text-body);
   font-weight: 400;
   color: var(--muted);
   transition: transform var(--t-base) var(--ease);
@@ -128,7 +128,7 @@
   align-items: center;
   gap: 12px;
   font-family: var(--sans);
-  font-size: var(--fs-13);
+  font-size: var(--text-ui);
   font-weight: var(--fw-ui);
   color: var(--ink);
   cursor: pointer;
@@ -160,7 +160,7 @@
   cursor: pointer;
   gap: 12px;
   font-family: var(--sans);
-  font-size: var(--fs-13);
+  font-size: var(--text-ui);
   font-weight: var(--fw-ui);
   color: var(--ink);
 }
@@ -204,7 +204,7 @@
   min-width: 0;
   padding: 12px 14px;
   font-family: var(--sans);
-  font-size: var(--fs-14);
+  font-size: var(--text-ui);
   color: var(--ink);
   background: var(--crema-pannelli);
   border: 1px solid var(--field-border);
@@ -212,7 +212,7 @@
   transition: border-color var(--t-fast) var(--ease);
 }
 .filters-price-row input:focus { border-color: var(--ink); }
-.filters-price-row span { color: var(--muted); font-size: var(--fs-14); }
+.filters-price-row span { color: var(--muted); font-size: var(--text-ui); }
 
 /* Taglia (chip) */
 .filters-chips {
@@ -228,7 +228,7 @@
   border: 1px solid var(--line);
   color: var(--ink);
   font-family: var(--sans);
-  font-size: var(--fs-12);
+  font-size: var(--text-label);
   cursor: pointer;
   transition: background var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease), color var(--t-fast) var(--ease);
 }
@@ -284,7 +284,7 @@
 .filters-btn {
   padding: 14px 16px;
   font-family: var(--sans);
-  font-size: var(--fs-11);
+  font-size: var(--text-caption);
   font-weight: 400;
   letter-spacing: var(--tr-2);
   text-transform: uppercase;

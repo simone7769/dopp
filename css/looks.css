@@ -91,7 +91,7 @@
 .looks-intro p {
   font-family: var(--sans);
   font-weight: var(--fw-body);
-  font-size: var(--fs-16);
+  font-size: var(--text-body);
   letter-spacing: 0.01em;
   line-height: 1.75;
   color: var(--ink);
@@ -157,7 +157,7 @@
 .article-text p {
   font-family: var(--sans);
   font-weight: var(--fw-body);
-  font-size: var(--fs-16);
+  font-size: var(--text-body);
   letter-spacing: 0.01em;
   line-height: 1.75;
   color: var(--ink);
@@ -170,7 +170,7 @@
 .article-text .address {
   margin-top: 40px;
   font-family: var(--sans);
-  font-size: var(--fs-11);
+  font-size: var(--text-caption);
   letter-spacing: var(--tr-2);
   text-transform: uppercase;
   color: var(--muted);
@@ -213,7 +213,7 @@
 .article-split-text p {
   font-family: var(--sans);
   font-weight: var(--fw-body);
-  font-size: var(--fs-16);
+  font-size: var(--text-body);
   letter-spacing: 0.01em;
   line-height: 1.75;
   color: var(--ink);
@@ -243,7 +243,7 @@
 .article-split-media figcaption {
   margin-top: 12px;
   font-family: var(--sans);
-  font-size: var(--fs-11);
+  font-size: var(--text-caption);
   font-weight: var(--fw-body);
   letter-spacing: var(--tr-1);
   color: var(--ink);
@@ -369,7 +369,7 @@
 .sartoria-step h3 {
   font-family: var(--sans);
   font-weight: 500;
-  font-size: var(--fs-14);
+  font-size: var(--text-ui);
   letter-spacing: var(--tr-2);
   text-transform: uppercase;
   color: var(--ink);
@@ -381,7 +381,7 @@
   display: block;
   font-family: var(--sans);
   font-weight: var(--fw-body);
-  font-size: var(--fs-10);
+  font-size: var(--text-caption);
   letter-spacing: var(--tr-3);
   text-transform: uppercase;
   color: var(--muted);
@@ -391,7 +391,7 @@
 .sartoria-step p {
   font-family: var(--sans);
   font-weight: var(--fw-body);
-  font-size: var(--fs-14);
+  font-size: var(--text-ui);
   letter-spacing: 0.01em;
   line-height: 1.6;
   color: var(--ink);
@@ -410,7 +410,7 @@
 .sartoria-cta-wrap p {
   font-family: var(--sans);
   font-weight: var(--fw-body);
-  font-size: var(--fs-16);
+  font-size: var(--text-body);
   letter-spacing: 0.01em;
   line-height: 1.65;
   color: var(--ink);
@@ -424,7 +424,7 @@
   border: 1px solid var(--ink);
   color: var(--ink);
   font-family: var(--sans);
-  font-size: var(--fs-11);
+  font-size: var(--text-caption);
   font-weight: 400;
   letter-spacing: var(--tr-3);
   text-transform: uppercase;
@@ -539,7 +539,7 @@
 .sartoria-eyebrow {
   font-family: var(--sans);
   font-weight: 500;
-  font-size: var(--fs-13);
+  font-size: var(--text-ui);
   letter-spacing: var(--tr-2);
   text-transform: uppercase;
   color: var(--gold-text);

@@ -95,7 +95,7 @@
   padding-right: var(--touch-target, 44px); /* spazio per la × */
   font-family: var(--sans);
   font-weight: 400;
-  font-size: var(--fs-24);
+  font-size: var(--text-lead);
   line-height: 1.3;
   color: var(--ink);
 }
@@ -109,14 +109,14 @@
 }
 /* Prezzo scontato (outlet): stessi colori delle card */
 .quick-add-price .price-block { display: flex; align-items: baseline; gap: 12px; margin: 0; flex-wrap: wrap; }
-.quick-add-price .price-old { font-family: var(--sans); font-size: var(--fs-16); font-weight: var(--fw-ui); color: var(--ink-soft); text-decoration: line-through; }
+.quick-add-price .price-old { font-family: var(--sans); font-size: var(--text-body); font-weight: var(--fw-ui); color: var(--ink-soft); text-decoration: line-through; }
 .quick-add-price .price-now { font-family: var(--sans); font-size: var(--fs-pdp-price); font-weight: var(--fw-price); color: var(--danger); letter-spacing: var(--tr-03); }
-.quick-add-price .price-off { font-family: var(--sans); font-size: var(--fs-14); font-weight: 400; color: var(--danger); letter-spacing: 0.4px; }
+.quick-add-price .price-off { font-family: var(--sans); font-size: var(--text-ui); font-weight: 400; color: var(--danger); letter-spacing: 0.4px; }
 
 .quick-add-label {
   margin: 36px 0 10px;
   font-family: var(--sans);
-  font-size: var(--fs-11);
+  font-size: var(--text-caption);
   font-weight: 400;
   letter-spacing: var(--tr-1);
   text-transform: uppercase;
@@ -171,7 +171,7 @@
   border: 1px solid var(--line);
   color: var(--ink);
   font-family: var(--sans);
-  font-size: var(--fs-12);
+  font-size: var(--text-label);
   cursor: pointer;
 }
 .quick-add-sizes button:focus-visible { outline: 1px solid var(--ink); outline-offset: -4px; }
@@ -183,7 +183,7 @@
 .quick-add-sizes.has-error button { border-color: var(--danger); }
 .quick-add-error {
   margin: 8px 0 0;
-  font-size: var(--fs-12);
+  font-size: var(--text-label);
   color: var(--danger);
 }
 
@@ -197,7 +197,7 @@
   background: var(--ink);
   color: #fff;
   font-family: var(--sans);
-  font-size: var(--fs-12);
+  font-size: var(--text-label);
   font-weight: 400;
   letter-spacing: var(--tr-15);
   text-transform: uppercase;
@@ -218,7 +218,7 @@
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   font-family: var(--sans);
-  font-size: var(--fs-12);
+  font-size: var(--text-label);
   letter-spacing: var(--tr-1);
   text-transform: uppercase;
   color: var(--ink);
@@ -340,7 +340,7 @@
     padding: 12px 2px;
     border-top: 1px solid var(--line);
     border-bottom: 1px solid var(--line);
-    font-size: var(--fs-12);
+    font-size: var(--text-label);
     text-transform: uppercase;
     letter-spacing: var(--tr-1);
     color: var(--ink);

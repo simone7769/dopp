@@ -15,7 +15,7 @@
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   font-family: var(--sans);
-  font-size: var(--fs-12);
+  font-size: var(--text-label);
   font-weight: var(--fw-body);
   letter-spacing: var(--tr-05);
   color: var(--ink);
@@ -52,7 +52,7 @@
   width: 100%;
   border-collapse: collapse;
   font-family: var(--sans);
-  font-size: var(--fs-13);
+  font-size: var(--text-ui);
   font-weight: var(--fw-ui);
   color: var(--ink);
   min-width: 500px;
@@ -69,7 +69,7 @@
 }
 .riciclo-table th {
   font-family: var(--sans);
-  font-size: var(--fs-11);
+  font-size: var(--text-caption);
   font-weight: 500;
   letter-spacing: var(--tr-1);
   text-transform: uppercase;
@@ -84,7 +84,7 @@
 }
 .riciclo-table td:nth-child(2) {
   color: var(--ink-soft);
-  font-size: var(--fs-12);
+  font-size: var(--text-label);
 }
 .riciclo-table td:nth-child(3) {
   width: 80px;
@@ -94,7 +94,7 @@
 /* --- Nota finale --- */
 .riciclo-note {
   font-family: var(--sans);
-  font-size: var(--fs-12);
+  font-size: var(--text-label);
   font-weight: var(--fw-body);
   line-height: 1.6;
   color: var(--muted);
@@ -108,8 +108,8 @@
   .riciclo-legend { gap: 10px 24px; }
 }
 @media (max-width: 640px) {
-  .riciclo-legend { font-size: var(--fs-11); }
+  .riciclo-legend { font-size: var(--text-caption); }
   .riciclo-table th,
   .riciclo-table td { padding: 12px 12px; }
-  .riciclo-table { font-size: var(--fs-12); }
+  .riciclo-table { font-size: var(--text-label); }
 }
