@@ -196,10 +196,10 @@ html.header-hidden { scroll-padding-top: 0; }
   right: var(--nav-pad);
   text-align: left;
   font-family: var(--sans);
-  font-size: var(--text-ui);
+  font-size: var(--text-body);
   font-weight: 400;
-  letter-spacing: var(--tr-3);
-  text-transform: uppercase;
+  letter-spacing: var(--tr-15);
+  text-transform: none;
   color: #fff;
   text-shadow: 0 2px 12px rgba(0,0,0,0.5);
   text-decoration: underline;
