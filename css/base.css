@@ -361,7 +361,7 @@ header.scrolled .nav {
 }
 .mm-cats {
   --mm-col: 200px;      /* larghezza colonna categorie */
-  --mm-sub-x: 232px;    /* dove inizia la colonna sottocategorie */
+  --mm-sub-x: 280px;    /* dove inizia la colonna sottocategorie */
   --mm-step: 14px;      /* spazio tra le righe: passo ≈ 32px */
   position: relative;
   list-style: none;
@@ -381,13 +381,14 @@ header.scrolled .nav {
   position: relative;
   display: inline-block;
   font-family: var(--sans);
-  font-size: var(--text-body);
   font-weight: var(--fw-ui);
   line-height: 1.2;
   letter-spacing: var(--tr-05);
   color: var(--ink);
   text-decoration: none;
 }
+.mm-cat-link { font-size: var(--text-body); }
+.mm-subs a { font-size: var(--text-ui); }
 /* La freccia sta fuori dal testo: la sottolineatura resta sulla parola */
 .mm-cat-arrow {
   position: absolute;
@@ -433,6 +434,14 @@ header.scrolled .nav {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 28px var(--mm-gap-img);
+  transition: opacity var(--t-fast) var(--ease), visibility var(--t-fast) var(--ease);
+}
+/* Con una categoria con sottomenu attiva le immagini si nascondono
+   (la griglia non si muove). Tornano quando l'attiva non ha sottomenu
+   o cambia tab. */
+.mm-fixed-body:has(.mm-cat.is-active > .mm-subs) .mm-images {
+  opacity: 0;
+  visibility: hidden;
 }
 .mm-card { text-decoration: none; color: var(--ink); display: block; width: 100%; min-width: 0; }
 .mm-card .thumb {
@@ -597,7 +606,7 @@ header.scrolled .nav {
 /* Corpo del pannello: griglia 2 colonne × 2 righe, scorre al suo interno.
      [categorie | sottocategorie]   [immagini]
      [piede: Contattaci … Italia]   [immagini]
-   Colonna 1: almeno 432px (categorie 200 + sottocategorie da 232).
+   Colonna 1: almeno 480px (categorie 200 + sottocategorie da 280).
    Colonna 2: due immagini. Come Bottega, la loro larghezza segue
    l'altezza del pannello, così le due righe stanno sempre dentro:
      2 × (larghezza × 4/3 + didascalia) + 28px = altezza utile
@@ -620,7 +629,7 @@ header.scrolled .nav {
   overflow-y: auto;
   overscroll-behavior: contain;
   display: grid;
-  grid-template-columns: minmax(432px, 1fr) minmax(0, calc(2 * var(--mm-card-max) + var(--mm-gap-img)));
+  grid-template-columns: minmax(480px, 1fr) minmax(0, calc(2 * var(--mm-card-max) + var(--mm-gap-img)));
   grid-template-rows: auto auto;
   align-content: space-between;
   gap: 40px 48px;

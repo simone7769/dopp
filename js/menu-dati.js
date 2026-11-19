@@ -41,9 +41,9 @@
     cerimonia:       { img: 'images/ceri.webp',               label: 'Cerimonia',              href: 'cerimonia.html' },
 
     /* Accessori */
-    derby:           { img: 'images/ce3.webp', label: 'Derby in pelle',            href: tipo('cerimonia.html', 'Accessori') },
-    cravattaMacro:   { img: 'images/ce4.webp', label: 'Cravatta macro fantasia',   href: tipo('cerimonia.html', 'Accessori') },
-    calze:           { img: 'images/ba3.webp', label: 'Calze',                     href: tipo('essential.html', 'Accessori') },
+    accNovita:       { img: 'images/ac1.webp', label: 'Novit\u00e0',                href: '#' },
+    accMustHave:     { img: 'images/ac2.webp', label: 'Must Have',                 href: '#' },
+    accBestSeller:   { img: 'images/ac3.webp', label: 'Best Seller',               href: '#' },
 
     /* Outlet */
     outletAbb:       { img: 'images/z.webp',   label: 'Abbigliamento',             href: OUT },
@@ -127,7 +127,7 @@
       { id: 'Abbigliamento', label: 'Abbigliamento', all: AI, mobileHighlights: true,
         cards: ['capsule', 'ai26', 'essential', 'cerimonia'], items: ABBIGLIAMENTO },
       { id: 'Accessori', label: 'Accessori', all: '#',
-        cards: ['derby', 'cravattaMacro', 'calze'], items: ACCESSORI },
+        cards: ['accNovita', 'accMustHave', 'accBestSeller'], items: ACCESSORI },
       { id: 'Outlet', label: 'Outlet', all: OUT, allLabel: 'Vedi tutto l\u2019outlet',
         cards: ['outletAbb', 'outletWork', 'outletAcc', 'outletUltimi'], items: OUTLET }
     ]

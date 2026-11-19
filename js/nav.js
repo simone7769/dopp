@@ -133,7 +133,8 @@ if (header) {
   /* ---- Categorie e sottocategorie (17 nov) ----
      Passando su una categoria (o con il focus da tastiera) compaiono
      le sue sottocategorie nella seconda colonna. Le immagini a destra
-     sono fisse per tab e non cambiano. Col mouse un breve ritardo evita
+     sono fisse per tab: si nascondono (CSS) finché c'è una categoria attiva e
+     tornano quando il mouse esce dall'elenco. Col mouse un breve ritardo evita
      che, andando in diagonale verso la seconda colonna, si attivino
      le categorie attraversate. */
   const INTENTO = 120;
@@ -160,6 +161,15 @@ if (header) {
     const qualcuna = li.parentElement.querySelector('.mm-cat.is-active');
     if (qualcuna) timer = setTimeout(() => attivaCategoria(li), INTENTO);
     else attivaCategoria(li);
+  });
+
+  panel.addEventListener('pointerout', (e) => {
+    if (e.pointerType && e.pointerType !== 'mouse') return;
+    const ul = e.target.closest('.mm-cats');
+    if (!ul || ul.contains(e.relatedTarget)) return;
+    if (ul.contains(document.activeElement)) return; /* focus da tastiera: resta */
+    clearTimeout(timer);
+    ul.querySelectorAll('.mm-cat.is-active').forEach((x) => x.classList.remove('is-active'));
   });
 
   panel.addEventListener('focusin', (e) => {

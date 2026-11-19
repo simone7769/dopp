@@ -599,8 +599,7 @@
   background: transparent;
   border: none;
   font-family: var(--sans);
-  font-size: var(--text-ui);
-  font-weight: 400;
+  font-size: var(--text-label);
   font-weight: 400;
   letter-spacing: var(--tr-15);
   text-transform: uppercase;
