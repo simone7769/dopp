@@ -396,6 +396,46 @@
   </table>
 </div>
 
+<h2>70. Aggiornamento del 19 novembre 2026 (Menu: scala, colonne, immagini e Accessori) <span class="count">4 file</span></h2>
+  <p style="font-size: 13px; color: var(--ink-soft); text-align: center; margin-bottom: 10px;">19 novembre 2026 · 4 file, +29 / −11</p>
+  <table>
+    <tr><th>File</th><th class="n">+</th><th class="n">−</th><th>Descrizione</th></tr>
+    <tr><td class="file">css/base.css</td><td class="n">+13</td><td class="n">−4</td><td class="note">Sottocategorie a 13px (<code>.mm-cat-link</code> resta 15px, regola separata da <code>.mm-subs a</code>); <code>--mm-sub-x</code> 232→280px e colonna minima 432→480px (vanno cambiati insieme); con una categoria con sottomenu attiva le immagini si nascondono (<code>:has()</code>, opacity e visibility, griglia ferma).</td></tr>
+    <tr><td class="file">css/collezione.css</td><td class="n">+1</td><td class="n">−2</td><td class="note">Barra categorie (<code>.category-bar-item</code>) da 13 a 12px (<code>--text-label</code>); tolto un <code>font-weight</code> duplicato.</td></tr>
+    <tr><td class="file">js/menu-dati.js</td><td class="n">+4</td><td class="n">−4</td><td class="note">Card Accessori: Derby, Cravatta macro e Calze sostituite da Novità, Must Have, Best Seller (<code>ac1-3.webp</code>). Link <code>#</code> provvisori.</td></tr>
+    <tr><td class="file">js/nav.js</td><td class="n">+11</td><td class="n">−1</td><td class="note">Listener <code>pointerout</code>: all'uscita del mouse dall'elenco categorie si toglie la categoria attiva, così le immagini tornano. Non agisce col focus da tastiera.</td></tr>
+  </table>
+<h2>69. Aggiornamento del 18 novembre 2026 (Token: alias --fs-NN sostituiti da --text-*) <span class="count">26 file</span></h2>
+  <p style="font-size: 13px; color: var(--ink-soft); text-align: center; margin-bottom: 10px;">18 novembre 2026 · 26 file, +334 / −347</p>
+  <table>
+    <tr><th>File</th><th class="n">+</th><th class="n">−</th><th>Descrizione</th></tr>
+    <tr><td class="file">account.html</td><td class="n">+1</td><td class="n">−1</td><td class="note">Alias <code>--fs-NN</code> sostituiti con i token <code>--text-*</code>.</td></tr>
+    <tr><td class="file">css/account.css</td><td class="n">+13</td><td class="n">−13</td><td class="note">Alias <code>--fs-NN</code> sostituiti con i token <code>--text-*</code>.</td></tr>
+    <tr><td class="file">css/app.css</td><td class="n">+1</td><td class="n">−1</td><td class="note">Alias <code>--fs-NN</code> sostituiti con i token <code>--text-*</code>.</td></tr>
+    <tr><td class="file">css/base.css</td><td class="n">+83</td><td class="n">−83</td><td class="note">Alias <code>--fs-NN</code> sostituiti con i token <code>--text-*</code>.</td></tr>
+    <tr><td class="file">css/boutique.css</td><td class="n">+15</td><td class="n">−15</td><td class="note">Alias <code>--fs-NN</code> sostituiti con i token <code>--text-*</code>.</td></tr>
+    <tr><td class="file">css/carrello.css</td><td class="n">+19</td><td class="n">−19</td><td class="note">Alias <code>--fs-NN</code> sostituiti con i token <code>--text-*</code>.</td></tr>
+    <tr><td class="file">css/category.css</td><td class="n">+3</td><td class="n">−3</td><td class="note">Alias <code>--fs-NN</code> sostituiti con i token <code>--text-*</code>.</td></tr>
+    <tr><td class="file">css/checkout.css</td><td class="n">+19</td><td class="n">−19</td><td class="note">Alias <code>--fs-NN</code> sostituiti con i token <code>--text-*</code>.</td></tr>
+    <tr><td class="file">css/club.css</td><td class="n">+11</td><td class="n">−11</td><td class="note">Alias <code>--fs-NN</code> sostituiti con i token <code>--text-*</code>.</td></tr>
+    <tr><td class="file">css/collezione.css</td><td class="n">+4</td><td class="n">−4</td><td class="note">Alias <code>--fs-NN</code> sostituiti con i token <code>--text-*</code>.</td></tr>
+    <tr><td class="file">css/conferma.css</td><td class="n">+6</td><td class="n">−6</td><td class="note">Alias <code>--fs-NN</code> sostituiti con i token <code>--text-*</code>.</td></tr>
+    <tr><td class="file">css/faq.css</td><td class="n">+13</td><td class="n">−13</td><td class="note">Alias <code>--fs-NN</code> sostituiti con i token <code>--text-*</code>.</td></tr>
+    <tr><td class="file">css/filtri.css</td><td class="n">+9</td><td class="n">−9</td><td class="note">Alias <code>--fs-NN</code> sostituiti con i token <code>--text-*</code>.</td></tr>
+    <tr><td class="file">css/guida-taglie.css</td><td class="n">+11</td><td class="n">−11</td><td class="note">Alias <code>--fs-NN</code> sostituiti con i token <code>--text-*</code>.</td></tr>
+    <tr><td class="file">css/home.css</td><td class="n">+12</td><td class="n">−12</td><td class="note">Alias <code>--fs-NN</code> sostituiti con i token <code>--text-*</code>.</td></tr>
+    <tr><td class="file">css/journal.css</td><td class="n">+5</td><td class="n">−5</td><td class="note">Alias <code>--fs-NN</code> sostituiti con i token <code>--text-*</code>.</td></tr>
+    <tr><td class="file">css/lavora-con-noi.css</td><td class="n">+25</td><td class="n">−25</td><td class="note">Alias <code>--fs-NN</code> sostituiti con i token <code>--text-*</code>.</td></tr>
+    <tr><td class="file">css/legale.css</td><td class="n">+2</td><td class="n">−2</td><td class="note">Alias <code>--fs-NN</code> sostituiti con i token <code>--text-*</code>.</td></tr>
+    <tr><td class="file">css/looks.css</td><td class="n">+11</td><td class="n">−11</td><td class="note">Alias <code>--fs-NN</code> sostituiti con i token <code>--text-*</code>.</td></tr>
+    <tr><td class="file">css/prodotto.css</td><td class="n">+30</td><td class="n">−30</td><td class="note">Alias <code>--fs-NN</code> sostituiti con i token <code>--text-*</code>.</td></tr>
+    <tr><td class="file">css/quick-add.css</td><td class="n">+9</td><td class="n">−9</td><td class="note">Alias <code>--fs-NN</code> sostituiti con i token <code>--text-*</code>.</td></tr>
+    <tr><td class="file">css/riciclo.css</td><td class="n">+7</td><td class="n">−7</td><td class="note">Alias <code>--fs-NN</code> sostituiti con i token <code>--text-*</code>.</td></tr>
+    <tr><td class="file">css/tokens.css</td><td class="n">—</td><td class="n">−13</td><td class="note">Rimossi gli alias <code>--fs-NN</code>.</td></tr>
+    <tr><td class="file">css/traccia-ordine.css</td><td class="n">+15</td><td class="n">−15</td><td class="note">Alias <code>--fs-NN</code> sostituiti con i token <code>--text-*</code>.</td></tr>
+    <tr><td class="file">css/vetrina.css</td><td class="n">+9</td><td class="n">−9</td><td class="note">Alias <code>--fs-NN</code> sostituiti con i token <code>--text-*</code>.</td></tr>
+    <tr><td class="file">css/whistleblowing.css</td><td class="n">+1</td><td class="n">−1</td><td class="note">Alias <code>--fs-NN</code> sostituiti con i token <code>--text-*</code>.</td></tr>
+  </table>
 <h2>68. Aggiornamento del 17 novembre 2026 (Menu a tre colonne) <span class="count">48 file</span></h2>
   <p style="font-size: 13px; color: var(--ink-soft); text-align: center; margin-bottom: 10px;">17 novembre 2026 · 48 file, +570 / −246</p>
   <table>
