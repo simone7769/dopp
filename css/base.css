@@ -387,8 +387,8 @@ header.scrolled .nav {
   color: var(--ink);
   text-decoration: none;
 }
-.mm-cat-link { font-size: var(--text-body); }
-.mm-subs a { font-size: var(--text-ui); }
+.mm-cat-link { font-size: var(--text-ui); font-weight: 500; }
+.mm-subs a { font-size: var(--text-ui); font-weight: 400; }
 /* La freccia sta fuori dal testo: la sottolineatura resta sulla parola */
 .mm-cat-arrow {
   position: absolute;
