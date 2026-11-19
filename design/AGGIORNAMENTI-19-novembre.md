@@ -18,6 +18,10 @@ Gli alias `--fs-NN` non esistono più: CSS e `account.html` usano i token semant
 
 `.category-bar-item` (Tutti, Cappotti, Giacche ...) da 13 a 12px (`--text-label`), su ai-2026, cerimonia, essential e outlet-abbigliamento.
 
+## Quick-add (`c4a8c5c`)
+
+Il `+` delle schede (`.product-info .plus`, `.vt-card .plus`) usa `--text-lead` (18px) al posto di 20px fisso.
+
 ## Browser
 
 `:has()` si aggiunge a `subgrid` e `cqh` tra le cose da provare oltre Chrome (supporto: Chrome 105+, Safari 15.4+, Firefox 121+). Collaudo visivo fatto solo su Chrome.
