@@ -274,7 +274,7 @@ Focus trap negli 8 drawer, code-splitting `nav.js`/`layout.js`, scala font 12/14
 Le card della vetrina (`vetrina.html`) sono state allineate a quelle delle collezioni:
 - `.vt-card .product-info`: `padding: 14px 12px 0` (prima `padding-top: 0`).
 - Prezzo: peso `600` (era `700`), allineato a `.product-card .price`.
-- `+` (quick-add): `font-size: 20px` (valore fisso, fuori scala: non usa un token `--text-*`; da allineare), area di tocco 44×44 con margini negativi (identico a `.product-card .plus`).
+- `+` (quick-add): `font-size: 20px` (valore fisso, fuori scala: non usa un token `--text-*`; da allineare), area di tocco 44×44 con margini negativi (identico a `.product-info .plus` delle collezioni, anch'esso 20px fisso).
 - `.vt-card-img`: rimosso `margin-bottom: 14px` (lo spazio lo dà il `padding-top` del testo, come nelle collezioni).
 - Aggiunto `.quick-add-close` (mancava in `vetrina.css`): `×` in alto a destra del pannellino, 44×44, senza bordo di default.
 
