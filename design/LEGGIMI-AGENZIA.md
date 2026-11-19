@@ -80,7 +80,7 @@ Da terminale, nella cartella del progetto:
 - **Filtro taglia funzionante**: `data-size="46 48 50 52 54 56"` sulle card di collezione. Card «in evidenza» escluse (non sono prodotti). Nella demo 3 card di Autunno/Inverno 2026 hanno taglie differenziate per rendere il filtro dimostrabile.
 - **`overflow-x: clip`** su `html, body`: previene barra orizzontale da elementi full-bleed su Windows.
 - **Parsing prezzi (`nav.js`)**: `.replace(/\./g, '')` per gestire correttamente importi sopra 999 €.
-- **`token.json`** allineato a `tokens.css` (header 155 px, bottoni telefono 44 px, `--fs-16`, spaziature griglia e carosello).
+- **`token.json`** allineato a `tokens.css` (header 155 px, bottoni telefono 44 px, `--text-body` (ex `--fs-16`), spaziature griglia e carosello).
 - **Header mobile fisso a 60 px**: non cambia scrollando. Il logo è stabile (clamp 12-18 px) e non si rimpicciolisce più. Topbar (33 px) sparisce dopo 20 px di scroll. `scroll-padding-top: 105 px` come ripiego CSS, ma i link non usano più `#ancora`: puntano a pagina, e il blocco ANCORE di `nav.js` è stato rimosso.
 
 - **Menu a tre colonne (17 nov 2026)**: categorie, sottocategorie e immagini fisse per tab (4 / 3 / 4, larghezza legata all'altezza del pannello come Bottega, 130–280 px, appoggiate in fondo) nel pannello `#megamenuFixed`. Fonte unica `js/menu-dati.js` (`window.DG_MENU`), letta da `layout.js` per pannello desktop e menu mobile: per cambiare una voce o un'immagine si modifica solo quel file. Passaggio o focus su una categoria mostra le sottocategorie, le immagini restano ferme; con la finestra bassa scorre solo il pannello; ritardo di 120 ms col mouse per i percorsi in diagonale. Le voci portano `?tipo=`, che `filtri.js` applica all'arrivo. Dettagli in `design/AGGIORNAMENTI-17-novembre.md`.
@@ -274,7 +274,7 @@ Focus trap negli 8 drawer, code-splitting `nav.js`/`layout.js`, scala font 12/14
 Le card della vetrina (`vetrina.html`) sono state allineate a quelle delle collezioni:
 - `.vt-card .product-info`: `padding: 14px 12px 0` (prima `padding-top: 0`).
 - Prezzo: peso `600` (era `700`), allineato a `.product-card .price`.
-- `+` (quick-add): `font-size: var(--fs-26)`, area di tocco 44×44 con margini negativi (identico a `.product-card .plus`).
+- `+` (quick-add): `font-size: 20px` (valore fisso, fuori scala: non usa un token `--text-*`; da allineare), area di tocco 44×44 con margini negativi (identico a `.product-card .plus`).
 - `.vt-card-img`: rimosso `margin-bottom: 14px` (lo spazio lo dà il `padding-top` del testo, come nelle collezioni).
 - Aggiunto `.quick-add-close` (mancava in `vetrina.css`): `×` in alto a destra del pannellino, 44×44, senza bordo di default.
 
@@ -337,7 +337,7 @@ Totale: **-814 righe** di codice rimosso.
 ### Topbar
 - Altezza: 33px &rarr; 36px (+3px).
 - Padding: `7px 20px 8px` (centratura perfetta).
-- Testo: `--fs-12` weight 400.
+- Testo: `--text-label` (ex `--fs-12`) weight 400.
 - `--topbar-h` in `tokens.css` aggiornato a 36px per coerenza con drawer/filtri/PDP.
 
 ### Commit di riferimento (6 novembre)

@@ -76,7 +76,7 @@ Stesso albero, generato dagli stessi dati: accordion a due livelli (Abbigliament
 
 ## Da completare
 
-- **Accessori**: quasi tutte le voci puntano a `#`, perché nella demo non c'è una pagina accessori. Funzionano Calze, Derby e Cravatta macro (verso Essential e Cerimonia).
+- **Accessori**: quasi tutte le voci puntano a `#`, perché nella demo non c'è una pagina accessori. Funzionano Calze, Derby e Cravatta macro (verso Essential e Cerimonia). *Aggiornato il 19 nov: le tre card del menu sono ora Novità, Must Have, Best Seller (link `#` provvisori); vedi `AGGIORNAMENTI-19-novembre.md`.*
 - **Cambiare un'immagine**: nuova chiave in `CARD`, poi la chiave nell'array `cards` del tab.
 - **Dimensione immagini**: limiti in `--mm-card-min` e `--mm-card-max` (`base.css`). La formula usa `100cqh`, l'altezza utile del pannello (`container-type: size` su `.mm-fixed-body`). Sotto i 130 px (finestre più basse di circa 600 px) il pannello scorre.
 - **Accessori** ha 13 voci: sotto i 650 px di finestra circa è l'elenco, non le immagini, a far scorrere il pannello.
